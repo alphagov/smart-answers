@@ -28,23 +28,23 @@ module SmartAnswer
       end
 
       should "include time between begins_on and ends_on" do
-        assert @date_range.include?(Time.parse("2000-01-03 03:03:03"))
+        assert @date_range.include?(Time.zone.parse("2000-01-03 03:03:03"))
       end
 
       should "not include date before begins_on" do
-        refute @date_range.include?(Date.parse("1999-12-31"))
+        assert_not @date_range.include?(Date.parse("1999-12-31"))
       end
 
       should "not include date infinitely before begins_on" do
-        refute @date_range.include?(-Date::Infinity.new)
+        assert_not @date_range.include?(-Date::Infinity.new)
       end
 
       should "not include date infinitely after ends_on" do
-        refute @date_range.include?(Date::Infinity.new)
+        assert_not @date_range.include?(Date::Infinity.new)
       end
 
       should "not include date after ends_on" do
-        refute @date_range.include?(Date.parse("2000-01-08"))
+        assert_not @date_range.include?(Date.parse("2000-01-08"))
       end
 
       should "calculate number of days in range" do
@@ -60,11 +60,11 @@ module SmartAnswer
       end
 
       should "not equal another DateRange with a different begins_on" do
-        refute @date_range == DateRange.new(begins_on: @date_range.begins_on + 1, ends_on: @date_range.ends_on)
+        assert_not @date_range == DateRange.new(begins_on: @date_range.begins_on + 1, ends_on: @date_range.ends_on)
       end
 
       should "not equal another DateRange with a different ends_on" do
-        refute @date_range == DateRange.new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on + 1)
+        assert_not @date_range == DateRange.new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on + 1)
       end
 
       should "equal an object which is a subclass of DateRange" do
@@ -78,7 +78,7 @@ module SmartAnswer
 
       should "not be equivalent to an object which is a subclass of DateRange" do
         sub_class_instance = Class.new(DateRange).new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on)
-        refute @date_range.eql?(sub_class_instance)
+        assert_not @date_range.eql?(sub_class_instance)
       end
 
       should "have same hash as another DateRange with the same begins_on & ends_on" do
@@ -87,7 +87,7 @@ module SmartAnswer
 
       should "not have same hash as a subclass of DateRange with the same begins_on & ends_on" do
         sub_class_instance = Class.new(DateRange).new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on)
-        refute_equal sub_class_instance.hash, @date_range.hash
+        assert_not_equal sub_class_instance.hash, @date_range.hash
       end
 
       should "allow increase by X days" do
@@ -113,7 +113,7 @@ module SmartAnswer
 
     context "when range is built with begins_on & ends_on as instances of Time" do
       setup do
-        @date_range = DateRange.new(begins_on: Time.parse("2000-01-01 01:01:01"), ends_on: Time.parse("2000-01-07 07:07:07"))
+        @date_range = DateRange.new(begins_on: Time.zone.parse("2000-01-01 01:01:01"), ends_on: Time.zone.parse("2000-01-07 07:07:07"))
       end
 
       should "begin on begins_on date" do
@@ -225,11 +225,11 @@ module SmartAnswer
       end
 
       should "not be empty" do
-        refute @date_range.empty?
+        assert_not @date_range.empty?
       end
 
       should "not be infinite" do
-        refute @date_range.infinite?
+        assert_not @date_range.infinite?
       end
     end
 
@@ -239,15 +239,15 @@ module SmartAnswer
       end
 
       should "not include begins_on date" do
-        refute @date_range.include?(@date_range.begins_on)
+        assert_not @date_range.include?(@date_range.begins_on)
       end
 
       should "not include ends_on date" do
-        refute @date_range.include?(@date_range.ends_on)
+        assert_not @date_range.include?(@date_range.ends_on)
       end
 
       should "contain a non positive amount days" do
-        refute @date_range.number_of_days.positive?
+        assert_not @date_range.number_of_days.positive?
       end
 
       should "be empty" do
@@ -314,12 +314,12 @@ module SmartAnswer
 
       should "be false if date range starts on same day as specified date range" do
         does_not_start_before = @date_range.dup
-        refute does_not_start_before.begins_before?(@date_range)
+        assert_not does_not_start_before.begins_before?(@date_range)
       end
 
       should "be false if date range starts after specified infinite date range" do
         does_not_start_after = DateRange.new(begins_on: nil)
-        refute @date_range.begins_before?(does_not_start_after)
+        assert_not @date_range.begins_before?(does_not_start_after)
       end
     end
 

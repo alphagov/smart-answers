@@ -37,7 +37,7 @@ module SmartAnswer::Calculators
 
       context "refutation should abound" do
         should "not return anything for specified countries" do
-          refute @data.links["pitcairn"]
+          assert_not @data.links["pitcairn"]
         end
       end
     end

@@ -31,22 +31,22 @@ module SmartAnswer::Calculators
 
       rows = []
       dob = leap_year_birthday?(date_of_birth) ? date_of_birth + 1.day : date_of_birth
-      age = age_at_date(dob, Date.today)
+      age = age_at_date(dob, Time.zone.today)
       (topup_start_year..TOPUP_END_DATE.year).each do |_|
         break if birthday_after_topup_end?(dob, age)
 
         rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
         age += 1
       end
-      if (TOPUP_END_DATE.year == Date.today.year) && (dob.month < 5) && (birthday(dob) > Date.today) && !birthday_after_topup_end?(dob, age)
+      if (TOPUP_END_DATE.year == Time.zone.today.year) && (dob.month < 5) && (birthday(dob) > Time.zone.today) && !birthday_after_topup_end?(dob, age)
         rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
       end
       rows
     end
 
     def topup_start_year
-      if Date.today.year > TOPUP_START_DATE.year
-        Date.today.year
+      if Time.zone.today.year > TOPUP_START_DATE.year
+        Time.zone.today.year
       else
         TOPUP_START_DATE.year
       end
@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
     end
 
     def birthday(dob)
-      Date.new(Date.today.year, dob.month, dob.day)
+      Date.new(Time.zone.today.year, dob.month, dob.day)
     end
 
     def age_at_date(dob, date)

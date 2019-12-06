@@ -121,7 +121,7 @@ module SmartAnswer
 
         should "be false if partner is not british" do
           @calculator.partner_nationality = "not-partner_british"
-          refute @calculator.partner_british?
+          assert_not @calculator.partner_british?
         end
       end
 
@@ -137,7 +137,7 @@ module SmartAnswer
 
         should "be false if partner is british" do
           @calculator.partner_nationality = "partner_british"
-          refute @calculator.partner_not_british?
+          assert_not @calculator.partner_not_british?
         end
       end
 
@@ -153,7 +153,7 @@ module SmartAnswer
 
         should "be false if partner is not a national of the ceremony country" do
           @calculator.partner_nationality = "not-partner_local"
-          refute @calculator.partner_is_national_of_ceremony_country?
+          assert_not @calculator.partner_is_national_of_ceremony_country?
         end
       end
 
@@ -169,7 +169,7 @@ module SmartAnswer
 
         should "be false if partner is a national of the ceremony country" do
           @calculator.partner_nationality = "partner_local"
-          refute @calculator.partner_is_not_national_of_ceremony_country?
+          assert_not @calculator.partner_is_not_national_of_ceremony_country?
         end
       end
 
@@ -185,7 +185,7 @@ module SmartAnswer
 
         should "be false if partner is not a national of a country other than britain or the ceremony country" do
           @calculator.partner_nationality = "not-partner_other"
-          refute @calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+          assert_not @calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
         end
       end
 
@@ -201,7 +201,7 @@ module SmartAnswer
 
         should "be false if not a resident of uk" do
           @calculator.resident_of = "not-uk"
-          refute @calculator.resident_of_uk?
+          assert_not @calculator.resident_of_uk?
         end
       end
 
@@ -234,7 +234,7 @@ module SmartAnswer
 
         should "be false if resident of uk" do
           @calculator.resident_of = "uk"
-          refute @calculator.resident_outside_of_uk?
+          assert_not @calculator.resident_outside_of_uk?
         end
       end
 
@@ -250,7 +250,7 @@ module SmartAnswer
 
         should "be false if not resident of ceremony country" do
           @calculator.resident_of = "not-ceremony_country"
-          refute @calculator.resident_of_ceremony_country?
+          assert_not @calculator.resident_of_ceremony_country?
         end
       end
 
@@ -266,7 +266,7 @@ module SmartAnswer
 
         should "be false if resident of ceremony country" do
           @calculator.resident_of = "ceremony_country"
-          refute @calculator.resident_outside_of_ceremony_country?
+          assert_not @calculator.resident_outside_of_ceremony_country?
         end
       end
 
@@ -282,7 +282,7 @@ module SmartAnswer
 
         should "be false if not resident of third country" do
           @calculator.resident_of = "not-third_country"
-          refute @calculator.resident_of_third_country?
+          assert_not @calculator.resident_of_third_country?
         end
       end
 
@@ -298,7 +298,7 @@ module SmartAnswer
 
         should 'be false if resident_of == "third_country"' do
           @calculator.resident_of = "third_country"
-          refute @calculator.resident_outside_of_third_country?
+          assert_not @calculator.resident_outside_of_third_country?
         end
       end
 
@@ -314,7 +314,7 @@ module SmartAnswer
 
         should "be false when partner is not of the opposite sex" do
           @calculator.sex_of_your_partner = "not-opposite_sex"
-          refute @calculator.partner_is_opposite_sex?
+          assert_not @calculator.partner_is_opposite_sex?
         end
       end
 
@@ -330,7 +330,7 @@ module SmartAnswer
 
         should "be false when partner is not of the same sex" do
           @calculator.sex_of_your_partner = "not-same_sex"
-          refute @calculator.partner_is_same_sex?
+          assert_not @calculator.partner_is_same_sex?
         end
       end
 
@@ -346,7 +346,7 @@ module SmartAnswer
 
         should "be false when the couple don't want to get married" do
           @calculator.marriage_or_pacs = "not-marriage"
-          refute @calculator.want_to_get_married?
+          assert_not @calculator.want_to_get_married?
         end
       end
 
@@ -377,7 +377,7 @@ module SmartAnswer
         should "return false if the world location cannot be found" do
           @calculator.stubs(:world_location).returns(nil)
 
-          refute @calculator.valid_ceremony_country?
+          assert_not @calculator.valid_ceremony_country?
         end
       end
 
@@ -901,7 +901,7 @@ module SmartAnswer
           calculator = MarriageAbroadCalculator.new
           calculator.ceremony_country = "country-not-requiring-three-day-residency"
 
-          refute calculator.three_day_residency_requirement_applies?
+          assert_not calculator.three_day_residency_requirement_applies?
         end
       end
 
@@ -917,7 +917,7 @@ module SmartAnswer
           calculator = MarriageAbroadCalculator.new
           calculator.ceremony_country = "ceremony-country-not-posting-notice-after-14-days"
 
-          refute calculator.cni_posted_after_14_days?
+          assert_not calculator.cni_posted_after_14_days?
         end
       end
 
@@ -933,7 +933,7 @@ module SmartAnswer
           calculator = MarriageAbroadCalculator.new
           calculator.ceremony_country = "albania"
 
-          refute calculator.birth_certificate_required_as_supporting_document?
+          assert_not calculator.birth_certificate_required_as_supporting_document?
         end
       end
 
@@ -949,7 +949,7 @@ module SmartAnswer
           calculator = MarriageAbroadCalculator.new
           calculator.ceremony_country = "country-without-notary-public"
 
-          refute calculator.notary_public_ceremony_country?
+          assert_not calculator.notary_public_ceremony_country?
         end
       end
 
@@ -965,7 +965,7 @@ module SmartAnswer
           calculator = MarriageAbroadCalculator.new
           calculator.ceremony_country = "albania"
 
-          refute calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
+          assert_not calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
         end
       end
 
@@ -1070,7 +1070,7 @@ module SmartAnswer
 
         should "return false if a PACS is not available in the ceremony country" do
           @calculator.ceremony_country = "country-without-pacs"
-          refute @calculator.ceremony_country_offers_pacs?
+          assert_not @calculator.ceremony_country_offers_pacs?
         end
       end
 
@@ -1088,7 +1088,7 @@ module SmartAnswer
         should "return false if PACS is available in the ceremony country but it's not a French overseas territory" do
           @calculator.ceremony_country = "monaco"
           assert @calculator.ceremony_country_offers_pacs?
-          refute @calculator.french_overseas_territory_offering_pacs?
+          assert_not @calculator.french_overseas_territory_offering_pacs?
         end
       end
 

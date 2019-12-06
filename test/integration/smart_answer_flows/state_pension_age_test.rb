@@ -25,7 +25,7 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
 
     should "prevent from providing future dates" do
-      add_response(Date.today + 1).to_s
+      add_response(Time.zone.today + 1).to_s
       assert_current_node_is_error
     end
 
@@ -82,7 +82,7 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
 
     should "prevent from providing future dates" do
-      add_response(Date.today + 1).to_s
+      add_response(Time.zone.today + 1).to_s
       assert_current_node_is_error
     end
 

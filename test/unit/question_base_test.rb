@@ -43,7 +43,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
         end
       end
       assert @question.permitted_next_nodes.include?(:done)
-      refute @question.permitted_next_nodes.include?(:another_question)
+      assert_not @question.permitted_next_nodes.include?(:another_question)
     end
 
     should "not return duplicate permitted next nodes" do

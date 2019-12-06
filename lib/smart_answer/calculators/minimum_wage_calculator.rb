@@ -104,7 +104,7 @@ module SmartAnswer::Calculators
     end
 
     def historical_adjustment
-      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Date.today)).round(2)
+      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Time.zone.today)).round(2)
     end
 
     def minimum_wage_or_above?
@@ -184,7 +184,7 @@ module SmartAnswer::Calculators
 
   private
 
-    def rates_for_date(date = Date.today)
+    def rates_for_date(date = Time.zone.today)
       data.rates(date)
     end
 

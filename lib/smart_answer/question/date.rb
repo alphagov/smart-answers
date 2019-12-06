@@ -95,7 +95,7 @@ module SmartAnswer
 
       def date_of_birth_defaults
         from { 122.years.ago.beginning_of_year.to_date }
-        to { ::Date.today.end_of_year }
+        to { ::Time.zone.today.end_of_year }
         validate_in_range
       end
 

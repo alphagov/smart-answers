@@ -14,7 +14,7 @@ module SmartAnswer
       if ENV["RATES_QUERY_DATE"]
         Date.parse(ENV["RATES_QUERY_DATE"])
       else
-        Date.today
+        Time.zone.today
       end
     end
   end

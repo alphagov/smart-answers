@@ -588,7 +588,7 @@ module SmartAnswer::Calculators
     end
 
     def path_to_data_file
-      Rails.root.join("lib", "data", "marriage_abroad_data.yml")
+      Rails.root.join("lib/data/marriage_abroad_data.yml")
     end
   end
 end

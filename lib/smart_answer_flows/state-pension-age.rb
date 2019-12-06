@@ -23,7 +23,7 @@ module SmartAnswer
       date_question :dob_age? do
         date_of_birth_defaults
 
-        validate { |response| response <= Date.today }
+        validate { |response| response <= Time.zone.today }
 
         calculate :calculator do |response|
           Calculators::StatePensionAgeCalculator.new(dob: response)

@@ -99,7 +99,7 @@ module SmartAnswer
     end
 
     test "#payload public_updated_at timestamp is the current datetime" do
-      now = Time.now
+      now = Time.zone.now
       Time.stubs(:now).returns(now)
 
       presenter = stub_flow_registration_presenter

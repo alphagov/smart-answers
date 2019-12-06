@@ -15,27 +15,27 @@ module SmartAnswer::Calculators
       context "commonwealth_country? method" do
         should "indicate whether a country slug refers to a commonwealth country" do
           assert @query.commonwealth_country?("australia")
-          refute @query.commonwealth_country?("spain")
+          assert_not @query.commonwealth_country?("spain")
         end
       end
       context "has_consulate?" do
         should "be true for countries with a consulate" do
           assert @query.has_consulate?("russia")
-          refute @query.has_consulate?("uganda")
+          assert_not @query.has_consulate?("uganda")
         end
       end
 
       context "higher_risk_country?" do
         should "be true for higher risk countries" do
           assert @query.higher_risk_country?("afghanistan")
-          refute @query.higher_risk_country?("france")
+          assert_not @query.higher_risk_country?("france")
         end
       end
 
       context "lower_risk_country?" do
         should "be true for lower risk countries" do
           assert @query.lower_risk_country?("france")
-          refute @query.lower_risk_country?("afghanistan")
+          assert_not @query.lower_risk_country?("afghanistan")
         end
       end
 
@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
         end
 
         should "be false for Argentina" do
-          refute @query.oru_documents_variant_for_birth?("argentina")
+          assert_not @query.oru_documents_variant_for_birth?("argentina")
         end
       end
 
@@ -68,7 +68,7 @@ module SmartAnswer::Calculators
         end
 
         should "return false for Argentina" do
-          refute @query.oru_documents_variant_for_death?("argentina")
+          assert_not @query.oru_documents_variant_for_death?("argentina")
         end
       end
 
@@ -78,7 +78,7 @@ module SmartAnswer::Calculators
         end
 
         should "return false for countries not in the list" do
-          refute @query.oru_courier_variant?("argentina")
+          assert_not @query.oru_courier_variant?("argentina")
         end
       end
 
@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
         end
 
         should "return false for countries not in the list" do
-          refute @query.oru_courier_by_high_commission?("argentina")
+          assert_not @query.oru_courier_by_high_commission?("argentina")
         end
       end
 

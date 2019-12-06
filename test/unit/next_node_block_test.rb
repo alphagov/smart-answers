@@ -17,7 +17,7 @@ module SmartAnswer
         end
 
         should "not be present" do
-          refute @key.present?
+          assert_not @key.present?
         end
       end
 
@@ -27,11 +27,11 @@ module SmartAnswer
         end
 
         should "be nil" do
-          refute @key.nil?
+          assert_not @key.nil?
         end
 
         should "not be blank" do
-          refute @key.blank?
+          assert_not @key.blank?
         end
 
         should "be present" do
@@ -60,11 +60,11 @@ module SmartAnswer
       end
 
       should "not permit node key not specified via syntactic sugar method" do
-        refute NextNodeBlock.permitted?(:key)
+        assert_not NextNodeBlock.permitted?(:key)
       end
 
       should "not permit nil node key" do
-        refute NextNodeBlock.permitted?(nil)
+        assert_not NextNodeBlock.permitted?(nil)
       end
     end
 

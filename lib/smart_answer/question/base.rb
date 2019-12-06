@@ -35,7 +35,7 @@ module SmartAnswer
         validate!(current_state, input)
         state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
         next_node = state.instance_exec(input, &next_node_block)
-        unless next_node.present?
+        if next_node.blank?
           responses_and_input = current_state.responses + [input]
           message = "Next node undefined. Node: #{current_state.current_node}."
           message << " Responses: #{responses_and_input}."

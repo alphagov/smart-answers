@@ -126,7 +126,7 @@ module SmartAnswer::Calculators
 
     context "with an adoption placement date of a week ago" do
       should "make the earliest leave start date 14 days before the placement date" do
-        one_week_ago = 1.week.ago(Date.today)
+        one_week_ago = 1.week.ago(Time.zone.today)
         calculator = AdoptionPayCalculator.new(4.months.since)
         calculator.adoption_placement_date = one_week_ago
         assert_equal 1.fortnight.ago(one_week_ago), calculator.leave_earliest_start_date

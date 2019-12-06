@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
 
       context "with various dates" do
         setup do
-          today = Date.today
+          today = Time.zone.today
           @yesterday = today - 1.day
           @tomorrow = today + 1.day
 

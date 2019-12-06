@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
         assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(2016, 4, 6)).max
         assert_equal "14,670", RedundancyCalculator.redundancy_rates(Date.new(2017, 4, 6)).max
         assert_equal "15,240", RedundancyCalculator.redundancy_rates(Date.new(2018, 4, 6)).max
-        assert_equal "15,750", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
+        assert_equal "15,750", RedundancyCalculator.redundancy_rates(Date.new(Time.zone.today.year, 12, 31)).max
       end
 
       should "use the most recent rate for far future dates" do

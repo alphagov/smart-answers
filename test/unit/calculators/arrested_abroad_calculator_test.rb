@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
 
         should "not include external tag if URL is internal" do
           link = @calc.generate_url_for_download("israel", "pdf", "Foo")
-          assert !link.include?("{:rel=\"external\"}")
+          assert_not link.include?("{:rel=\"external\"}")
         end
       end
 

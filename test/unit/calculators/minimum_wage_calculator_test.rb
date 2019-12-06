@@ -9,11 +9,11 @@ module SmartAnswer::Calculators
 
       context "for age" do
         should "not accept ages less than or equal to 0" do
-          refute @calculator.valid_age?(0)
+          assert_not @calculator.valid_age?(0)
         end
 
         should "not accept ages greater than 200" do
-          refute @calculator.valid_age?(201)
+          assert_not @calculator.valid_age?(201)
         end
 
         should "accept ages between 1 and 200" do
@@ -24,11 +24,11 @@ module SmartAnswer::Calculators
 
       context "for pay frequency" do
         should "not accept frequency less than 1" do
-          refute @calculator.valid_pay_frequency?(0)
+          assert_not @calculator.valid_pay_frequency?(0)
         end
 
         should "not accept frequency greater than 31" do
-          refute @calculator.valid_pay_frequency?(32)
+          assert_not @calculator.valid_pay_frequency?(32)
         end
 
         should "accept frequency between 1 and 31" do
@@ -43,12 +43,12 @@ module SmartAnswer::Calculators
         end
 
         should "not accept hours less than 0" do
-          refute @calculator.valid_hours_worked?(0)
+          assert_not @calculator.valid_hours_worked?(0)
         end
 
         should "not accept hours greater than 16 times the pay frequency" do
           invalid_hours = (16 * @calculator.pay_frequency) + 1
-          refute @calculator.valid_hours_worked?(invalid_hours)
+          assert_not @calculator.valid_hours_worked?(invalid_hours)
         end
 
         should "accept hours greater than or equal to 1" do
@@ -63,7 +63,7 @@ module SmartAnswer::Calculators
 
       context "for accommodation charge" do
         should "not accept amount less than or equal to 0" do
-          refute @calculator.valid_accommodation_charge?(0)
+          assert_not @calculator.valid_accommodation_charge?(0)
         end
 
         should "accept 1 or more" do
@@ -73,11 +73,11 @@ module SmartAnswer::Calculators
 
       context "for accommodation usage" do
         should "not accept days per week of less than or equal to -1" do
-          refute @calculator.valid_accommodation_usage?(-1)
+          assert_not @calculator.valid_accommodation_usage?(-1)
         end
 
         should "not accept days per week of greater than or equal to 8" do
-          refute @calculator.valid_accommodation_usage?(8)
+          assert_not @calculator.valid_accommodation_usage?(8)
         end
 
         should "accept days per week greater than or equal to 0" do
@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
 
       context "for age for living wage" do
         should "not accept ages below 25" do
-          refute @calculator.valid_age_for_living_wage?(24)
+          assert_not @calculator.valid_age_for_living_wage?(24)
         end
 
         should "accept ages 25 or above" do
@@ -127,14 +127,14 @@ module SmartAnswer::Calculators
       should "return false if age is lower than 24 or nil" do
         %w(nil 0 24).each do |age|
           @calculator.age = age
-          refute @calculator.eligible_for_living_wage?
+          assert_not @calculator.eligible_for_living_wage?
         end
       end
 
       should "return false if age is over 25, and date is on or before 2016-04-01" do
         @calculator.date = Date.parse("2016-03-30")
         @calculator.age = 26
-        assert !@calculator.eligible_for_living_wage?
+        assert_not @calculator.eligible_for_living_wage?
       end
     end
 
@@ -150,7 +150,7 @@ module SmartAnswer::Calculators
 
       should "return false if age is greater than or equal to 16" do
         @calculator.age = 16
-        refute @calculator.under_school_leaving_age?
+        assert_not @calculator.under_school_leaving_age?
       end
     end
 
@@ -166,7 +166,7 @@ module SmartAnswer::Calculators
 
       should "return false if the historical adjustment is greater than 0" do
         @calculator.stubs(:historical_adjustment).returns(1)
-        refute @calculator.historically_receiving_minimum_wage?
+        assert_not @calculator.historically_receiving_minimum_wage?
       end
     end
 
@@ -232,7 +232,7 @@ module SmartAnswer::Calculators
 
       context "above minimum wage?" do
         should "indicate if the minimum hourly rate is less than the total hourly rate" do
-          assert !@calculator.minimum_wage_or_above?
+          assert_not @calculator.minimum_wage_or_above?
         end
 
         should "be above if the average hourly rate is above the minimum hourly rate" do
@@ -275,7 +275,7 @@ module SmartAnswer::Calculators
           context "historical_adjustment" do
             setup do
               @underpayment = (@underpayment * -1) if @underpayment.negative?
-              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Date.today)).round(2)
+              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Time.zone.today)).round(2)
             end
 
             should "be underpayment divided by the historical minimum hourly rate times the current minimum hourly rate" do
@@ -343,28 +343,28 @@ module SmartAnswer::Calculators
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 2.5, @calculator.basic_hourly_rate
           assert_equal 2.5, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
+          assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for free accommodation" do
           @calculator.accommodation_adjustment(0, 5)
           assert_equal 23.65, @calculator.accommodation_cost
           assert_equal 3.09, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
+          assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(6, 5)
           assert_equal(-6.35, @calculator.accommodation_cost)
           assert_equal 2.34, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
+          assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged below the threshold" do
           @calculator.accommodation_adjustment(4, 5)
           assert_equal 0, @calculator.accommodation_cost
           assert_equal 2.50, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
+          assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
       end
     end
@@ -739,7 +739,7 @@ module SmartAnswer::Calculators
           basic_hours: 39,
           date: Date.parse("5 Aug 2010"),
         )
-        assert !@calculator.minimum_wage_or_above?
+        assert_not @calculator.minimum_wage_or_above?
       end
       should "below minimum_wage_or_above (200)" do
         @calculator = MinimumWageCalculator.new(
@@ -750,10 +750,10 @@ module SmartAnswer::Calculators
           date: Date.parse("5 Aug 2010"),
         )
         # underpayment
-        assert !@calculator.minimum_wage_or_above?
+        assert_not @calculator.minimum_wage_or_above?
         assert_equal 32, @calculator.underpayment
         assert_equal 5.52, (@calculator.underpayment / @calculator.per_hour_minimum_wage).round(2)
-        assert_equal 6.19, @calculator.per_hour_minimum_wage(Date.today)
+        assert_equal 6.19, @calculator.per_hour_minimum_wage(Time.zone.today)
         assert_equal 34.15, @calculator.historical_adjustment
         # assert_equal 43.20, @calculator.total_underpayment
       end

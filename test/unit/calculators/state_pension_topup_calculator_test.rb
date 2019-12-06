@@ -195,7 +195,7 @@ module SmartAnswer::Calculators
 
         should "be false if date of birth is on threshold date" do
           @calculator.date_of_birth = @threshold_date
-          refute @calculator.too_young?
+          assert_not @calculator.too_young?
         end
       end
 
@@ -212,7 +212,7 @@ module SmartAnswer::Calculators
 
         should "be false if date of birth is on threshold date" do
           @calculator.date_of_birth = @threshold_date
-          refute @calculator.too_young?
+          assert_not @calculator.too_young?
         end
       end
     end
@@ -225,7 +225,7 @@ module SmartAnswer::Calculators
 
       should "be false if weekly_amount is not whole number of pounds" do
         @calculator.weekly_amount = SmartAnswer::Money.new(12.50)
-        refute @calculator.valid_whole_number_weekly_amount?
+        assert_not @calculator.valid_whole_number_weekly_amount?
       end
     end
 
@@ -237,12 +237,12 @@ module SmartAnswer::Calculators
 
       should "be false if weekly_amount is less than 1" do
         @calculator.weekly_amount = SmartAnswer::Money.new(0.99)
-        refute @calculator.valid_weekly_amount_in_range?
+        assert_not @calculator.valid_weekly_amount_in_range?
       end
 
       should "be false if weekly_amount is more than 25" do
         @calculator.weekly_amount = SmartAnswer::Money.new(25.01)
-        refute @calculator.valid_weekly_amount_in_range?
+        assert_not @calculator.valid_weekly_amount_in_range?
       end
     end
   end

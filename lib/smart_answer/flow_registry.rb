@@ -1,7 +1,7 @@
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
-    FLOW_DIR = Rails.root.join("lib", "smart_answer_flows")
+    FLOW_DIR = Rails.root.join("lib/smart_answer_flows")
 
     def self.instance
       @instance ||= new(FLOW_REGISTRY_OPTIONS)
@@ -18,6 +18,7 @@ module SmartAnswer
     end
     attr_reader :load_path
 
+    # rubocop:disable Rails/DynamicFindBy
     def find(name)
       raise NotFound unless available?(name)
 
@@ -27,6 +28,7 @@ module SmartAnswer
     def flows
       available_flows.map { |s| find_by_name(s) }.compact
     end
+    # rubocop:enable Rails/DynamicFindBy
 
     def available_flows
       Dir[@load_path.join("*.rb")].map do |path|

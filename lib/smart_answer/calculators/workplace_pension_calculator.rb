@@ -3,9 +3,9 @@ module SmartAnswer::Calculators
     attr_reader :data
 
     def threshold_annual_rate
-      if Date.today < Date.civil(2013, 4, 8)
+      if Time.zone.today < Date.civil(2013, 4, 8)
         8105.0
-      elsif Date.today >= Date.civil(2013, 4, 8)
+      elsif Time.zone.today >= Date.civil(2013, 4, 8)
         9440.0
       end
     end
@@ -19,9 +19,9 @@ module SmartAnswer::Calculators
     end
 
     def lel_annual_rate
-      if Date.today < Date.civil(2013, 4, 8)
+      if Time.zone.today < Date.civil(2013, 4, 8)
         5564.0
-      elsif Date.today >= Date.civil(2013, 4, 8)
+      elsif Time.zone.today >= Date.civil(2013, 4, 8)
         5668.0
       end
     end

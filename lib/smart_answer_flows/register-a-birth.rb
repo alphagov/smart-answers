@@ -66,8 +66,8 @@ module SmartAnswer
 
       # Q4
       date_question :childs_date_of_birth? do
-        from { Date.today.end_of_year }
-        to { 50.years.ago(Date.today) }
+        from { Time.zone.today.end_of_year }
+        to { 50.years.ago(Time.zone.today) }
 
         on_response do |response|
           calculator.childs_date_of_birth = response

@@ -42,8 +42,8 @@ module SmartAnswer
       end
 
       date_question :which_date_within_range? do
-        from { Date.today }
-        to { 4.years.since(Date.today) }
+        from { Time.zone.today }
+        to { 4.years.since(Time.zone.today) }
 
         validate_in_range
 
@@ -53,8 +53,8 @@ module SmartAnswer
       end
 
       date_question :which_date_this_year? do
-        from { 1.years.ago.beginning_of_year.to_date }
-        to { ::Date.today.end_of_year }
+        from { 1.year.ago.beginning_of_year.to_date }
+        to { ::Time.zone.today.end_of_year }
 
         default_year { 0 }
 

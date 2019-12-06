@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
       end
 
       should 'return false if the country should not be prepended by "the"' do
-        refute @formatter.requires_definite_article?("antigua-and-barbuda")
+        assert_not @formatter.requires_definite_article?("antigua-and-barbuda")
       end
     end
 
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
       end
 
       should "return false if the country slug does not have a friendly name" do
-        refute @formatter.has_friendly_name?("antigua-and-barbuda")
+        assert_not @formatter.has_friendly_name?("antigua-and-barbuda")
       end
     end
 

@@ -46,7 +46,7 @@ module SmartAnswer
         second_call = registry.find("flow-sample")
 
         assert_equal first_call.name, second_call.name
-        refute_equal first_call.object_id, second_call.object_id
+        assert_not_equal first_call.object_id, second_call.object_id
       end
     end
 

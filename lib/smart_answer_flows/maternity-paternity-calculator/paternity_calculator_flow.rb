@@ -246,8 +246,8 @@ module SmartAnswer
 
         ## QP8
         date_question :employee_start_paternity? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           save_input_as :employee_leave_start
 
@@ -292,8 +292,8 @@ module SmartAnswer
 
         ## QP10
         date_question :last_normal_payday_paternity? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           calculate :calculator do |response|
             calculator.last_payday = response
@@ -309,8 +309,8 @@ module SmartAnswer
 
         ## QP11
         date_question :payday_eight_weeks_paternity? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           precalculate :payday_offset do
             calculator.payday_offset
@@ -403,8 +403,8 @@ module SmartAnswer
 
         ## QP15 - Also shared with adoption calculator here onwards
         date_question :next_pay_day_paternity? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
           save_input_as :next_pay_day
 
           calculate :calculator do |response|

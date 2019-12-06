@@ -16,21 +16,21 @@ module SmartAnswer::Calculators
       end
       context "start_of_holiday_year" do
         should "divide the year on 1st Oct and return the relevant calculation start date" do
-          Timecop.travel(Date.civil(Date.today.year, 6, 1))
-          assert_equal Date.civil(Date.today.year - 1, 10, 1), @calc.start_of_holiday_year
-          Timecop.travel(Date.civil(Date.today.year, 10, 2))
-          assert_equal Date.civil(Date.today.year, 10, 1), @calc.start_of_holiday_year
+          Timecop.travel(Date.civil(Time.zone.today.year, 6, 1))
+          assert_equal Date.civil(Time.zone.today.year - 1, 10, 1), @calc.start_of_holiday_year
+          Timecop.travel(Date.civil(Time.zone.today.year, 10, 2))
+          assert_equal Date.civil(Time.zone.today.year, 10, 1), @calc.start_of_holiday_year
         end
       end
       context "weeks_worked" do
         should "give the number of weeks between the calculation period and holiday start dates" do
-          Timecop.travel(Date.civil(Date.today.year, 10, 2))
-          assert_equal 4, @calc.weeks_worked(Date.civil(Date.today.year, 11, 1))
+          Timecop.travel(Date.civil(Time.zone.today.year, 10, 2))
+          assert_equal 4, @calc.weeks_worked(Date.civil(Time.zone.today.year, 11, 1))
         end
       end
       context "available_days" do
         should "give the number of days since the calculation period started" do
-          Timecop.travel(Date.civil(Date.today.year, 12, 25))
+          Timecop.travel(Date.civil(Time.zone.today.year, 12, 25))
           assert_equal 85, @calc.available_days
         end
       end
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
 
         should "be falsey if total days worked is more than available days" do
           @calc.total_days_worked = 101
-          refute @calc.valid_total_days_worked?
+          assert_not @calc.valid_total_days_worked?
         end
       end
 
@@ -59,7 +59,7 @@ module SmartAnswer::Calculators
 
         should "be falsey if weeks at current employer is equal to or more than 52" do
           @calc.weeks_at_current_employer = 52
-          refute @calc.valid_weeks_at_current_employer?
+          assert_not @calc.valid_weeks_at_current_employer?
         end
       end
     end

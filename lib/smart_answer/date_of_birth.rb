@@ -4,7 +4,7 @@ module SmartAnswer
       @date_of_birth = date_of_birth
     end
 
-    def birthday(year: Date.today.year)
+    def birthday(year: Time.zone.today.year)
       month = @date_of_birth.month
       day = @date_of_birth.day
       if !Date.new(year).leap? && month == 2 && day == 29
@@ -14,7 +14,7 @@ module SmartAnswer
       Date.new(year, month, day)
     end
 
-    def age(on: Date.today)
+    def age(on: Time.zone.today)
       years = on.year - @date_of_birth.year
       if birthday(year: on.year) > on
         years -= 1

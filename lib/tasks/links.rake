@@ -58,7 +58,7 @@ end
 
 namespace :links do
   desc "Checks all URLs within Smart Answers for errors."
-  task :check, :file do |_, args|
+  task %i[check file] => :environment do |_, args|
     broken = []
     pwd = Dir.pwd
 

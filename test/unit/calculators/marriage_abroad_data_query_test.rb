@@ -18,7 +18,7 @@ module SmartAnswer
           end
 
           should "load data from correct path leading to marriage_abroad_data.yml" do
-            path = Rails.root.join("lib", "data", "marriage_abroad_data.yml")
+            path = Rails.root.join("lib/data/marriage_abroad_data.yml")
             YAML.stubs(:load_file).returns({})
 
             YAML.expects(:load_file).with(path).returns({})
