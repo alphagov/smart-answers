@@ -12,7 +12,7 @@
   <% if uk_ft_circumstances.include?('no') && course_studied == 'none-of-the-above' %>
     You don’t qualify for extra grants and allowances.
   <% else %>
-    You could get:
+    Depending on your income and circumstances, you could get:
 
     <% if uk_ft_circumstances.include?('children-under-17') %>
       - up to <%= format_money(calculator.childcare_grant_one_child) %> a week (1 child) or up to <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
