@@ -49,6 +49,9 @@ module SmartAnswer
         },
       }.freeze
 
+      CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 18_786.43
+      CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 26_649.87
+
       PARENTS_LEARNING_ALLOWANCE = {
         "2018-2019" => 1_669,
         "2019-2020" => 1_716,
@@ -107,6 +110,14 @@ module SmartAnswer
 
       def reduced_maintenance_loan_for_healthcare
         REDUCED_MAINTENTANCE_LOAN_AMOUNTS.fetch(@course_start).fetch(@residence)
+      end
+
+      def eligible_for_childcare_grant_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME
+      end
+
+      def eligible_for_childcare_grant_more_than_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME
       end
 
       def childcare_grant_one_child
