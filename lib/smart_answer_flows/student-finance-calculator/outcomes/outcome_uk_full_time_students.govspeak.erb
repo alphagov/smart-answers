@@ -14,8 +14,10 @@
   <% else %>
     Depending on your income and circumstances, you could get:
 
-    <% if uk_ft_circumstances.include?('children-under-17') %>
-      - up to <%= format_money(calculator.childcare_grant_one_child) %> a week (1 child) or up to <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
+    <% if calculator.eligible_for_childcare_grant_one_child? %>
+      - up to 85% of your childcare costs (maximum <%= format_money(calculator.childcare_grant_one_child) %> a week for a single child or <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week if you have more than one) in Childcare Grant
+    <% elsif calculator.eligible_for_childcare_grant_more_than_one_child? %>
+      - up to 85% of your childcare costs to a maximum <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week in Childcare Grant if you have 2 or more children
     <% end %>
 
     <% if calculator.eligible_for_parent_learning_allowance? %>
