@@ -54,6 +54,8 @@ module SmartAnswer
         "2019-2020" => 1_716,
       }.freeze
 
+      PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_441.98
+
       ADULT_DEPENDANT_ALLOWANCE = {
         "2018-2019" => 2_925,
         "2019-2020" => 3_007,
@@ -113,6 +115,10 @@ module SmartAnswer
 
       def childcare_grant_more_than_one_child
         CHILD_CARE_GRANTS.fetch(@course_start).fetch("more-than-one-child")
+      end
+
+      def eligible_for_parent_learning_allowance?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= PARENTS_LEARNING_HOUSEHOLD_INCOME
       end
 
       def parent_learning_allowance

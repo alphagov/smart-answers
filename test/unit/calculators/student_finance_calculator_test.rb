@@ -66,6 +66,38 @@ module SmartAnswer
         end
       end
 
+      context "#eligible_for_parent_learning_allowance?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_441,
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_442,
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have low household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_441,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have high household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_442,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+      end
+
       context "#parent_learning_allowance" do
         should "be 1669 in 2018-2019" do
           calculator = StudentFinanceCalculator.new(
