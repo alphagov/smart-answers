@@ -139,6 +139,10 @@ module SmartAnswer
           response.split(",")
         end
 
+        on_response do |response|
+          calculator.uk_ft_circumstances = response.split(",")
+        end
+
         next_node do
           question :what_course_are_you_studying?
         end
