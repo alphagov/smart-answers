@@ -24,6 +24,7 @@ module SmartAnswer
           "away-in-london" => 11_672,
         },
       }.freeze
+
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
         "2018-2019" => {
           "at-home" => 1744,
@@ -36,6 +37,7 @@ module SmartAnswer
           "away-outside-london" => 2389,
         },
       }.freeze
+
       CHILD_CARE_GRANTS = {
         "2018-2019" => {
           "one-child" => 164.70,
@@ -46,18 +48,22 @@ module SmartAnswer
           "more-than-one-child" => 290.27,
         },
       }.freeze
+
       PARENTS_LEARNING_ALLOWANCE = {
         "2018-2019" => 1_669,
         "2019-2020" => 1_716,
       }.freeze
+
       ADULT_DEPENDANT_ALLOWANCE = {
         "2018-2019" => 2_925,
         "2019-2020" => 3_007,
       }.freeze
+
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
         "part-time" => 6_935,
       }.freeze
+
       LOAN_MINIMUMS = {
         "2018-2019" => {
           "at-home" => 3_224,
@@ -70,6 +76,7 @@ module SmartAnswer
           "away-in-london" => 5_812,
         },
       }.freeze
+
       INCOME_PENALTY_RATIO = {
         "2018-2019" => {
           "at-home" => 8.10,
