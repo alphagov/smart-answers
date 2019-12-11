@@ -20,7 +20,7 @@
       - [Child Tax Credit](/child-tax-credit)
     <% end %>
 
-    <% if uk_ft_circumstances.include?('dependant-adult') %>
+    <% if calculator.eligible_for_adult_dependant_allowance? %>
       - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
