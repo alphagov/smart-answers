@@ -77,6 +77,38 @@ module SmartAnswer
         end
       end
 
+      context "#eligible_for_adult_dependant_allowance?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_933,
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_934,
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have low household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_933,
+            uk_ft_circumstances: %w(dependant-adult),
+          )
+          assert calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have high household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_934,
+            uk_ft_circumstances: %w(dependant-adult),
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
+        end
+      end
+
       context "#adult_dependant_allowance" do
         should "be 2925 in 2018-2019" do
           calculator = StudentFinanceCalculator.new(

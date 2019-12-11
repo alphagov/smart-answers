@@ -59,6 +59,8 @@ module SmartAnswer
         "2019-2020" => 3_007,
       }.freeze
 
+      ADULT_DEPENDANT_HOUSEHOLD_INCOME = 14_933.98
+
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
         "part-time" => 6_935,
@@ -115,6 +117,10 @@ module SmartAnswer
 
       def parent_learning_allowance
         PARENTS_LEARNING_ALLOWANCE.fetch(@course_start)
+      end
+
+      def eligible_for_adult_dependant_allowance?
+        uk_ft_circumstances.include?("dependant-adult") && household_income <= ADULT_DEPENDANT_HOUSEHOLD_INCOME
       end
 
       def adult_dependant_allowance
