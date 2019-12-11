@@ -15,8 +15,8 @@ FLOW_REGISTRY_OPTIONS[:preload_flows] = true
 
 require "rails/test_help"
 
-require "mocha/setup"
-Mocha::Configuration.prevent(:stubbing_non_existent_method)
+require "mocha/minitest"
+Mocha.configure { |c| c.stubbing_non_existent_method = :prevent }
 
 require "webmock/minitest"
 WebMock.disable_net_connect!(allow_localhost: true)
