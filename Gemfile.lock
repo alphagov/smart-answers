@@ -53,7 +53,7 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     brakeman (4.7.1)
-    builder (3.2.3)
+    builder (3.2.4)
     byebug (11.0.1)
     capybara (3.29.0)
       addressable
@@ -108,7 +108,7 @@ GEM
       sentry-raven (>= 2.7.1, < 2.12.0)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.6)
-    govuk_publishing_components (21.13.4)
+    govuk_publishing_components (21.13.5)
       gds-api-adapters
       govuk_app_config
       kramdown
@@ -232,7 +232,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rinku (2.0.6)
-    rouge (3.13.0)
+    rouge (3.14.0)
     rspec-core (3.9.0)
       rspec-support (~> 3.9.0)
     rspec-expectations (3.9.0)
@@ -369,7 +369,7 @@ DEPENDENCIES
   govspeak (~> 6.5.1)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk_app_config
-  govuk_publishing_components (= 21.13.4)
+  govuk_publishing_components (= 21.13.5)
   govuk_test
   htmlentities (~> 4)
   json
