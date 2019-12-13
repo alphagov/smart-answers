@@ -39,6 +39,70 @@ module SmartAnswer
         assert_equal "uk-full-time", calculator.course_type
       end
 
+      context "#eligible_for_childcare_grant_one_child?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_786,
+          )
+          assert_not calculator.eligible_for_childcare_grant_one_child?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_787,
+          )
+          assert_not calculator.eligible_for_childcare_grant_one_child?
+        end
+
+        should "have low household income and children" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_786,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert calculator.eligible_for_childcare_grant_one_child?
+        end
+
+        should "have high household income and children" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_787,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert_not calculator.eligible_for_childcare_grant_one_child?
+        end
+      end
+
+      context "#eligible_for_childcare_grant_more_than_one_child?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 26_649,
+          )
+          assert_not calculator.eligible_for_childcare_grant_more_than_one_child?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 26_650,
+          )
+          assert_not calculator.eligible_for_childcare_grant_more_than_one_child?
+        end
+
+        should "have low household income and children" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 26_649,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert calculator.eligible_for_childcare_grant_more_than_one_child?
+        end
+
+        should "have high household income and children" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 26_650,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert_not calculator.eligible_for_childcare_grant_more_than_one_child?
+        end
+      end
+
       context "childcare_grant" do
         context "for one child" do
           context "in 2020-2021" do
@@ -66,6 +130,38 @@ module SmartAnswer
         end
       end
 
+      context "#eligible_for_parent_learning_allowance?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_441,
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_442,
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have low household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_441,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert calculator.eligible_for_parent_learning_allowance?
+        end
+
+        should "have high household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 18_442,
+            uk_ft_circumstances: %w(children-under-17),
+          )
+          assert_not calculator.eligible_for_parent_learning_allowance?
+        end
+      end
+
       context "#parent_learning_allowance" do
         should "be 1766 in 2018-2019" do
           calculator = StudentFinanceCalculator.new(
@@ -74,6 +170,38 @@ module SmartAnswer
             residence: :unused_variable,
           )
           assert_equal 1766, calculator.parent_learning_allowance
+        end
+      end
+
+      context "#eligible_for_adult_dependant_allowance?" do
+        should "have low household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_933,
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have high household income and no dependencies" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_934,
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have low household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_933,
+            uk_ft_circumstances: %w(dependant-adult),
+          )
+          assert calculator.eligible_for_adult_dependant_allowance?
+        end
+
+        should "have high household income and adult dependant" do
+          calculator = StudentFinanceCalculator.new(
+            household_income: 14_934,
+            uk_ft_circumstances: %w(dependant-adult),
+          )
+          assert_not calculator.eligible_for_adult_dependant_allowance?
         end
       end
 

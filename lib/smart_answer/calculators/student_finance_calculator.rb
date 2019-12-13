@@ -9,6 +9,7 @@ module SmartAnswer
         :part_time_credits,
         :full_time_credits,
         :doctor_or_dentist,
+        :uk_ft_circumstances,
       )
 
       LOAN_MAXIMUMS = {
@@ -23,6 +24,7 @@ module SmartAnswer
           "away-in-london" => 12_010,
         },
       }.freeze
+
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
         "2019-2020" => {
           "at-home" => 1793,
@@ -35,6 +37,7 @@ module SmartAnswer
           "away-outside-london" => 2458,
         },
       }.freeze
+
       CHILD_CARE_GRANTS = {
         "2019-2020" => {
           "one-child" => 169.31,
@@ -45,18 +48,29 @@ module SmartAnswer
           "more-than-one-child" => 298.69,
         },
       }.freeze
+
+      CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 18_786.43
+      CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 26_649.87
+
       PARENTS_LEARNING_ALLOWANCE = {
         "2019-2020" => 1_716,
         "2020-2021" => 1_766,
       }.freeze
+
+      PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_441.98
+
       ADULT_DEPENDANT_ALLOWANCE = {
         "2019-2020" => 3_007,
         "2020-2021" => 3_094,
       }.freeze
+
+      ADULT_DEPENDANT_HOUSEHOLD_INCOME = 14_933.98
+
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
         "part-time" => 6_935,
       }.freeze
+
       LOAN_MINIMUMS = {
         "2019-2020" => {
           "at-home" => 3_314,
@@ -69,6 +83,7 @@ module SmartAnswer
           "away-in-london" => 5_981,
         },
       }.freeze
+
       INCOME_PENALTY_RATIO = {
         "2019-2020" => {
           "at-home" => 7.88,
@@ -90,10 +105,19 @@ module SmartAnswer
         @part_time_credits = params[:part_time_credits]
         @full_time_credits = params[:full_time_credits]
         @doctor_or_dentist = params[:doctor_or_dentist]
+        @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
       end
 
       def reduced_maintenance_loan_for_healthcare
         REDUCED_MAINTENTANCE_LOAN_AMOUNTS.fetch(@course_start).fetch(@residence)
+      end
+
+      def eligible_for_childcare_grant_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME
+      end
+
+      def eligible_for_childcare_grant_more_than_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME
       end
 
       def childcare_grant_one_child
@@ -104,8 +128,16 @@ module SmartAnswer
         CHILD_CARE_GRANTS.fetch(@course_start).fetch("more-than-one-child")
       end
 
+      def eligible_for_parent_learning_allowance?
+        uk_ft_circumstances.include?("children-under-17") && household_income <= PARENTS_LEARNING_HOUSEHOLD_INCOME
+      end
+
       def parent_learning_allowance
         PARENTS_LEARNING_ALLOWANCE.fetch(@course_start)
+      end
+
+      def eligible_for_adult_dependant_allowance?
+        uk_ft_circumstances.include?("dependant-adult") && household_income <= ADULT_DEPENDANT_HOUSEHOLD_INCOME
       end
 
       def adult_dependant_allowance
