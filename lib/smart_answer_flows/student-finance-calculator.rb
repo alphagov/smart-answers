@@ -11,8 +11,8 @@ module SmartAnswer
 
       #Q1
       multiple_choice :when_does_your_course_start? do
-        option :"2018-2019"
         option :"2019-2020"
+        option :"2020-2021"
 
         on_response do |response|
           self.calculator = sf_calculator
