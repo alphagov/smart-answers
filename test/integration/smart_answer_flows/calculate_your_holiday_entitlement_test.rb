@@ -684,17 +684,17 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer June 1st this year" do
+      context "answer June 1st for a non-leap year" do
         setup do
-          add_response "#{Time.zone.today.year}-06-01"
+          add_response "2017-06-01"
         end
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
 
-        context "answer Jan 1st this year" do
+        context "answer Jan 1st for a non-leap year" do
           setup do
-            add_response "#{Time.zone.today.year}-01-01"
+            add_response "2017-01-01"
           end
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
@@ -768,9 +768,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer 'Jan 20th this year'" do
+      context "answer 'Jan 20th' for a non-leap year'" do
         setup do
-          add_response "#{Time.zone.today.year}-01-20"
+          add_response "2019-01-20"
         end
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
@@ -778,16 +778,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         context "add employment end date before start_date" do
           setup do
-            add_response "#{Time.zone.today.year - 1}-10-14"
+            add_response "2018-10-14"
           end
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
         end
 
-        context "answer 'July 18th this year'" do
+        context "answer 'July 18th for a non-leap year'" do
           setup do
-            add_response "#{Time.zone.today.year}-07-18"
+            add_response "2019-07-18"
           end
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
