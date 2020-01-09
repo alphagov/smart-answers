@@ -29,6 +29,19 @@ $is-ie: false !default;
       @extend %govuk-list;
       @extend %govuk-list--bullet;
     }
+
+    table {
+      @extend .govuk-table;
+    }
+
+    th {
+      @extend .govuk-table__header;
+    }
+
+    td {
+      @extend .govuk-table__cell;
+    }
+
   }
 
   .application-notice {
