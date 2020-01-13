@@ -1,4 +1,5 @@
 $govuk-compatibility-govuktemplate: true;
+$govuk-use-legacy-palette: false;
 
 @import "govuk_publishing_components/all_components";
 @import "smart_answers";
