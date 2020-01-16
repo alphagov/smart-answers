@@ -1,8 +1,8 @@
 require "statsd"
+require "gds_api"
 require "gds_api/publishing_api_v2"
 require "gds_api/content_store"
 require "gds_api/imminence"
-require "gds_api/worldwide"
 
 module Services
   def self.publishing_api
@@ -17,7 +17,7 @@ module Services
   end
 
   def self.worldwide_api
-    @worldwide_api ||= GdsApi::Worldwide.new(Plek.new.find("whitehall-admin"))
+    @worldwide_api ||= GdsApi.worldwide
   end
 
   def self.content_store
