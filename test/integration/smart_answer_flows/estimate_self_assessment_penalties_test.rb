@@ -230,4 +230,27 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
   end
+  context "online return, tax year 2018-19" do
+    setup do
+      add_response :"2018-19"
+      add_response :online
+    end
+    should "ask when bill was paid" do
+      assert_current_node :when_submitted?
+    end
+    context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
+      setup do
+        add_response "2020-06-01"
+        add_response "2020-06-01"
+        add_response "10000.00"
+      end
+      should "show results" do
+        assert_equal 430, current_state.calculator.late_filing_penalty
+        assert_equal 10000, current_state.calculator.estimated_bill
+        assert_equal 107.74, current_state.calculator.interest
+        assert_equal 500, current_state.calculator.late_payment_penalty
+        assert_equal 11037, current_state.calculator.total_owed_plus_filing_penalty
+      end
+    end
+  end
 end

@@ -249,7 +249,7 @@ module SmartAnswer::Calculators
             should "have values from rate at 2.75%" do
               @calculator.payment_deadline = Date.parse("2016-08-23")
               @calculator.payment_date = Date.parse("2016-10-31")
-              assert_equal 5.12, @calculator.interest.value.to_f
+              assert_equal 5.59, @calculator.interest.value.to_f
             end
           end
 
@@ -258,7 +258,7 @@ module SmartAnswer::Calculators
               @calculator.tax_year = "2015-16"
               @calculator.payment_deadline = Date.parse("2017-1-31")
               @calculator.payment_date = Date.parse("2017-3-1")
-              assert_equal 2.11, @calculator.interest.value.to_f
+              assert_equal 2.3, @calculator.interest.value.to_f
             end
           end
 
@@ -266,7 +266,7 @@ module SmartAnswer::Calculators
             should "have value calculated with rates from before and after change" do
               @calculator.payment_deadline = Date.parse("2016-01-31")
               @calculator.payment_date = Date.parse("2016-10-31")
-              assert_equal 21.97, @calculator.interest.value.to_f
+              assert_equal 22.44, @calculator.interest.value.to_f
             end
           end
         end
