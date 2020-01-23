@@ -15,6 +15,7 @@ module SmartAnswer::Calculators
         "2015-16": ONLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
+        "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
       },
       offline_filing_deadline: {
         "2012-13": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2013).begins_on,
@@ -23,6 +24,7 @@ module SmartAnswer::Calculators
         "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2017-18": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
+        "2018-19": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
       },
       payment_deadline: {
         "2012-13": PAYMENT_DEADLINE_YEAR.starting_in(2014).begins_on,
@@ -31,6 +33,7 @@ module SmartAnswer::Calculators
         "2015-16": PAYMENT_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": PAYMENT_DEADLINE_YEAR.starting_in(2019).begins_on,
+        "2018-19": PAYMENT_DEADLINE_YEAR.starting_in(2020).begins_on,
       },
     }.freeze
 
@@ -48,6 +51,8 @@ module SmartAnswer::Calculators
         SmartAnswer::YearRange.tax_year.starting_in(2016)
       when "2017-18"
         SmartAnswer::YearRange.tax_year.starting_in(2017)
+      when "2018-19"
+        SmartAnswer::YearRange.tax_year.starting_in(2018)
       end
     end
 
@@ -69,6 +74,8 @@ module SmartAnswer::Calculators
         PENALTY_YEAR.starting_in(2019).begins_on
       when "2017-18"
         PENALTY_YEAR.starting_in(2020).begins_on
+      when "2018-19"
+        PENALTY_YEAR.starting_in(2021).begins_on
       end
     end
 
@@ -186,12 +193,12 @@ module SmartAnswer::Calculators
     end
 
     def daily_rate(date)
-      # Rate drops from 3% to 2.75% on 23 August 2016
-      rate_change_date = Date.new(2016, 8, 23)
+      # Rate increased to 3.25% on 21 August 2018
+      rate_change_date = Date.new(2018, 8, 21)
       if date < rate_change_date
         0.03 / 365.0
       else
-        0.0275 / 365.0
+        0.0325 / 365.0
       end
     end
   end
