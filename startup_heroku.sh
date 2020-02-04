@@ -22,6 +22,7 @@ heroku config:set \
 GOVUK_APP_DOMAIN=integration.publishing.service.gov.uk \
 PLEK_SERVICE_CONTENT_STORE_URI=https://www.gov.uk/api \
 PLEK_SERVICE_STATIC_URI=https://assets-origin.integration.publishing.service.gov.uk/ \
+PLEK_SERVICE_WHITEHALL_FRONTEND_URI=https://www.gov.uk \
 RUNNING_ON_HEROKU=true \
 EXPOSE_GOVSPEAK=true \
 
