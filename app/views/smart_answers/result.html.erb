@@ -11,23 +11,31 @@
 
     <% outcome = @presenter.current_node %>
 
-    <div class="app-o-answer govspeak-wrapper" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
+    <div class="app-o-spacing" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
-          text: outcome.title
+          text: outcome.title,
+          margin_bottom: 6
         } %>
       <% end %>
 
-      <%= outcome.body %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <%= outcome.body %>
+      <% end %>
     </div>
 
     <% if outcome.next_steps.present? %>
-      <div class="app-o-next-steps govspeak-wrapper">
+      <div class="app-o-spacing">
         <%= render "govuk_publishing_components/components/heading", {
-          text: "Next steps"
+          text: "Next steps",
+          margin_bottom: 6
         } %>
 
-        <%= outcome.next_steps %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <%= outcome.next_steps %>
+        <% end %>
       </div>
     <% end %>
 
@@ -53,5 +61,3 @@
     </div>
   <% end %>
 </div>
-
-

@@ -14,18 +14,24 @@
     } %>
     <%= form_tag calculate_current_question_path(@presenter), :method => :get do %>
       <div class="govuk-!-margin-top-9" id="current-question">
-        <div class="question govspeak-wrapper" data-debug-template-path="<%= question.relative_erb_template_path %>">
+        <div data-debug-template-path="<%= question.relative_erb_template_path %>">
           <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>
 
           <% if question.body.present? && show_body %>
             <article role="article">
-              <%= question.body %>
+              <%= render "govuk_publishing_components/components/govspeak", {
+              } do %>
+                <%= question.body %>
+              <% end %>
             </article>
           <% end %>
 
           <%= render partial: "smart_answers/inputs/#{question.partial_template_name}", locals: { question: question } %>
 
-          <%= question.post_body %>
+          <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
+            <%= question.post_body %>
+          <% end %>
         </div>
 
         <input type="hidden" name="next" value="1" />
@@ -39,5 +45,3 @@
     <%= render 'previous_answers' %>
   </div>
 </div>
-
-

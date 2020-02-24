@@ -66,9 +66,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within(".question") do
-        assert_page_has_content "Are you sure you don't want any toppings?"
-      end
+      assert_page_has_content "Are you sure you don't want any toppings?"
 
       check("Definitely no toppings", visible: false)
 
@@ -84,9 +82,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "expect explicit selection of 'none' option when present" do
       visit "/checkbox-sample/y/none"
 
-      within(".question") do
-        assert_page_has_content "Are you sure you don't want any toppings?"
-      end
+      assert_page_has_content "Are you sure you don't want any toppings?"
 
       click_on "Next step"
 

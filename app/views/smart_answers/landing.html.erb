@@ -12,33 +12,35 @@
       title: start_node.title
     } %>
 
-    <div class="article-container group">
-      <article role="article" class="group govspeak-wrapper" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
-        <div class="inner">
-          <section class="intro">
-            <div class="descriptive__text">
-              <%= start_node.body %>
-            </div>
+    <article role="article" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
+      <section class="app-o-spacing">
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <%= start_node.body %>
+        <% end %>
 
-            <p class="get-started">
-              <%= render "govuk_publishing_components/components/button", {
-                text: start_node.start_button_text,
-                href: smart_answer_path(@name.to_s, started: "y"),
-                rel: "nofollow",
-                start: true
-              } %>
-            </p>
-          </section>
-          <section class="more">
-            <% unless start_node.post_body.blank? %>
-              <div id="before-you-start" class="descriptive__text">
-                <h2>Before you start</h2>
-                <%= start_node.post_body %>
-              </div>
-            <% end %>
-          </section>
-        </div>
-      </article>
-    </div>
+        <%= render "govuk_publishing_components/components/button", {
+          text: start_node.start_button_text,
+          href: smart_answer_path(@name.to_s, started: "y"),
+          rel: "nofollow",
+          start: true
+        } %>
+      </section>
+
+      <% unless start_node.post_body.blank? %>
+        <section>
+          <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
+          <div id="before-you-start">
+            <%= render "govuk_publishing_components/components/heading", {
+              text: "Before you start",
+              padding: true
+            } %>
+            <%= start_node.post_body %>
+          </div>
+          <% end %>
+        </section>
+      <% end %>
+    </article>
   </div>
 </div>
