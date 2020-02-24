@@ -11,9 +11,7 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample"
 
-      within ".intro" do
-        assert page.has_link?("Start now", href: "/precalculation-sample/y")
-      end
+      assert page.has_link?("Start now", href: "/precalculation-sample/y")
 
       click_on "Start now"
 

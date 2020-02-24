@@ -17,12 +17,11 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       within "h1" do
         assert_page_has_content("The Bridge of Death")
       end
-      within ".intro" do
+
+      within "article" do
         within("h2") { assert_page_has_content("STOP!") }
         assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-
         assert page.has_no_content?("-----") # markdown should be rendered, not output
-
         assert page.has_link?("Start now", href: "/bridge-of-death/y")
       end
 
