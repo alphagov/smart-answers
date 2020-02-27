@@ -44,7 +44,7 @@
   lower_earning_limit_rate: 118
   ssp_weekly_rate: 94.25
   
-  - start_date: 2020-04-06
+- start_date: 2020-04-06
   end_date: 2021-04-05
   lower_earning_limit_rate: 120
   ssp_weekly_rate: 95.85
