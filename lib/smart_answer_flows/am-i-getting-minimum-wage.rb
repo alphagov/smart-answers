@@ -16,7 +16,7 @@ module SmartAnswer
 
         calculate :calculator do |response|
           if response == "past_payment"
-            Calculators::MinimumWageCalculator.new(date: Date.parse("2018-04-01"))
+            Calculators::MinimumWageCalculator.new(date: Date.parse("2019-04-01"))
           else
             Calculators::MinimumWageCalculator.new
           end

@@ -493,13 +493,13 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       end
 
                       should "show results'" do
-                        assert_current_node :past_payment_above
+                        assert_current_node :past_payment_below
                       end
                       should "make outcome calculations" do
                         assert_equal 42, current_state.calculator.total_hours
-                        assert_equal 3.7, current_state.calculator.minimum_hourly_rate
+                        assert_equal 3.9, current_state.calculator.minimum_hourly_rate
                         assert_equal 3.77, current_state.calculator.total_hourly_rate
-                        assert_equal true, current_state.calculator.minimum_wage_or_above?
+                        assert_equal false, current_state.calculator.minimum_wage_or_above?
                       end
                     end
                   end
@@ -775,7 +775,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
                         should "make outcome calculations" do
                           assert_equal 42, current_state.calculator.total_hours
-                          assert_equal 5.9, current_state.calculator.minimum_hourly_rate
+                          assert_equal 6.15, current_state.calculator.minimum_hourly_rate
                           assert_equal 3.77, current_state.calculator.total_hourly_rate
                           assert_equal false, current_state.calculator.minimum_wage_or_above?
                         end
@@ -874,9 +874,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response "no"
 
       assert_current_node :past_payment_below
-      assert_equal 7.38, current_state.calculator.minimum_hourly_rate # rate on '2018-07-01'
+      assert_equal 7.7, current_state.calculator.minimum_hourly_rate # rate on '2018-07-01'
 
-      expected_underpayment = 95.2
+      expected_underpayment = 103.51
       # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
       # (40h * £7.38 - £200.0) / 7.38 * 7.38 = 49.98
       assert_equal expected_underpayment, current_state.calculator.historical_adjustment
@@ -918,7 +918,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_equal 8.24, current_state.calculator.total_hourly_rate
-        assert_equal 7.83, current_state.calculator.minimum_hourly_rate
+        assert_equal 8.21, current_state.calculator.minimum_hourly_rate
         assert_current_node :past_payment_above
       end
     end
