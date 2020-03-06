@@ -39,7 +39,12 @@ module SmartAnswer
           when "england-and-wales", "northern-ireland"
             case response
             when "yes"
-              question :estate_over_250000?
+              case region
+              when "england-and-wales"
+                question :estate_over_270000?
+              when "northern-ireland"
+                question :estate_over_250000?
+              end
             when "no"
               question :children?
             end
@@ -49,7 +54,7 @@ module SmartAnswer
         end
       end
 
-      # Q3
+      # Q3 (Ireland)
       multiple_choice :estate_over_250000? do
         option :yes
         option :no
@@ -65,21 +70,36 @@ module SmartAnswer
         end
 
         next_node do |response|
-          case region
-          when "england-and-wales"
-            case response
-            when "yes"
-              question :children?
-            when "no"
-              outcome :outcome_1
-            end
-          when "northern-ireland"
-            case response
-            when "yes"
-              question :children?
-            when "no"
-              outcome :outcome_60
-            end
+          case response
+          when "yes"
+            question :children?
+          when "no"
+            outcome :outcome_60
+          end
+        end
+      end
+
+      # Q3 (England and Wales)
+      multiple_choice :estate_over_270000? do
+        option :yes
+        option :no
+
+        save_input_as :estate_over_270000
+
+        calculate :next_steps do
+          if estate_over_270000 == "yes"
+            next_steps
+          else
+            [:wills_link]
+          end
+        end
+
+        next_node do |response|
+          case response
+          when "yes"
+            question :children?
+          when "no"
+            outcome :outcome_1
           end
         end
       end
