@@ -1,6 +1,6 @@
 require "open-uri"
 
-worldwide_locations_path = Rails.root.join("test", "fixtures", "worldwide_locations.yml")
+worldwide_locations_path = Rails.root.join("test/fixtures/worldwide_locations.yml")
 worldwide_locations = YAML.load_file(worldwide_locations_path)
 
 worldwide_locations.each do |location_slug|

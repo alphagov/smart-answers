@@ -4,12 +4,12 @@ unless update_file && File.exist?(update_file)
   exit 1
 end
 
-worldwide_locations_file = Rails.root.join("test", "fixtures", "worldwide_locations.yml")
+worldwide_locations_file = Rails.root.join("test/fixtures/worldwide_locations.yml")
 worldwide_locations = YAML.load_file(worldwide_locations_file)
 
 updates = YAML.load_file(update_file)
 
-marriage_abroad_services_file = Rails.root.join("lib", "data", "marriage_abroad_services.yml")
+marriage_abroad_services_file = Rails.root.join("lib/data/marriage_abroad_services.yml")
 yaml = File.read(marriage_abroad_services_file)
 existing_data = YAML.safe_load(yaml)
 
