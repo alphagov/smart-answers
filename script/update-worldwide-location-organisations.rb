@@ -12,7 +12,7 @@ worldwide_locations.each do |location_slug|
   organisations_fixture_path = Rails.root.join("test/fixtures/worldwide/#{location_slug}_organisations.json")
 
   File.open(organisations_fixture_path, "w") do |file|
-    data = JSON.load(json)
+    data = JSON.parse(json)
     file.puts JSON.pretty_generate(data)
   end
 end
