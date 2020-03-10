@@ -7,7 +7,7 @@ worldwide_locations.each do |location_slug|
   puts "Updating data for #{location_slug}"
 
   url = "https://www.gov.uk/api/world-locations/#{location_slug}/organisations.json"
-  json = open(url).read
+  json = URI.parse(url).open.read
 
   organisations_fixture_path = Rails.root.join("test/fixtures/worldwide/#{location_slug}_organisations.json")
 
