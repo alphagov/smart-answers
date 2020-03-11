@@ -11,4 +11,4 @@ SmartAnswers::Application.load_tasks
 # - `rake spec` or `rspec` to only run rspec tests
 # - `rake` to run both minitest and rspec tests
 Rake::Task["default"].clear
-task default: [:spec, :test]
+task default: %i[spec test]

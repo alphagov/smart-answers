@@ -32,15 +32,15 @@ unless services.any?
   display_usage_message_and_exit
 end
 
-marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
+marriage_abroad_services_file = Rails.root.join("lib/data/marriage_abroad_services.yml")
 yaml = File.read(marriage_abroad_services_file)
-data = YAML.load(yaml)
+data = YAML.safe_load(yaml)
 
 data[country] ||= {}
 data[country][sex_of_partner] ||= {}
 data[country][sex_of_partner][residency] ||= {}
 data[country][sex_of_partner][residency][partner_nationality] = services.map(&:to_sym)
 
-File.open(marriage_abroad_services_file, 'w') do |file|
+File.open(marriage_abroad_services_file, "w") do |file|
   file.puts(data.to_yaml)
 end
