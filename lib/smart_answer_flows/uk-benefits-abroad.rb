@@ -320,7 +320,7 @@ module SmartAnswer
 
       # Q13 going_abroad and Q12 already_abroad
       checkbox_question :do_either_of_the_following_apply? do
-        uk_benefits_abroad_calculator.state_benefits.keys.each do |benefit|
+        uk_benefits_abroad_calculator.state_benefits.each_key do |benefit|
           option benefit
         end
 
@@ -394,7 +394,7 @@ module SmartAnswer
 
       # Q20 already_abroad
       checkbox_question :tax_credits_currently_claiming? do
-        uk_benefits_abroad_calculator.tax_credits_benefits.keys.each do |credit|
+        uk_benefits_abroad_calculator.tax_credits_benefits.each_key do |credit|
           option credit
         end
 
@@ -466,7 +466,7 @@ module SmartAnswer
 
       # Q33 going_abroad
       checkbox_question :is_claiming_benefits? do
-        uk_benefits_abroad_calculator.premiums.keys.each do |premium|
+        uk_benefits_abroad_calculator.premiums.each_key do |premium|
           option premium
         end
 
@@ -485,7 +485,7 @@ module SmartAnswer
 
       # Q34 going_abroad
       checkbox_question :is_either_of_the_following? do
-        uk_benefits_abroad_calculator.impairments.keys.each do |impairment|
+        uk_benefits_abroad_calculator.impairments.each_key do |impairment|
           option impairment
         end
 
@@ -519,7 +519,7 @@ module SmartAnswer
 
       # Q36 going_abroad
       checkbox_question :is_work_or_sick_pay? do
-        uk_benefits_abroad_calculator.periods_of_impairment.keys.each do |period|
+        uk_benefits_abroad_calculator.periods_of_impairment.each_key do |period|
           option period
         end
 
@@ -538,7 +538,7 @@ module SmartAnswer
 
       # Q37 going_abroad
       checkbox_question :is_any_of_the_following_apply? do
-        uk_benefits_abroad_calculator.all_dispute_criteria.keys.each do |criterion|
+        uk_benefits_abroad_calculator.all_dispute_criteria.each_key do |criterion|
           option criterion
         end
 

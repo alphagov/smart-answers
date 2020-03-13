@@ -49,7 +49,7 @@ module SmartAnswer
 
       #Q3
       checkbox_question :receiving_exemption_benefits? do
-        config.exempt_benefits.keys.each do |exempt_benefit|
+        config.exempt_benefits.each_key do |exempt_benefit|
           option exempt_benefit
         end
 
@@ -80,7 +80,7 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        config.benefits.keys.each do |benefit|
+        config.benefits.each_key do |benefit|
           option benefit
         end
 
@@ -133,7 +133,7 @@ module SmartAnswer
           config.weekly_benefit_cap_descriptions
         end
 
-        config.weekly_benefit_caps.keys.each do |weekly_benefit_cap|
+        config.weekly_benefit_caps.each_key do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 

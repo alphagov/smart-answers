@@ -16,12 +16,12 @@ class StartPageContentItem
         introductory_paragraph: [
           {
             content: flow_presenter.start_page_body,
-            content_type: "text/govspeak",
+            content_type: "text/govspeak; charset=utf-8",
           },
         ],
         more_information: [
           content: flow_presenter.start_page_post_body,
-          content_type: "text/govspeak",
+          content_type: "text/govspeak; charset=utf-8",
         ],
         transaction_start_link: base_path + "/y",
         start_button_text: flow_presenter.start_page_button_text,

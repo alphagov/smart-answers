@@ -74,7 +74,7 @@ module SmartAnswer::Calculators
     end
 
     #monthly? every_2_weeks? every_4_weeks? weekly?
-    PAYMENT_OPTIONS.keys.each do |frequence|
+    PAYMENT_OPTIONS.each_key do |frequence|
       define_method "#{frequence}?" do
         pay_pattern == frequence
       end
