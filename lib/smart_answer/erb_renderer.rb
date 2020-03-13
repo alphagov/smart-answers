@@ -14,7 +14,8 @@ module SmartAnswer
       @template_directory = template_directory
       @template_name = template_name
       @locals = locals
-      @view = ActionView::Base.new([@template_directory, FlowRegistry.instance.load_path])
+      lookup_context = ActionView::LookupContext.new([@template_directory, FlowRegistry.instance.load_path])
+      @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(QuestionOptionsHelper)
     end
