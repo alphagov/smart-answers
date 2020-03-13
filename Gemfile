@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "~> 5"
+gem "rails", "~> 6.0.2"
 gem "railties"
 gem "sprockets-rails"
 
@@ -19,7 +19,7 @@ gem "method_source"
 gem "parser"
 gem "plek", "3.0.0"
 gem "rack_strip_client_ip"
-gem "rails-i18n"
+gem "rails-i18n", "~> 6.0.0"
 gem "rails_stdout_logging"
 gem "sass-rails", "~> 5.0.7"
 gem "slimmer", "~> 13.2.2"
