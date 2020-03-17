@@ -1163,5 +1163,165 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_equal 3.90, current_state.calculator.minimum_hourly_rate
       end
     end
+    context "18 years old, first year apprentice, unpaid working time" do
+      should "earn above minmum wage" do
+        assert_current_node :what_would_you_like_to_check?
+        add_response "current_payment"
+
+        assert_current_node :are_you_an_apprentice?
+        add_response "apprentice_under_19"
+
+        assert_current_node :how_often_do_you_get_paid?
+        add_response "7"
+
+        assert_current_node :how_many_hours_do_you_work?
+        add_response "20"
+
+        assert_current_node :how_much_are_you_paid_during_pay_period?
+        add_response "205"
+
+        assert_current_node :is_provided_with_accommodation?
+        add_response "no"
+
+        assert_current_node :does_employer_charge_for_job_requirements?
+        add_response "no"
+
+        assert_current_node :current_additional_work_outside_shift?
+        add_response "no"
+
+        assert_current_node :current_paid_for_work_outside_shift?
+        add_response "no"
+
+        assert_current_node :current_payment_above
+        assert_equal 10.25, current_state.calculator.total_hourly_rate
+        assert_equal 3.90, current_state.calculator.minimum_hourly_rate
+      end
+    end
+    context "18 years old, first year apprentice, unpaid working time" do
+      should "earn above minmum wage" do
+        assert_current_node :what_would_you_like_to_check?
+        add_response "current_payment"
+
+        assert_current_node :are_you_an_apprentice?
+        add_response "not_an_apprentice"
+
+        assert_current_node :how_old_are_you?
+        add_response "25"
+
+        assert_current_node :how_often_do_you_get_paid?
+        add_response "5"
+
+        assert_current_node :how_many_hours_do_you_work?
+        add_response "25"
+
+        assert_current_node :how_much_are_you_paid_during_pay_period?
+        add_response "70"
+
+        assert_current_node :is_provided_with_accommodation?
+        add_response "yes_charged"
+
+        assert_current_node :current_accommodation_charge?
+        add_response 3.50
+
+        assert_current_node :current_accommodation_usage?
+        add_response 7
+
+        assert_current_node :does_employer_charge_for_job_requirements?
+        add_response "no"
+
+        assert_current_node :current_additional_work_outside_shift?
+        add_response "yes"
+
+        assert_current_node :current_paid_for_work_outside_shift?
+        add_response "yes"
+
+        assert_current_node :current_payment_above
+        assert_equal 3.90, current_state.calculator.total_hourly_rate
+        assert_equal 3.90, current_state.calculator.minimum_hourly_rate
+      end
+    end
+    context "18 years old, first year apprentice, unpaid working time" do
+      should "earn above minmum wage" do
+        assert_current_node :what_would_you_like_to_check?
+        add_response "current_payment"
+
+        assert_current_node :are_you_an_apprentice?
+        add_response "not_an_apprentice"
+
+        assert_current_node :how_old_are_you?
+        add_response "26"
+
+        assert_current_node :how_often_do_you_get_paid?
+        add_response "7"
+
+        assert_current_node :how_many_hours_do_you_work?
+        add_response "10"
+
+        assert_current_node :how_much_are_you_paid_during_pay_period?
+        add_response "205"
+
+        assert_current_node :is_provided_with_accommodation?
+        add_response "yes_charged"
+
+        assert_current_node :current_accommodation_charge?
+        add_response 1
+
+        assert_current_node :current_accommodation_usage?
+        add_response 7
+
+        assert_current_node :does_employer_charge_for_job_requirements?
+        add_response "no"
+
+        assert_current_node :current_additional_work_outside_shift?
+        add_response "yes"
+
+        assert_current_node :current_paid_for_work_outside_shift?
+        add_response "yes"
+
+        assert_current_node :current_payment_above
+        assert_equal 20.5, current_state.calculator.total_hourly_rate
+        assert_equal 8.21, current_state.calculator.minimum_hourly_rate
+      end
+    end
+    context "35 years old, not an apprentice, charged accomodation" do
+      should "earn above minmum wage" do
+        assert_current_node :what_would_you_like_to_check?
+        add_response "current_payment"
+
+        assert_current_node :are_you_an_apprentice?
+        add_response "not_an_apprentice"
+
+        assert_current_node :how_old_are_you?
+        add_response "35"
+
+        assert_current_node :how_often_do_you_get_paid?
+        add_response "21"
+
+        assert_current_node :how_many_hours_do_you_work?
+        add_response "120"
+
+        assert_current_node :how_much_are_you_paid_during_pay_period?
+        add_response "988.80"
+
+        assert_current_node :is_provided_with_accommodation?
+        add_response "yes_charged"
+
+        assert_current_node :current_accommodation_charge?
+        add_response "7.80"
+
+        assert_current_node :current_accommodation_usage?
+        add_response 7
+
+        assert_current_node :does_employer_charge_for_job_requirements?
+        add_response "no"
+
+        assert_current_node :current_additional_work_outside_shift?
+        add_response "no"
+
+        assert_current_node :current_payment_below
+        assert_equal 8.20, current_state.calculator.total_hourly_rate
+        assert_equal 8.21, current_state.calculator.minimum_hourly_rate
+      end
+    end
   end
 end

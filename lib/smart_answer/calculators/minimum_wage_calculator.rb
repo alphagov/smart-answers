@@ -108,7 +108,11 @@ module SmartAnswer::Calculators
     end
 
     def minimum_wage_or_above?
-      minimum_hourly_rate <= total_hourly_rate
+      minimum_entitlement <= total_pay
+    end
+
+    def minimum_entitlement
+      historical_entitlement
     end
 
     def accommodation_adjustment(charge, number_of_nights)
