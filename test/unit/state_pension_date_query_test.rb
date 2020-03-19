@@ -1,4 +1,4 @@
-require_relative "../../lib/data/state_pension_date_query"
+require_relative "../../lib/state_pension_date_query"
 require_relative "../test_helper"
 
 class StatePensionDateQueryTest < ActiveSupport::TestCase
