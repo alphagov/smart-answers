@@ -9,7 +9,7 @@
     <% if calculator.registration_country == 'libya' %>
       You can also register the birth with the UK authorities.
 
-      ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
+      ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You cannot apply for a passport in Libya but you can apply in a neighbouring country.^
 
       To register the birth with the UK authorities you must:
     <% else %>
@@ -29,12 +29,14 @@
   s4. Post your documents and the form.
 
 
+  %It is taking longer than usual to process applications. Do not apply if you'll need your documents back by a specific date.%
+
   ##1. Check your documents
 
   ^Send English translations of all foreign documents. <%= calculator.translator_link_url ? "Use an [approved translator](#{calculator.translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
 
   <% if calculator.country_of_birth == 'morocco' && calculator.paternity_declaration? %>
-    ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
+    ^Only the mother will be named on the local birth certificate if you are not married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
   <% end %>
 
   You must send the original versions of:
@@ -50,10 +52,10 @@
         - the child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) - it must have both parents’ names
       <% when 'denmark' %>
         - the child's full local birth certificate ('fødsel og navneattest') - it must have both parents' names
-        - confirmation from the hospital or clinic where the child was born - eg a letter or live birth notification
+        - confirmation from the hospital or clinic where the child was born - for example a letter or live birth notification
       <% when 'finland' %>
         - a birth certificate issued by the hospital
-        - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last three months - you can get this from the [register office](http://www.maistraatti.fi/en/About-Local-Register-Offices/)
+        - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last 3 months - you can get this from the [register office](http://www.maistraatti.fi/en/About-Local-Register-Offices/)
       <% when 'france' %>
         - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
       <% when 'india' %>
@@ -63,7 +65,7 @@
         - the hospital discharge summary (a letter from the hospital saying what treatment you had)
       <% when 'israel' %>
         - the child's full local birth certificate
-        - the hospital live birth certificate (if the father isn't named on the local birth certificate)
+        - the hospital live birth certificate (if the father is not named on the local birth certificate)
       <% when 'italy' %>
         - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
       <% when 'japan' %>
@@ -127,7 +129,7 @@
   <% end %>
 
   - the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
-  - the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
+  - the parent’s naturalisation or registration certificate (for parents who were not born in the UK)
   - the parents’ marriage or civil partnership certificate (if applicable)
   - evidence that the parents’ previous marriages or civil partnerships have ended (eg divorce or death certificates)
   - change of name documents (if either parent has ever changed their name)
@@ -137,10 +139,10 @@
   You must also send photocopies of:
 
   - the photo page of the child’s British passport if they have one
-  - the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
+  - the photo pages of both parents’ current passports regardless of nationality (if you do not have a passport, send a copy of another identity document that has a photo)
 
   <% if calculator.country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
-    If the child doesn't have a British passport you must also send the original copies of:
+    If the child does not have a British passport you must also send the original copies of:
 
     <% if calculator.country_of_birth == 'philippines' and calculator.british_national_parent.exclude?('mother') %>
       - a Certificate of No Marriage ("Cenomar") issued by the National Statistics Office (NSO) or Philippine Statistics Authority (PSA) - if the Filipino mother is single
@@ -149,7 +151,7 @@
     <% end %>
     <% case calculator.country_of_birth %>
     <% when 'philippines' %>
-      - the mother’s antenatal, postnatal and delivery notes from the hospital (eg blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you can't get the originals
+      - the mother’s antenatal, postnatal and delivery notes from the hospital (for example, blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you cannot get the originals
       - health cards from the hospital, doctor or clinic
       - immunisation and vaccination cards
       - a letter from the hospital confirming the birth
@@ -159,7 +161,7 @@
       - the parents' wedding photos (if the parents have been married)
       - photos of the mother during pregnancy (if the mother is a British citizen)
     <% when 'sierra-leone' %>
-      - the mother’s antenatal, postnatal and delivery notes from the hospital (eg blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you can't get the originals
+      - the mother’s antenatal, postnatal and delivery notes from the hospital (for example, blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you cannot get the originals
       - health cards from the hospital, doctor or clinic
       - immunisation and vaccination cards
       - a letter from the hospital confirming the birth
@@ -169,7 +171,7 @@
       - the parents' wedding photos (if the parents have been married)
       - photos of the mother during pregnancy (if the mother is a British citizen)
     <% when 'uganda' %>
-      - the mother’s antenatal, postnatal and delivery notes from the hospital (eg blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you can't get the originals
+      - the mother’s antenatal, postnatal and delivery notes from the hospital (for example, blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you cannot get the originals
       - health cards from the hospital, doctor or clinic
       - immunisation and vaccination cards
       - a letter from the hospital confirming the birth
@@ -181,7 +183,7 @@
     <% end %>
   <% end %>
 
-  %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
+  %Your application will be rejected if the documents are not authentic, don’t confirm the child’s identity or do not prove that the child has a claim to British nationality. The registration fee will not be refunded.%
 
 
   ##2. Fill in the application form
@@ -245,7 +247,6 @@
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
     * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
-    * 5 working days if the child has a British passport
 
     The Overseas Registration Unit will contact you if they need:
 
@@ -260,15 +261,12 @@
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
     * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
-    * 5 working days if the child has a British passport
 
     The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
   <% elsif calculator.registration_country == 'north-korea' and calculator.born_in_lower_risk_country? %>
     ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
   <% else %>
-    It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
-
-    They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
+   The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
   <% if calculator.oru_courier_variant? && !calculator.in_the_uk? %>
