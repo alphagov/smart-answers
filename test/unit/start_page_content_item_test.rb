@@ -82,7 +82,7 @@ module SmartAnswer
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "start-page-body", content_item.payload[:details][:introductory_paragraph][0][:content]
-      assert_equal "text/govspeak; charset=utf-8", content_item.payload[:details][:introductory_paragraph][0][:content_type]
+      assert_equal "text/govspeak", content_item.payload[:details][:introductory_paragraph][0][:content_type]
     end
 
     test "#payload details hash includes more information as govspeak" do
@@ -91,7 +91,7 @@ module SmartAnswer
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "start-page-post-body", content_item.payload[:details][:more_information][0][:content]
-      assert_equal "text/govspeak; charset=utf-8", content_item.payload[:details][:more_information][0][:content_type]
+      assert_equal "text/govspeak", content_item.payload[:details][:more_information][0][:content_type]
     end
 
     test "#payload details hash includes the link to the flow" do
