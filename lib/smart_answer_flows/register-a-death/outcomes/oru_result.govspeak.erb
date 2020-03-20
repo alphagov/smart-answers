@@ -5,7 +5,7 @@
 
   ##Register the death with the UK authorities
 
-  You can also apply to register the death with the UK authorities. You don’t have to do this, but it means:
+  You can also apply to register the death with the UK authorities. You do not have to do this, but it means:
 
   - the death will be recorded with the General Register Offices (for England, Wales and Northern Ireland) and the National Records Office of Scotland
   - you can order a consular death registration certificate
@@ -18,9 +18,11 @@
   s4. Post your documents and the forms.
 
 
+  %It is taking longer than usual to process applications. Do not apply if you'll need your documents back by a specific date.%
+
   ###1. Documents
 
-  ^Send English translations of all foreign documents. <% if calculator.translator_link_url %>Use an [approved translator](<%= calculator.translator_link_url %>) and include their name and address with your application<% else %>Use a professional translator and include their name and address with your application<% end %>. Don't send laminated documents.^
+  ^Send English translations of all foreign documents. <% if calculator.translator_link_url %>Use an [approved translator](<%= calculator.translator_link_url %>) and include their name and address with your application<% else %>Use a professional translator and include their name and address with your application<% end %>. Do not send laminated documents.^
 
   You must provide:
 
@@ -35,10 +37,10 @@
   <% end %>
 
   - a photocopy of the photo page of the passport of the person who died
-  - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+  - their original full UK birth, naturalisation or registration certificate (if you cannot provide their passport)
   - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
 
-  %Your application will be rejected if the documents aren’t authentic, don’t confirm the person’s identity or don’t prove that they were a British national when they died. The registration fee won’t be refunded.%
+  %Your application will be rejected if the documents are not authentic, do not confirm the person’s identity or do not prove that they were a British national when they died. The registration fee will not be refunded.%
 
   ###2. Forms
 
@@ -52,7 +54,7 @@
     Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
   <% end %>
 
-  The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from November the year after you register.
+  The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from November the year after you register.
 
   <%= render partial: 'fees.govspeak.erb',
              locals: { calculator: calculator } %>
@@ -90,9 +92,7 @@
 
   ##Return of your documents
 
-  It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
-
-  They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
+  The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
   <% if calculator.oru_courier_variant? %>
     <% case calculator.registration_country %>
