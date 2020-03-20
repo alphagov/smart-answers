@@ -106,7 +106,7 @@ private
         body: [
           {
             content: content,
-            content_type: "text/govspeak; charset=utf-8",
+            content_type: "text/govspeak",
           },
         ],
       },
@@ -134,7 +134,7 @@ private
         introductory_paragraph: [
           {
             content: content,
-            content_type: "text/govspeak; charset=utf-8",
+            content_type: "text/govspeak",
           },
         ],
         transaction_start_link: link,
