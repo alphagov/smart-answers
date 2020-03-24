@@ -4,6 +4,7 @@ module SmartAnswer
       class PeriodOfIncapacityForWork < DateRange
         MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
         MINIMUM_NUMBER_OF_DAYS = 4
+        CORONAVIRUS_SSP_START_DATE = Time.zone.local(2020, 3, 13)
 
         def qualifying_days(pattern)
           dates = begins_on..ends_on
@@ -23,7 +24,7 @@ module SmartAnswer
       include ActiveModel::Model
 
       attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
-      attr_accessor :other_pay_types_received, :enough_notice_of_absence
+      attr_accessor :other_pay_types_received, :enough_notice_of_absence, :has_coronavirus
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
@@ -55,12 +56,12 @@ module SmartAnswer
         linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 
-      def number_of_waiting_days_in_linked_piw
-        [prev_sick_days, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS].min
-      end
-
       def number_of_waiting_days_not_in_linked_piw
-        PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - number_of_waiting_days_in_linked_piw
+        if has_coronavirus && current_piw.begins_on >= PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE
+          0
+        else
+          [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
+        end
       end
 
       def pattern_days
