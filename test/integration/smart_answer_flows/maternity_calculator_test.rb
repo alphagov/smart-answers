@@ -516,6 +516,26 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
     end
 
+    context "check for correct LEL Saturday, April 18th 2020 monthly" do
+      setup do
+        add_response Date.parse("2020-07-26")
+        add_response Date.parse("2020-06-29")
+        add_response :yes
+        add_response Date.parse("2020-04-06")
+        add_response Date.parse("2020-02-07")
+        add_response :monthly
+        add_response 956
+        add_response "2"
+        add_response "weekly_starting"
+      end
+
+      should "have LEL of 120" do
+        assert_state_variable :to_saturday_formatted, "Saturday, 18 April 2020"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f", 120)
+        assert_current_node :maternity_leave_and_pay_result
+      end
+    end
+
 
     context "check for correct LEL Saturday, 12 April 2014 monthly" do
       setup do
