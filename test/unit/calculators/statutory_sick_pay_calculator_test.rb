@@ -1010,6 +1010,65 @@ module SmartAnswer
           assert_equal StatutorySickPayCalculator.year_of_sickness, Date.parse("31 Dec 2018")
         end
       end
+
+
+      context "when the employee is self-isolating due to coronavirus" do
+        context "starting before 13 March 2020" do
+          start_date = Date.parse("12 March 2020") # thursday
+          end_date = Date.parse("17 March 2020") # tuesday
+
+          should "use normal rules for SSP" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              has_coronavirus: true,
+            )
+
+            assert_equal 1, calc.days_paid
+            assert_equal true, calc.valid_period_of_incapacity_for_work?
+          end
+        end
+
+        context "starting on or after 13 March 2020" do
+          start_date = Date.parse("13 March 2020") # friday
+
+          context "lasting four days or more" do
+            end_date = Date.parse("16 March 2020") # monday
+
+            should "pay SSP for all days of absence" do
+              calc = StatutorySickPayCalculator.new(
+                sick_start_date: start_date,
+                sick_end_date: end_date,
+                days_of_the_week_worked: %w(1 2 3 4 5),
+                has_linked_sickness: false,
+                has_coronavirus: true,
+              )
+
+              assert_equal 2, calc.days_paid
+              assert_equal true, calc.valid_period_of_incapacity_for_work?
+            end
+          end
+
+          context "lasting less than four days" do
+            end_date = Date.parse("15 March 2020") # sunday
+
+            should "not pay SSP" do
+              calc = StatutorySickPayCalculator.new(
+                sick_start_date: start_date,
+                sick_end_date: end_date,
+                days_of_the_week_worked: %w(1 2 3 4 5),
+                has_linked_sickness: false,
+                has_coronavirus: true,
+              )
+
+              assert_equal 1, calc.days_paid # will never be called by the calculator
+              assert_equal false, calc.valid_period_of_incapacity_for_work? # because this determines the outcome that no days are to be paid
+            end
+          end
+        end
+      end
     end # SSP calculator
   end
 end
