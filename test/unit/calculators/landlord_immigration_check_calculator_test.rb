@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
 
     context "when postcode is in England" do
       setup do
-        imminence_has_areas_for_postcode("RH6 0NP", [{ type: "EUR", name: "South East", country_name: "England" }])
+        stub_imminence_has_areas_for_postcode("RH6 0NP", [{ type: "EUR", name: "South East", country_name: "England" }])
         @calculator.postcode = "RH6 0NP"
       end
 
@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
 
     context "when postcode is outside England" do
       setup do
-        imminence_has_areas_for_postcode("PA3 2SW", [{ type: "EUR", name: "Scotland", country_name: "Scotland" }])
+        stub_imminence_has_areas_for_postcode("PA3 2SW", [{ type: "EUR", name: "Scotland", country_name: "Scotland" }])
         @calculator.postcode = "PA3 2SW"
       end
 
@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
 
     context "when postcode has multiple areas all in England" do
       setup do
-        imminence_has_areas_for_postcode("RH6 0NP", [
+        stub_imminence_has_areas_for_postcode("RH6 0NP", [
           { type: "EUR", name: "South East", country_name: "England" },
           { type: "DIS", name: "Crawley Borough Council", country_name: "England" },
         ])
@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
 
     context "when postcode has multiple areas some in England and some not" do
       setup do
-        imminence_has_areas_for_postcode("XY1 0AB", [
+        stub_imminence_has_areas_for_postcode("XY1 0AB", [
           { type: "CTY", name: "Cumbria County Council", country_name: "England" },
           { type: "SPC", name: "Dumfriesshire", country_name: "Scotland" },
         ])
