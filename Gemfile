@@ -36,7 +36,7 @@ end
 group :development, :test do
   gem "byebug"
   gem "pry"
-  gem "rspec-rails", "~> 3.9.1"
+  gem "rspec-rails", "~> 4.0.0"
   gem "rubocop-govuk"
   gem "timecop"
 end
