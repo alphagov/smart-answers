@@ -53,6 +53,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     context "employee didn't tell employer within time limit" do
       setup do
         add_response :no
+        add_response :no
       end
 
       should "go to entitled_to_sick_pay outcome" do
@@ -81,6 +82,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     context "employee told employer within time limit" do
       setup do
         add_response :yes
+        add_response :no
       end
 
       should "take you to Q3" do
@@ -267,14 +269,15 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "none" # Q1
       add_response "yes" # Q2
       add_response "no" # Q3
-      add_response "2018-06-10" # Q4
-      add_response "2018-06-20" # Q5
-      add_response "no" # Q11
-      add_response "before_payday" # Q5.1
-      add_response "weekly" # Q5.2
-      add_response "115" # Q7
-      add_response "7" # Q7.1
-      add_response "1,2,3,4,5" # Q13
+      add_response "no" # Q4
+      add_response "2018-06-10" # Q5
+      add_response "2018-06-20" # Q6
+      add_response "no" # Q12
+      add_response "before_payday" # Q6.1
+      add_response "weekly" # Q6.2
+      add_response "115" # Q8
+      add_response "7" # Q8.1
+      add_response "1,2,3,4,5" # Q14
     end
     should "take you to result A5 as awe < LEL (as of 2018-06-10)" do
       assert_equal current_state.calculator.employee_average_weekly_earnings, 115
@@ -286,6 +289,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response "none"
       add_response "yes"
+      add_response "no"
       add_response "no"
       add_response "2013-06-10"
       add_response "2013-06-12"
@@ -299,6 +303,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response "none"
       add_response "yes"
+      add_response "no"
       add_response "no"
       add_response "2015-03-12"
       add_response "2015-03-19"
@@ -328,6 +333,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "none"
       assert_current_node :employee_tell_within_limit?
       add_response "yes"
+      assert_current_node :coronavirus_related?
+      add_response "no"
       assert_current_node :employee_work_different_days?
       add_response "no"
       assert_current_node :first_sick_day?
@@ -361,6 +368,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     should "have the adjusted rates in place for the week crossing through 6th April" do
       add_response :statutory_paternity_pay
       add_response :yes
+      add_response :no
       add_response :no
       add_response "2013-01-08"
       add_response "2013-05-03"
@@ -399,6 +407,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :statutory_paternity_pay
       add_response :yes
       add_response :no
+      add_response :no
       add_response "2013-01-08"
       add_response "2013-05-03"
       add_response :yes
@@ -436,6 +445,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :statutory_paternity_pay
       add_response :yes
       add_response :no
+      add_response :no
       add_response "2013-01-07"
       add_response "2013-05-03"
       add_response :no
@@ -470,6 +480,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     should "show formatted weekly payment amounts with adjusted 3 days start amount for additional SPP" do
       add_response :shared_parental_leave_and_pay
       add_response :yes
+      add_response :no
       add_response :no
       add_response "2013-01-07"
       add_response "2013-05-03"
@@ -508,6 +519,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :shared_parental_leave_and_pay
       add_response :no
       add_response :no
+      add_response :no
       assert_current_node :first_sick_day?
     end
 
@@ -528,6 +540,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response :shared_parental_leave_and_pay
       add_response :yes
+      add_response :no
       add_response :no
       add_response "02/04/2013"
       assert_current_node :last_sick_day?
@@ -556,6 +569,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
+      add_response :no
       add_response "2015-03-19"
       add_response "2015-03-27"
       add_response :yes
@@ -582,6 +596,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response :shared_parental_leave_and_pay
       add_response :yes
+      add_response :no
       add_response :no
       add_response "2015-05-21"
       add_response "2015-05-29"
@@ -622,6 +637,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
+      add_response :no
       add_response "02/04/2013"
       add_response "10/04/2013"
       add_response :no
@@ -645,6 +661,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response :shared_parental_leave_and_pay
       add_response :yes
+      add_response :no
       add_response :no
       add_response "02/04/2013"
       add_response "10/04/2013"
