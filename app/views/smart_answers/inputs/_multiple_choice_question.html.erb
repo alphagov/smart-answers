@@ -1,9 +1,16 @@
+<% body = capture do %>
+  <%= render "govuk_publishing_components/components/govspeak", {
+  } do %>
+    <%= question.body %>
+  <% end %>
+<% end %>
+
 <%= render "govuk_publishing_components/components/radio", {
   name: "response",
   heading: question.title,
   hint: question.hint,
   id_prefix: "response",
-  description: question.body,
+  description: body,
   error_message: question.error,
   items: question.radio_buttons
 } %>
