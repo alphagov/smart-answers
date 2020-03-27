@@ -7,7 +7,7 @@ class WorldLocationTest < ActiveSupport::TestCase
   context "loading all locations" do
     should "load locations and construct an instance for each one" do
       @location_slugs = %w(the-shire rivendel rohan lorien gondor arnor mordor)
-      worldwide_api_has_locations(@location_slugs)
+      stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
       assert results.first.is_a?(WorldLocation)
@@ -16,7 +16,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     should "load multiple pages of locations" do
       @location_slugs = (1..30).map { |n| "location-#{n}" }
-      worldwide_api_has_locations(@location_slugs)
+      stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
       assert_equal @location_slugs, results.map(&:slug)
@@ -24,7 +24,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     should "filter out any results that are not world locations e.g. delegations & missions" do
       @location_slugs = %w(the-shire rivendel rohan delegation-to-lorien gondor arnor mission-to-mordor)
-      worldwide_api_has_locations(@location_slugs)
+      stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
       assert_equal %w(the-shire rivendel rohan gondor arnor), results.map(&:slug)
@@ -49,7 +49,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     context "caching the results" do
       setup do
         @location_slugs = (1..30).map { |n| "location-#{n}" }
-        worldwide_api_has_locations(@location_slugs)
+        stub_worldwide_api_has_locations(@location_slugs)
       end
 
       should "cache the loaded locations" do
@@ -132,7 +132,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "finding a location by slug" do
     should "return a corresponding instance if found" do
-      worldwide_api_has_location("rohan")
+      stub_worldwide_api_has_location("rohan")
       result = WorldLocation.find("rohan")
       assert result.is_a?(WorldLocation)
       assert_equal "rohan", result.slug
@@ -146,8 +146,8 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "caching the result" do
       setup do
-        worldwide_api_has_location("rohan")
-        worldwide_api_has_location("gondor")
+        stub_worldwide_api_has_location("rohan")
+        stub_worldwide_api_has_location("gondor")
       end
 
       should "cache the loaded location" do
@@ -206,8 +206,8 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "equality" do
     setup do
-      worldwide_api_has_location("rohan")
-      worldwide_api_has_location("gondor")
+      stub_worldwide_api_has_location("rohan")
+      stub_worldwide_api_has_location("gondor")
     end
 
     should "consider 2 location instances with the same slug as ==" do
@@ -233,7 +233,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "accessing attributes" do
     setup do
-      worldwide_api_has_location("rohan")
+      stub_worldwide_api_has_location("rohan")
       @location = WorldLocation.find("rohan")
     end
 
@@ -250,7 +250,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "organisations" do
     setup do
-      worldwide_api_has_location("rohan")
+      stub_worldwide_api_has_location("rohan")
       @location = WorldLocation.find("rohan")
     end
 
