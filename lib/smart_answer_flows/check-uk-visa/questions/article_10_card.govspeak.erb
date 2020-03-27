@@ -1,13 +1,16 @@
 <% content_for :title do %>
-  Do you have a valid Article 10 residence card?
+  Do you have an Article 10 or 20 card?
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.family_visit? %>
-    The person you’re staying with must be your sponsor.
-  <% else %>
-    The person you’re visiting or travelling with must be your sponsor.
-  <% end %>
+
+  You only get one of these if you're both of the following:
+
+  - the family member of an EEA citizen
+  - living in a different EEA country than the one your family member is from
+
+  Find out more about [Article 10 or 20 cards](/government/publications/entering-the-uk-as-the-holder-of-an-article-10-residence-card/entering-the-uk-as-the-holder-of-an-article-10-residence-card).
+
 <% end %>
 
 <% options(
