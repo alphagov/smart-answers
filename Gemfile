@@ -30,6 +30,7 @@ gem "uk_postcode", "~> 2.1.5"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "listen"
   gem "nokogiri"
 end
 
