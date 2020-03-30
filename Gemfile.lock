@@ -152,6 +152,9 @@ GEM
     kgio (2.11.3)
     kramdown (1.15.0)
     link_header (0.0.8)
+    listen (3.2.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     logstash-event (1.2.02)
     logstasher (1.3.0)
       activesupport (>= 4.0)
@@ -392,6 +395,7 @@ DEPENDENCIES
   govuk_test
   htmlentities (~> 4)
   json
+  listen
   method_source
   minitest (~> 5.14)
   minitest-focus (~> 1.1, >= 1.1.2)
