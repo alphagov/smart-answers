@@ -14,6 +14,7 @@ module SmartAnswer
         option :maternity_allowance
         option :statutory_paternity_pay
         option :statutory_adoption_pay
+        option :statutory_parental_bereavement_pay
         option :shared_parental_leave_and_pay
 
         on_response do |response|
