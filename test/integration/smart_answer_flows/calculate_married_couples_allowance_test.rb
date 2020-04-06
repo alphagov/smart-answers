@@ -59,7 +59,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       context "income > 25400" do
         setup do
           add_response "1930-05-25"
-          add_response "30000"
+          add_response "35000"
         end
 
         should "ask if paying into a pension" do
@@ -229,7 +229,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       context "income > 25400" do
         setup do
           add_response "1930-05-14"
-          add_response "30000"
+          add_response "35000"
         end
 
         should "ask if paying into a pension" do
