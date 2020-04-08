@@ -1,7 +1,7 @@
 require "test_helper"
 require "gds_api/test_helpers/publishing_api"
 
-class ContentItemPublisherTest < ActiveSupport::TestCase
+class ContentItemSyncerTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::PublishingApi
 
   setup do
@@ -28,7 +28,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     should "create a preview for a draft smart answer" do
       @flow.stubs(:status).returns(:draft)
       presenter = FlowRegistrationPresenter.new(@flow)
-      ContentItemPublisher.new.sync([presenter])
+      ContentItemSyncer.new.sync([presenter])
 
       assert_requested @start_page_draft_request
       assert_not_requested @start_page_publishing_request
@@ -39,7 +39,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     should "publish a published smart answer" do
       @flow.stubs(:status).returns(:published)
       presenter = FlowRegistrationPresenter.new(@flow)
-      ContentItemPublisher.new.sync([presenter])
+      ContentItemSyncer.new.sync([presenter])
 
       assert_requested @start_page_draft_request
       assert_requested @start_page_publishing_request
