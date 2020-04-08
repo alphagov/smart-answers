@@ -1,13 +1,14 @@
 namespace :publishing_api do
-  desc "Publish smart answers to the content-store"
-  task publish_all: [:environment] do
+  desc "Sync all smart answers with the Publishing API"
+  task sync_all: [:environment] do
     flow_presenters = RegisterableSmartAnswers.new.flow_presenters
-    ContentItemPublisher.new.publish(flow_presenters)
+    ContentItemPublisher.new.sync(flow_presenters)
   end
 
-  task :publish_single, %i[slug] => [:environment] do |_, args|
+  desc "Sync a single smart answer with the Publishing API"
+  task :sync, %i[slug] => [:environment] do |_, args|
     flow_presenters = RegisterableSmartAnswers.new.flow_presenters
-    ContentItemPublisher.new.publish(
+    ContentItemPublisher.new.sync(
       flow_presenters.select do |presenter|
         presenter.slug == args[:slug]
       end,

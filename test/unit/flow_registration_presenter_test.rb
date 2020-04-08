@@ -58,6 +58,18 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
+  context "publish?" do
+    should "return true for a published flow" do
+      @flow.status(:published)
+      assert @presenter.publish?
+    end
+
+    should "return false true for a draft flow" do
+      @flow.status(:draft)
+      assert_not @presenter.publish?
+    end
+  end
+
   context "flows_content" do
     should "include all flow content" do
       expected_content = [
