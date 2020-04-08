@@ -50,7 +50,7 @@ module SmartAnswer
     def define
       name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
       content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
-      status :published # this indicates whether or not the flow should appear on gov.uk (i.e. production); those with `:draft` status will not appear
+      status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
       satisfies_need "123456" # may relate the Smart Answer to the original user need in the Need-o-tron app (?)
       external_related_links { title: "Child Maintenance Options - How much should be paid",
                                url: "http://www.cmoptions.org/en/maintenance/how-much.asp" } # External links associated to the Smart-Answer                                      

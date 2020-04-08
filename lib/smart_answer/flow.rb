@@ -14,6 +14,7 @@ module SmartAnswer
 
     def initialize(&block)
       @nodes = []
+      status(:draft)
       instance_eval(&block) if block_given?
     end
 
