@@ -6,7 +6,7 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
 
   setup do
     load_path = fixture_file("smart_answer_flows")
-    SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
+    SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", load_path: load_path))
   end
 
   context "#sync" do
