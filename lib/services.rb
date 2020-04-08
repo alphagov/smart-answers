@@ -1,19 +1,13 @@
 require "statsd"
 require "gds_api"
-require "gds_api/publishing_api"
-require "gds_api/content_store"
-require "gds_api/imminence"
 
 module Services
   def self.publishing_api
-    @publishing_api ||= GdsApi::PublishingApi.new(
-      Plek.new.find("publishing-api"),
-      bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"] || "example",
-    )
+    @publishing_api ||= GdsApi.publishing_api
   end
 
   def self.imminence_api
-    @imminence_api ||= GdsApi::Imminence.new(Plek.new.find("imminence"))
+    @imminence_api ||= GdsApi.imminence
   end
 
   def self.worldwide_api
@@ -21,9 +15,7 @@ module Services
   end
 
   def self.content_store
-    @content_store ||= GdsApi::ContentStore.new(
-      Plek.new.find("content-store"),
-    )
+    @content_store ||= GdsApi.content_store
   end
 
   def self.content_store=(new_content_store)
