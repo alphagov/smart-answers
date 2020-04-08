@@ -89,10 +89,4 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       assert_equal expected_content, @presenter.flows_content
     end
   end
-
-  context "state" do
-    should "always return live, because the FlowRegistry decides what to register" do
-      assert_equal "live", @presenter.state
-    end
-  end
 end

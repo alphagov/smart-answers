@@ -88,10 +88,6 @@ class FlowRegistrationPresenter
       end
   end
 
-  def state
-    "live"
-  end
-
 private
 
   def start_node
