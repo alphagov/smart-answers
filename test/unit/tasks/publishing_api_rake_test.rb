@@ -1,17 +1,17 @@
 require "test_helper"
 require "gds_api/test_helpers/publishing_api"
 
-class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
+class PublishingApiRakeTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::PublishingApi
 
-  context "retire:unpublish_redirect" do
+  context "publishing_api:unpublish_redirect" do
     setup do
-      Rake::Task["retire:unpublish_redirect"].reenable
+      Rake::Task["publishing_api:unpublish_redirect"].reenable
     end
 
     should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect"].invoke
+        Rake::Task["publishing_api:unpublish_redirect"].invoke
       end
 
       assert_equal "Missing content_id parameter", exception.message
@@ -19,7 +19,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when base_path isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect"]
+        Rake::Task["publishing_api:unpublish_redirect"]
           .invoke("content-id", nil, "/destination")
       end
 
@@ -28,7 +28,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when destination isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect"]
+        Rake::Task["publishing_api:unpublish_redirect"]
           .invoke("content-id", "/base-path", nil)
       end
 
@@ -45,20 +45,20 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
                               destination: "/new-destination" }] },
       )
 
-      Rake::Task["retire:unpublish_redirect"]
+      Rake::Task["publishing_api:unpublish_redirect"]
         .invoke("content-id", "/base-path", "/new-destination")
       assert_requested unpublish_request
     end
   end
 
-  context "retire:unpublish_gone rake task" do
+  context "publishing_api:unpublish_gone rake task" do
     setup do
-      Rake::Task["retire:unpublish_gone"].reenable
+      Rake::Task["publishing_api:unpublish_gone"].reenable
     end
 
     should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_gone"].invoke
+        Rake::Task["publishing_api:unpublish_gone"].invoke
       end
 
       assert_equal "Missing content_id parameter", exception.message
@@ -70,19 +70,19 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         body: { type: "gone" },
       )
 
-      Rake::Task["retire:unpublish_gone"].invoke("content-id")
+      Rake::Task["publishing_api:unpublish_gone"].invoke("content-id")
       assert_requested unpublish_request
     end
   end
 
-  context "retire:unpublish_vanish rake task" do
+  context "publishing_api:unpublish_vanish rake task" do
     setup do
-      Rake::Task["retire:unpublish_vanish"].reenable
+      Rake::Task["publishing_api:unpublish_vanish"].reenable
     end
 
     should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_vanish"].invoke
+        Rake::Task["publishing_api:unpublish_vanish"].invoke
       end
 
       assert_equal "Missing content_id parameter", exception.message
@@ -94,19 +94,19 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         body: { type: "vanish" },
       )
 
-      Rake::Task["retire:unpublish_vanish"].invoke("content-id")
+      Rake::Task["publishing_api:unpublish_vanish"].invoke("content-id")
       assert_requested unpublish_request
     end
   end
 
-  context "retire:change_owning_application rake task" do
+  context "publishing_api:change_owning_application rake task" do
     setup do
-      Rake::Task["retire:change_owning_application"].reenable
+      Rake::Task["publishing_api:change_owning_application"].reenable
     end
 
     should "raise exception when base-path is not defined" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:change_owning_application"].invoke(nil, "a-publisher")
+        Rake::Task["publishing_api:change_owning_application"].invoke(nil, "a-publisher")
       end
 
       assert_equal "Missing base_path parameter", exception.message
@@ -114,7 +114,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when publishing_app not defined" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:change_owning_application"].invoke("/base-path", nil)
+        Rake::Task["publishing_api:change_owning_application"].invoke("/base-path", nil)
       end
 
       assert_equal "Missing publishing_app parameter", exception.message
@@ -125,7 +125,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
                                                              publishing_app: "a-publisher",
                                                              override_existing: true)
 
-      Rake::Task["retire:change_owning_application"].invoke("/base-path", "a-publisher")
+      Rake::Task["publishing_api:change_owning_application"].invoke("/base-path", "a-publisher")
 
       assert_requested reserve_request
     end
