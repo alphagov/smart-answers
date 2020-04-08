@@ -1,12 +1,12 @@
 require "statsd"
 require "gds_api"
-require "gds_api/publishing_api_v2"
+require "gds_api/publishing_api"
 require "gds_api/content_store"
 require "gds_api/imminence"
 
 module Services
   def self.publishing_api
-    @publishing_api ||= GdsApi::PublishingApiV2.new(
+    @publishing_api ||= GdsApi::PublishingApi.new(
       Plek.new.find("publishing-api"),
       bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"] || "example",
     )
