@@ -67,5 +67,8 @@ module SmartAnswers
     config.action_dispatch.ignore_accept_header = true
 
     config.eager_load_paths << Rails.root.join("lib")
+
+    # Allow requests for all domains e.g. <app>.dev.gov.uk
+    config.hosts.clear
   end
 end
