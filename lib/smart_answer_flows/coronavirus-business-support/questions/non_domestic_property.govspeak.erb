@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  Does your business have a non-domestic property with a rateable value of:
+<% end %>
+
+<% options(
+  "over_51k": "Over £51,000",
+  "over_15k": "Over £15,000 and under £51,000",
+  "up_to_15k": "Up to £15,000",
+  "none": "My business does not have a non-domestic property",
+) %>
