@@ -11,18 +11,21 @@ The templates can contain content for any of the following keys:
 * Valid for all question types
 * `text` argument is a String
 * Used as the heading (currently "h2")
+* [Example](#example) of how it's used
 
 ### `options(hash)`
 
-* Valid for [multiple choice](question-types.md#multiple_choice) & [checkbox question](question-types.md#checkbox_question) types
+* Valid for [multiple choice](../question-types.md#multiple_choice) & [checkbox question](../question-types.md#checkbox_question) types
 * `hash` argument is a `Hash` of option keys (strings) and text values (also strings)
 * Used to "translate" options keys for multiple choice & checkbox questions into human-friendly text
+* [Example](#example) of how it's used with a Flow class
 
 ### `hint(text)`
 
 * Valid for all question types
 * `text` argument is a String
 * Used as a "hint" paragraph
+* [Example](#example) of how it's used
 
 ### `label(text)`
 
@@ -32,7 +35,7 @@ The templates can contain content for any of the following keys:
 
 ### `suffix_label(text)`
 
-* Valid for [value questions](question-types.md#value_question) & [money questions](question-types.md#money_question)
+* Valid for [value questions](../question-types.md#value_question) & [money questions](../question-types.md#money_question)
 * `text` argument is a String
 * Used as the label (following the input control)
 
@@ -62,6 +65,18 @@ The templates can contain content for any of the following keys:
 * Any key can be used, but by convention the `error_` prefix is used
 
 ## Example
+
+```ruby
+class CheckboxSampleFlow < Flow
+  def define
+    multiple_choice :how_much_milk_protein? do
+      option "0"
+      option "2"
+      option "12"
+    end
+  end
+end
+```
 
 ```erb
 <% content_for :title do %>
