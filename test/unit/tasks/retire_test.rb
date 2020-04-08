@@ -1,14 +1,17 @@
 require "test_helper"
+require "gds_api/test_helpers/publishing_api"
 
 class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
-  context "retire:unpublish_redirect_remove_from_search rake task" do
+  include GdsApi::TestHelpers::PublishingApi
+
+  context "retire:unpublish_redirect" do
     setup do
-      Rake::Task["retire:unpublish_redirect_remove_from_search"].reenable
+      Rake::Task["retire:unpublish_redirect"].reenable
     end
 
     should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke
+        Rake::Task["retire:unpublish_redirect"].invoke
       end
 
       assert_equal "Missing content_id parameter", exception.message
@@ -16,7 +19,8 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when base_path isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke("content-id", nil)
+        Rake::Task["retire:unpublish_redirect"]
+          .invoke("content-id", nil, "/destination")
       end
 
       assert_equal "Missing base_path parameter", exception.message
@@ -24,59 +28,80 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when destination isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
-          "content-id",
-          "/base-path",
-          nil,
-        )
+        Rake::Task["retire:unpublish_redirect"]
+          .invoke("content-id", "/base-path", nil)
       end
 
       assert_equal "Missing destination parameter", exception.message
     end
 
-    should "invoke the unpublish_with_redirect method from ContentItemPublisher" do
-      content_item_publisher_mock = ContentItemPublisher.any_instance
-
-      content_item_publisher_mock.stubs(:unpublish).returns(nil)
-
-      content_item_publisher_mock
-        .expects(:unpublish_with_redirect)
-        .with("content-id", "/base-path", "/new-destination")
-        .once
-
-      Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
+    should "send an unpublishing of type redirect to the Publishing API" do
+      WebMock.reset!
+      unpublish_request = stub_publishing_api_unpublish(
         "content-id",
-        "/base-path",
-        "/new-destination",
+        body: { type: "redirect",
+                redirects: [{ path: "/base-path",
+                              type: "prefix",
+                              destination: "/new-destination" }] },
       )
+
+      Rake::Task["retire:unpublish_redirect"]
+        .invoke("content-id", "/base-path", "/new-destination")
+      assert_requested unpublish_request
     end
   end
 
-  context "retire:unpublish rake task" do
+  context "retire:unpublish_gone rake task" do
     setup do
-      Rake::Task["retire:unpublish"].reenable
-      ContentItemPublisher.any_instance.stubs(:unpublish).returns(nil)
+      Rake::Task["retire:unpublish_gone"].reenable
     end
 
-    should "raise exception when slug isn't defined" do
+    should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:unpublish"].invoke
+        Rake::Task["retire:unpublish_gone"].invoke
       end
 
-      assert_equal "Missing content-id parameter", exception.message
+      assert_equal "Missing content_id parameter", exception.message
     end
 
-    should "invoke the unpublish method on ContentItemPublisher" do
-      ContentItemPublisher.any_instance.expects(:unpublish).with("content-id").once
+    should "send an unpublishing of type gone to the Publishing API" do
+      unpublish_request = stub_publishing_api_unpublish(
+        "content-id",
+        body: { type: "gone" },
+      )
 
-      Rake::Task["retire:unpublish"].invoke("content-id")
+      Rake::Task["retire:unpublish_gone"].invoke("content-id")
+      assert_requested unpublish_request
+    end
+  end
+
+  context "retire:unpublish_vanish rake task" do
+    setup do
+      Rake::Task["retire:unpublish_vanish"].reenable
+    end
+
+    should "raise exception when content_id isn't supplied" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:unpublish_vanish"].invoke
+      end
+
+      assert_equal "Missing content_id parameter", exception.message
+    end
+
+    should "send an unpublishing of type vanish to the Publishing API" do
+      unpublish_request = stub_publishing_api_unpublish(
+        "content-id",
+        body: { type: "vanish" },
+      )
+
+      Rake::Task["retire:unpublish_vanish"].invoke("content-id")
+      assert_requested unpublish_request
     end
   end
 
   context "retire:change_owning_application rake task" do
     setup do
       Rake::Task["retire:change_owning_application"].reenable
-      ContentItemPublisher.any_instance.stubs(:reserve_path_for_publishing_app).returns(nil)
     end
 
     should "raise exception when base-path is not defined" do
@@ -84,7 +109,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         Rake::Task["retire:change_owning_application"].invoke(nil, "a-publisher")
       end
 
-      assert_equal "Missing base-path parameter", exception.message
+      assert_equal "Missing base_path parameter", exception.message
     end
 
     should "raise exception when publishing_app not defined" do
@@ -95,10 +120,14 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       assert_equal "Missing publishing_app parameter", exception.message
     end
 
-    should "invoke reserve_path_for_publishing_app method on ContentItemPublisher" do
-      ContentItemPublisher.any_instance.expects(:reserve_path_for_publishing_app).with("/base-path", "a-publisher").once
+    should "send a path reservation to the Publishing API" do
+      reserve_request = stub_publishing_api_path_reservation("/base-path",
+                                                             publishing_app: "a-publisher",
+                                                             override_existing: true)
 
       Rake::Task["retire:change_owning_application"].invoke("/base-path", "a-publisher")
+
+      assert_requested reserve_request
     end
   end
 end
