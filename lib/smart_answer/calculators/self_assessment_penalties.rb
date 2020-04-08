@@ -193,12 +193,12 @@ module SmartAnswer::Calculators
     end
 
     def daily_rate(date)
-      # Rate increased to 3.25% on 21 August 2018
-      rate_change_date = Date.new(2018, 8, 21)
+      # Rate decreased to 2.6% on 7 April 2020
+      rate_change_date = Date.new(2020, 4, 7)
       if date < rate_change_date
-        0.03 / 365.0
-      else
         0.0325 / 365.0
+      else
+        0.026 / 365.0
       end
     end
   end
