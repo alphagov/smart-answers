@@ -4,17 +4,16 @@ module SmartAnswer
     FLOW_DIR = Rails.root.join("lib/smart_answer_flows")
 
     def self.instance
-      @instance ||= new(FLOW_REGISTRY_OPTIONS)
+      @instance ||= new
     end
 
-    def self.reset_instance
-      @instance = nil
+    def self.reset_instance(options = {})
+      @instance = new(options)
     end
 
     def initialize(options = {})
       @load_path = Pathname.new(options[:smart_answer_load_path] || FLOW_DIR)
-      @show_drafts = options.fetch(:show_drafts, false)
-      preload_flows! if Rails.env.production? || options[:preload_flows]
+      preload_flows! if !Rails.env.development? || options[:preload_flows]
     end
     attr_reader :load_path
 
@@ -36,13 +35,14 @@ module SmartAnswer
       end
     end
 
+    def preloaded?
+      @preloaded.present?
+    end
+
   private
 
     def find_by_name(name)
-      flow = @preloaded ? preloaded(name) : build_flow(name)
-      return nil if flow && flow.draft? && !@show_drafts
-
-      flow
+      @preloaded ? preloaded(name) : build_flow(name)
     end
 
     def available?(name)

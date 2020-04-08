@@ -48,10 +48,6 @@ module SmartAnswer
       @external_related_links
     end
 
-    def draft?
-      status == :draft
-    end
-
     def status(potential_status = nil)
       if potential_status
         raise Flow::InvalidStatus unless %i[published draft].include? potential_status

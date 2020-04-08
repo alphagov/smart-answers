@@ -181,18 +181,10 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1337, s.need_id
   end
 
-  test "should not be draft" do
+  test "should not have a draft status" do
     s = SmartAnswer::Flow.new {}
 
-    assert_not s.draft?
-  end
-
-  test "should be draft if status is draft" do
-    s = SmartAnswer::Flow.new do
-      status :draft
-    end
-
-    assert s.draft?
+    assert_not_equal :draft, s.status
   end
 
   test "should have a status" do
