@@ -192,31 +192,31 @@ module SmartAnswer::Calculators
             assert_equal 0, @calculator.interest
             # 31 days after the deadline
             @calculator.payment_date = Date.parse("2014-03-03")
-            assert_equal 24.66, @calculator.interest
+            assert_equal 26.71, @calculator.interest
             assert_equal 500, @calculator.late_payment_penalty
             # should calculate PenaltyInterest1
             @calculator.payment_date = Date.parse("2014-04-02")
-            assert_equal 49.32, @calculator.interest #50.14 + 0.04 penalty interest
+            assert_equal 53.42, @calculator.interest #50.14 + 0.04 penalty interest
             # one day before late payment penalty 2
             @calculator.payment_date = Date.parse("2014-08-01")
             assert_equal 1000, @calculator.late_payment_penalty
-            assert_equal 148.77, @calculator.interest
+            assert_equal 161.16, @calculator.interest
             # should calculate PenaltyInterest2
             @calculator.payment_date = Date.parse("2014-09-02")
             assert_equal 1000, @calculator.late_payment_penalty
-            assert_equal 175.07, @calculator.interest
+            assert_equal 189.66, @calculator.interest
             # one day before late payment penalty 3
             @calculator.payment_date = Date.parse("2015-02-01")
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 300, @calculator.interest
+            assert_equal 325, @calculator.interest
             # should apply late payment penalty 3
             @calculator.payment_date = Date.parse("2015-02-02")
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 300.82, @calculator.interest
+            assert_equal 325.89, @calculator.interest
             # should calculate PenaltyInterest3
             @calculator.payment_date = Date.parse("2015-03-05")
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 326.3, @calculator.interest
+            assert_equal 353.49, @calculator.interest
           end
 
           should "calculate total owed (excludes filing penalty)" do
@@ -225,10 +225,10 @@ module SmartAnswer::Calculators
             @calculator.payment_date = Date.parse("2014-02-04")
             assert_equal 5001, @calculator.total_owed
             @calculator.payment_date = Date.parse("2014-08-01")
-            assert_equal 5574, @calculator.total_owed
+            assert_equal 5580, @calculator.total_owed
             @calculator.payment_date = Date.parse("2015-02-02")
             assert_equal 750, @calculator.late_payment_penalty
-            assert_equal 5900, @calculator.total_owed
+            assert_equal 5912, @calculator.total_owed
           end
         end
 
@@ -241,7 +241,7 @@ module SmartAnswer::Calculators
             should "have values with rate at 3%" do
               @calculator.payment_deadline = Date.parse("2016-01-31")
               @calculator.payment_date = Date.parse("2016-08-23")
-              assert_equal 16.77, @calculator.interest.value.to_f
+              assert_equal 18.16, @calculator.interest.value.to_f
             end
           end
 
@@ -249,7 +249,7 @@ module SmartAnswer::Calculators
             should "have values from rate at 2.75%" do
               @calculator.payment_deadline = Date.parse("2016-08-23")
               @calculator.payment_date = Date.parse("2016-10-31")
-              assert_equal 5.59, @calculator.interest.value.to_f
+              assert_equal 6.05, @calculator.interest.value.to_f
             end
           end
 
@@ -258,7 +258,7 @@ module SmartAnswer::Calculators
               @calculator.tax_year = "2015-16"
               @calculator.payment_deadline = Date.parse("2017-1-31")
               @calculator.payment_date = Date.parse("2017-3-1")
-              assert_equal 2.3, @calculator.interest.value.to_f
+              assert_equal 2.49, @calculator.interest.value.to_f
             end
           end
 
@@ -266,7 +266,7 @@ module SmartAnswer::Calculators
             should "have value calculated with rates from before and after change" do
               @calculator.payment_deadline = Date.parse("2016-01-31")
               @calculator.payment_date = Date.parse("2016-10-31")
-              assert_equal 22.44, @calculator.interest.value.to_f
+              assert_equal 24.31, @calculator.interest.value.to_f
             end
           end
         end
