@@ -64,6 +64,7 @@ This is a Ruby on Rails application that contains:
 * [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
 * Adding [content-ids](doc/smart-answer-flow-development/content-ids.md) to Smart Answers
 * [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
+* [Publishing a Smart Answer](doc/smart-answer-flow-development/publishing.md)
 * [Retiring a Smart Answer](doc/smart-answer-flow-development/retiring-a-smart-answer.md)
 * [Updating worldwide fixture data](doc/smart-answer-flow-development/updating-worldwide-fixture-data.md)
 
@@ -72,10 +73,6 @@ This is a Ruby on Rails application that contains:
 * [Common errors you might run into during development](doc/smart-answers-app-development/common-errors.md)
 * [Continuous integration](doc/smart-answers-app-development/continuous-integration.md)
 * [Testing](doc/smart-answers-app-development/testing.md)
-
-### Changes to the landing page
-
-Changes to landing pages need to be sent to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:sync_all`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/parambuild/?TARGET_APPLICATION=smartanswers&MACHINE_CLASS=calculators_frontend&RAKE_TASK=publishing_api:sync_all).
 
 ### Debugging
 
