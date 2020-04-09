@@ -1,9 +1,9 @@
 module SmartAnswer
-  class CoronavirusBusinessSupportFlow < Flow
+  class BusinessCoronavirusSupportFinderFlow < Flow
     def define
       start_page_content_id "89edffd2-3046-40bd-810c-cc1a13c05b6a"
       flow_content_id "1f589327-a6b3-4b5c-aea0-7a2752e2eddf"
-      name "coronavirus-business-support"
+      name "business-coronavirus-support-finder"
       status :draft
 
       # Q1
@@ -14,7 +14,7 @@ module SmartAnswer
         option :northern_ireland
 
         on_response do |response|
-          self.calculator = Calculators::CoronavirusBusinessSupportCalculator.new
+          self.calculator = Calculators::BusinessCoronavirusSupportFinderCalculator.new
           calculator.business_based = response
         end
 
