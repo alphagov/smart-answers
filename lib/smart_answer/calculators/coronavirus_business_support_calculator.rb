@@ -61,6 +61,10 @@ module SmartAnswer::Calculators
       business_tax_support: ->(calculator) {
         calculator.self_employed == "no"
       },
+      large_business_loan_scheme: ->(calculator) {
+        calculator.self_employed == "no" &&
+          calculator.annual_turnover == "over_45m"
+      },
     }.freeze
 
     def show?(result_id)
