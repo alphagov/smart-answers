@@ -20,12 +20,6 @@ module SmartAnswer
       end
     end
 
-    test "should raise NotFound error for draft flow if show_drafts is not specified" do
-      assert_raises FlowRegistry::NotFound do
-        registry(show_drafts: false).find("draft-flow-sample")
-      end
-    end
-
     test "should find draft flow if show_drafts is specified" do
       assert registry(show_drafts: true).find("draft-flow-sample")
     end

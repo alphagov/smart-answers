@@ -14,6 +14,7 @@ module SmartAnswer
 
     def initialize(&block)
       @nodes = []
+      status(:draft)
       instance_eval(&block) if block_given?
     end
 
@@ -46,10 +47,6 @@ module SmartAnswer
     def external_related_links(external_related_links = nil)
       @external_related_links = external_related_links unless external_related_links.nil?
       @external_related_links
-    end
-
-    def draft?
-      status == :draft
     end
 
     def status(potential_status = nil)

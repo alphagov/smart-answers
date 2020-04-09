@@ -11,8 +11,6 @@ if ENV["TEST_COVERAGE"]
   SimpleCov.start "rails"
 end
 
-FLOW_REGISTRY_OPTIONS[:preload_flows] = true
-
 require "rails/test_help"
 
 require "mocha/minitest"

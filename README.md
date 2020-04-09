@@ -76,7 +76,7 @@ This is a Ruby on Rails application that contains:
 
 ### Changes to the landing page
 
-Changes to landing pages need to be sent to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:publish_all`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/parambuild/?TARGET_APPLICATION=smartanswers&MACHINE_CLASS=calculators_frontend&RAKE_TASK=publishing_api:publish_all).
+Changes to landing pages need to be sent to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:sync_all`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/parambuild/?TARGET_APPLICATION=smartanswers&MACHINE_CLASS=calculators_frontend&RAKE_TASK=publishing_api:sync_all).
 
 ### Debugging
 
@@ -87,11 +87,7 @@ Changes to landing pages need to be sent to be sent to the `content store` for t
 
 ### Registering on GOV.UK
 
-- `bundle exec rake publishing_api:publish_all` will send smart answers to the publishing-api.
-
-### Search indexing
-
-Content is now indexed automatically via the publishing API
+- `bundle exec rake publishing_api:sync_all` will send all smart answers to the Publishing API.
 
 ## Licence
 

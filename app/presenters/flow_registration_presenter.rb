@@ -43,6 +43,10 @@ class FlowRegistrationPresenter
     start_node.start_button_text
   end
 
+  def publish?
+    @flow.status == :published
+  end
+
   module MethodMissingHelper
     OVERRIDES = {
       "calculator.services_payment_partial_name" => "pay_by_cash_only",
@@ -82,10 +86,6 @@ class FlowRegistrationPresenter
           .gsub(/(?:<[^>]+>|\s)+/, " ")
           .strip
       end
-  end
-
-  def state
-    "live"
   end
 
 private
