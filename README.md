@@ -62,7 +62,6 @@ This is a Ruby on Rails application that contains:
 * [Deploying changes for Factcheck](doc/smart-answer-flow-development/factcheck.md)
 * [Flattening outcomes](doc/smart-answer-flow-development/flattening-outcomes.md)
 * [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
-* Adding [content-ids](doc/smart-answer-flow-development/content-ids.md) to Smart Answers
 * [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
 * [Publishing a Smart Answer](doc/smart-answer-flow-development/publishing.md)
 * [Retiring a Smart Answer](doc/smart-answer-flow-development/retiring-a-smart-answer.md)
