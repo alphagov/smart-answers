@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.show_job_retention_scheme? %>
+  <% if calculator.show?(:job_retention_scheme) %>
     $CTA
     **[Coronavirus Job retention Scheme](https://www.google.com)**
 
@@ -13,7 +13,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_vat_scheme? %>
+  <% if calculator.show?(:vat_scheme) %>
     $CTA
     **[Deferring VAT](https://www.google.com)**
 
@@ -23,7 +23,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_self_assessment_payments? %>
+  <% if calculator.show?(:self_assessment_payments) %>
     $CTA
     **[Deferring Self-Assessment payments on account](https://www.google.com)**
 
@@ -33,7 +33,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_statutory_sick_rebate? %>
+  <% if calculator.show?(:statutory_sick_rebate) %>
     $CTA
     **[Statutory Sick Pay Rebate](https://www.google.com)**
 
@@ -43,7 +43,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_self_employed_income_scheme? %>
+  <% if calculator.show?(:self_employed_income_scheme) %>
     $CTA
     **[Support for self-employed through the Self-employment Income Support Scheme](https://www.google.com)**
 
@@ -53,7 +53,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_business_rates? %>
+  <% if calculator.show?(:business_rates) %>
     $CTA
     **[Business Rates holiday for retail, hospitality and leisure](https://www.google.com)**
 
@@ -63,7 +63,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_grant_funding? %>
+  <% if calculator.show?(:grant_funding) %>
     $CTA
     **[Retail, Hospitality and Leisure Grant Funding](https://www.google.com)**
 
@@ -73,7 +73,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_nursery_support? %>
+  <% if calculator.show?(:nursery_support) %>
     $CTA
     **[Support for nursery businesses that pay business rates](https://www.google.com)**
 
@@ -83,7 +83,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_small_business_grant_funding? %>
+  <% if calculator.show?(:small_business_grant_funding) %>
     $CTA
     **[Small Business Grant Funding](https://www.google.com)**
 
@@ -93,7 +93,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_business_loan_scheme? %>
+  <% if calculator.show?(:business_loan_scheme) %>
     $CTA
     **[Coronavirus Business Interruption Loan Scheme](https://www.google.com)**
 
@@ -103,7 +103,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_corporate_financing? %>
+  <% if calculator.show?(:corporate_financing) %>
     $CTA
     **[Covid-19 Corporate Financing Facility](https://www.google.com)**
 
@@ -113,7 +113,7 @@
     $CTA
   <% end %>
 
-  <% if calculator.show_business_tax_support? %>
+  <% if calculator.show?(:business_tax_support) %>
     $CTA
     **[Support for businesses paying tax: Time To Pay Service](https://www.google.com)**
 
