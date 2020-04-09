@@ -53,6 +53,7 @@ module SmartAnswer
 
       # Q4
       multiple_choice :annual_turnover? do
+        option :over_500m
         option :over_45m
         option :over_85k
         option :under_85k

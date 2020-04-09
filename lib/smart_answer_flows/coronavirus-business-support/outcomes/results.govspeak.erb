@@ -194,5 +194,15 @@
     $CTA
   <% end %>
 
+  <% if calculator.show?(:large_business_loan_scheme) %>
+    $CTA
+    **Coronavirus Large Business Interruption Loan Scheme**
+
+    If your annual turnover is between £45 million and £500 million, you can access loans of up to £25 million offered at commercial rates. The government will provide lenders with an 80% guarantee on individual loans for businesses that would be otherwise unable to access the finance they need.
+
+    [Apply for the Coronavirus Large Business Interruption Loan Scheme](https://www.gov.uk/guidance/apply-for-the-coronavirus-large-business-interruption-loan-scheme)
+    $CTA
+  <% end %>
+
   <%= render "devolved_nations", calculator: calculator %>
 <% end %>
