@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
         calculator.self_employed == "no"
       },
       vat_scheme: ->(calculator) {
-        calculator.annual_turnover == "under_85k"
+        calculator.annual_turnover != "under_85k"
       },
       self_assessment_payments: ->(calculator) {
         calculator.self_assessment_july_2020 == "yes"
@@ -53,14 +53,13 @@ module SmartAnswer::Calculators
       },
       business_loan_scheme: ->(calculator) {
         calculator.self_employed == "no" &&
-          calculator.annual_turnover != "over_45m"
+          %w[under_85k over_85k].include?(calculator.annual_turnover)
       },
       corporate_financing: ->(calculator) {
         calculator.self_employed == "no"
       },
       business_tax_support: ->(calculator) {
-        calculator.self_employed == "no" &&
-          calculator.annual_turnover != "over_45m"
+        calculator.self_employed == "no"
       },
     }.freeze
 
