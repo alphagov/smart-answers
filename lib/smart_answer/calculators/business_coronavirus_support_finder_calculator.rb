@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class CoronavirusBusinessSupportCalculator
+  class BusinessCoronavirusSupportFinderCalculator
     attr_accessor :business_based,
                   :business_size,
                   :self_employed,
