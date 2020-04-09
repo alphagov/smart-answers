@@ -9,68 +9,67 @@ module SmartAnswer::Calculators
                   :self_assessment_july_2020,
                   :sectors
 
-    def show_job_retention_scheme?
-      self_employed == "no"
+    RULES = {
+      job_retention_scheme: ->(calculator) {
+        calculator.self_employed == "no"
+      },
+      vat_scheme: ->(calculator) {
+        calculator.annual_turnover == "under_85k"
+      },
+      self_assessment_payments: ->(calculator) {
+        calculator.self_assessment_july_2020 == "yes"
+      },
+      statutory_sick_rebate: ->(calculator) {
+        calculator.business_size == "small_medium_enterprise" &&
+          calculator.self_employed == "no" &&
+          calculator.self_assessment_july_2020 == "yes"
+      },
+      self_employed_income_scheme: ->(calculator) {
+        calculator.business_size == "small_medium_enterprise" &&
+          calculator.self_employed == "yes"
+      },
+      business_rates: ->(calculator) {
+        calculator.business_based == "england" &&
+          calculator.business_rates == "yes" &&
+          calculator.non_domestic_property != "none" &&
+          (%w[retail hospitality leisure] & calculator.sectors).any?
+      },
+      grant_funding: ->(calculator) {
+        calculator.business_based == "england" &&
+          calculator.business_rates == "yes" &&
+          calculator.non_domestic_property == "over_15k" &&
+          (%w[retail hospitality leisure] & calculator.sectors).any?
+      },
+      nursery_support: ->(calculator) {
+        calculator.business_based == "england" &&
+          calculator.business_rates == "yes" &&
+          calculator.non_domestic_property != "none" &&
+          calculator.sectors.include?("nurseries")
+      },
+      small_business_grant_funding: ->(calculator) {
+        calculator.business_based == "england" &&
+          calculator.business_size == "small_medium_enterprise" &&
+          calculator.non_domestic_property == "under_15k"
+      },
+      business_loan_scheme: ->(calculator) {
+        calculator.self_employed == "no" &&
+          calculator.annual_turnover != "over_45m"
+      },
+      corporate_financing: ->(calculator) {
+        calculator.self_employed == "no"
+      },
+      business_tax_support: ->(calculator) {
+        calculator.self_employed == "no" &&
+          calculator.annual_turnover != "over_45m"
+      },
+    }.freeze
+
+    def show?(result_id)
+      RULES[result_id].call(self)
     end
 
-    def show_vat_scheme?
-      annual_turnover == "under_85k"
-    end
-
-    def show_self_assessment_payments?
-      self_assessment_july_2020 == "yes"
-    end
-
-    def show_statutory_sick_rebate?
-      business_size == "small_medium_enterprise" &&
-        self_employed == "no" &&
-        self_assessment_july_2020 == "yes"
-    end
-
-    def show_self_employed_income_scheme?
-      business_size == "small_medium_enterprise" &&
-        self_employed == "yes"
-    end
-
-    def show_business_rates?
-      business_based == "england" &&
-        business_rates == "yes" &&
-        non_domestic_property != "none" &&
-        (%w[retail hospitality leisure] & sectors).any?
-    end
-
-    def show_grant_funding?
-      business_based == "england" &&
-        business_rates == "yes" &&
-        non_domestic_property == "over_15k" &&
-        (%w[retail hospitality leisure] & sectors).any?
-    end
-
-    def show_nursery_support?
-      business_based == "england" &&
-        business_rates == "yes" &&
-        non_domestic_property != "none" &&
-        sectors.include?("nurseries")
-    end
-
-    def show_small_business_grant_funding?
-      business_based == "england" &&
-        business_size == "small_medium_enterprise" &&
-        non_domestic_property == "under_15k"
-    end
-
-    def show_business_loan_scheme?
-      self_employed == "no" &&
-        annual_turnover != "over_45m"
-    end
-
-    def show_corporate_financing?
-      self_employed == "no"
-    end
-
-    def show_business_tax_support?
-      self_employed == "no" &&
-        annual_turnover != "over_45m"
+    def no_results?
+      RULES.values.none? { |rule| rule.call(self) }
     end
   end
 end

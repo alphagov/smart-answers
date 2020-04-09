@@ -123,11 +123,16 @@ module SmartAnswer
         end
 
         next_node do
-          outcome :results
+          if calculator.no_results?
+            outcome :no_results
+          else
+            outcome :results
+          end
         end
       end
 
       outcome :results
+      outcome :no_results
     end
   end
 end
