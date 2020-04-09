@@ -64,7 +64,6 @@ This is a Ruby on Rails application that contains:
 * [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
 * Adding [content-ids](doc/smart-answer-flow-development/content-ids.md) to Smart Answers
 * [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
-* [Archiving a Smart Answer](doc/smart-answer-flow-development/archiving.md)
 * [Retiring a Smart Answer](doc/smart-answer-flow-development/retiring-a-smart-answer.md)
 * [Updating worldwide fixture data](doc/smart-answer-flow-development/updating-worldwide-fixture-data.md)
 
