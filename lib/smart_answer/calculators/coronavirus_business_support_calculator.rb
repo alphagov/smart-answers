@@ -67,5 +67,9 @@ module SmartAnswer::Calculators
     def show?(result_id)
       RULES[result_id].call(self)
     end
+
+    def no_results?
+      RULES.values.none? { |rule| rule.call(self) }
+    end
   end
 end
