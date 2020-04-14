@@ -1,4 +1,4 @@
-# Deploying changes for Factcheck
+# Deploying changes for fact-check
 
 When making bigger changes that need to be tested or fact-checked before they
 are deployed to GOV.UK you can make use of [Heroku Review apps][].
