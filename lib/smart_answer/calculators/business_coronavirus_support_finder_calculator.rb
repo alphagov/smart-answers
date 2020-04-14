@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
       small_business_grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
           calculator.business_size == "small_medium_enterprise" &&
-          calculator.non_domestic_property == "under_15k"
+          calculator.non_domestic_property == "up_to_15k"
       },
       business_loan_scheme: ->(calculator) {
         calculator.self_employed == "no" &&
