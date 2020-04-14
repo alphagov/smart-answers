@@ -17,6 +17,9 @@ module SmartAnswer
   class ExampleSmartAnswerFlow < Flow
     def define
       name 'example-smart-answer'
+      start_page_content_id "<SecureRandom.uuid>"
+      flow_content_id "<SecureRandom.uuid>"
+      status :draft
 
       value_question :question_1? do
         next_node do
