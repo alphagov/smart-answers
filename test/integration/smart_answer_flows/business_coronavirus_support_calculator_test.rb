@@ -165,5 +165,23 @@ module SmartAnswer
         end
       end
     end
+
+    context "not based in England" do
+      setup do
+        @calculator = Calculators::BusinessCoronavirusSupportFinderCalculator.new
+        @calculator.business_based = "scotland"
+        @calculator.business_size = "large_enterprise"
+        @calculator.self_employed = "yes"
+        @calculator.annual_turnover = "under_85k"
+        @calculator.business_rates = "no"
+        @calculator.non_domestic_property = "none"
+        @calculator.self_assessment_july_2020 = "no"
+        @calculator.sectors = %w[none]
+      end
+
+      should "be eligible for nursery support" do
+        assert_equal true, @calculator.no_results?
+      end
+    end
   end
 end
