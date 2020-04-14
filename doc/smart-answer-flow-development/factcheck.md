@@ -1,35 +1,27 @@
 # Deploying changes for Factcheck
 
-When making bigger changes that need to be tested or fact-checked before they are deployed to GOV.UK you'll need to deploy the branch with changes to Heroku.
+When making bigger changes that need to be tested or fact-checked before they
+are deployed to GOV.UK you can make use of [Heroku Review apps][].
+These are created automatically when a new PR is opened and will also be
+automatically linked to from the PR. They will also update on each new commit
+to the PR.
 
-## Deploying to Heroku
+The master branch of Smart Answers is deployed to Heroku with each update and
+this allows previewing draft Smart Answers. This is available at
+https://smart-answers-preview.herokuapp.com/.
 
-### Automatic deployment
-We have [Heroku Review](https://devcenter.heroku.com/articles/github-integration-review-apps) apps set up. This is running under [@chao-xian](https://github.com/chao-xian)'s Heroku account. This will automatically deploy a Heroku instance of Smart Answers on creation of a PR. The PR number will also be automatically suffixed to the Heroku app name. The review app will also be automatically linked to from the PR. It will also update on each new commit to the PR.
+## Displaying rates for a specific date
 
-### Manual process
-Start by creating a GitHub pull request with the changes you want to deploy. Add the ["Waiting on factcheck" label](https://github.com/alphagov/smart-answers/labels/Waiting%20on%20factcheck) to the pull request to let other developers know that it's not ready to be reviewed.
+Smart Answers are often used to illustrate certain costs or benefits applicable
+on a particular date. These are determined by looking up the correct rates (in
+[`lib/data/rates`](../../lib/data/rates)) to display for the current date.
+When testing upcoming changes to rates you may want to simulate how they will
+appear on a particular date, this can be achieved by setting the
+`RATES_QUERY_DATE` environment variable.
 
-Make a note of the pull request number and use the `startup_heroku.sh` script to deploy your changes to Heroku:
+To apply this to a particular review app you can set a value for this
+environment variable in the [`app.json`](../../app.json), for example:
+`"RATES_QUERY_DATE": "2020-04-01"` - don't forget to remove this before
+merging.
 
-```bash
-$ PR=<number-of-pull-request> ./startup_heroku.sh
-```
-
-This script will create and configure an app on Heroku, push the __current branch__ and open the marriage-abroad Smart Answer in the browser.
-
-Once deployed you'll need to use the standard `git push` mechanism to deploy your changes.
-
-```bash
-./startup_heroku.sh
-```
-
-### Displaying rates for a specific date
-
-The `RatesQuery` object is responsible for looking up the correct rates (in lib/data/rates) to display. By default, it'll lookup the rates for today but that can be overridden by setting the `RATES_QUERY_DATE` environment variable.
-
-This is useful for previewing future rates on Heroku, e.g. when rates are being changed in the new tax year.
-
-```bash
-$ heroku config:set RATES_QUERY_DATE=<yyyy-mm-dd>
-```
+[Heroku Review]: https://devcenter.heroku.com/articles/github-integration-review-apps
