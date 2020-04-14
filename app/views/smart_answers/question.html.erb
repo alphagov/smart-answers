@@ -13,7 +13,7 @@
       margin_bottom: 9
     } %>
     <%= form_tag calculate_current_question_path(@presenter), :method => :get do %>
-      <div class="govuk-!-margin-top-9 app-o-spacing" id="current-question">
+      <div class="govuk-!-margin-bottom-6" id="current-question">
         <div data-debug-template-path="<%= question.relative_erb_template_path %>">
           <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>
 

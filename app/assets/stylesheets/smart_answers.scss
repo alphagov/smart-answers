@@ -80,7 +80,3 @@ $is-ie: false !default;
   @include govuk-font($size: 16);
   color: $govuk-secondary-text-colour;
 }
-
-.app-o-spacing {
-  margin-bottom: govuk-spacing(6);
-}
