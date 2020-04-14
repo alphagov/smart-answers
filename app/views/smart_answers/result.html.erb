@@ -11,7 +11,7 @@
 
     <% outcome = @presenter.current_node %>
 
-    <div class="app-o-spacing" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
+    <div class="govuk-!-margin-bottom-6" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title,
@@ -26,7 +26,7 @@
     </div>
 
     <% if outcome.next_steps.present? %>
-      <div class="app-o-spacing">
+      <div class="govuk-!-margin-bottom-6">
         <%= render "govuk_publishing_components/components/heading", {
           text: "Next steps",
           margin_bottom: 6
