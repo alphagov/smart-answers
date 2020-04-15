@@ -25,8 +25,8 @@ module SmartAnswer
 
       # Q2
       multiple_choice :business_size? do
-        option :small_medium_enterprise
-        option :large_enterprise
+        option :"0_to_249"
+        option :over_249
 
         on_response do |response|
           calculator.business_size = response

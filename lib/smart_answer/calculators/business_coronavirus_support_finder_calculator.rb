@@ -20,12 +20,12 @@ module SmartAnswer::Calculators
         calculator.self_assessment_july_2020 == "yes"
       },
       statutory_sick_rebate: ->(calculator) {
-        calculator.business_size == "small_medium_enterprise" &&
+        calculator.business_size == "0_to_249" &&
           calculator.self_employed == "no" &&
           calculator.self_assessment_july_2020 == "yes"
       },
       self_employed_income_scheme: ->(calculator) {
-        calculator.business_size == "small_medium_enterprise" &&
+        calculator.business_size == "0_to_249" &&
           calculator.self_employed == "yes"
       },
       business_rates: ->(calculator) {
@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
       },
       small_business_grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
-          calculator.business_size == "small_medium_enterprise" &&
+          calculator.business_size == "0_to_249" &&
           calculator.non_domestic_property == "up_to_15k"
       },
       business_loan_scheme: ->(calculator) {

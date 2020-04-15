@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
 
       context "statutory_sick_rebate" do
         setup do
-          @calculator.business_size = "small_medium_enterprise"
+          @calculator.business_size = "0_to_249"
           @calculator.self_employed = "no"
           @calculator.self_assessment_july_2020 = "yes"
         end
@@ -54,8 +54,8 @@ module SmartAnswer::Calculators
           assert @calculator.show?(:statutory_sick_rebate)
         end
 
-        should "return false when not small mediume enterprise" do
-          @calculator.business_size = "large_enterprise"
+        should "return false when business has over 249 employees" do
+          @calculator.business_size = "over_249"
           assert_not @calculator.show?(:statutory_sick_rebate)
         end
 
@@ -72,7 +72,7 @@ module SmartAnswer::Calculators
 
       context "self_employed_income_scheme" do
         setup do
-          @calculator.business_size = "small_medium_enterprise"
+          @calculator.business_size = "0_to_249"
           @calculator.self_employed = "yes"
         end
 
@@ -80,8 +80,8 @@ module SmartAnswer::Calculators
           assert @calculator.show?(:self_employed_income_scheme)
         end
 
-        should "return false when large enterprise" do
-          @calculator.business_size = "large_enterprise"
+        should "return false when business has over 249 employees" do
+          @calculator.business_size = "over_249"
           assert_not @calculator.show?(:self_employed_income_scheme)
         end
 
@@ -188,7 +188,7 @@ module SmartAnswer::Calculators
       context "small_business_grant_funding" do
         setup do
           @calculator.business_based = "england"
-          @calculator.business_size = "small_medium_enterprise"
+          @calculator.business_size = "0_to_249"
           @calculator.non_domestic_property = "up_to_15k"
         end
 
@@ -201,8 +201,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:small_business_grant_funding)
         end
 
-        should "return false when not small mediume enterprise" do
-          @calculator.business_size = "large_enterprise"
+        should "return false when business has over 249 employees" do
+          @calculator.business_size = "over_249"
           assert_not @calculator.show?(:small_business_grant_funding)
         end
 

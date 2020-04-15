@@ -15,7 +15,7 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       assert_current_node :business_based?
       add_response "england"
       assert_current_node :business_size?
-      add_response "small_medium_enterprise"
+      add_response "0_to_249"
       assert_current_node :self_employed?
       add_response "no"
       assert_current_node :annual_turnover?
@@ -37,7 +37,7 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       assert_current_node :business_based?
       add_response "scotland"
       assert_current_node :business_size?
-      add_response "large_enterprise"
+      add_response "over_249"
       assert_current_node :self_employed?
       add_response "yes"
       assert_current_node :annual_turnover?
