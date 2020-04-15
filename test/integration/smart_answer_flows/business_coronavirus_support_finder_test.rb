@@ -20,8 +20,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "45m_to_500m"
       assert_current_node :paye_scheme?
       add_response "no"
-      assert_current_node :business_rates?
-      add_response "yes"
       assert_current_node :non_domestic_property?
       add_response "over_15k"
       assert_current_node :self_assessment_july_2020?

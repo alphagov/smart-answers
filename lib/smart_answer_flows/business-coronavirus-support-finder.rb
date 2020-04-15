@@ -63,25 +63,11 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_rates?
-        end
-      end
-
-      # Q5
-      multiple_choice :business_rates? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.business_rates = response
-        end
-
-        next_node do
           question :non_domestic_property?
         end
       end
 
-      # Q6
+      # Q5
       multiple_choice :non_domestic_property? do
         option :over_51k
         option :over_15k
@@ -97,7 +83,7 @@ module SmartAnswer
         end
       end
 
-      # Q7
+      # Q6
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no
@@ -111,7 +97,7 @@ module SmartAnswer
         end
       end
 
-      # Q8
+      # Q7
       checkbox_question :sectors? do
         option :retail
         option :hospitality

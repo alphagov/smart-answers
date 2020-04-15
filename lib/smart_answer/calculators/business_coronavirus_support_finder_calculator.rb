@@ -4,7 +4,6 @@ module SmartAnswer::Calculators
                   :business_size,
                   :paye_scheme,
                   :annual_turnover,
-                  :business_rates,
                   :non_domestic_property,
                   :self_assessment_july_2020,
                   :sectors
@@ -28,19 +27,16 @@ module SmartAnswer::Calculators
       },
       business_rates: ->(calculator) {
         calculator.business_based == "england" &&
-          calculator.business_rates == "yes" &&
           calculator.non_domestic_property != "none" &&
           (%w[retail hospitality leisure] & calculator.sectors).any?
       },
       grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
-          calculator.business_rates == "yes" &&
           calculator.non_domestic_property == "over_15k" &&
           (%w[retail hospitality leisure] & calculator.sectors).any?
       },
       nursery_support: ->(calculator) {
         calculator.business_based == "england" &&
-          calculator.business_rates == "yes" &&
           calculator.non_domestic_property != "none" &&
           calculator.sectors.include?("nurseries")
       },

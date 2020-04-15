@@ -79,7 +79,6 @@ module SmartAnswer::Calculators
       context "business_rates" do
         setup do
           @calculator.business_based = "england"
-          @calculator.business_rates = "yes"
           @calculator.non_domestic_property = "over_15k"
           @calculator.sectors = %w[retail hospitality leisure]
         end
@@ -107,7 +106,6 @@ module SmartAnswer::Calculators
       context "grant_funding" do
         setup do
           @calculator.business_based = "england"
-          @calculator.business_rates = "yes"
           @calculator.non_domestic_property = "over_15k"
           @calculator.sectors = %w[retail hospitality leisure]
         end
@@ -118,11 +116,6 @@ module SmartAnswer::Calculators
 
         should "return false when in a devolved administration" do
           @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:grant_funding)
-        end
-
-        should "return false when not paying business rates" do
-          @calculator.business_rates = "no"
           assert_not @calculator.show?(:grant_funding)
         end
 
@@ -140,7 +133,6 @@ module SmartAnswer::Calculators
       context "nursery_support" do
         setup do
           @calculator.business_based = "england"
-          @calculator.business_rates = "yes"
           @calculator.non_domestic_property = "over_51k"
           @calculator.sectors = %w[nurseries]
         end
@@ -151,11 +143,6 @@ module SmartAnswer::Calculators
 
         should "return false when based in devolved administration" do
           @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:nursery_support)
-        end
-
-        should "return false when not paying business rates" do
-          @calculator.business_rates = "no"
           assert_not @calculator.show?(:nursery_support)
         end
 
