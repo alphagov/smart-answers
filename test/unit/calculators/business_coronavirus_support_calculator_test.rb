@@ -54,21 +54,19 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:statutory_sick_rebate)
         end
 
-        context "criteria not met" do
-          should "return false when not small mediume enterprise" do
-            @calculator.business_size = "large_enterprise"
-            assert_equal false, @calculator.show?(:statutory_sick_rebate)
-          end
+        should "return false when not small mediume enterprise" do
+          @calculator.business_size = "large_enterprise"
+          assert_equal false, @calculator.show?(:statutory_sick_rebate)
+        end
 
-          should "return false when self-employed" do
-            @calculator.self_employed = "yes"
-            assert_equal false, @calculator.show?(:statutory_sick_rebate)
-          end
+        should "return false when self-employed" do
+          @calculator.self_employed = "yes"
+          assert_equal false, @calculator.show?(:statutory_sick_rebate)
+        end
 
-          should "return false when not submitting self assessment for July 2020" do
-            @calculator.self_assessment_july_2020 = "no"
-            assert_equal false, @calculator.show?(:statutory_sick_rebate)
-          end
+        should "return false when not submitting self assessment for July 2020" do
+          @calculator.self_assessment_july_2020 = "no"
+          assert_equal false, @calculator.show?(:statutory_sick_rebate)
         end
       end
 
@@ -77,20 +75,19 @@ module SmartAnswer::Calculators
           @calculator.business_size = "small_medium_enterprise"
           @calculator.self_employed = "yes"
         end
+
         should "return true when criteria met" do
           assert_equal true, @calculator.show?(:self_employed_income_scheme)
         end
 
-        context "criteria not met" do
-          should "return false when large enterprise" do
-            @calculator.business_size = "large_enterprise"
-            assert_equal false, @calculator.show?(:self_employed_income_scheme)
-          end
+        should "return false when large enterprise" do
+          @calculator.business_size = "large_enterprise"
+          assert_equal false, @calculator.show?(:self_employed_income_scheme)
+        end
 
-          should "return false when employed" do
-            @calculator.self_employed = "no"
-            assert_equal false, @calculator.show?(:self_employed_income_scheme)
-          end
+        should "return false when employed" do
+          @calculator.self_employed = "no"
+          assert_equal false, @calculator.show?(:self_employed_income_scheme)
         end
       end
 
@@ -106,21 +103,19 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:business_rates)
         end
 
-        context "criteria not met" do
-          should "return false when in a devolved admininstration" do
-            @calculator.business_based = "scotland"
-            assert_equal false, @calculator.show?(:business_rates)
-          end
+        should "return false when in a devolved admininstration" do
+          @calculator.business_based = "scotland"
+          assert_equal false, @calculator.show?(:business_rates)
+        end
 
-          should "return false when no non domestic property" do
-            @calculator.non_domestic_property = "none"
-            assert_equal false, @calculator.show?(:business_rates)
-          end
+        should "return false when no non domestic property" do
+          @calculator.non_domestic_property = "none"
+          assert_equal false, @calculator.show?(:business_rates)
+        end
 
-          should "return false when not supported business sectors" do
-            @calculator.sectors = ["None of the above"]
-            assert_equal false, @calculator.show?(:business_rates)
-          end
+        should "return false when not supported business sectors" do
+          @calculator.sectors = ["None of the above"]
+          assert_equal false, @calculator.show?(:business_rates)
         end
       end
 
@@ -136,26 +131,24 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:grant_funding)
         end
 
-        context "criteria not met" do
-          should "return false when in a devolved administration" do
-            @calculator.business_based = "scotland"
-            assert_equal false, @calculator.show?(:grant_funding)
-          end
+        should "return false when in a devolved administration" do
+          @calculator.business_based = "scotland"
+          assert_equal false, @calculator.show?(:grant_funding)
+        end
 
-          should "return false when not paying business rates" do
-            @calculator.business_rates = "no"
-            assert_equal false, @calculator.show?(:grant_funding)
-          end
+        should "return false when not paying business rates" do
+          @calculator.business_rates = "no"
+          assert_equal false, @calculator.show?(:grant_funding)
+        end
 
-          should "return false when non domestic property not over £15k" do
-            @calculator.non_domestic_property = "over_51k"
-            assert_equal false, @calculator.show?(:grant_funding)
-          end
+        should "return false when non domestic property not over £15k" do
+          @calculator.non_domestic_property = "over_51k"
+          assert_equal false, @calculator.show?(:grant_funding)
+        end
 
-          should "return false when not in supported business sector" do
-            @calculator.sectors = %w[nurseries]
-            assert_equal false, @calculator.show?(:grant_funding)
-          end
+        should "return false when not in supported business sector" do
+          @calculator.sectors = %w[nurseries]
+          assert_equal false, @calculator.show?(:grant_funding)
         end
       end
 
@@ -171,26 +164,24 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:nursery_support)
         end
 
-        context "criteria not met" do
-          should "return false when based in devolved administration" do
-            @calculator.business_based = "scotland"
-            assert_equal false, @calculator.show?(:nursery_support)
-          end
+        should "return false when based in devolved administration" do
+          @calculator.business_based = "scotland"
+          assert_equal false, @calculator.show?(:nursery_support)
+        end
 
-          should "return false when not paying business rates" do
-            @calculator.business_rates = "no"
-            assert_equal false, @calculator.show?(:nursery_support)
-          end
+        should "return false when not paying business rates" do
+          @calculator.business_rates = "no"
+          assert_equal false, @calculator.show?(:nursery_support)
+        end
 
-          should "return false when no non domestic property" do
-            @calculator.non_domestic_property = "none"
-            assert_equal false, @calculator.show?(:nursery_support)
-          end
+        should "return false when no non domestic property" do
+          @calculator.non_domestic_property = "none"
+          assert_equal false, @calculator.show?(:nursery_support)
+        end
 
-          should "return false when not supported business sector" do
-            @calculator.sectors = %w[retail hospitality leisure]
-            assert_equal false, @calculator.show?(:nursery_support)
-          end
+        should "return false when not supported business sector" do
+          @calculator.sectors = %w[retail hospitality leisure]
+          assert_equal false, @calculator.show?(:nursery_support)
         end
       end
 
@@ -205,21 +196,19 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:small_business_grant_funding)
         end
 
-        context "criteria not met" do
-          should "return false when based in devolved administration" do
-            @calculator.business_based = "scotland"
-            assert_equal false, @calculator.show?(:small_business_grant_funding)
-          end
+        should "return false when based in devolved administration" do
+          @calculator.business_based = "scotland"
+          assert_equal false, @calculator.show?(:small_business_grant_funding)
+        end
 
-          should "return false when not small mediume enterprise" do
-            @calculator.business_size = "large_enterprise"
-            assert_equal false, @calculator.show?(:small_business_grant_funding)
-          end
+        should "return false when not small mediume enterprise" do
+          @calculator.business_size = "large_enterprise"
+          assert_equal false, @calculator.show?(:small_business_grant_funding)
+        end
 
-          should "return false when non domestic property not over £15k" do
-            @calculator.non_domestic_property = "over_51k"
-            assert_equal false, @calculator.show?(:small_business_grant_funding)
-          end
+        should "return false when non domestic property not over £15k" do
+          @calculator.non_domestic_property = "over_51k"
+          assert_equal false, @calculator.show?(:small_business_grant_funding)
         end
       end
 
@@ -229,27 +218,23 @@ module SmartAnswer::Calculators
           @calculator.annual_turnover = "over_85k"
         end
 
-        context "criteria met" do
-          should "return true when annual turnover over_85k" do
-            assert_equal true, @calculator.show?(:business_loan_scheme)
-          end
-
-          should "return true when annual turnover under_85k" do
-            @calculator.annual_turnover = "under_85k"
-            assert_equal true, @calculator.show?(:business_loan_scheme)
-          end
+        should "return true when annual turnover over_85k" do
+          assert_equal true, @calculator.show?(:business_loan_scheme)
         end
 
-        context "criteria not met" do
-          should "return false when self employed" do
-            @calculator.self_employed = "yes"
-            assert_equal false, @calculator.show?(:business_loan_scheme)
-          end
+        should "return true when annual turnover under_85k" do
+          @calculator.annual_turnover = "under_85k"
+          assert_equal true, @calculator.show?(:business_loan_scheme)
+        end
 
-          should "return false when annual turnover not under 85k or over 85k" do
-            @calculator.annual_turnover = "over_500m"
-            assert_equal false, @calculator.show?(:business_loan_scheme)
-          end
+        should "return false when self employed" do
+          @calculator.self_employed = "yes"
+          assert_equal false, @calculator.show?(:business_loan_scheme)
+        end
+
+        should "return false when annual turnover not under 85k or over 85k" do
+          @calculator.annual_turnover = "over_500m"
+          assert_equal false, @calculator.show?(:business_loan_scheme)
         end
       end
 
@@ -287,16 +272,14 @@ module SmartAnswer::Calculators
           assert_equal true, @calculator.show?(:large_business_loan_scheme)
         end
 
-        context "criteria not met" do
-          should "return false when self employed" do
-            @calculator.self_employed = "yes"
-            assert_equal false, @calculator.show?(:large_business_loan_scheme)
-          end
+        should "return false when self employed" do
+          @calculator.self_employed = "yes"
+          assert_equal false, @calculator.show?(:large_business_loan_scheme)
+        end
 
-          should "return false when annual turnover does not equal over_45m" do
-            @calculator.annual_turnover = "under_85k"
-            assert_equal false, @calculator.show?(:large_business_loan_scheme)
-          end
+        should "return false when annual turnover does not equal over_45m" do
+          @calculator.annual_turnover = "under_85k"
+          assert_equal false, @calculator.show?(:large_business_loan_scheme)
         end
       end
     end
