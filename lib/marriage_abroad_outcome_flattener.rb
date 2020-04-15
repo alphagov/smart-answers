@@ -23,7 +23,6 @@ private
   attr_reader :country, :logger
 
   def stubs_etc
-    Timecop.freeze(current_time)
     Services.content_store = FakeContentStore.new
     ENV["GOVUK_WEBSITE_ROOT"] = "https://www.gov.uk"
   end
@@ -43,7 +42,7 @@ private
 
       responses_path = responses.join("/")
 
-      route = "/#{flow_name}/y/#{responses_path}.txt"
+      route = "/marriage-abroad/y/#{responses_path}.txt"
       raise "Failed to load `#{route}`" unless app.get(route) == 200
 
       body = app.response.body
@@ -125,12 +124,8 @@ private
     end
   end
 
-  def flow_name
-    "marriage-abroad"
-  end
-
   def flow
-    @flow ||= SmartAnswer::FlowRegistry.instance.find(flow_name)
+    @flow ||= SmartAnswer::FlowRegistry.instance.find("marriage-abroad")
   end
 
   def flow_with_country_selected
@@ -163,22 +158,6 @@ private
     end
 
     array
-  end
-
-  def current_time
-    @current_time ||= configuration.fetch(:current_time)
-  end
-
-  def configurations
-    @configurations ||= YAML.load_file(Rails.root + "config/outcome_flattener.yml")
-  end
-
-  def default_configuration
-    @default_configuration ||= configurations.fetch("default")
-  end
-
-  def configuration
-    @configuration ||= configurations.fetch(flow_name, default_configuration)
   end
 
   # Disabling the linter here because this is already quite bad current_node
