@@ -9,12 +9,12 @@ module SmartAnswer::Calculators
     context "#show?" do
       context "job_retention_scheme" do
         should "return true when criteria met" do
-          @calculator.self_employed = "no"
+          @calculator.paye_scheme = "yes"
           assert @calculator.show?(:job_retention_scheme)
         end
 
         should "return false when criteria not met" do
-          @calculator.self_employed = "yes"
+          @calculator.paye_scheme = "no"
           assert_not @calculator.show?(:job_retention_scheme)
         end
       end
@@ -46,7 +46,6 @@ module SmartAnswer::Calculators
       context "statutory_sick_rebate" do
         setup do
           @calculator.business_size = "0_to_249"
-          @calculator.self_employed = "no"
           @calculator.self_assessment_july_2020 = "yes"
         end
 
@@ -59,11 +58,6 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:statutory_sick_rebate)
         end
 
-        should "return false when self-employed" do
-          @calculator.self_employed = "yes"
-          assert_not @calculator.show?(:statutory_sick_rebate)
-        end
-
         should "return false when not submitting self assessment for July 2020" do
           @calculator.self_assessment_july_2020 = "no"
           assert_not @calculator.show?(:statutory_sick_rebate)
@@ -71,22 +65,13 @@ module SmartAnswer::Calculators
       end
 
       context "self_employed_income_scheme" do
-        setup do
+        should "return true when business size is 0 to 249 employees" do
           @calculator.business_size = "0_to_249"
-          @calculator.self_employed = "yes"
-        end
-
-        should "return true when criteria met" do
           assert @calculator.show?(:self_employed_income_scheme)
         end
 
-        should "return false when business has over 249 employees" do
+        should "return false when business size is over 249 employees" do
           @calculator.business_size = "over_249"
-          assert_not @calculator.show?(:self_employed_income_scheme)
-        end
-
-        should "return false when employed" do
-          @calculator.self_employed = "no"
           assert_not @calculator.show?(:self_employed_income_scheme)
         end
       end
@@ -213,71 +198,29 @@ module SmartAnswer::Calculators
       end
 
       context "business_loan_scheme" do
-        setup do
-          @calculator.self_employed = "no"
+        should "return true when annual turnover is £85,000 to 45m" do
           @calculator.annual_turnover = "85k_to_45m"
-        end
-
-        should "return true when annual turnover is 85k_to_45m" do
           assert @calculator.show?(:business_loan_scheme)
         end
 
-        should "return true when annual turnover under_85k" do
+        should "return true when annual turnover under £85,000" do
           @calculator.annual_turnover = "under_85k"
           assert @calculator.show?(:business_loan_scheme)
         end
 
-        should "return false when self employed" do
-          @calculator.self_employed = "yes"
-          assert_not @calculator.show?(:business_loan_scheme)
-        end
-
-        should "return false when annual turnover not under_85k or 85k_to_45m" do
+        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
           @calculator.annual_turnover = "45m_to_500m"
           assert_not @calculator.show?(:business_loan_scheme)
-        end
-      end
-
-      context "corporate_financing" do
-        should "return true when criteria met" do
-          @calculator.self_employed = "no"
-          assert @calculator.show?(:corporate_financing)
-        end
-
-        should "return false when criteria not met" do
-          @calculator.self_employed = "yes"
-          assert_not @calculator.show?(:corporate_financing)
-        end
-      end
-
-      context "business_tax_support" do
-        should "return true when criteria met" do
-          @calculator.self_employed = "no"
-          assert @calculator.show?(:business_tax_support)
-        end
-
-        should "return false when criteria not met" do
-          @calculator.self_employed = "yes"
-          assert_not @calculator.show?(:business_tax_support)
         end
       end
 
       context "large_business_loan_scheme" do
-        setup do
-          @calculator.self_employed = "no"
+        should "return true when annual turnover is £45m to 500m" do
           @calculator.annual_turnover = "45m_to_500m"
-        end
-
-        should "return true when criteria met" do
           assert @calculator.show?(:large_business_loan_scheme)
         end
 
-        should "return false when self employed" do
-          @calculator.self_employed = "yes"
-          assert_not @calculator.show?(:large_business_loan_scheme)
-        end
-
-        should "return false when annual turnover does not equal 45m_to_500m" do
+        should "return false when annual turnover is not £45m to £500m" do
           @calculator.annual_turnover = "500m_and_over"
           assert_not @calculator.show?(:large_business_loan_scheme)
         end

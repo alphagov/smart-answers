@@ -49,17 +49,17 @@ module SmartAnswer
         end
 
         next_node do
-          question :self_employed?
+          question :paye_scheme?
         end
       end
 
       # Q4
-      multiple_choice :self_employed? do
+      multiple_choice :paye_scheme? do
         option :yes
         option :no
 
         on_response do |response|
-          calculator.self_employed = response
+          calculator.paye_scheme = response
         end
 
         next_node do
@@ -124,16 +124,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.no_results?
-            outcome :no_results
-          else
-            outcome :results
-          end
+          outcome :results
         end
       end
 
       outcome :results
-      outcome :no_results
     end
   end
 end
