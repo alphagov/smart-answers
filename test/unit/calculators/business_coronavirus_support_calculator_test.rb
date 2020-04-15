@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
 
       context "vat_scheme" do
         should "return true when criteria met" do
-          @calculator.annual_turnover = "over_500m"
+          @calculator.annual_turnover = "500m_and_over"
           assert @calculator.show?(:vat_scheme)
         end
 
@@ -215,10 +215,10 @@ module SmartAnswer::Calculators
       context "business_loan_scheme" do
         setup do
           @calculator.self_employed = "no"
-          @calculator.annual_turnover = "over_85k"
+          @calculator.annual_turnover = "85k_to_45m"
         end
 
-        should "return true when annual turnover over_85k" do
+        should "return true when annual turnover is 85k_to_45m" do
           assert @calculator.show?(:business_loan_scheme)
         end
 
@@ -232,8 +232,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:business_loan_scheme)
         end
 
-        should "return false when annual turnover not under 85k or over 85k" do
-          @calculator.annual_turnover = "over_500m"
+        should "return false when annual turnover not under_85k or 85k_to_45m" do
+          @calculator.annual_turnover = "45m_to_500m"
           assert_not @calculator.show?(:business_loan_scheme)
         end
       end
@@ -265,7 +265,7 @@ module SmartAnswer::Calculators
       context "large_business_loan_scheme" do
         setup do
           @calculator.self_employed = "no"
-          @calculator.annual_turnover = "over_45m"
+          @calculator.annual_turnover = "45m_to_500m"
         end
 
         should "return true when criteria met" do
@@ -277,8 +277,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:large_business_loan_scheme)
         end
 
-        should "return false when annual turnover does not equal over_45m" do
-          @calculator.annual_turnover = "under_85k"
+        should "return false when annual turnover does not equal 45m_to_500m" do
+          @calculator.annual_turnover = "500m_and_over"
           assert_not @calculator.show?(:large_business_loan_scheme)
         end
       end

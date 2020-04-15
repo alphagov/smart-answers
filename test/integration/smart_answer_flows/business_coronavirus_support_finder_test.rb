@@ -17,7 +17,7 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       assert_current_node :business_size?
       add_response "0_to_249"
       assert_current_node :annual_turnover?
-      add_response "over_45m"
+      add_response "45m_to_500m"
       assert_current_node :self_employed?
       add_response "no"
       assert_current_node :business_rates?

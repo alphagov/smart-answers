@@ -39,9 +39,9 @@ module SmartAnswer
 
       # Q3
       multiple_choice :annual_turnover? do
-        option :over_500m
-        option :over_45m
-        option :over_85k
+        option :"500m_and_over"
+        option :"45m_to_500m"
+        option :"85k_to_45m"
         option :under_85k
 
         on_response do |response|

@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
       },
       business_loan_scheme: ->(calculator) {
         calculator.self_employed == "no" &&
-          %w[under_85k over_85k].include?(calculator.annual_turnover)
+          %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
       },
       corporate_financing: ->(calculator) {
         calculator.self_employed == "no"
@@ -63,7 +63,7 @@ module SmartAnswer::Calculators
       },
       large_business_loan_scheme: ->(calculator) {
         calculator.self_employed == "no" &&
-          calculator.annual_turnover == "over_45m"
+          calculator.annual_turnover == "45m_to_500m"
       },
     }.freeze
 
