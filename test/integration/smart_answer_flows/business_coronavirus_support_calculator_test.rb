@@ -42,7 +42,7 @@ module SmartAnswer
 
           context "non-domestic property under £15k" do
             setup do
-              @calculator.non_domestic_property = "under_15k"
+              @calculator.non_domestic_property = "up_to_15k"
             end
 
             should "be eligible for small_business_grant_funding" do
