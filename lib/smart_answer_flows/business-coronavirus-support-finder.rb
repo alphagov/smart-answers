@@ -25,25 +25,11 @@ module SmartAnswer
 
       # Q2
       multiple_choice :business_size? do
-        option :small_medium_enterprise
-        option :large_enterprise
+        option :"0_to_249"
+        option :over_249
 
         on_response do |response|
           calculator.business_size = response
-        end
-
-        next_node do
-          question :self_employed?
-        end
-      end
-
-      # Q3
-      multiple_choice :self_employed? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.self_employed = response
         end
 
         next_node do
@@ -51,11 +37,11 @@ module SmartAnswer
         end
       end
 
-      # Q4
+      # Q3
       multiple_choice :annual_turnover? do
-        option :over_500m
-        option :over_45m
-        option :over_85k
+        option :"500m_and_over"
+        option :"45m_to_500m"
+        option :"85k_to_45m"
         option :under_85k
 
         on_response do |response|
@@ -63,17 +49,17 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_rates?
+          question :paye_scheme?
         end
       end
 
-      # Q5
-      multiple_choice :business_rates? do
+      # Q4
+      multiple_choice :paye_scheme? do
         option :yes
         option :no
 
         on_response do |response|
-          calculator.business_rates = response
+          calculator.paye_scheme = response
         end
 
         next_node do
@@ -81,7 +67,7 @@ module SmartAnswer
         end
       end
 
-      # Q6
+      # Q5
       multiple_choice :non_domestic_property? do
         option :over_51k
         option :over_15k
@@ -97,7 +83,7 @@ module SmartAnswer
         end
       end
 
-      # Q7
+      # Q6
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no
@@ -111,7 +97,7 @@ module SmartAnswer
         end
       end
 
-      # Q8
+      # Q7
       checkbox_question :sectors? do
         option :retail
         option :hospitality
@@ -124,16 +110,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.no_results?
-            outcome :no_results
-          else
-            outcome :results
-          end
+          outcome :results
         end
       end
 
       outcome :results
-      outcome :no_results
     end
   end
 end
