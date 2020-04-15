@@ -9,7 +9,7 @@ worldwide_locations = YAML.load_file(worldwide_locations_file)
 
 updates = YAML.load_file(update_file)
 
-marriage_abroad_services_file = Rails.root.join("lib/data/marriage_abroad_services.yml")
+marriage_abroad_services_file = Rails.root.join("config/smart_answers/marriage_abroad_services.yml")
 yaml = File.read(marriage_abroad_services_file)
 existing_data = YAML.safe_load(yaml)
 

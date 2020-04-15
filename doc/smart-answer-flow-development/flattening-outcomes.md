@@ -5,7 +5,7 @@
   - `# e.g. bundle exec rake "marriage_abroad:flatten_outcomes[qatar]"`
 
 **2. Add or move the country into the right section of these files:**
-  - `lib/data/marriage_abroad_data.yml`
+  - `config/smart_answers/marriage_abroad_data.yml`
   - `test/integration/smart_answer_flows/marriage_abroad_test.rb`
 
 **3. Update any special cases in these files:**

@@ -32,7 +32,7 @@ unless services.any?
   display_usage_message_and_exit
 end
 
-marriage_abroad_services_file = Rails.root.join("lib/data/marriage_abroad_services.yml")
+marriage_abroad_services_file = Rails.root.join("config/smart_answers/marriage_abroad_services.yml")
 yaml = File.read(marriage_abroad_services_file)
 data = YAML.safe_load(yaml)
 

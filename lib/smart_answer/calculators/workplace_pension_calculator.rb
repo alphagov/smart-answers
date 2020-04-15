@@ -46,7 +46,7 @@ module SmartAnswer::Calculators
 
     def self.load_calculator_data
       # rubocop:disable Security/YAMLLoad
-      @load_calculator_data ||= YAML.load(File.open("lib/data/workplace_pension_data.yml").read)[:enrollment_data]
+      @load_calculator_data ||= YAML.load(File.open("config/smart_answers/workplace_pension_data.yml").read)[:enrollment_data]
       # rubocop:enable Security/YAMLLoad
     end
   end
