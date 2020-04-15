@@ -33,25 +33,11 @@ module SmartAnswer
         end
 
         next_node do
-          question :self_employed?
-        end
-      end
-
-      # Q3
-      multiple_choice :self_employed? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.self_employed = response
-        end
-
-        next_node do
           question :annual_turnover?
         end
       end
 
-      # Q4
+      # Q3
       multiple_choice :annual_turnover? do
         option :over_500m
         option :over_45m
@@ -60,6 +46,20 @@ module SmartAnswer
 
         on_response do |response|
           calculator.annual_turnover = response
+        end
+
+        next_node do
+          question :self_employed?
+        end
+      end
+
+      # Q4
+      multiple_choice :self_employed? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.self_employed = response
         end
 
         next_node do

@@ -16,10 +16,10 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "england"
       assert_current_node :business_size?
       add_response "0_to_249"
-      assert_current_node :self_employed?
-      add_response "no"
       assert_current_node :annual_turnover?
       add_response "over_45m"
+      assert_current_node :self_employed?
+      add_response "no"
       assert_current_node :business_rates?
       add_response "yes"
       assert_current_node :non_domestic_property?
@@ -38,10 +38,10 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "scotland"
       assert_current_node :business_size?
       add_response "over_249"
-      assert_current_node :self_employed?
-      add_response "yes"
       assert_current_node :annual_turnover?
       add_response "under_85k"
+      assert_current_node :self_employed?
+      add_response "yes"
       assert_current_node :business_rates?
       add_response "no"
       assert_current_node :non_domestic_property?
