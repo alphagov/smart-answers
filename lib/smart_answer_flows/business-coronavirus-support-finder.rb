@@ -6,7 +6,6 @@ module SmartAnswer
       name "business-coronavirus-support-finder"
       status :draft
 
-      # Q1
       multiple_choice :business_based? do
         option :england
         option :scotland
@@ -23,7 +22,6 @@ module SmartAnswer
         end
       end
 
-      # Q2
       multiple_choice :business_size? do
         option :"0_to_249"
         option :over_249
@@ -37,7 +35,6 @@ module SmartAnswer
         end
       end
 
-      # Q3
       multiple_choice :annual_turnover? do
         option :"500m_and_over"
         option :"45m_to_500m"
@@ -53,7 +50,6 @@ module SmartAnswer
         end
       end
 
-      # Q4
       multiple_choice :paye_scheme? do
         option :yes
         option :no
@@ -67,7 +63,6 @@ module SmartAnswer
         end
       end
 
-      # Q5
       multiple_choice :self_employed? do
         option :yes
         option :no
@@ -81,7 +76,6 @@ module SmartAnswer
         end
       end
 
-      # Q6
       multiple_choice :non_domestic_property? do
         option :"51k_and_over"
         option :under_51k
@@ -100,7 +94,6 @@ module SmartAnswer
         end
       end
 
-      # Q7
       checkbox_question :sectors? do
         option :retail_hospitality_or_leisure
         option :nurseries
@@ -115,7 +108,6 @@ module SmartAnswer
         end
       end
 
-      # Q8
       multiple_choice :rate_relief_march_2020? do
         option :yes
         option :no
@@ -129,7 +121,6 @@ module SmartAnswer
         end
       end
 
-      # Q9
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no
