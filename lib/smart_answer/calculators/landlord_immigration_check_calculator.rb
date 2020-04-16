@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
     end
 
     def areas_for_postcode
-      response = Services.imminence_api.areas_for_postcode(postcode)
+      response = GdsApi.imminence.areas_for_postcode(postcode)
       response_status = response.dig("_response_info", "status")
 
       case response_status

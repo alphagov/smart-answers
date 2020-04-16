@@ -15,15 +15,11 @@ class WorldLocation
 
   def self.all
     cache_fetch("all") do
-      world_locations = Services.worldwide_api
-        .world_locations
-        .with_subsequent_pages
-        .each_with_object([]) do |response, locations|
-          location = response.to_hash
-          if valid_world_location_format?(location)
-            locations << self.new(location)
-          end
-        end
+      world_locations = GdsApi.worldwide
+                              .world_locations
+                              .with_subsequent_pages
+                              .select { |r| valid_world_location_format?(r.to_hash) }
+                              .map { |r| self.new(r.to_hash) }
 
       raise NoLocationsFromWorldwideApiError if world_locations.empty?
 
@@ -33,7 +29,7 @@ class WorldLocation
 
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
-      location = Services.worldwide_api.world_location(location_slug)&.to_hash
+      location = GdsApi.worldwide.world_location(location_slug)&.to_hash
       self.new(location) if location
     end
   end

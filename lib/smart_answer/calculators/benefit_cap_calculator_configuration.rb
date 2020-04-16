@@ -54,7 +54,7 @@ module SmartAnswer::Calculators
     end
 
     def area(postcode)
-      response = Services.imminence_api.areas_for_postcode(postcode)&.to_hash
+      response = GdsApi.imminence.areas_for_postcode(postcode)&.to_hash
       OpenStruct.new(response).results || []
     end
 
