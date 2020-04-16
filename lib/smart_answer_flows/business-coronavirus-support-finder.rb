@@ -6,7 +6,6 @@ module SmartAnswer
       name "business-coronavirus-support-finder"
       status :draft
 
-      # Q1
       multiple_choice :business_based? do
         option :england
         option :scotland
@@ -23,7 +22,6 @@ module SmartAnswer
         end
       end
 
-      # Q2
       multiple_choice :business_size? do
         option :"0_to_249"
         option :over_249
@@ -37,7 +35,6 @@ module SmartAnswer
         end
       end
 
-      # Q3
       multiple_choice :annual_turnover? do
         option :"500m_and_over"
         option :"45m_to_500m"
@@ -53,7 +50,6 @@ module SmartAnswer
         end
       end
 
-      # Q4
       multiple_choice :paye_scheme? do
         option :yes
         option :no
@@ -63,15 +59,26 @@ module SmartAnswer
         end
 
         next_node do
+          question :self_employed?
+        end
+      end
+
+      multiple_choice :self_employed? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.self_employed = response
+        end
+
+        next_node do
           question :non_domestic_property?
         end
       end
 
-      # Q5
       multiple_choice :non_domestic_property? do
-        option :over_51k
-        option :over_15k
-        option :up_to_15k
+        option :"51k_and_over"
+        option :under_51k
         option :none
 
         on_response do |response|
@@ -79,34 +86,47 @@ module SmartAnswer
         end
 
         next_node do
+          if calculator.non_domestic_property != "none"
+            question :sectors?
+          else
+            question :self_assessment_july_2020?
+          end
+        end
+      end
+
+      checkbox_question :sectors? do
+        option :retail_hospitality_or_leisure
+        option :nurseries
+        set_none_option(label: "None of the above")
+
+        on_response do |response|
+          calculator.sectors = response.split(",")
+        end
+
+        next_node do
+          question :rate_relief_march_2020?
+        end
+      end
+
+      multiple_choice :rate_relief_march_2020? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.rate_relief_march_2020 = response
+        end
+
+        next_node do
           question :self_assessment_july_2020?
         end
       end
 
-      # Q6
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no
 
         on_response do |response|
           calculator.self_assessment_july_2020 = response
-        end
-
-        next_node do
-          question :sectors?
-        end
-      end
-
-      # Q7
-      checkbox_question :sectors? do
-        option :retail
-        option :hospitality
-        option :leisure
-        option :nurseries
-        set_none_option(label: "None of the above")
-
-        on_response do |response|
-          calculator.sectors = response.split(",")
         end
 
         next_node do

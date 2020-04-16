@@ -32,12 +32,21 @@ module SmartAnswer::Calculators
       end
 
       context "self_assessment_payments" do
-        should "return true when criteria met" do
+        setup do
+          @calculator.self_employed = "yes"
           @calculator.self_assessment_july_2020 = "yes"
+        end
+
+        should "return true when criteria met" do
           assert @calculator.show?(:self_assessment_payments)
         end
 
-        should "return false when criteria not met" do
+        should "return false when user is not self employed" do
+          @calculator.self_employed = "no"
+          assert_not @calculator.show?(:self_assessment_payments)
+        end
+
+        should "return false when not due to pay a self assessment" do
           @calculator.self_assessment_july_2020 = "no"
           assert_not @calculator.show?(:self_assessment_payments)
         end
@@ -79,8 +88,8 @@ module SmartAnswer::Calculators
       context "business_rates" do
         setup do
           @calculator.business_based = "england"
-          @calculator.non_domestic_property = "over_15k"
-          @calculator.sectors = %w[retail hospitality leisure]
+          @calculator.non_domestic_property = "51k_and_over"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
         end
 
         should "return true when criteria met" do
@@ -92,13 +101,13 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:business_rates)
         end
 
-        should "return false when no non domestic property" do
+        should "return false when no non-domestic property" do
           @calculator.non_domestic_property = "none"
           assert_not @calculator.show?(:business_rates)
         end
 
         should "return false when not supported business sectors" do
-          @calculator.sectors = ["None of the above"]
+          @calculator.sectors = %w[none]
           assert_not @calculator.show?(:business_rates)
         end
       end
@@ -106,8 +115,8 @@ module SmartAnswer::Calculators
       context "grant_funding" do
         setup do
           @calculator.business_based = "england"
-          @calculator.non_domestic_property = "over_15k"
-          @calculator.sectors = %w[retail hospitality leisure]
+          @calculator.non_domestic_property = "51k_and_over"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
         end
 
         should "return true when criteria met" do
@@ -119,8 +128,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:grant_funding)
         end
 
-        should "return false when non domestic property not over £15k" do
-          @calculator.non_domestic_property = "over_51k"
+        should "return false when non-domestic property is valued under £51k" do
+          @calculator.non_domestic_property = "under_51k"
           assert_not @calculator.show?(:grant_funding)
         end
 
@@ -133,7 +142,7 @@ module SmartAnswer::Calculators
       context "nursery_support" do
         setup do
           @calculator.business_based = "england"
-          @calculator.non_domestic_property = "over_51k"
+          @calculator.non_domestic_property = "under_51k"
           @calculator.sectors = %w[nurseries]
         end
 
@@ -146,13 +155,13 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:nursery_support)
         end
 
-        should "return false when no non domestic property" do
+        should "return false when no non-domestic property" do
           @calculator.non_domestic_property = "none"
           assert_not @calculator.show?(:nursery_support)
         end
 
         should "return false when not supported business sector" do
-          @calculator.sectors = %w[retail hospitality leisure]
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
           assert_not @calculator.show?(:nursery_support)
         end
       end
@@ -161,7 +170,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator.business_based = "england"
           @calculator.business_size = "0_to_249"
-          @calculator.non_domestic_property = "up_to_15k"
+          @calculator.non_domestic_property = "under_51k"
         end
 
         should "return true when criteria met" do
@@ -178,8 +187,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:small_business_grant_funding)
         end
 
-        should "return false when non domestic property not over £15k" do
-          @calculator.non_domestic_property = "over_51k"
+        should "return false when non-domestic property is valued over £51k" do
+          @calculator.non_domestic_property = "51k_and_over"
           assert_not @calculator.show?(:small_business_grant_funding)
         end
       end
