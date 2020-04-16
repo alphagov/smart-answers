@@ -4,7 +4,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   def response_labels(values)
     values.split(",").map do |value|
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION
-        value.to_s
+        "None"
       else
         render_option(value)
       end
