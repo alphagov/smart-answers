@@ -2,8 +2,9 @@ module SmartAnswer::Calculators
   class BusinessCoronavirusSupportFinderCalculator
     attr_accessor :business_based,
                   :business_size,
-                  :paye_scheme,
                   :annual_turnover,
+                  :paye_scheme,
+                  :self_employed,
                   :non_domestic_property,
                   :self_assessment_july_2020,
                   :sectors
