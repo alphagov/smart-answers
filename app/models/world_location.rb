@@ -29,8 +29,10 @@ class WorldLocation
 
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
-      location = GdsApi.worldwide.world_location(location_slug)&.to_hash
-      self.new(location) if location
+      location = GdsApi.worldwide.world_location(location_slug).to_hash
+      self.new(location)
+    rescue GdsApi::HTTPNotFound
+      nil
     end
   end
 
