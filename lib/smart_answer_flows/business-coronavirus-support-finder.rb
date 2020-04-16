@@ -83,9 +83,8 @@ module SmartAnswer
 
       # Q6
       multiple_choice :non_domestic_property? do
-        option :over_51k
-        option :over_15k
-        option :up_to_15k
+        option :"51k_and_over"
+        option :under_51k
         option :none
 
         on_response do |response|
