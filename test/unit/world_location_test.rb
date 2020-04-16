@@ -16,6 +16,9 @@ class WorldLocationTest < ActiveSupport::TestCase
       stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
+      assert_requested :get,
+                       %r{\A#{WORLDWIDE_API_ENDPOINT}/api/world-locations},
+                       times: 2
       assert_equal @location_slugs, results.map(&:slug)
     end
 
@@ -28,24 +31,16 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "filter out any results that don't have a slug" do
-      loc1 = world_location_details_for_slug("location-1")
-      loc2 = world_location_details_for_slug("location-2")
-      loc2["details"]["slug"] = nil
-      loc3 = world_location_details_for_slug("location-3")
-      loc3["details"]["slug"] = ""
-      loc4 = world_location_details_for_slug("location-4")
-      details = { "results" => [loc1, loc2, loc3, loc4] }
-      response = GdsApi::ListResponse.new(stub(body: details.to_json, headers: {}), nil)
-
-      Services.worldwide_api.stubs(:world_locations).returns(response)
+      stub_worldwide_api_has_locations(["location-1", "", "location-3"])
 
       results = WorldLocation.all
-      assert_equal %w(location-1 location-4), results.map(&:slug)
+      assert_equal %w(location-1 location-3), results.map(&:slug)
     end
 
     context "caching the results" do
       setup do
-        @location_slugs = (1..30).map { |n| "location-#{n}" }
+        @location_slugs = (1..10).map { |n| "location-#{n}" }
+        @endpoint = %r{\A#{WORLDWIDE_API_ENDPOINT}/api/world-locations}
         stub_worldwide_api_has_locations(@location_slugs)
       end
 
@@ -53,27 +48,23 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.all
         second = WorldLocation.all
 
-        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
+        assert_requested :get, @endpoint, times: 1
         assert_equal first, second
       end
 
       should "cache the loaded locations for a day" do
         first = WorldLocation.all
-        second = WorldLocation.all
 
-        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
-        assert_equal first, second
-
-        Timecop.travel(Time.zone.now + 23.hours) do
-          third = WorldLocation.all
-          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
-          assert_equal first, third
+        Timecop.travel(23.hours.from_now) do
+          second = WorldLocation.all
+          assert_requested :get, @endpoint, times: 1
+          assert_equal first, second
         end
 
-        Timecop.travel(Time.zone.now + 25.hours) do
-          fourth = WorldLocation.all
-          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 4) # 2 pages of results, twice each
-          assert_equal first, fourth
+        Timecop.travel(25.hours.from_now) do
+          third = WorldLocation.all
+          assert_requested :get, @endpoint, times: 2
+          assert_equal first, third
         end
       end
 
@@ -82,14 +73,14 @@ class WorldLocationTest < ActiveSupport::TestCase
 
         stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations").to_timeout
 
-        Timecop.travel(Time.zone.now + 25.hours) do
+        Timecop.travel(25.hours.from_now) do
           assert_nothing_raised do
             second = WorldLocation.all
             assert_equal first, second
           end
         end
 
-        Timecop.travel(Time.zone.now + 1.week + 1.hour) do
+        Timecop.travel(1.week.from_now + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.all
           end
@@ -99,7 +90,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "the Worldwide API returns no locations" do
       setup do
-        stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations")
+        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations")
           .to_return(
             status: 200,
             body: {
@@ -143,7 +134,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "caching the result" do
       setup do
-        stub_worldwide_api_has_location("rohan")
+        @rohan_request = stub_worldwide_api_has_location("rohan")
         stub_worldwide_api_has_location("gondor")
       end
 
@@ -151,7 +142,7 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.find("rohan")
         second = WorldLocation.find("rohan")
 
-        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
+        assert_requested @rohan_request, times: 1
         assert_equal first, second
       end
 
@@ -162,37 +153,32 @@ class WorldLocationTest < ActiveSupport::TestCase
 
       should "cache the loaded location for a day" do
         first = WorldLocation.find("rohan")
-        second = WorldLocation.find("rohan")
 
-        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
-        assert_equal first, second
-
-        Timecop.travel(Time.zone.now + 23.hours) do
-          third = WorldLocation.find("rohan")
-          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
-          assert_equal first, third
+        Timecop.travel(23.hours.from_now) do
+          second = WorldLocation.find("rohan")
+          assert_requested @rohan_request, times: 1
+          assert_equal first, second
         end
 
-        Timecop.travel(Time.zone.now + 25.hours) do
-          fourth = WorldLocation.find("rohan")
-          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 2)
-          assert_equal first, fourth
+        Timecop.travel(25.hours.from_now) do
+          third = WorldLocation.find("rohan")
+          assert_requested @rohan_request, times: 2
+          assert_equal first, third
         end
       end
 
       should "use the stale value from the cache on error for a week" do
         first = WorldLocation.find("rohan")
+        @rohan_request.to_timeout
 
-        stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan").to_timeout
-
-        Timecop.travel(Time.zone.now + 25.hours) do
+        Timecop.travel(25.hours.from_now) do
           assert_nothing_raised do
             second = WorldLocation.find("rohan")
             assert_equal first, second
           end
         end
 
-        Timecop.travel(Time.zone.now + 1.week + 1.hour) do
+        Timecop.travel(1.week.from_now + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.find("rohan")
           end
