@@ -12,8 +12,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       )
       stub_world_locations(@location_slugs)
       Timecop.travel("2013-01-01")
-
-      stub_smart_answer_in_content_store("country-and-date-sample")
+      stub_content_store_has_item("/country-and-date-sample")
     end
 
     should "handle country and date questions" do

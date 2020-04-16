@@ -12,10 +12,4 @@ module FixtureFlowsHelper
   def teardown_fixture_flows
     SmartAnswer::FlowRegistry.reset_instance(preload_flows: @preload_flows)
   end
-
-  def stub_smart_answer_in_content_store(smart_answer_id)
-    Services.content_store.stubs(:content_item)
-      .with("/#{smart_answer_id}")
-      .returns({})
-  end
 end

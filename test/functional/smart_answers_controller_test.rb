@@ -49,7 +49,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   context "GET /<slug>" do
     setup do
-      stub_smart_answer_in_content_store("smart-answers-controller-sample")
+      stub_content_store_has_item("/smart-answers-controller-sample")
     end
 
     should "respond with 404 if not found" do
@@ -215,7 +215,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   context "GET /<slug>/visualise" do
     should "display the visualisation" do
-      stub_smart_answer_in_content_store("smart-answers-controller-sample")
+      stub_content_store_has_item("/smart-answers-controller-sample")
 
       get :visualise, params: { id: "smart-answers-controller-sample" }
 
@@ -225,7 +225,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   context "GET /<slug>/visualise.gz" do
     should "display the visualisation in graphviz format" do
-      stub_smart_answer_in_content_store("smart-answers-controller-sample")
+      stub_content_store_has_item("/smart-answers-controller-sample")
 
       get :visualise, format: :gv, params: { id: "smart-answers-controller-sample" }
 
