@@ -11,6 +11,12 @@ class SmartAnswersController < ApplicationController
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
 
+  content_security_policy only: :visualise do |p|
+    # The script used to render the visualise tool requires eval execution
+    # unfortunately
+    p.script_src(*p.script_src, :unsafe_eval)
+  end
+
   def index
     @flows = flow_registry.flows.sort_by(&:name)
     @title = "Smart Answers Index"
