@@ -32,7 +32,7 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 
   context "with erb template files" do
     should "include the path of erb templates" do
-      flow_name = "flow-name"
+      flow_name = SecureRandom.alphanumeric(10)
       smart_answer_with_erb_templates(flow_name) do |erb_template_files|
         smart_answer_files = SmartAnswerFiles.new(flow_name)
         erb_template_files.each do |file|
@@ -90,7 +90,7 @@ private
       FileUtils.mkdir_p(erb_template_directory)
 
       files = (1..2).collect do |count|
-        Tempfile.new(["flow_name-#{count}", ".erb"], erb_template_directory)
+        Tempfile.new(["#{flow_name}-#{count}", ".erb"], erb_template_directory)
       end
 
       partial_dir = FileUtils.mkdir_p(erb_template_directory.join("partials"))
