@@ -45,14 +45,15 @@ class SmartAnswersController < ApplicationController
 
   def visualise
     respond_to do |format|
-      format.html {
+      format.html do
         @graph_presenter = GraphPresenter.new(@smart_answer)
         @graph_data = @graph_presenter.to_hash
         render layout: "application"
-      }
-      format.gv {
+      end
+
+      format.gv do
         render text: GraphvizPresenter.new(@smart_answer).to_gv
-      }
+      end
     end
   end
 
