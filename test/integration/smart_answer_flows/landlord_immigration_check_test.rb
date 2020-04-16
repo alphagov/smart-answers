@@ -1,16 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require "gds_api/test_helpers/imminence"
 
 require "smart_answer_flows/landlord-immigration-check"
 
 class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Imminence
 
   setup do
     setup_for_testing_flow SmartAnswer::LandlordImmigrationCheckFlow
-
     stub_imminence_has_areas_for_postcode("PA3%202SW", [{ type: "EUR", name: "Scotland", country_name: "Scotland" }])
     stub_imminence_has_areas_for_postcode("B1%201PW", [{ type: "EUR", name: "West Midlands", country_name: "England" }])
   end

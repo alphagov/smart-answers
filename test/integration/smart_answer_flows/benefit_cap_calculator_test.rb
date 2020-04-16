@@ -1,16 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require "gds_api/test_helpers/imminence"
 
 require "smart_answer_flows/benefit-cap-calculator"
 
 class BenefitCapCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Imminence
 
   setup do
     setup_for_testing_flow SmartAnswer::BenefitCapCalculatorFlow
-
     stub_imminence_has_areas_for_postcode("WC2B%206SE", [{ type: "EUR", name: "London", country_name: "England" }])
     stub_imminence_has_areas_for_postcode("B1%201PW", [{ type: "EUR", name: "West Midlands", country_name: "England" }])
   end

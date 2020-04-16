@@ -1,9 +1,6 @@
 require_relative "../test_helper"
-require "gds_api/test_helpers/worldwide"
 
 class WorldLocationTest < ActiveSupport::TestCase
-  include GdsApi::TestHelpers::Worldwide
-
   context "loading all locations" do
     should "load locations and construct an instance for each one" do
       @location_slugs = %w(the-shire rivendel rohan lorien gondor arnor mordor)

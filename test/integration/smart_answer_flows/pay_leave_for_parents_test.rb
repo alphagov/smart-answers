@@ -1,12 +1,10 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require "gds_api/test_helpers/imminence"
 
 require "smart_answer_flows/pay-leave-for-parents"
 
 class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Imminence
 
   setup do
     setup_for_testing_flow SmartAnswer::PayLeaveForParentsFlow
