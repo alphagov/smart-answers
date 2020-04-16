@@ -111,11 +111,25 @@ module SmartAnswer
         end
 
         next_node do
-          question :self_assessment_july_2020?
+          question :rate_relief_march_2020?
         end
       end
 
       # Q8
+      multiple_choice :rate_relief_march_2020? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.rate_relief_march_2020 = response
+        end
+
+        next_node do
+          question :self_assessment_july_2020?
+        end
+      end
+
+      # Q9
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no

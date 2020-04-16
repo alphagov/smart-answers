@@ -6,8 +6,9 @@ module SmartAnswer::Calculators
                   :paye_scheme,
                   :self_employed,
                   :non_domestic_property,
-                  :self_assessment_july_2020,
-                  :sectors
+                  :sectors,
+                  :rate_relief_march_2020,
+                  :self_assessment_july_2020
 
     RULES = {
       job_retention_scheme: ->(calculator) {
