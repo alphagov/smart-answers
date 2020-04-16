@@ -92,34 +92,32 @@ module SmartAnswer
         end
 
         next_node do
-          question :self_assessment_july_2020?
+          question :sectors?
         end
       end
 
       # Q7
+      checkbox_question :sectors? do
+        option :retail_hospitality_or_leisure
+        option :nurseries
+        set_none_option(label: "None of the above")
+
+        on_response do |response|
+          calculator.sectors = response.split(",")
+        end
+
+        next_node do
+          question :self_assessment_july_2020?
+        end
+      end
+
+      # Q8
       multiple_choice :self_assessment_july_2020? do
         option :yes
         option :no
 
         on_response do |response|
           calculator.self_assessment_july_2020 = response
-        end
-
-        next_node do
-          question :sectors?
-        end
-      end
-
-      # Q8
-      checkbox_question :sectors? do
-        option :retail
-        option :hospitality
-        option :leisure
-        option :nurseries
-        set_none_option(label: "None of the above")
-
-        on_response do |response|
-          calculator.sectors = response.split(",")
         end
 
         next_node do
