@@ -17,8 +17,4 @@ module Services
   def self.content_store
     @content_store ||= GdsApi.content_store
   end
-
-  def self.content_store=(new_content_store)
-    @content_store = new_content_store
-  end
 end

@@ -9,8 +9,6 @@ class MarriageAbroadOutcomeFlattener
   def initialize(country, logger: Logger.new(STDOUT))
     @country = country
     @logger = logger
-
-    stubs_etc
   end
 
   def flatten
@@ -21,11 +19,6 @@ class MarriageAbroadOutcomeFlattener
 private
 
   attr_reader :country, :logger
-
-  def stubs_etc
-    Services.content_store = FakeContentStore.new
-    ENV["GOVUK_WEBSITE_ROOT"] = "https://www.gov.uk"
-  end
 
   def generate_and_add_partials_to_country_files
     visited_nodes = Set.new
@@ -171,10 +164,4 @@ private
   # rubocop:enable Style/MethodMissingSuper, Style/MissingRespondToMissing
 
   class UnknownResponse < StandardError; end
-
-  class FakeContentStore
-    def content_item(*_args)
-      {}
-    end
-  end
 end
