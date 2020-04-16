@@ -52,7 +52,8 @@ class SmartAnswersController < ApplicationController
       end
 
       format.gv do
-        render text: GraphvizPresenter.new(@smart_answer).to_gv
+        render plain: GraphvizPresenter.new(@smart_answer).to_gv,
+               content_type: "text/vnd.graphviz"
       end
     end
   end
