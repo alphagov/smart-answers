@@ -61,7 +61,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "none" }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "None" }
           within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
         end
       end
