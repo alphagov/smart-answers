@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
       @rates_query = rates_query || RatesQuery.from_file("marriage_abroad_consular_fees")
       @country_name_formatter = country_name_formatter || CountryNameFormatter.new
       @registrations_data_query = registrations_data_query || RegistrationsDataQuery.new
-      services_data_file = Rails.root.join("lib/data/marriage_abroad_services.yml")
+      services_data_file = Rails.root.join("config/smart_answers/marriage_abroad_services.yml")
       @services_data = services_data || YAML.load_file(services_data_file)
     end
 

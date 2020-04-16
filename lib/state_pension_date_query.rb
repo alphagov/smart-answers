@@ -68,7 +68,7 @@ private
   end
 
   def pension_dates_static
-    YAML.load_file(Rails.root.join("lib/data/state_pension_dates.yml"))
+    YAML.load_file(Rails.root.join("config/smart_answers/state_pension_dates.yml"))
   end
 end
 # rubocop:enable Metrics/BlockLength

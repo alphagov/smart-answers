@@ -15,8 +15,8 @@ Answer and their associated tests, examples of common files:
 - ERB templates directory
   - lib/smart_answer_flows/<\smart-answer-name>
 - YAML files
-  - lib/data/rates/<\smart-answer-name>.yml
-  - lib/data/<\smart-answer-name>.yml
+  - config/smart_answers/rates/<\smart-answer-name>.yml
+  - config/smart_answers/<\smart-answer-name>.yml
 - Calculators, data query and other ruby files
   - lib/smart_answer/calculators/<\smart-answer-name>\_calculator.rb
   - lib/smart_answer/calculators/<\smart-answer-name>\_data_query.rb

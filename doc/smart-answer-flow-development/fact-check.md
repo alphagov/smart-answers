@@ -14,7 +14,7 @@ https://smart-answers-preview.herokuapp.com/.
 
 Smart Answers are often used to illustrate certain costs or benefits applicable
 on a particular date. These are determined by looking up the correct rates (in
-[`lib/data/rates`](../../lib/data/rates)) to display for the current date.
+[`config/smart_answers/rates`](../../config/smart_answers/rates)) to display for the current date.
 When testing upcoming changes to rates you may want to simulate how they will
 appear on a particular date, this can be achieved by setting the
 `RATES_QUERY_DATE` environment variable.
