@@ -28,12 +28,12 @@ module SmartAnswer::Calculators
       self_employed_income_scheme: ->(calculator) {
         calculator.business_size == "0_to_249"
       },
-      business_rates: ->(calculator) {
+      retail_hospitality_leisure_business_rates: ->(calculator) {
         calculator.business_based == "england" &&
           calculator.non_domestic_property != "none" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
-      grant_funding: ->(calculator) {
+      retail_hospitality_leisure_grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
           calculator.non_domestic_property == "51k_and_over" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")

@@ -85,7 +85,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "business_rates" do
+      context "retail_hospitality_leisure_business_rates" do
         setup do
           @calculator.business_based = "england"
           @calculator.non_domestic_property = "51k_and_over"
@@ -93,26 +93,26 @@ module SmartAnswer::Calculators
         end
 
         should "return true when criteria met" do
-          assert @calculator.show?(:business_rates)
+          assert @calculator.show?(:retail_hospitality_leisure_business_rates)
         end
 
         should "return false when in a devolved admininstration" do
           @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:business_rates)
+          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
         end
 
         should "return false when no non-domestic property" do
           @calculator.non_domestic_property = "none"
-          assert_not @calculator.show?(:business_rates)
+          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
         end
 
         should "return false when not supported business sectors" do
           @calculator.sectors = %w[none]
-          assert_not @calculator.show?(:business_rates)
+          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
         end
       end
 
-      context "grant_funding" do
+      context "retail_hospitality_leisure_grant_funding" do
         setup do
           @calculator.business_based = "england"
           @calculator.non_domestic_property = "51k_and_over"
@@ -120,22 +120,22 @@ module SmartAnswer::Calculators
         end
 
         should "return true when criteria met" do
-          assert @calculator.show?(:grant_funding)
+          assert @calculator.show?(:retail_hospitality_leisure_grant_funding)
         end
 
         should "return false when in a devolved administration" do
           @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:grant_funding)
+          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
         end
 
         should "return false when non-domestic property is valued under £51k" do
           @calculator.non_domestic_property = "under_51k"
-          assert_not @calculator.show?(:grant_funding)
+          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
         end
 
         should "return false when not in supported business sector" do
           @calculator.sectors = %w[nurseries]
-          assert_not @calculator.show?(:grant_funding)
+          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
         end
       end
 
