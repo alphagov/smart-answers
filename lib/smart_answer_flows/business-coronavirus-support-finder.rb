@@ -92,7 +92,11 @@ module SmartAnswer
         end
 
         next_node do
-          question :sectors?
+          if calculator.non_domestic_property != "none"
+            question :sectors?
+          else
+            question :self_assessment_july_2020?
+          end
         end
       end
 
