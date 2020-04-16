@@ -192,5 +192,15 @@
     $CTA
   <% end %>
 
-  <%= render "devolved_nations", calculator: calculator %>
+  <% if calculator.business_based == "scotland" %>
+    ^Find out [what support is available in Scotland](https://findbusinesssupport.gov.scot/browse-support#!Products=/coronavirus/newest-first/show+25/page+1).^
+  <% end %>
+
+  <% if calculator.business_based == "wales" %>
+    ^Find out [what support is available in Wales](https://businesswales.gov.wales/coronavirus-advice).^
+  <% end %>
+
+  <% if calculator.business_based == "northern_ireland" %>
+    ^Find out [what support is available in Northern Ireland](https://www.nibusinessinfo.co.uk/business-support/coronavirus).^
+  <% end %>
 <% end %>
