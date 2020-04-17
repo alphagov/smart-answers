@@ -11,8 +11,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
 
   def setup
     setup_fixture_flows
-
-    stub_smart_answer_in_content_store("smart-answers-controller-sample-with-date-question")
+    stub_content_store_has_item("/smart-answers-controller-sample-with-date-question")
   end
 
   def teardown

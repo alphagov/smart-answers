@@ -12,8 +12,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
     registry = SmartAnswer::FlowRegistry.instance
     flow_name = "smart-answers-controller-sample"
     @template_directory = registry.load_path.join(flow_name)
-
-    stub_smart_answer_in_content_store("smart-answers-controller-sample")
+    stub_content_store_has_item("/smart-answers-controller-sample")
   end
 
   def teardown

@@ -1,9 +1,6 @@
 require "test_helper"
-require "gds_api/test_helpers/publishing_api"
 
 class PublishingApiRakeTest < ActiveSupport::TestCase
-  include GdsApi::TestHelpers::PublishingApi
-
   context "publishing_api:unpublish_redirect" do
     setup do
       Rake::Task["publishing_api:unpublish_redirect"].reenable

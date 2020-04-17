@@ -2,7 +2,7 @@ require_relative "engine_test_helper"
 
 class DataPartialsTest < EngineIntegrationTest
   setup do
-    stub_smart_answer_in_content_store("data-partial-sample")
+    stub_content_store_has_item("/data-partial-sample")
   end
 
   should "output data partials correctly" do

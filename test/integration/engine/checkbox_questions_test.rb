@@ -2,7 +2,7 @@ require_relative "engine_test_helper"
 
 class CheckboxQuestionsTest < EngineIntegrationTest
   setup do
-    stub_smart_answer_in_content_store("checkbox-sample")
+    stub_content_store_has_item("/checkbox-sample")
   end
 
   with_and_without_javascript do

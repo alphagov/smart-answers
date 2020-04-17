@@ -1,10 +1,7 @@
 require_relative "../../test_helper"
-require "gds_api/test_helpers/imminence"
 
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfigurationTest < ActiveSupport::TestCase
-    include GdsApi::TestHelpers::Imminence
-
     context BenefitCapCalculatorConfiguration do
       setup do
         @config = BenefitCapCalculatorConfiguration.new

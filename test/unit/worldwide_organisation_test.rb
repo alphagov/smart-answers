@@ -7,9 +7,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         { title: "organisation-1-title" },
         { title: "organisation-2-title" },
       ]
-      worldwide_api = stub("worldwide-api")
-      worldwide_api.stubs(:organisations_for_world_location).with("location-slug").returns(organisations_data)
-      Services.stubs(:worldwide_api).returns(worldwide_api)
+      stub_worldwide_api_has_organisations_for_location("location-slug", { results: organisations_data })
 
       worldwide_organisations = WorldwideOrganisation.for_location("location-slug")
 

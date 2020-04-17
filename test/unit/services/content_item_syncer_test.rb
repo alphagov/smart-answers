@@ -1,9 +1,6 @@
 require "test_helper"
-require "gds_api/test_helpers/publishing_api"
 
 class ContentItemSyncerTest < ActiveSupport::TestCase
-  include GdsApi::TestHelpers::PublishingApi
-
   setup do
     load_path = fixture_file("smart_answer_flows")
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", load_path: load_path))

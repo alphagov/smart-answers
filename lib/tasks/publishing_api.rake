@@ -22,23 +22,23 @@ namespace :publishing_api do
     raise "Missing destination parameter" if args.destination.blank?
 
     redirect = { path: args.base_path, type: "prefix", destination: args.destination }
-    Services.publishing_api.unpublish(args.content_id,
-                                      type: "redirect",
-                                      redirects: [redirect])
+    GdsApi.publishing_api.unpublish(args.content_id,
+                                    type: "redirect",
+                                    redirects: [redirect])
   end
 
   desc "Unpublish a content item with a type of gone"
   task :unpublish_gone, [:content_id] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id
 
-    Services.publishing_api.unpublish(args.content_id, type: "gone")
+    GdsApi.publishing_api.unpublish(args.content_id, type: "gone")
   end
 
   desc "Unpublish a content item with a type of vanish"
   task :unpublish_vanish, [:content_id] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id
 
-    Services.publishing_api.unpublish(args.content_id, type: "vanish")
+    GdsApi.publishing_api.unpublish(args.content_id, type: "vanish")
   end
 
   desc "Change publishing application"
@@ -46,8 +46,8 @@ namespace :publishing_api do
     raise "Missing base_path parameter" unless args.base_path
     raise "Missing publishing_app parameter" unless args.publishing_app
 
-    Services.publishing_api.put_path(args.base_path,
-                                     publishing_app: args.publishing_app,
-                                     override_existing: true)
+    GdsApi.publishing_api.put_path(args.base_path,
+                                   publishing_app: args.publishing_app,
+                                   override_existing: true)
   end
 end
