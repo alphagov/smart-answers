@@ -18,15 +18,15 @@ module SmartAnswer::Calculators
         calculator.annual_turnover != "under_85k"
       },
       self_assessment_payments: ->(calculator) {
-        calculator.self_employed == "yes" &&
-          calculator.self_assessment_july_2020 == "yes"
+        calculator.self_assessment_july_2020 == "yes"
       },
       statutory_sick_rebate: ->(calculator) {
         calculator.business_size == "0_to_249" &&
           calculator.self_assessment_july_2020 == "yes"
       },
       self_employed_income_scheme: ->(calculator) {
-        calculator.business_size == "0_to_249"
+        calculator.business_size == "0_to_249" &&
+          calculator.self_employed == "yes"
       },
       retail_hospitality_leisure_business_rates: ->(calculator) {
         calculator.business_based == "england" &&
@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
       },
       retail_hospitality_leisure_grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
-          calculator.non_domestic_property == "51k_and_over" &&
+          calculator.non_domestic_property == "under_51k" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
       nursery_support: ->(calculator) {
@@ -46,7 +46,8 @@ module SmartAnswer::Calculators
       small_business_grant_funding: ->(calculator) {
         calculator.business_based == "england" &&
           calculator.business_size == "0_to_249" &&
-          calculator.non_domestic_property == "under_51k"
+          calculator.non_domestic_property != "none" &&
+          calculator.rate_relief_march_2020 == "yes"
       },
       business_loan_scheme: ->(calculator) {
         %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
