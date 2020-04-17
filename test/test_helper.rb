@@ -35,6 +35,7 @@ require_relative "support/world_location_stubbing_methods"
 class ActiveSupport::TestCase
   include FixtureMethods
   include WorldLocationStubbingMethods
+  parallelize workers: 6
 end
 
 require "slimmer/test"
