@@ -222,8 +222,13 @@ module SmartAnswer::Calculators
           assert @calculator.show?(:large_business_loan_scheme)
         end
 
-        should "return false when annual turnover is not £45m to £500m" do
+        should "return true when annual turnover is £500m and over" do
           @calculator.annual_turnover = "500m_and_over"
+          assert @calculator.show?(:large_business_loan_scheme)
+        end
+
+        should "return false when annual turnover is not £45m and over" do
+          @calculator.annual_turnover = "85k_to_45m"
           assert_not @calculator.show?(:large_business_loan_scheme)
         end
       end
