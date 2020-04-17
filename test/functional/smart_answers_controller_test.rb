@@ -222,4 +222,15 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "h1", /Smart answers controller sample/
     end
   end
+
+  context "GET /<slug>/visualise.gz" do
+    should "display the visualisation in graphviz format" do
+      stub_smart_answer_in_content_store("smart-answers-controller-sample")
+
+      get :visualise, format: :gv, params: { id: "smart-answers-controller-sample" }
+
+      assert_equal "text/vnd.graphviz", response.media_type
+      assert_match "digraph", response.body
+    end
+  end
 end

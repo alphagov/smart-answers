@@ -11,6 +11,12 @@ class SmartAnswersController < ApplicationController
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
 
+  content_security_policy only: :visualise do |p|
+    # The script used to render the visualise tool requires eval execution
+    # unfortunately
+    p.script_src(*p.script_src, :unsafe_eval)
+  end
+
   def index
     @flows = flow_registry.flows.sort_by(&:name)
     @title = "Smart Answers Index"
@@ -39,14 +45,16 @@ class SmartAnswersController < ApplicationController
 
   def visualise
     respond_to do |format|
-      format.html {
+      format.html do
         @graph_presenter = GraphPresenter.new(@smart_answer)
         @graph_data = @graph_presenter.to_hash
         render layout: "application"
-      }
-      format.gv {
-        render text: GraphvizPresenter.new(@smart_answer).to_gv
-      }
+      end
+
+      format.gv do
+        render plain: GraphvizPresenter.new(@smart_answer).to_gv,
+               content_type: "text/vnd.graphviz"
+      end
     end
   end
 
