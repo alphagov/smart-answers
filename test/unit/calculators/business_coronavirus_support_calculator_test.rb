@@ -19,18 +19,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "vat_scheme" do
-        should "return true when criteria met" do
-          @calculator.annual_turnover = "500m_and_over"
-          assert @calculator.show?(:vat_scheme)
-        end
-
-        should "return false when criteria not met" do
-          @calculator.annual_turnover = "under_85k"
-          assert_not @calculator.show?(:vat_scheme)
-        end
-      end
-
       context "self_assessment_payments" do
         should "return true when criteria met" do
           @calculator.self_assessment_july_2020 = "yes"
