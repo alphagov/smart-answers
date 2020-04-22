@@ -14,9 +14,6 @@ module SmartAnswer::Calculators
       job_retention_scheme: ->(calculator) {
         calculator.paye_scheme == "yes"
       },
-      vat_scheme: ->(calculator) {
-        calculator.annual_turnover != "under_85k"
-      },
       self_assessment_payments: ->(calculator) {
         calculator.self_assessment_july_2020 == "yes"
       },
