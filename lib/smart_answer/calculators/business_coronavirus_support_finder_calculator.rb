@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
       },
       statutory_sick_rebate: ->(calculator) {
         calculator.business_size == "0_to_249" &&
-          calculator.self_assessment_july_2020 == "yes"
+          calculator.paye_scheme == "yes"
       },
       self_employed_income_scheme: ->(calculator) {
         calculator.business_size == "0_to_249" &&
