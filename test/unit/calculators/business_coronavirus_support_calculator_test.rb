@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
       context "statutory_sick_rebate" do
         setup do
           @calculator.business_size = "0_to_249"
-          @calculator.self_assessment_july_2020 = "yes"
+          @calculator.paye_scheme = "yes"
         end
 
         should "return true when criteria met" do
@@ -46,8 +46,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:statutory_sick_rebate)
         end
 
-        should "return false when not submitting self assessment for July 2020" do
-          @calculator.self_assessment_july_2020 = "no"
+        should "return false when business does not have PAYE scheme" do
+          @calculator.paye_scheme = "no"
           assert_not @calculator.show?(:statutory_sick_rebate)
         end
       end
