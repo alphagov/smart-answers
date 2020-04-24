@@ -42,7 +42,7 @@ module SmartAnswer
 
         next_node do
           if calculator.coronavirus_related
-            question :coronavirus_self_or_cohabitant?
+            question :coronavirus_gp_letter?
           else
             question :employee_tell_within_limit?
           end
@@ -50,6 +50,24 @@ module SmartAnswer
       end
 
       # Question 2.1
+      multiple_choice :coronavirus_gp_letter? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.coronavirus_gp_letter = response == "yes"
+        end
+
+        next_node do
+          if calculator.coronavirus_gp_letter
+            question :employee_tell_within_limit?
+          else
+            question :coronavirus_self_or_cohabitant?
+          end
+        end
+      end
+
+      # Question 2.2
       multiple_choice :coronavirus_self_or_cohabitant? do
         option :self
         option :cohabitant
