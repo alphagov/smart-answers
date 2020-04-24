@@ -123,11 +123,7 @@ module SmartAnswer
         validate_in_range
 
         next_node do
-          if calculator.coronavirus_related && calculator.cohabitant_has_coronavirus && calculator.before_coronavirus_entitlement_date?
-            outcome :not_entitled_coronavirus_selfisolation
-          else
-            question :last_sick_day?
-          end
+          question :last_sick_day?
         end
       end
 
@@ -451,9 +447,6 @@ module SmartAnswer
 
       # Answer 8
       outcome :maximum_entitlement_reached
-
-      # Answer 9
-      outcome :not_entitled_coronavirus_selfisolation
     end
   end
 end
