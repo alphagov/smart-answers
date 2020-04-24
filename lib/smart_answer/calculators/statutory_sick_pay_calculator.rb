@@ -25,7 +25,7 @@ module SmartAnswer
 
       attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
-      attr_accessor :coronavirus_related, :has_coronavirus, :cohabitant_has_coronavirus
+      attr_accessor :coronavirus_related, :coronavirus_gp_letter, :has_coronavirus, :cohabitant_has_coronavirus
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
