@@ -93,7 +93,7 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
-    gds-api-adapters (63.5.1)
+    gds-api-adapters (63.6.0)
       addressable
       link_header
       null_logger
@@ -371,7 +371,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   ci_reporter
-  gds-api-adapters (~> 63.5)
+  gds-api-adapters (~> 63.6)
   govspeak (~> 6.5.3)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk_app_config
