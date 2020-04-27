@@ -5,6 +5,7 @@ module SmartAnswer
         MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
         MINIMUM_NUMBER_OF_DAYS = 4
         CORONAVIRUS_SSP_START_DATE = Time.zone.local(2020, 3, 13)
+        CORONAVIRUS_SHIELDING_START_DATE = Time.zone.local(2020, 4, 16)
 
         def qualifying_days(pattern)
           dates = begins_on..ends_on
@@ -58,7 +59,16 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_not_in_linked_piw
-        if coronavirus_related && !before_coronavirus_entitlement_date?
+        shielding_start_date = PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE.to_date
+        ssp_start_date = PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE.to_date
+
+        if coronavirus_related && coronavirus_gp_letter && before_coronavirus_shield_date? && ends_after_coronavirus_shield_date?
+          [0, (shielding_start_date - current_piw.begins_on).to_i - 1].max
+        elsif coronavirus_related && cohabitant_has_coronavirus && ends_after_coronavirus_entitlement_date?
+          [0, (ssp_start_date - current_piw.begins_on).to_i].max
+        elsif coronavirus_related && coronavirus_gp_letter && !before_coronavirus_shield_date?
+          0
+        elsif coronavirus_related && !before_coronavirus_entitlement_date?
           0
         else
           [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
@@ -129,6 +139,20 @@ module SmartAnswer
         true
       rescue ArgumentError
         false
+      end
+
+      def valid_coronavirus_incapacitated_nogp?
+        coronavirus_related &&
+          !coronavirus_gp_letter &&
+          enough_notice_of_absence &&
+          valid_period_of_incapacity_for_work?
+      end
+
+      def valid_coronavirus_incapacitated_withgp?
+        coronavirus_related &&
+          coronavirus_gp_letter &&
+          enough_notice_of_absence &&
+          valid_period_of_incapacity_for_work?
       end
 
       def sick_start_date_for_awe
@@ -285,6 +309,18 @@ module SmartAnswer
 
       def before_coronavirus_entitlement_date?
         current_piw.begins_on < PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE
+      end
+
+      def ends_after_coronavirus_entitlement_date?
+        current_piw.ends_on > PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE
+      end
+
+      def before_coronavirus_shield_date?
+        current_piw.begins_on < PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
+      end
+
+      def ends_after_coronavirus_shield_date?
+        current_piw.ends_on > PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
       end
 
     private
