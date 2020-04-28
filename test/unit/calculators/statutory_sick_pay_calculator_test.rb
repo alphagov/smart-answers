@@ -1011,7 +1011,6 @@ module SmartAnswer
         end
       end
 
-
       context "when the employee is self-isolating due to coronavirus" do
         context "starting before 13 March 2020" do
           start_date = Date.parse("12 March 2020") # thursday

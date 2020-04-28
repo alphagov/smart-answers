@@ -85,7 +85,6 @@ namespace :links do
 
     File.open("log/broken_links.log", "w") { |f| f.puts broken }
 
-
     fives = broken.select { |item| item[:resp][0] == "5" }
     four_oh_fours = broken.select { |item| item[:resp][0] == "4" }
     three_oh_threes = broken.select { |item| item[:resp][0] == "3" }

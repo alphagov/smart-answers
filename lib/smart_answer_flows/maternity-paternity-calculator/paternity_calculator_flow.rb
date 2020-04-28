@@ -196,8 +196,6 @@ module SmartAnswer
             paternity_adoption ? "adoption" : "notice-period"
           end
 
-
-
           calculate :to_saturday do
             if paternity_adoption
               calculator.matched_week.last
