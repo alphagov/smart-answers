@@ -63,9 +63,9 @@ module SmartAnswer
         ssp_start_date = PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE.to_date
 
         if coronavirus_related && coronavirus_gp_letter && before_coronavirus_shield_date? && ends_after_coronavirus_shield_date?
-          [0, (shielding_start_date - current_piw.begins_on).to_i - 1].max
+          [0, coronavirus_related_unpaid_workdays_missed(shielding_start_date, current_piw.begins_on).length].max
         elsif coronavirus_related && cohabitant_has_coronavirus && ends_after_coronavirus_entitlement_date?
-          [0, (ssp_start_date - current_piw.begins_on).to_i].max
+          [0, coronavirus_related_unpaid_workdays_missed(ssp_start_date, current_piw.begins_on).length].max
         elsif coronavirus_related && coronavirus_gp_letter && !before_coronavirus_shield_date?
           0
         elsif coronavirus_related && !before_coronavirus_entitlement_date?
@@ -139,20 +139,6 @@ module SmartAnswer
         true
       rescue ArgumentError
         false
-      end
-
-      def valid_coronavirus_incapacitated_nogp?
-        coronavirus_related &&
-          !coronavirus_gp_letter &&
-          enough_notice_of_absence &&
-          valid_period_of_incapacity_for_work?
-      end
-
-      def valid_coronavirus_incapacitated_withgp?
-        coronavirus_related &&
-          coronavirus_gp_letter &&
-          enough_notice_of_absence &&
-          valid_period_of_incapacity_for_work?
       end
 
       def sick_start_date_for_awe
@@ -321,6 +307,12 @@ module SmartAnswer
 
       def ends_after_coronavirus_shield_date?
         current_piw.ends_on > PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
+      end
+
+      def coronavirus_related_unpaid_workdays_missed(coronavirus_period_start_date, piw_startdate)
+        coronavirus_period_start_date = coronavirus_period_start_date - 1 #We want to count to the date prior
+        dates = piw_startdate..coronavirus_period_start_date
+        dates.map { |d| d if days_of_the_week_worked.include?(d.wday.to_s) }.compact
       end
 
     private
