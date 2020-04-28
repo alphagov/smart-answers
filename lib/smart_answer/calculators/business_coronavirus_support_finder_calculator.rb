@@ -52,6 +52,9 @@ module SmartAnswer::Calculators
       large_business_loan_scheme: ->(calculator) {
         %w[45m_to_500m 500m_and_over].include?(calculator.annual_turnover)
       },
+      bounce_back_loan: ->(calculator) {
+        %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
+      },
     }.freeze
 
     def show?(result_id)

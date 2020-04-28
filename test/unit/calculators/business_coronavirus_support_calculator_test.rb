@@ -220,6 +220,23 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:large_business_loan_scheme)
         end
       end
+
+      context "bounce_back_loan" do
+        should "return true when annual turnover is £85,000 to 45m" do
+          @calculator.annual_turnover = "85k_to_45m"
+          assert @calculator.show?(:bounce_back_loan)
+        end
+
+        should "return true when annual turnover under £85,000" do
+          @calculator.annual_turnover = "under_85k"
+          assert @calculator.show?(:bounce_back_loan)
+        end
+
+        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
+          @calculator.annual_turnover = "45m_to_500m"
+          assert_not @calculator.show?(:bounce_back_loan)
+        end
+      end
     end
   end
 end
