@@ -28,6 +28,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response "statutory_paternity_pay,statutory_adoption_pay,statutory_parental_bereavement_pay"
       add_response :no
+      #Coronavirus question: Not related
     end
 
     should "set adoption warning state variable" do
@@ -42,6 +43,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       add_response "shared_parental_leave_and_pay"
       add_response :no
+      #Coronavirus question: Not related
     end
 
     should "set adoption warning state variable" do

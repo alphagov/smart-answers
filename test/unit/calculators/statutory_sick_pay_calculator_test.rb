@@ -1031,7 +1031,7 @@ module SmartAnswer
             assert_equal true, calc.valid_period_of_incapacity_for_work?
           end
 
-          should "not pay SSP if they're self-isolating due to someone they live with" do
+          should "pay SSP if they're self-isolating due to someone they live with" do
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
@@ -1039,12 +1039,50 @@ module SmartAnswer
               has_linked_sickness: false,
               coronavirus_related: true,
               has_coronavirus: false,
-              cohabitant_has_coronavirus: false,
+              cohabitant_has_coronavirus: true,
             )
 
-            assert_equal 1, calc.days_paid
+            assert_equal 3, calc.days_paid
             assert_equal true, calc.valid_period_of_incapacity_for_work?
             assert_equal true, calc.before_coronavirus_entitlement_date?
+          end
+        end
+
+        context "starting before 16 April 2020" do
+          start_date = Date.parse("15 April 2020") # wednesday
+          end_date = Date.parse("21 April 2020") # tuesday
+
+          should "pay SSP if they are shielding with GP letter" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              coronavirus_gp_letter: true,
+              coronavirus_related: true,
+            )
+
+            assert_equal 4, calc.days_paid
+            assert_equal true, calc.valid_period_of_incapacity_for_work?
+          end
+        end
+
+        context "starting on or after 16 April 2020" do
+          start_date = Date.parse("16 April 2020") # thursday
+          end_date = Date.parse("21 April 2020") # tuesday
+
+          should "pay SSP if they are shielding with GP letter" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              coronavirus_gp_letter: true,
+              coronavirus_related: true,
+            )
+
+            assert_equal 4, calc.days_paid
+            assert_equal true, calc.valid_period_of_incapacity_for_work?
           end
         end
 
