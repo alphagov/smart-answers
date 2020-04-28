@@ -339,7 +339,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         add_response :no
                       end
 
-
                       should "ask 'do you work outside your shift?'" do
                         assert_current_node :current_additional_work_outside_shift?
                       end

@@ -295,7 +295,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-
     # Child benefits
     context "answer child benefits" do
       setup do

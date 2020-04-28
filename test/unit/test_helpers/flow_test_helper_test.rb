@@ -12,7 +12,6 @@ class FlowTestHelperTest < ActiveSupport::TestCase
     end
   end
 
-
   test "caches current_state" do
     flow = mock("flow")
     flow.expects(:process).once.returns(:state)

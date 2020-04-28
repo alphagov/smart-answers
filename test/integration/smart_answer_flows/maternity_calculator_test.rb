@@ -536,7 +536,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-
     context "check for correct LEL Saturday, 12 April 2014 monthly" do
       setup do
         add_response Date.parse("2014-07-26")
