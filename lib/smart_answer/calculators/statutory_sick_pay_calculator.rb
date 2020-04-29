@@ -306,7 +306,14 @@ module SmartAnswer
       end
 
       def ends_after_coronavirus_shield_date?
-        current_piw.ends_on > PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
+        current_piw.ends_on >= PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
+      end
+
+      def not_entitled_due_to_shielding_before_date?
+        coronavirus_related &&
+          coronavirus_gp_letter &&
+          before_coronavirus_shield_date? &&
+          !ends_after_coronavirus_shield_date?
       end
 
       def coronavirus_related_unpaid_workdays_missed(coronavirus_period_start_date, piw_startdate)
