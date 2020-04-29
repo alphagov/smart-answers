@@ -26,26 +26,12 @@ module SmartAnswer
           if calculator.already_getting_maternity_pay?
             outcome :already_getting_maternity
           else
-            question :employee_tell_within_limit?
+            question :coronavirus_related?
           end
         end
       end
 
       # Question 2
-      multiple_choice :employee_tell_within_limit? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.enough_notice_of_absence = response == "yes"
-        end
-
-        next_node do
-          question :coronavirus_related?
-        end
-      end
-
-      # Question 3
       multiple_choice :coronavirus_related? do
         option :yes
         option :no
@@ -56,14 +42,32 @@ module SmartAnswer
 
         next_node do
           if calculator.coronavirus_related
-            question :coronavirus_self_or_cohabitant?
+            question :coronavirus_gp_letter?
           else
-            question :employee_work_different_days?
+            question :employee_tell_within_limit?
           end
         end
       end
 
-      # Question 3.1
+      # Question 2.1
+      multiple_choice :coronavirus_gp_letter? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.coronavirus_gp_letter = response == "yes"
+        end
+
+        next_node do
+          if calculator.coronavirus_gp_letter
+            question :employee_tell_within_limit?
+          else
+            question :coronavirus_self_or_cohabitant?
+          end
+        end
+      end
+
+      # Question 2.2
       multiple_choice :coronavirus_self_or_cohabitant? do
         option :self
         option :cohabitant
@@ -71,6 +75,20 @@ module SmartAnswer
         on_response do |response|
           calculator.has_coronavirus = response == "self"
           calculator.cohabitant_has_coronavirus = response == "cohabitant"
+        end
+
+        next_node do
+          question :employee_tell_within_limit?
+        end
+      end
+
+      # Question 3
+      multiple_choice :employee_tell_within_limit? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.enough_notice_of_absence = response == "yes"
         end
 
         next_node do
@@ -105,11 +123,7 @@ module SmartAnswer
         validate_in_range
 
         next_node do
-          if calculator.coronavirus_related && calculator.cohabitant_has_coronavirus && calculator.before_coronavirus_entitlement_date?
-            outcome :not_entitled_coronavirus_selfisolation
-          else
-            question :last_sick_day?
-          end
+          question :last_sick_day?
         end
       end
 
@@ -433,9 +447,6 @@ module SmartAnswer
 
       # Answer 8
       outcome :maximum_entitlement_reached
-
-      # Answer 9
-      outcome :not_entitled_coronavirus_selfisolation
     end
   end
 end
