@@ -48,13 +48,9 @@ module SmartAnswer
         end
       end
 
-      def personal_allowance
-        rates.personal_allowance
-      end
+      delegate :personal_allowance, to: :rates
 
-      def income_limit_for_personal_allowances
-        rates.income_limit_for_personal_allowances
-      end
+      delegate :income_limit_for_personal_allowances, to: :rates
 
     private
 

@@ -7,8 +7,8 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).
-      to_return(body: File.open(fixture_file("bank_holidays.json")))
+    WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL)
+      .to_return(body: File.open(fixture_file("bank_holidays.json")))
     setup_for_testing_flow SmartAnswer::VatPaymentDeadlinesFlow
   end
 

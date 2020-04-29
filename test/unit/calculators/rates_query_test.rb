@@ -57,13 +57,11 @@ module SmartAnswer::Calculators
         end
 
         should "return rate for date specified in RATES_QUERY_DATE environment variable if set" do
-          begin
-            ENV["RATES_QUERY_DATE"] = @tomorrow.to_s
+          ENV["RATES_QUERY_DATE"] = @tomorrow.to_s
 
-            assert_equal 1, @rates_query.rates.rate
-          ensure
-            ENV["RATES_QUERY_DATE"] = nil
-          end
+          assert_equal 1, @rates_query.rates.rate
+        ensure
+          ENV["RATES_QUERY_DATE"] = nil
         end
 
         should "return rate for today when no date is specified" do

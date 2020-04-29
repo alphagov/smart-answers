@@ -6,10 +6,10 @@ module SmartAnswer
       context "period of incapacity for work" do
         context "qualifying_days" do
           should "return dates matching working days pattern" do
-            pattern = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
+            pattern = %w[Sunday Tuesday Thursday].map { |d| Date::DAYNAMES.index(d).to_s }
             piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
               begins_on: Date.parse("Sun, 04 Jan 2015"),
-              ends_on:   Date.parse("Wed, 14 Jan 2015"),
+              ends_on: Date.parse("Wed, 14 Jan 2015"),
             )
             dates = piw.qualifying_days(pattern)
             assert_equal [
@@ -213,12 +213,12 @@ module SmartAnswer
         should "calculate AWE for monthly pay patterns" do
           assert_equal 92.31, StatutorySickPayCalculator.average_weekly_earnings(
             pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3,
-).round(2)
+          ).round(2)
         end
         should "calculate AWE for irregular pay patterns" do
           assert_equal 700, StatutorySickPayCalculator.average_weekly_earnings(
             pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"),
-)
+          )
         end
       end # end .average_weekly_earnings
 
@@ -247,7 +247,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("7 October 2012"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
             linked_sickness_end_date: Date.parse("Fri, 7 Sep 2012"),
@@ -280,7 +280,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("7 October 2012"),
-            days_of_the_week_worked: %w(1 3 5),
+            days_of_the_week_worked: %w[1 3 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
             linked_sickness_end_date: Date.parse("Wed, 12 Sep 2012"),
@@ -299,7 +299,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("7 October 2012"),
-            days_of_the_week_worked: %w(0 1 2 3 4 5 6),
+            days_of_the_week_worked: %w[0 1 2 3 4 5 6],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
             linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012"),
@@ -318,7 +318,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("7 October 2012"),
-            days_of_the_week_worked: %w(1 2 3 4 5 6),
+            days_of_the_week_worked: %w[1 2 3 4 5 6],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
             linked_sickness_end_date: Date.parse("Thu, 6 Sep 2012"),
@@ -337,7 +337,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("7 October 2012"),
-            days_of_the_week_worked: %w(4 5),
+            days_of_the_week_worked: %w[4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Thu, 6 Sep 2012"),
             linked_sickness_end_date: Date.parse("Thu, 20 Sep 2012"),
@@ -355,7 +355,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("6 April 2012"),
             sick_end_date: Date.parse("6 May 2012"),
-            days_of_the_week_worked: %w(1 2 3),
+            days_of_the_week_worked: %w[1 2 3],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
             linked_sickness_end_date: Date.parse("Tue, 4 Sep 2012"),
@@ -373,7 +373,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("6 April 2012"),
             sick_end_date: Date.parse("17 April 2012"),
-            days_of_the_week_worked: %w(1 2 3),
+            days_of_the_week_worked: %w[1 2 3],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
             linked_sickness_end_date: Date.parse("Mon, 3 Sep 2012"),
@@ -393,7 +393,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("6 April 2012"),
             sick_end_date: Date.parse("12 April 2012"),
-            days_of_the_week_worked: %w(1 2 3),
+            days_of_the_week_worked: %w[1 2 3],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -412,7 +412,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("6 April 2012"),
             sick_end_date: Date.parse("6 December 2012"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -421,7 +421,7 @@ module SmartAnswer
         should "have a max of 140 days payable" do
           assert_equal @calculator.send(:days_to_pay), 140
           assert_equal @calculator.normal_workdays, 175
-          assert_equal @calculator.ssp_payment, 2403.80 #140 * 17.1700 or 28 * 85.85
+          assert_equal @calculator.ssp_payment, 2403.80 # 140 * 17.1700 or 28 * 85.85
         end
       end
 
@@ -430,7 +430,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("6 April 2012"),
             sick_end_date: Date.parse("6 December 2012"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -439,7 +439,7 @@ module SmartAnswer
         should "have a max of 84 days payable" do
           assert_equal @calculator.send(:days_to_pay), 84
           assert_equal @calculator.normal_workdays, 105
-          assert_equal @calculator.ssp_payment, 2403.80 #28 weeks at 85.85 a week
+          assert_equal @calculator.ssp_payment, 2403.80 # 28 weeks at 85.85 a week
         end
       end
 
@@ -449,7 +449,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("10 April 2012"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
             linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012"),
@@ -470,7 +470,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("13 April 2012"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -490,7 +490,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: Date.parse("3 August 2014"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
             linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012"),
@@ -510,7 +510,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: @start_date,
             sick_end_date: @start_date + 1.month,
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -527,7 +527,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("28 February 2012"),
             sick_end_date: Date.parse("7 April 2012"),
-            days_of_the_week_worked: %w(2 3 4 5),
+            days_of_the_week_worked: %w[2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Tue, 3 Jan 2012"),
             linked_sickness_end_date: Date.parse("Thu, 12 Jan 2012"),
@@ -548,7 +548,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("25 July 2012"),
             sick_end_date: Date.parse("4 September 2012"),
-            days_of_the_week_worked: %w(1 3 5),
+            days_of_the_week_worked: %w[1 3 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 7 May 2012"),
             linked_sickness_end_date: Date.parse("Sun, 1 Jul 2012"),
@@ -569,7 +569,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("23 November 2012"),
             sick_end_date: Date.parse("31 December 2012"),
-            days_of_the_week_worked: %w(0 6),
+            days_of_the_week_worked: %w[0 6],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -589,7 +589,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("29 March 2012"),
             sick_end_date: Date.parse("6 May 2012"),
-            days_of_the_week_worked: %w(1 2 3 4),
+            days_of_the_week_worked: %w[1 2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Wed, 28 Sep 2011"),
             linked_sickness_end_date: Date.parse("Mon, 19 Mar 2012"),
@@ -609,7 +609,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("29 March 2012"),
             sick_end_date: Date.parse("6 May 2012"),
-            days_of_the_week_worked: %w(1 2 3 4),
+            days_of_the_week_worked: %w[1 2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 5 Sep 2011"),
             linked_sickness_end_date: Date.parse("Wed, 21 Mar 2012"),
@@ -647,7 +647,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("29 March 2012"),
             sick_end_date: Date.parse("10 April 2012"),
-            days_of_the_week_worked: %w(1 2 3 4),
+            days_of_the_week_worked: %w[1 2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Mon, 5 Sep 2011"),
             linked_sickness_end_date: Date.parse("Tue, 20 Mar 2012"),
@@ -667,7 +667,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("26 March 2013"),
             sick_end_date: Date.parse("12 April 2013"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -685,7 +685,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(1 2 3 4),
+            days_of_the_week_worked: %w[1 2 3 4],
             has_linked_sickness: false,
           )
           assert_equal @calculator.prev_sick_days, 0
@@ -703,7 +703,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(3 6),
+            days_of_the_week_worked: %w[3 6],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sat, 1 Dec 2012"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012"),
@@ -723,7 +723,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012"),
@@ -743,7 +743,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("10 July 2014"),
             sick_end_date: Date.parse("20 July 2014"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Sun, 1 Jun 2014"),
             linked_sickness_end_date: Date.parse("Sat, 14 Jun 2014"),
@@ -837,7 +837,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012"),
@@ -869,7 +869,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012"),
@@ -898,7 +898,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("7 January 2013"),
             sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(2 3 4),
+            days_of_the_week_worked: %w[2 3 4],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012"),
@@ -913,7 +913,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("5 June 2017"),
             sick_end_date: Date.parse("9 June 2017"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2016"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2016"),
@@ -926,7 +926,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("4 June 2018"),
             sick_end_date: Date.parse("8 June 2018"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2017"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2017"),
@@ -939,7 +939,7 @@ module SmartAnswer
           calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("3 June 2019"),
             sick_end_date: Date.parse("7 June 2019"),
-            days_of_the_week_worked: %w(1 2 3 4 5),
+            days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("Fri, 21 Sep 2018"),
             linked_sickness_end_date: Date.parse("Fri, 28 Dec 2018"),
@@ -990,7 +990,7 @@ module SmartAnswer
           calc = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("24 October 2013"),
             sick_end_date: Date.parse("27 October 2013"),
-            days_of_the_week_worked: %w(0 1 3 4 5 6),
+            days_of_the_week_worked: %w[0 1 3 4 5 6],
             has_linked_sickness: false,
           )
 
@@ -1020,7 +1020,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_related: true,
               has_coronavirus: true,
@@ -1035,7 +1035,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_related: true,
               has_coronavirus: false,
@@ -1056,7 +1056,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_related: true,
               has_coronavirus: true,
@@ -1077,16 +1077,16 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_gp_letter: true,
               coronavirus_related: true,
             )
 
-            assert_equal 4, calc.days_paid # FIXME this should be false, we'll tackle it later
+            assert_equal 4, calc.days_paid # FIXME: this should be false, we'll tackle it later
             assert_equal true, calc.before_coronavirus_shield_date?
             assert_equal false, calc.ends_after_coronavirus_shield_date?
-            assert_equal true, calc.entitled_to_sick_pay? # FIXME this should be false, we'll tackle it later
+            assert_equal true, calc.entitled_to_sick_pay? # FIXME: this should be false, we'll tackle it later
           end
         end
 
@@ -1098,7 +1098,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_gp_letter: true,
               coronavirus_related: true,
@@ -1119,7 +1119,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_gp_letter: true,
               coronavirus_related: true,
@@ -1140,7 +1140,7 @@ module SmartAnswer
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
-              days_of_the_week_worked: %w(1 2 3 4 5),
+              days_of_the_week_worked: %w[1 2 3 4 5],
               has_linked_sickness: false,
               coronavirus_gp_letter: true,
               coronavirus_related: true,
@@ -1163,7 +1163,7 @@ module SmartAnswer
               calc = StatutorySickPayCalculator.new(
                 sick_start_date: start_date,
                 sick_end_date: end_date,
-                days_of_the_week_worked: %w(1 2 3 4 5),
+                days_of_the_week_worked: %w[1 2 3 4 5],
                 has_linked_sickness: false,
                 coronavirus_related: true,
               )
@@ -1180,7 +1180,7 @@ module SmartAnswer
               calc = StatutorySickPayCalculator.new(
                 sick_start_date: start_date,
                 sick_end_date: end_date,
-                days_of_the_week_worked: %w(1 2 3 4 5),
+                days_of_the_week_worked: %w[1 2 3 4 5],
                 has_linked_sickness: false,
                 coronavirus_related: true,
               )

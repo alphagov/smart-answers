@@ -47,7 +47,7 @@ module SmartAnswer
         end
       end
 
-      #Q3
+      # Q3
       checkbox_question :receiving_exemption_benefits? do
         config.exempt_benefits.each_key do |exempt_benefit|
           option exempt_benefit
@@ -78,7 +78,7 @@ module SmartAnswer
         end
       end
 
-      #Q4
+      # Q4
       checkbox_question :receiving_non_exemption_benefits? do
         config.benefits.each_key do |benefit|
           option benefit
@@ -97,7 +97,7 @@ module SmartAnswer
         end
       end
 
-      #Q5a-o
+      # Q5a-o
       config.questions.each do |(_benefit, method)|
         money_question method do
           calculate :total_benefits do |response|
@@ -110,7 +110,7 @@ module SmartAnswer
         end
       end
 
-      #Q5p
+      # Q5p
       money_question :housing_benefit_amount? do
         save_input_as :housing_benefit_amount
 
@@ -127,7 +127,7 @@ module SmartAnswer
         end
       end
 
-      #Q6
+      # Q6
       multiple_choice :single_couple_lone_parent? do
         precalculate :weekly_benefit_cap_descriptions do
           config.weekly_benefit_cap_descriptions
@@ -144,7 +144,7 @@ module SmartAnswer
         end
       end
 
-      #Q7 Enter a postcode
+      # Q7 Enter a postcode
       postcode_question :enter_postcode? do
         calculate :benefit_cap do |response|
           sprintf("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
@@ -174,7 +174,7 @@ module SmartAnswer
         end
       end
 
-      ##OUTCOMES
+      # #OUTCOMES
 
       ## Outcome 1
       outcome :outcome_not_affected_exemptions

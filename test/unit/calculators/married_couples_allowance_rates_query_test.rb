@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
     end
 
     should "have all required rates defined for the current fiscal year" do
-      %w(maximum_married_couple_allowance minimum_married_couple_allowance).each do |rate|
+      %w[maximum_married_couple_allowance minimum_married_couple_allowance].each do |rate|
         assert @query.rates.send(rate).is_a?(Numeric)
       end
     end

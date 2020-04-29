@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class RegistrationsDataQuery
-    COMMONWEALTH_COUNTRIES = %w(
+    COMMONWEALTH_COUNTRIES = %w[
       anguilla
       australia
       bermuda
@@ -18,23 +18,23 @@ module SmartAnswer::Calculators
       south-georgia-and-the-south-sandwich-islands
       st-helena-ascension-and-tristan-da-cunha
       turks-and-caicos-islands
-    ).freeze
+    ].freeze
 
-    COUNTRIES_WITH_CONSULATES = %w(
+    COUNTRIES_WITH_CONSULATES = %w[
       china
       colombia
       israel
       russia
       turkey
-    ).freeze
+    ].freeze
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %w(
+    COUNTRIES_WITH_CONSULATE_GENERALS = %w[
       brazil
       hong-kong
       turkey
-    ).freeze
+    ].freeze
 
-    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(
+    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w[
       afghanistan
       iran
       iraq
@@ -45,9 +45,9 @@ module SmartAnswer::Calculators
       qatar
       saudi-arabia
       united-arab-emirates
-    ).freeze
+    ].freeze
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w[
       andorra
       belgium
       denmark
@@ -75,14 +75,14 @@ module SmartAnswer::Calculators
       turkey
       united-arab-emirates
       usa
-    ).freeze
+    ].freeze
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w[
       papua-new-guinea
       poland
-    ).freeze
+    ].freeze
 
-    ORU_COURIER_VARIANTS = %w(
+    ORU_COURIER_VARIANTS = %w[
       cambodia
       cameroon
       kenya
@@ -90,15 +90,15 @@ module SmartAnswer::Calculators
       north-korea
       papua-new-guinea
       uganda
-    ).freeze
+    ].freeze
 
-    ORU_COURIER_BY_HIGH_COMISSION = %w(
+    ORU_COURIER_BY_HIGH_COMISSION = %w[
       cameroon
       kenya
       nigeria
-    ).freeze
+    ].freeze
 
-    HIGHER_RISK_COUNTRIES = %w(
+    HIGHER_RISK_COUNTRIES = %w[
       afghanistan
       algeria
       azerbaijan
@@ -122,12 +122,12 @@ module SmartAnswer::Calculators
       sri-lanka
       sudan
       uganda
-    ).freeze
+    ].freeze
 
-    MAY_REQUIRE_DNA_TESTS = %w(
+    MAY_REQUIRE_DNA_TESTS = %w[
       libya
       somalia
-    ).freeze
+    ].freeze
 
     ORU_REGISTRATION_DURATION = {
       "afghanistan" => "6 months",

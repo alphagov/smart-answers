@@ -238,15 +238,15 @@ module SmartAnswer::Calculators
     end
 
     def vehicles
-      %w(car van motorcycle)
+      %w[car van motorcycle]
     end
 
     def none_options
-      %w(no_vehicle no_expense)
+      %w[no_vehicle no_expense]
     end
 
     def work_locations
-      %w(using_home_for_business live_on_business_premises)
+      %w[using_home_for_business live_on_business_premises]
     end
   end
 end

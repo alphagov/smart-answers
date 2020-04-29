@@ -52,7 +52,7 @@ module SmartAnswer
         end
       end
 
-      #Q1c / Q1d
+      # Q1c / Q1d
       multiple_choice :what_sort_of_passport? do
         option :citizen
         option :alien
@@ -72,7 +72,7 @@ module SmartAnswer
         end
       end
 
-      #Q1e / Q1f
+      # Q1e / Q1f
       multiple_choice :what_sort_of_travel_document? do
         option :passport
         option :travel_document
@@ -101,7 +101,7 @@ module SmartAnswer
         flow.travel_response_next_route(self)
       end
 
-      #Q2a
+      # Q2a
       multiple_choice :travelling_to_cta? do
         option :channel_islands_or_isle_of_man
         option :republic_of_ireland
@@ -134,7 +134,7 @@ module SmartAnswer
         end
       end
 
-      #Q2b
+      # Q2b
       multiple_choice :channel_islands_or_isle_of_man? do
         option :tourism
         option :work
@@ -148,7 +148,7 @@ module SmartAnswer
         flow.travel_response_next_route(self)
       end
 
-      #Q3
+      # Q3
       multiple_choice :passing_through_uk_border_control? do
         option :yes
         option :no
@@ -182,7 +182,7 @@ module SmartAnswer
         end
       end
 
-      #Q4
+      # Q4
       multiple_choice :staying_for_how_long? do
         option :six_months_or_less
         option :longer_than_six_months
@@ -199,9 +199,9 @@ module SmartAnswer
           case response
           when "longer_than_six_months"
             if calculator.study_visit?
-              outcome :outcome_study_y #outcome 2 study y
+              outcome :outcome_study_y # outcome 2 study y
             elsif calculator.work_visit?
-              outcome :outcome_work_y #outcome 4 work y
+              outcome :outcome_work_y # outcome 4 work y
             end
           when "six_months_or_less"
             if calculator.study_visit?
@@ -212,9 +212,9 @@ module SmartAnswer
               elsif calculator.passport_country_in_datv_list? ||
                   calculator.passport_country_in_visa_national_list? ||
                   calculator.travel_document?
-                outcome :outcome_study_m #outcome 3 study m visa needed short courses
+                outcome :outcome_study_m # outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
-                outcome :outcome_no_visa_needed #outcome 1 no visa needed
+                outcome :outcome_no_visa_needed # outcome 1 no visa needed
               end
             elsif calculator.work_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
@@ -223,7 +223,7 @@ module SmartAnswer
                   calculator.passport_country_is_taiwan? ||
                   calculator.passport_country_in_non_visa_national_list?) &&
                   !calculator.travel_document?
-                #outcome 5.5 work N no visa needed
+                # outcome 5.5 work N no visa needed
                 outcome :outcome_work_n
               else
                 # outcome 5 work m visa needed short courses

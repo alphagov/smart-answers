@@ -14,10 +14,10 @@ module SmartAnswer
 
     def specific_local_authorities(country_slug)
       {
-        "germany"  => " (registry office ‘standesamt’ or church) ",
-        "greece"   => " (the town hall or the local priest)",
-        "oman"     => " (the local church, mosque or temple) ",
-        "poland"   => " (the local registry office or church)",
+        "germany" => " (registry office ‘standesamt’ or church) ",
+        "greece" => " (the town hall or the local priest)",
+        "oman" => " (the local church, mosque or temple) ",
+        "poland" => " (the local registry office or church)",
       }[country_slug].to_s
     end
   end

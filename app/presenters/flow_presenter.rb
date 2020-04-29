@@ -15,9 +15,7 @@ class FlowPresenter
     @node_presenters = {}
   end
 
-  def title
-    start_node.title
-  end
+  delegate :title, to: :start_node
 
   def started?
     params.has_key?(:started)

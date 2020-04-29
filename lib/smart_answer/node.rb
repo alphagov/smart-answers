@@ -14,13 +14,9 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
 
-    def to_sym
-      name.to_sym
-    end
+    delegate :to_sym, to: :name
 
-    def to_s
-      name.to_s
-    end
+    delegate :to_s, to: :name
 
     def filesystem_friendly_name
       to_s.sub(/\?$/, "")

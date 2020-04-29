@@ -86,7 +86,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build country select question nodes" do
-    stub_world_locations(%w(afghanistan))
+    stub_world_locations(%w[afghanistan])
 
     s = SmartAnswer::Flow.new do
       country_select :which_country?
@@ -234,10 +234,10 @@ class FlowTest < ActiveSupport::TestCase
 
     should "calculate state after a series of responses" do
       assert_equal :do_you_like_chocolate?, @flow.process([]).current_node
-      assert_equal :do_you_like_jam?, @flow.process(%w{no}).current_node
-      assert_equal :sweet, @flow.process(%w{no yes}).current_node
-      assert_equal :sweet, @flow.process(%w{yes}).current_node
-      assert_equal :savoury, @flow.process(%w{no no}).current_node
+      assert_equal :do_you_like_jam?, @flow.process(%w[no]).current_node
+      assert_equal :sweet, @flow.process(%w[no yes]).current_node
+      assert_equal :sweet, @flow.process(%w[yes]).current_node
+      assert_equal :savoury, @flow.process(%w[no no]).current_node
     end
 
     context "a question raises an error" do
@@ -250,8 +250,8 @@ class FlowTest < ActiveSupport::TestCase
       end
 
       should "skip a transation and set error flag" do
-        assert_equal :do_you_like_jam?, @flow.process(%w{no bad}).current_node
-        assert_equal @error_message, @flow.process(%w{no bad}).error
+        assert_equal :do_you_like_jam?, @flow.process(%w[no bad]).current_node
+        assert_equal @error_message, @flow.process(%w[no bad]).error
       end
 
       should "not process any further input after error" do
@@ -259,11 +259,11 @@ class FlowTest < ActiveSupport::TestCase
           .expects(:parse_input)
           .with("yes")
           .never
-        assert_equal :do_you_like_jam?, @flow.process(%w{no bad yes yes}).current_node
+        assert_equal :do_you_like_jam?, @flow.process(%w[no bad yes yes]).current_node
       end
 
       should "truncate path after error" do
-        assert_equal [:do_you_like_chocolate?], @flow.path(%w{no bad})
+        assert_equal [:do_you_like_chocolate?], @flow.path(%w[no bad])
       end
     end
 
@@ -280,16 +280,16 @@ class FlowTest < ActiveSupport::TestCase
 
       should "notify Sentry" do
         GovukError.expects(:notify).with(@error)
-        @flow.process(%w{no bad})
+        @flow.process(%w[no bad])
       end
     end
 
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
-      assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})
-      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no yes})
-      assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
-      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no no})
+      assert_equal [:do_you_like_chocolate?], @flow.path(%w[no])
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w[no yes])
+      assert_equal [:do_you_like_chocolate?], @flow.path(%w[yes])
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w[no no])
     end
   end
 
@@ -390,7 +390,7 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     should "have nodes from other flow after nodes in this flow" do
-      assert_equal %i(question? outcome another_outcome), @flow.nodes.map(&:name)
+      assert_equal %i[question? outcome another_outcome], @flow.nodes.map(&:name)
     end
 
     should "set flow on all nodes from other flow" do

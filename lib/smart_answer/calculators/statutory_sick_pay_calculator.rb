@@ -92,11 +92,11 @@ module SmartAnswer
       end
 
       def paternity_maternity_warning?
-        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_parental_bereavement_pay statutory_adoption_pay}).any?
+        (other_pay_types_received & %w[statutory_paternity_pay shared_parental_leave_and_pay statutory_parental_bereavement_pay statutory_adoption_pay]).any?
       end
 
       def already_getting_maternity_pay?
-        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_parental_bereavement_pay statutory_adoption_pay none}).none?
+        (other_pay_types_received & %w[statutory_paternity_pay shared_parental_leave_and_pay statutory_parental_bereavement_pay statutory_adoption_pay none]).none?
       end
 
       def valid_last_sick_day?
@@ -317,7 +317,7 @@ module SmartAnswer
       end
 
       def coronavirus_related_unpaid_workdays_missed(coronavirus_period_start_date, piw_startdate)
-        coronavirus_period_start_date = coronavirus_period_start_date - 1 #We want to count to the date prior
+        coronavirus_period_start_date -= 1 # We want to count to the date prior
         dates = piw_startdate..coronavirus_period_start_date
         dates.map { |d| d if days_of_the_week_worked.include?(d.wday.to_s) }.compact
       end

@@ -16,7 +16,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
     context "when using post-Autumn 2016 rates and rules" do
       # setup { add_response :default }
 
-      #Q1 Receiving Housing Benefit
+      # Q1 Receiving Housing Benefit
       should "ask do you receive housing benefit" do
         assert_current_node :receive_housing_benefit?
       end
@@ -24,7 +24,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
       context "answer yes" do
         setup { add_response :yes }
 
-        #Q2 Qualify for working tax credit
+        # Q2 Qualify for working tax credit
         should "ask if qualify for working tax credit" do
           assert_current_node :working_tax_credit?
         end
@@ -41,7 +41,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         context "answer no" do
           setup { add_response :no }
 
-          #Q3
+          # Q3
           should "Ask if household receiving exemption benefits" do
             assert_current_node :receiving_exemption_benefits?
           end
@@ -66,7 +66,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           context "does not select any exempt benefit" do
             setup { add_response :none }
 
-            #Q4
+            # Q4
             should "ask if household receiving other benefits" do
               assert_current_node :receiving_non_exemption_benefits?
             end
@@ -74,7 +74,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             context "answer receiving additional benefits" do
               setup { add_response "incapacity,sda" }
 
-              #Q5f
+              # Q5f
               should "ask how much for incapacity allowance benefit" do
                 assert_state_variable :benefit_types, [:sda]
                 assert_current_node :incapacity_amount?
@@ -84,7 +84,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
               context "answer incapacity allowance amount" do
                 setup { add_response "300" }
 
-                #Q5k
+                # Q5k
                 should "ask how much for severe disability allowance" do
                   assert_state_variable :benefit_types, []
                   assert_current_node :sda_amount?
@@ -94,7 +94,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                 context "answer sda amount" do
                   setup { add_response "300" }
 
-                  #Q5p
+                  # Q5p
                   should "ask how much for housing benefit" do
                     assert_state_variable :benefit_types, []
                     assert_state_variable :total_benefits, 600
@@ -104,7 +104,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   context "answer housing benefit amount" do
                     setup { add_response "300" }
 
-                    #Q6
+                    # Q6
                     should "ask whether single, living with couple or lone parent" do
                       assert_current_node :single_couple_lone_parent?
                     end
@@ -131,11 +131,11 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :outcome_affected_greater_than_cap_national
                         end
                       end
-                    end #Q6 single greater than cap, at Outcome 3
-                  end #Q5p how much for housing benefit
-                end #Q5k how much for severe disablity allowance
-              end #Q5f how much for guardian allowance benefit
-            end #Q4 receiving additional benefits, above cap
+                    end # Q6 single greater than cap, at Outcome 3
+                  end # Q5p how much for housing benefit
+                end # Q5k how much for severe disablity allowance
+              end # Q5f how much for guardian allowance benefit
+            end # Q4 receiving additional benefits, above cap
 
             context "answer receiving additional benefits" do
               setup { add_response "esa,maternity" }
@@ -190,11 +190,11 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :outcome_not_affected_less_than_cap_national
                         end
                       end
-                    end #Q6 lone parent, under cap, at Outcome 4
-                  end #Q5p how much for housing, under cap
-                end #Q5j how much for maternity, under cap
-              end #Q5e how much for esa, under cap
-            end #Q4 receiving additional benefits, under cap
+                    end # Q6 lone parent, under cap, at Outcome 4
+                  end # Q5p how much for housing, under cap
+                end # Q5j how much for maternity, under cap
+              end # Q5e how much for esa, under cap
+            end # Q4 receiving additional benefits, under cap
 
             # not receiving additional benefits from Q4
             context "no additional benefits selected" do
@@ -231,10 +231,10 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                       assert_current_node :outcome_not_affected_less_than_cap_london
                     end
                   end
-                end #Q6 lone parent, under cap, at Outcome 4
-              end #Q5p how much for housing, under cap
-            end #Q4 no additional benefits at Outcome 5
-          end #Q3 not receiving benefits
+                end # Q6 lone parent, under cap, at Outcome 4
+              end # Q5p how much for housing, under cap
+            end # Q4 no additional benefits at Outcome 5
+          end # Q3 not receiving benefits
         end # Q2 not qualify for working tax credit
       end # Q1 Receiving housing benefit
 

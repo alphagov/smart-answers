@@ -3,7 +3,7 @@ require_relative "../test_helper"
 class WorldLocationTest < ActiveSupport::TestCase
   context "loading all locations" do
     should "load locations and construct an instance for each one" do
-      @location_slugs = %w(the-shire rivendel rohan lorien gondor arnor mordor)
+      @location_slugs = %w[the-shire rivendel rohan lorien gondor arnor mordor]
       stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
@@ -23,18 +23,18 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "filter out any results that are not world locations e.g. delegations & missions" do
-      @location_slugs = %w(the-shire rivendel rohan delegation-to-lorien gondor arnor mission-to-mordor)
+      @location_slugs = %w[the-shire rivendel rohan delegation-to-lorien gondor arnor mission-to-mordor]
       stub_worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
-      assert_equal %w(the-shire rivendel rohan gondor arnor), results.map(&:slug)
+      assert_equal %w[the-shire rivendel rohan gondor arnor], results.map(&:slug)
     end
 
     should "filter out any results that don't have a slug" do
       stub_worldwide_api_has_locations(["location-1", "", "location-3"])
 
       results = WorldLocation.all
-      assert_equal %w(location-1 location-3), results.map(&:slug)
+      assert_equal %w[location-1 location-3], results.map(&:slug)
     end
 
     context "caching the results" do

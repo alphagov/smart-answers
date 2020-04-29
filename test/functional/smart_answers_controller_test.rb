@@ -89,7 +89,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "assign empty hash to content_item" do
-        assert_equal Hash.new, assigns(:content_item)
+        assert_equal({}, assigns(:content_item))
       end
     end
 

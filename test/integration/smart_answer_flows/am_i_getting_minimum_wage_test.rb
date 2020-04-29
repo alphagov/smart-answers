@@ -201,7 +201,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         add_response :no
                       end
                       should "show the results" do
-                        #not paid for additional work = potential underpayment
+                        # not paid for additional work = potential underpayment
                         assert_equal true, current_state.calculator.potential_underpayment?
                         assert_current_node :current_payment_below
                       end
@@ -224,7 +224,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
 
                     should "show the results" do
-                      #charged for things needed to do job = potential underpayment
+                      # charged for things needed to do job = potential underpayment
                       assert_equal true, current_state.calculator.potential_underpayment?
                       assert_current_node :current_payment_below
                     end
@@ -242,7 +242,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         add_response :yes
                       end
                       should "show the results" do
-                        #charged for things needed to do job = potential underpayment
+                        # charged for things needed to do job = potential underpayment
                         assert_equal true, current_state.calculator.potential_underpayment?
                         assert_current_node :current_payment_below
                       end
@@ -252,7 +252,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         add_response :no
                       end
                       should "show the results" do
-                        #charged for things needed to do job = potential underpayment
+                        # charged for things needed to do job = potential underpayment
                         assert_equal true, current_state.calculator.potential_underpayment?
                         assert_current_node :current_payment_below
                       end
@@ -266,7 +266,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   add_response :yes_free
                 end
 
-                #Q7b
+                # Q7b
                 should "ask 'how many days do you live in the accomodation?'" do
                   assert_current_node :current_accommodation_usage?
                 end
@@ -276,7 +276,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     add_response 1
                   end
 
-                  #Q9
+                  # Q9
                   should "ask 'does_employer_charge_for_job_requirements?'" do
                     assert_current_node :does_employer_charge_for_job_requirements?
                   end
@@ -310,7 +310,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   add_response :yes_charged
                 end
 
-                #Q9
+                # Q9
                 should "ask 'how much are you charged?'" do
                   assert_current_node :current_accommodation_charge?
                 end
@@ -329,7 +329,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       add_response 1
                     end
 
-                    #Q9
+                    # Q9
                     should "ask 'does_employer_charge_for_job_requirements?'" do
                       assert_current_node :does_employer_charge_for_job_requirements?
                     end
@@ -382,7 +382,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     setup do
       add_response :past_payment
     end
-      # Q2
+    # Q2
     should "ask 'were you an apprentice?'" do
       assert_current_node :were_you_an_apprentice?
     end
@@ -652,7 +652,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               setup do
                 add_response 158.39
               end
-            # Q7
+              # Q7
               should "ask 'were you provided with accommodation?'" do
                 assert_current_node :was_provided_with_accommodation?
               end
@@ -681,7 +681,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
 
                     should "show the results" do
-                      #no additional work or charge for job requitements = no potential underpayment
+                      # no additional work or charge for job requitements = no potential underpayment
                       assert_equal false, current_state.calculator.potential_underpayment?
                       assert_current_node :past_payment_below
                     end
@@ -702,7 +702,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       end
 
                       should "show the results" do
-                        #unpaid work outside shift = potential underpayment
+                        # unpaid work outside shift = potential underpayment
                         assert_equal true, current_state.calculator.potential_underpayment?
                         assert_current_node :past_payment_below
                       end
@@ -714,7 +714,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       end
 
                       should "show the results" do
-                        #paid for work outside shift = no potential underpayment
+                        # paid for work outside shift = no potential underpayment
                         assert_equal false, current_state.calculator.potential_underpayment?
                         assert_current_node :past_payment_below
                       end
@@ -723,9 +723,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 end
               end
 
-                # Where accommodation is charged under the £4.73 threshold.
-                # No adjustment is made to basic pay.
-                #
+              # Where accommodation is charged under the £4.73 threshold.
+              # No adjustment is made to basic pay.
+              #
               context "answer 'yes charged accommodation' to 'were you provided with accommodation?'" do
                 setup do
                   add_response :yes_charged
@@ -1033,10 +1033,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :current_payment_below
         assert_equal 8.20, current_state.calculator.total_hourly_rate
         assert_equal 8.21, current_state.calculator.minimum_hourly_rate
-      # 7.80 accomodation * 21 days = £163.80
-      # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
-      # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
-      # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
+        # 7.80 accomodation * 21 days = £163.80
+        # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
+        # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
+        # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
       end
     end
 
@@ -1474,10 +1474,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :current_payment_below
         assert_equal 8.24, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
-      # 7.80 accomodation * 21 days = £163.80
-      # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
-      # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
-      # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
+        # 7.80 accomodation * 21 days = £163.80
+        # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
+        # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
+        # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
       end
     end
 

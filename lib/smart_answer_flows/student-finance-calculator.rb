@@ -9,7 +9,7 @@ module SmartAnswer
 
       sf_calculator = Calculators::StudentFinanceCalculator.new
 
-      #Q1
+      # Q1
       multiple_choice :when_does_your_course_start? do
         option :"2019-2020"
         option :"2020-2021"
@@ -25,7 +25,7 @@ module SmartAnswer
         end
       end
 
-      #Q2
+      # Q2
       multiple_choice :what_type_of_student_are_you? do
         option :"uk-full-time"
         option :"uk-part-time"
@@ -43,7 +43,7 @@ module SmartAnswer
         end
       end
 
-      #Q3
+      # Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
         calculate :tuition_fee_amount do |response|
           if response > calculator.tuition_fee_maximum
@@ -64,7 +64,7 @@ module SmartAnswer
           end
         end
       end
-      #Q4
+      # Q4
       multiple_choice :where_will_you_live_while_studying? do
         option :'at-home'
         option :'away-outside-london'
@@ -81,7 +81,7 @@ module SmartAnswer
         end
       end
 
-      #Q5
+      # Q5
       money_question :whats_your_household_income? do
         on_response do |response|
           calculator.household_income = response
@@ -97,7 +97,7 @@ module SmartAnswer
         end
       end
 
-      #Q6a
+      # Q6a
       value_question :how_many_credits_will_you_study?, parse: Float do
         on_response do |response|
           if response.negative?
@@ -112,7 +112,7 @@ module SmartAnswer
         end
       end
 
-      #Q6b
+      # Q6b
       value_question :how_many_credits_does_a_full_time_student_study?, parse: Float do
         on_response do |response|
           if response.negative? || response < calculator.part_time_credits
@@ -127,7 +127,7 @@ module SmartAnswer
         end
       end
 
-      #Q7a uk full-time students
+      # Q7a uk full-time students
       checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
         option :"children-under-17"
         option :"dependant-adult"
@@ -148,7 +148,7 @@ module SmartAnswer
         end
       end
 
-      #Q7b uk students
+      # Q7b uk students
       checkbox_question :do_any_of_the_following_apply_all_uk_students? do
         option :"has-disability"
         option :"low-income"
@@ -163,7 +163,7 @@ module SmartAnswer
         end
       end
 
-      #Q8a
+      # Q8a
       multiple_choice :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
@@ -188,7 +188,7 @@ module SmartAnswer
         end
       end
 
-      #Q8b
+      # Q8b
       multiple_choice :are_you_a_doctor_or_dentist? do
         option :yes
         option :no

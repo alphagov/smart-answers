@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
         end
 
         should "return keys matching exempt benefits" do
-          benefits = %w(attendance_allowance carers_allowance disability_living_allowance guardians_allowance industrial_injuries_benefit personal_independence_payment employment_support_allowance war_partner_pension armed_forces_compensation_scheme armed_forces_independence_payment war_pensions)
+          benefits = %w[attendance_allowance carers_allowance disability_living_allowance guardians_allowance industrial_injuries_benefit personal_independence_payment employment_support_allowance war_partner_pension armed_forces_compensation_scheme armed_forces_independence_payment war_pensions]
           assert_equal benefits, @config.exempt_benefits.keys
         end
       end

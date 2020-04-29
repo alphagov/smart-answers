@@ -118,14 +118,14 @@ module SmartAnswer::Calculators
       end
 
       should "return true if the age is 25 or over" do
-        %w(25 26).each do |age|
+        %w[25 26].each do |age|
           @calculator.age = age
           assert @calculator.eligible_for_living_wage?
         end
       end
 
       should "return false if age is lower than 24 or nil" do
-        %w(nil 0 24).each do |age|
+        %w[nil 0 24].each do |age|
           @calculator.age = age
           assert_not @calculator.eligible_for_living_wage?
         end

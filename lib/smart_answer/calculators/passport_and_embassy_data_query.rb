@@ -3,13 +3,13 @@ module SmartAnswer::Calculators
     include ActionView::Helpers::NumberHelper
 
     ALT_EMBASSIES = {
-      "benin" =>  "nigeria",
+      "benin" => "nigeria",
       "guinea" => "ghana",
     }.freeze
 
-    CASH_ONLY_COUNTRIES = %w(cuba sudan).freeze
+    CASH_ONLY_COUNTRIES = %w[cuba sudan].freeze
 
-    RENEWING_COUNTRIES = %w(belarus cuba lebanon libya myanmar russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe).freeze
+    RENEWING_COUNTRIES = %w[belarus cuba lebanon libya myanmar russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe].freeze
 
     attr_reader :passport_data
     attr_reader :passport_fees

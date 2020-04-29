@@ -1,10 +1,10 @@
 class SmartAnswersController < ApplicationController
   include Slimmer::Headers
 
-  before_action :find_smart_answer, except: %w(index)
-  before_action :redirect_response_to_canonical_url, only: %w{show}
-  before_action :set_header_footer_only, only: %w{visualise}
-  before_action :setup_content_item, except: %w(index)
+  before_action :find_smart_answer, except: %w[index]
+  before_action :redirect_response_to_canonical_url, only: %w[show]
+  before_action :set_header_footer_only, only: %w[visualise]
+  before_action :setup_content_item, except: %w[index]
 
   attr_accessor :content_item
 
@@ -93,14 +93,14 @@ private
   end
 
   def redirect_response_to_canonical_url
-    if params[:next] && ! @presenter.current_state.error
+    if params[:next] && !@presenter.current_state.error
       set_expiry
       redirect_params = {
-        action:   :show,
-        id:        @name,
-        started:   "y",
+        action: :show,
+        id: @name,
+        started: "y",
         responses: @presenter.current_state.responses,
-        protocol:  request.ssl? || Rails.env.production? ? "https" : "http",
+        protocol: request.ssl? || Rails.env.production? ? "https" : "http",
       }
       redirect_to redirect_params
     end

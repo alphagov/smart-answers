@@ -5,11 +5,11 @@ module SmartAnswer
     class MarriageAbroadCalculatorTest < ActiveSupport::TestCase
       setup do
         MarriageAbroadDataQuery.any_instance
-            .stubs(:countries_with_18_outcomes).returns(%w(18_outcome_country country))
+            .stubs(:countries_with_18_outcomes).returns(%w[18_outcome_country country])
         MarriageAbroadDataQuery.any_instance
-            .stubs(:countries_with_6_outcomes).returns(%w(6_outcome_country))
+            .stubs(:countries_with_6_outcomes).returns(%w[6_outcome_country])
         MarriageAbroadDataQuery.any_instance
-            .stubs(:countries_with_2_outcomes).returns(%w(2_outcome_country))
+            .stubs(:countries_with_2_outcomes).returns(%w[2_outcome_country])
       end
 
       context "#path_to_outcome" do
@@ -23,7 +23,7 @@ module SmartAnswer
           @calculator.partner_nationality = "partner_local"
           @calculator.sex_of_your_partner = "opposite_sex"
 
-          assert_equal %w(country ceremony_country partner_local opposite_sex), @calculator.path_to_outcome
+          assert_equal %w[country ceremony_country partner_local opposite_sex], @calculator.path_to_outcome
         end
 
         should "get outcome for country where: same_sex marriage, user lives in uk, partner is british" do
@@ -32,7 +32,7 @@ module SmartAnswer
           @calculator.partner_nationality = "partner_british"
           @calculator.sex_of_your_partner = "same_sex"
 
-          assert_equal %w(country uk partner_british same_sex), @calculator.path_to_outcome
+          assert_equal %w[country uk partner_british same_sex], @calculator.path_to_outcome
         end
 
         should "get outcome for country where: same_sex marriage, user lives in another country, partner is from another country" do
@@ -41,27 +41,27 @@ module SmartAnswer
           @calculator.partner_nationality = "partner_other"
           @calculator.sex_of_your_partner = "same_sex"
 
-          assert_equal %w(country third_country partner_other same_sex), @calculator.path_to_outcome
+          assert_equal %w[country third_country partner_other same_sex], @calculator.path_to_outcome
         end
 
         should "get opposite-sex outcome for 2 outcome country" do
           @calculator.ceremony_country = "2_outcome_country"
           @calculator.sex_of_your_partner = "opposite_sex"
 
-          assert_equal %w(2_outcome_country opposite_sex), @calculator.path_to_outcome
+          assert_equal %w[2_outcome_country opposite_sex], @calculator.path_to_outcome
         end
 
         should "get same-sex outcome for 2 outcome country" do
           @calculator.ceremony_country = "2_outcome_country"
           @calculator.sex_of_your_partner = "same_sex"
 
-          assert_equal %w(2_outcome_country same_sex), @calculator.path_to_outcome
+          assert_equal %w[2_outcome_country same_sex], @calculator.path_to_outcome
         end
 
         context "when ceremony country is a three questions country" do
           setup do
             MarriageAbroadDataQuery.any_instance
-              .stubs(:countries_with_6_outcomes).returns(%w(6_outcome_country))
+              .stubs(:countries_with_6_outcomes).returns(%w[6_outcome_country])
             @calculator.ceremony_country = "6_outcome_country"
           end
 
@@ -69,42 +69,42 @@ module SmartAnswer
             @calculator.resident_of = "ceremony_country"
             @calculator.sex_of_your_partner = "opposite_sex"
 
-            assert_equal %w(6_outcome_country ceremony_country opposite_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country ceremony_country opposite_sex], @calculator.path_to_outcome
           end
 
           should "get outcome for same sex in ceremony country where marriage is between same sex partners, user is resident and getting married in ceremony country" do
             @calculator.resident_of = "ceremony_country"
             @calculator.sex_of_your_partner = "same_sex"
 
-            assert_equal %w(6_outcome_country ceremony_country same_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country ceremony_country same_sex], @calculator.path_to_outcome
           end
 
           should "get outcome for opposite sex in third country where marriage is between opposite sex partners, user is resident and getting married in third country" do
             @calculator.resident_of = "third_country"
             @calculator.sex_of_your_partner = "opposite_sex"
 
-            assert_equal %w(6_outcome_country third_country opposite_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country third_country opposite_sex], @calculator.path_to_outcome
           end
 
           should "get outcome for same sex in third country where marriage is between same sex partners, user is resident and getting married in third country" do
             @calculator.resident_of = "third_country"
             @calculator.sex_of_your_partner = "same_sex"
 
-            assert_equal %w(6_outcome_country third_country same_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country third_country same_sex], @calculator.path_to_outcome
           end
 
           should "get outcome for opposite sex in UK where marriage is between opposite sex partners, user is resident and getting married in UK" do
             @calculator.resident_of = "uk"
             @calculator.sex_of_your_partner = "opposite_sex"
 
-            assert_equal %w(6_outcome_country uk opposite_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country uk opposite_sex], @calculator.path_to_outcome
           end
 
           should "get outcome for same sex in UK where marriage is between same sex partners, user is resident and getting married in UK" do
             @calculator.resident_of = "uk"
             @calculator.sex_of_your_partner = "same_sex"
 
-            assert_equal %w(6_outcome_country uk same_sex), @calculator.path_to_outcome
+            assert_equal %w[6_outcome_country uk same_sex], @calculator.path_to_outcome
           end
         end
       end
@@ -206,7 +206,7 @@ module SmartAnswer
       end
 
       context "#diplomatic_mission" do
-        #TODO: expand test and implementation to properly cover members and none members of the commonwealth
+        # TODO: expand test and implementation to properly cover members and none members of the commonwealth
         setup do
           @calculator = MarriageAbroadCalculator.new
         end

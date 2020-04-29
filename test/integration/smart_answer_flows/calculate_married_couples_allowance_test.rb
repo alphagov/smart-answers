@@ -103,9 +103,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 end
 
                 should "calculate allowance using calculators" do
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_allowance).
-                    returns("Calculated allowance")
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                    .expects(:calculate_allowance)
+                    .returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
                 end
@@ -135,9 +135,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_allowance).
-                returns("Calculated allowance")
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                .expects(:calculate_allowance)
+                .returns("Calculated allowance")
 
               add_response "0"
               assert_state_variable :allowance, "Calculated allowance"
@@ -164,9 +164,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_allowance).
-                returns("Calculated allowance")
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                .expects(:calculate_allowance)
+                .returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
             end
@@ -182,9 +182,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_allowance).
-                returns("Calculated allowance")
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                .expects(:calculate_allowance)
+                .returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
             end
@@ -203,9 +203,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         end
 
         should "calculate allowance using calculators" do
-          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-            expects(:calculate_allowance).
-            returns("Calculated allowance")
+          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+            .expects(:calculate_allowance)
+            .returns("Calculated allowance")
 
           assert_state_variable :allowance, "Calculated allowance"
         end
@@ -273,9 +273,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 end
 
                 should "calculate allowance using calculators" do
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_allowance).
-                    returns("Calculated allowance")
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                    .expects(:calculate_allowance)
+                    .returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
                 end
@@ -313,9 +313,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_allowance).
-                returns("Calculated allowance")
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                .expects(:calculate_allowance)
+                .returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
             end
@@ -331,9 +331,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_allowance).
-                returns("Calculated allowance")
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+                .expects(:calculate_allowance)
+                .returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
             end
@@ -350,9 +350,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         end
 
         should "calculate allowance using calculators" do
-          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-            expects(:calculate_allowance).
-            returns("Calculated allowance")
+          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
+            .expects(:calculate_allowance)
+            .returns("Calculated allowance")
 
           add_response "1930-05-14"
           add_response "13850.50"

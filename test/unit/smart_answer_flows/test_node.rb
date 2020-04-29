@@ -22,7 +22,7 @@ module SmartAnswer
 
       def with_stubbed_calculator(stubs = {})
         @calculator_stubs.merge!(stubs)
-        self.with(calculator: stub_everything(@calculator_stubs))
+        with(calculator: stub_everything(@calculator_stubs))
       end
 
       def state

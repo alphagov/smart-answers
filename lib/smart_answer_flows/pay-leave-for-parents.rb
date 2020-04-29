@@ -160,9 +160,9 @@ module SmartAnswer
 
         next_node do
           if calculator.two_carers?
-            if %w(employee worker).include?(calculator.employment_status_of_partner)
+            if %w[employee worker].include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
-            elsif %w(self-employed unemployed).include?(calculator.employment_status_of_partner)
+            elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
               if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.due_date >= Date.parse("2015-04-05")
                   question :partner_worked_at_least_26_weeks
@@ -181,7 +181,7 @@ module SmartAnswer
                 end
               elsif calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
-              elsif %w(worker self-employed).include?(calculator.employment_status_of_mother) ||
+              elsif %w[worker self-employed].include?(calculator.employment_status_of_mother) ||
                   calculator.employment_status_of_partner == "unemployed"
                 outcome :outcome_birth_nothing
               elsif calculator.employment_status_of_partner == "self-employed"
@@ -202,7 +202,7 @@ module SmartAnswer
                 outcome :outcome_single_birth_nothing
               end
             end
-          elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_mother)
+          elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_mother)
             if calculator.mother_earnings_employment?
               outcome :outcome_mat_allowance
             else
@@ -321,7 +321,7 @@ module SmartAnswer
                     end
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if !calculator.mother_earnings_employment?
                   outcome :outcome_pat_leave_pat_pay
                 elsif calculator.mother_earnings_employment?
@@ -393,7 +393,7 @@ module SmartAnswer
                     outcome :outcome_pat_leave
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if calculator.mother_earnings_employment?
                   if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_leave_pat_shared_leave
@@ -447,7 +447,7 @@ module SmartAnswer
                     outcome :outcome_birth_nothing
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
                 elsif !calculator.mother_earnings_employment?
@@ -517,7 +517,7 @@ module SmartAnswer
                     end
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if calculator.due_date >= Date.parse("2015-04-05")
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_pat_pay_pat_shared_pay
@@ -577,7 +577,7 @@ module SmartAnswer
                     outcome :outcome_birth_nothing
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
                 elsif !calculator.mother_earnings_employment?
@@ -629,7 +629,7 @@ module SmartAnswer
                     outcome :outcome_birth_nothing
                   end
                 end
-              elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
+              elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
                 elsif !calculator.mother_earnings_employment?
@@ -679,7 +679,7 @@ module SmartAnswer
                     outcome :outcome_mat_leave_mat_pay
                   end
                 end
-              elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
+              elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_partner)
                 if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay
                 elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
@@ -702,7 +702,7 @@ module SmartAnswer
                       outcome :outcome_mat_leave_mat_shared_leave
                     end
                   end
-                elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
+                elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_partner)
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_mat_leave_mat_shared_leave
                   elsif !calculator.mother_earnings_employment?
@@ -724,7 +724,7 @@ module SmartAnswer
                       outcome :outcome_mat_leave
                     end
                   end
-                elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
+                elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_partner)
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_mat_leave
                   elsif !calculator.mother_earnings_employment?
@@ -748,7 +748,7 @@ module SmartAnswer
                   outcome :outcome_mat_pay
                 end
               end
-            elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
+            elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_partner)
               if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                 outcome :outcome_mat_pay_mat_shared_pay
               elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)

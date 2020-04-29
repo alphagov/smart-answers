@@ -33,7 +33,7 @@ class GraphvizPresenter < GraphPresenter
         )
       end
       attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
-      %{#{normalize_name(name)} [#{attribute_clause}]}
+      %(#{normalize_name(name)} [#{attribute_clause}])
     end
   end
 
@@ -50,7 +50,7 @@ class GraphvizPresenter < GraphPresenter
       exits.map do |nextnode, label|
         next unless nextnode
 
-        %{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
+        %(#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];)
       end
     end
     unflattened.flatten
@@ -60,7 +60,7 @@ class GraphvizPresenter < GraphPresenter
     [
       "overlap=false;",
       "splines=true;",
-      %{label="#{escape(presenter.title)}";},
+      %(label="#{escape(presenter.title)}";),
       "fontsize=12;",
     ]
   end

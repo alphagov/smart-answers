@@ -41,8 +41,8 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
       organisation_data = { offices:
           { main:
             { title: "main-office",
-            services: [] },
-          other: [
+              services: [] },
+            other: [
             {
               title: "other-office-1",
               services: [{ title: "service-offered" }],
@@ -100,7 +100,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
             main: {
               title: "main-office-title",
             },
-          other: [
+            other: [
             {
               title: "other-office-title",
             },

@@ -53,8 +53,8 @@ module SmartAnswer::Calculators
             assert_equal "2.8", calc.formatted_full_time_part_time_days
           end
 
-          #Dept Test 6 is a data entry validation for entering 8 days a week covered in
-          #test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # Dept Test 6 is a data entry validation for entering 8 days a week covered in
+          # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
         end
       end
 
@@ -159,7 +159,7 @@ module SmartAnswer::Calculators
               start_date: Date.parse("2019-09-23"),
               leave_year_start_date: Date.parse("2019-05-01"),
               working_days_per_week: 5,
-              )
+            )
 
             assert_equal "19", calc.formatted_full_time_part_time_days
           end
@@ -494,8 +494,8 @@ module SmartAnswer::Calculators
             assert_equal "12.6", calc.formatted_full_time_part_time_days
           end
 
-          #Dept Test 24 is a data entry validation to ensure leave date is after start date covered in
-          #test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # Dept Test 24 is a data entry validation to ensure leave date is after start date covered in
+          # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
         end
       end
     end
@@ -867,7 +867,7 @@ module SmartAnswer::Calculators
             assert_equal "58.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          # Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
+          #  Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
           should "for 50 hours 6 days a week (Test 12)" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2021-03-04"),
@@ -969,7 +969,7 @@ module SmartAnswer::Calculators
         end
 
         context "for department test data" do
-          # Test 13 - /leaving/2020-02-11/2019-06-01/34.0/2.0
+          #  Test 13 - /leaving/2020-02-11/2019-06-01/34.0/2.0
           should "for 34 hours 2 days a week (Test 13)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-02-11"),
@@ -981,7 +981,7 @@ module SmartAnswer::Calculators
             assert_equal "133.2", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          # Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
+          #  Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
           should "for 47 hours 2 days a week (Test 14)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-06-26"),
@@ -993,7 +993,7 @@ module SmartAnswer::Calculators
             assert_equal "194", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          # Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
+          #  Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
           should "for 71 hours 7 days a week (Test 15)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-04-19"),
@@ -1005,7 +1005,7 @@ module SmartAnswer::Calculators
             assert_equal "156.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          # Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
+          #  Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
           should "for 63 hours 5 days a week (Test 17)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-04-30"),
@@ -1252,7 +1252,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-02-01"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 12,
-              )
+            )
 
             assert_equal "13.5", calc.shift_entitlement
           end
@@ -1264,7 +1264,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-01-01"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "11.5", calc.shift_entitlement
           end
@@ -1276,7 +1276,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-09-01"),
               shifts_per_shift_pattern: 3,
               days_per_shift_pattern: 9,
-              )
+            )
 
             assert_equal "3.5", calc.shift_entitlement
           end
@@ -1291,7 +1291,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-03-19"),
               shifts_per_shift_pattern: 6,
               days_per_shift_pattern: 7,
-              )
+            )
 
             assert_equal "23.5", calc.shift_entitlement
           end
@@ -1303,7 +1303,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-04-08"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 10,
-              )
+            )
 
             assert_equal "9.5", calc.shift_entitlement
           end
@@ -1316,7 +1316,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-01-01"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "13.5", calc.shift_entitlement
           end
@@ -1327,7 +1327,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-04-01"),
               shifts_per_shift_pattern: 7,
               days_per_shift_pattern: 10,
-              )
+            )
 
             assert_equal "11.5", calc.shift_entitlement
           end
@@ -1338,7 +1338,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-01-01"),
               shifts_per_shift_pattern: 12,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "5", calc.shift_entitlement
           end
@@ -1351,7 +1351,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-01-01"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "13.5", calc.shift_entitlement
           end
@@ -1362,7 +1362,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-04-01"),
               shifts_per_shift_pattern: 7,
               days_per_shift_pattern: 10,
-              )
+            )
 
             assert_equal "11.5", calc.shift_entitlement
           end
@@ -1373,7 +1373,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-01-01"),
               shifts_per_shift_pattern: 12,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "5", calc.shift_entitlement
           end
@@ -1389,7 +1389,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-01-01"),
               shifts_per_shift_pattern: 12,
               days_per_shift_pattern: 15,
-              )
+            )
 
             assert_equal "21.96", calc.shift_entitlement
           end
@@ -1401,7 +1401,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-05-01"),
               shifts_per_shift_pattern: 10,
               days_per_shift_pattern: 15,
-              )
+            )
 
             assert_equal "15.40", calc.shift_entitlement
           end
@@ -1413,7 +1413,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-05-01"),
               shifts_per_shift_pattern: 3,
               days_per_shift_pattern: 8,
-              )
+            )
 
             assert_equal "4.46", calc.shift_entitlement
           end
@@ -1425,7 +1425,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2018-12-01"),
               shifts_per_shift_pattern: 6,
               days_per_shift_pattern: 10,
-              )
+            )
 
             assert_equal "18.76", calc.shift_entitlement
           end
@@ -1437,7 +1437,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-03-01"),
               shifts_per_shift_pattern: 1,
               days_per_shift_pattern: 10,
-              )
+            )
 
             assert_equal "0.35", calc.shift_entitlement
           end
@@ -1449,7 +1449,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2020-09-01"),
               shifts_per_shift_pattern: 2,
               days_per_shift_pattern: 15,
-              )
+            )
 
             assert_equal "1.67", calc.shift_entitlement
           end
@@ -1462,7 +1462,7 @@ module SmartAnswer::Calculators
               leave_year_start_date: Date.parse("2019-01-01"),
               shifts_per_shift_pattern: 8,
               days_per_shift_pattern: 14,
-              )
+            )
 
             assert_equal "9.33", calc.shift_entitlement
           end
@@ -1946,8 +1946,8 @@ module SmartAnswer::Calculators
             assert_equal "0.96", calc.formatted_full_time_part_time_weeks
           end
 
-          #Dept Test 15 is a data entry validation to ensure leaving date is before leave year starts
-          #covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # Dept Test 15 is a data entry validation to ensure leaving date is before leave year starts
+          # covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
         end
       end
 
@@ -2078,8 +2078,8 @@ module SmartAnswer::Calculators
             assert_equal "3.66", calc.formatted_full_time_part_time_weeks
           end
 
-          #Dept Test 22 is a data entry validation to ensure leaving date is before leave year starts
-          #covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # Dept Test 22 is a data entry validation to ensure leaving date is before leave year starts
+          # covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
         end
       end
     end
@@ -2303,7 +2303,7 @@ module SmartAnswer::Calculators
         end
 
         context "for department test data" do
-         # /annualised-hours/leaving/2020-06-24/2019-12-01
+          # /annualised-hours/leaving/2020-06-24/2019-12-01
           should "dept test 9" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-06-24"),

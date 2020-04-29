@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w[andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -1031,7 +1031,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  #testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
+  # testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
   context "testing canada" do
     setup do
       add_response "canada"
@@ -1065,7 +1065,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           assert_current_node :outcome_no_visa_needed
         end
       end
-    end #end canada study reason
+    end # end canada study reason
 
     context "testing work reason" do
       setup do
@@ -1092,10 +1092,10 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           assert_current_node :outcome_work_n
         end
       end
-    end #end canada work reason
-  end #end canada - NON visa country
+    end # end canada work reason
+  end # end canada - NON visa country
 
-  #testing armenia - visa national outcome - study AND work
+  # testing armenia - visa national outcome - study AND work
   context "testing armenia" do
     setup do
       add_response "armenia"
@@ -1123,7 +1123,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_m
       end
     end
-  end #end armenia -  visa country
+  end # end armenia -  visa country
 
   context "choose a Non-visa country and check for outcome_work_n" do
     setup do

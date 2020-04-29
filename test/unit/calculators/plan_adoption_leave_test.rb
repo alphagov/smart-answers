@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator = PlanAdoptionLeave.new(
             match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-20"),
-)
+          )
         end
 
         should "show formatted due date" do
@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator = PlanAdoptionLeave.new(
             match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-11"),
-)
+          )
         end
 
         should "format start date" do

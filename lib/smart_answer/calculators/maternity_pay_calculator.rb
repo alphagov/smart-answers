@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
                   :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe,
                   :pay_pattern, :payment_option, :earnings_for_pay_period, :on_payroll
 
-    DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
+    DAYS_OF_THE_WEEK = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
     PAYMENT_OPTIONS = {
       weekly: {
         "8": "8 payments or fewer",
@@ -73,7 +73,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    #monthly? every_2_weeks? every_4_weeks? weekly?
+    # monthly? every_2_weeks? every_4_weeks? weekly?
     PAYMENT_OPTIONS.each_key do |frequence|
       define_method "#{frequence}?" do
         pay_pattern == frequence
@@ -291,7 +291,7 @@ module SmartAnswer::Calculators
         { min: uprating_date(2018), max: uprating_date(2019), amount: 145.18 },
         { min: uprating_date(2019), max: uprating_date(2020), amount: 148.68 },
         { min: uprating_date(2020), max: uprating_date(2100), amount: 151.20 },
-         ### Change year in future
+        ### Change year in future
       ]
       rate = rates.find { |r| r[:min] <= date && date < r[:max] } || rates.last
       rate[:amount]
@@ -388,7 +388,7 @@ module SmartAnswer::Calculators
       ldm = Date.new(date.year, date.month, -1) # Last day of the month.
       ldm_index = ldm.wday
       offset = -1
-      while !work_days.include?(ldm_index)
+      until work_days.include?(ldm_index)
         ldm_index.positive? ? ldm_index -= 1 : ldm_index = 6
         offset -= 1
       end

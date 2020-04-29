@@ -22,7 +22,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       should "ask when partner will reach pension age" do
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
-      #married, before, before
+      # married, before, before
       context "your spouse reached pension age before specific date (old3)" do
         setup { add_response "partner_pension_age_before_specific_date" }
         should "show current_rules_no_additional_pension_outcome" do
@@ -30,7 +30,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
         end
       end
 
-      #married, before, after
+      # married, before, after
       context "your spouse reached pension age after specific date (old3)" do
         setup { add_response "partner_pension_age_after_specific_date" }
         should "show current_rules_national_insurance_no_state_pension_outcome" do
@@ -44,7 +44,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       should "ask when partner will reach pension age" do
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
-      #married, after, after
+      # married, after, after
       context "your spouse reached pension age after specific date (old3)" do
         setup { add_response "partner_pension_age_after_specific_date" }
 
@@ -62,7 +62,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
           end
         end
       end
-      #married, before, before
+      # married, before, before
       context "your spouse reached pension age before specific date (old3)" do
         setup { add_response "partner_pension_age_before_specific_date" }
 
@@ -81,7 +81,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
         end
       end
     end
-  end #end married old old
+  end # end married old old
 
   context "widow" do
     setup { add_response "widowed" }

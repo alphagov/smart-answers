@@ -7,9 +7,8 @@ module SmartAnswer::Calculators
     end
 
     def weekly_benefit_cap_descriptions(region = :national)
-      weekly_benefit_caps(region).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
+      weekly_benefit_caps(region).each_with_object(HashWithIndifferentAccess.new) do |(key, value), weekly_benefit_cap_description|
         weekly_benefit_cap_description[key] = value.fetch(:description)
-        weekly_benefit_cap_description
       end
     end
 
@@ -30,16 +29,14 @@ module SmartAnswer::Calculators
     end
 
     def questions
-      benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|
+      benefits.each_with_object(HashWithIndifferentAccess.new) do |(key, value), benefits_and_questions|
         benefits_and_questions[key] = value.fetch(:question)
-        benefits_and_questions
       end
     end
 
     def descriptions
-      benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_descriptions, (key, value)|
+      benefits.each_with_object(HashWithIndifferentAccess.new) do |(key, value), benefits_and_descriptions|
         benefits_and_descriptions[key] = value.fetch(:description)
-        benefits_and_descriptions
       end
     end
 

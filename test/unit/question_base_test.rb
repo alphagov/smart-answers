@@ -132,7 +132,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "execute on_response block with response" do
       @question.on_response do |response|
-        self.my_responses << response
+        my_responses << response
       end
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)

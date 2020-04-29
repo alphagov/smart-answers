@@ -387,7 +387,7 @@ module SmartAnswer
 
       # Question 12
       checkbox_question :usual_work_days? do
-        %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
+        %w[1 2 3 4 5 6 0].each { |n| option n.to_s }
 
         on_response do |response|
           calculator.days_of_the_week_worked = response.split(",")

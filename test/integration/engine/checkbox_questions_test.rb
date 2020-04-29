@@ -36,7 +36,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What do you want on your pizza?"
           end
           within ".govuk-table__cell:nth-child(2)" do
-            assert_equal %w(Ham Pepperoni), page.all("li").map(&:text)
+            assert_equal %w[Ham Pepperoni], page.all("li").map(&:text)
           end
           within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
         end

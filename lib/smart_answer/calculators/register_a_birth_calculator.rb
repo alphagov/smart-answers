@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class RegisterABirthCalculator
     include ActiveModel::Model
 
-    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory).freeze
+    EXCLUDE_COUNTRIES = %w[holy-see british-antarctic-territory].freeze
 
     attr_accessor :country_of_birth
     attr_accessor :british_national_parent
@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
     end
 
     def country_has_no_embassy?
-      %w(libya syria yemen somalia).include?(country_of_birth)
+      %w[libya syria yemen somalia].include?(country_of_birth)
     end
 
     def responded_with_commonwealth_country?

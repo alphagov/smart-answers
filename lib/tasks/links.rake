@@ -41,7 +41,7 @@ end
 def check_locales_file(contents)
   links_to_check = []
   contents.gsub(/\[(.+)\]\((.+)\)/) {
-    link = prefix_link($2.gsub(/ "(.+)"$/, ""))
+    link = prefix_link(Regexp.last_match(2).gsub(/ "(.+)"$/, ""))
     links_to_check << link
   }
   links_to_check
@@ -50,7 +50,7 @@ end
 def check_data_file(contents)
   links_to_check = []
   contents.gsub(/: (\/.+)$/) {
-    link = prefix_link($1)
+    link = prefix_link(Regexp.last_match(1))
     links_to_check << link
   }
   links_to_check

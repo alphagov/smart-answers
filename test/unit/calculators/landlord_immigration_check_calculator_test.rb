@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
       end
 
       should "return all countries for postcode" do
-        assert_equal %w(England Scotland), @calculator.countries_for_postcode
+        assert_equal %w[England Scotland], @calculator.countries_for_postcode
       end
 
       should "determine that the rules do apply" do

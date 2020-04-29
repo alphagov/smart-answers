@@ -42,7 +42,7 @@ module SmartAnswer::Calculators
       assert_equal SmartAnswer::Money.new("711"), result
     end
 
-    #add one for 2013-14 when the worked example is released
+    # add one for 2013-14 when the worked example is released
     test "worked example on HMRC site for 2012-13" do
       hmrc_example_calculator = calculator(
         maximum_mca: 7705,

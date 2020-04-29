@@ -4,9 +4,9 @@ module SmartAnswer::Calculators
   class BirthCalculatorTest < ActiveSupport::TestCase
     context BirthCalculator do
       context "basic tests" do
- # Birth 22/12/12
- # QW 02/09/12 - 08/09/12
- # Employ start 17/03/12
+        # Birth 22/12/12
+        # QW 02/09/12 - 08/09/12
+        # Employ start 17/03/12
         context "birth 2012 Dec 22" do
           setup do
             @due_date = Date.parse("2012 Dec 22")

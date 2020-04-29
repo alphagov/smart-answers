@@ -7,7 +7,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(azerbaijan canada)
+    @location_slugs = %w[azerbaijan canada]
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::ReportALostOrStolenPassportFlow
   end

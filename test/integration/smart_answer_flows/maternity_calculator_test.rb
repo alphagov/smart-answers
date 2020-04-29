@@ -25,7 +25,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     end
 
     should "qualifying_week_start be equal to the match date" do
-      add_response "2017-03-26" #match_date
+      add_response "2017-03-26" # match_date
       add_response "2017-04-19"
       add_response :yes
       add_response :yes
@@ -36,7 +36,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     end
 
     should "qualifying_week_start be equal to the Sunday before match date" do
-      add_response "2017-03-25" #match_date
+      add_response "2017-03-25" # match_date
       add_response "2017-04-19"
       add_response :yes
       add_response :yes
@@ -54,7 +54,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       add_response :no
     end
     should "qualifying_week_start be equal to the match date" do
-      add_response "2017-03-26" #match_date
+      add_response "2017-03-26" # match_date
       add_response "2017-04-19"
       add_response :yes
       add_response :yes
@@ -64,7 +64,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     end
 
     should "qualifying_week_start be equal to the Sunday before match date" do
-      add_response "2017-03-25" #match_date
+      add_response "2017-03-25" # match_date
       add_response "2017-04-19"
       add_response :yes
       add_response :yes
@@ -125,7 +125,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       context "answer 21 November 2012" do
         setup do
           @dd = Date.parse("21 November 2012")
-          #FIXME qw should be 15 weeks before due date...
+          # FIXME: qw should be 15 weeks before due date...
           @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
@@ -180,7 +180,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   ## QM8
                   should "ask what the employees earnings are for the period" do
                     assert_current_node :earnings_for_pay_period?
-                    ##TODO relevant period calculation
+                    # #TODO relevant period calculation
                     assert_equal "weekly", current_state.calculator.pay_pattern
                   end
 
@@ -370,7 +370,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                 end
               end
             end
-          end #answer yes to QM3
+          end # answer yes to QM3
           context "answer no" do
             setup do
               add_response :no
