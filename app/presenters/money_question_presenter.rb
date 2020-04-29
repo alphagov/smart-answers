@@ -6,7 +6,7 @@ class MoneyQuestionPresenter < QuestionPresenter
   end
 
   def hint_text
-    text = [body, suffix_label].reject(&:blank?).compact.join(", ")
+    text = [body, hint, suffix_label].reject(&:blank?).compact.join(", ")
     ActionView::Base.full_sanitizer.sanitize(text)
   end
 end
