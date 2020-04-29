@@ -1028,6 +1028,7 @@ module SmartAnswer
             )
 
             assert_equal 1, calc.days_paid
+            assert_equal true, calc.ends_after_coronavirus_entitlement_date?
             assert_equal true, calc.valid_period_of_incapacity_for_work?
           end
 
@@ -1048,11 +1049,32 @@ module SmartAnswer
           end
         end
 
-        context "starting before 16 April 2020" do
-          start_date = Date.parse("15 April 2020") # wednesday
-          end_date = Date.parse("21 April 2020") # tuesday
+        context "starting and ending before 13 March 2020" do
+          start_date = Date.parse("9 March 2020") # thursday
+          end_date = Date.parse("12 March 2020") # tuesday
 
-          should "pay SSP if they are shielding with GP letter" do
+          should "use normal rules for SSP if they're ill before entitlement date" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              coronavirus_related: true,
+              has_coronavirus: true,
+            )
+
+            assert_equal 1, calc.days_paid
+            assert_equal false, calc.ends_after_coronavirus_entitlement_date?
+            assert_equal true, calc.valid_period_of_incapacity_for_work?
+          end
+        end
+
+
+        context "starting and ending before 16 April 2020" do
+          start_date = Date.parse("10 April 2020") # wednesday
+          end_date = Date.parse("15 April 2020") # tuesday
+
+          should "do not pay SSP before the 16th if they only have a letter" do
             calc = StatutorySickPayCalculator.new(
               sick_start_date: start_date,
               sick_end_date: end_date,
@@ -1063,7 +1085,51 @@ module SmartAnswer
             )
 
             assert_equal 4, calc.days_paid
+            assert_equal true, calc.before_coronavirus_shield_date?
+            assert_equal false, calc.ends_after_coronavirus_shield_date?
+            assert_equal true, calc.entitled_to_sick_pay? # This is here to error when this is fixed
+          end
+        end
+
+        context "starting before 16 April 2020" do
+          start_date = Date.parse("15 April 2020") # wednesday
+          end_date = Date.parse("21 April 2020") # tuesday
+
+          should "pay SSP for all days off from 16 April if they are shielding with GP letter" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              coronavirus_gp_letter: true,
+              coronavirus_related: true,
+            )
+
+            assert_equal 4, calc.days_paid
+            assert_equal true, calc.before_coronavirus_shield_date?
+            assert_equal true, calc.ends_after_coronavirus_shield_date?
             assert_equal true, calc.valid_period_of_incapacity_for_work?
+          end
+        end
+
+        context "ending on 16 April 2020" do
+          start_date = Date.parse("15 April 2020") # wednesday
+          end_date = Date.parse("16 April 2020") # tuesday
+
+          should "pay SSP for all days off from 16 April if they are shielding with GP letter" do
+            calc = StatutorySickPayCalculator.new(
+              sick_start_date: start_date,
+              sick_end_date: end_date,
+              days_of_the_week_worked: %w(1 2 3 4 5),
+              has_linked_sickness: false,
+              coronavirus_gp_letter: true,
+              coronavirus_related: true,
+            )
+
+            assert_equal 1, calc.days_paid
+            assert_equal true, calc.before_coronavirus_shield_date?
+            assert_equal true, calc.ends_after_coronavirus_shield_date?
+            assert_equal true, calc.entitled_to_sick_pay?
           end
         end
 
@@ -1082,6 +1148,8 @@ module SmartAnswer
             )
 
             assert_equal 4, calc.days_paid
+            assert_equal false, calc.before_coronavirus_shield_date?
+            assert_equal true, calc.ends_after_coronavirus_shield_date?
             assert_equal true, calc.valid_period_of_incapacity_for_work?
           end
         end
