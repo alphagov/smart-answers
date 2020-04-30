@@ -45,12 +45,12 @@ class QuestionPresenter < NodePresenter
     label.present? || suffix_label.present?
   end
 
-  def body(html: true)
-    @renderer.content_for(:body, html: html)
+  def body
+    @renderer.content_for(:body)
   end
 
-  def post_body(html: true)
-    @renderer.content_for(:post_body, html: html)
+  def post_body
+    @renderer.content_for(:post_body)
   end
 
   def relative_erb_template_path

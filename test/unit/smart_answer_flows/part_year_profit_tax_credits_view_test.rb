@@ -181,7 +181,7 @@ module SmartAnswer
       context "common output" do
         setup do
           presenter = OutcomePresenter.new(@outcome, @state)
-          @body = presenter.body(html: false)
+          @body = presenter.body
         end
 
         should "display award_period_taxable_profit" do
@@ -201,7 +201,7 @@ module SmartAnswer
         setup do
           @calculator.stubs(stopped_trading_on: nil)
           presenter = OutcomePresenter.new(@outcome, @state)
-          @body = presenter.body(html: false)
+          @body = presenter.body
         end
 
         should "display basis_period ends_on" do
@@ -213,7 +213,7 @@ module SmartAnswer
         setup do
           @calculator.stubs(stopped_trading_on: Date.parse("2016-04-05"))
           presenter = OutcomePresenter.new(@outcome, @state)
-          @body = presenter.body(html: false)
+          @body = presenter.body
         end
 
         should "display the date the business stopped trading" do

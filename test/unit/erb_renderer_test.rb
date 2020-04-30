@@ -76,7 +76,7 @@ Hello world
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "line 1\n\nline 2\n", renderer.content_for(:key, html: false)
+        assert_equal "<p>line 1</p>\n\n<p>line 2</p>\n", renderer.content_for(:key)
       end
     end
 
@@ -86,7 +86,7 @@ Hello world
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "line1\n\nline2\n", renderer.content_for(:key, html: false)
+        assert_equal "<p>line1</p>\n\n<p>line2</p>\n", renderer.content_for(:key)
       end
     end
 
@@ -134,16 +134,6 @@ Hello world
       end
     end
 
-    test "#content_for does not pass output of ERB template through Govspeak when HTML disabled" do
-      erb_template = content_for(:key, "^information^")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "^information^\n", renderer.content_for(:key, html: false)
-      end
-    end
-
     test "#content_for returns an HTML-safe string when passed through Govspeak" do
       erb_template = content_for(:key, "html-unsafe-string")
 
@@ -160,7 +150,7 @@ Hello world
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert renderer.content_for(:key, html: false).html_safe?
+        assert renderer.content_for(:key).html_safe?
       end
     end
 
@@ -193,12 +183,6 @@ Hello world
 
         assert renderer.single_line_of_content_for(:key).html_safe?
       end
-    end
-
-    test "#single_line_of_content_for disables HTML rendering" do
-      renderer = ErbRenderer.new(template_directory: nil, template_name: nil)
-      renderer.stubs(:content_for).with(:key, html: false).returns("single-line-of-content-for-key")
-      assert_equal "single-line-of-content-for-key", renderer.single_line_of_content_for(:key)
     end
 
     test "#option_text returns option text for specified key" do

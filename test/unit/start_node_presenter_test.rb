@@ -33,28 +33,16 @@ module SmartAnswer
       assert_equal "meta-description-text", @presenter.meta_description
     end
 
-    test "#body returns content rendered for body block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:body, html: true).returns("body-html")
+    test "#body returns content rendered for body block" do
+      @renderer.stubs(:content_for).with(:body).returns("body-html")
 
       assert_equal "body-html", @presenter.body
     end
 
-    test "#body returns content rendered for body block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:body, html: false).returns("body-govspeak")
-
-      assert_equal "body-govspeak", @presenter.body(html: false)
-    end
-
-    test "#post_body returns content rendered for post_body block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:post_body, html: true).returns("post-body-html")
+    test "#post_body returns content rendered for post_body block" do
+      @renderer.stubs(:content_for).with(:post_body).returns("post-body-html")
 
       assert_equal "post-body-html", @presenter.post_body
-    end
-
-    test "#post_body returns content rendered for post_body block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:post_body, html: false).returns("post-body-govspeak")
-
-      assert_equal "post-body-govspeak", @presenter.post_body(html: false)
     end
 
     test "#start_button_text returns single line of content rendered for start_button_text block" do

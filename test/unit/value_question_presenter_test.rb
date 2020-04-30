@@ -9,7 +9,7 @@ module SmartAnswer
     end
 
     test "#hint_text returns single line of content rendered for hint block" do
-      @renderer.stubs(:content_for).with(:body, { html: true }).returns("")
+      @renderer.stubs(:content_for).with(:body).returns("")
       @renderer.stubs(:single_line_of_content_for).with(:hint).returns("hint-text")
       @renderer.stubs(:single_line_of_content_for).with(:suffix_label).returns("")
 
@@ -17,7 +17,7 @@ module SmartAnswer
     end
 
     test "#hint_text also returns body and suffix_label if present" do
-      @renderer.stubs(:content_for).with(:body, { html: true }).returns("body")
+      @renderer.stubs(:content_for).with(:body).returns("body")
       @renderer.stubs(:single_line_of_content_for).with(:hint).returns("hint-text")
       @renderer.stubs(:single_line_of_content_for).with(:suffix_label).returns("suffix")
 

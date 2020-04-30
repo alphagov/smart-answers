@@ -21,13 +21,15 @@ module SmartAnswer
     end
 
     def single_line_of_content_for(key)
-      content_for(key, html: false).chomp.html_safe
-    end
-
-    def content_for(key, html: true)
       content = rendered_view.content_for(key) || ""
       content = strip_leading_spaces(content.to_str)
-      html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content).html_safe
+      normalize_blank_lines(content).chomp.html_safe
+    end
+
+    def content_for(key)
+      content = rendered_view.content_for(key) || ""
+      content = strip_leading_spaces(content.to_str)
+      GovspeakPresenter.new(content).html
     end
 
     def option_text(key)

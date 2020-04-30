@@ -22,7 +22,7 @@ private
       if current_node.title.present?
         outcome_text = current_node.title
       else
-        strip_tags(current_node.body(html: true)).strip.lines.first
+        strip_tags(current_node.body).strip.lines.first
       end
 
       {
