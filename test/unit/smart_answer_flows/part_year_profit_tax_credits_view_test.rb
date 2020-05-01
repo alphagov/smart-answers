@@ -137,7 +137,7 @@ module SmartAnswer
       end
 
       should "display a useful error message when an invalid date is entered" do
-        @state.error = "not_in_tax_year_error"
+        @state.error = "error_not_in_tax_year"
         expected = "The date must be between  6 April 2015 and  5 April 2016."
         assert_equal expected, @presenter.error
       end

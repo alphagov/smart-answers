@@ -6,7 +6,7 @@
   This date must be between <%= format_date(tax_year_begins_on) %> and <%= format_date(tax_year_ends_on) %>, which is the start and end dates of the tax year that your tax credit award ends in.
 <% end %>
 
-<% content_for :not_in_tax_year_error do %>
+<% content_for :error_not_in_tax_year do %>
   The date must be between <%= format_date(tax_year_begins_on) %> and <%= format_date(tax_year_ends_on) %>.
 <% end %>
 <% content_for :error_message do %>

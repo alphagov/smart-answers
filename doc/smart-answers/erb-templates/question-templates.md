@@ -62,7 +62,7 @@ The templates can contain content for any of the following keys:
 * Valid for all question types
 * `message` argument is a String
 * Error message for a custom validation error key
-* Any key can be used, but by convention the `error_` prefix is used
+* Any key can be used, but needs to have the `error_` prefix
 
 ## Example
 

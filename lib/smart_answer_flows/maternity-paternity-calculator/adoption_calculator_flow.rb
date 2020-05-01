@@ -159,9 +159,9 @@ module SmartAnswer
             adoption_leave_start_date = response
 
             if adoption_leave_start_date < a_leave_earliest_start
-              raise SmartAnswer::InvalidResponse, :leave_starts_too_early
+              raise SmartAnswer::InvalidResponse, :error_leave_starts_too_early
             elsif adoption_leave_start_date > a_leave_latest_start
-              raise SmartAnswer::InvalidResponse, :leave_starts_too_late
+              raise SmartAnswer::InvalidResponse, :error_leave_starts_too_late
             end
 
             calculator.leave_start_date = adoption_leave_start_date
