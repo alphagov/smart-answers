@@ -1,12 +1,12 @@
 require "node_presenter"
 
 class FlowPresenter
-  extend Forwardable
   include Rails.application.routes.url_helpers
 
   attr_reader :request, :params, :flow
 
-  def_delegators :@flow, :need_id
+  delegate :need_it, to: :flow
+  delegate :title, to: :start_node
 
   def initialize(request, flow)
     @request = request
@@ -14,8 +14,6 @@ class FlowPresenter
     @flow = flow
     @node_presenters = {}
   end
-
-  delegate :title, to: :start_node
 
   def started?
     params.has_key?(:started)

@@ -2,9 +2,14 @@ require "bigdecimal"
 module SmartAnswer
   class Money
     include Comparable
-    extend Forwardable
 
-    delegate %i[to_f to_s * + - /] => :value
+    delegate :to_f,
+             :to_s,
+             :*,
+             :+,
+             :-,
+             :/,
+             to: :value
 
     attr_reader :value
 
