@@ -1,6 +1,9 @@
 <% content_for :title do %>
   Did the mother’s partner earn (or will they have earned) a total of £390 or more in any 13 weeks of this job between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
 <% end %>
+"<% content_for :hint do %>
+If starting leave after 25 April: if they were paid less than usual in any weeks because they were ‘on furlough’ under the Coronavirus Job Retention Scheme, work this out using what they would have earned normally. 
+<% end %>"
 
 <% options(
   "yes": "Yes",
