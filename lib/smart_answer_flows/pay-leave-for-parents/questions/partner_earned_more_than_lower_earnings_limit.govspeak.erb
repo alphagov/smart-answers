@@ -2,6 +2,10 @@
   Has the mother’s partner earned (or will they have earned) more than <%= format_money(calculator.lower_earnings_amount) %> per week in this job between <%= format_date(calculator.lower_earnings_start_date) %> and <%= format_date(calculator.lower_earnings_end_date) %>?
 <% end %>
 
+<% content_for :hint do %>
+If starting leave after 25 April: if they were paid less than usual in any weeks because they were ‘on furlough’ under the Coronavirus Job Retention Scheme, work this out using what they would have earned normally. 
+<% end %>
+
 <% options(
   "yes": "Yes",
   "no": "No"
