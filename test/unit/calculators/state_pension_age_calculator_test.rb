@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
       setup do
         @calculator = StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("28 February 1961"),
-)
+        )
       end
 
       should "simply delegate to StatePensionDateQuery.state_pension_date" do
@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
       setup do
         @calculator = StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("28 February 1961"),
-)
+        )
       end
 
       context "given a state_pension_date on a different year to the date of birth" do
@@ -140,14 +140,14 @@ module SmartAnswer::Calculators
       should "be true for a date that is a the 29th of feb" do
         @calculator = StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("29 February 1976"),
-)
+        )
         assert_equal true, @calculator.birthday_on_feb_29?
       end
 
       should "be false for a date that is not the 29th of feb" do
         @calculator = StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("7 June 1960"),
-)
+        )
         assert_equal false, @calculator.birthday_on_feb_29?
       end
     end
@@ -157,7 +157,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator = StatePensionAgeCalculator.new(
             gender: "male", dob: Date.parse("29 Feb 1980"),
-)
+          )
           @calculator.stubs(:state_pension_date).returns(Date.parse("29 Feb 2048"))
         end
 
@@ -170,7 +170,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator = StatePensionAgeCalculator.new(
             gender: "male", dob: Date.parse("28 Aug 1974"),
-)
+          )
           @calculator.stubs(:state_pension_date).returns(Date.parse("28 Aug 2041"))
         end
 

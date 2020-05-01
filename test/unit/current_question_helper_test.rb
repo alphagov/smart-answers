@@ -15,7 +15,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
     end
 
     should "return nil for an array input" do
-      default = default_for_date(%w(foo bar))
+      default = default_for_date(%w[foo bar])
       assert_nil(default)
     end
 

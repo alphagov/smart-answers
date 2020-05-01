@@ -1,11 +1,12 @@
 module SmartAnswer::Calculators
   class PaternityAdoptionPayCalculator < PaternityPayCalculator
-    extend Forwardable
-
-    def_delegators :@adoption_calculator,
-                   :adoption_placement_date, :adoption_placement_date=,
-                   :adoption_qualifying_start, :a_notice_leave,
-                   :matched_week, :a_employment_start
+    delegate :adoption_placement_date,
+             :adoption_placement_date=,
+             :adoption_qualifying_start,
+             :a_notice_leave,
+             :matched_week,
+             :a_employment_start,
+             to: :@adoption_calculator
 
     attr_reader :match_date
 

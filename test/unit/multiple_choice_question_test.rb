@@ -8,7 +8,7 @@ module SmartAnswer
         option :no
       end
 
-      assert_equal %w(yes no), q.options
+      assert_equal %w[yes no], q.options
     end
 
     test "Can list options without transitions" do
@@ -17,7 +17,7 @@ module SmartAnswer
         option :no
       end
 
-      assert_equal %w(yes no), q.options
+      assert_equal %w[yes no], q.options
     end
 
     test "Can determine next state on provision of an input" do
@@ -52,7 +52,7 @@ module SmartAnswer
       question.option :agree
       question.option :disagree
 
-      assert_equal %w(agree disagree), question.options
+      assert_equal %w[agree disagree], question.options
     end
 
     test "Next node default can be given by block" do

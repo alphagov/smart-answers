@@ -18,12 +18,12 @@ unless %(same_sex opposite_sex).include?(sex_of_partner)
   display_usage_message_and_exit
 end
 
-unless %w(ceremony_country third_country uk default).include?(residency)
+unless %w[ceremony_country third_country uk default].include?(residency)
   puts "Invalid residency: #{residency}"
   display_usage_message_and_exit
 end
 
-unless %w(partner_british partner_local partner_other default).include?(partner_nationality)
+unless %w[partner_british partner_local partner_other default].include?(partner_nationality)
   puts "Invalid partner_nationality: #{partner_nationality}"
   display_usage_message_and_exit
 end

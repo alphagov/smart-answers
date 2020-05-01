@@ -40,7 +40,7 @@ module SmartAnswer
             match_date: match_date,
             arrival_date: arrival_date,
             start_date: start_date,
-)
+          )
         end
 
         next_node do

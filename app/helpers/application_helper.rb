@@ -1,6 +1,8 @@
 module ApplicationHelper
   def last_updated_date
-    File.mtime(Rails.root.join("REVISION")).to_date rescue Time.zone.today
+    File.mtime(Rails.root.join("REVISION")).to_date
+  rescue StandardError
+    Time.zone.today
   end
 
   def current_path_without_query_string

@@ -47,7 +47,7 @@ module SmartAnswer
         end
       end
 
-      #Q3
+      # Q3
       multiple_choice :when_will_your_partner_reach_pension_age? do
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date

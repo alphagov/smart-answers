@@ -27,7 +27,7 @@ module SmartAnswer
       should "have an award period from the start of the tax year to the date the tax credits award end" do
         expected_award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-08-01"),
+          ends_on: Date.parse("2015-08-01"),
         )
         assert_equal expected_award_period, @calculator.award_period
         assert_equal 118, @calculator.award_period.number_of_days
@@ -71,7 +71,7 @@ module SmartAnswer
       should "have an award period from the start of the tax year to the date the tax credits award end" do
         expected_award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-08-01"),
+          ends_on: Date.parse("2015-08-01"),
         )
         assert_equal expected_award_period, @calculator.award_period
         assert_equal 118, @calculator.award_period.number_of_days
@@ -108,7 +108,7 @@ module SmartAnswer
       should "use the basis period from start of tax year to stopped trading date" do
         expected_basis_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_basis_period, @calculator.basis_period
         assert_equal 87, @calculator.basis_period.number_of_days
@@ -117,7 +117,7 @@ module SmartAnswer
       should "have an award period from the start of the tax year to the stopped trading date" do
         expected_award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_award_period, @calculator.award_period
         assert_equal 87, @calculator.award_period.number_of_days
@@ -154,7 +154,7 @@ module SmartAnswer
       should "use a combination of the current accounting period and the next accounting period truncated by stopped trading date as the basis period" do
         expected_basis_period = DateRange.new(
           begins_on: Date.parse("2014-06-01"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_basis_period, @calculator.basis_period
         assert_equal 396, @calculator.basis_period.number_of_days
@@ -163,7 +163,7 @@ module SmartAnswer
       should "have an award period from the start of the tax year to the stopped trading date" do
         expected_award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_award_period, @calculator.award_period
         assert_equal 87, @calculator.award_period.number_of_days
@@ -207,7 +207,7 @@ module SmartAnswer
       should "use the accounting period to the stopped trading date as the basis period" do
         expected_basis_period = DateRange.new(
           begins_on: Date.parse("2014-10-01"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_basis_period, @calculator.basis_period
         assert_equal 274, @calculator.basis_period.number_of_days
@@ -216,7 +216,7 @@ module SmartAnswer
       should "have an award period from the start of the tax year to the stopped trading date" do
         expected_award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-07-01"),
+          ends_on: Date.parse("2015-07-01"),
         )
         assert_equal expected_award_period, @calculator.award_period
         assert_equal 87, @calculator.award_period.number_of_days

@@ -138,7 +138,7 @@ module SmartAnswer
             should "return the period between the commenced trading date and the accounting date that falls in the tax year within which tax credits award ends" do
               expected_basis_period = DateRange.new(
                 begins_on: Date.parse("2015-05-01"),
-                ends_on:   Date.parse("2016-04-05"),
+                ends_on: Date.parse("2016-04-05"),
               )
 
               assert_equal expected_basis_period, @calculator.basis_period
@@ -153,7 +153,7 @@ module SmartAnswer
             should "return the period between the commenced trading date and the stopped trading date" do
               expected_basis_period = DateRange.new(
                 begins_on: Date.parse("2015-05-01"),
-                ends_on:   Date.parse("2016-03-01"),
+                ends_on: Date.parse("2016-03-01"),
               )
 
               assert_equal expected_basis_period, @calculator.basis_period

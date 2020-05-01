@@ -14,9 +14,7 @@ class SmartAnswerFiles
     @existing_paths ||= paths.select { |path| File.exist?(path) }
   end
 
-  def empty?
-    existing_paths.empty?
-  end
+  delegate :empty?, to: :existing_paths
 
 private
 

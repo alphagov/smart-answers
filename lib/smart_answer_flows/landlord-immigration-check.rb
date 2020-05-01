@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "102373"
 
-      #Q0
+      # Q0
       postcode_question :property? do
         on_response do |response|
           self.calculator = Calculators::LandlordImmigrationCheckCalculator.new
@@ -23,7 +23,7 @@ module SmartAnswer
         end
       end
 
-      #Q1
+      # Q1
       multiple_choice :main_home? do
         option "yes"
         option "no"
@@ -38,7 +38,7 @@ module SmartAnswer
         end
       end
 
-      #Q2
+      # Q2
       multiple_choice :tenant_over_18? do
         option "yes"
         option "no"
@@ -53,7 +53,7 @@ module SmartAnswer
         end
       end
 
-      #Q3
+      # Q3
       multiple_choice :property_type? do
         option "holiday_accommodation"
         option "social_housing"
@@ -86,7 +86,7 @@ module SmartAnswer
         end
       end
 
-      #Q3a
+      # Q3a
       multiple_choice :what_nationality? do
         option "british-or-irish"
         option "eea"
@@ -111,7 +111,7 @@ module SmartAnswer
         end
       end
 
-      #Q4
+      # Q4
       multiple_choice :has_uk_passport? do
         option "yes"
         option "no"
@@ -130,7 +130,7 @@ module SmartAnswer
         end
       end
 
-      #Q5
+      # Q5
       multiple_choice :family_permit? do
         option "yes"
         option "no"
@@ -145,7 +145,7 @@ module SmartAnswer
         end
       end
 
-      #Q7
+      # Q7
       multiple_choice :has_eu_documents? do
         option "yes"
         option "no"
@@ -164,7 +164,7 @@ module SmartAnswer
         end
       end
 
-      #Q9
+      # Q9
       multiple_choice :has_documents? do
         option "yes"
         option "no"
@@ -179,7 +179,7 @@ module SmartAnswer
         end
       end
 
-      #Q10
+      # Q10
       multiple_choice :has_other_documents? do
         option "yes"
         option "no"
@@ -199,7 +199,7 @@ module SmartAnswer
         end
       end
 
-      #new Q14
+      # new Q14
       multiple_choice :waiting_for_documents? do
         option "yes"
         option "no"
@@ -214,7 +214,7 @@ module SmartAnswer
         end
       end
 
-      #Q12
+      # Q12
       multiple_choice :time_limited_to_remain? do
         option "yes"
         option "no"
@@ -229,7 +229,7 @@ module SmartAnswer
         end
       end
 
-      #Q15
+      # Q15
       multiple_choice :immigration_application? do
         option "yes"
         option "no"
@@ -244,7 +244,7 @@ module SmartAnswer
         end
       end
 
-      #Q13
+      # Q13
       multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
         option "yes"
         option "no"

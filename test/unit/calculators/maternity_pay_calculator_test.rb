@@ -419,13 +419,13 @@ module SmartAnswer::Calculators
 
           paydates_and_pay = @calculator.paydates_and_pay
 
-          expected_pay_dates = %w(
+          expected_pay_dates = %w[
             2013-01-03 2013-01-17 2013-01-31 2013-02-14 2013-02-28
             2013-03-14 2013-03-28 2013-04-11 2013-04-25 2013-05-09
             2013-05-23 2013-06-06 2013-06-20 2013-07-04 2013-07-18
             2013-08-01 2013-08-15 2013-08-29 2013-09-12 2013-09-26
             2013-10-10
-          )
+          ]
           actual_pay_dates = paydates_and_pay.map { |p| p[:date].to_s }
 
           assert_equal expected_pay_dates, actual_pay_dates
@@ -561,28 +561,28 @@ module SmartAnswer::Calculators
         should "return weekly payment options when supplied with weekly" do
           weekly = MaternityPayCalculator.payment_options("weekly")
 
-          assert_equal %w(8 9 10), weekly.keys
+          assert_equal %w[8 9 10], weekly.keys
           assert_equal ["8 payments or fewer", "9 payments", "10 payments"], weekly.values
         end
 
         should "return monthly payment options when supplied with monthly" do
           monthly = MaternityPayCalculator.payment_options("monthly")
 
-          assert_equal %w(2 3), monthly.keys
+          assert_equal %w[2 3], monthly.keys
           assert_equal ["1 or 2 payments", "3 payments"], monthly.values
         end
 
         should "return 2 weeks payment options when supplied with every 2 weeks" do
           every_2_weeks = MaternityPayCalculator.payment_options("every_2_weeks")
 
-          assert_equal %w(4 5), every_2_weeks.keys
+          assert_equal %w[4 5], every_2_weeks.keys
           assert_equal ["4 payments or fewer", "5 payments"], every_2_weeks.values
         end
 
         should "return 4 weeks payment options when supplied with every 4 weeks" do
           every_4_weeks = MaternityPayCalculator.payment_options("every_4_weeks")
 
-          assert_equal %w(1 2), every_4_weeks.keys
+          assert_equal %w[1 2], every_4_weeks.keys
           assert_equal ["1 payment", "2 payments"], every_4_weeks.values
         end
       end

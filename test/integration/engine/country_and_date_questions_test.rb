@@ -3,13 +3,13 @@ require_relative "engine_test_helper"
 class CountryAndDateQuestionsTest < EngineIntegrationTest
   with_and_without_javascript do
     setup do
-      @location_slugs = %w(
+      @location_slugs = %w[
         angola aruba bangladesh belarus brazil brunei
         cambodia chad croatia denmark eritrea france ghana iceland
         japan laos luxembourg malta micronesia mozambique nicaragua
         panama portugal sao-tome-and-principe singapore south-korea
         sri-lanka venezuela vietnam
-      )
+      ]
       stub_world_locations(@location_slugs)
       Timecop.travel("2013-01-01")
       stub_content_store_has_item("/country-and-date-sample")
@@ -48,7 +48,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within "#current-question" do
-        # TODO Check options for dates
+        # TODO: Check options for dates
         assert page.has_select? "Day"
         assert page.has_select? "Month"
         assert page.has_select? "Year"

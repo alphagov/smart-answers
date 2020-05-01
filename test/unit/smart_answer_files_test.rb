@@ -75,34 +75,30 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 private
 
   def with_temporary_file_in_project
-    begin
-      file = Tempfile.new("temporary-file", Rails.root)
-      yield file
-    ensure
-      file.unlink
-      file.close
-    end
+    file = Tempfile.new("temporary-file", Rails.root)
+    yield file
+  ensure
+    file.unlink
+    file.close
   end
 
   def smart_answer_with_erb_templates(flow_name)
-    begin
-      erb_template_directory = Rails.root.join("lib", "smart_answer_flows", flow_name)
-      FileUtils.mkdir_p(erb_template_directory)
+    erb_template_directory = Rails.root.join("lib", "smart_answer_flows", flow_name)
+    FileUtils.mkdir_p(erb_template_directory)
 
-      files = (1..2).collect do |count|
-        Tempfile.new(["#{flow_name}-#{count}", ".erb"], erb_template_directory)
-      end
+    files = (1..2).collect do |count|
+      Tempfile.new(["#{flow_name}-#{count}", ".erb"], erb_template_directory)
+    end
 
-      partial_dir = FileUtils.mkdir_p(erb_template_directory.join("partials"))
-      files << Tempfile.new(["partial", ".erb"], partial_dir.first)
+    partial_dir = FileUtils.mkdir_p(erb_template_directory.join("partials"))
+    files << Tempfile.new(["partial", ".erb"], partial_dir.first)
 
-      yield files
-    ensure
-      FileUtils.remove_dir(erb_template_directory, true)
-      files.each do |file|
-        file.unlink
-        file.close
-      end
+    yield files
+  ensure
+    FileUtils.remove_dir(erb_template_directory, true)
+    files.each do |file|
+      file.unlink
+      file.close
     end
   end
 end

@@ -47,7 +47,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       should "ask when self assessment tax return was submitted" do
         assert_current_node :when_submitted?
       end
-      #testing error message 1
+      # testing error message 1
       context "test error if a date before range inserted" do
         setup do
           add_response "2013-01-01"
@@ -64,7 +64,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         should "ask when bill was paid" do
           assert_current_node :when_paid?
         end
- #testing error message 2
+        # testing error message 2
 
         context "test error message for date input before filing date" do
           setup do
@@ -75,7 +75,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
           end
         end
 
- #testing paid on time
+        # testing paid on time
         context "paid on time" do
           setup do
             add_response "2013-10-11"
@@ -83,7 +83,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
           should "show filed and paid on time outcome" do
             assert_current_node :filed_and_paid_on_time
           end
-        end #end testing paid on time
+        end # end testing paid on time
 
         context "paid late less than 3 months after" do
           setup do
@@ -105,7 +105,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
               assert_equal 0, current_state.calculator.late_payment_penalty
             end
           end
-        end #end testing paid late but less than 3 months after
+        end # end testing paid late but less than 3 months after
       end
     end
   end
@@ -123,7 +123,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
   end
 
-  #beginning of quick tests
+  # beginning of quick tests
   context "online return, tax year 2013-14" do
     setup do
       add_response :"2012-13"
@@ -132,8 +132,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     should "ask when bill was paid" do
       assert_current_node :when_submitted?
     end
-    #band 1
-    #100pounds fine (band 1)
+    # band 1
+    # 100pounds fine (band 1)
     context "check 100 pounds fine (band 1)" do
       setup do
         add_response "2014-02-01"
@@ -145,8 +145,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_equal 100, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
-    #band 2
-    #100pounds fine + 10pounds per day (max 90 days, testing 1 day)(band 2)
+    # band 2
+    # 100pounds fine + 10pounds per day (max 90 days, testing 1 day)(band 2)
     context "check 100pounds fine + 10pounds per day (max 90 days, testing 1 day) (band 2)" do
       setup do
         add_response "2014-05-01"
@@ -201,7 +201,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
     # #band 4 case 1
-    #300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
+    # 300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
     context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
       setup do
         add_response "2015-02-01"

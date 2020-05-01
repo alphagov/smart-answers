@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
         should "be equal to the choosen expenses" do
           @calculator.type_of_vehicle = "car"
           @calculator.business_premises_expense = "using_home_for_business"
-          assert_equal @calculator.list_of_expenses, %w(car using_home_for_business)
+          assert_equal @calculator.list_of_expenses, %w[car using_home_for_business]
         end
 
         should "never contain more than 2 choosen expenses" do

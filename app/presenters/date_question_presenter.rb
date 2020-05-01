@@ -1,6 +1,10 @@
 class DateQuestionPresenter < QuestionPresenter
   include CurrentQuestionHelper
-  delegate %i[default_day default_month default_year] => :@node
+
+  delegate :default_day,
+           :default_month,
+           :default_year,
+           to: :@node
 
   def response_label(value)
     if only_display_day_and_month?(value)

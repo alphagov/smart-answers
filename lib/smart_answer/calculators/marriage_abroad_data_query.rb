@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQuery
-    COMMONWEALTH_COUNTRIES = %w(
+    COMMONWEALTH_COUNTRIES = %w[
       antigua-and-barbuda
       bahamas
       bangladesh
@@ -46,15 +46,15 @@ module SmartAnswer::Calculators
       uganda
       vanuatu
       zambia
-    ).freeze
+    ].freeze
 
-    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w(brunei).freeze) + %w(
+    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w[brunei].freeze) + %w[
       ireland
       rwanda
       st-lucia
-    ).freeze
+    ].freeze
 
-    BRITISH_OVERSEAS_TERRITORIES = %w(
+    BRITISH_OVERSEAS_TERRITORIES = %w[
       anguilla
       bermuda
       british-antarctic-territory
@@ -68,9 +68,9 @@ module SmartAnswer::Calculators
       south-georgia-and-the-south-sandwich-islands
       st-helena-ascension-and-tristan-da-cunha
       turks-and-caicos-islands
-    ).freeze
+    ].freeze
 
-    FRENCH_OVERSEAS_TERRITORIES = %w(
+    FRENCH_OVERSEAS_TERRITORIES = %w[
       french-guiana
       french-polynesia
       guadeloupe
@@ -80,23 +80,23 @@ module SmartAnswer::Calculators
       reunion
       st-pierre-and-miquelon
       wallis-and-futuna
-    ).freeze
+    ].freeze
 
-    FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS = %w(
+    FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS = %w[
       new-caledonia
       wallis-and-futuna
-    ).freeze
+    ].freeze
 
-    CEREMONY_COUNTRIES_OFFERING_PACS = %w(monaco).freeze + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
+    CEREMONY_COUNTRIES_OFFERING_PACS = %w[monaco].freeze + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
 
-    DUTCH_CARIBBEAN_ISLANDS = %w(
+    DUTCH_CARIBBEAN_ISLANDS = %w[
       aruba
       bonaire-st-eustatius-saba
       curacao
       st-maarten
-    ).freeze
+    ].freeze
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(
+    OS_CONSULAR_CNI_COUNTRIES = %w[
       albania
       angola
       armenia
@@ -139,17 +139,17 @@ module SmartAnswer::Calculators
       turkmenistan
       uzbekistan
       venezuela
-    ).freeze
+    ].freeze
 
-    OS_NO_CONSULAR_CNI_COUNTRIES = %w(
+    OS_NO_CONSULAR_CNI_COUNTRIES = %w[
       burundi
       democratic-republic-of-the-congo
       mexico
       saint-barthelemy
       st-martin
-    ).freeze
+    ].freeze
 
-    OS_MARRIAGE_VIA_LOCAL_AUTHORITIES = %w(
+    OS_MARRIAGE_VIA_LOCAL_AUTHORITIES = %w[
       argentina
       costa-rica
       cote-d-ivoire
@@ -163,9 +163,9 @@ module SmartAnswer::Calculators
       taiwan
       ukraine
       uruguay
-    ).freeze
+    ].freeze
 
-    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(
+    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w[
       afghanistan
       american-samoa
       andorra
@@ -210,11 +210,11 @@ module SmartAnswer::Calculators
       timor-leste
       togo
       western-sahara
-    ).freeze
+    ].freeze
 
-    OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w().freeze
+    OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w[].freeze
 
-    OS_AFFIRMATION_COUNTRIES = %w(
+    OS_AFFIRMATION_COUNTRIES = %w[
       belgium
       ecuador
       finland
@@ -228,9 +228,9 @@ module SmartAnswer::Calculators
       south-korea
       united-arab-emirates
       vietnam
-    ).freeze
+    ].freeze
 
-    CP_EQUIVALENT_COUNTRIES = %w(
+    CP_EQUIVALENT_COUNTRIES = %w[
       austria
       czech-republic
       denmark
@@ -241,9 +241,9 @@ module SmartAnswer::Calculators
       netherlands
       norway
       slovenia
-    ).freeze
+    ].freeze
 
-    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(
+    CP_CNI_NOT_REQUIRED_COUNTRIES = %w[
       andorra
       argentina
       bonaire-st-eustatius-saba
@@ -252,18 +252,18 @@ module SmartAnswer::Calculators
       mexico
       new-zealand
       uruguay
-    ).freeze
+    ].freeze
 
-    CP_CONSULAR_COUNTRIES = %w(
+    CP_CONSULAR_COUNTRIES = %w[
       bulgaria
       croatia
       cyprus
       guatemala
       panama
       venezuela
-    ).freeze
+    ].freeze
 
-    COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(
+    COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w[
       argentina
       aruba
       bonaire-st-eustatius-saba
@@ -276,9 +276,9 @@ module SmartAnswer::Calculators
       st-maarten
       st-martin
       taiwan
-    ).freeze
+    ].freeze
 
-    SS_MARRIAGE_COUNTRIES = %w(
+    SS_MARRIAGE_COUNTRIES = %w[
       bolivia
       dominican-republic
       estonia
@@ -288,52 +288,52 @@ module SmartAnswer::Calculators
       russia
       san-marino
       serbia
-    ).freeze
+    ].freeze
 
-    NO_SS_MARRIAGE_COUNTRIES = %w(
+    NO_SS_MARRIAGE_COUNTRIES = %w[
       san-marino
       seychelles
-    ).freeze
+    ].freeze
 
-    SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania).freeze
+    SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w[lithuania].freeze
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w[
       albania
       peru
       vietnam
-    ).freeze
+    ].freeze
 
-    SS_ALT_FEES_TABLE_COUNTRY = %w(
+    SS_ALT_FEES_TABLE_COUNTRY = %w[
       bolivia
       estonia
       san-marino
       serbia
       seychelles
-    ).freeze
+    ].freeze
 
-    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w[
       mongolia
       montenegro
       russia
-    ).freeze
+    ].freeze
 
-    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w[
       dominican-republic
       kosovo
-    ).freeze
+    ].freeze
 
-    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(
+    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w[
       oman
       qatar
       yemen
-    ).freeze
+    ].freeze
 
-    SS_UNKNOWN_NO_EMBASSIES = %w(
+    SS_UNKNOWN_NO_EMBASSIES = %w[
       saint-barthelemy
       st-martin
-    ).freeze
+    ].freeze
 
-    THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES = %w(
+    THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES = %w[
       albania
       angola
       armenia
@@ -373,9 +373,9 @@ module SmartAnswer::Calculators
       ukraine
       uzbekistan
       venezuela
-    ).freeze
+    ].freeze
 
-    CNI_NOTARY_PUBLIC_COUNTRIES = %w(
+    CNI_NOTARY_PUBLIC_COUNTRIES = %w[
       albania
       angola
       armenia
@@ -403,9 +403,9 @@ module SmartAnswer::Calculators
       ukraine
       uzbekistan
       venezuela
-    ).freeze
+    ].freeze
 
-    NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w(
+    NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w[
       albania
       angola
       armenia
@@ -434,14 +434,14 @@ module SmartAnswer::Calculators
       ukraine
       uzbekistan
       venezuela
-    ).freeze
+    ].freeze
 
-    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(
+    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w[
       qatar
       saudi-arabia
       united-arab-emirates
       yemen
-    ).freeze
+    ].freeze
 
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)

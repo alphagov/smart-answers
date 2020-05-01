@@ -225,7 +225,7 @@ module SmartAnswer
   private
 
     def values_vs_labels(options)
-      options.inject({}) { |h, o| h[o.value] = o.label; h }
+      options.each_with_object({}) { |o, h| h[o.value] = o.label; }
     end
   end
 end

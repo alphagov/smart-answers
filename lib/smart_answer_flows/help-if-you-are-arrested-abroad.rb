@@ -8,10 +8,10 @@ module SmartAnswer
       satisfies_need "100220"
 
       arrested_calc = Calculators::ArrestedAbroad.new
-      exclude_countries = %w(holy-see british-antarctic-territory)
-      british_overseas_territories = %w(anguilla bermuda british-indian-ocean-territory british-virgin-islands cayman-islands falkland-islands gibraltar montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-the-south-sandwich-islands turks-and-caicos-islands)
+      exclude_countries = %w[holy-see british-antarctic-territory]
+      british_overseas_territories = %w[anguilla bermuda british-indian-ocean-territory british-virgin-islands cayman-islands falkland-islands gibraltar montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-the-south-sandwich-islands turks-and-caicos-islands]
 
-      #Q1
+      # Q1
       country_select :which_country?, exclude_countries: exclude_countries do
         save_input_as :country
 
@@ -96,7 +96,7 @@ module SmartAnswer
         end
 
         precalculate :transfers_back_to_uk_treaty_change_countries do
-          %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
+          %w[austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia]
         end
 
         precalculate :region_downloads do

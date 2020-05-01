@@ -92,8 +92,8 @@ module SmartAnswer::Calculators
       lower_earnings(partner_earned_more_than_lower_earnings_limit)
     end
 
-    #Lower earnings test: person has earned more than
-    #the lower earnings limit
+    # Lower earnings test: person has earned more than
+    # the lower earnings limit
     def lower_earnings(lel)
       lel == "yes"
     end
@@ -102,7 +102,7 @@ module SmartAnswer::Calculators
       earnings_employment(mother_earned_at_least_390, mother_worked_at_least_26_weeks)
     end
 
-    #Earnings and employment test
+    # Earnings and employment test
     def earnings_employment(earnings_employment, work_employment)
       earnings_employment == "yes" && work_employment == "yes"
     end

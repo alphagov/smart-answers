@@ -91,7 +91,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                   context "answer yes" do
                     setup { add_response :yes }
 
-                    #QP7
+                    # QP7
                     should "ask if employee is still employed on birth date" do
                       assert_equal "yes", current_state.calculator.on_payroll
                       assert_current_node :employee_still_employed_on_birth_date?
@@ -100,7 +100,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer yes" do
                       setup { add_response :yes }
 
-                      #QP8
+                      # QP8
                       should "ask for employee start date" do
                         assert_current_node :employee_start_paternity?
                         assert_state_variable :date_of_birth, Date.parse("12 June 2013")
@@ -109,7 +109,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       context "answer 12 June 2013" do
                         setup { add_response Date.parse("12 June 2013") }
 
-                        #QP9
+                        # QP9
                         should "ask for employee paternity length" do
                           assert_current_node :employee_paternity_length?
                           assert_state_variable :leave_start_date, Date.parse("12 June 2013")
@@ -118,7 +118,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                         context "one week" do
                           setup { add_response "one_week" }
 
-                          #QP10
+                          # QP10
                           should "ask last normal pay day" do
                             assert_current_node :last_normal_payday_paternity?
                             assert_state_variable :leave_end_date, Date.parse("18 June 2013")
@@ -127,7 +127,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                           context "answer 2 March 2013" do
                             setup { add_response Date.parse("2 March 2013") }
 
-                            #QP11
+                            # QP11
                             should "ask for payday eight weeks before" do
                               assert_current_node :payday_eight_weeks_paternity?
                               assert_state_variable :payday_offset, Date.parse("6 January 2013")
@@ -144,7 +144,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                               context "answer monthly" do
                                 setup { add_response "monthly" }
 
-                                ##QP13
+                                # #QP13
                                 should "ask for earnings between relevant period" do
                                   assert_current_node :earnings_for_pay_period_paternity?
                                 end
@@ -152,7 +152,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                 context "answer above 109 a week for 8 weeks" do
                                   setup { add_response "1000" }
 
-                                  #QP14
+                                  # QP14
                                   should "ask how many payments monthly" do
                                     assert_current_node :how_many_payments_monthly?
                                   end
@@ -160,7 +160,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   context "answer 2 payments" do
                                     setup { add_response "2" }
 
-                                    #QP14
+                                    # QP14
                                     should "ask weekly or usual pay dates for SPP" do
                                       assert_current_node :how_do_you_want_the_spp_calculated?
                                     end
@@ -168,7 +168,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     context "answer usual pay pattern monthly" do
                                       setup { add_response "usual_paydates" }
 
-                                      #QP16
+                                      # QP16
                                       should "ask when employee paid in the month" do
                                         assert_current_node :monthly_pay_paternity?
                                       end
@@ -198,7 +198,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                         end
                                       end
 
-                                      #QP17
+                                      # QP17
                                       context "answer specific date in month" do
                                         setup { add_response "specific_date_each_month" }
                                         should "ask which date" do
@@ -213,7 +213,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                       context "answer certain week day in each month" do
                                         setup { add_response "a_certain_week_day_each_month" }
 
-                                        #QP19
+                                        # QP19
                                         should "ask particular day of the month" do
                                           assert_current_node :day_of_the_month_paternity?
                                         end
@@ -221,7 +221,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                         context "answer friday" do
                                           setup { add_response 5 }
 
-                                          #QP20
+                                          # QP20
                                           should "ask employee pay day" do
                                             assert_current_node :pay_date_options_paternity?
                                           end
@@ -233,23 +233,23 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                               assert_state_variable :pay_method, "a_certain_week_day_each_month"
                                               assert_current_node :paternity_leave_and_pay
                                             end
-                                          end #QP20 end
-                                        end #QP19 end particular day of the month
-                                      end #QP16 end when employee paid in the month
-                                    end #QP14 end usual pay dates (monthly) for SPP
+                                          end # QP20 end
+                                        end # QP19 end particular day of the month
+                                      end # QP16 end when employee paid in the month
+                                    end # QP14 end usual pay dates (monthly) for SPP
 
                                     context "answer standard weekly" do
                                       setup { add_response "weekly_starting" }
 
-                                    #QP14 weekly outcome
+                                      # QP14 weekly outcome
                                       should "go to outcome" do
                                         assert_current_node :paternity_leave_and_pay
                                         assert_state_variable "has_contract", "yes"
                                         assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
                                       end
-                                    end #QP14 end SPP calculated weekly
+                                    end # QP14 end SPP calculated weekly
                                   end
-                                end #QP13 end earings above 109 between relevant period
+                                end # QP13 end earings above 109 between relevant period
 
                                 context "answer less than 109 a week for 8 weeks" do
                                   setup { add_response "10" }
@@ -259,8 +259,8 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     assert_state_variable :lower_earning_limit, "107.00"
                                     assert_current_node :paternity_leave_and_pay
                                   end
-                                end #QP 13 end earnings less than 109 between relevant period
-                              end #QP12 end pay freqency
+                                end # QP 13 end earnings less than 109 between relevant period
+                              end # QP12 end pay freqency
 
                               context "answer weekly" do
                                 should "flow though usual pay date weekly" do
@@ -274,16 +274,16 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   assert_current_node :paternity_leave_and_pay
                                 end
                               end
-                            end #QP11 end 8 weeks before
-                          end #QP10 end last normal payday
-                        end #QP9 end paternity length
-                      end #QP8 end paternity start date
-                    end #QP7 end still employed on birthdate
+                            end # QP11 end 8 weeks before
+                          end # QP10 end last normal payday
+                        end # QP9 end paternity length
+                      end # QP8 end paternity start date
+                    end # QP7 end still employed on birthdate
 
                     context "answer no" do
                       setup { add_response :no }
 
-                      #QP 8
+                      # QP 8
                       should "ask when leave starts" do
                         assert_current_node :employee_start_paternity?
                       end
@@ -291,7 +291,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       context "answer 1 April 2014 weeks" do
                         setup { add_response "2014-04-01" }
 
-                        #QP9
+                        # QP9
                         should "ask length of leave" do
                           assert_current_node :employee_paternity_length?
                         end
@@ -303,14 +303,14 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                             assert_current_node :paternity_not_entitled_to_leave_or_pay
                           end
                         end # QP9 leave length
-                      end #QP 8 leave start
-                    end #QP7 end not employed on date of birth
+                      end # QP 8 leave start
+                    end # QP7 end not employed on date of birth
                   end # yes - QP6 on payroll
 
                   context "answer no" do
                     setup { add_response :no }
 
-                    #QP7
+                    # QP7
                     should "ask leave start date" do
                       assert_current_node :employee_start_paternity?
                     end
@@ -318,7 +318,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 1 April 2014" do
                       setup { add_response "2014-04-01" }
 
-                      #QP9
+                      # QP9
                       should "ask length of leave" do
                         assert_current_node :employee_paternity_length?
                       end
@@ -330,15 +330,15 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :paternity_not_entitled_to_leave_or_pay
                         end
                       end
-                    end #QP7 employed at birth date
-                  end #QP 6 end employee not on payroll but has contract
-                end #QP5 end has contract
+                    end # QP7 employed at birth date
+                  end # QP 6 end employee not on payroll but has contract
+                end # QP5 end has contract
 
-                #QP4 - no employment contract
+                # QP4 - no employment contract
                 context "answer no" do
                   setup { add_response :no }
 
-                  #QP6 - not on payroll
+                  # QP6 - not on payroll
                   should "ask if employee is on payroll" do
                     assert_current_node :employee_on_payroll_paternity?
                   end
@@ -353,7 +353,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     should "not be entitled to leave or pay" do
                       assert_current_node :paternity_not_entitled_to_leave_or_pay
                     end
-                  end #QP6 - not on payroll
+                  end # QP6 - not on payroll
 
                   context "usual weekly pay pattern no contract" do
                     should "flow though usual pay date weekly" do
@@ -372,7 +372,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       # assert_current_node :next_pay_day_paternity?
                     end
                   end
-                end #QP5 - no employment contract
+                end # QP5 - no employment contract
               end # worked for you before employment start
 
               context "answer no" do
@@ -381,9 +381,9 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                 should "go to outcome" do
                   assert_current_node :paternity_not_entitled_to_leave_or_pay
                 end
-              end #QP4 did not work at employment_start
-            end #QP3 end
-            #Q2 - not a father, partner nor husband
+              end # QP4 did not work at employment_start
+            end # QP3 end
+            # Q2 - not a father, partner nor husband
             context "answer no" do
               setup { add_response :no }
 
@@ -392,8 +392,8 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
               end
             end
           end
-        end #due date 3 months from now
-      end #QP0 - no
+        end # due date 3 months from now
+      end # QP0 - no
 
       context "answer no with 2013/2014 figures" do
         should "flow though usual pay date weekly" do
@@ -416,7 +416,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           assert_state_variable :to_saturday_formatted, "Saturday, 18 January 2014"
           assert_state_variable :lower_earning_limit, "109.00"
         end
-      end #QP0 no with 2013/2014 figures
+      end # QP0 no with 2013/2014 figures
 
       context "answer no with 2014/2015 figures" do
         should "flow though usual pay date weekly" do
@@ -439,7 +439,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
           assert_state_variable :lower_earning_limit, "111.00"
         end
-      end #QP0 no with 2014/2015 figures
+      end # QP0 no with 2014/2015 figures
 
       # Paternity Adoption
       context "answer adoption" do

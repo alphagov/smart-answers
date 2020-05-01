@@ -27,11 +27,11 @@ module SmartAnswer::Calculators
     end
 
     def self.prisoner_packs
-      @prisoner_packs ||= YAML::load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml"))
+      @prisoner_packs ||= YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml"))
     end
 
     def countries_with_regions
-      %w{cyprus}
+      %w[cyprus]
     end
 
     def get_country_regions(slug)

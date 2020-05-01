@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
 
-    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo montenegro north-macedonia serbia).freeze
+    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w[bosnia-and-herzegovina kosovo montenegro north-macedonia serbia].freeze
     STATE_BENEFITS = {
       bereavement_benefits: "Bereavement benefits",
       severe_disablement_allowance: "Severe Disablement Allowance",
@@ -46,10 +46,10 @@ module SmartAnswer::Calculators
     private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS
 
     def eea_country?
-      %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
+      %w[austria belgium bulgaria croatia cyprus czech-republic denmark estonia
          finland france germany gibraltar greece hungary iceland ireland italy
          latvia liechtenstein lithuania luxembourg malta netherlands norway
-         poland portugal romania slovakia slovenia spain sweden switzerland).include?(country)
+         poland portugal romania slovakia slovenia spain sweden switzerland].include?(country)
     end
 
     def former_yugoslavia?
@@ -57,17 +57,17 @@ module SmartAnswer::Calculators
     end
 
     def social_security_countries_jsa?
-      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w(guernsey jersey new-zealand)).include?(country)
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[guernsey jersey new-zealand]).include?(country)
     end
 
     def social_security_countries_iidb?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA +
-      %w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey)).include?(country)
+      %w[barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey]).include?(country)
     end
 
     def social_security_countries_bereavement_benefits?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA +
-      %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(country)
+      %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
     end
 
     def state_benefits

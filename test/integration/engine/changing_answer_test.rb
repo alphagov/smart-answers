@@ -4,7 +4,7 @@ class ChangingAnswerTest < EngineIntegrationTest
   with_and_without_javascript do
     should "be able to change country and date answers" do
       stub_content_store_has_item("/country-and-date-sample")
-      stub_world_locations(%w(argentina belarus))
+      stub_world_locations(%w[argentina belarus])
 
       visit "/country-and-date-sample/y"
 

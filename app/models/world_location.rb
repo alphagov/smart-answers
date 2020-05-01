@@ -19,7 +19,7 @@ class WorldLocation
                               .world_locations
                               .with_subsequent_pages
                               .select { |r| valid_world_location_format?(r.to_hash) }
-                              .map { |r| self.new(r.to_hash) }
+                              .map { |r| new(r.to_hash) }
 
       raise NoLocationsFromWorldwideApiError if world_locations.empty?
 
@@ -30,7 +30,7 @@ class WorldLocation
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
       location = GdsApi.worldwide.world_location(location_slug).to_hash
-      self.new(location)
+      new(location)
     rescue GdsApi::HTTPNotFound
       nil
     end
@@ -79,7 +79,7 @@ class WorldLocation
   end
 
   def fco_organisation
-    self.organisations.find(&:fco_sponsored?)
+    organisations.find(&:fco_sponsored?)
   end
 
   class NoLocationsFromWorldwideApiError < StandardError; end

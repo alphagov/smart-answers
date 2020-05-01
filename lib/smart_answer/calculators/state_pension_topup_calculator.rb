@@ -95,7 +95,7 @@ module SmartAnswer::Calculators
       years = date.year - dob.year
       birthday = Date.new(date.year, dob.month, dob.day)
       if date < birthday
-        years = years - 1
+        years -= 1
       end
       years
     end

@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "100490"
 
-      exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
+      exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
@@ -84,7 +84,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if %w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}.include?(response)
+          if %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits].include?(response)
             question :which_country?
           elsif response == "iidb"
             question :iidb_already_claiming?
@@ -108,7 +108,7 @@ module SmartAnswer
             elsif response == "pension"
               outcome :pension_already_abroad_outcome # A2 already_abroad
             elsif response == "income_support"
-              outcome :is_already_abroad_outcome #A40 already_abroad
+              outcome :is_already_abroad_outcome # A40 already_abroad
             end
           end
         end
@@ -163,9 +163,9 @@ module SmartAnswer
               else
                 outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
               end
-            elsif %w(barbados canada guernsey israel jersey mauritius new-zealand).include?(response)
+            elsif %w[barbados canada guernsey israel jersey mauritius new-zealand].include?(response)
               outcome :child_benefit_ss_outcome # A15 going_abroad and A13 already_abroad
-            elsif %w(jamaica turkey usa).include?(response)
+            elsif %w[jamaica turkey usa].include?(response)
               outcome :child_benefit_jtu_outcome # A14 already_abroad
             else
               outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
@@ -214,7 +214,7 @@ module SmartAnswer
                 outcome :esa_going_abroad_eea_outcome # A29 going_abroad
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
-              elsif %w(barbados guernsey israel jersey jamaica turkey usa).include?(response)
+              elsif %w[barbados guernsey israel jersey jamaica turkey usa].include?(response)
                 outcome :esa_going_abroad_eea_outcome
               else
                 outcome :esa_going_abroad_other_outcome # A30 going_abroad
@@ -224,7 +224,7 @@ module SmartAnswer
                 outcome :esa_already_abroad_eea_outcome # A27 already_abroad
               elsif calculator.former_yugoslavia?
                 outcome :esa_already_abroad_ss_outcome # A28 already_abroad
-              elsif %w(barbados jersey guernsey jamaica turkey usa).include?(response)
+              elsif %w[barbados jersey guernsey jamaica turkey usa].include?(response)
                 outcome :esa_already_abroad_ss_outcome
               else
                 outcome :esa_already_abroad_other_outcome # A29 already_abroad
@@ -303,10 +303,10 @@ module SmartAnswer
                 outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
               end
             end
-          #not SSP benefits
+          # not SSP benefits
           elsif response == "yes"
             question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-          elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
+          elsif (countries_of_former_yugoslavia + %w[barbados guernsey jersey israel turkey]).include?(calculator.country)
             if already_abroad
               outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
             else
@@ -422,7 +422,7 @@ module SmartAnswer
           when "tax_credits_holiday"
             outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
           when "tax_credits_medical_treatment", "tax_credits_death"
-            outcome :tax_credits_medical_death_outcome #A24 already_abroad
+            outcome :tax_credits_medical_death_outcome # A24 already_abroad
           end
         end
       end
@@ -583,7 +583,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "tax_credits_up_to_a_year"
-            question :tax_credits_why_going_abroad? #Q23 going_abroad and Q22 already_abroad
+            question :tax_credits_why_going_abroad? # Q23 going_abroad and Q22 already_abroad
           when "tax_credits_more_than_a_year"
             question :tax_credits_children? # Q19 going_abroad and Q18 already_abroad
           end
@@ -675,7 +675,7 @@ module SmartAnswer
       outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
       outcome :tax_credits_crown_servant_outcome # A19 already_abroad
       outcome :tax_credits_cross_border_worker_outcome # A20 already_abroad and A22 going_abroad
-      outcome :tax_credits_unlikely_outcome #A21 already_abroad and A23 going_abroad
+      outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
       outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
       outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
       outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad

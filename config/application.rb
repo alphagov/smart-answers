@@ -20,7 +20,7 @@ module SmartAnswers
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.action_view.form_with_generates_remote_forms = false
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/presenters)
+    config.autoload_paths += %W[#{config.root}/lib #{config.root}/app/presenters]
     config.allow_forgery_protection = false
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -47,7 +47,7 @@ module SmartAnswers
     config.assets.prefix = "/smartanswers"
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w(
+    config.assets.precompile += %w[
       joint.patch.js
       joint.js
       joint.layout.DirectedGraph.js
@@ -56,7 +56,7 @@ module SmartAnswers
       dagre.js
       visualise.js
       visualise.css
-    )
+    ]
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = "1.0"

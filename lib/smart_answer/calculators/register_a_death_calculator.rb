@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class RegisterADeathCalculator
     include ActiveModel::Model
 
-    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory).freeze
+    EXCLUDE_COUNTRIES = %w[holy-see british-antarctic-territory].freeze
 
     attr_accessor :location_of_death
     attr_accessor :death_location_type
@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
     end
 
     def died_in_uk?
-      %w(england_wales scotland northern_ireland).include?(location_of_death)
+      %w[england_wales scotland northern_ireland].include?(location_of_death)
     end
 
     def died_at_home_or_in_hospital?
@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
     end
 
     def country_has_no_embassy?
-      %w(libya syria yemen somalia).include?(country_of_death)
+      %w[libya syria yemen somalia].include?(country_of_death)
     end
 
     def responded_with_commonwealth_country?

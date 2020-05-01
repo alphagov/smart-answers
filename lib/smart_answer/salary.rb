@@ -15,14 +15,14 @@ module SmartAnswer
       end
       @amount = SmartAnswer::Money.new(amount)
       @period = period || "week"
-      raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{year month week}.include?(@period)
+      raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w[year month week].include?(@period)
     end
 
     def <=>(other)
       return nil unless other.is_a?(Salary)
-      return nil unless other.period == self.period
+      return nil unless other.period == period
 
-      self.amount <=> other.amount
+      amount <=> other.amount
     end
 
     def to_s

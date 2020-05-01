@@ -10,7 +10,7 @@ module SmartAnswer
     context "method with no arguments" do
       setup do
         mod = Module.new do
-          def method_with_no_args; end
+          def method_with_no_args; end # rubocop:disable
         end
         @method_with_no_args = mod.instance_method(:method_with_no_args)
         @parser = MethodInvocationsParser.new(@method_with_no_args)
@@ -39,7 +39,7 @@ module SmartAnswer
 
       should "identify multiple invocations of method on one line" do
         block_invoking_method = -> do
-          method_with_no_args; method_with_no_args
+          method_with_no_args; method_with_no_args # rubocop:disable Style/Semicolon
         end
 
         invocations = @parser.invocations(block_invoking_method.source)
@@ -117,7 +117,7 @@ module SmartAnswer
     context "method with two arguments" do
       setup do
         mod = Module.new do
-          def method_with_two_args(arg_one, arg_two); end
+          def method_with_two_args(arg_one, arg_two); end # rubocop:disable
         end
         @method_with_two_args = mod.instance_method(:method_with_two_args)
         @parser = MethodInvocationsParser.new(@method_with_two_args)

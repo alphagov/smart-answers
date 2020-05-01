@@ -83,9 +83,7 @@ module SmartAnswer::Calculators
       world_location.name
     end
 
-    def fco_organisation
-      world_location.fco_organisation
-    end
+    delegate :fco_organisation, to: :world_location
 
     def overseas_passports_embassies
       if fco_organisation
@@ -132,7 +130,7 @@ module SmartAnswer::Calculators
         "French"
       elsif ceremony_country_is_dutch_caribbean_island?
         "Dutch"
-      elsif %w(hong-kong macao).include?(ceremony_country)
+      elsif %w[hong-kong macao].include?(ceremony_country)
         "Chinese"
       else
         "National of #{country_name_lowercase_prefix}"

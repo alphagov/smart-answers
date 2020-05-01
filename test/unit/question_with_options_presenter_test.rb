@@ -15,8 +15,8 @@ module SmartAnswer
       @renderer.stubs(:option_text).with(:option_two).returns("option-two-text")
       presenter = QuestionWithOptionsPresenter.new(question, nil, renderer: @renderer)
 
-      assert_equal %w(option_one option_two), presenter.options.map(&:value)
-      assert_equal %w(option-one-text option-two-text), presenter.options.map(&:label)
+      assert_equal %w[option_one option_two], presenter.options.map(&:value)
+      assert_equal %w[option-one-text option-two-text], presenter.options.map(&:label)
     end
   end
 end

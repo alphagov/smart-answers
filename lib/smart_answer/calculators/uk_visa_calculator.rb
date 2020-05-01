@@ -149,7 +149,7 @@ module SmartAnswer::Calculators
       @travelling_visiting_partner_family_member_answer == "yes"
     end
 
-    EXCLUDE_COUNTRIES = %w(
+    EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
       british-indian-ocean-territory
@@ -166,9 +166,9 @@ module SmartAnswer::Calculators
       the-occupied-palestinian-territories
       wallis-and-futuna
       western-sahara
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_UKOT = %w(
+    COUNTRY_GROUP_UKOT = %w[
       anguilla
       bermuda
       british-dependent-territories-citizen
@@ -181,7 +181,7 @@ module SmartAnswer::Calculators
       south-georgia-and-the-south-sandwich-islands
       st-helena-ascension-and-tristan-da-cunha
       turks-and-caicos-islands
-    ).freeze
+    ].freeze
 
     COUNTRY_GROUP_NON_VISA_NATIONAL = %w(
       andorra
@@ -248,7 +248,7 @@ module SmartAnswer::Calculators
       vatican-city
     ).freeze
 
-    COUNTRY_GROUP_VISA_NATIONAL = %w(
+    COUNTRY_GROUP_VISA_NATIONAL = %w[
       armenia
       azerbaijan
       bahrain
@@ -306,9 +306,9 @@ module SmartAnswer::Calculators
       united-arab-emirates
       uzbekistan
       zambia
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_DATV = %w(
+    COUNTRY_GROUP_DATV = %w[
       afghanistan
       albania
       algeria
@@ -369,9 +369,9 @@ module SmartAnswer::Calculators
       vietnam
       yemen
       zimbabwe
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_EEA = %w(
+    COUNTRY_GROUP_EEA = %w[
       austria
       belgium
       bulgaria
@@ -405,9 +405,9 @@ module SmartAnswer::Calculators
       st-martin
       sweden
       switzerland
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w(
+    COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w[
       australia
       canada
       hong-kong
@@ -416,16 +416,16 @@ module SmartAnswer::Calculators
       new-zealand
       south-korea
       taiwan
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w(
+    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w[
       kuwait
       oman
       qatar
       united-arab-emirates
-    ).freeze
+    ].freeze
 
-    COUNTRY_GROUP_EPASSPORT_GATES = %w(
+    COUNTRY_GROUP_EPASSPORT_GATES = %w[
       australia
       canada
       japan
@@ -433,6 +433,6 @@ module SmartAnswer::Calculators
       singapore
       south-korea
       usa
-    ).freeze
+    ].freeze
   end
 end
