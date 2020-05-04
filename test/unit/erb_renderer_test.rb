@@ -62,31 +62,7 @@ Hello world
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "<p>Hello world</p>\n", renderer.content_for(:key)
-      end
-    end
-
-    test "#content_for strips spaces from the beginning of lines so that we can indent content in our content_for blocks" do
-      erb_template = content_for(:key, '  <% if true %>
-    line 1
-
-    line 2
-  <% end %>')
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "<p>line 1</p>\n\n<p>line 2</p>\n", renderer.content_for(:key)
-      end
-    end
-
-    test "#content_for ensures there is only one *blank* line between paragraphs" do
-      erb_template = content_for(:key, "line1\n\n\n\nline2")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "<p>line1</p>\n\n<p>line2</p>\n", renderer.content_for(:key)
+        assert_match(/<p>Hello world<\/p>/, renderer.content_for(:key))
       end
     end
 
@@ -141,37 +117,6 @@ Hello world
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert renderer.content_for(:key).html_safe?
-      end
-    end
-
-    test "#content_for returns an HTML-safe string when not passed through Govspeak" do
-      erb_template = content_for(:key, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.content_for(:key).html_safe?
-      end
-    end
-
-    test "#content_for returns the same content when called multiple times" do
-      erb_template = content_for(:key, "body-content")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
-        assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
-      end
-    end
-
-    test "#single_line_of_content_for removes trailing newline" do
-      erb_template = content_for(:key, "single-line-of-content-for-key\n")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "single-line-of-content-for-key", renderer.single_line_of_content_for(:key)
       end
     end
 

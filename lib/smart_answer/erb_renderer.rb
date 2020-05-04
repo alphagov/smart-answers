@@ -14,22 +14,22 @@ module SmartAnswer
       @template_directory = template_directory
       @template_name = template_name
       @locals = locals
-      lookup_context = ActionView::LookupContext.new([@template_directory, FlowRegistry.instance.load_path])
+      default_view_paths = ActionController::Base.view_paths.paths.map(&:to_s)
+      lookup_context = ActionView::LookupContext.new(
+        [@template_directory, FlowRegistry.instance.load_path] + default_view_paths,
+      )
       @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(QuestionOptionsHelper)
+      @view.extend(Helpers::FormatCaptureHelper)
     end
 
     def single_line_of_content_for(key)
-      content = rendered_view.content_for(key) || ""
-      content = strip_leading_spaces(content.to_str)
-      normalize_blank_lines(content).chomp.html_safe
+      rendered_view.content_for(key) || ""
     end
 
     def content_for(key)
-      content = rendered_view.content_for(key) || ""
-      content = strip_leading_spaces(content.to_str)
-      GovspeakPresenter.new(content).html
+      rendered_view.content_for(key) || "\n"
     end
 
     def option_text(key)
@@ -55,14 +55,6 @@ module SmartAnswer
       @rendered_view ||= @view.tap do |view|
         view.render(template: erb_template_name, locals: @locals)
       end
-    end
-
-    def strip_leading_spaces(string)
-      string.gsub(/^ +/, "")
-    end
-
-    def normalize_blank_lines(string)
-      string.gsub(/(\n$){2,}/m, "\n")
     end
   end
 end
