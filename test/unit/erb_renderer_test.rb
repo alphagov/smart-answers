@@ -34,26 +34,6 @@ module SmartAnswer
       end
     end
 
-    test "#content_for returns a single newline when content_for(key) block is not present in template" do
-      erb_template = ""
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "\n", renderer.content_for(:does_not_exist)
-      end
-    end
-
-    test "#content_for returns a single newline when content_for(key) block is empty" do
-      erb_template = content_for(:key, "")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "\n", renderer.content_for(:key)
-      end
-    end
-
     test "#content_for trims newlines by default" do
       erb_template = content_for(:key, '<% if true %>
 Hello world
@@ -111,22 +91,22 @@ Hello world
     end
 
     test "#content_for returns an HTML-safe string when passed through Govspeak" do
+      erb_template = content_for(:body, "html-unsafe-string")
+
+      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
+
+        assert renderer.content_for(:body).html_safe?
+      end
+    end
+
+    test "#content_for returns an HTML-safe string" do
       erb_template = content_for(:key, "html-unsafe-string")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert renderer.content_for(:key).html_safe?
-      end
-    end
-
-    test "#single_line_of_content_for returns an HTML-safe string" do
-      erb_template = content_for(:key, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.single_line_of_content_for(:key).html_safe?
       end
     end
 

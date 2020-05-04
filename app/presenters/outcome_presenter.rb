@@ -16,7 +16,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    @renderer.content_for(:title)
   end
 
   def body

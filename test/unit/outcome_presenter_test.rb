@@ -46,7 +46,7 @@ module SmartAnswer
     end
 
     test "#title returns single line of content rendered for title block" do
-      @renderer.stubs(:single_line_of_content_for).with(:title).returns("title-text")
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
 
       assert_equal "title-text", @presenter.title
     end

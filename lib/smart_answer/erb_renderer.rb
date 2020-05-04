@@ -10,6 +10,8 @@ module SmartAnswer
       end
     end
 
+    delegate :content_for, to: :rendered_view
+
     def initialize(template_directory:, template_name:, locals: {}, helpers: [])
       @template_directory = template_directory
       @template_name = template_name
@@ -22,14 +24,6 @@ module SmartAnswer
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(QuestionOptionsHelper)
       @view.extend(Helpers::FormatCaptureHelper)
-    end
-
-    def single_line_of_content_for(key)
-      rendered_view.content_for(key) || ""
-    end
-
-    def content_for(key)
-      rendered_view.content_for(key) || "\n"
     end
 
     def option_text(key)

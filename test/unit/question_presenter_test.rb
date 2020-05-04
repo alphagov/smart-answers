@@ -23,25 +23,25 @@ module SmartAnswer
     end
 
     test "#title returns single line of content rendered for title block" do
-      @renderer.stubs(:single_line_of_content_for).with(:title).returns("title-text")
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
 
       assert_equal "title-text", @presenter.title
     end
 
     test "#hint returns single line of content rendered for hint block" do
-      @renderer.stubs(:single_line_of_content_for).with(:hint).returns("hint-text")
+      @renderer.stubs(:content_for).with(:hint).returns("hint-text")
 
       assert_equal "hint-text", @presenter.hint
     end
 
     test "#label returns single line of content rendered for label block" do
-      @renderer.stubs(:single_line_of_content_for).with(:label).returns("label-text")
+      @renderer.stubs(:content_for).with(:label).returns("label-text")
 
       assert_equal "label-text", @presenter.label
     end
 
     test "#suffix_label returns single line of content rendered for suffix_label block" do
-      @renderer.stubs(:single_line_of_content_for).with(:suffix_label).returns("suffix-label-text")
+      @renderer.stubs(:content_for).with(:suffix_label).returns("suffix-label-text")
 
       assert_equal "suffix-label-text", @presenter.suffix_label
     end
@@ -92,13 +92,13 @@ module SmartAnswer
     end
 
     test "#error_message_for returns single line of content rendered for error_key block" do
-      @renderer.stubs(:single_line_of_content_for).with(:error_key).returns("error-message-text")
+      @renderer.stubs(:content_for).with(:error_key).returns("error-message-text")
 
       assert_equal "error-message-text", @presenter.error_message_for("error_key")
     end
 
     test "#error_message_for returns nil if rendered content is blank" do
-      @renderer.stubs(:single_line_of_content_for).returns("    ")
+      @renderer.stubs(:content_for).returns("    ")
 
       assert_nil @presenter.error_message_for("error_key")
     end

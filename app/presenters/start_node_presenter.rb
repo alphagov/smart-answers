@@ -8,15 +8,15 @@ class StartNodePresenter < NodePresenter
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    @renderer.content_for(:title)
   end
 
   def ab_title
-    @renderer.single_line_of_content_for(:ab_title)
+    @renderer.content_for(:ab_title)
   end
 
   def meta_description
-    @renderer.single_line_of_content_for(:meta_description)
+    @renderer.content_for(:meta_description)
   end
 
   def body
@@ -36,7 +36,7 @@ class StartNodePresenter < NodePresenter
   end
 
   def start_button_text
-    custom_button_text = @renderer.single_line_of_content_for(:start_button_text)
+    custom_button_text = @renderer.content_for(:start_button_text)
     custom_button_text.presence || "Start now"
   end
 
