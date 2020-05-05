@@ -1,15 +1,5 @@
 module SmartAnswer
   class ErbRenderer
-    module QuestionOptionsHelper
-      def options(options = nil)
-        if options
-          @options = options
-        else
-          @options || {}
-        end
-      end
-    end
-
     delegate :content_for, to: :rendered_view
 
     def initialize(template_directory:, template_name:, locals: {}, helpers: [])
@@ -22,7 +12,7 @@ module SmartAnswer
       )
       @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
       helpers.each { |helper| @view.extend(helper) }
-      @view.extend(QuestionOptionsHelper)
+      @view.extend(Helpers::QuestionOptionsHelper)
       @view.extend(Helpers::FormatCaptureHelper)
     end
 
