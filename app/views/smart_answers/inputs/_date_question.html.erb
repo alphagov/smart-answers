@@ -1,9 +1,6 @@
 <% form_contents = capture do %>
   <% if question.body.present? %>
-    <%= render "govuk_publishing_components/components/govspeak", {
-    } do %>
-      <%= question.body %>
-    <% end %>
+    <%= question.body %>
   <% end %>
 
   <% if question.hint.present? %>

@@ -19,10 +19,7 @@
         } %>
       <% end %>
 
-      <%= render "govuk_publishing_components/components/govspeak", {
-      } do %>
-        <%= outcome.body %>
-      <% end %>
+      <%= outcome.body %>
     </div>
 
     <% if outcome.next_steps.present? %>
@@ -32,10 +29,7 @@
           margin_bottom: 6
         } %>
 
-        <%= render "govuk_publishing_components/components/govspeak", {
-        } do %>
-          <%= outcome.next_steps %>
-        <% end %>
+        <%= outcome.next_steps %>
       </div>
     <% end %>
 
