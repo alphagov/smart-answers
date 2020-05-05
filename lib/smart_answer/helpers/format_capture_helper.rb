@@ -33,6 +33,8 @@ module SmartAnswer
       case format
       when :govspeak
         render_govspeak(content)
+      when :html
+        render_html(content)
       when :text
         render_text(content)
       else
@@ -46,6 +48,10 @@ module SmartAnswer
       content = content.chomp.html_safe
 
       content.present? ? render("govuk_publishing_components/components/govspeak") { content } : ""
+    end
+
+    def render_html(content)
+      content.html_safe
     end
 
     def render_text(content)

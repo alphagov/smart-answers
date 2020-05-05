@@ -55,6 +55,10 @@ module SmartAnswer
         assert_captured_content("content", :text, "content")
       end
 
+      should "render html when format set" do
+        assert_captured_content("<p>content</p>", :html, "<p>content</p>")
+      end
+
       should "does not modify content when unknown format set" do
         assert_captured_content("  content  ", :unknown, "  content  ")
       end
