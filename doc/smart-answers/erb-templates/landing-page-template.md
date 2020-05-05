@@ -6,24 +6,24 @@ Landing page templates live in `lib/smart_answer_flows/<flow-name>/<flow-name-wi
 
 The templates can contain content for any of the following keys:
 
-### `title(text)`
+### `:title`
 
-* `text` argument is a String
+* Default format is `:text`
 * Used as the heading (currently "h1")
 
-### `meta_description(text)`
+### `:meta_description`
 
-* `text` argument is a String
+* Default format is `:text`
 * Used as the content for the [meta description tag][meta-description]
 
-### `body(govspeak)`
+### `:body`
 
-* `govspeak` argument is a String in [Govspeak][] format
+* Default format is `:govspeak`
 * Used to generate the main content (appearing above the start button)
 
-### `post_body(govspeak)`
+### `:post_body`
 
-* `govspeak` argument is a String in [Govspeak][] format
+* Default format is `:govspeak`
 * Used to generate supplementary content (appearing below the start button)
 
 ## Example
@@ -42,5 +42,4 @@ The templates can contain content for any of the following keys:
 <% end %>
 ```
 
-[Govspeak]: https://github.com/alphagov/govspeak
 [meta-description]: https://moz.com/learn/seo/meta-description

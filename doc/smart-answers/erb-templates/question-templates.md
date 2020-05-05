@@ -6,12 +6,60 @@ Question templates live in `lib/smart_answer_flows/<flow-name>/questions/<questi
 
 The templates can contain content for any of the following keys:
 
-### `title(text)`
+### `:title`
 
 * Valid for all question types
-* `text` argument is a String
-* Used as the heading (currently "h2")
+* Default format is `:text`
+* Used as the heading (currently "h1")
 * [Example](#example) of how it's used
+
+### `:hint`
+
+* Valid for all question types
+* Default format is `:text`
+* Used as a "hint" paragraph
+* [Example](#example) of how it's used
+
+### `:label`
+
+* Valid for value questions
+* Default format is `:text`
+* Used as a label (preceding the input control)
+
+### `:suffix_label`
+
+* Valid for [value questions](../question-types.md#value_question) & [money questions](../question-types.md#money_question)
+* Default format is `:text`
+* Used as the label (following the input control)
+
+### `:body`
+
+* Valid for all question types
+* Default format is `:govspeak`
+* Used to generate the main content (appearing above the input control, e.g. text input element)
+
+### `:post_body`
+
+* Valid for all question types
+* Default format is `:govspeak`
+* Used to generate supplementary content (appearing below the input control)
+
+### `:error_message`
+
+* Valid for all question types
+* Default format is `:text`
+* Error message for the default validation error key
+
+### `:error_*`
+
+* Valid for all question types
+* Default format is `:text`
+* Error message for a custom validation error key
+* Any key can be used, but needs to have the `error_` prefix
+
+## Specifying options
+
+This is done using custom syntax, not with the `content_for` block.
 
 ### `options(hash)`
 
@@ -20,49 +68,6 @@ The templates can contain content for any of the following keys:
 * Used to "translate" options keys for multiple choice & checkbox questions into human-friendly text
 * [Example](#example) of how it's used with a Flow class
 
-### `hint(text)`
-
-* Valid for all question types
-* `text` argument is a String
-* Used as a "hint" paragraph
-* [Example](#example) of how it's used
-
-### `label(text)`
-
-* Valid for value questions
-* `text` argument is a String
-* Used as a label (preceding the input control)
-
-### `suffix_label(text)`
-
-* Valid for [value questions](../question-types.md#value_question) & [money questions](../question-types.md#money_question)
-* `text` argument is a String
-* Used as the label (following the input control)
-
-### `body(govspeak)`
-
-* Valid for all question types
-* `govspeak` argument is a String in [Govspeak][] format
-* Used to generate the main content (appearing above the input control, e.g. text input element)
-
-### `post_body(govspeak)`
-
-* Valid for all question types
-* `govspeak` argument is a String in [Govspeak][] format
-* Used to generate supplementary content (appearing below the input control)
-
-### `error_message(message)`
-
-* Valid for all question types
-* `message` argument is a String
-* Error message for the default validation error key
-
-### `error_xxx(message)`
-
-* Valid for all question types
-* `message` argument is a String
-* Error message for a custom validation error key
-* Any key can be used, but needs to have the `error_` prefix
 
 ## Example
 
@@ -93,5 +98,3 @@ end
   The values represent % by weight
 <% end %>
 ```
-
-[Govspeak]: https://github.com/alphagov/govspeak
