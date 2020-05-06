@@ -32,7 +32,7 @@ module SmartAnswer
     context "class is extended by helper" do
       setup do
         @test_obj = MockClass.new
-        @test_obj.extend(SmartAnswer::Helpers::FormatCaptureHelper)
+        @test_obj.extend(SmartAnswer::ErbRenderer::FormatCaptureHelper)
       end
 
       should "call super with same arguments when no block given" do

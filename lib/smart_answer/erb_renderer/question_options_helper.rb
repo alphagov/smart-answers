@@ -1,5 +1,5 @@
 module SmartAnswer
-  module Helpers::QuestionOptionsHelper
+  module ErbRenderer::QuestionOptionsHelper
     def options(options = nil)
       if options
         @options = options

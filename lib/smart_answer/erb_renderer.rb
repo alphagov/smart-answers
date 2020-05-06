@@ -12,8 +12,8 @@ module SmartAnswer
       )
       @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
       helpers.each { |helper| @view.extend(helper) }
-      @view.extend(Helpers::QuestionOptionsHelper)
-      @view.extend(Helpers::FormatCaptureHelper)
+      @view.extend(ErbRenderer::QuestionOptionsHelper)
+      @view.extend(ErbRenderer::FormatCaptureHelper)
     end
 
     def option_text(key)

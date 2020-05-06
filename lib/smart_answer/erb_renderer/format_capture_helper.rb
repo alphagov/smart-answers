@@ -1,5 +1,5 @@
 module SmartAnswer
-  module Helpers::FormatCaptureHelper
+  module ErbRenderer::FormatCaptureHelper
     DEFAULT_FORMATS = {
       govspeak: [/^body$/, /^post_body$/, /^next_steps$/],
       text: [/^title$/, /^meta_description$/, /^hint$/, /^label$/, /^suffix_label$/, /^error_*./],
