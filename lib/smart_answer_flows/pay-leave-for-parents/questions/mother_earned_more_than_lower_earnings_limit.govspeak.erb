@@ -2,10 +2,6 @@
   Has the mother earned (or will she have earned) more than <%= format_money(calculator.lower_earnings_amount) %> per week in this job between <%= format_date(calculator.lower_earnings_start_date) %> and <%= format_date(calculator.lower_earnings_end_date) %>?
 <% end %>
 
-<% content_for :hint do %>
-The 13 weeks do not need to be in a row. 
-<% end %>
-
 <% options(
   "yes": "Yes",
   "no": "No"
