@@ -381,17 +381,17 @@ module SmartAnswer
           should "reduce the maximum amount (£12010) by £1 for every complete £7.46 of income above £25k" do
             # Samples taken from the document provided
             {
-               30_000 => 11_340,
-               35_000 => 10_670,
-               40_000 => 10_000,
-               42_875 => 9_614,
-               45_000 => 9_330,
-               50_000 => 8_659,
-               55_000 => 7_989,
-               60_000 => 7_319,
-               65_000 => 6_649,
-               69_860 => 5_997,
-               70_000 => 5_981,
+              30_000 => 11_340,
+              35_000 => 10_670,
+              40_000 => 10_000,
+              42_875 => 9_614,
+              45_000 => 9_330,
+              50_000 => 8_659,
+              55_000 => 7_989,
+              60_000 => 7_319,
+              65_000 => 6_649,
+              69_860 => 5_997,
+              70_000 => 5_981,
             }.each do |household_income, loan_amount|
               calculator = StudentFinanceCalculator.new(
                 course_start: @course_start,
