@@ -53,7 +53,7 @@ module SmartAnswer
 
     def render_text(content)
       content = strip_leading_spaces(content)
-      normalize_blank_lines(content).strip.html_safe
+      normalize_blank_lines(content).strip
     end
 
     def strip_leading_spaces(string)

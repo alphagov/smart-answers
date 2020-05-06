@@ -17,12 +17,12 @@ module SmartAnswer
 
       should "have a must_be_within_eight_weeks error message" do
         @state.error = "error_must_be_within_eight_weeks"
-        assert_equal "You need to enter a date within 8 weeks of the current period of sickness or it isn't a linked period of sickness.", @presenter.error
+        assert_equal "You need to enter a date within 8 weeks of the current period of sickness or it isn&#39;t a linked period of sickness.", @presenter.error
       end
 
       should "have a must_be_at_least_1_day_before_first_sick_day error message" do
         @state.error = "error_must_be_at_least_1_day_before_first_sick_day"
-        assert_equal "You need to enter a date at least 1 day before the start of the current period of sickness or it isn't a separate linked period of sickness.", @presenter.error
+        assert_equal "You need to enter a date at least 1 day before the start of the current period of sickness or it isn&#39;t a separate linked period of sickness.", @presenter.error
       end
 
       should "have a start_before_end error message" do
