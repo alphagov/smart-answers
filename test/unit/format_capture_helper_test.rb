@@ -41,6 +41,12 @@ module SmartAnswer
         @test_obj.render_content_for(:title, { option: :option }) { "contents" }
       end
 
+      should "remove format key from options when calling content_for" do
+        @test_obj.expects(:content_for).with(:name, "contents", { key: :value })
+
+        @test_obj.render_content_for(:name, { format: :text, key: :value }) { "contents" }
+      end
+
       should "render govspeak by default" do
         assert_captured_content("content", nil, "<govspeak><p>content</p></govspeak>")
       end

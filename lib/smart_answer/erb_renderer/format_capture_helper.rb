@@ -10,7 +10,7 @@ module SmartAnswer
     def render_content_for(name, options = {}, &block)
       content = capture(&block)
 
-      format = options.fetch(:format, default_format(name))
+      format = options.delete(:format) || default_format(name)
       content = render_content(format, content)
 
       content_for(name, content, options, &nil)
