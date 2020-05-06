@@ -1,4 +1,4 @@
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if has_employment_contract_between_dates == 'yes' || has_employment_contract_now == 'yes' %>
     ##Statutory Maternity Leave
 
@@ -81,6 +81,6 @@
   *[SMP]: Statutory Maternity Pay
 <% end %>
 
-<% content_for :next_steps do %>
+<% render_content_for :next_steps do %>
   Read the [guide to Statutory Maternity Pay and Leave](/employers-maternity-pay-leave)
 <% end %>

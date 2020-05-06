@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Your Adoption Leave dates
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   You can take up to 52 weeks Statutory Adoption Leave.
 
   The dates below are based on this and the date the child starts to live with you: <%= arrival_date_formatted %>.
@@ -20,6 +20,6 @@
   While on leave, you might get [Statutory Adoption Pay](/statutory-adoption-pay).
 <% end %>
 
-<% content_for :next_steps do %>
+<% render_content_for :next_steps do %>
   Read our guide to [adoption pay and leave](/adoption-pay-leave)
 <% end %>

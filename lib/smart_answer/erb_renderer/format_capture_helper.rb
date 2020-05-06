@@ -1,22 +1,19 @@
 module SmartAnswer
   module ErbRenderer::FormatCaptureHelper
+    class InvalidFormatType < RuntimeError; end
+
     DEFAULT_FORMATS = {
       govspeak: [/^body$/, /^post_body$/, /^next_steps$/],
       text: [/^title$/, /^meta_description$/, /^hint$/, /^label$/, /^suffix_label$/, /^error_*./],
     }.freeze
 
-    def content_for(name, content = nil, options = {}, &block)
-      if block_given?
-        options = content if content
-        content = capture(&block)
+    def render_content_for(name, options = {}, &block)
+      content = capture(&block)
 
-        format = options.fetch(:format, default_format(name))
-        content = render_content(format, content)
+      format = options.fetch(:format, default_format(name))
+      content = render_content(format, content)
 
-        block = nil
-      end
-
-      super(name, content, options, &block)
+      content_for(name, content, options, &nil)
     end
 
   private
@@ -38,7 +35,7 @@ module SmartAnswer
       when :text
         render_text(content)
       else
-        content
+        raise InvalidFormatType
       end
     end
 

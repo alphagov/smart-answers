@@ -1,4 +1,4 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Did you start trading before <%= format_date(accounting_year_begins_on) %>?
 <% end %>
 
@@ -7,6 +7,6 @@
   "no": "No"
 ) %>
 
-<% content_for :error_message do %>
+<% render_content_for :error_message do %>
   You need to select yes or no to continue.
 <% end %>

@@ -35,7 +35,7 @@ module SmartAnswer
     end
 
     test "#content_for trims newlines by default" do
-      erb_template = content_for(:key, '<% if true %>
+      erb_template = render_content_for(:key, '<% if true %>
 Hello world
 <% end %>')
 
@@ -47,7 +47,7 @@ Hello world
     end
 
     test "#content_for makes local variables available to the ERB template" do
-      erb_template = content_for(:key, "<%= state_variable %>")
+      erb_template = render_content_for(:key, "<%= state_variable %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: { state_variable: "state-variable" })
@@ -57,7 +57,7 @@ Hello world
     end
 
     test "#content_for raises an exception if the ERB template references a non-existent state variable" do
-      erb_template = content_for(:key, "<%= non_existent_state_variable %>")
+      erb_template = render_content_for(:key, "<%= non_existent_state_variable %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: {})
@@ -70,7 +70,7 @@ Hello world
     end
 
     test "#content_for makes the ActionView::Helpers::NumberHelper methods available to the ERB template" do
-      erb_template = content_for(:key, "<%= number_with_delimiter(123456789) %>")
+      erb_template = render_content_for(:key, "<%= number_with_delimiter(123456789) %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -80,7 +80,7 @@ Hello world
     end
 
     test "#content_for passes output of ERB template through Govspeak by default" do
-      erb_template = content_for(:key, "^information^")
+      erb_template = render_content_for(:key, "^information^")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -91,7 +91,7 @@ Hello world
     end
 
     test "#content_for returns an HTML-safe string when passed through Govspeak" do
-      erb_template = content_for(:body, "html-unsafe-string")
+      erb_template = render_content_for(:body, "html-unsafe-string")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -101,7 +101,7 @@ Hello world
     end
 
     test "#content_for returns an HTML-safe string" do
-      erb_template = content_for(:key, "html-unsafe-string")
+      erb_template = render_content_for(:key, "html-unsafe-string")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -157,8 +157,8 @@ Hello world
 
   private
 
-    def content_for(key, template)
-      "<% content_for #{key.inspect} do %>\n#{template}\n<% end %>"
+    def render_content_for(key, template)
+      "<% render_content_for #{key.inspect} do %>\n#{template}\n<% end %>"
     end
 
     def with_erb_template_file(outcome_name, erb_template)

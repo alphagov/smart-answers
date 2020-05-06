@@ -1,4 +1,4 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   <% if adoption_is_from_overseas %>
     When will the child arrive in the UK?
   <% else %>
@@ -6,7 +6,7 @@
   <% end %>
 <% end %>
 
-<% content_for :error_message do %>
+<% render_content_for :error_message do %>
   <% if adoption_is_from_overseas %>
     Arrival date can’t be before official notification date
   <% else %>

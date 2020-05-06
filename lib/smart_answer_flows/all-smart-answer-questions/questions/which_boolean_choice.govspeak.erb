@@ -1,14 +1,14 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Multiple choice (yes/no): Would you like to see the other questions?
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Body can contain further explanations.
 
   - and govspeak
 <% end %>
 
-<% content_for :hint do %>
+<% render_content_for :hint do %>
   This is a hint
 <% end %>
 
@@ -17,6 +17,6 @@
   "no": "No"
 ) %>
 
-<% content_for :error_message do %>
+<% render_content_for :error_message do %>
   Of course you would!
 <% end %>

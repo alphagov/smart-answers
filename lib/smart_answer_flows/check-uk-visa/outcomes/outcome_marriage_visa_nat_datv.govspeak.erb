@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   You’ll need a visa to come to the UK
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
 
   <%= render partial: 'estonia_or_latvia.govspeak.erb', locals: {calculator: calculator} %>

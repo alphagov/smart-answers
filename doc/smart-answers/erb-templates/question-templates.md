@@ -59,7 +59,7 @@ The templates can contain content for any of the following keys:
 
 ## Specifying options
 
-This is done using custom syntax, not with the `content_for` block.
+This is done using custom syntax, not with the `render_content_for` block.
 
 ### `options(hash)`
 
@@ -84,7 +84,7 @@ end
 ```
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   How much milk proteins does the product contain?
 <% end %>
 
@@ -94,7 +94,7 @@ end
   "12": "12 or more"
 ) %>
 
-<% content_for :hint do %>
+<% render_content_for :hint do %>
   The values represent % by weight
 <% end %>
 ```

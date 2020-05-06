@@ -1,11 +1,11 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   How much are your tuition fees per year?
 <% end %>
 
-<% content_for :hint do %>
+<% render_content_for :hint do %>
   The maximum is <%= format_money(calculator.tuition_fee_maximum_full_time) %> for full-time students and <%= format_money(calculator.tuition_fee_maximum_part_time) %> for part-time students.
 <% end %>
 
-<% content_for :error_message do %>
+<% render_content_for :error_message do %>
   Please enter a number up to the maximum amount (<%= format_money(calculator.tuition_fee_maximum_full_time) %> for full-time, <%= format_money(calculator.tuition_fee_maximum_part_time) %> for part-time), don’t enter ‘£’
 <% end %>

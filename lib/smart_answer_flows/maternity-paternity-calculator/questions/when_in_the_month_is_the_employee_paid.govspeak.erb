@@ -1,4 +1,4 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   When in the month is the employee paid?
 <% end %>
 
@@ -10,6 +10,6 @@
   "a_certain_week_day_each_month": "A certain week day each month"
 ) %>
 
-<% content_for :hint do %>
+<% render_content_for :hint do %>
   If the pay date is the 29th, 30th or 31st choose 'Last working day of the month'.
 <% end %>

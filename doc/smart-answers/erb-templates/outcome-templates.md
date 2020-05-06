@@ -24,7 +24,7 @@ The templates can contain content for any of the following keys:
 ## Example
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   <% unless calculator.has_commodity_code? %>
     The product composition you indicated is not possible.
   <% else %>
@@ -32,7 +32,7 @@ The templates can contain content for any of the following keys:
   <% end %>
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if calculator.has_commodity_code? %>
     Use these four digits together with the ten-digit commodity code from Trade Tariff.
   <% end %>

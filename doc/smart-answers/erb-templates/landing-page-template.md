@@ -29,15 +29,15 @@ The templates can contain content for any of the following keys:
 ## Example
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   Look up Meursing code
 <% end %>
 
-<% content_for :meta_description do %>
+<% render_content_for :meta_description do %>
   Look up the additional code (Meursing code) required for import or export of goods containing certain types of milk and sugars
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Use this tool to look up the additional code (Meursing code) for import or export of goods containing certain types of milk and sugars covered Regulation (EC) No. 1216/09.
 <% end %>
 ```
