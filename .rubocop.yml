@@ -21,5 +21,3 @@ Metrics/BlockLength:
 
 Rails/OutputSafety:
   Enabled: false
-Rails/HelperInstanceVariable:
-  Enabled: false
