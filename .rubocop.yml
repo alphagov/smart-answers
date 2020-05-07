@@ -7,9 +7,10 @@ inherit_mode:
   merge:
     - Exclude
 
-AllCops:
+Naming/FileName:
   Exclude:
-    - 'tmp/**/*'
+    - lib/smart_answer_flows/*.rb
+    - test/fixtures/smart_answer_flows/*.rb
 
 Style/CommentedKeyword:
   Enabled: false

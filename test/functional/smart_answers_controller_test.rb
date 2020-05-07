@@ -68,8 +68,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "when a smart answer exist on the content store" do
       setup do
         @content_item = {
-            base_path: "/smart-answers-controller-sample",
-          }.with_indifferent_access
+          base_path: "/smart-answers-controller-sample",
+        }.with_indifferent_access
 
         ContentItemRetriever.stubs(:fetch)
           .returns(@content_item)

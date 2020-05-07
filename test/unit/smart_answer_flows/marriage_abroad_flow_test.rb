@@ -56,7 +56,7 @@ module SmartAnswer
         setup_states_for_question(:legal_residency?,
                                   responding_with: "uk", initial_state: {
                                     calculator: @calculator,
-})
+                                  })
       end
 
       should "store parsed response on calculator as resident_of" do
@@ -69,7 +69,7 @@ module SmartAnswer
         setup_states_for_question(:what_is_your_partners_nationality?,
                                   responding_with: "partner_british", initial_state: {
                                     calculator: @calculator,
-})
+                                  })
       end
 
       should "store parsed response on calculator as partner_nationality" do
@@ -83,7 +83,7 @@ module SmartAnswer
         setup_states_for_question(:partner_opposite_or_same_sex?,
                                   responding_with: "same_sex", initial_state: {
                                     calculator: @calculator,
-})
+                                  })
       end
 
       should "store parsed response on calculator as sex_of_your_partner" do
@@ -96,7 +96,7 @@ module SmartAnswer
         setup_states_for_question(:marriage_or_pacs?,
                                   responding_with: "marriage", initial_state: {
                                     calculator: @calculator,
-})
+                                  })
       end
 
       should "store parsed response on calculator as marriage_or_pacs" do
