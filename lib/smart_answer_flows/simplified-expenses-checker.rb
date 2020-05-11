@@ -75,7 +75,7 @@ module SmartAnswer
       # Q4 - capital allowances claimed?
       # if yes => go to Result 3 if in Q1 only [car_van] and/or [motorcylce] was selected
       #
-      # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q4 & Q8
+      # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don't go to Q4 & Q8
       #
       # if no go to Q4
       multiple_choice :capital_allowances? do

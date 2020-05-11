@@ -867,7 +867,7 @@ module SmartAnswer::Calculators
             assert_equal "58.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          #  Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
+          # Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
           should "for 50 hours 6 days a week (Test 12)" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2021-03-04"),
@@ -969,7 +969,7 @@ module SmartAnswer::Calculators
         end
 
         context "for department test data" do
-          #  Test 13 - /leaving/2020-02-11/2019-06-01/34.0/2.0
+          # Test 13 - /leaving/2020-02-11/2019-06-01/34.0/2.0
           should "for 34 hours 2 days a week (Test 13)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-02-11"),
@@ -981,7 +981,7 @@ module SmartAnswer::Calculators
             assert_equal "133.2", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          #  Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
+          # Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
           should "for 47 hours 2 days a week (Test 14)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-06-26"),
@@ -993,7 +993,7 @@ module SmartAnswer::Calculators
             assert_equal "194", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          #  Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
+          # Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
           should "for 71 hours 7 days a week (Test 15)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-04-19"),
@@ -1005,7 +1005,7 @@ module SmartAnswer::Calculators
             assert_equal "156.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
-          #  Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
+          # Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
           should "for 63 hours 5 days a week (Test 17)" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-04-30"),

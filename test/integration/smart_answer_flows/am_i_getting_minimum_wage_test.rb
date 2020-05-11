@@ -1034,9 +1034,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_equal 8.20, current_state.calculator.total_hourly_rate
         assert_equal 8.21, current_state.calculator.minimum_hourly_rate
         # 7.80 accomodation * 21 days = £163.80
-        # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
+        # £7.55 (offset rate used when accommodation is free) * 21 = £158.55
         # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
-        # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
+        # £983.55 / 120 (total hours in pay period) = £8.20 an hour
       end
     end
 
@@ -1079,9 +1079,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_equal 8.76, current_state.calculator.total_hourly_rate
         assert_equal 8.21, current_state.calculator.minimum_hourly_rate
         # £210/30 = £7 an hour
-        # £7.55 (offset rate used when accommodation is free) × 7 = £52.85
+        # £7.55 (offset rate used when accommodation is free) * 7 = £52.85
         # £52.85 + 210 = £262.85
-        # £262.85 ÷ 30 (total hours in pay period) = £8.76
+        # £262.85 / 30 (total hours in pay period) = £8.76
       end
     end
 
@@ -1475,9 +1475,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_equal 8.24, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
         # 7.80 accomodation * 21 days = £163.80
-        # £7.55 (offset rate used when accommodation is free) × 21 = £158.55
+        # £7.55 (offset rate used when accommodation is free) * 21 = £158.55
         # #988.80 pay - £163.80 accomodation + £158.55 offset = £938.55
-        # £983.55 ÷ 120 (total hours in pay period) = £8.20 an hour
+        # £983.55 / 120 (total hours in pay period) = £8.20 an hour
       end
     end
 
@@ -1520,9 +1520,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_equal 8.91, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
         # £210/30 = £7 an hour
-        # £7.55 (offset rate used when accommodation is free) × 7 = £52.85
+        # £7.55 (offset rate used when accommodation is free) * 7 = £52.85
         # £52.85 + 210 = £262.85
-        # £262.85 ÷ 30 (total hours in pay period) = £8.76
+        # £262.85 / 30 (total hours in pay period) = £8.76
       end
     end
 

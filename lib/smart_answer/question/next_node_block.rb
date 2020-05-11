@@ -8,7 +8,7 @@ module SmartAnswer
       end
 
       def self.permitted?(node)
-        PermittedNodeKey === node
+        node.is_a?(PermittedNodeKey)
       end
 
       module InstanceMethods

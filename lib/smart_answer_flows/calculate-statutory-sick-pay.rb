@@ -434,15 +434,15 @@ module SmartAnswer
           calculator.ssp_payment
         end
 
-        precalculate :days_paid do calculator.days_paid end
-        precalculate :normal_workdays_out do calculator.normal_workdays end
-        precalculate :pattern_days do calculator.pattern_days end
-        precalculate :pattern_days_total do calculator.pattern_days_total end
+        precalculate(:days_paid) { calculator.days_paid }
+        precalculate(:normal_workdays_out) { calculator.normal_workdays }
+        precalculate(:pattern_days) { calculator.pattern_days }
+        precalculate(:pattern_days_total) { calculator.pattern_days_total }
       end
 
       # Answer 7
       outcome :not_entitled_3_days_not_paid do
-        precalculate :normal_workdays_out do calculator.normal_workdays end
+        precalculate(:normal_workdays_out) { calculator.normal_workdays }
       end
 
       # Answer 8
