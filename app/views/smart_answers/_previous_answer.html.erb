@@ -3,16 +3,23 @@
   <td class="govuk-table__cell">
     <% if question.multiple_responses? %>
       <ul class="govuk-list">
-        <% question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| %>
+        <% question.response_labels(accepted_response).each do |label| %>
           <li><%= label %></li>
         <% end %>
       </ul>
     <% else %>
-      <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %>
+      <%= question.response_label(accepted_response) %>
     <% end %>
   </td>
   <td class="govuk-table__cell">
-    <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1), class: "govuk-link" do %>
+    <%= link_to question_link,
+      class: "govuk-link",
+      data: {
+        "module": "track-click",
+        "track-category": "Smart Answer Change Link",
+        "track-action":  "Link clicked",
+        "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
+    } do %>
       Change<span class="govuk-visually-hidden"> answer to "<%= question.title %>"</span>
     <% end %>
   </td>
