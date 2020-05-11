@@ -94,11 +94,11 @@ module SmartAnswer
     end
 
     def leap_dates
-      years.each_with_object([]) { |year, mem|
+      years.each_with_object([]) do |year, mem|
         if Date.leap?(year) && include?(feb29th_date(year))
           mem << feb29th_date(year)
         end
-      }
+      end
     end
 
     def leap?

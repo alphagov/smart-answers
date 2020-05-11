@@ -551,7 +551,7 @@ module SmartAnswer
           end
 
           precalculate :lower_earning_limit do
-            sprintf("%.2f", calculator.lower_earning_limit)
+            format("%.2f", calculator.lower_earning_limit)
           end
 
           precalculate :entitled_to_pay do
@@ -561,7 +561,7 @@ module SmartAnswer
           precalculate :pay_dates_and_pay do
             if entitled_to_pay && above_lower_earning_limit
               lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{format('%.2f', date_and_pay[:pay])})
               end
               lines.join("\n")
             end
@@ -569,12 +569,12 @@ module SmartAnswer
 
           precalculate :total_spp do
             if above_lower_earning_limit
-              sprintf("%.2f", calculator.total_statutory_pay)
+              format("%.2f", calculator.total_statutory_pay)
             end
           end
 
           precalculate :average_weekly_earnings do
-            sprintf("%.2f", calculator.average_weekly_earnings)
+            format("%.2f", calculator.average_weekly_earnings)
           end
         end
 

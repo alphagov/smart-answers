@@ -19,16 +19,16 @@ class DateQuestionPresenter < QuestionPresenter
   end
 
   def days_options
-    days = Array(1..31).map { |number|
+    days = Array(1..31).map do |number|
       format_date(number, :day)
-    }
+    end
     days.unshift(text: "", value: "")
   end
 
   def months_options
-    months = Array(1..12).map { |number|
+    months = Array(1..12).map do |number|
       format_date(number, :month)
-    }
+    end
     months.unshift(text: "", value: "")
   end
 
@@ -36,9 +36,9 @@ class DateQuestionPresenter < QuestionPresenter
     smallest = [start_date.year, end_date.year].min
     biggest = [start_date.year, end_date.year].max
 
-    years = Array(smallest..biggest).map { |number|
+    years = Array(smallest..biggest).map do |number|
       format_date(number, :year)
-    }
+    end
     years.unshift(text: "", value: "")
   end
 

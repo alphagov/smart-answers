@@ -54,7 +54,7 @@ Integer.class_eval do
   def working_days
     WorkingDays.new(self)
   end
-  alias :working_day :working_days
+  alias_method :working_day, :working_days
 end
 
 Date.class_eval do

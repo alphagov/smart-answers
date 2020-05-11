@@ -74,7 +74,7 @@ module SmartAnswer
       end
 
       should "identify possible next nodes" do
-        next_node_block = -> do
+        next_node_block = lambda do
           question :question_one
           outcome :outcome_one
         end
@@ -85,7 +85,7 @@ module SmartAnswer
       end
 
       should "ignore invocations with too few arguments" do
-        next_node_block = -> do
+        next_node_block = lambda do
           question
           outcome
         end
@@ -96,7 +96,7 @@ module SmartAnswer
       end
 
       should "ignore invocations with too many arguments" do
-        next_node_block = -> do
+        next_node_block = lambda do
           question :question_one, :unexpected_arg
           outcome :outcome_one, :unexpected_arg
         end
@@ -107,7 +107,7 @@ module SmartAnswer
       end
 
       should "ignore invocations with non-symbol argument" do
-        next_node_block = -> do
+        next_node_block = lambda do
           question "question_one"
           outcome "outcome_one"
         end

@@ -16,7 +16,7 @@ class FlowPresenter
   end
 
   def started?
-    params.has_key?(:started)
+    params.key?(:started)
   end
 
   def finished?

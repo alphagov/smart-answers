@@ -11,48 +11,48 @@ module SmartAnswer::Calculators
                   :self_assessment_july_2020
 
     RULES = {
-      job_retention_scheme: ->(calculator) {
+      job_retention_scheme: lambda { |calculator|
         calculator.paye_scheme == "yes"
       },
-      self_assessment_payments: ->(calculator) {
+      self_assessment_payments: lambda { |calculator|
         calculator.self_assessment_july_2020 == "yes"
       },
-      statutory_sick_rebate: ->(calculator) {
+      statutory_sick_rebate: lambda { |calculator|
         calculator.business_size == "0_to_249" &&
           calculator.paye_scheme == "yes"
       },
-      self_employed_income_scheme: ->(calculator) {
+      self_employed_income_scheme: lambda { |calculator|
         calculator.business_size == "0_to_249" &&
           calculator.self_employed == "yes"
       },
-      retail_hospitality_leisure_business_rates: ->(calculator) {
+      retail_hospitality_leisure_business_rates: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.non_domestic_property != "none" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
-      retail_hospitality_leisure_grant_funding: ->(calculator) {
+      retail_hospitality_leisure_grant_funding: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.non_domestic_property == "under_51k" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
-      nursery_support: ->(calculator) {
+      nursery_support: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.non_domestic_property != "none" &&
           calculator.sectors.include?("nurseries")
       },
-      small_business_grant_funding: ->(calculator) {
+      small_business_grant_funding: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.business_size == "0_to_249" &&
           calculator.non_domestic_property != "none" &&
           calculator.rate_relief_march_2020 == "yes"
       },
-      business_loan_scheme: ->(calculator) {
+      business_loan_scheme: lambda { |calculator|
         %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
       },
-      large_business_loan_scheme: ->(calculator) {
+      large_business_loan_scheme: lambda { |calculator|
         %w[45m_to_500m 500m_and_over].include?(calculator.annual_turnover)
       },
-      bounce_back_loan: ->(calculator) {
+      bounce_back_loan: lambda { |calculator|
         %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
       },
     }.freeze

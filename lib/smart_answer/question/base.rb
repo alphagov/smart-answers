@@ -5,7 +5,7 @@ module SmartAnswer
 
       def initialize(flow, name, &block)
         @validations = []
-        @default_next_node_block = lambda { |_| nil }
+        @default_next_node_block = ->(_) { nil }
         super
       end
 

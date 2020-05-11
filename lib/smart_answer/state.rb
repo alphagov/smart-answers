@@ -19,13 +19,13 @@ module SmartAnswer
     end
 
     def transition_to(new_node, input, &block)
-      dup.tap { |new_state|
+      dup.tap do |new_state|
         new_state.path << current_node
         new_state.current_node = new_node
         new_state.responses << input
         block.call(new_state) if block_given?
         new_state.freeze
-      }
+      end
     end
 
     def to_hash
