@@ -446,7 +446,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
         end
       end
-      #  Dept Test 18
+      # Dept Test 18
       context "answer 31 September next year - day that does not exist" do
         setup do
           add_response "#{Time.zone.today.year + 1}-09-31"

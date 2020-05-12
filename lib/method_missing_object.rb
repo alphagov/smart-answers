@@ -23,5 +23,5 @@ class MethodMissingObject
     @blank_to_s ? "" : "<%= #{description} %>".html_safe
   end
 
-  alias to_str to_s
+  alias_method :to_str, :to_s
 end

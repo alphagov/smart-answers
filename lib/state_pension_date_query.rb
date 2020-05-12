@@ -1,6 +1,4 @@
 require_relative "state_pension_date"
-
-# rubocop:disable Metrics/BlockLength
 StatePensionDateQuery = Struct.new(:dob, :gender) do
   def self.state_pension_date(dob, gender)
     new(dob, gender).find_date
@@ -71,4 +69,3 @@ private
     YAML.load_file(Rails.root.join("config/smart_answers/state_pension_dates.yml"))
   end
 end
-# rubocop:enable Metrics/BlockLength

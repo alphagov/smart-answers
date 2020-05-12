@@ -250,7 +250,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    alias paydates_specific_date_each_month paydates_monthly
+    alias_method :paydates_specific_date_each_month, :paydates_monthly
 
     def paydates_weekly
       [].tap do |ary|

@@ -47,7 +47,7 @@ module SmartAnswer
 
     def available?(name)
       if @preloaded
-        @preloaded.has_key?(name)
+        @preloaded.key?(name)
       else
         available_flows.include?(name)
       end

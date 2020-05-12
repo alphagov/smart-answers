@@ -68,7 +68,7 @@ module SmartAnswer
         accounting_date
       end
 
-      alias accounting_year_end_date accounting_year_end_date_in_the_tax_year_that_tax_credits_award_ends
+      alias_method :accounting_year_end_date, :accounting_year_end_date_in_the_tax_year_that_tax_credits_award_ends
 
       def accounting_year_start_date
         accounting_year_end_date - 1.year + 1

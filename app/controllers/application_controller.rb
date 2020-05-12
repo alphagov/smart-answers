@@ -9,11 +9,17 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  def error_403; error(403); end
+  def error_403
+    error(403)
+  end
 
-  def error_404; error(404); end
+  def error_404
+    error(404)
+  end
 
-  def error_503(exception = nil); error(503, exception); end
+  def error_503(exception = nil)
+    error(503, exception)
+  end
 
   def error(status_code, exception = nil)
     if exception

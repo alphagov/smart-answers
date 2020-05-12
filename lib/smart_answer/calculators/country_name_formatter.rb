@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def has_friendly_name?(country)
-      FRIENDLY_COUNTRY_NAME.has_key?(country)
+      FRIENDLY_COUNTRY_NAME.key?(country)
     end
 
     def friendly_name(country)

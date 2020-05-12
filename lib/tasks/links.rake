@@ -2,32 +2,30 @@ require "uri"
 require "net/http"
 
 def check_links(links_to_check, broken, file)
-  links_to_check.uniq.each { |link|
-    begin
-      uri = URI.parse(link)
-      http = Net::HTTP.new(uri.host, uri.port)
+  links_to_check.uniq.each do |link|
+    uri = URI.parse(link)
+    http = Net::HTTP.new(uri.host, uri.port)
 
-      if link.include?("https")
-        http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      end
-
-      response = http.get(uri.request_uri)
-
-      puts "Checking link: #{link}"
-      unless response.class == Net::HTTPOK
-        new_hash = { link: link, resp: response.code, file: file }
-        if response.code[0] == "3"
-          new_hash[:redirect] = response.header["location"]
-        end
-        broken.push(new_hash)
-      end
-    rescue StandardError => e
-      # this is here as sometimes we find wrong links through the Regexes
-      # dont need to do anything, just capture it to avoid the script breaking
-      p e
+    if link.include?("https")
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
-  }
+
+    response = http.get(uri.request_uri)
+
+    puts "Checking link: #{link}"
+    unless response.class == Net::HTTPOK
+      new_hash = { link: link, resp: response.code, file: file }
+      if response.code[0] == "3"
+        new_hash[:redirect] = response.header["location"]
+      end
+      broken.push(new_hash)
+    end
+  rescue StandardError => e
+    # this is here as sometimes we find wrong links through the Regexes
+    # dont need to do anything, just capture it to avoid the script breaking
+    p e
+  end
   broken
 end
 
@@ -40,19 +38,19 @@ end
 
 def check_locales_file(contents)
   links_to_check = []
-  contents.gsub(/\[(.+)\]\((.+)\)/) {
+  contents.gsub(/\[(.+)\]\((.+)\)/) do
     link = prefix_link(Regexp.last_match(2).gsub(/ "(.+)"$/, ""))
     links_to_check << link
-  }
+  end
   links_to_check
 end
 
 def check_data_file(contents)
   links_to_check = []
-  contents.gsub(/: (\/.+)$/) {
+  contents.gsub(/: (\/.+)$/) do
     link = prefix_link(Regexp.last_match(1))
     links_to_check << link
-  }
+  end
   links_to_check
 end
 
@@ -70,17 +68,17 @@ namespace :links do
       broken = check_links(links_to_check, broken, file)
     else
       base_path = File.expand_path("#{pwd}/lib")
-      Dir.glob("#{base_path}/smart_answer_flows/locales/**/*.yml") { |filename|
+      Dir.glob("#{base_path}/smart_answer_flows/locales/**/*.yml") do |filename|
         puts "Checking #{filename}"
         links_to_check = check_locales_file(IO.read(filename))
         broken = check_links(links_to_check, broken, filename)
-      }
+      end
 
-      Dir.glob("#{base_path}/data/*.yml") { |filename|
+      Dir.glob("#{base_path}/data/*.yml") do |filename|
         puts "Checking #{filename}"
         links_to_check = check_data_file(IO.read(filename))
         broken = check_links(links_to_check, broken, filename)
-      }
+      end
     end
 
     File.open("log/broken_links.log", "w") { |f| f.puts broken }

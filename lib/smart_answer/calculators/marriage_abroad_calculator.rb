@@ -379,43 +379,43 @@ module SmartAnswer::Calculators
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
       services_data_for_country_and_partner_sex_and_residency? &&
-        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].has_key?(@partner_nationality)
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].key?(@partner_nationality)
     end
 
     def services_for_country_and_partner_sex_and_default_residency_and_partner_nationality?
       services_data_for_country_and_partner_sex? &&
-        @services_data[ceremony_country][@sex_of_your_partner].has_key?("default") &&
-        @services_data[ceremony_country][@sex_of_your_partner]["default"].has_key?(@partner_nationality)
+        @services_data[ceremony_country][@sex_of_your_partner].key?("default") &&
+        @services_data[ceremony_country][@sex_of_your_partner]["default"].key?(@partner_nationality)
     end
 
     def services_for_country_and_partner_sex_and_residency_and_default_partner_nationality?
       services_data_for_country_and_partner_sex_and_residency? &&
-        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].has_key?("default")
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].key?("default")
     end
 
     def services_for_country_and_partner_sex_and_default_residency_and_default_nationality?
       services_data_for_country_and_partner_sex? &&
-        @services_data[ceremony_country][@sex_of_your_partner].has_key?("default") &&
-        @services_data[ceremony_country][@sex_of_your_partner]["default"].has_key?("default")
+        @services_data[ceremony_country][@sex_of_your_partner].key?("default") &&
+        @services_data[ceremony_country][@sex_of_your_partner]["default"].key?("default")
     end
 
     def services_data_for_country_and_partner_sex_and_residency?
       services_data_for_country_and_partner_sex? &&
-        @services_data[ceremony_country][@sex_of_your_partner].has_key?(@resident_of)
+        @services_data[ceremony_country][@sex_of_your_partner].key?(@resident_of)
     end
 
     def services_data_for_country_and_partner_sex?
       services_data_for_ceremony_country? &&
-        @services_data[ceremony_country].has_key?(@sex_of_your_partner)
+        @services_data[ceremony_country].key?(@sex_of_your_partner)
     end
 
     def services_data_for_country_and_default_partner_sex?
       services_data_for_ceremony_country? &&
-        @services_data[ceremony_country].has_key?("default")
+        @services_data[ceremony_country].key?("default")
     end
 
     def services_data_for_ceremony_country?
-      @services_data.has_key?(ceremony_country)
+      @services_data.key?(ceremony_country)
     end
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)

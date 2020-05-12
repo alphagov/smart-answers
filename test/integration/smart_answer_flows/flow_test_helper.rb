@@ -59,8 +59,8 @@ module FlowTestHelper
   def assert_state_variable(name, expected, options = {})
     actual = current_state.send(name)
     if options[:round_dp]
-      expected = sprintf("%.#{options[:round_dp]}f", expected)
-      actual = sprintf("%.#{options[:round_dp]}f", actual)
+      expected = format("%.#{options[:round_dp]}f", expected)
+      actual = format("%.#{options[:round_dp]}f", actual)
     end
     assert_equal expected, actual
   end

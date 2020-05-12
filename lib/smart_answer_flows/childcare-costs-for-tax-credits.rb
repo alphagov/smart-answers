@@ -298,7 +298,7 @@ module SmartAnswer
           weekly_difference.abs
         end
 
-        calculate :cost_change_4_weeks do true end
+        calculate(:cost_change_4_weeks) { true }
 
         next_node do
           outcome :cost_changed

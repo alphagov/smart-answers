@@ -188,7 +188,7 @@ module SmartAnswer::Calculators
 
     def format_number(number, decimal_places = 1)
       rounded = (number * 10**decimal_places).ceil.to_f / 10**decimal_places
-      str = sprintf("%.#{decimal_places}f", rounded)
+      str = format("%.#{decimal_places}f", rounded)
       strip_zeros(str)
     end
   end

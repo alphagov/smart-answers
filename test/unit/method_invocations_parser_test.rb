@@ -17,7 +17,7 @@ module SmartAnswer
       end
 
       should "identify invocation of method with correct number of arguments" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_no_args
         end
 
@@ -28,7 +28,7 @@ module SmartAnswer
       end
 
       should "identify multiple invocations of method" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_no_args
           method_with_no_args
         end
@@ -38,7 +38,7 @@ module SmartAnswer
       end
 
       should "identify multiple invocations of method on one line" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_no_args; method_with_no_args # rubocop:disable Style/Semicolon
         end
 
@@ -47,7 +47,7 @@ module SmartAnswer
       end
 
       should "identify invocations of method within conditional statement" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           condition = false
           if condition
             method_with_no_args
@@ -59,7 +59,7 @@ module SmartAnswer
       end
 
       should "identify invocations of method within next statement" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           next method_with_no_args
         end
 
@@ -68,7 +68,7 @@ module SmartAnswer
       end
 
       should "identify invocations of method within return statement" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           return method_with_no_args
         end
 
@@ -77,7 +77,7 @@ module SmartAnswer
       end
 
       should "ignore invocation of method with too many arguments" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_no_args(:unexpected_arg)
         end
 
@@ -86,7 +86,7 @@ module SmartAnswer
       end
 
       should "ignore invocation of method with wrong name" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           another_method_with_no_args
         end
 
@@ -95,7 +95,7 @@ module SmartAnswer
       end
 
       should "ignore assignment to local variable with same name as method" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           another_method_with_no_args = "ignore me"
           puts another_method_with_no_args
         end
@@ -105,7 +105,7 @@ module SmartAnswer
       end
 
       should "ignore commented out method invocation" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           # method_with_no_args
         end
 
@@ -124,7 +124,7 @@ module SmartAnswer
       end
 
       should "identify invocation of method with correct number of arguments" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_two_args(:arg_one, :arg_two)
         end
 
@@ -135,7 +135,7 @@ module SmartAnswer
       end
 
       should "ignore invocation of method with insufficient arguments" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_two_args(:only_one_arg)
         end
 
@@ -154,7 +154,7 @@ module SmartAnswer
       end
 
       should "not identify invocation of method" do
-        block_invoking_method = -> do
+        block_invoking_method = lambda do
           method_with_optional_arg
           method_with_optional_arg(:non_default)
         end
