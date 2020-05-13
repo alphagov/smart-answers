@@ -12,8 +12,8 @@ module SmartAnswer
       end
 
       def option(option_slug)
-        raise InvalidNode.new("Can't use reserved option name '#{NONE_OPTION}'") if option_slug.to_s == NONE_OPTION
-        raise InvalidNode.new("Invalid option specified") unless option_slug.to_s =~ /\A[a-z0-9_-]+\z/
+        raise InvalidNode, "Can't use reserved option name '#{NONE_OPTION}'" if option_slug.to_s == NONE_OPTION
+        raise InvalidNode, "Invalid option specified" unless option_slug.to_s =~ /\A[a-z0-9_-]+\z/
 
         @options << option_slug.to_s
       end

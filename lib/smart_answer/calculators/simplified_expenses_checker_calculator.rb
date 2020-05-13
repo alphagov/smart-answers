@@ -110,17 +110,17 @@ module SmartAnswer::Calculators
       # Calculation:
       # [user input 1-10,000] x 0.45
       # [user input > 10,001]  x 0.25
-      if business_miles_car_van.to_f <= 10000
+      if business_miles_car_van.to_f <= 10_000
         money(business_miles_car_van.to_f * 0.45)
       else
-        answer_over_amount = (business_miles_car_van.to_f - 10000) * 0.25
+        answer_over_amount = (business_miles_car_van.to_f - 10_000) * 0.25
         money(4500.0 + answer_over_amount)
       end
     end
 
     def over_limit?
       # if input > 250k store as [over_van_limit]
-      vehicle_price.to_f > 250000.0
+      vehicle_price.to_f > 250_000.0
     end
 
     def capital_allowance?

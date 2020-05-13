@@ -4,8 +4,8 @@ module SmartAnswer::Calculators
   class PersonalAllowanceCalculatorTest < ActiveSupport::TestCase
     def setup
       @personal_allowance = 8105
-      @higher_allowance1 = 10500
-      @higher_allowance2 = 10660
+      @higher_allowance1 = 10_500
+      @higher_allowance2 = 10_660
 
       @calculator = PersonalAllowanceCalculator.new
       @calculator.stubs(

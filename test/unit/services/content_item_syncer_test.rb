@@ -14,12 +14,14 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
       @start_page_publishing_request = stub_publishing_api_publish(start_page_content_id, {})
       @flow_draft_request = stub_publishing_api_put_content(flow_content_id, {})
       @flow_publishing_request = stub_publishing_api_publish(flow_content_id, {})
-      @flow = stub("flow",
-                   name: "bridge-of-death",
-                   start_page_content_id: start_page_content_id,
-                   flow_content_id: flow_content_id,
-                   external_related_links: nil,
-                   nodes: [])
+      @flow = stub(
+        "flow",
+        name: "bridge-of-death",
+        start_page_content_id: start_page_content_id,
+        flow_content_id: flow_content_id,
+        external_related_links: nil,
+        nodes: [],
+      )
     end
 
     should "create a preview for a draft smart answer" do

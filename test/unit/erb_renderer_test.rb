@@ -35,9 +35,12 @@ module SmartAnswer
     end
 
     test "#content_for trims newlines by default" do
-      erb_template = render_content_for(:key, '<% if true %>
+      erb_template = render_content_for(
+        :key,
+        '<% if true %>
 Hello world
-<% end %>')
+<% end %>',
+      )
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")

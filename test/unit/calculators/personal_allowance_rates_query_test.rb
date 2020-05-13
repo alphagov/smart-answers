@@ -17,11 +17,11 @@ module SmartAnswer::Calculators
     end
 
     should "be 11000 on 6th April 2017" do
-      assert_equal 11000, @query.rates(Date.parse("2017-04-06")).personal_allowance
+      assert_equal 11_000, @query.rates(Date.parse("2017-04-06")).personal_allowance
     end
 
     should "be 10600 on 5th April 2016" do
-      assert_equal 10600, @query.rates(Date.parse("2016-04-05")).personal_allowance
+      assert_equal 10_600, @query.rates(Date.parse("2016-04-05")).personal_allowance
     end
 
     should "be 9440 on 6th April 2013" do
@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
     end
 
     should "be 10000 on 6th April 2014" do
-      assert_equal 10000, @query.rates(Date.parse("2014-04-06")).personal_allowance
+      assert_equal 10_000, @query.rates(Date.parse("2014-04-06")).personal_allowance
     end
   end
 end

@@ -1187,50 +1187,64 @@ module SmartAnswer::Calculators
         context "for department test data" do
           # Test 1 - /shift-worker/full-year/4/4/9.0
           should "for 4 shifts over 9 days (dept Test 1)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 4,
-                                          days_per_shift_pattern: 9)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 4,
+              days_per_shift_pattern: 9,
+            )
             assert_equal "17.5", calc.shift_entitlement
           end
 
           # Test 2 - /shift-worker/full-year/4/9/12.0
           should "for 9 shifts over 12 days (dept Test 2)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 9,
-                                          days_per_shift_pattern: 12)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 9,
+              days_per_shift_pattern: 12,
+            )
             assert_equal "28", calc.shift_entitlement
           end
 
           # Test 3 - /shift-worker/full-year/4/4/6.0
           should "for 4 shifts over 6 days (dept Test 3)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 4,
-                                          days_per_shift_pattern: 6)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 4,
+              days_per_shift_pattern: 6,
+            )
             assert_equal "26.2", calc.shift_entitlement
           end
 
           # Test 4 - /shift-worker/full-year/4/8/10.0
           should "for 8 shifts over 10 days (dept Test 4)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 8,
-                                          days_per_shift_pattern: 10)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 10,
+            )
             assert_equal "28", calc.shift_entitlement
           end
 
           # Test 5 - /shift-worker/full-year/4/5/5.0
           should "for 5 shifts over 5 days (dept Test 5)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 5,
-                                          days_per_shift_pattern: 5)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 5,
+              days_per_shift_pattern: 5,
+            )
             assert_equal "28", calc.shift_entitlement
           end
 
           # Test 6 - /shift-worker/full-year/4/1/18.0
           should "for 1 shift over 18 days (dept Test 6)" do
-            calc = HolidayEntitlement.new(shifts_per_shift_pattern: 1,
-                                          days_per_shift_pattern: 18)
+            calc = HolidayEntitlement.new(
+              shifts_per_shift_pattern: 1,
+              days_per_shift_pattern: 18,
+            )
             assert_equal "2.2", calc.shift_entitlement
           end
         end
 
         should "for 6 hours over 14 days with 4 days per week" do
-          calc = HolidayEntitlement.new(shifts_per_shift_pattern: 8,
-                                        days_per_shift_pattern: 14)
+          calc = HolidayEntitlement.new(
+            shifts_per_shift_pattern: 8,
+            days_per_shift_pattern: 14,
+          )
           assert_equal "22.4", calc.shift_entitlement
         end
         should "for 25 hours over less than 5 days a week" do

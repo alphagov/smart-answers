@@ -10,15 +10,17 @@ module SmartAnswer
     end
 
     def stub_flow_registration_presenter
-      stub("flow-registration-presenter",
-           slug: "flow-slug",
-           title: "flow-title",
-           flows_content: ["question title"],
-           description: "",
-           start_page_body: "",
-           start_page_post_body: "",
-           start_page_button_text: "",
-           external_related_links: [])
+      stub(
+        "flow-registration-presenter",
+        slug: "flow-slug",
+        title: "flow-title",
+        flows_content: ["question title"],
+        description: "",
+        start_page_body: "",
+        start_page_post_body: "",
+        start_page_button_text: "",
+        external_related_links: [],
+      )
     end
 
     test "#content_id is the content_id of the presenter" do

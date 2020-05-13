@@ -13,9 +13,13 @@ module SmartAnswer
             )
             dates = piw.qualifying_days(pattern)
             assert_equal [
-              Date.parse("Sun, 04 Jan 2015"), Date.parse("Tue, 06 Jan 2015"), Date.parse("Thu, 08 Jan 2015"),
-              Date.parse("Sun, 11 Jan 2015"), Date.parse("Tue, 13 Jan 2015")
-            ], dates
+              Date.parse("Sun, 04 Jan 2015"),
+              Date.parse("Tue, 06 Jan 2015"),
+              Date.parse("Thu, 08 Jan 2015"),
+              Date.parse("Sun, 11 Jan 2015"),
+              Date.parse("Tue, 13 Jan 2015"),
+            ],
+                         dates
           end
         end
       end
@@ -211,14 +215,16 @@ module SmartAnswer
           assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: "every_4_weeks")
         end
         should "calculate AWE for monthly pay patterns" do
-          assert_equal 92.31, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3,
-          ).round(2)
+          assert_equal 92.31,
+                       StatutorySickPayCalculator.average_weekly_earnings(
+                         pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3,
+                       ).round(2)
         end
         should "calculate AWE for irregular pay patterns" do
-          assert_equal 700, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"),
-          )
+          assert_equal 700,
+                       StatutorySickPayCalculator.average_weekly_earnings(
+                         pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"),
+                       )
         end
       end # end .average_weekly_earnings
 

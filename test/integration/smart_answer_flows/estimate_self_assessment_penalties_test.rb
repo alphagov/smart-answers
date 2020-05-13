@@ -194,10 +194,10 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
       should "show results" do
         assert_equal 1500, current_state.calculator.late_filing_penalty
-        assert_equal 10000, current_state.calculator.estimated_bill
+        assert_equal 10_000, current_state.calculator.estimated_bill
         assert_equal 161.16, current_state.calculator.interest
         assert_equal 1000, current_state.calculator.late_payment_penalty
-        assert_equal 12661, current_state.calculator.total_owed_plus_filing_penalty
+        assert_equal 12_661, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
     # #band 4 case 1
@@ -223,10 +223,10 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
       should "show results" do
         assert_equal 2000, current_state.calculator.late_filing_penalty
-        assert_equal 10000, current_state.calculator.estimated_bill
+        assert_equal 10_000, current_state.calculator.estimated_bill
         assert_equal 325, current_state.calculator.interest
         assert_equal 1500, current_state.calculator.late_payment_penalty
-        assert_equal 13825, current_state.calculator.total_owed_plus_filing_penalty
+        assert_equal 13_825, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
   end
@@ -246,10 +246,10 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
       should "show results" do
         assert_equal 430, current_state.calculator.late_filing_penalty
-        assert_equal 10000, current_state.calculator.estimated_bill
+        assert_equal 10_000, current_state.calculator.estimated_bill
         assert_equal 98.12, current_state.calculator.interest
         assert_equal 500, current_state.calculator.late_payment_penalty
-        assert_equal 11028, current_state.calculator.total_owed_plus_filing_penalty
+        assert_equal 11_028, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
   end

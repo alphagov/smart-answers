@@ -13,8 +13,13 @@ module SmartAnswer::Calculators
     DAYS_PER_LEAP_YEAR = 366.to_d
     STANDARD_WORKING_DAYS_PER_WEEK = 5.to_d
 
-    attr_reader :working_days_per_week, :hours_per_week, :start_date, :leaving_date, :leave_year_start_date,
-                :shifts_per_shift_pattern, :days_per_shift_pattern
+    attr_reader :working_days_per_week,
+                :hours_per_week,
+                :start_date,
+                :leaving_date,
+                :leave_year_start_date,
+                :shifts_per_shift_pattern,
+                :days_per_shift_pattern
 
     def initialize(working_days_per_week: 0,
                    hours_per_week: 0,
@@ -188,7 +193,7 @@ module SmartAnswer::Calculators
 
     def format_number(number, decimal_places = 1)
       rounded = (number * 10**decimal_places).ceil.to_f / 10**decimal_places
-      str = format("%.#{decimal_places}f", rounded)
+      str = sprintf("%.#{decimal_places}f", rounded)
       strip_zeros(str)
     end
   end

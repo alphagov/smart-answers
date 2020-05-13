@@ -13,7 +13,7 @@ module SmartAnswer
         assert_instance_of StudentFinanceCalculator, calculator
 
         assert_equal "2020-2021", calculator.course_start
-        assert_equal 25000, calculator.household_income
+        assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
         assert_equal "uk-full-time", calculator.course_type
       end
@@ -34,7 +34,7 @@ module SmartAnswer
         calculator.course_type = "uk-full-time"
 
         assert_equal "2020-2021", calculator.course_start
-        assert_equal 25000, calculator.household_income
+        assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
         assert_equal "uk-full-time", calculator.course_type
       end

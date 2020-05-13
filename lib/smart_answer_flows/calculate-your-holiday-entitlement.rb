@@ -95,7 +95,7 @@ module SmartAnswer
           if holiday_period == "starting-and-leaving"
             raise InvalidResponse, :error_end_date_before_start_date if leaving_date <= start_date
 
-            raise InvalidResponse, :error_end_date_outside_year_range if !YearRange.new(begins_on: start_date).include?(leaving_date)
+            raise InvalidResponse, :error_end_date_outside_year_range unless YearRange.new(begins_on: start_date).include?(leaving_date)
           end
 
           leaving_date
@@ -129,11 +129,11 @@ module SmartAnswer
           if leaving_date.present?
             raise InvalidResponse, :error_end_date_before_start_date if leaving_date <= leave_year_start_date
 
-            raise InvalidResponse, :error_end_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
+            raise InvalidResponse, :error_end_date_outside_leave_year_range unless YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
           end
           if start_date
             raise InvalidResponse, :error_start_date_before_start_leave_year_date if start_date <= leave_year_start_date
-            raise InvalidResponse, :error_start_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(start_date)
+            raise InvalidResponse, :error_start_date_outside_leave_year_range unless YearRange.new(begins_on: leave_year_start_date).include?(start_date)
           end
           leave_year_start_date
         end

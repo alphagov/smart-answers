@@ -453,28 +453,32 @@ module SmartAnswer
       end
 
       should "avoid edge cases with dates at the end of the month" do
-        assert_equal "9 months", DateRange.new(
-          begins_on: Date.parse("1960-12-30"),
-          ends_on: Date.parse("1961-09-30"),
-        ).friendly_time_diff
+        assert_equal "9 months",
+                     DateRange.new(
+                       begins_on: Date.parse("1960-12-30"),
+                       ends_on: Date.parse("1961-09-30"),
+                     ).friendly_time_diff
       end
 
       should "avoid year rounding errors" do
-        assert_equal "11 months, 29 days", DateRange.new(
-          begins_on: Date.parse("1960-12-31"),
-          ends_on: Date.parse("1961-12-29"),
-        ).friendly_time_diff
+        assert_equal "11 months, 29 days",
+                     DateRange.new(
+                       begins_on: Date.parse("1960-12-31"),
+                       ends_on: Date.parse("1961-12-29"),
+                     ).friendly_time_diff
       end
 
       should "avoid edge cases for 29th feb" do
-        assert_equal "4 years", DateRange.new(
-          begins_on: Date.parse("2004-02-29"),
-          ends_on: Date.parse("2008-02-29"),
-        ).friendly_time_diff
-        assert_equal "4 years, 1 day", DateRange.new(
-          begins_on: Date.parse("2004-02-29"),
-          ends_on: Date.parse("2008-03-01"),
-        ).friendly_time_diff
+        assert_equal "4 years",
+                     DateRange.new(
+                       begins_on: Date.parse("2004-02-29"),
+                       ends_on: Date.parse("2008-02-29"),
+                     ).friendly_time_diff
+        assert_equal "4 years, 1 day",
+                     DateRange.new(
+                       begins_on: Date.parse("2004-02-29"),
+                       ends_on: Date.parse("2008-03-01"),
+                     ).friendly_time_diff
       end
     end
   end

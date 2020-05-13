@@ -22,9 +22,11 @@ namespace :publishing_api do
     raise "Missing destination parameter" if args.destination.blank?
 
     redirect = { path: args.base_path, type: "prefix", destination: args.destination }
-    GdsApi.publishing_api.unpublish(args.content_id,
-                                    type: "redirect",
-                                    redirects: [redirect])
+    GdsApi.publishing_api.unpublish(
+      args.content_id,
+      type: "redirect",
+      redirects: [redirect],
+    )
   end
 
   desc "Unpublish a content item with a type of gone"
@@ -46,8 +48,10 @@ namespace :publishing_api do
     raise "Missing base_path parameter" unless args.base_path
     raise "Missing publishing_app parameter" unless args.publishing_app
 
-    GdsApi.publishing_api.put_path(args.base_path,
-                                   publishing_app: args.publishing_app,
-                                   override_existing: true)
+    GdsApi.publishing_api.put_path(
+      args.base_path,
+      publishing_app: args.publishing_app,
+      override_existing: true,
+    )
   end
 end

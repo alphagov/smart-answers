@@ -31,10 +31,12 @@ module SmartAnswer::Calculators
       }
 
       @calculator = SelfAssessmentPenalties.new(
-        submission_method: "online", filing_date: Date.parse("2014-01-10"),
-        payment_date: Date.parse("2014-03-10"), estimated_bill: SmartAnswer::Money.new(5000),
+        submission_method: "online",
+        filing_date: Date.parse("2014-01-10"),
+        payment_date: Date.parse("2014-03-10"),
+        estimated_bill: SmartAnswer::Money.new(5000),
         dates: test_calculator_dates,
-        tax_year: "2012-13"
+        tax_year: "2012-13",
       )
     end
 
@@ -163,28 +165,28 @@ module SmartAnswer::Calculators
           @calculator.filing_date = Date.parse("2014-09-06")
           assert_equal 1300, @calculator.late_filing_penalty
           # band four (1000 + 5% of estimated bill larger than £300)
-          @calculator.estimated_bill = SmartAnswer::Money.new(11000)
+          @calculator.estimated_bill = SmartAnswer::Money.new(11_000)
           assert_equal 1550, @calculator.late_filing_penalty
           # band five
           @calculator.estimated_bill = SmartAnswer::Money.new(0)
           @calculator.filing_date = Date.parse("2015-02-02")
           assert_equal 1600, @calculator.late_filing_penalty
           # band five (1000 + 5% estimated bill larger than £600)
-          @calculator.estimated_bill = SmartAnswer::Money.new(10000)
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
           assert_equal 2000, @calculator.late_filing_penalty
           # from 6 to 12 months, tax <=6002
           @calculator.filing_date = Date.parse("2014-10-31")
-          @calculator.estimated_bill = SmartAnswer::Money.new(10000)
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
           assert_equal 1500, @calculator.late_filing_penalty
           # from 6 to 12 months, tax >6002
           @calculator.filing_date = Date.parse("2014-10-31")
-          @calculator.estimated_bill = SmartAnswer::Money.new(10000)
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
           assert_equal 1500, @calculator.late_filing_penalty
         end
 
         context "pay penalty before rate change on 23 Aug 2016" do
           should "calculate interest and late payment penalty" do
-            @calculator.estimated_bill = SmartAnswer::Money.new(10000)
+            @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
             @calculator.payment_date = Date.parse("2014-01-01")
             assert_equal 0, @calculator.interest
             # 1 day after the deadline

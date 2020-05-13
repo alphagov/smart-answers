@@ -7,10 +7,10 @@ module SmartAnswer::Calculators
         assert_equal "1 October 2015", WorkplacePensionCalculator.enrollment_date(38)
       end
       should "(high) return 1 January 2013" do
-        assert_equal "1 January 2013", WorkplacePensionCalculator.enrollment_date(33033)
+        assert_equal "1 January 2013", WorkplacePensionCalculator.enrollment_date(33_033)
       end
       should "(edge highest) return 1 October 2012" do
-        assert_equal "1 October 2012", WorkplacePensionCalculator.enrollment_date(125000)
+        assert_equal "1 October 2012", WorkplacePensionCalculator.enrollment_date(125_000)
       end
       should "(edge 61) return 1 August 2014" do
         assert_equal "1 August 2014", WorkplacePensionCalculator.enrollment_date(61)

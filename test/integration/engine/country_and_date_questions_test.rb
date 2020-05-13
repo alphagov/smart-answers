@@ -4,11 +4,35 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
   with_and_without_javascript do
     setup do
       @location_slugs = %w[
-        angola aruba bangladesh belarus brazil brunei
-        cambodia chad croatia denmark eritrea france ghana iceland
-        japan laos luxembourg malta micronesia mozambique nicaragua
-        panama portugal sao-tome-and-principe singapore south-korea
-        sri-lanka venezuela vietnam
+        angola
+        aruba
+        bangladesh
+        belarus
+        brazil
+        brunei
+        cambodia
+        chad
+        croatia
+        denmark
+        eritrea
+        france
+        ghana
+        iceland
+        japan
+        laos
+        luxembourg
+        malta
+        micronesia
+        mozambique
+        nicaragua
+        panama
+        portugal
+        sao-tome-and-principe
+        singapore
+        south-korea
+        sri-lanka
+        venezuela
+        vietnam
       ]
       stub_world_locations(@location_slugs)
       Timecop.travel("2013-01-01")

@@ -3,8 +3,8 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
     setup do
-      @income_limit = 27000
-      @age_related_allowance = 12000
+      @income_limit = 27_000
+      @age_related_allowance = 12_000
       @personal_allowance = 9000
     end
 
@@ -32,10 +32,10 @@ module SmartAnswer::Calculators
       hmrc_example_calculator = calculator(
         maximum_mca: 7295,
         minimum_mca: 2800,
-        income_limit_for_personal_allowances: 24000,
+        income_limit_for_personal_allowances: 24_000,
         personal_allowance: 7475,
-        age_related_allowance: 10090,
-        calculate_adjusted_net_income: 29600,
+        age_related_allowance: 10_090,
+        calculate_adjusted_net_income: 29_600,
       )
 
       result = hmrc_example_calculator.calculate_allowance
@@ -47,10 +47,10 @@ module SmartAnswer::Calculators
       hmrc_example_calculator = calculator(
         maximum_mca: 7705,
         minimum_mca: 2960,
-        income_limit_for_personal_allowances: 25400,
+        income_limit_for_personal_allowances: 25_400,
         personal_allowance: 8105,
-        age_related_allowance: 10660,
-        calculate_adjusted_net_income: 31500,
+        age_related_allowance: 10_660,
+        calculate_adjusted_net_income: 31_500,
       )
 
       result = hmrc_example_calculator.calculate_allowance
@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
 
     test "minimum allowance when annual income over income limit" do
       calculator = default_calculator
-      calculator.stubs(:calculate_adjusted_net_income).returns(90000)
+      calculator.stubs(:calculate_adjusted_net_income).returns(90_000)
       result = calculator.calculate_allowance
       assert_equal SmartAnswer::Money.new("301"), result
     end
@@ -104,7 +104,7 @@ module SmartAnswer::Calculators
 
     test "adjusted net income calculation" do
       calculator = default_calculator
-      calculator.income = 35000
+      calculator.income = 35_000
       calculator.gross_pension_contributions = 3000
       calculator.net_pension_contributions = 2000
       calculator.gift_aided_donations = 1000
@@ -118,7 +118,7 @@ module SmartAnswer::Calculators
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 9440, calculator.personal_allowance
-        assert_equal 26100.0, calculator.income_limit_for_personal_allowances
+        assert_equal 26_100.0, calculator.income_limit_for_personal_allowances
         assert_equal 7915, calculator.maximum_mca
         assert_equal 3040, calculator.minimum_mca
       end
@@ -128,8 +128,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2014-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 10000, calculator.personal_allowance
-        assert_equal 27000.0, calculator.income_limit_for_personal_allowances
+        assert_equal 10_000, calculator.personal_allowance
+        assert_equal 27_000.0, calculator.income_limit_for_personal_allowances
         assert_equal 8165, calculator.maximum_mca
         assert_equal 3140, calculator.minimum_mca
       end
@@ -139,8 +139,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2015-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 10600, calculator.personal_allowance
-        assert_equal 27700.0, calculator.income_limit_for_personal_allowances
+        assert_equal 10_600, calculator.personal_allowance
+        assert_equal 27_700.0, calculator.income_limit_for_personal_allowances
         assert_equal 8355, calculator.maximum_mca
         assert_equal 3220, calculator.minimum_mca
       end
@@ -150,8 +150,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2016-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 11000, calculator.personal_allowance
-        assert_equal 27700.0, calculator.income_limit_for_personal_allowances
+        assert_equal 11_000, calculator.personal_allowance
+        assert_equal 27_700.0, calculator.income_limit_for_personal_allowances
         assert_equal 8355, calculator.maximum_mca
         assert_equal 3220, calculator.minimum_mca
       end
@@ -161,8 +161,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2017-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 11000, calculator.personal_allowance
-        assert_equal 28000.0, calculator.income_limit_for_personal_allowances
+        assert_equal 11_000, calculator.personal_allowance
+        assert_equal 28_000.0, calculator.income_limit_for_personal_allowances
         assert_equal 8445, calculator.maximum_mca
         assert_equal 3260, calculator.minimum_mca
       end
@@ -172,8 +172,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2018-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 11850, calculator.personal_allowance
-        assert_equal 28900.0, calculator.income_limit_for_personal_allowances
+        assert_equal 11_850, calculator.personal_allowance
+        assert_equal 28_900.0, calculator.income_limit_for_personal_allowances
         assert_equal 8695, calculator.maximum_mca
         assert_equal 3360, calculator.minimum_mca
       end
@@ -183,8 +183,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2019-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 12500, calculator.personal_allowance
-        assert_equal 29600.0, calculator.income_limit_for_personal_allowances
+        assert_equal 12_500, calculator.personal_allowance
+        assert_equal 29_600.0, calculator.income_limit_for_personal_allowances
         assert_equal 8915, calculator.maximum_mca
         assert_equal 3450, calculator.minimum_mca
       end
@@ -194,8 +194,8 @@ module SmartAnswer::Calculators
       Timecop.freeze(Date.parse("2020-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 12500, calculator.personal_allowance
-        assert_equal 30200, calculator.income_limit_for_personal_allowances
+        assert_equal 12_500, calculator.personal_allowance
+        assert_equal 30_200, calculator.income_limit_for_personal_allowances
         assert_equal 9075, calculator.maximum_mca
         assert_equal 3510, calculator.minimum_mca
       end

@@ -4,8 +4,10 @@ module SmartAnswer::Calculators
   class RatesQueryTest < ActiveSupport::TestCase
     context "#rates" do
       setup do
-        @test_rate = RatesQuery.from_file("exact_date_rates",
-                                          load_path: "test/fixtures/rates")
+        @test_rate = RatesQuery.from_file(
+          "exact_date_rates",
+          load_path: "test/fixtures/rates",
+        )
       end
 
       should "be 1 for 2013-01-31" do

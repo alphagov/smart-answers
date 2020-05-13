@@ -112,7 +112,7 @@ private
         question_node = flow.node(question)
         question_text = QuestionPresenter.new(question_node, {}, helpers: [MethodMissingHelper]).title
 
-        raise UnknownResponse.new("Unknown response to this question: `#{question.name}`: #{question_text}")
+        raise UnknownResponse, "Unknown response to this question: `#{question.name}`: #{question_text}"
       end
     end
   end

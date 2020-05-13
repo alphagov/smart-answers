@@ -118,9 +118,11 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
     end
 
     should "send a path reservation to the Publishing API" do
-      reserve_request = stub_publishing_api_path_reservation("/base-path",
-                                                             publishing_app: "a-publisher",
-                                                             override_existing: true)
+      reserve_request = stub_publishing_api_path_reservation(
+        "/base-path",
+        publishing_app: "a-publisher",
+        override_existing: true,
+      )
 
       Rake::Task["publishing_api:change_owning_application"].invoke("/base-path", "a-publisher")
 

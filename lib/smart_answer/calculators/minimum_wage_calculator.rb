@@ -1,7 +1,13 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
-    attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
-                  :accommodation_cost, :job_requirements_charge, :unpaid_additional_hours
+    attr_accessor :age,
+                  :pay_frequency,
+                  :basic_hours,
+                  :basic_pay,
+                  :is_apprentice,
+                  :accommodation_cost,
+                  :job_requirements_charge,
+                  :unpaid_additional_hours
     attr_reader :date
 
     def initialize(params = {})

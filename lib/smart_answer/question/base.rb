@@ -39,7 +39,7 @@ module SmartAnswer
           responses_and_input = current_state.responses + [input]
           message = "Next node undefined. Node: #{current_state.current_node}."
           message << " Responses: #{responses_and_input}."
-          raise NextNodeUndefined.new(message)
+          raise NextNodeUndefined, message
         end
         unless NextNodeBlock.permitted?(next_node)
           raise "Next node (#{next_node}) not returned via question or outcome method"
@@ -87,7 +87,7 @@ module SmartAnswer
 
       def validate!(current_state, input)
         @validations.each do |message, predicate|
-          if !current_state.instance_exec(input, &predicate)
+          unless current_state.instance_exec(input, &predicate)
             if message
               raise InvalidResponse, message
             else
