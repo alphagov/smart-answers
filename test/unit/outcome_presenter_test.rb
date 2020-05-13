@@ -46,33 +46,21 @@ module SmartAnswer
     end
 
     test "#title returns single line of content rendered for title block" do
-      @renderer.stubs(:single_line_of_content_for).with(:title).returns("title-text")
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
 
       assert_equal "title-text", @presenter.title
     end
 
-    test "#body returns content rendered for body block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:body, html: true).returns("body-html")
+    test "#body returns content rendered for body block" do
+      @renderer.stubs(:content_for).with(:body).returns("body-html")
 
       assert_equal "body-html", @presenter.body
     end
 
-    test "#body returns content rendered for body block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:body, html: false).returns("body-govspeak")
-
-      assert_equal "body-govspeak", @presenter.body(html: false)
-    end
-
-    test "#next_steps returns content rendered for next_steps block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:next_steps, html: true).returns("next-steps-html")
+    test "#next_steps returns content rendered for next_steps block" do
+      @renderer.stubs(:content_for).with(:next_steps).returns("next-steps-html")
 
       assert_equal "next-steps-html", @presenter.next_steps
-    end
-
-    test "#next_steps returns content rendered for next_steps block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:next_steps, html: false).returns("next-steps-govspeak")
-
-      assert_equal "next-steps-govspeak", @presenter.next_steps(html: false)
     end
 
     test "#relative_erb_template_path delegates to renderer" do

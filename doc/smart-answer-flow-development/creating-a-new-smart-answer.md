@@ -53,11 +53,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new landing page template your editor and copy/paste the following content:
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   Smart Answer title
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Landing page body.
 <% end %>
 ```
@@ -84,11 +84,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new question page template in your editor and copy/paste the following content:
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   Question page title
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Question page body.
 <% end %>
 ```
@@ -115,11 +115,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new outcome page template in your editor and copy/paste the following content:
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   Outcome page title
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Outcome page body.
 <% end %>
 ```

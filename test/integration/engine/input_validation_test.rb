@@ -47,7 +47,7 @@ class InputValidationTest < EngineIntegrationTest
 
       within "#current-question" do
         assert_page_has_content "What size bonus do you want?"
-        within(".govuk-error-message") { assert_page_has_content "You can't request a bonus less than your annual salary." }
+        within(".govuk-error-message") { assert_page_has_content "You can&#39;t request a bonus less than your annual salary." }
         assert page.has_field?("response", type: "text", with: "3000")
       end
 

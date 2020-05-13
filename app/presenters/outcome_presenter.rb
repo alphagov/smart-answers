@@ -16,15 +16,15 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    @renderer.content_for(:title)
   end
 
-  def body(html: true)
-    @renderer.content_for(:body, html: html)
+  def body
+    @renderer.content_for(:body)
   end
 
-  def next_steps(html: true)
-    @renderer.content_for(:next_steps, html: html)
+  def next_steps
+    @renderer.content_for(:next_steps)
   end
 
   def relative_erb_template_path

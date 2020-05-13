@@ -66,7 +66,7 @@ module SmartAnswer
               initial_state: { calculator: @calculator },
             )
           end
-          assert_equal "must_be_within_eight_weeks", exception.message
+          assert_equal "error_must_be_within_eight_weeks", exception.message
         end
       end
 
@@ -83,7 +83,7 @@ module SmartAnswer
               initial_state: { calculator: @calculator },
             )
           end
-          assert_equal "must_be_at_least_1_day_before_first_sick_day", exception.message
+          assert_equal "error_must_be_at_least_1_day_before_first_sick_day", exception.message
         end
       end
 
@@ -100,7 +100,7 @@ module SmartAnswer
               initial_state: { calculator: @calculator },
             )
           end
-          assert_equal "must_be_valid_period_of_incapacity_for_work", exception.message
+          assert_equal "error_must_be_valid_period_of_incapacity_for_work", exception.message
         end
       end
     end

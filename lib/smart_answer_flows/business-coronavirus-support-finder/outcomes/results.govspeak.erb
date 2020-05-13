@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Support you may be entitled to
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if calculator.show?(:job_retention_scheme) %>
     $CTA
     ### Coronavirus Job Retention Scheme

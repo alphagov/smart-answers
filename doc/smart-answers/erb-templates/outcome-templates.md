@@ -6,25 +6,25 @@ Outcome templates live in `lib/smart_answer_flows/<flow-name>/outcomes/<outcome-
 
 The templates can contain content for any of the following keys:
 
-### `title(text)`
+### `:title`
 
-* `text` argument is a String
+* Default format is `:text`
 * Used as the heading (currently "h1")
 
-### `body(govspeak)`
+### `:body`
 
-* `govspeak` argument is a String in [Govspeak][] format
+* Default format is `:govspeak`
 * Used as the main text
 
 ### `next_steps(govspeak)`
 
-* `govspeak` argument is a String in [Govspeak][] format
+* Default format is `:govspeak`
 * Used to generate "next steps" content (at top of a right-hand sidebar)
 
 ## Example
 
 ```erb
-<% content_for :title do %>
+<% render_content_for :title do %>
   <% unless calculator.has_commodity_code? %>
     The product composition you indicated is not possible.
   <% else %>
@@ -32,7 +32,7 @@ The templates can contain content for any of the following keys:
   <% end %>
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if calculator.has_commodity_code? %>
     Use these four digits together with the ten-digit commodity code from Trade Tariff.
   <% end %>

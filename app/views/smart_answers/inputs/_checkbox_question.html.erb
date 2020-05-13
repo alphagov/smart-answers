@@ -1,14 +1,7 @@
-<% body = capture do %>
-  <%= render "govuk_publishing_components/components/govspeak", {
-  } do %>
-    <%= question.body %>
-  <% end %>
-<% end %>
-
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "response[]",
   heading: question.title,
-  description: body,
+  description: question.body,
   id: "response",
   error: question.error,
   hint_text: question.hint_text,

@@ -34,64 +34,20 @@ module SmartAnswer
       end
     end
 
-    test "#content_for returns a single newline when content_for(key) block is not present in template" do
-      erb_template = ""
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "\n", renderer.content_for(:does_not_exist)
-      end
-    end
-
-    test "#content_for returns a single newline when content_for(key) block is empty" do
-      erb_template = content_for(:key, "")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "\n", renderer.content_for(:key)
-      end
-    end
-
     test "#content_for trims newlines by default" do
-      erb_template = content_for(:key, '<% if true %>
+      erb_template = render_content_for(:key, '<% if true %>
 Hello world
 <% end %>')
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "<p>Hello world</p>\n", renderer.content_for(:key)
-      end
-    end
-
-    test "#content_for strips spaces from the beginning of lines so that we can indent content in our content_for blocks" do
-      erb_template = content_for(:key, '  <% if true %>
-    line 1
-
-    line 2
-  <% end %>')
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "line 1\n\nline 2\n", renderer.content_for(:key, html: false)
-      end
-    end
-
-    test "#content_for ensures there is only one *blank* line between paragraphs" do
-      erb_template = content_for(:key, "line1\n\n\n\nline2")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "line1\n\nline2\n", renderer.content_for(:key, html: false)
+        assert_match(/<p>Hello world<\/p>/, renderer.content_for(:key))
       end
     end
 
     test "#content_for makes local variables available to the ERB template" do
-      erb_template = content_for(:key, "<%= state_variable %>")
+      erb_template = render_content_for(:key, "<%= state_variable %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: { state_variable: "state-variable" })
@@ -101,7 +57,7 @@ Hello world
     end
 
     test "#content_for raises an exception if the ERB template references a non-existent state variable" do
-      erb_template = content_for(:key, "<%= non_existent_state_variable %>")
+      erb_template = render_content_for(:key, "<%= non_existent_state_variable %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: {})
@@ -114,7 +70,7 @@ Hello world
     end
 
     test "#content_for makes the ActionView::Helpers::NumberHelper methods available to the ERB template" do
-      erb_template = content_for(:key, "<%= number_with_delimiter(123456789) %>")
+      erb_template = render_content_for(:key, "<%= number_with_delimiter(123456789) %>")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -124,7 +80,7 @@ Hello world
     end
 
     test "#content_for passes output of ERB template through Govspeak by default" do
-      erb_template = content_for(:key, "^information^")
+      erb_template = render_content_for(:key, "^information^")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
@@ -134,71 +90,24 @@ Hello world
       end
     end
 
-    test "#content_for does not pass output of ERB template through Govspeak when HTML disabled" do
-      erb_template = content_for(:key, "^information^")
+    test "#content_for returns an HTML-safe string when passed through Govspeak" do
+      erb_template = render_content_for(:body, "html-unsafe-string")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "^information^\n", renderer.content_for(:key, html: false)
+        assert renderer.content_for(:body).html_safe?
       end
     end
 
-    test "#content_for returns an HTML-safe string when passed through Govspeak" do
-      erb_template = content_for(:key, "html-unsafe-string")
+    test "#content_for returns an HTML-safe string" do
+      erb_template = render_content_for(:key, "html-unsafe-string")
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert renderer.content_for(:key).html_safe?
       end
-    end
-
-    test "#content_for returns an HTML-safe string when not passed through Govspeak" do
-      erb_template = content_for(:key, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.content_for(:key, html: false).html_safe?
-      end
-    end
-
-    test "#content_for returns the same content when called multiple times" do
-      erb_template = content_for(:key, "body-content")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
-        assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
-      end
-    end
-
-    test "#single_line_of_content_for removes trailing newline" do
-      erb_template = content_for(:key, "single-line-of-content-for-key\n")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_equal "single-line-of-content-for-key", renderer.single_line_of_content_for(:key)
-      end
-    end
-
-    test "#single_line_of_content_for returns an HTML-safe string" do
-      erb_template = content_for(:key, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.single_line_of_content_for(:key).html_safe?
-      end
-    end
-
-    test "#single_line_of_content_for disables HTML rendering" do
-      renderer = ErbRenderer.new(template_directory: nil, template_name: nil)
-      renderer.stubs(:content_for).with(:key, html: false).returns("single-line-of-content-for-key")
-      assert_equal "single-line-of-content-for-key", renderer.single_line_of_content_for(:key)
     end
 
     test "#option_text returns option text for specified key" do
@@ -248,8 +157,8 @@ Hello world
 
   private
 
-    def content_for(key, template)
-      "<% content_for #{key.inspect} do %>\n#{template}\n<% end %>"
+    def render_content_for(key, template)
+      "<% render_content_for #{key.inspect} do %>\n#{template}\n<% end %>"
     end
 
     def with_erb_template_file(outcome_name, erb_template)

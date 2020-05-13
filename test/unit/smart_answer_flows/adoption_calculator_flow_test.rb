@@ -283,13 +283,13 @@ module SmartAnswer
         should "raise an InvalidResponse when leave starts before the earliest date" do
           @question.answer_with(Date.parse("1 November 2017"))
           error = assert_raises(SmartAnswer::InvalidResponse) { @question.next_node }
-          assert_equal "leave_starts_too_early", error.message
+          assert_equal "error_leave_starts_too_early", error.message
         end
 
         should "raise an InvalidResponse when leave starts after the latest date" do
           @question.answer_with(Date.parse("30 November 2017"))
           error = assert_raises(SmartAnswer::InvalidResponse) { @question.next_node }
-          assert_equal "leave_starts_too_late", error.message
+          assert_equal "error_leave_starts_too_late", error.message
         end
       end
     end

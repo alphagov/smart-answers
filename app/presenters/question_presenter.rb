@@ -15,7 +15,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    @renderer.content_for(:title)
   end
 
   def error
@@ -25,32 +25,32 @@ class QuestionPresenter < NodePresenter
   end
 
   def error_message_for(key)
-    message = @renderer.single_line_of_content_for(key.to_sym)
+    message = @renderer.content_for(key.to_sym)
     message.presence
   end
 
   def hint
-    @renderer.single_line_of_content_for(:hint)
+    @renderer.content_for(:hint)
   end
 
   def label
-    @renderer.single_line_of_content_for(:label)
+    @renderer.content_for(:label)
   end
 
   def suffix_label
-    @renderer.single_line_of_content_for(:suffix_label)
+    @renderer.content_for(:suffix_label)
   end
 
   def has_labels?
     label.present? || suffix_label.present?
   end
 
-  def body(html: true)
-    @renderer.content_for(:body, html: html)
+  def body
+    @renderer.content_for(:body)
   end
 
-  def post_body(html: true)
-    @renderer.content_for(:post_body, html: html)
+  def post_body
+    @renderer.content_for(:post_body)
   end
 
   def relative_erb_template_path

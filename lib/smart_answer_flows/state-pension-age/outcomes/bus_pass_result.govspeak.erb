@@ -1,9 +1,9 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Your bus pass age
 
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   The date you qualify for a bus pass is:
 
   - on <%= format_date(calculator.bus_pass_qualification_date) %>, if you live in England

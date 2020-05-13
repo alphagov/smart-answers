@@ -156,46 +156,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "format=txt" do
-      should "render govspeak text for outcome node" do
-        document = stub("Govspeak::Document", to_html: "html-output")
-        Govspeak::Document.stubs(:new).returns(document)
-
-        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes", format: "txt" }
-
-        assert_match(/sweet-tooth-outcome-title/, response.body)
-        assert_match(/sweet-tooth-outcome-govspeak-body/, response.body)
-        assert_match(/sweet-tooth-outcome-govspeak-next-steps/, response.body)
-      end
-
-      should "render govspeak text for the landing page" do
-        get :show, params: { id: "smart-answers-controller-sample", format: "txt" }
-        assert response.body.start_with?("Smart answers controller sample")
-      end
-
-      should "render govspeak text for a question node" do
-        document = stub("Govspeak::Document", to_html: "html-output")
-        Govspeak::Document.stubs(:new).returns(document)
-
-        get :show, params: { id: "smart-answers-controller-sample", started: "y", format: "txt" }
-        assert_match(/Do you like chocolate\?/, response.body)
-        assert_match(/yes\: Yes/, response.body)
-        assert_match(/no\: No/, response.body)
-      end
-
-      context "when Rails.application.config.expose_govspeak is not set" do
-        setup do
-          Rails.application.config.stubs(:expose_govspeak).returns(false)
-        end
-
-        should "render not found" do
-          get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes", format: "txt" }
-
-          assert_response :missing
-        end
-      end
-    end
-
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)

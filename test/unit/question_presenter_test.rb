@@ -23,51 +23,39 @@ module SmartAnswer
     end
 
     test "#title returns single line of content rendered for title block" do
-      @renderer.stubs(:single_line_of_content_for).with(:title).returns("title-text")
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
 
       assert_equal "title-text", @presenter.title
     end
 
     test "#hint returns single line of content rendered for hint block" do
-      @renderer.stubs(:single_line_of_content_for).with(:hint).returns("hint-text")
+      @renderer.stubs(:content_for).with(:hint).returns("hint-text")
 
       assert_equal "hint-text", @presenter.hint
     end
 
     test "#label returns single line of content rendered for label block" do
-      @renderer.stubs(:single_line_of_content_for).with(:label).returns("label-text")
+      @renderer.stubs(:content_for).with(:label).returns("label-text")
 
       assert_equal "label-text", @presenter.label
     end
 
     test "#suffix_label returns single line of content rendered for suffix_label block" do
-      @renderer.stubs(:single_line_of_content_for).with(:suffix_label).returns("suffix-label-text")
+      @renderer.stubs(:content_for).with(:suffix_label).returns("suffix-label-text")
 
       assert_equal "suffix-label-text", @presenter.suffix_label
     end
 
-    test "#body returns content rendered for body block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:body, html: true).returns("body-html")
+    test "#body returns content rendered for body block" do
+      @renderer.stubs(:content_for).with(:body).returns("body-html")
 
       assert_equal "body-html", @presenter.body
     end
 
-    test "#body returns content rendered for body block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:body, html: false).returns("body-govspeak")
-
-      assert_equal "body-govspeak", @presenter.body(html: false)
-    end
-
-    test "#post_body returns content rendered for post_body block with govspeak processing enabled by default" do
-      @renderer.stubs(:content_for).with(:post_body, html: true).returns("post-body-html")
+    test "#post_body returns content rendered for post_body block" do
+      @renderer.stubs(:content_for).with(:post_body).returns("post-body-html")
 
       assert_equal "post-body-html", @presenter.post_body
-    end
-
-    test "#post_body returns content rendered for post body block with govspeak processing disabled" do
-      @renderer.stubs(:content_for).with(:post_body, html: false).returns("post-body-govspeak")
-
-      assert_equal "post-body-govspeak", @presenter.post_body(html: false)
     end
 
     test "#error returns nil if there is no error" do
@@ -104,13 +92,13 @@ module SmartAnswer
     end
 
     test "#error_message_for returns single line of content rendered for error_key block" do
-      @renderer.stubs(:single_line_of_content_for).with(:error_key).returns("error-message-text")
+      @renderer.stubs(:content_for).with(:error_key).returns("error-message-text")
 
       assert_equal "error-message-text", @presenter.error_message_for("error_key")
     end
 
     test "#error_message_for returns nil if rendered content is blank" do
-      @renderer.stubs(:single_line_of_content_for).returns("    ")
+      @renderer.stubs(:content_for).returns("    ")
 
       assert_nil @presenter.error_message_for("error_key")
     end

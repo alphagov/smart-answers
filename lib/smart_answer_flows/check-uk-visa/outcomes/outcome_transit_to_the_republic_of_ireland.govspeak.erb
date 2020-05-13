@@ -1,4 +1,4 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   <% if calculator.passport_country_is_taiwan? %>
     You won’t need a visa if your passport has a personal ID number on the bio data page.
   <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if calculator.passport_country_is_taiwan? %>
 
     However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.

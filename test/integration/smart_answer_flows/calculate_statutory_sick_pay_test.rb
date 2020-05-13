@@ -585,7 +585,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
     should "only allow linked sickness to be before the recent one" do
       add_response "2015-03-20"
-      assert_current_node_is_error "linked_sickness_must_be_before"
+      assert_current_node_is_error "error_linked_sickness_must_be_before"
     end
   end
 
@@ -625,7 +625,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
     should "not allow a day before the earliest linked end date" do
       add_response((@earliest_linked_sickness_end_date - 1.day).to_s)
-      assert_current_node_is_error "must_be_within_eight_weeks"
+      assert_current_node_is_error "error_must_be_within_eight_weeks"
     end
   end
 

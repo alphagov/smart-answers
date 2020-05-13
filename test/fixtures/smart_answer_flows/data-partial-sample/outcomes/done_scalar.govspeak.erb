@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Data partial with scalar data
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Some data that was passed through
 
   <%= render partial: 'data_partials/scalar_partial.erb',

@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Based on your answers, you'll be affected by the benefit cap as you get <%= format_money(total_benefits_amount) %> in benefits and your benefit cap is <%= format_money(benefit_cap) %>.
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Your Housing Benefit will be: <%= format_money(new_housing_benefit) %>.
 
   ##How this is worked out

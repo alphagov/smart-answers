@@ -1,4 +1,4 @@
-<% content_for :body do %>
+<% render_content_for :body do %>
   $!The statutory entitlement is <%= "#{holiday_entitlement_hours} #{'hour'.pluralize(holiday_entitlement_hours)}" %> holiday.$!
 
   <% if working_days_per_week > 5 %>

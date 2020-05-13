@@ -34,10 +34,6 @@ class SmartAnswersController < ApplicationController
       format.json do
         render json: ApiPresenter.new(@presenter).as_json
       end
-
-      if Rails.application.config.expose_govspeak
-        format.text { render page_type }
-      end
     end
 
     set_expiry

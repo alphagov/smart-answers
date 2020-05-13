@@ -1,7 +1,7 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Your weekly childcare costs are <%= format_money(weekly_cost) %>.
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   Use this figure on your claim form.
 <% end %>

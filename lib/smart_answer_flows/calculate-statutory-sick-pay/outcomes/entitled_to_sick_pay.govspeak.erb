@@ -1,4 +1,4 @@
-<% content_for :body do %>
+<% render_content_for :body do %>
   ##Statutory Sick Pay (SSP)
 
   Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(calculator.sick_start_date) %> and <%= format_date(calculator.sick_end_date) %>

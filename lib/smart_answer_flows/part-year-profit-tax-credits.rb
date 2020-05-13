@@ -81,7 +81,7 @@ module SmartAnswer
           calculator.stopped_trading_on = response
         end
 
-        validate(:not_in_tax_year_error) do
+        validate(:error_not_in_tax_year) do
           calculator.valid_stopped_trading_date?
         end
 
@@ -115,7 +115,7 @@ module SmartAnswer
           calculator.started_trading_on = response
         end
 
-        validate(:invalid_start_trading_date) do
+        validate(:error_invalid_start_trading_date) do
           calculator.valid_start_trading_date?
         end
 

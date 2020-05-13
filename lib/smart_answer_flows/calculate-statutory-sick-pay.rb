@@ -185,7 +185,7 @@ module SmartAnswer
 
         validate_in_range
 
-        validate :linked_sickness_must_be_before do
+        validate :error_linked_sickness_must_be_before do
           calculator.valid_linked_sickness_start_date?
         end
 
@@ -205,15 +205,15 @@ module SmartAnswer
 
         validate_in_range
 
-        validate :must_be_within_eight_weeks do
+        validate :error_must_be_within_eight_weeks do
           calculator.within_eight_weeks_of_current_sickness_period?
         end
 
-        validate :must_be_at_least_1_day_before_first_sick_day do
+        validate :error_must_be_at_least_1_day_before_first_sick_day do
           calculator.at_least_1_day_before_first_sick_day?
         end
 
-        validate :must_be_valid_period_of_incapacity_for_work do
+        validate :error_must_be_valid_period_of_incapacity_for_work do
           calculator.valid_linked_period_of_incapacity_for_work?
         end
 

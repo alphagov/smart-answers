@@ -1,4 +1,4 @@
-<% content_for :body do %>
+<% render_content_for :body do %>
   <% if has_contract == "no" %>
     <%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
   <% else %>
@@ -61,7 +61,7 @@
   <% end %>
 <% end %>
 
-<% content_for :next_steps do %>
+<% render_content_for :next_steps do %>
   <% if leave_type == "adoption" %>
     Read the [guide to Statutory Adoption Pay and Leave](/employers-adoption-pay-leave)
   <% else %>

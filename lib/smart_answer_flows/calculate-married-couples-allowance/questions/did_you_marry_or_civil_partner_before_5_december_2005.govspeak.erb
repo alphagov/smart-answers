@@ -1,4 +1,4 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Did you marry before 5 December 2005?
 <% end %>
 
@@ -7,10 +7,10 @@
   "yes": "Yes"
 ) %>
 
-<% content_for :hint do %>
+<% render_content_for :hint do %>
   Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
 <% end %>
 
-<% content_for :error_message do %>
+<% render_content_for :error_message do %>
   Please choose 'Yes' or 'No'
 <% end %>

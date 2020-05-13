@@ -184,7 +184,7 @@ module SmartAnswer
                                       responding_with: "0000-01-01",
                                       initial_state: { calculator: @calculator })
           end
-          assert_equal "invalid_start_trading_date", exception.message
+          assert_equal "error_invalid_start_trading_date", exception.message
         end
       end
 
@@ -264,7 +264,7 @@ module SmartAnswer
                                       responding_with: "0000-01-01",
                                       initial_state: { calculator: @calculator })
           end
-          assert_equal "not_in_tax_year_error", exception.message
+          assert_equal "error_not_in_tax_year", exception.message
         end
       end
     end

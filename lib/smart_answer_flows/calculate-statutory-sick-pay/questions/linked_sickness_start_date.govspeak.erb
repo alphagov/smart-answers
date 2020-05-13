@@ -1,7 +1,7 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   Enter the start date for this linked period of sickness.
 <% end %>
 
-<% content_for :linked_sickness_must_be_before do %>
+<% render_content_for :error_linked_sickness_must_be_before do %>
   A linked sickness period must start and end before the most recent or current period of sickness
 <% end %>

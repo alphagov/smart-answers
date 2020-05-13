@@ -1,8 +1,8 @@
-<% content_for :title do %>
+<% render_content_for :title do %>
   You’ll need a visa to visit the UK
 <% end %>
 
-<% content_for :body do %>
+<% render_content_for :body do %>
   You should apply for a [Standard Visitor visa](/standard-visitor-visa).
 
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
