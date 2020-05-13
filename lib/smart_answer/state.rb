@@ -10,7 +10,7 @@ module SmartAnswer
       if respond_to_missing?(method_name)
         super
       else
-        raise NoMethodError.new("undefined method '#{method_name}' for #{self.class}")
+        raise NoMethodError, "undefined method '#{method_name}' for #{self.class}"
       end
     end
 

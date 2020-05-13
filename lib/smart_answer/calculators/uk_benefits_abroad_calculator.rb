@@ -46,10 +46,38 @@ module SmartAnswer::Calculators
     private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS
 
     def eea_country?
-      %w[austria belgium bulgaria croatia cyprus czech-republic denmark estonia
-         finland france germany gibraltar greece hungary iceland ireland italy
-         latvia liechtenstein lithuania luxembourg malta netherlands norway
-         poland portugal romania slovakia slovenia spain sweden switzerland].include?(country)
+      %w[austria
+         belgium
+         bulgaria
+         croatia
+         cyprus
+         czech-republic
+         denmark
+         estonia
+         finland
+         france
+         germany
+         gibraltar
+         greece
+         hungary
+         iceland
+         ireland
+         italy
+         latvia
+         liechtenstein
+         lithuania
+         luxembourg
+         malta
+         netherlands
+         norway
+         poland
+         portugal
+         romania
+         slovakia
+         slovenia
+         spain
+         sweden
+         switzerland].include?(country)
     end
 
     def former_yugoslavia?

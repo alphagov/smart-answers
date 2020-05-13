@@ -196,7 +196,7 @@ module SmartAnswer::Calculators
 
         should "work out the weekly average for a monthly pay pattern" do
           @calculator.pay_pattern = "monthly"
-          @calculator.earnings_for_pay_period = 16000
+          @calculator.earnings_for_pay_period = 16_000
           assert_equal 1846.1538461, @calculator.average_weekly_earnings
         end
       end
@@ -420,10 +420,26 @@ module SmartAnswer::Calculators
           paydates_and_pay = @calculator.paydates_and_pay
 
           expected_pay_dates = %w[
-            2013-01-03 2013-01-17 2013-01-31 2013-02-14 2013-02-28
-            2013-03-14 2013-03-28 2013-04-11 2013-04-25 2013-05-09
-            2013-05-23 2013-06-06 2013-06-20 2013-07-04 2013-07-18
-            2013-08-01 2013-08-15 2013-08-29 2013-09-12 2013-09-26
+            2013-01-03
+            2013-01-17
+            2013-01-31
+            2013-02-14
+            2013-02-28
+            2013-03-14
+            2013-03-28
+            2013-04-11
+            2013-04-25
+            2013-05-09
+            2013-05-23
+            2013-06-06
+            2013-06-20
+            2013-07-04
+            2013-07-18
+            2013-08-01
+            2013-08-15
+            2013-08-29
+            2013-09-12
+            2013-09-26
             2013-10-10
           ]
           actual_pay_dates = paydates_and_pay.map { |p| p[:date].to_s }
@@ -549,9 +565,15 @@ module SmartAnswer::Calculators
           calculator.pay_date = Date.parse("1 December 2013")
           calculator.stubs(:average_weekly_earnings).returns(200)
 
-          assert_equal ["Wed, 01 Jan 2014", "Sat, 01 Feb 2014", "Sat, 01 Mar 2014",
-                        "Tue, 01 Apr 2014", "Thu, 01 May 2014", "Sun, 01 Jun 2014",
-                        "Tue, 01 Jul 2014", "Fri, 01 Aug 2014", "Mon, 01 Sep 2014",
+          assert_equal ["Wed, 01 Jan 2014",
+                        "Sat, 01 Feb 2014",
+                        "Sat, 01 Mar 2014",
+                        "Tue, 01 Apr 2014",
+                        "Thu, 01 May 2014",
+                        "Sun, 01 Jun 2014",
+                        "Tue, 01 Jul 2014",
+                        "Fri, 01 Aug 2014",
+                        "Mon, 01 Sep 2014",
                         "Wed, 01 Oct 2014"].map { |s| Date.parse(s) },
                        calculator.paydates_first_day_of_the_month
         end

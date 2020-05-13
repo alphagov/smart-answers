@@ -15,9 +15,11 @@ module SmartAnswer
     context "when answering how_many_total_days? question" do
       setup do
         @calculator.stubs(:valid_total_days_worked?).returns(true)
-        setup_states_for_question(:how_many_total_days?,
-                                  responding_with: "50",
-                                  initial_state: { calculator: @calculator })
+        setup_states_for_question(
+          :how_many_total_days?,
+          responding_with: "50",
+          initial_state: { calculator: @calculator },
+        )
       end
 
       should "store parsed response on calculator as total_days_worked" do
@@ -36,9 +38,11 @@ module SmartAnswer
 
         should "raise an exception" do
           assert_raise(SmartAnswer::InvalidResponse) do
-            setup_states_for_question(:how_many_total_days?,
-                                      responding_with: "500",
-                                      initial_state: { calculator: @calculator })
+            setup_states_for_question(
+              :how_many_total_days?,
+              responding_with: "500",
+              initial_state: { calculator: @calculator },
+            )
           end
         end
       end
@@ -47,9 +51,11 @@ module SmartAnswer
     context "when answering how_many_weeks_at_current_employer? question" do
       setup do
         @calculator.stubs(:valid_weeks_at_current_employer?).returns(true)
-        setup_states_for_question(:how_many_weeks_at_current_employer?,
-                                  responding_with: "25",
-                                  initial_state: { calculator: @calculator })
+        setup_states_for_question(
+          :how_many_weeks_at_current_employer?,
+          responding_with: "25",
+          initial_state: { calculator: @calculator },
+        )
       end
 
       should "store parsed response on calculator as weeks_at_current_employer" do
@@ -68,9 +74,11 @@ module SmartAnswer
 
         should "raise an exception" do
           assert_raise(SmartAnswer::InvalidResponse) do
-            setup_states_for_question(:how_many_weeks_at_current_employer?,
-                                      responding_with: "55",
-                                      initial_state: { calculator: @calculator })
+            setup_states_for_question(
+              :how_many_weeks_at_current_employer?,
+              responding_with: "55",
+              initial_state: { calculator: @calculator },
+            )
           end
         end
       end

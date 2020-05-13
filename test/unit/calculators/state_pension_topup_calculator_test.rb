@@ -134,8 +134,8 @@ module SmartAnswer::Calculators
           @calculator.date_of_birth = Date.parse("1951-04-05")
           @calculator.weekly_amount = 20
           expectation = [
-            { amount: 17800.0, age: 65 },
-            { amount: 17420.0, age: 66 },
+            { amount: 17_800.0, age: 65 },
+            { amount: 17_420.0, age: 66 },
           ]
           assert_equal expectation, @calculator.lump_sum_and_age
         end

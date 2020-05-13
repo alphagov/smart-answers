@@ -119,7 +119,7 @@ module SmartAnswer
         end
 
         calculate :housing_benefit_amount do
-          format("%.2f", housing_benefit_amount)
+          sprintf("%.2f", housing_benefit_amount)
         end
 
         next_node do
@@ -147,15 +147,15 @@ module SmartAnswer
       # Q7 Enter a postcode
       postcode_question :enter_postcode? do
         calculate :benefit_cap do |response|
-          format("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
+          sprintf("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
         end
 
         calculate :total_benefits_amount do
-          format("%.2f", total_benefits)
+          sprintf("%.2f", total_benefits)
         end
 
         calculate :total_over_cap do
-          format("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
 
         next_node do |response|
@@ -189,9 +189,9 @@ module SmartAnswer
         end
 
         precalculate :new_housing_benefit do
-          amount = format("%.2f", new_housing_benefit_amount)
+          amount = sprintf("%.2f", new_housing_benefit_amount)
           if amount < "0.5"
-            amount = format("%.2f", 0.5)
+            amount = sprintf("%.2f", 0.5)
           end
           amount
         end
@@ -204,9 +204,9 @@ module SmartAnswer
         end
 
         precalculate :new_housing_benefit do
-          amount = format("%.2f", new_housing_benefit_amount)
+          amount = sprintf("%.2f", new_housing_benefit_amount)
           if amount < "0.5"
-            amount = format("%.2f", 0.5)
+            amount = sprintf("%.2f", 0.5)
           end
           amount
         end

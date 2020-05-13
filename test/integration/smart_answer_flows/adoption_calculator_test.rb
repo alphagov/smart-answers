@@ -520,6 +520,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
     add_response "925.0"
 
     assert_current_node :adoption_leave_and_pay
-    assert_state_variable "lower_earning_limit", format("%.2f", 118)
+    assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
   end
 end

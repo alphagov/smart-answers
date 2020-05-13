@@ -420,9 +420,13 @@ module SmartAnswer::Calculators
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
       [
-        "", "marriage-abroad", "y",
-        @ceremony_country, uk_or_ceremony_country,
-        @partner_nationality, @sex_of_your_partner
+        "",
+        "marriage-abroad",
+        "y",
+        @ceremony_country,
+        uk_or_ceremony_country,
+        @partner_nationality,
+        @sex_of_your_partner,
       ].join("/")
     end
   end
