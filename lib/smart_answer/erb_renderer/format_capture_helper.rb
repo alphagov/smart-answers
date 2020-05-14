@@ -8,12 +8,14 @@ module SmartAnswer
     }.freeze
 
     def render_content_for(name, options = {}, &block)
-      content = capture(&block)
+      if block_given?
+        content = capture(&block) || ""
 
-      format = options.delete(:format) || default_format(name)
-      content = render_content(format, content)
+        format = options.delete(:format) || default_format(name)
+        content = render_content(format, content)
 
-      content_for(name, content, options, &nil)
+        content_for(name, content, options, &nil)
+      end
     end
 
   private
