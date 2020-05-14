@@ -35,6 +35,18 @@ module SmartAnswer
         @test_obj.extend(SmartAnswer::ErbRenderer::FormatCaptureHelper)
       end
 
+      should "ignore missing blocks" do
+        @test_obj.expects(:content_for).never
+
+        @test_obj.render_content_for(:title)
+      end
+
+      should "return empty string for empty blocks" do
+        @test_obj.expects(:content_for).with(:title, "", {})
+
+        @test_obj.render_content_for(:title) {}
+      end
+
       should "pass all arguments to content_for" do
         @test_obj.expects(:content_for).with(:title, "contents", { option: :option })
 
@@ -86,7 +98,7 @@ module SmartAnswer
       end
 
       should "not wrap empty content with govspeak html tags" do
-        assert_captured_content("", :govspeak, "")
+        assert_captured_content("  ", :govspeak, "")
       end
     end
   end
