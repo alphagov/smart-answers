@@ -34,6 +34,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
       checkboxes << {
         label: none_option_label,
         value: "none",
+        exclusive: true,
         checked: prefill_value_is?("none"),
       }
     end

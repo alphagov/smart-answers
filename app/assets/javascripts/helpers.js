@@ -19,26 +19,3 @@ function linkToTemplatesOnGithub() {
     element.removeAttr('data-debug-template-path');
   });
 };
-
-/**
- * Provides support for a 'none' checkbox option.
- * When selected, all other options are deselected.
- * When other options are selected the 'none' option
- * is deselected.
- */
-SmartAnswer.toggleCheckboxes = function() {
-  var checkboxSel = ".govuk-checkboxes__input[type='checkbox']";
-  var noneCheckboxSel = checkboxSel + "[value='none']";
-  var $checkboxes = $(checkboxSel).not(noneCheckboxSel);
-  var $noneCheckbox = $(noneCheckboxSel);
-  var deselectOptions = function() {
-    var $checkbox = this.value === 'none' ? $checkboxes : $noneCheckbox;
-    if (this.checked) {
-      $checkbox.prop('checked', false);
-    }
-  };
-  $checkboxes.change(deselectOptions);
-  $noneCheckbox.change(deselectOptions);
-};
-
-$(document).ready(SmartAnswer.toggleCheckboxes);
