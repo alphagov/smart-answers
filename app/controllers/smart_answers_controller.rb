@@ -26,15 +26,7 @@ class SmartAnswersController < ApplicationController
   def show
     @title = @presenter.title
 
-    respond_to do |format|
-      format.html do
-        render page_type
-      end
-
-      format.json do
-        render json: ApiPresenter.new(@presenter).as_json
-      end
-    end
+    render page_type
 
     set_expiry
   end
