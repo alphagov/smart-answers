@@ -40,21 +40,6 @@ module SmartAnswer
       end
     end
 
-    test "#content_for trims newlines by default" do
-      erb_template = render_content_for(
-        :key,
-        '<% if true %>
-Hello world
-<% end %>',
-      )
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_match(/<p>Hello world<\/p>/, renderer.content_for(:key))
-      end
-    end
-
     test "#content_for makes local variables available to the ERB template" do
       erb_template = render_content_for(:key, "<%= state_variable %>")
 
@@ -75,47 +60,6 @@ Hello world
           renderer.content_for(:key)
         end
         assert_match "undefined local variable or method `non_existent_state_variable'", e.message
-      end
-    end
-
-    test "#content_for makes the ActionView::Helpers::NumberHelper methods available to the ERB template" do
-      erb_template = render_content_for(:key, "<%= number_with_delimiter(123456789) %>")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_match "123,456,789", renderer.content_for(:key)
-      end
-    end
-
-    test "#content_for passes output of ERB template through Govspeak by default" do
-      erb_template = render_content_for(:key, "^information^")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        nodes = Capybara.string(renderer.content_for(:key))
-        assert nodes.has_css?(".application-notice", text: "information"), "Does not have information callout"
-      end
-    end
-
-    test "#content_for returns an HTML-safe string when passed through Govspeak" do
-      erb_template = render_content_for(:body, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.content_for(:body).html_safe?
-      end
-    end
-
-    test "#content_for returns an HTML-safe string" do
-      erb_template = render_content_for(:key, "html-unsafe-string")
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.content_for(:key).html_safe?
       end
     end
 
