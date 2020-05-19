@@ -43,7 +43,7 @@ Create a new file for our landing page template.
 
 ```
 $ mkdir lib/smart_answer_flows/example-smart-answer
-$ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.govspeak.erb
+$ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.erb
 ```
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
@@ -53,11 +53,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new landing page template your editor and copy/paste the following content:
 
 ```erb
-<% render_content_for :title do %>
+<% text_for :title do %>
   Smart Answer title
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Landing page body.
 <% end %>
 ```
@@ -74,7 +74,7 @@ Create a new file for our question page template.
 
 ```
 $ mkdir lib/smart_answer_flows/example-smart-answer/questions
-$ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.govspeak.erb
+$ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
@@ -84,11 +84,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new question page template in your editor and copy/paste the following content:
 
 ```erb
-<% render_content_for :title do %>
+<% text_for :title do %>
   Question page title
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Question page body.
 <% end %>
 ```
@@ -105,7 +105,7 @@ Create a new file for our outcome page template.
 
 ```
 $ mkdir lib/smart_answer_flows/example-smart-answer/outcomes
-$ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.erb
+$ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
@@ -115,11 +115,11 @@ Assuming you're still running `rails server`, visit [http://localhost:3000/examp
 Open the new outcome page template in your editor and copy/paste the following content:
 
 ```erb
-<% render_content_for :title do %>
+<% text_for :title do %>
   Outcome page title
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Outcome page body.
 <% end %>
 ```
