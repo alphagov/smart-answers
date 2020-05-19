@@ -8,17 +8,42 @@ module SmartAnswer
     }.freeze
 
     def render_content_for(name, options = {}, &block)
-      if block_given?
-        content = capture(&block) || ""
+      format = options.fetch(:format, default_format(name))
 
-        format = options.delete(:format) || default_format(name)
-        content = render_content(format, content)
-
-        content_for(name, content, options, &nil)
+      case format
+      when :govspeak
+        govspeak_for(name, &block)
+      when :html
+        html_for(name, &block)
+      when :text
+        text_for(name, &block)
+      else
+        raise InvalidFormatType
       end
     end
 
+    def text_for(name, &block)
+      content = capture_content(&block)
+      content = strip_leading_spaces(content)
+      content = normalize_blank_lines(content)
+      content_for(name, content.strip)
+    end
+
+    def govspeak_for(name, &block)
+      content_for(name, render_govspeak(capture_content(&block)))
+    end
+
+    def html_for(name, &block)
+      content_for(name, capture_content(&block).html_safe)
+    end
+
   private
+
+    def capture_content(&block)
+      raise "Expected a block" unless block
+
+      capture(&block) || ""
+    end
 
     def default_format(name)
       DEFAULT_FORMATS.each do |format, patterns|
@@ -28,34 +53,15 @@ module SmartAnswer
       :govspeak
     end
 
-    def render_content(format, content)
-      case format
-      when :govspeak
-        render_govspeak(content)
-      when :html
-        render_html(content)
-      when :text
-        render_text(content)
-      else
-        raise InvalidFormatType
-      end
-    end
-
     def render_govspeak(content)
       content = strip_leading_spaces(content)
       content = Govspeak::Document.new(content, sanitize: false).to_html
-      content = content.chomp.html_safe
 
-      content.present? ? render("govuk_publishing_components/components/govspeak") { content } : ""
-    end
-
-    def render_html(content)
-      content.html_safe
-    end
-
-    def render_text(content)
-      content = strip_leading_spaces(content)
-      normalize_blank_lines(content).strip
+      if content.present?
+        render("govuk_publishing_components/components/govspeak") { content.html_safe }
+      else
+        ""
+      end
     end
 
     def strip_leading_spaces(string)
