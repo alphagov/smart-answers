@@ -2,27 +2,33 @@ require_relative "../test_helper"
 
 module SmartAnswer
   class ErbRendererTest < ActiveSupport::TestCase
-    test "#erb_template_path returns the combination of the template directory and name" do
-      erb_template = ""
+    test "can render a template" do
+      erb_template = render_content_for(:key, "content")
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        expected_path = erb_template_directory.join("template-name.govspeak.erb")
-        assert_equal expected_path, renderer.erb_template_path
+        renderer = ErbRenderer.new(
+          template_directory: erb_template_directory,
+          template_name: "template-name",
+        )
+        assert_match("content", renderer.content_for(:key))
       end
     end
 
-    test "#relative_erb_template_path returns a relative version of erb_template_path" do
-      erb_template = ""
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+    test "can render a template with a .govspeak name" do
+      erb_template = render_content_for(:key, "content")
+      with_erb_template_file("template-name.govspeak", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(
+          template_directory: erb_template_directory,
+          template_name: "template-name",
+        )
+        assert_match("content", renderer.content_for(:key))
+      end
+    end
+
+    test "#relative_erb_template_path returns a template path relative to Rails.root" do
+      with_erb_template_file("template-name", "") do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        erb_template_path = stub("erb-template-path")
-        relative_erb_template_path = Pathname.new("relative-erb-template-path")
-        erb_template_path.stubs(:relative_path_from).returns(relative_erb_template_path)
-        renderer.stubs(:erb_template_path).returns(erb_template_path)
-
-        assert_equal relative_erb_template_path.to_s, renderer.relative_erb_template_path
+        Rails.stubs(:root).returns(erb_template_directory)
+        assert_equal "template-name.erb", renderer.relative_erb_template_path
       end
     end
 
@@ -175,7 +181,7 @@ Hello world
     end
 
     def with_erb_template_file(outcome_name, erb_template)
-      erb_template_filename = "#{outcome_name}.govspeak.erb"
+      erb_template_filename = "#{outcome_name}.erb"
       Dir.mktmpdir do |directory|
         erb_template_directory = Pathname.new(directory)
 
