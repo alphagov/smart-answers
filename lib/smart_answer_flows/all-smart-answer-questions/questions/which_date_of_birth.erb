@@ -1,13 +1,13 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Date question: What is your date of birth?
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Body can contain further explanations.
 
   - and govspeak
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   You haven't been born yet.
 <% end %>

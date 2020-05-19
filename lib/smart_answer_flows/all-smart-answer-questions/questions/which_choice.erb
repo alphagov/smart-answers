@@ -1,14 +1,14 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Multiple choice: Which of these numbers is not a prime number?
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Body can contain further explanations.
 
   - and govspeak
 <% end %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   This is a hint
 <% end %>
 
@@ -19,6 +19,6 @@
   "four": "Four"
 ) %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   4 is divisible by 2.
 <% end %>
