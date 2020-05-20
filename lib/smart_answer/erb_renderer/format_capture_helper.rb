@@ -2,10 +2,14 @@ module SmartAnswer
   module ErbRenderer::FormatCaptureHelper
     class InvalidFormatType < RuntimeError; end
 
-    DEFAULT_FORMATS = {
-      govspeak: [/^body$/, /^post_body$/, /^next_steps$/],
-      text: [/^title$/, /^meta_description$/, /^hint$/, /^label$/, /^suffix_label$/, /^error_*./],
-    }.freeze
+    TEXT_CONTENT = [
+      :title,
+      :meta_description,
+      :hint,
+      :label,
+      :suffix_label,
+      /^error_/,
+    ].freeze
 
     def render_content_for(name, options = {}, &block)
       format = options.fetch(:format, default_format(name))
@@ -30,10 +34,14 @@ module SmartAnswer
     end
 
     def govspeak_for(name, &block)
+      raise ArgumentError, text_only_error_message(name) if text_only?(name)
+
       content_for(name, render_govspeak(capture_content(&block)))
     end
 
     def html_for(name, &block)
+      raise ArgumentError, text_only_error_message(name) if text_only?(name)
+
       content_for(name, capture_content(&block).html_safe)
     end
 
@@ -46,11 +54,17 @@ module SmartAnswer
     end
 
     def default_format(name)
-      DEFAULT_FORMATS.each do |format, patterns|
-        return format if patterns.any? { |pattern| pattern.match?(name) }
-      end
+      text_only?(name) ? :text : :govspeak
+    end
 
-      :govspeak
+    def text_only?(name)
+      TEXT_CONTENT.any? do |item|
+        item.is_a?(Regexp) ? name.match?(item) : name == item
+      end
+    end
+
+    def text_only_error_message(name)
+      "#{name} can only be used to display text. Please use #text_for"
     end
 
     def render_govspeak(content)

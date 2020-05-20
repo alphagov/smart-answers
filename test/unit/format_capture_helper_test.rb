@@ -67,6 +67,14 @@ module SmartAnswer
         @test_obj.govspeak_for(:name) { "  content" }
         assert_match @test_obj.content_for(:name), "<govspeak><p>content</p>\n</govspeak>"
       end
+
+      should "raise an error when rendering a text only field" do
+        error = assert_raises ArgumentError do
+          @test_obj.govspeak_for(:title) { "Text" }
+        end
+        assert_match "title can only be used to display text. Please use #text_for",
+                     error.message
+      end
     end
 
     context "#html_for" do
@@ -78,6 +86,14 @@ module SmartAnswer
       should "be set set as HTML safe" do
         @test_obj.html_for(:name) { "<p>content</p>" }
         assert @test_obj.content_for(:name).html_safe?
+      end
+
+      should "raise an error when rendering a text only field" do
+        error = assert_raises ArgumentError do
+          @test_obj.html_for(:title) { "Text" }
+        end
+        assert_match "title can only be used to display text. Please use #text_for",
+                     error.message
       end
     end
 
