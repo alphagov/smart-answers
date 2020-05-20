@@ -1,11 +1,7 @@
 module SmartAnswer
   module ErbRenderer::QuestionOptionsHelper
-    def options(options = nil)
-      if options
-        @options = options
-      else
-        @options || {}
-      end
+    def options(new_options = nil)
+      @options = new_options || @options || {}
     end
   end
 end
