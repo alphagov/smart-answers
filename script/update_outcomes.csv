@@ -9,7 +9,7 @@ USA,2,/world/organisations/british-embassy-washington,
 Bermuda,3,FALSE,true
 the Falkland Islands,3,FALSE,true
 Gibraltar,3,FALSE,true
-Australia,4,/world/organisations/british-high-commission-canberra,
+Australia,4,/world/organisations/british-high-commission-canberra,true
 Cyprus,4,/world/organisations/british-high-commission-nicosia,
 South Africa,4,/world/organisations/british-high-commission-pretoria,
 Greece,5,/world/organisations/british-embassy-athens,
