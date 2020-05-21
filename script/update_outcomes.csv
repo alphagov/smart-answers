@@ -6,7 +6,7 @@ Argentina,2,/world/organisations/british-embassy-buenos-aires,true
 Israel,2,/world/organisations/british-embassy-tel-aviv,true
 Netherlands,2,/world/organisations/british-embassy-the-hague,true
 USA,2,/world/organisations/british-embassy-washington,
-Bermuda,3,FALSE,
+Bermuda,3,FALSE,true
 the Falkland Islands,3,FALSE,
 Gibraltar,3,FALSE,
 Australia,4,/world/organisations/british-high-commission-canberra,
