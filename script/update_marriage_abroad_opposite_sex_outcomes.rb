@@ -9,6 +9,7 @@ require "find"
 # 5 - embassy text with link (above ##Prove you're free to get married)
 # 6 - embassy text with link (above ##What you need)
 # 7 - consulate text with link (above ##What you need to do)
+# 8 - embassy text with link (above ##After you get married)
 
 COUNTRIES_DIR = "lib/smart_answer_flows/marriage-abroad/outcomes/countries/".freeze
 OPPOSITE_SEX_FILE = "_opposite_sex".freeze
@@ -26,7 +27,7 @@ def text_variation(variation, link)
   case variation
   when 1, 4 # commission text with link, eof
     "You might be able to form an opposite sex civil partnership. Check the local rules with the [British high commission](#{link})."
-  when 2, 5, 6 # embassy text with link
+  when 2, 5, 6, 8 # embassy text with link
     "You might be able to form an opposite sex civil partnership. Check the local rules with the [British embassy](#{link})."
   when 3 # government text
     "You might be able to form an opposite sex civil partnership. Check the rules with the local government."
@@ -51,6 +52,8 @@ def insert_above_heading(opposite_sex_paths, variation, text)
     heading_match = "Prove you’re free to get married"
   elsif variation.between?(6, 7)
     heading_match = "What you need to do"
+  elsif variation == 8
+    heading_match = "After you get married"
   end
 
   text += "\n\n"
@@ -112,7 +115,7 @@ CSV.open(UPDATE_OUTCOMES_CSV, "wb", write_headers: true, headers: csv_headings) 
         append_to_eof(opposite_sex_paths, text)
         updated = "true"
         updated_count += 1
-      elsif variation.between?(4, 7)
+      elsif variation.between?(4, 8)
         insert_above_heading(opposite_sex_paths, variation, text)
         updated = "true"
         updated_count += 1
