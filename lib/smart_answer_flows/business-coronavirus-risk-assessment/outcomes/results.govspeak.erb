@@ -1,0 +1,85 @@
+<% html_for :body do %>
+  <div class="govspeak-wrapper">
+<% end %>
+
+<% govspeak_for :body do %>
+  This guidance can help you carry out your risk assessment to make sure you keep employees and other people on site safe when opening during coronavirus (COVID-19).
+
+  <% if calculator.show?(:risk_assessment) %>
+    ## Record your risk assessment
+
+    You need to write down the findings of your risk assessment. The Health and Safety Executive (HSE) has a [risk assessment template](https://www.hse.gov.uk/simple-health-safety/risk/risk-assessment-template-and-examples.htm) and [information on how to do a risk assessment](https://www.hse.gov.uk/simple-health-safety/risk/steps-needed-to-manage-risk.htm).
+
+    Your employees can help with the risk assessment.
+    <hr class="app-c-markdown">
+  <% end %>
+  
+  <%= render "on_site", calculator: calculator %>
+  <%= render "social_distancing", calculator: calculator %>
+  <%= render "cleaning", calculator: calculator %>
+
+  <% if calculator.show?(:visitors) %>
+    ## Protecting customers, visitors and contractors on site
+
+    To manage the number of people on site you should:
+
+    - explain social distancing when visitors arrive (you can also use signs)
+    - limit the number of visitors or customers at any one time so people can social distance
+    - get contractors to work from home unless it’s essential for them to be on site
+    - keep contact with contractors to a minimum
+    - keep a record of visitors if you can
+    - put up signs to stay 2 meters apart
+    - have 2 meter floor markings for queues
+    <hr>
+  <% end %>
+
+  <% if calculator.show?(:staff_meetings) %>
+    ## Keeping safe in meetings
+
+    You should:
+
+    - only have meetings in person if you cannot meet remotely
+    - stay 2 meters apart in meetings
+    - use signs on the floor to help people stay 2 meters apart
+    - have meetings outdoors or in ventilated rooms
+    - not share objects like pens
+    - have hand sanitiser in meeting rooms
+    <hr>
+  <% end %>
+
+  <% if calculator.show?(:staff_travel) %>
+    ## Keeping employees safe when they travel for work
+
+    You should:
+
+    - only travel for essential work
+    - have fixed groups of people travelling so that any contact happens between the same people
+    - clean company vehicles between shifts
+    - make sure accommodation meets social distancing guidelines
+    - keep a log of who is staying where
+    <hr>
+  <% end %>
+
+  <% if calculator.show?(:send_or_receive_goods) %>
+    ## Receiving and sending goods safely
+
+    You should:
+
+    - minimise contact at drop-off and collection
+    - minimise contact when people pay for or exchange things, for example by using contactless and electronically signed documents
+    - minimise contact at security, yard and warehouse
+    - minimise the frequency of deliveries, for example by ordering larger amounts at a time
+    - have single workers load or unload vehicles if it’s safe to do so
+    - have fixed pairs or teams where you need more than 1 person for loading
+    - encourage drivers to stay in the vehicle where it’s safe
+    <hr>
+  <% end %>
+
+  ## More help with your risk assessment
+  
+  [Read the detailed guidance for your sector](https://www.gov.uk/guidance/working-safely-during-coronavirus-covid-19).
+<% end %>
+
+<% html_for :body do %>
+  </div>
+<% end %>
