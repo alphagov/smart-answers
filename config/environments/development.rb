@@ -36,10 +36,6 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  if ENV["GOVUK_ASSET_ROOT"].present?
-    config.asset_host = ENV["GOVUK_ASSET_ROOT"]
-  end
-
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
