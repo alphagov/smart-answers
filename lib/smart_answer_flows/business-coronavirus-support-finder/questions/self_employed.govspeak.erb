@@ -2,6 +2,10 @@
   Are you self-employed?
 <% end %>
 
+<% render_content_for :hint do %>
+  For this question, limited company directors are not considered self-employed.
+<% end %>
+
 <% options(
   "yes": "Yes",
   "no": "No",
