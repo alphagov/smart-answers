@@ -1,7 +1,5 @@
 module SmartAnswer
   class ErbRenderer
-    delegate :content_for, to: :rendered_view
-
     def initialize(template_directory:, template_name:, locals: {}, helpers: [])
       @template_directory = template_directory
       @template_name = template_name
@@ -27,6 +25,10 @@ module SmartAnswer
 
     def relative_erb_template_path
       erb_template_path.relative_path_from(Rails.root).to_s
+    end
+
+    def content_for(name)
+      rendered_view.content_for(name) || ""
     end
 
   private
