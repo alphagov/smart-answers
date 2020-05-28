@@ -113,6 +113,16 @@ Hello world
       end
     end
 
+    test "#content_for returns an empty string when content is missing" do
+      erb_template = ""
+
+      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
+
+        assert_equal renderer.content_for(:key), ""
+      end
+    end
+
     test "#option_text returns option text for specified key" do
       erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
 
