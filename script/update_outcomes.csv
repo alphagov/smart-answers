@@ -1,0 +1,25 @@
+country,variation,embassy_link,updated
+Canada,1,/world/organisations/british-high-commission-ottawa,true
+Malta,1,/world/organisations/british-high-commission-malta,true
+New Zealand,1,/world/organisations/british-high-commission-wellington,true
+Argentina,2,/world/organisations/british-embassy-buenos-aires,true
+Israel,2,/world/organisations/british-embassy-tel-aviv,true
+Netherlands,2,/world/organisations/british-embassy-the-hague,true
+USA,8,/world/organisations/british-embassy-washington,true
+Bermuda,3,FALSE,true
+the Falkland Islands,3,FALSE,true
+Gibraltar,3,FALSE,true
+Australia,4,/world/organisations/british-high-commission-canberra,true
+Cyprus,4,/world/organisations/british-high-commission-nicosia,true
+South Africa,4,/world/organisations/british-high-commission-pretoria,true
+Greece,5,/world/organisations/british-embassy-athens,true
+Andorra,7,/world/organisations/british-consulate-general-barcelona,true
+Belgium,6,/world/organisations/british-embassy-brussels,true
+Brazil,6,/world/organisations/british-embassy-brazil,true
+Chile,6,/world/organisations/british-embassy-chile,true
+Colombia,6,/world/organisations/british-embassy-colombia,true
+Ecuador,6,/world/organisations/british-embassy-in-ecuador,true
+Estonia,6,/world/organisations/british-embassy-tallinn,true
+Mexico,6,/world/organisations/british-embassy-mexico-city,true
+San Marino,6,/world/organisations/british-embassy-rome,true
+Aruba,7,/world/organisations/british-consulate-general-amsterdam,true
