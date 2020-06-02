@@ -44,6 +44,24 @@ module SmartAnswer
         end
       end
 
+      multiple_choice :work_exception_1? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          # to be set 
+        end
+      end
+
+      multiple_choice :work_exception_2? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          # to be set 
+        end
+      end
+
       # Outcomes
       outcome :work_from_home
       outcome :maybe_work_from_home
