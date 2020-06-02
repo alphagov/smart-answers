@@ -1,0 +1,24 @@
+<% render_content_for :title do %>
+  Are you clinically vulnerable?
+<% end %>
+
+<% render_content_for :body do %>
+  Clinically vulnerable people are:
+
+  - aged 70 or older (regardless of medical conditions)
+  - under 70 with an underlying healthcondition listed below (that is, anyone instructed to get a flu jab each year on medical grounds):
+  - chronic (long-term) mild to moderate respiratory diseases, such as asthma, chronic obstructive pulmonary disease (COPD), emphysema or bronchitis
+  - chronic heart disease, such as heart failure
+  - chronic kidney disease
+  - chronic liver disease, such as hepatitis
+  - chronic neurological conditions, such as Parkinson’s disease, motor neurone disease, multiple sclerosis (MS), or cerebral palsy
+  - diabetes
+  - a weakened immune system as the result of certain conditions, treatments like chemotherapy, or medicines such as steroid tablets
+  - being seriously overweight (a body mass index (BMI) of 40 or above)
+  - pregnant women
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No",
+) %>
