@@ -44,7 +44,11 @@ module SmartAnswers
     config.filter_parameters += [:password]
 
     # Path within public/ where assets are compiled to
-    config.assets.prefix = "/smartanswers"
+    config.assets.prefix = "/assets/smartanswers"
+
+    # allow overriding the asset host with an enironment variable, useful for
+    # when router is proxying to this app but asset proxying isn't set up.
+    config.asset_host = ENV["ASSET_HOST"]
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w[
