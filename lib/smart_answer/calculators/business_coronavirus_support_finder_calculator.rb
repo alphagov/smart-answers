@@ -46,6 +46,11 @@ module SmartAnswer::Calculators
           calculator.non_domestic_property != "none" &&
           calculator.rate_relief_march_2020 == "yes"
       },
+      discretionary_grant: lambda { |calculator|
+        calculator.business_based == "england" &&
+          calculator.business_size == "0_to_249" &&
+          %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
+      },
       business_loan_scheme: lambda { |calculator|
         %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
       },
