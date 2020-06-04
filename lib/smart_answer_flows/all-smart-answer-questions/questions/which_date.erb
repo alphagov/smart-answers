@@ -1,13 +1,13 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Date question: What date is tomorrow?
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Body can contain further explanations.
 
   - and maybe govspeak
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   That's not tomorrow.
 <% end %>

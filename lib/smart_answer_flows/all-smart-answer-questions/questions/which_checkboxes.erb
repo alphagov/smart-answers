@@ -1,15 +1,15 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Checkbox question: What are other names for Gandalf?
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Body can contain further explanations.
 
   - also formatting in a govspeak style
   - like this
 <% end %>
 
-<% render_content_for :post_body do %>
+<% govspeak_for :post_body do %>
   Post body can contain less important information.
 <% end %>
 
@@ -21,10 +21,10 @@
   "elrohir": "Elrohir"
 ) %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   This is a hint
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   It's neither Elrohir nor Radagast.
 <% end %>

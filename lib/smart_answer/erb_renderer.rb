@@ -9,6 +9,8 @@ module SmartAnswer
         [@template_directory, FlowRegistry.instance.load_path] + default_view_paths,
       )
       @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
+      # This is required to continue supporting .govspeak.erb templates
+      @view.formats = %i[govspeak html]
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(ErbRenderer::QuestionOptionsHelper)
       @view.extend(ErbRenderer::FormatCaptureHelper)
@@ -19,12 +21,10 @@ module SmartAnswer
       @view.options.fetch(key).html_safe
     end
 
-    def erb_template_path
-      @template_directory.join(erb_template_name)
-    end
-
     def relative_erb_template_path
-      erb_template_path.relative_path_from(Rails.root).to_s
+      template = @view.lookup_context.find_template(@template_name)
+      path = Pathname.new(template.identifier)
+      path.relative_path_from(Rails.root).to_s
     end
 
     def content_for(name)
@@ -33,13 +33,9 @@ module SmartAnswer
 
   private
 
-    def erb_template_name
-      "#{@template_name}.govspeak.erb"
-    end
-
     def rendered_view
       @rendered_view ||= @view.tap do |view|
-        view.render(template: erb_template_name, locals: @locals)
+        view.render(template: @template_name, locals: @locals)
       end
     end
   end

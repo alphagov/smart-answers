@@ -2,60 +2,80 @@ module SmartAnswer
   module ErbRenderer::FormatCaptureHelper
     class InvalidFormatType < RuntimeError; end
 
-    DEFAULT_FORMATS = {
-      govspeak: [/^body$/, /^post_body$/, /^next_steps$/],
-      text: [/^title$/, /^meta_description$/, /^hint$/, /^label$/, /^suffix_label$/, /^error_*./],
-    }.freeze
+    TEXT_CONTENT = [
+      :title,
+      :meta_description,
+      :hint,
+      :label,
+      :suffix_label,
+      /^error_/,
+    ].freeze
 
     def render_content_for(name, options = {}, &block)
-      if block_given?
-        content = capture(&block) || ""
+      format = options.fetch(:format, default_format(name))
 
-        format = options.delete(:format) || default_format(name)
-        content = render_content(format, content)
-
-        content_for(name, content, options, &nil)
-      end
-    end
-
-  private
-
-    def default_format(name)
-      DEFAULT_FORMATS.each do |format, patterns|
-        return format if patterns.any? { |pattern| pattern.match?(name) }
-      end
-
-      :govspeak
-    end
-
-    def render_content(format, content)
       case format
       when :govspeak
-        render_govspeak(content)
+        govspeak_for(name, &block)
       when :html
-        render_html(content)
+        html_for(name, &block)
       when :text
-        render_text(content)
+        text_for(name, &block)
       else
         raise InvalidFormatType
       end
     end
 
+    def text_for(name, &block)
+      content = capture_content(&block)
+      content = strip_leading_spaces(content)
+      content = normalize_blank_lines(content)
+      content_for(name, content.strip)
+    end
+
+    def govspeak_for(name, &block)
+      raise ArgumentError, text_only_error_message(name) if text_only?(name)
+
+      content_for(name, render_govspeak(capture_content(&block)))
+    end
+
+    def html_for(name, &block)
+      raise ArgumentError, text_only_error_message(name) if text_only?(name)
+
+      content_for(name, capture_content(&block).html_safe)
+    end
+
+  private
+
+    def capture_content(&block)
+      raise "Expected a block" unless block
+
+      capture(&block) || ""
+    end
+
+    def default_format(name)
+      text_only?(name) ? :text : :govspeak
+    end
+
+    def text_only?(name)
+      TEXT_CONTENT.any? do |item|
+        item.is_a?(Regexp) ? name.match?(item) : name == item
+      end
+    end
+
+    def text_only_error_message(name)
+      "#{name} can only be used to display text. Please use #text_for"
+    end
+
     def render_govspeak(content)
       content = strip_leading_spaces(content)
       content = Govspeak::Document.new(content, sanitize: false).to_html
-      content = content.chomp.html_safe
 
-      content.present? ? render("govuk_publishing_components/components/govspeak") { content } : ""
-    end
-
-    def render_html(content)
-      content.html_safe
-    end
-
-    def render_text(content)
-      content = strip_leading_spaces(content)
-      normalize_blank_lines(content).strip
+      if content.present?
+        render("govuk_publishing_components/components/govspeak") { content.html_safe }
+      else
+        ""
+      end
     end
 
     def strip_leading_spaces(string)
