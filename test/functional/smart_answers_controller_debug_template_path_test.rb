@@ -25,7 +25,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
     end
 
     should "include element with debug-template-path data attribute" do
-      template_name = "smart_answers_controller_sample.govspeak.erb"
+      template_name = "smart_answers_controller_sample.erb"
       template_path = relative_template_path(template_name)
       assert_select "*[data-debug-template-path=?]", template_path
     end
@@ -37,7 +37,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
     end
 
     should "include element with debug-template-path data attribute" do
-      template_name = "questions/do_you_like_chocolate.govspeak.erb"
+      template_name = "questions/do_you_like_chocolate.erb"
       template_path = relative_template_path(template_name)
       assert_select "*[data-debug-template-path=?]", template_path
     end
@@ -49,7 +49,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
     end
 
     should "include element with debug-template-path data attribute" do
-      template_name = "outcomes/you_have_a_sweet_tooth.govspeak.erb"
+      template_name = "outcomes/you_have_a_sweet_tooth.erb"
       template_path = relative_template_path(template_name)
       assert_select "*[data-debug-template-path=?]", template_path
     end
