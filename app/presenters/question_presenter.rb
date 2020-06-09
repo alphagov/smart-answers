@@ -45,6 +45,10 @@ class QuestionPresenter < NodePresenter
     label.present? || suffix_label.present?
   end
 
+  def pretext
+    @renderer.content_for(:pretext)
+  end
+
   def body
     @renderer.content_for(:body)
   end
