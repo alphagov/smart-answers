@@ -264,6 +264,18 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:bounce_back_loan)
         end
       end
+
+      context "future_fund" do
+        should "return true when annual turnover is pre-prevenue" do
+          @calculator.annual_turnover = "pre_revenue"
+          assert @calculator.show?(:future_fund)
+        end
+
+        should "return false when annual turnover not pre-prevenue" do
+          @calculator.annual_turnover = "45m_to_500m"
+          assert_not @calculator.show?(:future_fund)
+        end
+      end
     end
   end
 end
