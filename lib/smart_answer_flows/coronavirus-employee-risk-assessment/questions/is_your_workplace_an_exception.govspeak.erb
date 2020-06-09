@@ -2,8 +2,8 @@
   Is your work one of these exceptions?
 <% end %>
 
-<% render_content_for :body do %>
-  Your workplace should be closed unless it’s one of these exceptions:
+<% render_content_for :pretext do %>
+  ## Your workplace should be closed unless it’s one of these exceptions:
 
   <% if calculator.where_do_you_work == "food_and_drink" %>
     - Food delivery and takeaway - this can be a new activity; this covers the provision of hot and cold food that’s been prepared for consumers for collection or delivery to be consumed, reheated or cooked by consumers off the premises.
