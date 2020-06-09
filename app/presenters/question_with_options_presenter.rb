@@ -4,8 +4,12 @@ class QuestionWithOptionsPresenter < QuestionPresenter
   end
 
   def option_attributes(key)
-    label = @renderer.option_text(key.to_sym)
+    option = @renderer.option(key.to_sym)
 
-    { label: label, value: key }
+    if option.is_a?(String)
+      { label: option, value: key }
+    else
+      option.merge({ value: key })
+    end
   end
 end

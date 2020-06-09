@@ -10,9 +10,9 @@ module SmartAnswer
 
       @renderer = stub("renderer")
 
-      @renderer.stubs(:option_text).with(:option1).returns("Option 1")
-      @renderer.stubs(:option_text).with(:option2).returns("Option 2")
-      @renderer.stubs(:option_text).with(:option3).returns("Option 3")
+      @renderer.stubs(:option).with(:option1).returns("Option 1")
+      @renderer.stubs(:option).with(:option2).returns("Option 2")
+      @renderer.stubs(:option).with(:option3).returns("Option 3")
 
       @presenter = MultipleChoiceQuestionPresenter.new(@question, nil, renderer: @renderer)
     end

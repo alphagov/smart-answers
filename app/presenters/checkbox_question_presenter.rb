@@ -26,6 +26,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
       checkboxes << {
         label: option[:label],
         value: option[:value],
+        hint: option[:hint_text],
         checked: prefill_value_includes?(self, option[:value]),
       }
     end

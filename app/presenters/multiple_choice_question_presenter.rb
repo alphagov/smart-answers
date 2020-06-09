@@ -10,6 +10,7 @@ class MultipleChoiceQuestionPresenter < QuestionWithOptionsPresenter
       {
         text: option[:label],
         value: option[:value],
+        hint_text: option[:hint_text],
         checked: prefill_value_is?(option[:value]),
       }
     end

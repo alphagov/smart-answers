@@ -10,9 +10,9 @@ module SmartAnswer
 
       @renderer = stub("renderer")
 
-      @renderer.stubs(:option_text).with(:option1).returns("Option 1")
-      @renderer.stubs(:option_text).with(:option2).returns("Option 2")
-      @renderer.stubs(:option_text).with(:option3).returns("Option 3")
+      @renderer.stubs(:option).with(:option1).returns("Option 1")
+      @renderer.stubs(:option).with(:option2).returns({ label: "Option 2", hint_text: "Hint 2" })
+      @renderer.stubs(:option).with(:option3).returns({ label: "Option 3" })
 
       @presenter = CheckboxQuestionPresenter.new(@question, nil, renderer: @renderer)
     end
@@ -28,6 +28,7 @@ module SmartAnswer
     test "#checkboxes return hashes of checkbox attributes" do
       assert_equal(%w[option1 option2 option3], @presenter.checkboxes.map { |c| c[:value] })
       assert_equal(["Option 1", "Option 2", "Option 3"], @presenter.checkboxes.map { |c| c[:label] })
+      assert_equal([nil, "Hint 2", nil], @presenter.checkboxes.map { |c| c[:hint] })
       assert_equal([nil, nil, nil], @presenter.checkboxes.map { |c| c[:checked] })
     end
   end
