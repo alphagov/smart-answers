@@ -1,11 +1,11 @@
 class QuestionWithOptionsPresenter < QuestionPresenter
   def options
-    @node.options.map do |option|
-      OpenStruct.new(label: render_option(option), value: option)
-    end
+    @node.options.map { |option_key| option_attributes(option_key) }
   end
 
-  def render_option(key)
-    @renderer.option_text(key.to_sym)
+  def option_attributes(key)
+    label = @renderer.option_text(key.to_sym)
+
+    { label: label, value: key }
   end
 end
