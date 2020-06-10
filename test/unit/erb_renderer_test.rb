@@ -73,48 +73,38 @@ module SmartAnswer
       end
     end
 
-    test "#option_text returns option text for specified key" do
-      erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
+    test "#option returns then option for specified key" do
+      erb_template = "<% options(option_one: 'option-one-text', option_two: { label: 'option-two-text', hint_text: 'option-two-hint-text'}) %>"
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
-        assert_equal "option-one-text", renderer.option_text(:option_one)
-        assert_equal "option-two-text", renderer.option_text(:option_two)
+        assert_equal "option-one-text", renderer.option(:option_one)
+        assert_equal({ label: "option-two-text", hint_text: "option-two-hint-text" }, renderer.option(:option_two))
       end
     end
 
-    test "#option_text raises KeyError if option key does not exist" do
+    test "#option raises KeyError if option key does not exist" do
       erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert_raises(KeyError) do
-          renderer.option_text(:option_three)
+          renderer.option(:option_three)
         end
       end
     end
 
-    test "#option_text raises KeyError if no options defined in template" do
+    test "#option raises KeyError if no options defined in template" do
       erb_template = ""
 
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert_raises(KeyError) do
-          renderer.option_text(:option_key)
+          renderer.option(:option_key)
         end
-      end
-    end
-
-    test "#option_text returns an HTML-safe string" do
-      erb_template = "<% options(option_one: 'html-unsafe-option-one-text') %>"
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.option_text(:option_one).html_safe?
       end
     end
 

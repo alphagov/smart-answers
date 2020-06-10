@@ -97,15 +97,28 @@ This is done using a call to the `options` method.
 
 ### `options(hash)`
 
-Valid for [multiple choice](../question-types.md#multiple_choice) and [checkbox question](../question-types.md#checkbox_question) types. `hash` argument is a `Hash` of option keys (strings) and text values (also strings).
-It is used to "translate" options keys for multiple choice and checkbox questions into human-friendly text.
+Valid for [multiple choice](../question-types.md#multiple_choice) and [checkbox question](../question-types.md#checkbox_question) types. `hash` argument is a `Hash` of option keys (strings) and values (strings or hashes).
+It is used to specify the human-readable label text or hint text for each of the option keys.
 
-Example:
+Example with only label text:
 
 ```erb
 <% options(
-  "0": "0-2.49",
-  "2": "2.5-11.99",
-  "12": "12 or more"
+  "apple": "Apple",
+  "banana": "Bananas",
+  "red-grapes": "Red grapes"
+) %>
+```
+
+Example with label text and hint text:
+
+```erb
+<% options(
+  "apple": "Apple",
+  "gooseberry": {
+    label: "Gooseberry",
+    hint_text: "These can be sour"
+  },
+  "red-grapes": "Red grapes"
 ) %>
 ```

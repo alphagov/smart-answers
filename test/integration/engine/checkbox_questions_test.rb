@@ -16,6 +16,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
         assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
         assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
+        assert page.has_content?("They are spicy")
         assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
         assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
         # Assert they're in the correct order

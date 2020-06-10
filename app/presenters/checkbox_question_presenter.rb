@@ -6,7 +6,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION
         "None"
       else
-        render_option(value)
+        option_attributes(value)[:label]
       end
     end
   end
@@ -24,9 +24,10 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
 
     options.each do |option|
       checkboxes << {
-        label: option.label,
-        value: option.value,
-        checked: prefill_value_includes?(self, option.value),
+        label: option[:label],
+        value: option[:value],
+        hint: option[:hint_text],
+        checked: prefill_value_includes?(self, option[:value]),
       }
     end
 

@@ -16,9 +16,9 @@ module SmartAnswer
       @view.extend(ErbRenderer::FormatCaptureHelper)
     end
 
-    def option_text(key)
+    def option(key)
       rendered_view
-      @view.options.fetch(key).html_safe
+      @view.options.fetch(key)
     end
 
     def relative_erb_template_path

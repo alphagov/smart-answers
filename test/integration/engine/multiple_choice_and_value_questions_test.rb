@@ -66,6 +66,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
 
         assert page.has_field?("To seek the Holy Grail", type: "radio", with: "to_seek_the_holy_grail", visible: false)
+        assert page.has_content?("This is dangerous")
         assert page.has_field?("To rescue the princess", type: "radio", with: "to_rescue_the_princess", visible: false)
         assert page.has_field?("I dunno", type: "radio", with: "dunno", visible: false)
         # Assert they're in the correct order
