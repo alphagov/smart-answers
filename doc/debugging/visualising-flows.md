@@ -1,6 +1,6 @@
 # Visualising flows
 
-To see an interactive visualisation of a smart answer flow, append `/y/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/y/visualise/`
+To see an interactive visualisation of a smart answer flow, append `/y/visualise` to the root of a smart answer URL e.g. `http://smartanswers.dev.gov.uk/<smart-answer>/y/visualise` or `https://www.gov.uk/<smart-answer>/y/visualise`
 
 To see a static visualisation of a smart answer flow, using Graphviz:
 
