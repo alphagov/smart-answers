@@ -40,6 +40,7 @@ module SmartAnswer
         option :"45m_to_500m"
         option :"85k_to_45m"
         option :under_85k
+        option :pre_revenue
 
         on_response do |response|
           calculator.annual_turnover = response
