@@ -46,7 +46,7 @@ group :test do
   gem "minitest-focus", "~> 1.2"
   gem "mocha", "1.11.2", require: false
   gem "rails-controller-testing"
-  gem "shoulda", "~> 3.6.0"
+  gem "shoulda", "~> 4.0.0"
   gem "simplecov", "~> 0.18.5", require: false
   gem "simplecov-rcov", "~> 0.2.3", require: false
   gem "timecop"
