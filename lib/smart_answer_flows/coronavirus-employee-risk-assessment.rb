@@ -7,23 +7,6 @@ module SmartAnswer
       status :draft
 
       # Questions
-      multiple_choice :current_furloughed? do
-        option :yes
-        option :yes_about_to_end
-        option :no
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :stay_furloughed
-          when "yes_about_to_end"
-            question :can_work_from_home?
-          when "no"
-            question :can_work_from_home?
-          end
-        end
-      end
-
       multiple_choice :can_work_from_home? do
         option :yes
         option :maybe
@@ -154,7 +137,6 @@ module SmartAnswer
       end
 
       # Outcomes
-      outcome :stay_furloughed
       outcome :work_from_home
       outcome :work_from_home_help
       outcome :workplace_should_be_closed
