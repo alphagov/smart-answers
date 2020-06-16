@@ -4,7 +4,7 @@ module SmartAnswer
       name "coronavirus-business-reopening"
       start_page_content_id "00c39c07-4595-4927-8b81-64a4def8e596"
       flow_content_id "4590e82c-7f16-41a9-b3b6-1e63aaa72fc1"
-      status :draft
+      status :published
 
       checkbox_question :sectors? do
         option :construction
