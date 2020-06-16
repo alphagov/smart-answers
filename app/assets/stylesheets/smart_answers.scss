@@ -42,10 +42,11 @@ $is-ie: false !default;
       @extend .govuk-table__cell;
     }
 
-  }
+    hr {
+      margin-top: govuk-spacing(8);
+      margin-bottom: govuk-spacing(8);
+    }
 
-  .application-notice {
-    padding-top: govuk-spacing(3);
   }
 }
 
