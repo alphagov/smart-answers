@@ -117,4 +117,14 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
       assert_current_node :go_back_to_work
     end
   end
+  
+  context "specific question flows" do
+    should "show go back to work outcome" do
+      assert_current_node :can_work_from_home?
+      add_response "no"
+      assert_current_node :where_do_you_work?
+      add_response "auction_house"
+      assert_current_node :is_your_workplace_an_auction_house?
+    end
+  end
 end

@@ -57,7 +57,6 @@ module SmartAnswer
             "food_and_drink",
             "retail",
             "outdoor_market",
-            "auction_house",
             "holiday_accommodation",
             "library",
             "community_centre",
@@ -65,6 +64,8 @@ module SmartAnswer
             "indoor_recreation",
             "outdoor_recreation"
             question :is_your_workplace_an_exception?
+          when "auction_house"
+            question :is_your_workplace_an_auction_house?
           else
             question :are_you_shielding?
           end
@@ -72,6 +73,19 @@ module SmartAnswer
       end
 
       multiple_choice :is_your_workplace_an_exception? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == "yes"
+            question :are_you_shielding?
+          else
+            outcome :workplace_should_be_closed
+          end
+        end
+      end
+
+      multiple_choice :is_your_workplace_an_auction_house? do
         option :yes
         option :no
 
