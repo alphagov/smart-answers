@@ -2,7 +2,7 @@
   Based on your answers, you'll be affected by the benefit cap as you get <%= format_money(total_benefits_amount) %> in benefits and your benefit cap is <%= format_money(benefit_cap) %>.
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   Your Housing Benefit will be: <%= format_money(new_housing_benefit) %>.
 
   ##How this is worked out

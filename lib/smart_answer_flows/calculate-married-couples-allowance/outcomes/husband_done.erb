@@ -2,10 +2,10 @@
   The husband qualifies for Married Couple's Allowance - he'll get <%= format_money(allowance) %> off his tax bill.
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   <%= render partial: 'done_body' %>
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   <%= render partial: 'done_next_steps' %>
 <% end %>

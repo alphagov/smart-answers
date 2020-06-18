@@ -1,4 +1,4 @@
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   <% if (has_contract == 'yes' || has_contract == 'no') &&
     (calculator.on_payroll == 'no' || employed_dob == 'no') %>
     <% if has_contract == 'no' %>
@@ -58,6 +58,6 @@
   <% end %>
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   Read the [guide to Statutory Adoption Pay and Leave](/employers-adoption-pay-leave)
 <% end %>

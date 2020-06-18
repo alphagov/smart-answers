@@ -2,10 +2,10 @@
   The estate is shared equally between the parents.
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   They may have to pay Inheritance Tax.
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   <%= render partial: 'next_step_links', locals: { next_steps: next_steps } %>
 <% end %>

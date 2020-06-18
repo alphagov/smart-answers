@@ -2,10 +2,10 @@
   The estate is split in two, half goes to the parents and half to the brothers or sisters.
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   <%= render partial: 'next_step_links', locals: { next_steps: next_steps } %>
 <% end %>

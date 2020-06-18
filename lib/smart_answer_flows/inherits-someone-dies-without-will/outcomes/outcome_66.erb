@@ -2,12 +2,12 @@
   The estate is shared equally between the children.
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their place.
 
   They may have to pay Inheritance Tax.
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   <%= render partial: 'next_step_links', locals: { next_steps: next_steps } %>
 <% end %>

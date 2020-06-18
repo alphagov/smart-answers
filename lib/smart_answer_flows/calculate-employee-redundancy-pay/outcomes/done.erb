@@ -3,7 +3,7 @@
 
 <% end %>
 
-<% render_content_for :body do %>
+<% govspeak_for :body do %>
   ##How it’s worked out
 
   Your employee's entitlement is <%= number_of_weeks_entitlement %> weeks.
@@ -21,6 +21,6 @@
   ^Redundancy pay under £30,000 is not taxable.^
 <% end %>
 
-<% render_content_for :next_steps do %>
+<% govspeak_for :next_steps do %>
   [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
 <% end %>
