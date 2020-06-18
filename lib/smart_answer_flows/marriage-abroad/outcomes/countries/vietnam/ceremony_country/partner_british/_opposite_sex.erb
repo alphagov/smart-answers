@@ -36,12 +36,12 @@ You’ll need to bring your passport. Check with the register what other support
 
 ## Fees
 
-<%= render partial: 'consular_fees_table_items.govspeak.erb',
+<%= render partial: 'consular_fees_table_items',
            collection: calculator.services,
            as: :service,
            locals: { calculator: calculator } %>
 
 You can pay fees for consular services in the local currency or pounds sterling - these are shown in the list of [consular fees for Vietnam](/government/publications/vietnam-consular-fees).
 
-<%=  render partial: 'how_to_pay.govspeak.erb',
+<%=  render partial: 'how_to_pay',
             locals: {calculator: calculator}%>

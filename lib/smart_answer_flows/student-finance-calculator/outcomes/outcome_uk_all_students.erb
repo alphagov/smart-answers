@@ -1,5 +1,5 @@
 <% render_content_for :body do %>
-  <%= render partial: 'disclaimer.govspeak.erb' %>
+  <%= render partial: 'disclaimer' %>
 
   <% if course_studied == 'dental-medical-healthcare' %>
     To qualify for a Maintenance Loan you must be studying a DipHE in dental hygiene and dental therapy or operating department practice, or a Foundation Degree in dental hygiene and dental therapy.
@@ -48,8 +48,8 @@
 
   <% end %>
 
-  <%= render partial: 'uk_extra_help.govspeak.erb', locals: { course_type: course_type } %>
+  <%= render partial: 'uk_extra_help', locals: { course_type: course_type } %>
 
-  <%= render partial: 'next_steps.govspeak.erb' %>
+  <%= render partial: 'next_steps' %>
 
 <% end %>

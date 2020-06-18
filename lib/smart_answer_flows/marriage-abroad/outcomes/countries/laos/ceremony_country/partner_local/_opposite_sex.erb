@@ -32,14 +32,14 @@ You’ll also need to provide evidence if you’ve changed your name by deed pol
 
 ## Fees
 
-<%= render partial: 'consular_fees_table_items.govspeak.erb',
+<%= render partial: 'consular_fees_table_items',
     collection: calculator.services,
     as: :service,
     locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Laos](/government/publications/laos-consular-fees).
 
-<%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
+<%= render partial: 'how_to_pay', locals: {calculator: calculator} %>
 
 ##Naturalisation of your partner if they move to the UK
 

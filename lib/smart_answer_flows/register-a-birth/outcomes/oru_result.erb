@@ -208,12 +208,12 @@
 
   Once you’ve paid you will be given a reference number to use on your birth registration form.
 
-  <%= render partial: 'fees.govspeak.erb',
+  <%= render partial: 'fees',
              locals: { calculator: calculator } %>
 
-  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: calculator.document_return_fees } %>
+  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees', locals: { document_return_fees: calculator.document_return_fees } %>
 
-  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
 
   ##4. Send your registration
 

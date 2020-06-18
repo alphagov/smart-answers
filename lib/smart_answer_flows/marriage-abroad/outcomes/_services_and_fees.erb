@@ -1,7 +1,7 @@
 <% if calculator.services.any? %>
   ## Fees
 
-  <%= render partial: 'consular_fees_table_items.govspeak.erb',
+  <%= render partial: 'consular_fees_table_items',
              collection: calculator.services,
              as: :service,
              locals: { calculator: calculator } %>
@@ -16,6 +16,6 @@
      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= calculator.country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
   <% end %>
 
-  <%=  render partial: 'how_to_pay.govspeak.erb',
+  <%=  render partial: 'how_to_pay',
               locals: {calculator: calculator}%>
 <% end %>

@@ -2,9 +2,9 @@
   <% if (has_contract == 'yes' || has_contract == 'no') &&
     (calculator.on_payroll == 'no' || employed_dob == 'no') %>
     <% if has_contract == 'no' %>
-      <%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
+      <%= render partial: 'paternity_not_entitled_to_leave' %>
     <% elsif has_contract == 'yes' %>
-      <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
+      <%= render partial: 'paternity_entitled_to_leave',
                  locals: {
                    leave_type: calculator.leave_type,
                    leave_start_date: leave_start_date,
@@ -14,10 +14,10 @@
                  } %>
     <% end %>
 
-    <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
+    <%= render partial: 'paternity_not_entitled_to_pay_intro' %>
 
     <% if calculator.on_payroll == 'no' %>
-      + <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
+      + <%= render partial: 'must_be_on_payroll' %>
     <% elsif employed_dob == 'no' %>
       <% case leave_type %>
       <% when 'paternity' %>
@@ -28,7 +28,7 @@
 
     <% end %>
 
-    <%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
+    <%= render partial: 'paternity_not_entitled_to_pay_outro' %>
   <% else %>
     ##Not entitled to Statutory Paternity Pay or Leave
 
@@ -47,7 +47,7 @@
     <% end %>
     <% if paternity_employment_start == "no" %>
 
-      + <%= render partial: 'not_worked_long_enough.govspeak.erb',
+      + <%= render partial: 'not_worked_long_enough',
                  locals: {employment_start: employment_start} %>
     <% end %>
 

@@ -51,9 +51,9 @@
   <% end %>
 
   <% if iran %>
-    <%= render partial: 'iran_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
+    <%= render partial: 'iran_downloads', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
   <% else %>
-    <%= render partial: 'common_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
+    <%= render partial: 'common_downloads', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
   <% end %>
 
   ##What the FCO and British consulate can’t do
@@ -75,5 +75,5 @@
 
   ##Other organisations that can help
 
-  <%= render partial: 'further_links.govspeak.erb' %>
+  <%= render partial: 'further_links' %>
 <% end %>

@@ -1,8 +1,8 @@
 <% render_content_for :body do %>
   <% if has_contract == "no" %>
-    <%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
+    <%= render partial: 'paternity_not_entitled_to_leave' %>
   <% else %>
-    <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
+    <%= render partial: 'paternity_entitled_to_leave',
                locals: {
                  leave_type: calculator.leave_type,
                  leave_start_date: leave_start_date,
@@ -13,16 +13,16 @@
   <% end %>
 
   <% unless above_lower_earning_limit %>
-    <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
+    <%= render partial: 'paternity_not_entitled_to_pay_intro' %>
 
-    + <%= render partial: 'must_earn_over_threshold.govspeak.erb',
+    + <%= render partial: 'must_earn_over_threshold',
                locals: {
                  average_weekly_earnings: average_weekly_earnings,
                  relevant_period: relevant_period,
                  lower_earning_limit: lower_earning_limit
                } %>
 
-    <%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
+    <%= render partial: 'paternity_not_entitled_to_pay_outro' %>
   <% else %>
     <% if leave_type == "adoption" %>
       ##Statutory Adoption Pay (SAP)
@@ -56,7 +56,7 @@
 
    %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
-    <%= render partial: 'spp_claim_link.govspeak.erb',
+    <%= render partial: 'spp_claim_link',
                locals: {leave_type: leave_type} %>
   <% end %>
 <% end %>

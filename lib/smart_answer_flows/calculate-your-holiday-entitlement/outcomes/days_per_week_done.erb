@@ -5,11 +5,11 @@
     Even though more than 5 days a week are worked, the maximum statutory holiday entitlement is 28 days.
   <% end %>
 
-  <%= render partial: "your_employer_with_rounding.govspeak.erb" %>
+  <%= render partial: "your_employer_with_rounding" %>
 
   <% if holiday_period == "starting" %>
-    <%= render partial: "the_user_should_be_aware.govspeak.erb" %>
+    <%= render partial: "the_user_should_be_aware" %>
   <% end %>
 
-   <%= render partial: "guidance_on_calculations.govspeak.erb" %>
+   <%= render partial: "guidance_on_calculations" %>
 <% end %>

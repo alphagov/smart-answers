@@ -41,13 +41,13 @@ You’ll need to provide two witnesses and pay a fee to register your civil part
 
 ## Fees
 
-<%= render partial: 'consular_fees_table_items.govspeak.erb',
+<%= render partial: 'consular_fees_table_items',
     collection: calculator.services,
     as: :service,
     locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Guatemala](/government/publications/guatemala-consular-fees).
 
-<%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
+<%= render partial: 'how_to_pay', locals: {calculator: calculator} %>
 
 *[CNI]:certificate of no impediment

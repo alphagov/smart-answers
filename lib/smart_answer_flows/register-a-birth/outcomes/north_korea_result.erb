@@ -30,7 +30,7 @@
 
   ##Cost
 
-  <%= render partial: 'fees.govspeak.erb',
+  <%= render partial: 'fees',
              locals: { calculator: calculator } %>
 
   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
@@ -51,7 +51,7 @@
     Either parent can register the birth.
   <% end %>
 
-  <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
+  <%= render partial: 'shared/overseas_passports_embassies', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
 
   ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
 
