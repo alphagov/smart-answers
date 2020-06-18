@@ -1,11 +1,11 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   How many years have you worked for your employer?
 <% end %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   Only count full years of service. For example, 3 years and 9 months count as 3 years.
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   Please enter a number. Based on your previous answers this should be no greater than <%= years_available %>
 <% end %>

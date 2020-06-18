@@ -1,13 +1,13 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   What was the employment end date?
 <% end %>
 
 <% if start_date %>
-  <% render_content_for :error_end_date_before_start_date do %>
+  <% text_for :error_end_date_before_start_date do %>
     Your end date can not be before your start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
   <% end %>
 
-  <% render_content_for :error_end_date_outside_year_range do %>
+  <% text_for :error_end_date_outside_year_range do %>
       Your employment end date must be within 1 year of your start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
   <% end %>
 <% end %>

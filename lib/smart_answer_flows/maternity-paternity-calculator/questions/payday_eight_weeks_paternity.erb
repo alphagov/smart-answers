@@ -1,11 +1,11 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   What was the last normal payday before <%= payday_offset_formatted %>
 <% end %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   <%= render partial: 'payday_question_hint' %>
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   You must enter a date on or before <%= payday_offset_formatted %>
 <% end %>

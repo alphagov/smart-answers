@@ -1,4 +1,4 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(relevant_period_from) %> and <%= format_date(relevant_period_to) %>.
 <% end %>
 
@@ -7,6 +7,6 @@
 
 <% end %>
 
-<% render_content_for :error_message do %>
+<% text_for :error_message do %>
   Please enter a number greater than 0
 <% end %>

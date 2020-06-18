@@ -1,13 +1,13 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Enter the postcode of the property you want to let:
 <% end %>
 
-<% render_content_for :error_postcode_invalid do %>
+<% text_for :error_postcode_invalid do %>
   Invalid postcode
 <% end %>
-<% render_content_for :error_postcode_incomplete do %>
+<% text_for :error_postcode_incomplete do %>
   Please enter a full postcode
 <% end %>
-<% render_content_for :error_postcode_lookup_failed do %>
+<% text_for :error_postcode_lookup_failed do %>
   Fetching information for this postcode failed, please try again later
 <% end %>

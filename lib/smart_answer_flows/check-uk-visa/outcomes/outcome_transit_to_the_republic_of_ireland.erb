@@ -1,4 +1,4 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   <% if calculator.passport_country_is_taiwan? %>
     You won’t need a visa if your passport has a personal ID number on the bio data page.
   <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>

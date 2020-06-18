@@ -1,15 +1,15 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   Number of days worked per week?
 <% end %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   We need this to calculate how many hours are worked in an average day. Include half-days, for example 3.5.
 <% end %>
 
-<% render_content_for :error_over_7_days_per_week do %>
+<% text_for :error_over_7_days_per_week do %>
   There are only 7 days in a week. Please check and enter a correct value.
 <% end %>
 
-<% render_content_for :error_over_24_hours_per_day do %>
+<% text_for :error_over_24_hours_per_day do %>
   There are only 24 hours per day. Please check and enter a correct value.
 <% end %>

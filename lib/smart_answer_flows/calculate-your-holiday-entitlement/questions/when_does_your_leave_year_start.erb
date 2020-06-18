@@ -1,27 +1,27 @@
-<% render_content_for :title do %>
+<% text_for :title do %>
   When does the leave year start?
 <% end %>
 
-<% render_content_for :hint do %>
+<% text_for :hint do %>
   This is usually in the employment contract. If it is not and the job was started after 1 October 1998, the leave year will start on the 1st day of the job. If the job was started on or before 1 October 1998, the leave year will start on 1 October.
 <% end %>
 
 <% if leaving_date%>
-  <% render_content_for :error_end_date_before_start_date do %>
+  <% text_for :error_end_date_before_start_date do %>
     Your leave year start date must be earlier than your employment end date of <%="#{leaving_date.strftime('%d %B %Y')}"%>.
   <% end %>
 
-  <% render_content_for :error_end_date_outside_leave_year_range do %>
+  <% text_for :error_end_date_outside_leave_year_range do %>
     Your employment end date of <%="#{leaving_date.strftime('%d %B %Y')}"%> must be within 1 year of the leave year start date.
   <% end %>
 <% end %>
 
 <% if start_date%>
-  <% render_content_for :error_start_date_before_start_leave_year_date do %>
+  <% text_for :error_start_date_before_start_leave_year_date do %>
     Your leave year start date must be earlier than your employment start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
   <% end%>
 
-  <% render_content_for :error_start_date_outside_leave_year_range do %>
+  <% text_for :error_start_date_outside_leave_year_range do %>
     Your employment start date of <%="#{start_date.strftime('%d %B %Y')}"%> must be within 1 year of the leave year start date.
   <% end %>
 <% end %>
