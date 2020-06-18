@@ -22,7 +22,8 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
     context "salary question" do
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y" }
-        assert_select ".govuk-label", /How much\?/
+        assert_select ".govuk-caption-l", "Sample salary question"
+        assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
       end
@@ -41,14 +42,14 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
       context "no error message set in erb template" do
         should "show a generic message" do
           submit_response amount: "bad_number"
-          assert_select ".govuk-label", /How much\?/
+          assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
           assert_select ".govuk-error-message", /Please answer this question/
         end
       end
 
       should "show a validation error if invalid period" do
         submit_response amount: "1", period: "bad_period"
-        assert_select ".govuk-label", /How much\?/
+        assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
         assert_select ".govuk-error-message", /Please answer this question/
       end
 

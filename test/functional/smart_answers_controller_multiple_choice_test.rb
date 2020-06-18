@@ -19,6 +19,13 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
   end
 
   context "multiple choice question" do
+    should "display question" do
+      get :show, params: { id: "smart-answers-controller-sample-with-multiple-choice-question", started: "y" }
+      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l .govuk-caption-l", "Sample multiple choice question"
+      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /What\?/
+      assert_select "input[type=radio][name=response]"
+    end
+
     context "no response given" do
       should "show an error message" do
         submit_response(nil)
