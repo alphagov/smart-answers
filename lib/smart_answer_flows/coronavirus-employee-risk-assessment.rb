@@ -61,11 +61,22 @@ module SmartAnswer
             "library",
             "community_centre",
             "places_of_worship",
-            "indoor_recreation",
+            "leisure_centre",
             "outdoor_recreation"
             question :is_your_workplace_an_exception?
           when "auction_house"
             question :is_your_workplace_an_auction_house?
+          when
+            "salon_parlour",
+            "car_showroom",
+            "museums_or_galleries",
+            "nightclubs",
+            "cinema",
+            "gambling",
+            "skating",
+            "indoor_recreation",
+            "funfair"
+            outcome :workplace_should_be_closed
           else
             question :are_you_shielding?
           end

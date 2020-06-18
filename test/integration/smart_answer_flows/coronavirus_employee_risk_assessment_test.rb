@@ -29,7 +29,15 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
       assert_current_node :where_do_you_work?
     end
 
-    should "show your workplace should be closed outcome" do
+    should "show your workplace should be closed outcome 1" do
+      assert_current_node :can_work_from_home?
+      add_response "no"
+      assert_current_node :where_do_you_work?
+      add_response "funfair"
+      assert_current_node :workplace_should_be_closed
+    end
+
+    should "show your workplace should be closed outcome 2" do
       assert_current_node :can_work_from_home?
       add_response "no"
       assert_current_node :where_do_you_work?
