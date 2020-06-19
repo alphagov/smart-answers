@@ -28,19 +28,17 @@ module SmartAnswer
         option :food_and_drink
         option :salon_parlour
         option :retail
-        option :car_showroom
-        option :outdoor_market
         option :auction_house
         option :holiday_accommodation
         option :libraries
         option :community_centre
         option :places_of_worship
         option :museums_or_galleries
-        option :nightclubs
+        option :nightclubs_or_gambling
         option :cinema
-        option :gambling
-        option :skating
         option :leisure_centre
+        option :indoor_attraction
+        option :indoor_visitor_centres
         option :indoor_recreation
         option :funfair
         option :outdoor_recreation
@@ -56,26 +54,24 @@ module SmartAnswer
           when
             "food_and_drink",
             "retail",
-            "outdoor_market",
             "holiday_accommodation",
-            "library",
+            "libraries",
             "community_centre",
             "places_of_worship",
             "leisure_centre",
-            "outdoor_recreation"
+            "indoor_attraction",
+            "outdoor_recreation",
+            "museums_or_galleries",
+            "cinema"
             question :is_your_workplace_an_exception?
           when "auction_house"
             question :is_your_workplace_an_auction_house?
           when
             "salon_parlour",
-            "car_showroom",
-            "museums_or_galleries",
-            "nightclubs",
-            "cinema",
-            "gambling",
-            "skating",
+            "nightclubs_or_gambling",
             "indoor_recreation",
-            "funfair"
+            "funfair",
+            "indoor_visitor_centres"
             outcome :workplace_should_be_closed
           else
             question :are_you_shielding?

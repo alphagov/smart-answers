@@ -1,20 +1,52 @@
+<%
+  workplace =  calculator.where_do_you_work
+  case workplace
+  when "museums_or_galleries", "cinema", "indoor_attraction"
+    options = {
+      "yes": "Yes",
+      "no": "No",
+    }
+  else
+    options = {
+      "yes": "Yes, I work at one of these exceptions",
+      "no": "No, I do not work at one of these exceptions",
+    }
+  end
+%>
 <% render_content_for :title do %>
-  Is your workplace one of these exceptions?
+  <% case workplace %>
+  <% when "museums_or_galleries" %>
+    Is your place of work a retail gallery?
+  <% when "cinema" %>
+    Is your place of work a drive-in cinema?
+  <% when "indoor_attraction" %>
+    Is your workplace an outdoor area of a zoo, safari park, wildlife centre or other animal attraction?
+  <% else %>
+    Is your workplace one of these exceptions?
+  <% end %>
 <% end %>
 
 <% render_content_for :pretext do %>
-  <% if calculator.where_do_you_work == "holiday_accommodation" %>
+  <% case workplace %>
+  <% when "holiday_accommodation" %>
     ## Your workplace should be closed unless it’s providing accommodation to one of these exceptions:
+  <% when "museums_or_galleries" %>
+    Your workplace should be closed unless it’s a retail gallery where the majority of art on display is for sale.
+  <% when "cinema" %>
+    Your workplace should be closed unless it’s a drive-in cinema.
+  <% when "indoor_attraction" %>
+    Your workplace should be closed unless it’s an outdoor area of zoos, safari parks, wildlife centres and other animal attractions.
   <% else %>
     ## Your workplace should be closed unless it’s one of these exceptions:
   <% end %>
 
-  <% if calculator.where_do_you_work == "food_and_drink" %>
+  <% case workplace %>
+  <% when "food_and_drink" %>
     - food delivery and takeaway - this can be a new activity; this covers the provision of hot and cold food that’s been prepared for consumers for collection or delivery to be consumed, reheated or cooked off the premises
     - room services in hotels and accommodation
     - cafés and canteens at places of work where there is no practical alternative (for example, hospitals, police stations, fire stations, care homes, schools, prisons and military)
     - services providing food or drink to the homeless
-  <% elsif calculator.where_do_you_work == "retail" %>
+  <% when "retail" %>
     - food retailers, including supermarkets
     - dental services, opticians, audiology services, chiropody, chiropractors, osteopaths and other medical or health services (including physiotherapy and podiatry services), and mental health services
     - pharmacies and chemists, including non-dispensing pharmacies
@@ -35,38 +67,36 @@
     - banks, building societies, short-term loan providers, credit unions, savings clubs, cash points, currency exchange offices, businesses for the transmission of money, and businesses which cash cheques
     - storage and distribution facilities, including delivery, drop-off or collection points where they are on the premises of any of the above businesses
     - shopping centres (but only units of the types listed above may trade)
-  <% elsif calculator.where_do_you_work == "outdoor_market"%>
-    - livestock markets
-    - stalls selling food
-  <% elsif calculator.where_do_you_work == "holiday_accommodation" %>
-    - people who use these holiday accommodations or caravan parks as a permanent residence, or a temporary residence while their primary residence is unavailable
-    - non-UK residents who cannot travel to their country of residence during this period
-    - providing services necessary to any critical worker engaged in the efforts to deal with coronavirus
-    - providing rooms to support homeless and other vulnerable people through arrangements with local authorities and other public bodies (for example, those who cannot safely stay in their homes)
-    - open to people attending a funeral where returning home would be impractical
-    - hosting blood donation sessions
-    - providing accommodation to an elite athlete, their  coach, or the parent of an elite athlete (if the athlete is under 18) for the purpose of training or competition
-  <% elsif calculator.where_do_you_work == "libraries" %>
-    - digital library services and those where orders are taken electronically, by telephone or by post (for example no-contact Home Library Services)
-  <% elsif calculator.where_do_you_work == "community_centre" %>
+  <% when "holiday_accommodation" %>
+    - if people use these holiday accommodations or caravan parks as a permanent residence, or a temporary residence while their primary residence is unavailable
+    - non-UK residents who cannot travel to their country of residence during this period can continue to stay in hotels or similar accommodations
+    - hotels and other accommodations listed providing services necessary to any critical worker engaged in the efforts to deal with coronavirus
+    - hotels, hostels, and B&Bs providing rooms to support homeless and other vulnerable people through arrangements with local authorities and other public bodies (for example, those who cannot safely stay in their homes)
+    - hotels open to people attending a funeral where returning home would be impractical
+    - hotels and other accommodation hosting blood donation sessions
+  <% when "libraries" %>
+    - libraries operating click and collect services where orders are taken electronically, by telephone or by post
+    - shops and cafes or restaurants (takeaway only) which are in self-contained units where it’s possible for members of the public to enter from a place outside those premises
+  <% when "community_centre" %>
     - community centres open for hosting essential voluntary activities and urgent public services, such as food banks and homeless services
     - community centres open temporary to host a blood donation session
-  <% elsif calculator.where_do_you_work == "places_of_worship" %>
-    - funerals may be held but they should be conducted in line with [guidance from Public Health England](https://www.gov.uk/government/publications/covid-19-guidance-for-managing-a-funeral-during-the-coronavirus-pandemic/covid-19-guidance-for-managing-a-funeral-during-the-coronavirus-pandemic)
-    - burial grounds and cemeteries, as well as grounds surrounding crematoria and gardens of remembrance, may remain open
-    - providers of funeral services, such as funeral directors and funeral homes, may remain open
-    - a minister of religion or worship leader may leave their home to travel to their place of worship; a place of worship may broadcast an act of worship, whether over the internet or otherwise
-    - a place of worship can remain open for the purpose of hosting essential voluntary activities and urgent public services, such as food banks, homeless services, and blood donation sessions
-  <% elsif calculator.where_do_you_work == "leisure_centre" %>
-    - a suitable assembly premise open for blood donation sessions
-    - a suitable leisure premise open for blood donation sessions
-  <% elsif calculator.where_do_you_work == "outdoor_recreation" %>
-    - outdoor sports courts, including public and private outdoor enclosed areas such as tennis courts, golf courses, basketball courts, bowling greens and football pitches can open but social distancing guidelines should be followed (bars and clubhouses at outdoor sports facilities must remain closed, other than takeaway to be consumed off-site)
-    - parks, open countryside, beaches and waterways can remain open
+    - community centres providing early years childcare by a person registered on the Early Years Register
+    - community centres hosting an indoor market
+  <% when "places_of_worship" %>
+    - burial grounds and cemeteries, as well as grounds surrounding crematoria and gardens of remembrance
+    - providers of funeral services, such as funeral directors and funeral homes
+    - a place of worship broadcasting an act of worship, whether over the internet or otherwise
+    - a place of worship open for the purpose of hosting essential voluntary activities and urgent public services, such as food banks, homeless services, and blood donation sessions
+    - a place of worship providing early years childcare by a person registered on the Early Years Register
+    - a place of worship open for private prayer by individuals (group prayers or communal worship within a place of worship - even between members of the same household - is not permitted)
+    - shops and cafes or restaurants (takeaway only) at places of worship which are in self-contained units where it’s possible for members of the public to enter from a place outside those premises
+  <% when "leisure_centre" %>
+    - a suitable assembly or leisure premise open for blood donation sessions
+    - open for training for elite athletes only (see [guidance for elite sport](https://www.gov.uk/government/publications/coronavirus-covid-19-guidance-on-phased-return-of-sport-and-recreation/elite-sport-return-to-training-guidance-step-one--2))
+  <% when "outdoor_recreation" %>
+    - outdoor sports courts or amenities, including public and private outdoor enclosed areas such as tennis courts, golf courses and driving ranges, basketball courts, bowling greens, football pitches, water sports, stables, shooting and archery venues outdoor swimming pools open for training for elite athletes only (see [guidance for elite sport](https://www.gov.uk/government/publications/coronavirus-covid-19-guidance-on-phased-return-of-sport-and-recreation/elite-sport-return-to-training-guidance-step-one--2))
+    - parks, open countryside, beaches and waterways (including private/ticketed gardens, such as those managed by the National Trust)
   <% end %>
 <% end %>
 
-<% options(
-  "yes": "Yes, I work at one of these exceptions",
-  "no": "No, I do not work at one of these exceptions",
-) %>
+<% options(options) %>
