@@ -3,7 +3,11 @@
 <% end %>
 
 <% render_content_for :pretext do %>
-  ## Your workplace should be closed unless it’s one of these exceptions:
+  <% if calculator.where_do_you_work == "holiday_accommodation" %>
+    ## Your workplace should be closed unless it’s providing accommodation to one of these exceptions:
+  <% else %>
+    ## Your workplace should be closed unless it’s one of these exceptions:
+  <% end %>
 
   <% if calculator.where_do_you_work == "food_and_drink" %>
     - food delivery and takeaway - this can be a new activity; this covers the provision of hot and cold food that’s been prepared for consumers for collection or delivery to be consumed, reheated or cooked off the premises
@@ -12,11 +16,11 @@
     - services providing food or drink to the homeless
   <% elsif calculator.where_do_you_work == "retail" %>
     - food retailers, including supermarkets
-    - dental services, opticians, audiology services, chiropody, chiropractors, osteopaths and other medical or health services (including physiotherapy and podiatry services), and mental health services 
-    - pharmacies and chemists, including non-dispensing pharmacies 
-    - petrol stations 
-    - bicycle shops 
-    - homeware, building supplies and hardware shops, including the ones that supply equipment for hire 
+    - dental services, opticians, audiology services, chiropody, chiropractors, osteopaths and other medical or health services (including physiotherapy and podiatry services), and mental health services
+    - pharmacies and chemists, including non-dispensing pharmacies
+    - petrol stations
+    - bicycle shops
+    - homeware, building supplies and hardware shops, including the ones that supply equipment for hire
     - garden centres and plant nurseries
     - veterinary surgeries and pet shops
     - agricultural supplies shops
@@ -30,18 +34,18 @@
     - public toilets
     - banks, building societies, short-term loan providers, credit unions, savings clubs, cash points, currency exchange offices, businesses for the transmission of money, and businesses which cash cheques
     - storage and distribution facilities, including delivery, drop-off or collection points where they are on the premises of any of the above businesses
-    - shopping centres (but only units of the types listed above may trade) 
+    - shopping centres (but only units of the types listed above may trade)
   <% elsif calculator.where_do_you_work == "outdoor_market"%>
     - livestock markets
     - stalls selling food
   <% elsif calculator.where_do_you_work == "holiday_accommodation" %>
     - people who use these holiday accommodations or caravan parks as a permanent residence, or a temporary residence while their primary residence is unavailable
-    - non-UK residents who cannot travel to their country of residence during this period 
+    - non-UK residents who cannot travel to their country of residence during this period
     - providing services necessary to any critical worker engaged in the efforts to deal with coronavirus
     - providing rooms to support homeless and other vulnerable people through arrangements with local authorities and other public bodies (for example, those who cannot safely stay in their homes)
     - open to people attending a funeral where returning home would be impractical
     - hosting blood donation sessions
-    - providing accommodation to an elite athlete, their  coach, or the parent of an elite athlete (if the athlete is under 18) for the purpose of training or competition 
+    - providing accommodation to an elite athlete, their  coach, or the parent of an elite athlete (if the athlete is under 18) for the purpose of training or competition
   <% elsif calculator.where_do_you_work == "libraries" %>
     - digital library services and those where orders are taken electronically, by telephone or by post (for example no-contact Home Library Services)
   <% elsif calculator.where_do_you_work == "community_centre" %>
@@ -55,7 +59,7 @@
     - a place of worship can remain open for the purpose of hosting essential voluntary activities and urgent public services, such as food banks, homeless services, and blood donation sessions
   <% elsif calculator.where_do_you_work == "leisure_centre" %>
     - a suitable assembly premise open for blood donation sessions
-    - a suitable leisure premise open for blood donation sessions 
+    - a suitable leisure premise open for blood donation sessions
   <% elsif calculator.where_do_you_work == "outdoor_recreation" %>
     - outdoor sports courts, including public and private outdoor enclosed areas such as tennis courts, golf courses, basketball courts, bowling greens and football pitches can open but social distancing guidelines should be followed (bars and clubhouses at outdoor sports facilities must remain closed, other than takeaway to be consumed off-site)
     - parks, open countryside, beaches and waterways can remain open
