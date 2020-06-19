@@ -125,7 +125,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
       assert_current_node :go_back_to_work
     end
   end
-  
+
   context "specific question flows" do
     should "show go back to work outcome" do
       assert_current_node :can_work_from_home?
