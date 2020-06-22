@@ -14,19 +14,19 @@
         label: "Day",
         name: "response[day]",
         width: 2,
-        value: question.days_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+        value: question.selected_day,
       },
       question.default_month ? nil : {
         label: "Month",
         name: "response[month]",
         width: 2,
-        value: question.months_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+        value: question.selected_month,
       },
       question.default_year ? nil : {
         label: "Year",
         name: "response[year]",
         width: 4,
-        value: question.years_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+        value: question.selected_year
       }
     ].compact
   } %>
