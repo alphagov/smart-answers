@@ -14,10 +14,6 @@ class DateQuestionPresenter < QuestionPresenter
     end
   end
 
-  def error_id
-    "error_id" if error
-  end
-
   def days_options
     days = Array(1..31).map do |number|
       format_date(number, :day)

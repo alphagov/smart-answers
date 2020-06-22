@@ -73,14 +73,14 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       within "#current-question" do
         # TODO: Check options for dates
-        assert page.has_select? "Day"
-        assert page.has_select? "Month"
-        assert page.has_select? "Year"
+        assert page.has_field? "Day"
+        assert page.has_field? "Month"
+        assert page.has_field? "Year"
       end
 
-      select "5", from: "Day"
-      select "May", from: "Month"
-      select "1975", from: "Year"
+      fill_in "Day", with: "5"
+      fill_in "Month", with: "5"
+      fill_in "Year", with: "1975"
       click_on "Next step"
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"

@@ -7,47 +7,33 @@
     <p><%= question.hint %></p>
   <% end %>
 
-  <div class="govuk-grid-row date-wrapper">
-    <% unless question.default_day %>
-      <div class="govuk-grid-column-one-third date-wrapper__col">
-        <%= render "govuk_publishing_components/components/select", {
-          id: "response_day",
-          name: "response[day]",
-          label: "Day",
-          error_id: question.error_id,
-          options: question.days_options
-        } %>
-      </div>
-    <% end %>
-    <% unless question.default_month %>
-      <div class="govuk-grid-column-one-third date-wrapper__col">
-        <%= render "govuk_publishing_components/components/select", {
-          id: "response_month",
-          name: "response[month]",
-          label: "Month",
-          error_id: question.error_id,
-          options: question.months_options
-        } %>
-      </div>
-    <% end %>
-    <% unless question.default_year %>
-      <div class="govuk-grid-column-one-third date-wrapper__col">
-        <%= render "govuk_publishing_components/components/select", {
-          id: "response_year",
-          name: "response[year]",
-          label: "Year",
-          error_id: question.error_id,
-          options: question.years_options
-        } %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "govuk_publishing_components/components/date_input", {
+    error_message: question.error,
+    items: [
+      question.default_day ? nil : {
+        label: "Day",
+        name: "response[day]",
+        width: 2,
+        value: question.days_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+      },
+      question.default_month ? nil : {
+        label: "Month",
+        name: "response[month]",
+        width: 2,
+        value: question.months_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+      },
+      question.default_year ? nil : {
+        label: "Year",
+        name: "response[year]",
+        width: 4,
+        value: question.years_options.reduce { |memo, opt| memo = opt[:value] if opt[:selected]; memo },
+      }
+    ].compact
+  } %>
 <% end %>
 
 <%= render "govuk_publishing_components/components/fieldset", {
   legend_text: question.title,
   heading_size: 'm',
-  error_message: question.error,
-  error_id: question.error_id,
   text: form_contents
 } %>
