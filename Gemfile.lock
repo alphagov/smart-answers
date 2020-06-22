@@ -185,7 +185,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.1.4)
       ast (~> 2.4.1)
-    plek (3.0.0)
+    plek (4.0.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -378,7 +378,7 @@ DEPENDENCIES
   mocha (= 1.11.2)
   nokogiri
   parser
-  plek (= 3.0.0)
+  plek (= 4.0.0)
   pry
   rack_strip_client_ip
   rails (~> 6.0.3)
