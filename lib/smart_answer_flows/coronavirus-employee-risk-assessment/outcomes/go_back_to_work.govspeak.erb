@@ -1,9 +1,64 @@
-<% render_content_for :body do %>
-  $CTA
-    ## You can go back to work
-    You can go back into work, but your employer must make arrangements for you to work safely.
+<% render_content_for :title do %>
+  You can go back to work
+<% end %>
 
-    [Check the guidance on working safely, and what you will need to do](https://www.gov.uk/coronavirus-business-reopening)
-  $CTA
+<% render_content_for :body do %>
+
+  <% if calculator.are_you_vulnerable == "yes" %>
+    $CTA
+      ## If you are clinically vulnerable: get your employer to make arrangements for you to work safely
+
+      Clinically vulnerable people are at higher risk of severe illness (for example, people with pre-existing conditions). Therefore, you should take extra care in observing social distancing. Your employer should help you to work from home, either in your current role or in an alternative role.
+
+      If you are clinically vulnerable (but not extremely clinically vulnerable) and cannot work from home, your employer should offer you the option of the safest available on-site roles, enabling you to stay 2 metres away from others.
+
+      If you have to spend time within 2 metres of others, employers should carefully assess whether this involves an acceptable level of risk. As for any workplace risk, employers must take into account specific duties to those with protected characteristics, including, for example, pregnant women who are entitled to a suspension on full pay if suitable roles cannot be found.
+
+      [Find out more about how to work safely in your workplace](/coronavirus-business-reopening)
+    $CTA
+  <% end %>
+
+  <% if calculator.do_you_live_with_someone_vulnerable == "yes" %>
+    $CTA
+      ## If you live with someone extremely clinically vulnerable: get advice on how to socially distance at work and keep your household safe
+
+      If you cannot work from home, you should make sure your employer is following guidance on [how to work safely during the coronavirus pandemic](/coronavirus-business-reopening).
+
+      Employers should pay particular attention to people who live with clinically extremely vulnerable individuals.
+
+      You and your household should follow the [guidance on how to protect clinically extremely vulnerable people](/government/publications/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19#living-with-other-people).
+    $CTA
+  <% end %>
+
+  <% if calculator.have_childcare_responsibility == "yes" %>
+    $CTA
+      ## If you need help with childcare or dependants: Find out if you can send your children back to school or take time off
+
+      ### Schools and childcare
+      Schools in England may open for:
+
+      - primary schools for children in reception, year 1 and year 6
+      - nurseries and other early years settings, including childminders
+      - children of key workers and vulnerable children
+      
+      [Find out if you are classed as a key worker, and if you can send your children back to school](/government/publications/coronavirus-covid-19-maintaining-educational-provision/guidance-for-schools-colleges-and-local-authorities-on-maintaining-educational-provision)
+
+      ### Taking time off
+      If you cannot get childcare or need to take time off to care for other dependants you should be able to take unpaid leave. Find out more about time off to care for dependants on the [ACAS website](https://www.acas.org.uk/coronavirus/time-off-work-to-look-after-someone).
+    $CTA
+  <% end %>
+
+  <% if (
+    calculator.are_you_vulnerable == "no" &&
+    calculator.do_you_live_with_someone_vulnerable == "no" &&
+    calculator.have_childcare_responsibility == "no"
+  ) %>
+    $CTA
+      You can go back into work, but your employer must make arrangements for you to work safely.
+
+      Check the guidance on working safely, and what you will need to do.
+    $CTA
+  <% end %>
+
   <%= render "come_back" %>
 <% end %>
