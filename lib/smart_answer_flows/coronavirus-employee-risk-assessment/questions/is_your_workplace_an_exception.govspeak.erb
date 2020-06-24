@@ -1,7 +1,7 @@
 <%
   workplace =  calculator.where_do_you_work
   case workplace
-  when "museums_or_galleries", "cinema", "indoor_attraction"
+  when "museums_or_galleries", "cinema", "indoor_attraction", "retail"
     options = {
       "yes": "Yes",
       "no": "No",
@@ -21,6 +21,8 @@
     Is your place of work a drive-in cinema?
   <% when "indoor_attraction" %>
     Is your workplace an outdoor area of a zoo, safari park, wildlife centre or other animal attraction?
+  <% when "retail" %>
+    Is your workplace inside another closed building?
   <% else %>
     Is your workplace one of these exceptions?
   <% end %>
@@ -36,6 +38,8 @@
     Your workplace should be closed unless it’s a drive-in cinema.
   <% when "indoor_attraction" %>
     Your workplace should be closed unless it’s an outdoor area of zoos, safari parks, wildlife centres and other animal attractions.
+  <% when "retail" %>
+    Your workplace can be open unless it is inside another building that is closed (for example, a gift shop inside a museum that is closed and customers cannot access it from outside).
   <% else %>
     ## Your workplace should be closed unless it’s one of these exceptions:
   <% end %>
@@ -46,27 +50,6 @@
     - room services in hotels and accommodation
     - cafés and canteens at places of work where there is no practical alternative (for example, hospitals, police stations, fire stations, care homes, schools, prisons and military)
     - services providing food or drink to the homeless
-  <% when "retail" %>
-    - food retailers, including supermarkets
-    - dental services, opticians, audiology services, chiropody, chiropractors, osteopaths and other medical or health services (including physiotherapy and podiatry services), and mental health services
-    - pharmacies and chemists, including non-dispensing pharmacies
-    - petrol stations
-    - bicycle shops
-    - homeware, building supplies and hardware shops, including the ones that supply equipment for hire
-    - garden centres and plant nurseries
-    - veterinary surgeries and pet shops
-    - agricultural supplies shops
-    - convenience stores, corner shops and newsagents
-    - off-licences and licensed shops selling alcohol, including those within breweries
-    - laundrettes and dry cleaners
-    - post offices
-    - taxi or vehicle hire businesses
-    - car repair and MOT services
-    - car parks
-    - public toilets
-    - banks, building societies, short-term loan providers, credit unions, savings clubs, cash points, currency exchange offices, businesses for the transmission of money, and businesses which cash cheques
-    - storage and distribution facilities, including delivery, drop-off or collection points where they are on the premises of any of the above businesses
-    - shopping centres (but only units of the types listed above may trade)
   <% when "holiday_accommodation" %>
     - if people use these holiday accommodations or caravan parks as a permanent residence, or a temporary residence while their primary residence is unavailable
     - non-UK residents who cannot travel to their country of residence during this period can continue to stay in hotels or similar accommodations
