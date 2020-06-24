@@ -5,6 +5,14 @@ $is-ie: false !default;
 
 .smart_answer {
   @include govuk-media-query($media-type: print) {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+
+    .outcome {
+      width: 100%;
+    }
+
     .previous-answers-table {
       th:last-child,
       td:last-child {
