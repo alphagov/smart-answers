@@ -4,6 +4,15 @@ $is-ie: false !default;
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
 
 .smart_answer {
+  @include govuk-media-query($media-type: print) {
+    .previous-answers-table {
+      th:last-child,
+      td:last-child {
+        display: none;
+      }
+    }
+  }
+
   a:not(.govuk-button):focus {
     @include govuk-focused-text;
   }
