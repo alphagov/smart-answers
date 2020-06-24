@@ -84,8 +84,13 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == "yes"
+          work_in_retail = calculator.where_do_you_work == "retail"
+          if response == "yes" && work_in_retail
+            outcome :workplace_should_be_closed
+          elsif response == "yes"
             question :are_you_shielding?
+          elsif work_in_retail
+            outcome :go_back_to_work
           else
             outcome :workplace_should_be_closed
           end
