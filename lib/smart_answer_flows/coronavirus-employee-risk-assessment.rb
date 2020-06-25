@@ -173,11 +173,7 @@ module SmartAnswer
       outcome :you_should_not_be_going_to_work
       outcome :work_from_home
       outcome :work_from_home_help
-      outcome :workplace_should_be_closed
       outcome :shielding_work_arrangements
-      outcome :vulnerable_work_arrangements
-      outcome :keep_your_household_safe
-      outcome :help_with_childcare
       outcome :go_back_to_work
     end
   end
