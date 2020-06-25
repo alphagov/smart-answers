@@ -1,23 +1,17 @@
 <% render_content_for :title do %>
-  Your workplace should be closed, and you should not be going into work
+  You should not be going to work
 <% end %>
 
 <% render_content_for :body do %>
   $CTA
-    ### If your employer has work for you
+    ### If your employer has no work for you to do (you’ve been put 'on furlough')
 
-    If there is work you can do despite your workplace being closed, your employer may ask you to work from home
-  $CTA
-
-  $CTA
-    ### If your employer has no work for you
-
-    Your employer might be able to keep you on the payroll if they’re unable to operate and put you on temporary leave instead. This is known as being put ‘on furlough’.
+    Your employer might be able to keep you on the payroll if they’re unable to operate and put you on temporary leave instead. This is known as being put 'on furlough'.
 
     Your employer could get a grant using the Coronavirus Job Retention Scheme to help them pay for some of your wages. [Check if your employer can use it](https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme).
 
     If your salary is reduced because of these changes, [check if you’re eligible for Universal Credit](https://www.gov.uk/universal-credit/eligibility).
   $CTA
-  <%= render "come_back" %>
 
+  <%= render "come_back" %>
 <% end %>
