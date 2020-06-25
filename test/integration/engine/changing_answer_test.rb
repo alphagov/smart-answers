@@ -12,9 +12,9 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Next step"
 
       within("#current-question") { assert_page_has_content "What date did you move there?" }
-      select "5", from: "Day"
-      select "May", from: "Month"
-      select "1975", from: "Year"
+      fill_in "response[day]", with: "5"
+      fill_in "response[month]", with: "5"
+      fill_in "response[year]", with: "1975"
       click_on "Next step"
 
       within("#current-question") { assert_page_has_content "Which country were you born in?" }
@@ -31,22 +31,22 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/argentina"
 
-      select "10", from: "Day"
-      select "June", from: "Month"
-      select "1985", from: "Year"
+      fill_in "response[day]", with: "10"
+      fill_in "response[month]", with: "6"
+      fill_in "response[year]", with: "1985"
       click_on "Next step"
 
       within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
       within "#current-question" do
-        assert page.has_select? "Day", selected: "10"
-        assert page.has_select? "Month", selected: "June"
-        assert page.has_select? "Year", selected: "1985"
+        assert page.has_field? "Day", with: "10"
+        assert page.has_field? "Month", with: "6"
+        assert page.has_field? "Year", with: "1985"
       end
 
-      select "15", from: "Day"
-      select "April", from: "Month"
-      select "2000", from: "Year"
+      fill_in "response[day]", with: "15"
+      fill_in "response[month]", with: "4"
+      fill_in "response[year]", with: "2000"
       click_on "Next step"
 
       assert_current_url "/country-and-date-sample/y/argentina/2000-04-15"

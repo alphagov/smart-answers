@@ -23,9 +23,9 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-date-question", started: "y" }
         assert_select ".govuk-fieldset__legend", /When\?/
-        assert_select "select[name='response[day]']"
-        assert_select "select[name='response[month]']"
-        assert_select "select[name='response[year]']"
+        assert_select "input[name='response[day]']"
+        assert_select "input[name='response[month]']"
+        assert_select "input[name='response[year]']"
       end
 
       should "accept question input and redirect to canonical url" do

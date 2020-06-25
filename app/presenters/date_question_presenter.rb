@@ -14,53 +14,21 @@ class DateQuestionPresenter < QuestionPresenter
     end
   end
 
-  def error_id
-    "error_id" if error
+  def selected_day
+    prefill_value_for(self, :day)
   end
 
-  def days_options
-    days = Array(1..31).map do |number|
-      format_date(number, :day)
-    end
-    days.unshift(text: "", value: "")
+  def selected_month
+    prefill_value_for(self, :month)
   end
 
-  def months_options
-    months = Array(1..12).map do |number|
-      format_date(number, :month)
-    end
-    months.unshift(text: "", value: "")
-  end
-
-  def years_options
-    smallest = [start_date.year, end_date.year].min
-    biggest = [start_date.year, end_date.year].max
-
-    years = Array(smallest..biggest).map do |number|
-      format_date(number, :year)
-    end
-    years.unshift(text: "", value: "")
+  def selected_year
+    prefill_value_for(self, :year)
   end
 
 private
 
   def only_display_day_and_month?(value)
     value.year.zero?
-  end
-
-  def start_date
-    @node.range == false ? 1.year.ago : @node.range.begin
-  end
-
-  def end_date
-    @node.range == false ? 3.years.from_now : @node.range.end
-  end
-
-  def format_date(number, type)
-    {
-      text: type.eql?(:month) ? Date::MONTHNAMES[number] : number,
-      value: number,
-      selected: default_for_date(prefill_value_for(self, type)) == number,
-    }
   end
 end

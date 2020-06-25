@@ -70,13 +70,6 @@ $is-ie: false !default;
     }
 }
 
-.date-wrapper {
-  .date-wrapper__col {
-    width: auto;
-    margin-bottom: govuk-spacing(3);
-  }
-}
-
 .app-c-meta-data {
   @include govuk-font($size: 16);
   color: $govuk-secondary-text-colour;
