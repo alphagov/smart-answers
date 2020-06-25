@@ -11,6 +11,7 @@ module SmartAnswer
         option :food_and_drink
         option :salon_parlour
         option :retail
+        option :driving_schools
         option :auction_house
         option :holiday_accommodation
         option :libraries
