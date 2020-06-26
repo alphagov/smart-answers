@@ -38,6 +38,7 @@ module SmartAnswer
           when
             "food_and_drink",
             "retail",
+            "driving_schools",
             "holiday_accommodation",
             "libraries",
             "community_centre",
