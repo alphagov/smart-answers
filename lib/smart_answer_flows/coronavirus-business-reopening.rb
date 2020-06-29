@@ -12,6 +12,7 @@ module SmartAnswer
         option :labs
         option :offices
         option :hospitality
+        option :close_contact
         option :shops
         option :homes
         option :vehicles
