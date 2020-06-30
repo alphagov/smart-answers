@@ -1,0 +1,15 @@
+<% text_for :title do %>
+  <% if adoption_is_from_overseas %>
+    When will the child arrive in the UK?
+  <% else %>
+    When will the child be placed with the employee?
+  <% end %>
+<% end %>
+
+<% text_for :error_message do %>
+  <% if adoption_is_from_overseas %>
+    Arrival date can’t be before official notification date
+  <% else %>
+    Placement date can't be before matching date
+  <% end %>
+<% end %>

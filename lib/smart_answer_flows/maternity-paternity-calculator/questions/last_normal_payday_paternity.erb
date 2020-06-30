@@ -1,0 +1,11 @@
+<% text_for :title do %>
+  What was the last normal payday on or before <%= to_saturday_formatted %>
+<% end %>
+
+<% text_for :hint do %>
+  <%= render partial: 'payday_question_hint' %>
+<% end %>
+
+<% text_for :error_message do %>
+  You must enter a date on or before <%= to_saturday_formatted %>
+<% end %>

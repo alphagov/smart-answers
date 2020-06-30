@@ -1,0 +1,11 @@
+<% text_for :title do %>
+  The estate is shared equally between the half-aunts or half-uncles.
+<% end %>
+
+<% govspeak_for :body do %>
+  If an aunt or uncle has already died, their children (the cousins of the deceased) inherit in their place.
+<% end %>
+
+<% govspeak_for :next_steps do %>
+  <%= render partial: 'next_step_links', locals: { next_steps: next_steps } %>
+<% end %>

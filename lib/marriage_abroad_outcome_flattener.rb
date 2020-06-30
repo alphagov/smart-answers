@@ -39,7 +39,7 @@ private
       raise "Failed to load `#{route}`" unless app.get(route) == 200
 
       body = app.response.body
-      template_path = "#{country_outcome_path(responses_path)}.govspeak.erb"
+      template_path = "#{country_outcome_path(responses_path)}.erb"
 
       responses_directory = File.dirname(template_path)
       FileUtils.mkdir_p(responses_directory) unless File.directory?(responses_directory)
@@ -51,7 +51,7 @@ private
       File.write(template_path, insert_payment_partials(lines.join("\n")) + "\n")
     end
 
-    File.write("#{country_partials_dir}/_title.govspeak.erb", title_contents(titles))
+    File.write("#{country_partials_dir}/_title.erb", title_contents(titles))
   end
 
   # Strips the first two lines of the file (the title).
@@ -75,7 +75,7 @@ private
     text.gsub(
       /^\^?You can( only)? pay by.*?\n.*?^$/mi,
       <<~HOW_TO_PAY.freeze,
-        <%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
+        <%= render partial: 'how_to_pay.erb', locals: {calculator: calculator} %>
       HOW_TO_PAY
     )
   end
@@ -84,7 +84,7 @@ private
     text.gsub(
       /^Service \| Fee\n.*?^$/mi,
       <<~FEE_TABLE.freeze,
-        <%= render partial: 'consular_fees_table_items.govspeak.erb',
+        <%= render partial: 'consular_fees_table_items.erb',
             collection: calculator.services,
             as: :service,
             locals: { calculator: calculator } %>

@@ -1,0 +1,18 @@
+<% govspeak_for :body do %>
+  $C
+  Based on your answers, you appear not to have been paying the National Minimum Wage.
+  $C
+
+  This is because you were not paying the [minimum rate](/national-minimum-wage-rates) the worker was entitled to.
+
+  <% if calculator.potential_underpayment? %>
+    You could also have further underpaid the worker if you:
+
+    * took money from their pay for things they needed for their job
+    * did not pay them for any additional time they worked outside their shift
+  <% end%>
+
+  Read the guidance on [how to calculate the National Minimum Wage](/national-minimum-wage/employers-and-the-minimum-wage).
+
+  <%= render partial: 'shared/minimum_wage/acas_information' %>
+<% end %>

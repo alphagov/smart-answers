@@ -1,0 +1,15 @@
+<% text_for :title do %>
+  When does the employee want to start their leave?
+<% end %>
+
+<% text_for :hint do %>
+  Leave can’t start before <%= a_leave_earliest_start_formatted %> or after <%= a_leave_latest_start_formatted %>.
+<% end %>
+
+<% text_for :error_leave_starts_too_early do %>
+  Leave can’t start before <%= a_leave_earliest_start_formatted %>.
+<% end %>
+
+<% text_for :error_leave_starts_too_late do %>
+  Leave can't start after <%= a_leave_latest_start_formatted %>.
+<% end %>

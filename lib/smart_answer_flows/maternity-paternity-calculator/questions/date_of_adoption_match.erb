@@ -1,0 +1,13 @@
+<% text_for :title do %>
+  <% if adoption_is_from_overseas %>
+    When did the employee get permission to adopt?
+  <% else %>
+    When was the child matched with the employee?
+  <% end %>
+<% end %>
+
+<% if adoption_is_from_overseas %>
+  <% text_for :hint do %>
+    Enter the official notification date.
+  <% end %>
+<% end %>

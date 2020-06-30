@@ -1,0 +1,11 @@
+<% text_for :title do %>
+  The highest earner qualifies for Married Couple's Allowance - they'll get <%= format_money(allowance) %> off their tax bill.
+<% end %>
+
+<% govspeak_for :body do %>
+  <%= render partial: 'done_body' %>
+<% end %>
+
+<% govspeak_for :next_steps do %>
+  <%= render partial: 'done_next_steps' %>
+<% end %>

@@ -63,14 +63,14 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 ## Fees
 
-<%= render partial: 'consular_fees_table_items.govspeak.erb',
+<%= render partial: 'consular_fees_table_items',
     collection: calculator.services,
     as: :service,
     locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Russia](/government/publications/russia-consular-fees).
 
-<%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
+<%= render partial: 'how_to_pay', locals: {calculator: calculator} %>
 
 *[CNI]:certificate of no impediment
 

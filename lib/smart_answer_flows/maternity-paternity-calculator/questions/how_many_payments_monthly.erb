@@ -1,0 +1,10 @@
+<% text_for :title do %>
+  How many months' pay did the employee get between <%= relevant_period %>?
+<% end %>
+
+<% text_for :hint do %>
+  If you have paid the employee 2 months’ pay in one month, count it as 2 payments.
+  Do not include bonuses or other one-off payments.
+<% end %>
+
+<% options(payment_options_monthly) %>

@@ -1,0 +1,11 @@
+<% text_for :title do %>
+  The husband qualifies for Married Couple's Allowance - he'll get <%= format_money(allowance) %> off his tax bill.
+<% end %>
+
+<% govspeak_for :body do %>
+  <%= render partial: 'done_body' %>
+<% end %>
+
+<% govspeak_for :next_steps do %>
+  <%= render partial: 'done_next_steps' %>
+<% end %>

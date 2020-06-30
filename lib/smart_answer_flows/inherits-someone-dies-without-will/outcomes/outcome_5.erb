@@ -1,0 +1,11 @@
+<% text_for :title do %>
+  The estate is shared equally between the grandparent(s).
+<% end %>
+
+<% govspeak_for :body do %>
+  They may have to pay Inheritance Tax.
+<% end %>
+
+<% govspeak_for :next_steps do %>
+  <%= render partial: 'next_step_links', locals: { next_steps: next_steps } %>
+<% end %>

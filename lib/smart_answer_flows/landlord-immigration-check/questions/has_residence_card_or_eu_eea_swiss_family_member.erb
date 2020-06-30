@@ -1,0 +1,14 @@
+<% text_for :title do %>
+  Does the person have a current UK residence card marked with any of the following.
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% govspeak_for :body do %>
+  - family member - EU residence
+  - derivative residence
+  - accession residence
+<% end %>

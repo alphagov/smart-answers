@@ -1,0 +1,10 @@
+<% text_for :title do %>
+  Did the mother start her current or most recent job before <%= format_date(calculator.continuity_start_date) %>?
+<% end %>
+
+<%= render partial: 'warning_hint' %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
