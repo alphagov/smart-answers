@@ -47,24 +47,10 @@ module SmartAnswer
             "indoor_attraction",
             "outdoor_recreation",
             "museums_or_galleries",
-            "cinema"
+            "cinema",
+            "auction_house"
             question :is_your_workplace_an_exception?
-          when "auction_house"
-            question :is_your_workplace_an_auction_house?
           when "other"
-            question :can_work_from_home?
-          else
-            question :is_your_employer_asking_you_to_work?
-          end
-        end
-      end
-
-      multiple_choice :is_your_workplace_an_auction_house? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
             question :can_work_from_home?
           else
             question :is_your_employer_asking_you_to_work?

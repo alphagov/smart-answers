@@ -81,12 +81,6 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
   end
 
   context "specific question flows" do
-    should "show auction house exception question" do
-      assert_current_node :where_do_you_work?
-      add_response "auction_house"
-      assert_current_node :is_your_workplace_an_auction_house?
-    end
-
     should "show retail exception flow" do
       assert_current_node :where_do_you_work?
       add_response "retail"
