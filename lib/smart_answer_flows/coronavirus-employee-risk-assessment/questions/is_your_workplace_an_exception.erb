@@ -1,7 +1,7 @@
 <%
   workplace = calculator.where_do_you_work
   case workplace
-  when "driving_schools", "museums_or_galleries", "cinema", "indoor_attraction", "retail"
+  when "driving_schools", "museums_or_galleries", "cinema", "indoor_attraction", "retail", "auction_house"
     options = {
       "yes": "Yes",
       "no": "No",
@@ -19,6 +19,8 @@
     Is your place of work a retail gallery?
   <% when "cinema" %>
     Is your place of work a drive-in cinema?
+  <% when "auction_house" %>
+    Is your workplace a livestock auction house?
   <% when "indoor_attraction" %>
     Is your workplace an outdoor area of a zoo, safari park, wildlife centre or other animal attraction?
   <% when "retail" %>
@@ -36,6 +38,8 @@
     Your workplace should be closed unless it’s a retail gallery where the majority of art on display is for sale.
   <% when "cinema" %>
     Your workplace should be closed unless it’s a drive-in cinema.
+  <% when "auction_house" %>
+    Your workplace should be closed unless you work at a livestock auction house. 
   <% when "indoor_attraction" %>
     Your workplace should be closed unless it’s an outdoor area of zoos, safari parks, wildlife centres and other animal attractions.
   <% when "retail" %>
