@@ -60,5 +60,12 @@
     $CTA
   <% end %>
 
+  <% if calculator.workplace_should_be_closed_to_public %>
+    ### Your workplace should be closed to the public
+    
+    If there is still work to do despite your workplace being closed to the public, your employer might ask you to work from home or come into work.
+  <% end %>
+
+
   <%= render "come_back" %>
 <% end %>
