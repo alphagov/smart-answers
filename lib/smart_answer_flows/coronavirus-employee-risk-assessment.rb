@@ -39,16 +39,6 @@ module SmartAnswer
           when
             "food_and_drink",
             "retail",
-            "driving_schools",
-            "holiday_accommodation",
-            "libraries",
-            "community_centre",
-            "places_of_worship",
-            "leisure_centre",
-            "indoor_attraction",
-            "outdoor_recreation",
-            "museums_or_galleries",
-            "cinema",
             "auction_house"
             question :is_your_workplace_an_exception?
           when "other"
