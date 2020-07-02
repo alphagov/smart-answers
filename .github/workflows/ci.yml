@@ -15,20 +15,4 @@ jobs:
           ref: deployed-to-production
           path: vendor/govuk-content-schemas
       - uses: ruby/setup-ruby@v1
-      - name: Retrieve cached gems
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: bundle
-      - run: bundle install --jobs 4 --retry 3 --deployment
-      - uses: actions/setup-node@v1
-      - name: Retrieve cached node modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn
-      - run: yarn install --frozen-lockfile
-      - run: bundle exec rails assets:precompile
-      - run: bundle exec rake
+      - run: 'export TAG=`git describe --abbrev=0 | sed -e "s/^release_//"`; git tag -a $TAG -m "test"; git push --follow-tags'
