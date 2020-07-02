@@ -1,5 +1,14 @@
 module SmartAnswer::Calculators
   class CoronavirusEmployeeRiskAssessmentCalculator
+    WORKPLACES_CLOSED_TO_PUBLIC = %w[
+      beauty_parlour
+      retail
+      auction_house
+      nightclubs_or_gambling
+      leisure_centre
+      indoor_recreation
+    ].freeze
+
     attr_accessor :where_do_you_work,
                   :workplace_is_exception,
                   :are_you_vulnerable,
@@ -7,7 +16,7 @@ module SmartAnswer::Calculators
                   :have_childcare_responsibility
 
     def workplace_should_be_closed_to_public
-      where_do_you_work != "other" && !workplace_is_exception
+      WORKPLACES_CLOSED_TO_PUBLIC.include?(where_do_you_work) && !workplace_is_exception
     end
   end
 end
