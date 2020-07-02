@@ -62,12 +62,19 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
-          work_in_retail = calculator.where_do_you_work == "retail"
+        on_response do |response|
+          workplace_is_exception = response == "yes"
 
-          if response == "yes" && work_in_retail
-            question :is_your_employer_asking_you_to_work?
-          elsif response == "yes" || (response == "no" && work_in_retail)
+          # Responses for the retail exception question are the opposite
+          if calculator.where_do_you_work == "retail"
+            workplace_is_exception = !workplace_is_exception
+          end
+
+          calculator.workplace_is_exception = workplace_is_exception
+        end
+
+        next_node do |_response|
+          if calculator.workplace_is_exception
             question :can_work_from_home?
           else
             question :is_your_employer_asking_you_to_work?
