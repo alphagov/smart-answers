@@ -13,7 +13,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
   context "outcomes" do
     should "show you should not be going to work outcome" do
       assert_current_node :where_do_you_work?
-      add_response "food_and_drink"
+      add_response "auction_house"
       assert_current_node :is_your_workplace_an_exception?
       add_response "no"
       assert_current_node :is_your_employer_asking_you_to_work?
@@ -23,7 +23,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
 
     should "show work from home outcome" do
       assert_current_node :where_do_you_work?
-      add_response "food_and_drink"
+      add_response "auction_house"
       assert_current_node :is_your_workplace_an_exception?
       add_response "no"
       assert_current_node :is_your_employer_asking_you_to_work?
@@ -35,7 +35,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
 
     should "show get help to work from home outcome" do
       assert_current_node :where_do_you_work?
-      add_response "food_and_drink"
+      add_response "auction_house"
       assert_current_node :is_your_workplace_an_exception?
       add_response "no"
       assert_current_node :is_your_employer_asking_you_to_work?
@@ -47,7 +47,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
 
     should "show shielding workplace arrangements outcome" do
       assert_current_node :where_do_you_work?
-      add_response "food_and_drink"
+      add_response "auction_house"
       assert_current_node :is_your_workplace_an_exception?
       add_response "no"
       assert_current_node :is_your_employer_asking_you_to_work?
@@ -61,7 +61,7 @@ class CoronavirusEmployeeRiskAssessmentFlowTest < ActiveSupport::TestCase
 
     should "show go back to work outcome" do
       assert_current_node :where_do_you_work?
-      add_response "food_and_drink"
+      add_response "auction_house"
       assert_current_node :is_your_workplace_an_exception?
       add_response "no"
       assert_current_node :is_your_employer_asking_you_to_work?

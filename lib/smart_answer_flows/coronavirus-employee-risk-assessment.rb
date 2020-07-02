@@ -54,10 +54,10 @@ module SmartAnswer
         option :no
 
         on_response do |response|
-          workplace_is_exception = response == "yes"
+          workplace_is_exception = (response == "no")
 
-          # Responses for the retail exception question are the opposite
-          if calculator.where_do_you_work == "retail"
+          # Responses for the auction house exception question is the opposite
+          if calculator.where_do_you_work == "auction_house"
             workplace_is_exception = !workplace_is_exception
           end
 

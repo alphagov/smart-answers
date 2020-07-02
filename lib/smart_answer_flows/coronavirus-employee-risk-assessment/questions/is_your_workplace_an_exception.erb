@@ -1,46 +1,26 @@
 <%
   workplace = calculator.where_do_you_work
-  case workplace
-  when "retail", "auction_house"
-    options = {
-      "yes": "Yes",
-      "no": "No",
-    }
-  else
-    options = {
-      "yes": "Yes, I work at one of these exceptions",
-      "no": "No, I do not work at one of these exceptions",
-    }
-  end
 %>
-<% text_for :title do %>
-  <% case workplace %>
-  <% when "auction_house" %>
-    Is your workplace a livestock auction house?
-  <% when "retail" %>
-    Is your workplace inside another closed building?
-  <% else %>
-    Is your workplace one of these exceptions?
-  <% end %>
-<% end %>
 
 <% govspeak_for :pretext do %>
   <% case workplace %>
   <% when "auction_house" %>
     Your workplace should be closed unless you work at a livestock auction house. 
-  <% when "retail" %>
-    Your workplace can be open unless it is inside another building that is closed (for example, a gift shop inside a spa that is closed and customers cannot access it from outside).
   <% else %>
-    ## Your workplace should be closed unless it’s one of these exceptions:
-  <% end %>
-
-  <% case workplace %>
-  <% when "food_and_drink" %>
-    - food delivery and takeaway - this can be a new activity; this covers the provision of hot and cold food that’s been prepared for consumers for collection or delivery to be consumed, reheated or cooked off the premises
-    - room services in hotels and accommodation
-    - cafés and canteens at places of work where there is no practical alternative (for example, hospitals, police stations, fire stations, care homes, schools, prisons and military)
-    - services providing food or drink to the homeless
+    Your workplace can be open unless it is inside another building that is closed (for example, inside a spa that is closed and customers cannot access it from outside).
   <% end %>
 <% end %>
 
-<% options(options) %>
+<% text_for :title do %>
+  <% case workplace %>
+  <% when "auction_house" %>
+    Is your workplace a livestock auction house?
+  <% else %>
+    Is your workplace inside another closed building?
+  <% end %>
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
