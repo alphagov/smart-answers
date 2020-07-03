@@ -1,6 +1,7 @@
 module SmartAnswer::Calculators
   class CoronavirusEmployeeRiskAssessmentCalculator
     WORKPLACES_CLOSED_TO_PUBLIC = %w[
+      food_and_drink
       beauty_parlour
       retail
       auction_house
