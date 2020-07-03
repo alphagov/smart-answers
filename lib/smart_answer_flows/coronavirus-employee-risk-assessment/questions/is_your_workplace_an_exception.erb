@@ -1,92 +1,26 @@
 <%
   workplace = calculator.where_do_you_work
-  case workplace
-  when "driving_schools", "museums_or_galleries", "cinema", "indoor_attraction", "retail", "auction_house"
-    options = {
-      "yes": "Yes",
-      "no": "No",
-    }
-  else
-    options = {
-      "yes": "Yes, I work at one of these exceptions",
-      "no": "No, I do not work at one of these exceptions",
-    }
-  end
 %>
-<% text_for :title do %>
-  <% case workplace %>
-  <% when "museums_or_galleries" %>
-    Is your place of work a retail gallery?
-  <% when "cinema" %>
-    Is your place of work a drive-in cinema?
-  <% when "auction_house" %>
-    Is your workplace a livestock auction house?
-  <% when "indoor_attraction" %>
-    Is your workplace an outdoor area of a zoo, safari park, wildlife centre or other animal attraction?
-  <% when "retail" %>
-    Is your workplace inside another closed building?
-  <% else %>
-    Is your workplace one of these exceptions?
-  <% end %>
-<% end %>
 
 <% govspeak_for :pretext do %>
   <% case workplace %>
-  <% when "holiday_accommodation" %>
-    ## Your workplace should be closed unless it’s providing accommodation to one of these exceptions:
-  <% when "museums_or_galleries" %>
-    Your workplace should be closed unless it’s a retail gallery where the majority of art on display is for sale.
-  <% when "cinema" %>
-    Your workplace should be closed unless it’s a drive-in cinema.
   <% when "auction_house" %>
     Your workplace should be closed unless you work at a livestock auction house. 
-  <% when "indoor_attraction" %>
-    Your workplace should be closed unless it’s an outdoor area of zoos, safari parks, wildlife centres and other animal attractions.
-  <% when "retail" %>
-    Your workplace can be open unless it is inside another building that is closed (for example, a gift shop inside a museum that is closed and customers cannot access it from outside).
   <% else %>
-    ## Your workplace should be closed unless it’s one of these exceptions:
-  <% end %>
-
-  <% case workplace %>
-  <% when "driving_schools" %>
-    - driving schools or instructors providing lessions to key workers preparing for an emergency driving test
-    - test centres running emergency driving tests for key workers
-  <% when "food_and_drink" %>
-    - food delivery and takeaway - this can be a new activity; this covers the provision of hot and cold food that’s been prepared for consumers for collection or delivery to be consumed, reheated or cooked off the premises
-    - room services in hotels and accommodation
-    - cafés and canteens at places of work where there is no practical alternative (for example, hospitals, police stations, fire stations, care homes, schools, prisons and military)
-    - services providing food or drink to the homeless
-  <% when "holiday_accommodation" %>
-    - if people use these holiday accommodations or caravan parks as a permanent residence, or a temporary residence while their primary residence is unavailable
-    - non-UK residents who cannot travel to their country of residence during this period can continue to stay in hotels or similar accommodations
-    - hotels and other accommodations listed providing services necessary to any critical worker engaged in the efforts to deal with coronavirus
-    - hotels, hostels, and B&Bs providing rooms to support homeless and other vulnerable people through arrangements with local authorities and other public bodies (for example, those who cannot safely stay in their homes)
-    - hotels open to people attending a funeral where returning home would be impractical
-    - hotels and other accommodation hosting blood donation sessions
-  <% when "libraries" %>
-    - libraries operating click and collect services where orders are taken electronically, by telephone or by post
-    - shops and cafes or restaurants (takeaway only) which are in self-contained units where it’s possible for members of the public to enter from a place outside those premises
-  <% when "community_centre" %>
-    - community centres open for hosting essential voluntary activities and urgent public services, such as food banks and homeless services
-    - community centres open temporary to host a blood donation session
-    - community centres providing early years childcare by a person registered on the Early Years Register
-    - community centres hosting an indoor market
-  <% when "places_of_worship" %>
-    - burial grounds and cemeteries, as well as grounds surrounding crematoria and gardens of remembrance
-    - providers of funeral services, such as funeral directors and funeral homes
-    - a place of worship broadcasting an act of worship, whether over the internet or otherwise
-    - a place of worship open for the purpose of hosting essential voluntary activities and urgent public services, such as food banks, homeless services, and blood donation sessions
-    - a place of worship providing early years childcare by a person registered on the Early Years Register
-    - a place of worship open for private prayer by individuals (group prayers or communal worship within a place of worship - even between members of the same household - is not permitted)
-    - shops and cafes or restaurants (takeaway only) at places of worship which are in self-contained units where it’s possible for members of the public to enter from a place outside those premises
-  <% when "leisure_centre" %>
-    - a suitable assembly or leisure premise open for blood donation sessions
-    - open for training for elite athletes only (see [guidance for elite sport](https://www.gov.uk/government/publications/coronavirus-covid-19-guidance-on-phased-return-of-sport-and-recreation/elite-sport-return-to-training-guidance-step-one--2))
-  <% when "outdoor_recreation" %>
-    - outdoor sports courts or amenities, including public and private outdoor enclosed areas such as tennis courts, golf courses and driving ranges, basketball courts, bowling greens, football pitches, water sports, stables, shooting and archery venues outdoor swimming pools open for training for elite athletes only (see [guidance for elite sport](https://www.gov.uk/government/publications/coronavirus-covid-19-guidance-on-phased-return-of-sport-and-recreation/elite-sport-return-to-training-guidance-step-one--2))
-    - parks, open countryside, beaches and waterways (including private/ticketed gardens, such as those managed by the National Trust)
+    Your workplace can be open unless it is inside another building that is closed (for example, inside a spa that is closed and customers cannot access it from outside).
   <% end %>
 <% end %>
 
-<% options(options) %>
+<% text_for :title do %>
+  <% case workplace %>
+  <% when "auction_house" %>
+    Is your workplace a livestock auction house?
+  <% else %>
+    Is your workplace inside another closed building?
+  <% end %>
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>

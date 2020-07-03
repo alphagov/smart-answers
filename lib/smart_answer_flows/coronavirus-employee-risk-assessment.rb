@@ -9,7 +9,8 @@ module SmartAnswer
       # Questions
       multiple_choice :where_do_you_work? do
         option :food_and_drink
-        option :salon_parlour
+        option :hairdressers
+        option :beauty_parlour
         option :retail
         option :driving_schools
         option :auction_house
@@ -38,16 +39,6 @@ module SmartAnswer
           when
             "food_and_drink",
             "retail",
-            "driving_schools",
-            "holiday_accommodation",
-            "libraries",
-            "community_centre",
-            "places_of_worship",
-            "leisure_centre",
-            "indoor_attraction",
-            "outdoor_recreation",
-            "museums_or_galleries",
-            "cinema",
             "auction_house"
             question :is_your_workplace_an_exception?
           when "other"
@@ -62,12 +53,19 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
-          work_in_retail = calculator.where_do_you_work == "retail"
+        on_response do |response|
+          workplace_is_exception = (response == "no")
 
-          if response == "yes" && work_in_retail
-            question :is_your_employer_asking_you_to_work?
-          elsif response == "yes" || (response == "no" && work_in_retail)
+          # Responses for the auction house exception question is the opposite
+          if calculator.where_do_you_work == "auction_house"
+            workplace_is_exception = !workplace_is_exception
+          end
+
+          calculator.workplace_is_exception = workplace_is_exception
+        end
+
+        next_node do |_response|
+          if calculator.workplace_is_exception
             question :can_work_from_home?
           else
             question :is_your_employer_asking_you_to_work?
