@@ -21,6 +21,10 @@ $is-ie: false !default;
       @extend %govuk-heading-m;
     }
 
+    h4 {
+      @extend %govuk-heading-s;
+    }
+
     p {
       @extend %govuk-body-m;
     }
