@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   constraints id: /[a-z0-9-]+/i do
     get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
 
-    get "/:id(/:started(/*responses)).:format",
+    get "/:id(/:started(/*responses))",
         to: "smart_answers#show",
         as: :formatted_smart_answer,
-        constraints: { format: /[a-zA-Z]+/ }
+        format: false
 
     get "/:id(/:started(/*responses))",
         to: "smart_answers#show",
