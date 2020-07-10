@@ -2,13 +2,16 @@ module SmartAnswer::Calculators
   class CoronavirusEmployeeRiskAssessmentCalculator
     WORKPLACES_CLOSED_TO_PUBLIC = %w[
       food_and_drink
-      beauty_parlour
       retail
       auction_house
       nightclubs_or_gambling
       leisure_centre
       indoor_recreation
     ].freeze
+
+    WORKPLACES_OPENING_SOON_TO_PUBLIC = {
+      "beauty_parlour" => "13 July 2020",
+    }.freeze
 
     attr_accessor :where_do_you_work,
                   :workplace_is_exception,
@@ -18,6 +21,10 @@ module SmartAnswer::Calculators
 
     def workplace_should_be_closed_to_public
       WORKPLACES_CLOSED_TO_PUBLIC.include?(where_do_you_work) && !workplace_is_exception
+    end
+
+    def workplace_opening_date
+      WORKPLACES_OPENING_SOON_TO_PUBLIC[where_do_you_work] unless workplace_is_exception
     end
   end
 end

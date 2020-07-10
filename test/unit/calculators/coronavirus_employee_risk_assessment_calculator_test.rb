@@ -25,5 +25,22 @@ module SmartAnswer::Calculators
         assert_not @calculator.workplace_should_be_closed_to_public
       end
     end
+
+    context "#workplace_opening_date" do
+      should "return nil when for workplace not reopening" do
+        @calculator.where_do_you_work = "retail"
+        assert_equal nil, @calculator.workplace_opening_date
+      end
+
+      should "return nil when for workplace already open" do
+        @calculator.where_do_you_work = "other"
+        assert_equal nil, @calculator.workplace_opening_date
+      end
+
+      should "return date when workplace is reopening soon" do
+        @calculator.where_do_you_work = "beauty_parlour"
+        assert_equal "13 July 2020", @calculator.workplace_opening_date
+      end
+    end
   end
 end
