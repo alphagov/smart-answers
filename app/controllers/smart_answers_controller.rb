@@ -26,7 +26,7 @@ class SmartAnswersController < ApplicationController
   def show
     @title = @presenter.title
 
-    render page_type
+    render page_type, formats: [:html]
 
     set_expiry
   end
