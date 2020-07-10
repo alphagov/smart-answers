@@ -3,12 +3,10 @@ module SmartAnswer::Calculators
     # created for the help-if-you-are-arrested-abroad calculator
     attr_reader :data
 
-    def initialize
-      @data = self.class.prisoner_packs
-    end
+    PRISONER_PACKS = YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml")).freeze
 
     def generate_url_for_download(country, field, text)
-      country_data = @data.find { |c| c["slug"] == country }
+      country_data = PRISONER_PACKS.find { |c| c["slug"] == country }
       return "" unless country_data
 
       url = country_data[field]
@@ -26,16 +24,12 @@ module SmartAnswer::Calculators
       end
     end
 
-    def self.prisoner_packs
-      @prisoner_packs ||= YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml"))
-    end
-
     def countries_with_regions
       %w[cyprus]
     end
 
     def get_country_regions(slug)
-      @data.find { |c| c["slug"] == slug }["regions"]
+      PRISONER_PACKS.find { |c| c["slug"] == slug }["regions"]
     end
   end
 end
