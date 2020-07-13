@@ -101,14 +101,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 should "end at husband_done" do
                   assert_current_node :husband_done
                 end
-
-                should "calculate allowance using calculators" do
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                    .expects(:calculate_allowance)
-                    .returns("Calculated allowance")
-
-                  assert_state_variable :allowance, "Calculated allowance"
-                end
               end # donating 100 with gift aid
             end # paying 500 with tax relief
           end # paying 1000 before tax
@@ -133,15 +125,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
               add_response "0"
               assert_current_node :husband_done
             end
-
-            should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                .expects(:calculate_allowance)
-                .returns("Calculated allowance")
-
-              add_response "0"
-              assert_state_variable :allowance, "Calculated allowance"
-            end
           end
         end # paying into a pension
 
@@ -162,14 +145,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "end at husband_done" do
               assert_current_node :husband_done
             end
-
-            should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                .expects(:calculate_allowance)
-                .returns("Calculated allowance")
-
-              assert_state_variable :allowance, "Calculated allowance"
-            end
           end # donating 100 with gift aid
 
           context "donating 0 with gift aid" do
@@ -179,14 +154,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "end at husband_done" do
               assert_current_node :husband_done
-            end
-
-            should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                .expects(:calculate_allowance)
-                .returns("Calculated allowance")
-
-              assert_state_variable :allowance, "Calculated allowance"
             end
           end # donating 0 with gift aid
         end # not paying into a pension
@@ -200,14 +167,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
         should "end at husband_done" do
           assert_current_node :husband_done
-        end
-
-        should "calculate allowance using calculators" do
-          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-            .expects(:calculate_allowance)
-            .returns("Calculated allowance")
-
-          assert_state_variable :allowance, "Calculated allowance"
         end
       end # income < 25400
     end # before 2005
@@ -271,14 +230,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 should "end at highest_earner_done" do
                   assert_current_node :highest_earner_done
                 end
-
-                should "calculate allowance using calculators" do
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                    .expects(:calculate_allowance)
-                    .returns("Calculated allowance")
-
-                  assert_state_variable :allowance, "Calculated allowance"
-                end
               end # donating 100 with gift aid
             end # paying 500 with tax relief
           end # paying 1000 before tax
@@ -311,14 +262,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "end at highest_earner_done" do
               assert_current_node :highest_earner_done
             end
-
-            should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                .expects(:calculate_allowance)
-                .returns("Calculated allowance")
-
-              assert_state_variable :allowance, "Calculated allowance"
-            end
           end # donating 100 with gift aid
 
           context "donating 0 with gift aid" do
@@ -328,14 +271,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "end at highest_earner_done" do
               assert_current_node :highest_earner_done
-            end
-
-            should "calculate allowance using calculators" do
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-                .expects(:calculate_allowance)
-                .returns("Calculated allowance")
-
-              assert_state_variable :allowance, "Calculated allowance"
             end
           end # donating 0 with gift aid
         end # not paying into a pension
@@ -347,16 +282,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
           add_response "13850.50"
 
           assert_current_node :highest_earner_done
-        end
-
-        should "calculate allowance using calculators" do
-          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance
-            .expects(:calculate_allowance)
-            .returns("Calculated allowance")
-
-          add_response "1930-05-14"
-          add_response "13850.50"
-          assert_state_variable :allowance, "Calculated allowance"
         end
       end # income < 25400
     end # after 2005
