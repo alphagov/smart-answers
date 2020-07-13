@@ -14,15 +14,11 @@ module SmartAnswer
         option "current_payment"
         option "past_payment"
 
-        calculate :calculator do |response|
-          if response == "past_payment"
-            Calculators::MinimumWageCalculator.new(date: Date.parse("2019-04-01"))
-          else
-            Calculators::MinimumWageCalculator.new
-          end
+        on_response do |response|
+          date = Date.parse("2019-04-01") if response == "past_payment"
+          self.calculator = Calculators::MinimumWageCalculator.new(date: date)
+          self.accommodation_charge = nil
         end
-
-        calculate :accommodation_charge
 
         next_node do |response|
           case response
@@ -36,10 +32,6 @@ module SmartAnswer
 
       # Q3
       value_question :how_old_are_you?, parse: Integer do
-        precalculate :age_title do
-          "How old are you?"
-        end
-
         validate do |response|
           calculator.valid_age?(response)
         end
