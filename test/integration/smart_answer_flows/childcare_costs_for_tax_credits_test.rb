@@ -131,7 +131,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "calculate the weekly cost and take user to outcome" do
               add_response 52
               assert_current_node :weekly_costs_are_x
-              assert_state_variable :weekly_cost, 1
+              assert_calculator_attr :weekly_cost, 1
             end
           end # Q7
 
@@ -145,7 +145,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             end
 
             should "calculate the weekly cost" do
-              assert_state_variable :weekly_cost, 1
+              assert_calculator_attr :weekly_cost, 1
             end
           end # Q6
         end # Q4
@@ -164,7 +164,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
       should "calculate the weekly cost" do
         add_response 4 # Q10
-        assert_state_variable :weekly_cost, 1
+        assert_calculator_attr :weekly_cost, 1
         assert_current_node :weekly_costs_are_x
       end
     end
@@ -178,7 +178,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
       should "ask you how much you pay fortnightly" do
         add_response 10 # Answer Q13
-        assert_state_variable :weekly_cost, 5
+        assert_calculator_attr :weekly_cost, 5
         assert_current_node :weekly_costs_are_x
       end
     end # Q13
@@ -193,7 +193,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
       should "calculate the weekly cost" do
         add_response 20 # Q14
-        assert_state_variable :weekly_cost, 5
+        assert_calculator_attr :weekly_cost, 5
         assert_current_node :weekly_costs_are_x
       end
     end # Q14
@@ -208,7 +208,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
       should "calculate the weekly cost" do
         add_response 52 # Q14
-        assert_state_variable :weekly_cost, 1
+        assert_calculator_attr :weekly_cost, 1
         assert_current_node :weekly_costs_are_x
       end
     end # Q15
@@ -233,16 +233,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
       should "calculate weekly_cost from Q8" do
         add_response 52 # Q8
-        assert_state_variable :weekly_cost, 1
+        assert_calculator_attr :weekly_cost, 1
       end
 
       should "calculate diff after answering Q18" do
         add_response 52 # Q8
         add_response 2 # Q18
-        assert_state_variable :old_weekly_cost, 2
-        assert_state_variable :weekly_difference, -1
-        assert_state_variable :weekly_difference_abs, 1
-        assert_state_variable :cost_change_4_weeks, false
+        assert_calculator_attr :old_weekly_costs, 2
+        assert_calculator_attr :weekly_difference, -1
+        assert_calculator_attr :weekly_difference_abs, 1
+        assert_calculator_attr :cost_change_4_weeks, false
         assert_current_node :cost_changed
       end
     end # Q18
@@ -266,7 +266,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
     should "take user to Q20 if they give an answer" do
       add_response 1
-      assert_state_variable :new_weekly_costs, 1
+      assert_calculator_attr :new_weekly_costs, 1
       assert_current_node :old_weekly_amount_2?
     end
 
@@ -277,16 +277,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       end
 
       should "calculate the old costs based on user answer" do
-        assert_state_variable :old_weekly_costs, 11
-        assert_state_variable :weekly_difference, -10
-        assert_state_variable :weekly_difference_abs, 10
-        assert_state_variable :ten_or_more, true
-        assert_state_variable :cost_change_4_weeks, true
+        assert_calculator_attr :old_weekly_costs, 11
+        assert_calculator_attr :weekly_difference, -10
+        assert_calculator_attr :weekly_difference_abs, 10
+        assert_calculator_attr :ten_or_more, true
+        assert_calculator_attr :cost_change_4_weeks, true
         assert_current_node :cost_changed
       end
 
       should "show correct phrases" do
-        assert_state_variable :title_change_text, "decreased"
+        assert_calculator_attr :title_change_text, "decreased"
       end
     end # Q20
   end # Q17
@@ -309,7 +309,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
     should "take the user to Q21 if they give an answer" do
       add_response 4
-      assert_state_variable :new_weekly_costs, 1
+      assert_calculator_attr :new_weekly_costs, 1
       assert_current_node :old_monthly_amount?
     end
 
@@ -320,11 +320,11 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       end
 
       should "calculate old costs and difference" do
-        assert_state_variable :old_weekly_costs, 10
-        assert_state_variable :weekly_difference, -9
-        assert_state_variable :ten_or_more, false
-        assert_state_variable :title_change_text, "decreased"
-        assert_state_variable :cost_change_4_weeks, false
+        assert_calculator_attr :old_weekly_costs, 10
+        assert_calculator_attr :weekly_difference, -9
+        assert_calculator_attr :ten_or_more, false
+        assert_calculator_attr :title_change_text, "decreased"
+        assert_calculator_attr :cost_change_4_weeks, false
         assert_current_node :cost_changed
       end
     end
@@ -343,7 +343,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
 
     should "take user to weekly outcome" do
       add_response 52
-      assert_state_variable :weekly_cost, 1
+      assert_calculator_attr :weekly_cost, 1
       assert_current_node :weekly_costs_are_x
     end
   end
