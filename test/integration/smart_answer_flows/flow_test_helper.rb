@@ -64,4 +64,9 @@ module FlowTestHelper
     end
     assert_equal expected, actual
   end
+
+  def assert_calculator_attr(name, expected)
+    actual = current_state.calculator.send(name)
+    assert_equal expected, actual
+  end
 end
