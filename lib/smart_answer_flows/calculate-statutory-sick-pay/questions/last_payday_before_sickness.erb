@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  What was the last normal payday before <%= format_date(sick_start_date_for_awe) %>?
+  What was the last normal payday before <%= format_date(calculator.sick_start_date_for_awe) %>?
 <% end %>
 
 <% text_for :hint do %>
@@ -7,5 +7,5 @@
 <% end %>
 
 <% text_for :error_message do %>
-  You must enter a date before <%= format_date(sick_start_date_for_awe) %>
+  You must enter a date before <%= format_date(calculator.sick_start_date_for_awe) %>
 <% end %>
