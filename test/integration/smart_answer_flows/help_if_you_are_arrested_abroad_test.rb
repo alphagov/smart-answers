@@ -7,7 +7,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w[aruba belgium greece iran syria democratic-republic-of-the-congo]
+    @location_slugs = %w[aruba belgium bermuda greece iran syria democratic-republic-of-the-congo]
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
   end
@@ -18,56 +18,41 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
   context "In a country with a prisoner pack" do
     context "Answering with a country without any specific downloads / information" do
-      context "Answering Aruba" do
-        setup do
-          add_response :aruba
-        end
-
-        should "take the user to the generic answer" do
-          assert_current_node :answer_one_generic
-        end
-
-        should "correctly calculate and store the country variables" do
-          assert_state_variable :country, "aruba"
-          assert_state_variable :country_name, "Aruba"
-        end
-
-        should "correctly set up phrase lists" do
-          assert_state_variable :has_extra_downloads, false
-        end
-      end # context: Andorra
-    end # context: country without specific info
+      should "take the user to the generic answer" do
+        add_response :aruba
+        assert_current_node :answer_one_generic
+      end
+    end
 
     context "Answering with a country that has specific downloads / information" do
       context "Answering Democratic Republic of the Congo" do
-        setup do
-          add_response :"democratic-republic-of-the-congo"
-        end
-
         should "take the user to the generic answer" do
+          add_response :"democratic-republic-of-the-congo"
           assert_current_node :answer_one_generic
-        end
-
-        should "set up the country specific downloads" do
-          assert_state_variable :has_extra_downloads, true
+          assert_select outcome_body, "h2", /Download prisoner packs/
         end
       end
 
       context "Answering Greece" do
-        setup do
-          add_response :greece
-        end
-
         should "take the user to the generic answer" do
+          add_response :greece
           assert_current_node :answer_one_generic
-        end
-
-        should "set up the country specific downloads" do
-          assert_state_variable :has_extra_downloads, true
+          assert_select outcome_body, "h2", /Download prisoner packs/
         end
       end
-    end # context: country with specific info
-  end # context: non special case
+    end
+  end
+
+  context "In Iran" do
+    setup do
+      add_response :iran
+    end
+
+    should "take the user to the generic anwser with Iran specific downloads" do
+      assert_current_node :answer_one_generic
+      assert_select outcome_body, "a", /imprisoned in Iran/
+    end
+  end
 
   context "In Syria" do
     setup do
@@ -76,6 +61,13 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
     should "take the user to the Syria answer" do
       assert_current_node :answer_three_syria
+    end
+  end
+
+  context "In a British overseas territory" do
+    setup do
+      add_response :bermuda
+      assert_current_node :answer_three_british_overseas_territories
     end
   end
 end
