@@ -12,7 +12,9 @@ module SmartAnswer
         option :age
         option :bus_pass
 
-        save_input_as :which_calculation
+        on_response do |response|
+          self.which_calculation = response
+        end
 
         next_node do
           question :dob_age?
@@ -25,8 +27,8 @@ module SmartAnswer
 
         validate { |response| response <= Time.zone.today }
 
-        calculate :calculator do |response|
-          Calculators::StatePensionAgeCalculator.new(dob: response)
+        on_response do |response|
+          self.calculator = Calculators::StatePensionAgeCalculator.new(dob: response)
         end
 
         next_node do
