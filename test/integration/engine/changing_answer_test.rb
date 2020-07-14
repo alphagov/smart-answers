@@ -192,7 +192,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "B1 1PW"
       click_on "Next step"
 
-      assert_current_url "/postcode-sample/y/#{URI.escape('B1 1PW')}" # rubocop:disable Lint/UriEscapeUnescape
+      assert_current_url "/postcode-sample/y/B1%201PW"
 
       within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
