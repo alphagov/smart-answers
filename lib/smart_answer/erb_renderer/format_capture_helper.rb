@@ -1,7 +1,5 @@
 module SmartAnswer
   module ErbRenderer::FormatCaptureHelper
-    class InvalidFormatType < RuntimeError; end
-
     TEXT_CONTENT = [
       :title,
       :meta_description,
@@ -10,21 +8,6 @@ module SmartAnswer
       :suffix_label,
       /^error_/,
     ].freeze
-
-    def render_content_for(name, options = {}, &block)
-      format = options.fetch(:format, default_format(name))
-
-      case format
-      when :govspeak
-        govspeak_for(name, &block)
-      when :html
-        html_for(name, &block)
-      when :text
-        text_for(name, &block)
-      else
-        raise InvalidFormatType
-      end
-    end
 
     def text_for(name, &block)
       content = capture_content(&block)
