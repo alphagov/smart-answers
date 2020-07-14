@@ -237,7 +237,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_leave_mat_pay_pat_leave_additional_pat_leave
+      assert_current_node :outcome_mat_leave_mat_pay_pat_leave
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -280,7 +280,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_started_working_before_continuity_start_date
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_pay
+      assert_current_node :outcome_mat_leave_mat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner worker, does not pass continuity test" do
@@ -465,9 +465,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_allowance_mat_leave_mat_shared_leave
+      assert_current_node :outcome_mat_allowance_mat_leave
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test;Partner self-employed, does not pass earnings and employment test" do
@@ -480,8 +478,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "no" # partner_worked_at_least_26_weeks
-      add_response "no" # partner_earned_at_least_390
       assert_current_node :outcome_mat_allowance_mat_leave
     end
 
@@ -495,9 +491,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "no" # mother_worked_at_least_26_weeks
       add_response "no" # mother_earned_at_least_390
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_shared_leave
+      assert_current_node :outcome_mat_leave
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner self-employed, does not pass earnings and employment test" do
@@ -510,8 +504,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "no" # mother_worked_at_least_26_weeks
       add_response "no" # mother_earned_at_least_390
-      add_response "no" # partner_worked_at_least_26_weeks
-      add_response "no" # partner_earned_at_least_390
       assert_current_node :outcome_mat_leave
     end
 
@@ -544,7 +536,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_both_shared_leave_pat_shared_pay
+      assert_current_node :outcome_mat_allowance_mat_leave_pat_leave_pat_pay
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -560,7 +552,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_mat_leave_pat_pay_mat_shared_leave_pat_shared_pay
+      assert_current_node :outcome_mat_allowance_mat_leave_pat_pay
     end
 
     should "Mother self-employed, passes earnings and employment test;Partner employee, passes continuity test, passes lower earnings test" do
@@ -573,7 +565,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay
+      assert_current_node :outcome_mat_allowance_pat_leave_pat_pay
     end
 
     should "Mother self-employed, passes earnings and employment test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -586,7 +578,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_pat_pay_pat_shared_pay
+      assert_current_node :outcome_mat_allowance_pat_pay
     end
 
     should "Mother worker, does not pass continuity test, passes earnings and employment test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -602,7 +594,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_pat_pay_pat_shared_pay
+      assert_current_node :outcome_mat_allowance_pat_pay
     end
 
     should "Mother employee, does not pass continuity test, passes lower earnings test;Partner employee, passes continuity test, does not pass lower earnings test" do
@@ -618,7 +610,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave
+      assert_current_node :outcome_mat_allowance_mat_leave_pat_leave
     end
 
     should "Mother employee, passes continuity test, passes lower earnings test;Partner self-employed, does not pass earnings and employment test" do
@@ -629,8 +621,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_started_working_before_continuity_start_date
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
-      add_response "no" # partner_worked_at_least_26_weeks
-      add_response "no" # partner_earned_at_least_390
       assert_current_node :outcome_mat_leave_mat_pay
     end
 
@@ -642,9 +632,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_started_working_before_continuity_start_date
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay
+      assert_current_node :outcome_mat_leave_mat_pay
     end
 
     should "Mother employee, passes continuity test, passes lower earnings test;Partner employee, does not pass continuity test, passes lower earnings test, passes earnings and employment test" do
@@ -658,9 +646,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay
+      assert_current_node :outcome_mat_leave
     end
 
     should "Mother employee, passes continuity test, passes lower earnings test;Parnter employee, passes continuity test, passes lower earnings test" do
@@ -674,7 +660,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_leave_mat_pay_pat_leave_pat_pay_both_shared_leave_both_shared_pay
+      assert_current_node :outcome_mat_leave_mat_pay_pat_leave_pat_pay
     end
 
     should "Mother employee, passes continuity test, passes lower earnings test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -688,7 +674,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_leave_mat_pay_pat_pay_mat_shared_leave_both_shared_pay
+      assert_current_node :outcome_mat_leave_mat_pay_pat_pay
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner employee, passes continuity test, passes lower earnings test" do
@@ -704,7 +690,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_leave_pat_leave_pat_pay_mat_shared_leave
+      assert_current_node :outcome_mat_leave_pat_leave_pat_pay
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -720,7 +706,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_leave_pat_pay_mat_shared_leave
+      assert_current_node :outcome_mat_leave_pat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner self-employed, does not pass earnings and employment test" do
@@ -731,9 +717,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_started_working_before_continuity_start_date
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
-      add_response "no" # partner_worked_at_least_26_weeks
-      add_response "no" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_pay
+      assert_current_node :outcome_mat_leave_mat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner self-employed, passes earnings and employment test" do
@@ -744,9 +728,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_started_working_before_continuity_start_date
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_pay_mat_shared_pay
+      assert_current_node :outcome_mat_leave_mat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner employee, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test" do
@@ -760,9 +742,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "no" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_pay_mat_shared_pay
+      assert_current_node :outcome_mat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner employee, passes continuity test, passes lower earnings test" do
@@ -776,7 +756,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_pay_pat_leave_pat_pay_pat_shared_leave_both_shared_pay
+      assert_current_node :outcome_mat_pay_pat_leave_pat_pay
     end
 
     should "Mother worker, passes continuity test, passes lower earnings test;Partner worker, passes continuity test, passes lower earnings test" do
@@ -790,7 +770,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
-      assert_current_node :outcome_mat_pay_pat_pay_both_shared_pay
+      assert_current_node :outcome_mat_pay_pat_pay
     end
 
     should "Mother self-employed, does not pass earnings and employment test;Partner employee, passes continuity test, passes lower earnings test" do
@@ -830,9 +810,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      add_response "no" # partner_worked_at_least_26_weeks
-      add_response "no" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_pay_pat_leave_pat_shared_leave
+      assert_current_node :outcome_mat_leave_mat_pay_pat_leave
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner worker, passes continuity test, does not pass lower earnings test, passes earnings and employment test" do
@@ -848,9 +826,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_shared_leave
+      assert_current_node :outcome_mat_leave
     end
 
     should "Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test" do
@@ -866,9 +842,7 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "no" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
-      add_response "yes" # partner_worked_at_least_26_weeks
-      add_response "yes" # partner_earned_at_least_390
-      assert_current_node :outcome_mat_leave_mat_shared_leave
+      assert_current_node :outcome_mat_leave
     end
 
     should "Mother worker, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test;Partner worker, passes continuity test, does not pass lower earnings test" do
