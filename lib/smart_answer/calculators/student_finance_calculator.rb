@@ -1,16 +1,17 @@
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
-      attr_accessor(
-        :course_start,
-        :household_income,
-        :residence,
-        :course_type,
-        :part_time_credits,
-        :full_time_credits,
-        :doctor_or_dentist,
-        :uk_ft_circumstances,
-      )
+      attr_accessor :course_start,
+                    :household_income,
+                    :residence,
+                    :course_type,
+                    :course_studied,
+                    :part_time_credits,
+                    :full_time_credits,
+                    :doctor_or_dentist,
+                    :uk_ft_circumstances,
+                    :uk_all_circumstances,
+                    :tuition_fee_amount
 
       LOAN_MAXIMUMS = {
         "2019-2020" => {
@@ -172,6 +173,18 @@ module SmartAnswer
       def course_start_years
         year_matches = /(\d{4})-(\d{4})/.match(@course_start)
         [year_matches[1].to_i, year_matches[2].to_i]
+      end
+
+      def valid_tuition_fee_amount?
+        tuition_fee_amount <= tuition_fee_maximum
+      end
+
+      def valid_credit_amount?
+        part_time_credits.positive?
+      end
+
+      def valid_full_time_credit_amount?
+        full_time_credits.positive? && full_time_credits >= part_time_credits
       end
 
     private

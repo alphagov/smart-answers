@@ -3,11 +3,11 @@
 
   ##Tuition costs
 
-  You could get a [Tuition Fee Loan](/student-finance/eu-students) - <%= format_money(tuition_fee_amount, pounds_only: true) %> per year.
+  You could get a [Tuition Fee Loan](/student-finance/eu-students) - <%= format_money(calculator.tuition_fee_amount, pounds_only: true) %> per year.
 
   The loan pays for the cost of your course and must be paid back.
 
-  <% if course_type == 'eu-full-time' %>
+  <% if calculator.course_type == 'eu-full-time' %>
     ##Living costs
 
     Most EU full-time students don't qualify for help with living costs (known as 'maintenance').

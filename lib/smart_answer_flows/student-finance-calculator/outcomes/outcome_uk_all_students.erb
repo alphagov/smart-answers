@@ -1,11 +1,11 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer' %>
 
-  <% if course_studied == 'dental-medical-healthcare' %>
+  <% if calculator.course_studied == 'dental-medical-healthcare' %>
     To qualify for a Maintenance Loan you must be studying a DipHE in dental hygiene and dental therapy or operating department practice, or a Foundation Degree in dental hygiene and dental therapy.
-  <% elsif course_studied == 'teacher-training' %>
+  <% elsif calculator.course_studied == 'teacher-training' %>
     To qualify for a Maintenance Loan you must be studying an Initial Teacher Training course (if it's degree level or above).
-  <% elsif course_studied == 'none-of-the-above' %>
+  <% elsif calculator.course_studied == 'none-of-the-above' %>
     To qualify for a Maintenance Loan, you must be studying one of the following courses:
 
     - a first degree, for example BA, BSc or BEd
@@ -19,7 +19,7 @@
 
   You could get per year:
 
-  - <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/parttime-students)
+  - <%= format_money(calculator.tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/parttime-students)
 
   <% if calculator.maintenance_loan_amount > 0 %>
     - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/parttime-students)
@@ -27,28 +27,28 @@
 
   ###Extra student funding
 
-  <% if all_uk_students_circumstances.include?('no') and course_studied != 'teacher-training' and course_studied != 'social-work' %>
+  <% if calculator.uk_all_circumstances.include?('no') and calculator.course_studied != 'teacher-training' and calculator.course_studied != 'social-work' %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     You could get:
 
-    <% if all_uk_students_circumstances.include?('has-disability') %>
+    <% if calculator.uk_all_circumstances.include?('has-disability') %>
       - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
     <% end %>
 
-    <% if all_uk_students_circumstances.include?('low-income') %>
+    <% if calculator.uk_all_circumstances.include?('low-income') %>
       - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
     <% end %>
 
-    <% if course_studied == 'teacher-training' %>
+    <% if calculator.course_studied == 'teacher-training' %>
       - [Funding for teacher training](/teacher-training-funding)
-    <% elsif course_studied == 'social-work' %>
+    <% elsif calculator.course_studied == 'social-work' %>
       - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
     <% end %>
 
   <% end %>
 
-  <%= render partial: 'uk_extra_help', locals: { course_type: course_type } %>
+  <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
 
   <%= render partial: 'next_steps' %>
 

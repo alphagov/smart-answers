@@ -3,9 +3,9 @@
 
   Each year you could get the following [NHS funding](/nhs-bursaries):
 
-  <%= render partial: 'nhs_part_time_funding', locals: { all_uk_students_circumstances: all_uk_students_circumstances, calculator: calculator } %>
+  <%= render partial: 'nhs_part_time_funding', locals: { calculator: calculator } %>
 
-  <%= render partial: 'uk_extra_help', locals: { course_type: course_type } %>
+  <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
 
   <%= render partial: 'next_steps' %>
 

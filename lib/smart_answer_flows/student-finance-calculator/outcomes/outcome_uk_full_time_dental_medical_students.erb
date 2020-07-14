@@ -6,7 +6,7 @@
 
     In each of your first 4 years, you could get:
 
-    <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: start_date } %>
+    <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start } %>
 
     <% if calculator.eligible_for_childcare_grant_one_child? %>
       - up to 85% of your childcare costs (maximum <%= format_money(calculator.childcare_grant_one_child) %> a week for a single child or <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week if you have more than one) in Childcare Grant
@@ -22,17 +22,17 @@
       - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
-    <% if uk_ft_circumstances.include?('has-disability') %>
+    <% if calculator.uk_ft_circumstances.include?('has-disability') %>
       - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
     <% end %>
 
     In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
 
-    <%= render partial: 'nhs_full_time_funding', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
+    <%= render partial: 'nhs_full_time_funding', locals: { calculator: calculator } %>
 
     ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
 
-  <%= render partial: 'uk_extra_help', locals: { course_type: course_type } %>
+  <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
 
   <%= render partial: 'next_steps' %>
 <% end %>
