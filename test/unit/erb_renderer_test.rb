@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class ErbRendererTest < ActiveSupport::TestCase
     test "can render a template" do
-      erb_template = render_content_for(:key, "content")
+      erb_template = %{<%= text_for(:key) { "content" } %>}
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(
           template_directory: erb_template_directory,
@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     test "can render a template with a .govspeak name" do
-      erb_template = render_content_for(:key, "content")
+      erb_template = %{<%= text_for(:key) { "content" } %>}
       with_erb_template_file("template-name.govspeak", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(
           template_directory: erb_template_directory,
@@ -41,8 +41,7 @@ module SmartAnswer
     end
 
     test "#content_for makes local variables available to the ERB template" do
-      erb_template = render_content_for(:key, "<%= state_variable %>")
-
+      erb_template = %{<%= text_for(:key) { %><%= state_variable %> <% } %>}
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: { state_variable: "state-variable" })
 
@@ -51,8 +50,7 @@ module SmartAnswer
     end
 
     test "#content_for raises an exception if the ERB template references a non-existent state variable" do
-      erb_template = render_content_for(:key, "<%= non_existent_state_variable %>")
-
+      erb_template = %{<%= text_for(:key) { %><%= non_existent_state_variable %> <% } %>}
       with_erb_template_file("template-name", erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name", locals: {})
 
@@ -109,10 +107,6 @@ module SmartAnswer
     end
 
   private
-
-    def render_content_for(key, template)
-      "<% render_content_for #{key.inspect} do %>\n#{template}\n<% end %>"
-    end
 
     def with_erb_template_file(outcome_name, erb_template)
       erb_template_filename = "#{outcome_name}.erb"

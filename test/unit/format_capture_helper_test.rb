@@ -96,38 +96,5 @@ module SmartAnswer
                      error.message
       end
     end
-
-    context "#render_content_for" do
-      should "render govspeak when specified" do
-        @test_obj.render_content_for(:name, format: :govspeak) { "content" }
-        assert_match @test_obj.content_for(:name), "<govspeak><p>content</p>\n</govspeak>"
-      end
-
-      should "render html when specified" do
-        @test_obj.render_content_for(:name, format: :html) { "<p>content</p>" }
-        assert_equal @test_obj.content_for(:name), "<p>content</p>"
-      end
-
-      should "render text when specified" do
-        @test_obj.render_content_for(:name, format: :text) { "text" }
-        assert_equal @test_obj.content_for(:name), "text"
-      end
-
-      should "default to rendering govspeak" do
-        @test_obj.render_content_for(:name) { "content" }
-        assert_match @test_obj.content_for(:name), "<govspeak><p>content</p>\n</govspeak>"
-      end
-
-      should "render text when the field defaults to text" do
-        @test_obj.render_content_for(:title) { "content" }
-        assert_match @test_obj.content_for(:title), "content"
-      end
-
-      should "raise an error when given an unknown format" do
-        assert_raises SmartAnswer::ErbRenderer::FormatCaptureHelper::InvalidFormatType do
-          @test_obj.render_content_for(:title, { format: :invalid }) { "content" }
-        end
-      end
-    end
   end
 end
