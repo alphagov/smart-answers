@@ -7,8 +7,8 @@ class FlowRegistrationPresenter
     @flow.name
   end
 
-  def need_id
-    @flow.need_id
+  def need_content_id
+    @flow.need_content_id
   end
 
   def start_page_content_id

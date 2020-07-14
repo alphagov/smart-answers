@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "14244ee4-6d7d-4e05-90a7-aaf1a776d312"
       name "estimate-self-assessment-penalties"
       status :published
-      satisfies_need "100615"
+      satisfies_need "e220b484-a097-4ed4-ae3d-ac982b10c8cd"
 
       multiple_choice :which_year? do
         option :"2012-13"

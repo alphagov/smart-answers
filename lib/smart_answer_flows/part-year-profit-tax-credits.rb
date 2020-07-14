@@ -4,7 +4,7 @@ module SmartAnswer
       name "part-year-profit-tax-credits"
 
       status :published
-      satisfies_need "103438"
+      satisfies_need "2aa5527c-8626-492a-83de-9654e250eda0"
       start_page_content_id "de6723a5-7256-4bfd-aad3-82b04b06b73e"
       flow_content_id "a0720c77-f45d-437c-a867-405d5f5dd40c"
 

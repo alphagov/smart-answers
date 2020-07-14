@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "d5074786-f3cc-410e-bc3d-d52008f0a692"
       name "help-if-you-are-arrested-abroad"
       status :published
-      satisfies_need "100220"
+      satisfies_need "de7bf117-408b-4b26-8e08-7aa51415b4e2"
 
       arrested_calc = Calculators::ArrestedAbroad.new
       exclude_countries = %w[holy-see british-antarctic-territory]

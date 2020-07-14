@@ -3,7 +3,7 @@ require "ostruct"
 module SmartAnswer
   class Flow
     attr_reader :nodes
-    attr_accessor :need_id
+    attr_accessor :need_content_id
     attr_writer :status
 
     def self.build
@@ -40,8 +40,8 @@ module SmartAnswer
       @name
     end
 
-    def satisfies_need(need_id)
-      self.need_id = need_id
+    def satisfies_need(need_content_id)
+      self.need_content_id = need_content_id
     end
 
     def external_related_links(external_related_links = nil)

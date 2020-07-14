@@ -2,7 +2,7 @@ module SmartAnswer
   class SmartAnswersControllerSampleFlow < Flow
     def define
       name "smart-answers-controller-sample"
-      satisfies_need 1337
+      satisfies_need "7da2fa63-190c-446e-b3e5-94480f0e46e7"
 
       multiple_choice :do_you_like_chocolate? do
         option :yes

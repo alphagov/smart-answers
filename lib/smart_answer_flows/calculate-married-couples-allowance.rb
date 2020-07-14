@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "cb4649de-e0b7-42e3-a43a-b98e4415555a"
       name "calculate-married-couples-allowance"
       status :published
-      satisfies_need "101007"
+      satisfies_need "39e28d41-a13b-441d-8bf2-f1fc54992aea"
 
       multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
         option :yes

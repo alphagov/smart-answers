@@ -34,9 +34,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "need_id" do
-    should "use the flow's need_id" do
-      assert_equal 4242, @presenter.need_id
+  context "need_content_id" do
+    should "use the flow's need_content_id" do
+      assert_equal "dccab509-bd3b-4f92-9af6-30f88485ac41", @presenter.need_content_id
     end
   end
 

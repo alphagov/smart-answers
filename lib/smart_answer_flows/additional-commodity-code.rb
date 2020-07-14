@@ -6,7 +6,7 @@ module SmartAnswer
       name "additional-commodity-code"
 
       status :published
-      satisfies_need "100233"
+      satisfies_need "835da435-b6ea-4c76-a584-75c1082d86f5"
 
       # Q1
       multiple_choice :how_much_starch_glucose? do

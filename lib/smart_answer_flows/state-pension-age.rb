@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "cdca2cab-da55-4184-abb3-af27764dd756"
       name "state-pension-age"
       status :published
-      satisfies_need "100245"
+      satisfies_need "b91945bf-56f6-46aa-b25f-0066bc2377b6"
 
       # Q1
       multiple_choice :which_calculation? do

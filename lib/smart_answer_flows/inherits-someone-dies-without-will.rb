@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "c1e50aff-67b7-4841-b0d8-33a66bec9807"
       name "inherits-someone-dies-without-will"
       status :published
-      satisfies_need "100988"
+      satisfies_need "cb6ea8b6-e8ed-4832-a7c1-5a1bf99cd2e1"
 
       # The case & if blocks in this file are organised to be read in the same order
       # as the flow chart rather than to minimise repetition.
