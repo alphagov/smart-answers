@@ -151,17 +151,9 @@ module SmartAnswer
         end
       end
 
-      outcome :husband_done do
-        precalculate :allowance do
-          calculator.calculate_allowance
-        end
-      end
+      outcome :husband_done
 
-      outcome :highest_earner_done do
-        precalculate :allowance do
-          calculator.calculate_allowance
-        end
-      end
+      outcome :highest_earner_done
 
       outcome :sorry
     end
