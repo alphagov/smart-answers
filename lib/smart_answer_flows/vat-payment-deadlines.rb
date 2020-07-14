@@ -5,7 +5,7 @@ module SmartAnswer
       flow_content_id "f0868a94-5b24-4141-a1c2-73b53b842b44"
       name "vat-payment-deadlines"
       status :published
-      satisfies_need "100624"
+      satisfies_need "2c24c7e6-93c7-4290-9a1f-d5f8f3f112bb"
 
       date_question :when_does_your_vat_accounting_period_end? do
         default_day { -1 }

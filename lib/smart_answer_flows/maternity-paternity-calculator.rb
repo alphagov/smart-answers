@@ -10,7 +10,7 @@ module SmartAnswer
       flow_content_id "38c0b111-e9be-40f3-915b-ad1d9bbf3b2b"
       name "maternity-paternity-calculator"
       status :published
-      satisfies_need "100990"
+      satisfies_need "ee96f915-9dbd-4bf9-a6fc-21ad237de88b"
 
       ## Q1
       multiple_choice :what_type_of_leave? do
