@@ -228,10 +228,6 @@ module SmartAnswer
         option :eight_weeks_less
         option :before_payday
 
-        precalculate :sick_start_date_for_awe do
-          calculator.sick_start_date_for_awe
-        end
-
         on_response do |response|
           calculator.eight_weeks_earnings = response
         end
@@ -274,10 +270,6 @@ module SmartAnswer
         to { Calculators::StatutorySickPayCalculator.year_of_sickness }
         validate_in_range
 
-        precalculate :sick_start_date_for_awe do
-          calculator.sick_start_date_for_awe
-        end
-
         on_response do |response|
           calculator.relevant_period_to = response
         end
@@ -297,10 +289,6 @@ module SmartAnswer
         to { Calculators::StatutorySickPayCalculator.year_of_sickness }
         validate_in_range
 
-        precalculate :pay_day_offset do
-          calculator.pay_day_offset
-        end
-
         on_response do |response|
           calculator.relevant_period_from = response + 1.day
         end
@@ -316,14 +304,6 @@ module SmartAnswer
 
       # Question 9.2
       money_question :total_employee_earnings? do
-        precalculate :relevant_period_from do
-          calculator.relevant_period_from
-        end
-
-        precalculate :relevant_period_to do
-          calculator.relevant_period_to
-        end
-
         on_response do |response|
           calculator.total_employee_earnings = response
         end
@@ -335,10 +315,6 @@ module SmartAnswer
 
       # Question 10
       money_question :pay_amount_if_not_sick? do
-        precalculate :sick_start_date_for_awe do
-          calculator.sick_start_date_for_awe
-        end
-
         on_response do |response|
           calculator.relevant_contractual_pay = response
         end
@@ -418,32 +394,13 @@ module SmartAnswer
       outcome :not_regular_schedule
 
       # Answer 5
-      outcome :not_earned_enough do
-        precalculate :lower_earning_limit do
-          calculator.lower_earning_limit
-        end
-
-        precalculate :employee_average_weekly_earnings do
-          calculator.employee_average_weekly_earnings
-        end
-      end
+      outcome :not_earned_enough
 
       # Answer 6
-      outcome :entitled_to_sick_pay do
-        precalculate :ssp_payment do
-          calculator.ssp_payment
-        end
-
-        precalculate(:days_paid) { calculator.days_paid }
-        precalculate(:normal_workdays_out) { calculator.normal_workdays }
-        precalculate(:pattern_days) { calculator.pattern_days }
-        precalculate(:pattern_days_total) { calculator.pattern_days_total }
-      end
+      outcome :entitled_to_sick_pay
 
       # Answer 7
-      outcome :not_entitled_3_days_not_paid do
-        precalculate(:normal_workdays_out) { calculator.normal_workdays }
-      end
+      outcome :not_entitled_3_days_not_paid
 
       # Answer 8
       outcome :maximum_entitlement_reached
