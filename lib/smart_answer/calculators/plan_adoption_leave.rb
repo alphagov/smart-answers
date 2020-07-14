@@ -3,25 +3,29 @@ module SmartAnswer::Calculators
     include ActionView::Helpers::DateHelper
     include SmartAnswer::DateHelper
 
-    attr_reader :formatted_match_date, :formatted_arrival_date, :formatted_start_date
+    attr_accessor :match_date, :arrival_date, :start_date
 
-    def initialize(options = {})
-      @match_date = options[:match_date]
-      @formatted_match_date = formatted_date(@match_date)
-      @arrival_date = options[:arrival_date]
-      @formatted_arrival_date = formatted_date(@arrival_date)
-      @start_date = options[:start_date]
-      @formatted_start_date = formatted_date(@start_date)
+    def valid_arrival_date?
+      arrival_date > match_date
+    end
+
+    def valid_start_date?
+      dist = (arrival_date - start_date).to_i
+      (1..14).include? dist
     end
 
     def distance_start
-      distance_of_time_in_words(@arrival_date, @start_date)
+      distance_of_time_in_words(arrival_date, start_date)
+    end
+
+    def arrival_date_formatted
+      formatted_date(arrival_date)
     end
 
     ## borrowed methods
 
     def earliest_start
-      @arrival_date - 14
+      arrival_date - 14
     end
 
     def earliest_start_formatted
@@ -29,7 +33,7 @@ module SmartAnswer::Calculators
     end
 
     def expected_week
-      sunday = @match_date - @match_date.wday
+      sunday = match_date - match_date.wday
       saturday = sunday + 6
       SmartAnswer::DateRange.new begins_on: sunday, ends_on: saturday
     end
@@ -43,7 +47,7 @@ module SmartAnswer::Calculators
     end
 
     def period_of_ordinary_leave
-      SmartAnswer::DateRange.new begins_on: @start_date, ends_on: @start_date + 26 * 7
+      SmartAnswer::DateRange.new begins_on: start_date, ends_on: start_date + 26 * 7
     end
 
     def period_of_additional_leave

@@ -5,14 +5,14 @@
 <% govspeak_for :body do %>
   You can take up to 52 weeks Statutory Adoption Leave.
 
-  The dates below are based on this and the date the child starts to live with you: <%= arrival_date_formatted %>.
+  The dates below are based on this and the date the child starts to live with you: <%= calculator.arrival_date_formatted %>.
 
   Leave | Key dates
   - | -
-  Ordinary Adoption Leave (first 26 weeks): | <%= period_of_ordinary_leave %>
-  Additional Adoption Leave (last 26 weeks): | <%= period_of_additional_leave %>
-  Earliest leave can start: | <%= earliest_start_formatted %>
-  Latest date to give notice: | <%= last_qualifying_week_formatted %>
+  Ordinary Adoption Leave (first 26 weeks): | <%= calculator.period_of_ordinary_leave %>
+  Additional Adoption Leave (last 26 weeks): | <%= calculator.period_of_additional_leave %>
+  Earliest leave can start: | <%= calculator.earliest_start_formatted %>
+  Latest date to give notice: | <%= calculator.last_qualifying_week_formatted %>
 
   You could get more time off if your employer has a company adoption leave scheme.
 

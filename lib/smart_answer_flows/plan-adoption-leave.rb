@@ -8,7 +8,10 @@ module SmartAnswer
       satisfies_need "558b11d4-e164-40e2-96a2-f20643fe4539"
 
       date_question :child_match_date? do
-        save_input_as :match_date
+        on_response do |response|
+          self.calculator = Calculators::PlanAdoptionLeave.new
+          calculator.match_date = response
+        end
 
         next_node do
           question :child_arrival_date?
@@ -16,10 +19,12 @@ module SmartAnswer
       end
 
       date_question :child_arrival_date? do
-        calculate :arrival_date do |response|
-          raise InvalidResponse if response <= match_date
+        on_response do |response|
+          calculator.arrival_date = response
+        end
 
-          response
+        validate do
+          calculator.valid_arrival_date?
         end
 
         next_node do
@@ -28,19 +33,12 @@ module SmartAnswer
       end
 
       date_question :leave_start? do
-        calculate :start_date do |response|
-          dist = (arrival_date - response).to_i
-          raise InvalidResponse unless (1..14).include? dist
-
-          response
+        on_response do |response|
+          calculator.start_date = response
         end
 
-        calculate :calculator do
-          Calculators::PlanAdoptionLeave.new(
-            match_date: match_date,
-            arrival_date: arrival_date,
-            start_date: start_date,
-          )
+        validate do
+          calculator.valid_start_date?
         end
 
         next_node do
@@ -48,32 +46,7 @@ module SmartAnswer
         end
       end
 
-      outcome :adoption_leave_details do
-        precalculate :match_date_formatted do
-          calculator.formatted_match_date
-        end
-        precalculate :arrival_date_formatted do
-          calculator.formatted_arrival_date
-        end
-        precalculate :start_date_formatted do
-          calculator.formatted_start_date
-        end
-        precalculate :distance_start do
-          calculator.distance_start
-        end
-        precalculate :last_qualifying_week_formatted do
-          calculator.last_qualifying_week_formatted
-        end
-        precalculate :earliest_start_formatted do
-          calculator.earliest_start_formatted
-        end
-        precalculate :period_of_ordinary_leave do
-          calculator.period_of_ordinary_leave.to_s
-        end
-        precalculate :period_of_additional_leave do
-          calculator.period_of_additional_leave.to_s
-        end
-      end
+      outcome :adoption_leave_details
     end
   end
 end
