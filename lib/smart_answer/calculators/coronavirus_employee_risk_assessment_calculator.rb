@@ -9,9 +9,7 @@ module SmartAnswer::Calculators
       indoor_recreation
     ].freeze
 
-    WORKPLACES_OPENING_SOON_TO_PUBLIC = {
-      "beauty_parlour" => "13 July 2020",
-    }.freeze
+    WORKPLACES_OPENING_SOON_TO_PUBLIC = {}.freeze
 
     attr_accessor :where_do_you_work,
                   :workplace_is_exception,

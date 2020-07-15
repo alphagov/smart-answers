@@ -36,11 +36,6 @@ module SmartAnswer::Calculators
         @calculator.where_do_you_work = "other"
         assert_nil @calculator.workplace_opening_date
       end
-
-      should "return date when workplace is reopening soon" do
-        @calculator.where_do_you_work = "beauty_parlour"
-        assert_equal "13 July 2020", @calculator.workplace_opening_date
-      end
     end
   end
 end
