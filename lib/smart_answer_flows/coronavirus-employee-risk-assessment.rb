@@ -10,7 +10,6 @@ module SmartAnswer
       multiple_choice :where_do_you_work? do
         option :food_and_drink
         option :hairdressers
-        option :beauty_parlour
         option :retail
         option :driving_schools
         option :auction_house
