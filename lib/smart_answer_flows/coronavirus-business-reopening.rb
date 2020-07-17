@@ -9,6 +9,7 @@ module SmartAnswer
       checkbox_question :sectors? do
         option :construction
         option :factories
+        option :hotels
         option :labs
         option :offices
         option :hospitality
