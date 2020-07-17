@@ -8,12 +8,12 @@ module SmartAnswer
 
       checkbox_question :sectors? do
         option :construction
+        option :close_contact
         option :factories
         option :hotels
         option :labs
         option :offices
         option :hospitality
-        option :close_contact
         option :shops
         option :homes
         option :vehicles
