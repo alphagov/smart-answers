@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
         calculator.staff_meetings == "yes"
       },
       staff_travel: lambda { |calculator|
-        calculator.staff_travel == "yes"
+        calculator.staff_travel == "for_work"
       },
       send_or_receive_goods: lambda { |calculator|
         calculator.send_or_receive_goods == "yes"

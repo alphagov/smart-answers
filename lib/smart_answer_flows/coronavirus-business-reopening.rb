@@ -69,7 +69,8 @@ module SmartAnswer
       end
 
       multiple_choice :staff_travel? do
-        option :yes
+        option :to_work
+        option :for_work
         option :no
 
         on_response do |response|
