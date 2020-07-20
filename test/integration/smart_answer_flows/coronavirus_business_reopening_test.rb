@@ -21,7 +21,7 @@ class CoronavirusBusinessReopeningFlowTest < ActiveSupport::TestCase
       assert_current_node :staff_meetings?
       add_response "yes"
       assert_current_node :staff_travel?
-      add_response "yes"
+      add_response "for_work"
       assert_current_node :send_or_receive_goods?
       add_response "yes"
       assert_current_node :results

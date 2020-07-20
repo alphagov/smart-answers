@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
 
       context "staff_travel" do
         should "return true when criteria met" do
-          @calculator.staff_travel = "yes"
+          @calculator.staff_travel = "for_work"
           assert @calculator.show?(:staff_travel)
         end
 
