@@ -16,6 +16,8 @@ updates:
         dependency-type: direct
       - dependency-name: rubocop-govuk
         dependency-type: direct
+      - dependency-name: slimmer
+        dependency-type: direct
       # Framework gems
       - dependency-name: minitest
         dependency-type: direct
