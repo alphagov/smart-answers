@@ -1,0 +1,51 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  tests:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      GOVUK_CONTENT_SCHEMAS_PATH: vendor/govuk-content-schemas
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Checkout GOV.UK Content Schemas
+        uses: actions/checkout@v2
+        with:
+          repository: alphagov/govuk-content-schemas
+          ref: deployed-to-production
+          path: vendor/govuk-content-schemas
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Retrieve cached Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle
+
+      - name: Install Ruby dependencies
+        run: bundle install --jobs 4 --retry 3 --deployment
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+
+      - name: Retrieve cached node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn
+
+      - name: Install JavaScript dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Precompile assets
+        run: bundle exec rails assets:precompile
+
+      - name: Run tests
+        run: bundle exec rake
