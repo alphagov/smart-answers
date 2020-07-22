@@ -366,5 +366,17 @@ module SmartAnswer::Calculators
         assert_equal false, @calculator.rolling_increase_period?
       end
     end
+
+    context "#pension_age_based_on_gender?" do
+      should "be true for a date that is before 06/12/1953" do
+        @calculator = StatePensionAgeCalculator.new(dob: Date.parse("5 December 1953"))
+        assert_equal true, @calculator.pension_age_based_on_gender?
+      end
+
+      should "be false for a date after 06/12/1953" do
+        @calculator = StatePensionAgeCalculator.new(dob: Date.parse("6 December 1953"))
+        assert_equal false, @calculator.pension_age_based_on_gender?
+      end
+    end
   end
 end
