@@ -76,7 +76,7 @@ module SmartAnswer
 
       context "with an explicitly set 'none' option" do
         setup do
-          @question.set_none_option
+          @question.none_option
         end
 
         should "enable the none option" do

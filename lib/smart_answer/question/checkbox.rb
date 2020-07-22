@@ -45,7 +45,7 @@ module SmartAnswer
         @options.include?(NONE_OPTION)
       end
 
-      def set_none_option
+      def none_option
         @options << NONE_OPTION
       end
     end
