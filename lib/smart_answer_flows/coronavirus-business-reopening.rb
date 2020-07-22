@@ -15,6 +15,7 @@ module SmartAnswer
         option :offices
         option :hospitality
         option :shops
+        option :fitness
         option :homes
         option :vehicles
         set_none_option(label: "None of the above")
