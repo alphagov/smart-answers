@@ -3,7 +3,7 @@ module SmartAnswer
     class Checkbox < Base
       NONE_OPTION = "none".freeze
 
-      attr_reader :options, :none_option_label, :none_option_prefix
+      attr_reader :options, :none_option_label
 
       def initialize(flow, name, &block)
         @options = []
@@ -46,9 +46,8 @@ module SmartAnswer
         none_option_label.present?
       end
 
-      def set_none_option(label:, prefix: nil)
+      def set_none_option(label:)
         @none_option_label = label
-        @none_option_prefix = prefix
       end
     end
   end

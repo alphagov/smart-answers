@@ -16,7 +16,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def hint_text
-    none_option_prefix.presence || hint
+    hint
   end
 
   def checkboxes
@@ -47,9 +47,5 @@ private
 
   def none_option_label
     @node.none_option_label
-  end
-
-  def none_option_prefix
-    @node.none_option_prefix
   end
 end
