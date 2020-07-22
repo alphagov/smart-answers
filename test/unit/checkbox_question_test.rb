@@ -76,11 +76,11 @@ module SmartAnswer
 
       context "with an explicitly set 'none' option" do
         setup do
-          @question.set_none_option(label: "None")
+          @question.set_none_option
         end
 
-        should "set the none option label" do
-          assert_equal("None", @question.none_option_label)
+        should "enable the none option" do
+          assert @question.none_option?
         end
 
         should "raise if the response is blank" do

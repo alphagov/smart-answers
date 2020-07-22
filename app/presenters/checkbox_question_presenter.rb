@@ -20,32 +20,14 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def checkboxes
-    checkboxes = []
-
-    options.each do |option|
-      checkboxes << {
+    options.map do |option|
+      {
         label: option[:label],
         value: option[:value],
         hint: option[:hint_text],
         checked: prefill_value_includes?(self, option[:value]),
+        exclusive: option[:value] == "none" || nil,
       }
     end
-
-    if none_option_label.present?
-      checkboxes << {
-        label: none_option_label,
-        value: "none",
-        exclusive: true,
-        checked: prefill_value_is?("none"),
-      }
-    end
-
-    checkboxes
-  end
-
-private
-
-  def none_option_label
-    @node.none_option_label
   end
 end

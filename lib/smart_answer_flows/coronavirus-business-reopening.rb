@@ -17,7 +17,7 @@ module SmartAnswer
         option :shops
         option :homes
         option :vehicles
-        set_none_option(label: "None of the above")
+        set_none_option
 
         on_response do |response|
           self.calculator = Calculators::CoronavirusBusinessReopeningCalculator.new

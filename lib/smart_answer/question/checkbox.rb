@@ -3,11 +3,10 @@ module SmartAnswer
     class Checkbox < Base
       NONE_OPTION = "none".freeze
 
-      attr_reader :options, :none_option_label
+      attr_reader :options
 
       def initialize(flow, name, &block)
         @options = []
-        @none_option = false
         super
       end
 
@@ -25,7 +24,7 @@ module SmartAnswer
       def parse_input(raw_input)
         if raw_input.blank?
           # Raise on for blank input when showing a 'none' option as input is required.
-          raise SmartAnswer::InvalidResponse, "No option specified", caller if has_none_option?
+          raise SmartAnswer::InvalidResponse, "No option specified", caller if none_option?
 
           return NONE_OPTION
         end
@@ -42,12 +41,12 @@ module SmartAnswer
         input.split(",").reject { |v| v == NONE_OPTION }
       end
 
-      def has_none_option?
-        none_option_label.present?
+      def none_option?
+        @options.include?(NONE_OPTION)
       end
 
-      def set_none_option(label:)
-        @none_option_label = label
+      def set_none_option
+        @options << NONE_OPTION
       end
     end
   end

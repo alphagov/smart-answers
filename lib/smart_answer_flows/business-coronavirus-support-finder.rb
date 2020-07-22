@@ -98,7 +98,7 @@ module SmartAnswer
       checkbox_question :sectors? do
         option :retail_hospitality_or_leisure
         option :nurseries
-        set_none_option(label: "None of the above")
+        set_none_option
 
         on_response do |response|
           calculator.sectors = response.split(",")
