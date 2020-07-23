@@ -114,6 +114,23 @@ This guidance is to help you prepare to open your business.
   - operate the ventilation system 24 hours a day 
   - increase the frequency of filter changes
 
+  <% if calculator.sector?("fitness") %>
+    ### Sports and fitness facilities
+
+    You should follow the above guidelines and:
+
+    - suspend or modify activities where social distancing cannot be maintained
+    - encourage outdoor activities where possible
+    - place pieces of gym equipment appropriate distance apart to comply with social distancing guidelines 
+    - put temporary floor markings in dance and fitness studios to define required space between individuals
+    - restrict numbers in swimming pools to allow 3 square metres per bather
+    - manage capacity in hydrotheraphy pools (where close contact is necessary due to immediate safety concerns, it should be kept to a minimum by those not part of the same household or social support bubble)
+    - avoid use of shared objects such as towels, robes, rackets, balls, weights unless they can be cleaned or sanitised between users
+    - make sure that water fountains have signage which prevent face-to-tap drinking and that those facilities are used to only refill personal bottles
+    - operate beauty, massage and physio services by following [the relevant salon guidance](https://www.gov.uk/guidance/working-safely-during-coronavirus-covid-19/close-contact-services)
+
+  <% end %>
+
   <% if calculator.sector?("hotels") %>
     ### Room Service
 
