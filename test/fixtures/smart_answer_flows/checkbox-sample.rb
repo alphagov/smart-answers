@@ -29,7 +29,7 @@ module SmartAnswer
       checkbox_question :confirm_no_toppings? do
         option :ask_me_again
 
-        set_none_option(label: "Definitely no toppings")
+        none_option
 
         next_node do |response|
           if response == "none"

@@ -4,6 +4,7 @@
   * User input: Choose zero to many options from a list of options.
   * Validation: Must be in the list of options.
   * Response: String containing comma-separated list of chosen options.
+  * Can specify `none_option` in flow definition to represent a "none" answer. This ensures the user has selected at least one checkbox before continuing.
 
 ## `country_select`
   * Options:

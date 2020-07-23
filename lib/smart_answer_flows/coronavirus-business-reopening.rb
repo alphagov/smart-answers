@@ -18,7 +18,7 @@ module SmartAnswer
         option :fitness
         option :homes
         option :vehicles
-        set_none_option(label: "None of the above")
+        none_option
 
         on_response do |response|
           self.calculator = Calculators::CoronavirusBusinessReopeningCalculator.new
