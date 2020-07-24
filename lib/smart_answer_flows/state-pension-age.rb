@@ -33,7 +33,13 @@ module SmartAnswer
 
         next_node do
           if which_calculation == "age"
-            question :gender?
+            if calculator.pension_age_based_on_gender?
+              question :gender?
+            elsif calculator.before_state_pension_date?
+              outcome :not_yet_reached_sp_age
+            else
+              outcome :has_reached_sp_age
+            end
           else
             outcome :bus_pass_result
           end

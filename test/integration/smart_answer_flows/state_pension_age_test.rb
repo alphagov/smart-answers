@@ -37,13 +37,26 @@ class StatePensionAgeTest < ActiveSupport::TestCase
 
   # Calculating State Pension Age
   context "gender question" do
-    setup do
-      add_response :age
-      add_response Date.parse("5th Dec 1975")
+    context "when born before 6th December 1953" do
+      setup do
+        add_response :age
+        add_response Date.parse("5th Dec 1953")
+      end
+
+      should "ask for your gender" do
+        assert_current_node :gender?
+      end
     end
 
-    should "ask for your gender" do
-      assert_current_node :gender?
+    context "when born after 6th December 1953" do
+      setup do
+        add_response :age
+        add_response Date.parse("6th December 1953")
+      end
+
+      should "display the outcome" do
+        assert_current_node :has_reached_sp_age
+      end
     end
   end
 
@@ -52,7 +65,6 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     setup do
       add_response :age
       add_response Date.parse("5th December 1975")
-      add_response :male
     end
 
     should "show you have not yet reached state pension age" do

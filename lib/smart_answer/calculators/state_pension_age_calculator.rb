@@ -72,6 +72,10 @@ module SmartAnswer::Calculators
       dob.between?(Date.parse("6 April 1970"), Date.parse("5 April 1978"))
     end
 
+    def pension_age_based_on_gender?
+      dob < Date.parse("6 December 1953")
+    end
+
   private
 
     def earliest_application_date
