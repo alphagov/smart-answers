@@ -5,7 +5,6 @@ module SmartAnswer::Calculators
       retail
       auction_house
       nightclubs_or_gambling
-      leisure_centre
       indoor_recreation
     ].freeze
 
