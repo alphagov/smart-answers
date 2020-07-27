@@ -21,3 +21,7 @@ Naming/FileName:
 # conditionals, to clarify which branches we are on.
 Style/CommentedKeyword:
   Enabled: false
+
+# This app does not have a DB
+Rails/SaveBang:
+  Enabled: false
