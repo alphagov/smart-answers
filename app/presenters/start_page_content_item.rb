@@ -32,7 +32,7 @@ class StartPageContentItem
       publishing_app: "smartanswers",
       rendering_app: "frontend",
       locale: "en",
-      public_updated_at: Time.now.iso8601,
+      public_updated_at: Time.zone.now.iso8601,
       routes: routes,
     }
   end
