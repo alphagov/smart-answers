@@ -15,6 +15,7 @@ module SmartAnswer
     def initialize(&block)
       @nodes = []
       status(:draft)
+      next_button_text("Next step")
       instance_eval(&block) if block_given?
     end
 
@@ -38,6 +39,11 @@ module SmartAnswer
     def name(name = nil)
       @name = name unless name.nil?
       @name
+    end
+
+    def next_button_text(button_text = nil)
+      @next_button_text = button_text unless button_text.nil?
+      @next_button_text
     end
 
     def satisfies_need(need_content_id)

@@ -36,7 +36,7 @@
 
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
-          text: "Next step",
+          text: @presenter.flow.next_button_text,
           margin_bottom: true
         } %>
       </div>
