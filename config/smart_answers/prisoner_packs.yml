@@ -525,7 +525,7 @@
   prison: /government/publications/united-arab-emirates-dubai-prison-information
   lawyer: /government/publications/united-arab-emirates-list-of-lawyers
 - slug: usa
-  pdf: /government/publications/canada-usa-prisoner-pack
+  pdf: /government/publications/usa-prisoner-pack
   lawyer: /government/publications/usa-list-of-lawyers
 - slug: uruguay
   pdf: /government/publications/uruguay-prisoner-pack
