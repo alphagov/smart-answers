@@ -1,0 +1,55 @@
+<% text_for :title do %>
+  <% if calculator.has_results? %>
+    Information based on your answers
+  <% else %>
+    Information based on your answers - no specific information
+  <% end %>
+<% end %>
+
+<% govspeak_for :body do %>
+  <% if calculator.has_results? %>
+
+    <%= render("feeling_unsafe", calculator: calculator) if calculator.user_feels_unsafe? %>
+    <%= render("paying_bills", calculator: calculator) if calculator.user_cannot_pay_their_bills? %>
+    <%= render("getting_food", calculator: calculator) if calculator.user_cannot_get_food? %>
+    <%= render("being_unemployed", calculator: calculator) if calculator.user_is_unemployed? %>
+    <%= render("going_to_work", calculator: calculator) if calculator.user_is_worried_about_going_to_work? %>
+    <%= render("somewhere_to_live", calculator: calculator) if calculator.user_needs_somewhere_to_live? %>
+    <%= render("mental_health", calculator: calculator) if calculator.user_has_mental_health_worries? %>
+
+  <% else %>
+    Based on your answers, there’s no specific information for you in this service at the moment. It will be updated regularly.
+
+    [Find all information on coronavirus, including how to protect yourself and get financial support](https://www.gov.uk/coronavirus)
+
+    <% if calculator.needs_help_in?("england") %>
+      [Find information about what you can do from Citizens Advice](https://www.citizensadvice.org.uk/health/coronavirus-what-it-means-for-you/)
+    <% end %>
+
+    <% if calculator.needs_help_in?("northern_ireland") %>
+      [Additional information for Northern Ireland](https://www.nidirect.gov.uk/campaigns/coronavirus-covid-19)
+
+      [Get advice from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
+    <% end %>
+
+    <% if calculator.needs_help_in?("scotland") %>
+      [Additional information for Scotland (mygov.scot)](https://www.mygov.scot/coronavirus-covid-19/)
+
+      [Find other organisations who might be able to help you (Ready Scotland)](https://www.readyscotland.org/coronavirus/where-to-find-additional-support/)
+
+      [Get advice from Citizens Advice Scotland](https://www.citizensadvice.org.uk/scotland/health/coronavirus-what-it-means-for-you-s/)
+    <% end %>
+
+    <% if calculator.needs_help_in?("wales") %>
+      [Additional information for Wales](https://gov.wales/coronavirus)
+
+      [Get advice from Citizens Advice](https://www.citizensadvice.org.uk/wales/health/coronavirus-what-it-means-for-you/)
+    <% end %>
+  <% end %>
+
+  $CTA
+    ### Help us improve
+
+    [Give feedback on this service](https://www.gov.uk/done/find-coronavirus-support)
+  $CTA
+<% end %>

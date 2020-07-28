@@ -1,5 +1,5 @@
 class GraphPresenter
-  EXEMPTIONS_LIST = %w[benefit-cap-calculator].freeze
+  EXEMPTIONS_LIST = %w[benefit-cap-calculator coronavirus-find-support].freeze
   def initialize(flow)
     @flow = flow
   end
