@@ -42,6 +42,8 @@
       </div>
     <% end %>
 
-    <%= render 'previous_answers' %>
+    <% if @presenter.flow.show_previous_answers %>
+      <%= render 'previous_answers' %>
+    <% end %>
   </div>
 </div>

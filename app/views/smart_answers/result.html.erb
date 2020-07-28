@@ -47,7 +47,9 @@
       });
     </script>
 
-    <%= render 'previous_answers' %>
+    <% if @presenter.flow.show_previous_answers %>
+      <%= render 'previous_answers' %>
+    <% end %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>

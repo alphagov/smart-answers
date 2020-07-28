@@ -15,6 +15,7 @@ module SmartAnswer
     def initialize(&block)
       @nodes = []
       status(:draft)
+      show_previous_answers(true)
       instance_eval(&block) if block_given?
     end
 
@@ -38,6 +39,11 @@ module SmartAnswer
     def name(name = nil)
       @name = name unless name.nil?
       @name
+    end
+
+    def show_previous_answers(show_answers = nil)
+      @show_previous_answers = show_answers unless show_answers.nil?
+      @show_previous_answers
     end
 
     def satisfies_need(need_content_id)
