@@ -358,40 +358,40 @@ DEPENDENCIES
   binding_of_caller
   byebug
   ci_reporter
-  gds-api-adapters (~> 67.0)
-  govspeak (~> 6.5.4)
-  govuk-content-schema-test-helpers (~> 1.6.1)
+  gds-api-adapters
+  govspeak
+  govuk-content-schema-test-helpers
   govuk_app_config
-  govuk_publishing_components (= 21.60.3)
+  govuk_publishing_components
   govuk_test
-  htmlentities (~> 4)
+  htmlentities
   json
   listen
   method_source
-  minitest (~> 5.14)
-  minitest-focus (~> 1.2)
-  mocha (= 1.11.2)
+  minitest
+  minitest-focus
+  mocha
   nokogiri
   parser
-  plek (= 4.0.0)
+  plek
   pry
   rack_strip_client_ip
-  rails (~> 6.0.3)
+  rails (= 6.0.3.2)
   rails-controller-testing
-  rails-i18n (~> 6.0.0)
+  rails-i18n
   railties
   rubocop-govuk
-  sass-rails (~> 5.0.7)
-  shoulda (~> 4.0.0)
-  simplecov (~> 0.18.5)
-  simplecov-rcov (~> 0.2.3)
-  slimmer (~> 15.1.0)
+  sass-rails
+  shoulda
+  simplecov
+  simplecov-rcov
+  slimmer
   sprockets-rails
-  tilt (= 2.0.10)
+  tilt
   timecop
   uglifier
-  uk_postcode (~> 2.1.5)
-  webmock (~> 3.8.3)
+  uk_postcode
+  webmock
 
 RUBY VERSION
    ruby 2.6.6
