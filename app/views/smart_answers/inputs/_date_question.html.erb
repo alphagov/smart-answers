@@ -4,7 +4,7 @@
   <% end %>
 
   <% if question.hint.present? %>
-    <p><%= question.hint %></p>
+    <p class="govuk-hint"><%= question.hint %></p>
   <% end %>
 
   <%= render "govuk_publishing_components/components/date_input", {
