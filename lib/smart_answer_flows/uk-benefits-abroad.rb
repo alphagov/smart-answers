@@ -17,38 +17,13 @@ module SmartAnswer
       multiple_choice :going_or_already_abroad? do
         option :going_abroad
         option :already_abroad
-        save_input_as :going_or_already_abroad
 
-        on_response do
+        on_response do |response|
           self.calculator = uk_benefits_abroad_calculator
-        end
+          calculator.going_abroad = (response == "going_abroad")
 
-        calculate :country_question_title do
-          if going_or_already_abroad == "going_abroad"
-            "Which country are you moving to?"
-          else
-            "Which country are you living in?"
-          end
-        end
-
-        calculate :why_abroad_question_title do
-          if going_or_already_abroad == "going_abroad"
-            "Why are you going abroad?"
-          else
-            "Why have you gone abroad?"
-          end
-        end
-
-        calculate :going_abroad do
-          going_or_already_abroad == "going_abroad"
-        end
-
-        calculate :already_abroad do
-          going_or_already_abroad == "already_abroad"
-        end
-
-        calculate :already_abroad_text_two do
-          " or permanently" if already_abroad
+          self.going_abroad = calculator.going_abroad
+          self.already_abroad = calculator.already_abroad
         end
 
         next_node do
@@ -76,7 +51,7 @@ module SmartAnswer
         calculate :how_long_question_titles do
           if benefit == "disability_benefits"
             "How long will you be abroad for?"
-          elsif going_or_already_abroad == "going_abroad"
+          elsif going_abroad
             "How long are you going abroad for?"
           else
             "How long will you be living abroad for?"

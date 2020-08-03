@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
+    attr_accessor :going_abroad
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w[bosnia-and-herzegovina kosovo montenegro north-macedonia serbia].freeze
     STATE_BENEFITS = {
@@ -123,33 +124,69 @@ module SmartAnswer::Calculators
     end
 
     def benefits?
-      ListValidator.new(state_benefits.keys)
-        .all_valid?(benefits.map(&:to_sym))
+      ListValidator.call(
+        constraint: state_benefits,
+        test: benefits,
+      )
     end
 
     def dispute_criteria?
-      ListValidator.new(all_dispute_criteria.keys)
-        .all_valid?(dispute_criteria.map(&:to_sym))
+      ListValidator.call(
+        constraint: all_dispute_criteria,
+        test: dispute_criteria,
+      )
     end
 
     def partner_premiums?
-      ListValidator.new(premiums.keys)
-        .all_valid?(partner_premiums.map(&:to_sym))
+      ListValidator.call(
+        constraint: premiums,
+        test: partner_premiums,
+      )
     end
 
     def getting_income_support?
-      ListValidator.new(impairments.keys)
-        .all_valid?(possible_impairments.map(&:to_sym))
+      ListValidator.call(
+        constraint: impairments,
+        test: possible_impairments,
+      )
     end
 
     def not_getting_sick_pay?
-      ListValidator.new(periods_of_impairment.keys)
-        .all_valid?(impairment_periods.map(&:to_sym))
+      ListValidator.call(
+        constraint: periods_of_impairment,
+        test: impairment_periods,
+      )
     end
 
     def tax_credits?
-      ListValidator.new(tax_credits_benefits.keys)
-        .all_valid?(tax_credits.map(&:to_sym))
+      ListValidator.call(
+        constraint: tax_credits_benefits,
+        test: tax_credits,
+      )
+    end
+
+    def already_abroad
+      !going_abroad
+    end
+
+    def country_question_title
+      if going_abroad
+        "Which country are you moving to?"
+      else
+        "Which country are you living in?"
+      end
+    end
+
+    def why_abroad_question_title
+      if going_abroad
+        "Why are you going abroad?"
+      else
+        "Why have you gone abroad?"
+      end
+    end
+
+    def already_abroad_text_two
+      " or permanently" if already_abroad
     end
   end
 end

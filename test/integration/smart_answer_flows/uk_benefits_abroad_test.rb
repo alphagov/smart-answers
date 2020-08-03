@@ -494,7 +494,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
           should "ask why are you going abroad" do
             assert_current_node :tax_credits_why_going_abroad?
-            assert_state_variable :why_abroad_question_title, "Why are you going abroad?"
+            assert_equal current_state.calculator.why_abroad_question_title, "Why are you going abroad?"
           end
           context "answer holiday" do
             setup do
@@ -542,7 +542,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "ask you what country you're moving to" do
               assert_current_node :which_country?
-              assert_state_variable :country_question_title, "Which country are you moving to?"
+              assert_equal current_state.calculator.country_question_title, "Which country are you moving to?"
             end
             context "answer EEA country" do
               setup do
