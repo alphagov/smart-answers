@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
-    attr_accessor :going_abroad
+    attr_accessor :going_abroad, :benefit
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w[bosnia-and-herzegovina kosovo montenegro north-macedonia serbia].freeze
     STATE_BENEFITS = {
@@ -187,6 +187,16 @@ module SmartAnswer::Calculators
 
     def already_abroad_text_two
       " or permanently" if already_abroad
+    end
+
+    def how_long_question_titles
+      if benefit == "disability_benefits"
+        "How long will you be abroad for?"
+      elsif going_abroad
+        "How long are you going abroad for?"
+      else
+        "How long will you be living abroad for?"
+      end
     end
   end
 end

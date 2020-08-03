@@ -46,16 +46,9 @@ module SmartAnswer
         option :tax_credits
         option :income_support
 
-        save_input_as :benefit
-
-        calculate :how_long_question_titles do
-          if benefit == "disability_benefits"
-            "How long will you be abroad for?"
-          elsif going_abroad
-            "How long are you going abroad for?"
-          else
-            "How long will you be living abroad for?"
-          end
+        on_response do |response|
+          self.benefit = response
+          calculator.benefit = benefit
         end
 
         next_node do |response|

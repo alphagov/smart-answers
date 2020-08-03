@@ -731,7 +731,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "ask how long you're gong abroad for" do
         assert_current_node :db_how_long_abroad?
-        assert_state_variable :how_long_question_titles, "How long will you be abroad for?"
+        assert_equal current_state.calculator.how_long_question_titles, "How long will you be abroad for?"
       end
       context "answer temporarily" do
         setup do
