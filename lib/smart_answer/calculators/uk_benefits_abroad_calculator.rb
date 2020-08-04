@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class UkBenefitsAbroadCalculator
     include ActiveModel::Model
 
-    attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
+    attr_accessor :country, :country_name, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
     attr_accessor :going_abroad, :benefit
 
