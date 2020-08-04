@@ -527,7 +527,9 @@ module SmartAnswer
         option :less_than_a_year_other
         option :more_than_a_year
 
-        save_input_as :how_long_abroad_jsa
+        on_response do |response|
+          self.how_long_abroad_jsa = response
+        end
 
         next_node do |response|
           case response
