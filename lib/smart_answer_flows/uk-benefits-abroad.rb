@@ -86,10 +86,7 @@ module SmartAnswer
       country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         on_response do |response|
           calculator.country = response
-        end
-
-        calculate :country_name do
-          (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
+          self.country_name = (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
         next_node do |response|
