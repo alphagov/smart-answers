@@ -43,8 +43,6 @@ module SmartAnswer::Calculators
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
       contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance",
     }.freeze
-    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
-    private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS
 
     def eea_country?
       %w[austria
@@ -99,68 +97,48 @@ module SmartAnswer::Calculators
       %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
     end
 
-    def state_benefits
-      STATE_BENEFITS
-    end
-
-    def all_dispute_criteria
-      DISPUTE_CRITERIA
-    end
-
-    def premiums
-      PREMIUMS
-    end
-
-    def impairments
-      IMPAIRMENTS
-    end
-
-    def periods_of_impairment
-      PERIODS_OF_IMPAIRMENT
-    end
-
-    def tax_credits_benefits
-      TAX_CREDITS_BENEFITS
+    def employer_paying_ni_not_ssp_country_entitled?
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
     end
 
     def benefits?
       ListValidator.call(
-        constraint: state_benefits,
+        constraint: STATE_BENEFITS,
         test: benefits,
       )
     end
 
     def dispute_criteria?
       ListValidator.call(
-        constraint: all_dispute_criteria,
+        constraint: DISPUTE_CRITERIA,
         test: dispute_criteria,
       )
     end
 
     def partner_premiums?
       ListValidator.call(
-        constraint: premiums,
+        constraint: PREMIUMS,
         test: partner_premiums,
       )
     end
 
     def getting_income_support?
       ListValidator.call(
-        constraint: impairments,
+        constraint: IMPAIRMENTS,
         test: possible_impairments,
       )
     end
 
     def not_getting_sick_pay?
       ListValidator.call(
-        constraint: periods_of_impairment,
+        constraint: PERIODS_OF_IMPAIRMENT,
         test: impairment_periods,
       )
     end
 
     def tax_credits?
       ListValidator.call(
-        constraint: tax_credits_benefits,
+        constraint: TAX_CREDITS_BENEFITS,
         test: tax_credits,
       )
     end

@@ -10,16 +10,13 @@ module SmartAnswer
       exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
-      uk_benefits_abroad_calculator = Calculators::UkBenefitsAbroadCalculator.new
-
       # Q1
       multiple_choice :going_or_already_abroad? do
         option :going_abroad
         option :already_abroad
 
         on_response do |response|
-          self.calculator = uk_benefits_abroad_calculator
+          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
           calculator.going_abroad = (response == "going_abroad")
         end
 
@@ -267,7 +264,7 @@ module SmartAnswer
           # not SSP benefits
           elsif response == "yes"
             question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-          elsif (countries_of_former_yugoslavia + %w[barbados guernsey jersey israel turkey]).include?(calculator.country)
+          elsif calculator.employer_paying_ni_not_ssp_country_entitled?
             if calculator.already_abroad
               outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
             else
@@ -281,7 +278,7 @@ module SmartAnswer
 
       # Q13 going_abroad and Q12 already_abroad
       checkbox_question :do_either_of_the_following_apply? do
-        uk_benefits_abroad_calculator.state_benefits.each_key do |benefit|
+        Calculators::UkBenefitsAbroadCalculator::STATE_BENEFITS.each_key do |benefit|
           option benefit
         end
 
@@ -355,7 +352,7 @@ module SmartAnswer
 
       # Q20 already_abroad
       checkbox_question :tax_credits_currently_claiming? do
-        uk_benefits_abroad_calculator.tax_credits_benefits.each_key do |credit|
+        Calculators::UkBenefitsAbroadCalculator::TAX_CREDITS_BENEFITS.each_key do |credit|
           option credit
         end
 
@@ -427,7 +424,7 @@ module SmartAnswer
 
       # Q33 going_abroad
       checkbox_question :is_claiming_benefits? do
-        uk_benefits_abroad_calculator.premiums.each_key do |premium|
+        Calculators::UkBenefitsAbroadCalculator::PREMIUMS.each_key do |premium|
           option premium
         end
 
@@ -446,7 +443,7 @@ module SmartAnswer
 
       # Q34 going_abroad
       checkbox_question :is_either_of_the_following? do
-        uk_benefits_abroad_calculator.impairments.each_key do |impairment|
+        Calculators::UkBenefitsAbroadCalculator::IMPAIRMENTS.each_key do |impairment|
           option impairment
         end
 
@@ -480,7 +477,7 @@ module SmartAnswer
 
       # Q36 going_abroad
       checkbox_question :is_work_or_sick_pay? do
-        uk_benefits_abroad_calculator.periods_of_impairment.each_key do |period|
+        Calculators::UkBenefitsAbroadCalculator::PERIODS_OF_IMPAIRMENT.each_key do |period|
           option period
         end
 
@@ -499,7 +496,7 @@ module SmartAnswer
 
       # Q37 going_abroad
       checkbox_question :is_any_of_the_following_apply? do
-        uk_benefits_abroad_calculator.all_dispute_criteria.each_key do |criterion|
+        Calculators::UkBenefitsAbroadCalculator::DISPUTE_CRITERIA.each_key do |criterion|
           option criterion
         end
 
