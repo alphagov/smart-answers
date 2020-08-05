@@ -53,7 +53,8 @@ module SmartAnswer
       status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
       satisfies_need "7da2fa63-190c-446e-b3e5-94480f0e46e7" # relates the Smart Answer to a Need managed by Maslow
       external_related_links { title: "Child Maintenance Options - How much should be paid",
-                               url: "http://www.cmoptions.org/en/maintenance/how-much.asp" } # External links associated to the Smart-Answer                                      
+                               url: "http://www.cmoptions.org/en/maintenance/how-much.asp" } # External links associated to the Smart-Answer
+      button_text "Continue" # optional - replaces the default "Next step" button label with the passed in text
 
       # question & outcome definitions specified here
     end

@@ -40,6 +40,10 @@ module SmartAnswer
       @name
     end
 
+    def button_text(text = "Next step")
+      @button_text ||= text
+    end
+
     def satisfies_need(need_content_id)
       self.need_content_id = need_content_id
     end
