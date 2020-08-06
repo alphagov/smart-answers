@@ -11,11 +11,6 @@ Rails.application.routes.draw do
 
     get "/:id(/:started(/*responses))",
         to: "smart_answers#show",
-        as: :formatted_smart_answer,
-        format: false
-
-    get "/:id(/:started(/*responses))",
-        to: "smart_answers#show",
         as: :smart_answer,
         format: false
   end
