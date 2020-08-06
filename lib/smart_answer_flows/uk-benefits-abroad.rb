@@ -10,45 +10,14 @@ module SmartAnswer
       exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
-      uk_benefits_abroad_calculator = Calculators::UkBenefitsAbroadCalculator.new
-
       # Q1
       multiple_choice :going_or_already_abroad? do
         option :going_abroad
         option :already_abroad
-        save_input_as :going_or_already_abroad
 
-        on_response do
-          self.calculator = uk_benefits_abroad_calculator
-        end
-
-        calculate :country_question_title do
-          if going_or_already_abroad == "going_abroad"
-            "Which country are you moving to?"
-          else
-            "Which country are you living in?"
-          end
-        end
-
-        calculate :why_abroad_question_title do
-          if going_or_already_abroad == "going_abroad"
-            "Why are you going abroad?"
-          else
-            "Why have you gone abroad?"
-          end
-        end
-
-        calculate :going_abroad do
-          going_or_already_abroad == "going_abroad"
-        end
-
-        calculate :already_abroad do
-          going_or_already_abroad == "already_abroad"
-        end
-
-        calculate :already_abroad_text_two do
-          " or permanently" if already_abroad
+        on_response do |response|
+          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
+          calculator.going_abroad = (response == "going_abroad")
         end
 
         next_node do
@@ -71,16 +40,8 @@ module SmartAnswer
         option :tax_credits
         option :income_support
 
-        save_input_as :benefit
-
-        calculate :how_long_question_titles do
-          if benefit == "disability_benefits"
-            "How long will you be abroad for?"
-          elsif going_or_already_abroad == "going_abroad"
-            "How long are you going abroad for?"
-          else
-            "How long will you be living abroad for?"
-          end
+        on_response do |response|
+          calculator.benefit = response
         end
 
         next_node do |response|
@@ -94,7 +55,7 @@ module SmartAnswer
             question :db_how_long_abroad?
           elsif response == "tax_credits"
             question :eligible_for_tax_credits?
-          elsif going_abroad
+          elsif calculator.going_abroad
             if response == "jsa"
               question :jsa_how_long_abroad? # Q3 going_abroad
             elsif response == "pension"
@@ -102,7 +63,7 @@ module SmartAnswer
             elsif response == "income_support"
               question :is_how_long_abroad? # Q32 going_abroad
             end
-          elsif already_abroad
+          elsif calculator.already_abroad
             if response == "jsa"
               question :which_country?
             elsif response == "pension"
@@ -118,25 +79,22 @@ module SmartAnswer
       country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         on_response do |response|
           calculator.country = response
-        end
-
-        calculate :country_name do
-          (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
+          calculator.country_name = (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
         next_node do |response|
-          case benefit
+          case calculator.benefit
           when "jsa"
-            if already_abroad && calculator.eea_country?
+            if calculator.already_abroad && calculator.eea_country?
               outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
-            elsif already_abroad && calculator.social_security_countries_jsa?
+            elsif calculator.already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
-            elsif going_abroad && calculator.eea_country?
+            elsif calculator.going_abroad && calculator.eea_country?
               outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
-            elsif going_abroad && calculator.social_security_countries_jsa?
+            elsif calculator.going_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
             else
-              outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
+              outcome :jsa_not_entitled_outcome # A7 calculator.going_abroad and A5 already_abroad
             end
           when "maternity_benefits"
             if calculator.eea_country?
@@ -146,7 +104,7 @@ module SmartAnswer
             end
           when "winter_fuel_payment"
             if calculator.eea_country?
-              if going_abroad
+              if calculator.going_abroad
                 outcome :wfp_going_abroad_outcome # A9 going_abroad
               else
                 outcome :wfp_eea_eligible_outcome # A7 already_abroad
@@ -158,7 +116,7 @@ module SmartAnswer
             if calculator.eea_country?
               question :do_either_of_the_following_apply? # Q13 going_abroad and Q12 already_abroad
             elsif calculator.former_yugoslavia?
-              if going_abroad
+              if calculator.going_abroad
                 outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
               else
                 outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
@@ -171,7 +129,7 @@ module SmartAnswer
               outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
             end
           when "iidb"
-            if going_abroad
+            if calculator.going_abroad
               if calculator.eea_country?
                 outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
               elsif calculator.social_security_countries_iidb?
@@ -179,7 +137,7 @@ module SmartAnswer
               else
                 outcome :iidb_going_abroad_other_outcome # A34 going_abroad
               end
-            elsif already_abroad
+            elsif calculator.already_abroad
               if calculator.eea_country?
                 outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
               elsif calculator.social_security_countries_iidb?
@@ -191,7 +149,7 @@ module SmartAnswer
           when "disability_benefits"
             if calculator.eea_country?
               question :db_claiming_benefits? # Q30 going_abroad and Q29 already_abroad
-            elsif going_abroad
+            elsif calculator.going_abroad
               outcome :db_going_abroad_other_outcome # A36 going_abroad
             else
               outcome :db_already_abroad_other_outcome # A35 already_abroad
@@ -209,7 +167,7 @@ module SmartAnswer
               outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
             end
           when "esa"
-            if going_abroad
+            if calculator.going_abroad
               if calculator.eea_country?
                 outcome :esa_going_abroad_eea_outcome # A29 going_abroad
               elsif calculator.former_yugoslavia?
@@ -219,7 +177,7 @@ module SmartAnswer
               else
                 outcome :esa_going_abroad_other_outcome # A30 going_abroad
               end
-            elsif already_abroad
+            elsif calculator.already_abroad
               if calculator.eea_country?
                 outcome :esa_already_abroad_eea_outcome # A27 already_abroad
               elsif calculator.former_yugoslavia?
@@ -231,7 +189,7 @@ module SmartAnswer
               end
             end
           when "bereavement_benefits"
-            if going_abroad
+            if calculator.going_abroad
               if calculator.eea_country?
                 outcome :bb_going_abroad_eea_outcome # A39 going_abroad
               elsif calculator.social_security_countries_bereavement_benefits?
@@ -239,7 +197,7 @@ module SmartAnswer
               else
                 outcome :bb_going_abroad_other_outcome # A38 going_abroad
               end
-            elsif already_abroad
+            elsif calculator.already_abroad
               if calculator.eea_country?
                 outcome :bb_already_abroad_eea_outcome # A37 already_abroad
               elsif calculator.social_security_countries_bereavement_benefits?
@@ -289,14 +247,14 @@ module SmartAnswer
 
         next_node do |response|
           # SSP benefits
-          if benefit == "ssp"
-            if going_abroad
+          if calculator.benefit == "ssp"
+            if calculator.going_abroad
               if response == "yes"
                 outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
               else
                 outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
               end
-            elsif already_abroad
+            elsif calculator.already_abroad
               if response == "yes"
                 outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
               else
@@ -306,8 +264,8 @@ module SmartAnswer
           # not SSP benefits
           elsif response == "yes"
             question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-          elsif (countries_of_former_yugoslavia + %w[barbados guernsey jersey israel turkey]).include?(calculator.country)
-            if already_abroad
+          elsif calculator.employer_paying_ni_not_ssp_country_entitled?
+            if calculator.already_abroad
               outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
             else
               outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
@@ -320,7 +278,7 @@ module SmartAnswer
 
       # Q13 going_abroad and Q12 already_abroad
       checkbox_question :do_either_of_the_following_apply? do
-        uk_benefits_abroad_calculator.state_benefits.each_key do |benefit|
+        Calculators::UkBenefitsAbroadCalculator::STATE_BENEFITS.each_key do |benefit|
           option benefit
         end
 
@@ -343,13 +301,13 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if going_abroad
+          if calculator.going_abroad
             if response == "yes"
               outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
             else
               outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
             end
-          elsif already_abroad
+          elsif calculator.already_abroad
             if response == "yes"
               outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
             else
@@ -394,7 +352,7 @@ module SmartAnswer
 
       # Q20 already_abroad
       checkbox_question :tax_credits_currently_claiming? do
-        uk_benefits_abroad_calculator.tax_credits_benefits.each_key do |credit|
+        Calculators::UkBenefitsAbroadCalculator::TAX_CREDITS_BENEFITS.each_key do |credit|
           option credit
         end
 
@@ -448,13 +406,13 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if going_abroad
+          if calculator.going_abroad
             if response == "yes"
               outcome :db_going_abroad_eea_outcome # A37 going_abroad
             else
               outcome :db_going_abroad_other_outcome # A36 going_abroad
             end
-          elsif already_abroad
+          elsif calculator.already_abroad
             if response == "yes"
               outcome :db_already_abroad_eea_outcome # A36 already_abroad
             else
@@ -466,7 +424,7 @@ module SmartAnswer
 
       # Q33 going_abroad
       checkbox_question :is_claiming_benefits? do
-        uk_benefits_abroad_calculator.premiums.each_key do |premium|
+        Calculators::UkBenefitsAbroadCalculator::PREMIUMS.each_key do |premium|
           option premium
         end
 
@@ -485,7 +443,7 @@ module SmartAnswer
 
       # Q34 going_abroad
       checkbox_question :is_either_of_the_following? do
-        uk_benefits_abroad_calculator.impairments.each_key do |impairment|
+        Calculators::UkBenefitsAbroadCalculator::IMPAIRMENTS.each_key do |impairment|
           option impairment
         end
 
@@ -519,7 +477,7 @@ module SmartAnswer
 
       # Q36 going_abroad
       checkbox_question :is_work_or_sick_pay? do
-        uk_benefits_abroad_calculator.periods_of_impairment.each_key do |period|
+        Calculators::UkBenefitsAbroadCalculator::PERIODS_OF_IMPAIRMENT.each_key do |period|
           option period
         end
 
@@ -538,7 +496,7 @@ module SmartAnswer
 
       # Q37 going_abroad
       checkbox_question :is_any_of_the_following_apply? do
-        uk_benefits_abroad_calculator.all_dispute_criteria.each_key do |criterion|
+        Calculators::UkBenefitsAbroadCalculator::DISPUTE_CRITERIA.each_key do |criterion|
           option criterion
         end
 
@@ -561,8 +519,6 @@ module SmartAnswer
         option :less_than_a_year_medical
         option :less_than_a_year_other
         option :more_than_a_year
-
-        save_input_as :how_long_abroad_jsa
 
         next_node do |response|
           case response
@@ -597,13 +553,13 @@ module SmartAnswer
         option :esa_more_than_a_year
 
         next_node do |response|
-          if going_abroad && response == "esa_under_a_year_medical"
+          if calculator.going_abroad && response == "esa_under_a_year_medical"
             outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
-          elsif going_abroad && response == "esa_under_a_year_other"
+          elsif calculator.going_abroad && response == "esa_under_a_year_other"
             outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
-          elsif already_abroad && response == "esa_under_a_year_medical"
+          elsif calculator.already_abroad && response == "esa_under_a_year_medical"
             outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
-          elsif already_abroad && response == "esa_under_a_year_other"
+          elsif calculator.already_abroad && response == "esa_under_a_year_other"
             outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
           else
             question :which_country?
@@ -619,7 +575,7 @@ module SmartAnswer
         next_node do |response|
           if response == "permanent"
             question :which_country? # Q25
-          elsif going_abroad
+          elsif calculator.going_abroad
             outcome :db_going_abroad_temporary_outcome # A35 going_abroad
           else
             outcome :db_already_abroad_temporary_outcome # A34 already_abroad

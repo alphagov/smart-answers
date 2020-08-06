@@ -34,4 +34,22 @@ class ListValidatorTest < ActiveSupport::TestCase
       assert_not @list_validator.all_valid?(nil)
     end
   end
+
+  context ".call" do
+    setup do
+      @constraint = { a: 1, b: 1 }
+    end
+
+    should "return true if test sample within contraint keys" do
+      assert ListValidator.call(constraint: @constraint, test: [:a])
+    end
+
+    should "return true if test sample within contraint keys and a string" do
+      assert ListValidator.call(constraint: @constraint, test: %w[a])
+    end
+
+    should "return false if test sample not with contraint keys" do
+      assert_not ListValidator.call(constraint: @constraint, test: [:x])
+    end
+  end
 end

@@ -2,8 +2,9 @@ module SmartAnswer::Calculators
   class UkBenefitsAbroadCalculator
     include ActiveModel::Model
 
-    attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
+    attr_accessor :country, :country_name, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
+    attr_accessor :going_abroad, :benefit
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w[bosnia-and-herzegovina kosovo montenegro north-macedonia serbia].freeze
     STATE_BENEFITS = {
@@ -42,8 +43,6 @@ module SmartAnswer::Calculators
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
       contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance",
     }.freeze
-    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
-    private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS
 
     def eea_country?
       %w[austria
@@ -98,58 +97,84 @@ module SmartAnswer::Calculators
       %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
     end
 
-    def state_benefits
-      STATE_BENEFITS
-    end
-
-    def all_dispute_criteria
-      DISPUTE_CRITERIA
-    end
-
-    def premiums
-      PREMIUMS
-    end
-
-    def impairments
-      IMPAIRMENTS
-    end
-
-    def periods_of_impairment
-      PERIODS_OF_IMPAIRMENT
-    end
-
-    def tax_credits_benefits
-      TAX_CREDITS_BENEFITS
+    def employer_paying_ni_not_ssp_country_entitled?
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
     end
 
     def benefits?
-      ListValidator.new(state_benefits.keys)
-        .all_valid?(benefits.map(&:to_sym))
+      ListValidator.call(
+        constraint: STATE_BENEFITS,
+        test: benefits,
+      )
     end
 
     def dispute_criteria?
-      ListValidator.new(all_dispute_criteria.keys)
-        .all_valid?(dispute_criteria.map(&:to_sym))
+      ListValidator.call(
+        constraint: DISPUTE_CRITERIA,
+        test: dispute_criteria,
+      )
     end
 
     def partner_premiums?
-      ListValidator.new(premiums.keys)
-        .all_valid?(partner_premiums.map(&:to_sym))
+      ListValidator.call(
+        constraint: PREMIUMS,
+        test: partner_premiums,
+      )
     end
 
     def getting_income_support?
-      ListValidator.new(impairments.keys)
-        .all_valid?(possible_impairments.map(&:to_sym))
+      ListValidator.call(
+        constraint: IMPAIRMENTS,
+        test: possible_impairments,
+      )
     end
 
     def not_getting_sick_pay?
-      ListValidator.new(periods_of_impairment.keys)
-        .all_valid?(impairment_periods.map(&:to_sym))
+      ListValidator.call(
+        constraint: PERIODS_OF_IMPAIRMENT,
+        test: impairment_periods,
+      )
     end
 
     def tax_credits?
-      ListValidator.new(tax_credits_benefits.keys)
-        .all_valid?(tax_credits.map(&:to_sym))
+      ListValidator.call(
+        constraint: TAX_CREDITS_BENEFITS,
+        test: tax_credits,
+      )
+    end
+
+    def already_abroad
+      !going_abroad
+    end
+
+    def country_question_title
+      if going_abroad
+        "Which country are you moving to?"
+      else
+        "Which country are you living in?"
+      end
+    end
+
+    def why_abroad_question_title
+      if going_abroad
+        "Why are you going abroad?"
+      else
+        "Why have you gone abroad?"
+      end
+    end
+
+    def already_abroad_text_two
+      " or permanently" if already_abroad
+    end
+
+    def how_long_question_titles
+      if benefit == "disability_benefits"
+        "How long will you be abroad for?"
+      elsif going_abroad
+        "How long are you going abroad for?"
+      else
+        "How long will you be living abroad for?"
+      end
     end
   end
 end
