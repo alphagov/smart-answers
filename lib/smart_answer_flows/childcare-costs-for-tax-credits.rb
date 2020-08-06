@@ -12,7 +12,9 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :cost_change_4_weeks
+        on_response do
+          self.calculator = Calculators::ChildcareCostCalculator.new
+        end
 
         next_node do |response|
           case response
@@ -103,9 +105,10 @@ module SmartAnswer
 
       # Q6
       money_question :how_much_12_months_1? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_annual(response)
         end
+
         next_node do
           outcome :weekly_costs_are_x # O4
         end
@@ -113,8 +116,8 @@ module SmartAnswer
 
       # Q7
       money_question :how_much_52_weeks_1? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_annual(response)
         end
         next_node do
           outcome :weekly_costs_are_x # O4
@@ -123,8 +126,8 @@ module SmartAnswer
 
       # Q8
       money_question :how_much_52_weeks_2? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_annual(response)
         end
 
         next_node do |response|
@@ -135,8 +138,8 @@ module SmartAnswer
 
       # Q9
       money_question :how_much_12_months_2? do
-        calculate :new_weekly_costs do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.new_weekly_cost = calculator.weekly_cost_from_annual(response)
         end
 
         next_node do |response|
@@ -147,8 +150,8 @@ module SmartAnswer
 
       # Q10
       money_question :how_much_each_month? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_monthly(response)
         end
         next_node do
           outcome :weekly_costs_are_x # O4
@@ -200,8 +203,8 @@ module SmartAnswer
 
       # Q13
       money_question :how_much_fortnightly? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_fortnightly(response)
         end
 
         next_node do
@@ -211,8 +214,8 @@ module SmartAnswer
 
       # Q14
       money_question :how_much_4_weeks? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_four_weekly(response)
         end
         next_node do
           outcome :weekly_costs_are_x # 04
@@ -221,8 +224,8 @@ module SmartAnswer
 
       # Q15
       money_question :how_much_yearly? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_annual(response)
         end
         next_node do
           outcome :weekly_costs_are_x # O4
@@ -231,8 +234,8 @@ module SmartAnswer
 
       # Q16
       money_question :how_much_spent_last_12_months? do
-        calculate :weekly_cost do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost(response)
+        on_response do |response|
+          calculator.weekly_cost = calculator.weekly_cost_from_annual(response)
         end
         next_node do
           outcome :weekly_costs_are_x # O4
@@ -241,8 +244,8 @@ module SmartAnswer
 
       # Q17
       money_question :new_weekly_costs? do
-        calculate :new_weekly_costs do |response|
-          Float(response).ceil
+        on_response do |response|
+          calculator.new_weekly_costs = Float(response).ceil
         end
 
         next_node do |response|
@@ -255,16 +258,12 @@ module SmartAnswer
       money_question :old_weekly_amount_1? do
         # get weekly amount from Q8 or Q9 (whichever the user answered)
         # calculate different using input from Q18
-        calculate :old_weekly_cost do |response|
-          Float(response).ceil
-        end
-
-        calculate :weekly_difference do
-          Calculators::ChildcareCostCalculator.cost_change(weekly_cost, old_weekly_cost)
-        end
-
-        calculate :weekly_difference_abs do
-          weekly_difference.abs
+        on_response do |response|
+          calculator.old_weekly_costs = Float(response).ceil
+          calculator.weekly_difference = calculator.cost_change(
+            calculator.weekly_cost,
+            calculator.old_weekly_costs,
+          )
         end
 
         next_node do
@@ -274,8 +273,8 @@ module SmartAnswer
 
       # Q19
       money_question :new_monthly_cost? do
-        calculate :new_weekly_costs do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
+        on_response do |response|
+          calculator.new_weekly_costs = calculator.weekly_cost_from_monthly(response)
         end
 
         next_node do |response|
@@ -286,19 +285,14 @@ module SmartAnswer
 
       # Q20
       money_question :old_weekly_amount_2? do
-        calculate :old_weekly_costs do |response|
-          Float(response).ceil
+        on_response do |response|
+          calculator.old_weekly_costs = Float(response).ceil
+          calculator.weekly_difference = calculator.cost_change(
+            calculator.new_weekly_costs,
+            calculator.old_weekly_costs,
+          )
+          calculator.cost_change_4_weeks = true
         end
-
-        calculate :weekly_difference do
-          Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
-        end
-
-        calculate :weekly_difference_abs do
-          weekly_difference.abs
-        end
-
-        calculate(:cost_change_4_weeks) { true }
 
         next_node do
           outcome :cost_changed
@@ -307,16 +301,12 @@ module SmartAnswer
 
       # Q21
       money_question :old_monthly_amount? do
-        calculate :old_weekly_costs do |response|
-          Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
-        end
-
-        calculate :weekly_difference do
-          Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
-        end
-
-        calculate :weekly_difference_abs do
-          weekly_difference.abs
+        on_response do |response|
+          calculator.old_weekly_costs = calculator.weekly_cost_from_monthly(response)
+          calculator.weekly_difference = calculator.cost_change(
+            calculator.new_weekly_costs,
+            calculator.old_weekly_costs,
+          )
         end
 
         next_node do
@@ -342,23 +332,7 @@ module SmartAnswer
       outcome :weekly_costs_are_x
 
       # O6, 7, 8
-      outcome :cost_changed do
-        precalculate :ten_or_more do
-          weekly_difference_abs >= 10
-        end
-
-        precalculate :cost_change_4_weeks do
-          cost_change_4_weeks || false
-        end
-
-        precalculate :title_change_text do
-          weekly_difference >= 10 ? "increased" : "decreased"
-        end
-
-        precalculate :difference_money do
-          SmartAnswer::Money.new(weekly_difference.abs)
-        end
-      end
+      outcome :cost_changed
 
       # O9
       outcome :no_longer_paying
