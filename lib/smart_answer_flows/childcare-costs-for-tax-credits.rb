@@ -139,7 +139,7 @@ module SmartAnswer
       # Q9
       money_question :how_much_12_months_2? do
         on_response do |response|
-          calculator.new_weekly_cost = calculator.weekly_cost_from_annual(response)
+          calculator.new_weekly_costs = calculator.weekly_cost_from_annual(response)
         end
 
         next_node do |response|
