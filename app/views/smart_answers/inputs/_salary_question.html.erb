@@ -1,10 +1,12 @@
+<span class="govuk-caption-l"><%= @presenter.title %></span>
 <%= render "govuk_publishing_components/components/input", {
   label: {
-    text: question.title
+    text: question.title,
+    is_page_heading: true
   },
   name: "response[amount]",
   id: "response_amount",
-  heading_size: "m",
+  heading_size: "l",
   width: 10,
   hint: "in £",
   error_message: question.error,

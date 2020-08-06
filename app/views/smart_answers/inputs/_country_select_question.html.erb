@@ -1,7 +1,9 @@
+<span class="govuk-caption-l"><%= @presenter.title %></span>
 <%= render "govuk_publishing_components/components/select", {
   id: "response",
   label: question.title,
-  heading_size: 'm',
+  heading_size: "l",
+  is_page_heading: true,
   error_message: question.error,
   options: question.select_options
 } %>

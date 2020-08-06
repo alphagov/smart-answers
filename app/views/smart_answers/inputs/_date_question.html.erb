@@ -4,7 +4,7 @@
   <% end %>
 
   <% if question.hint.present? %>
-    <p><%= question.hint %></p>
+    <p class="govuk-hint"><%= question.hint %></p>
   <% end %>
 
   <%= render "govuk_publishing_components/components/date_input", {
@@ -32,8 +32,10 @@
   } %>
 <% end %>
 
+<span class="govuk-caption-l"><%= @presenter.title %></span>
 <%= render "govuk_publishing_components/components/fieldset", {
   legend_text: question.title,
-  heading_size: 'm',
+  heading_level: 1,
+  heading_size: "l",
   text: form_contents
 } %>

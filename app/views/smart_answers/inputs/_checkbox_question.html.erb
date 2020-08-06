@@ -1,6 +1,9 @@
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "response[]",
   heading: question.title,
+  heading_size: "l",
+  heading_caption: @presenter.title,
+  is_page_heading: true,
   description: question.body,
   id: "response",
   error: question.error,

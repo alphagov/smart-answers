@@ -22,7 +22,8 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
     context "value question" do
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y" }
-        assert_select ".govuk-label", /How many green bottles\?/
+        assert_select ".govuk-caption-l", "Sample value question"
+        assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
 
