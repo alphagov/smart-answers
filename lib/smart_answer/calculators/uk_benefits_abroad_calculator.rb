@@ -101,6 +101,30 @@ module SmartAnswer::Calculators
       (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
     end
 
+    def state_benefits
+      STATE_BENEFITS
+    end
+
+    def all_dispute_criteria
+      DISPUTE_CRITERIA
+    end
+
+    def premiums
+      PREMIUMS
+    end
+
+    def impairments
+      IMPAIRMENTS
+    end
+
+    def periods_of_impairment
+      PERIODS_OF_IMPAIRMENT
+    end
+
+    def tax_credits_benefits
+      TAX_CREDITS_BENEFITS
+    end
+
     def benefits?
       ListValidator.call(
         constraint: STATE_BENEFITS,

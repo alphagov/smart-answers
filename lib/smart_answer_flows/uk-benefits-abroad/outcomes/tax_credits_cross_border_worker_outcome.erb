@@ -1,5 +1,5 @@
 <% govspeak_for :body do %>
-  <% if already_abroad %>
+  <% if calculator.already_abroad %>
     You may be able to claim tax credits while you're abroad.
   <% else %>
     You may be able to get tax credits while you're abroad.
@@ -24,7 +24,7 @@
 
   Contact the Tax Credits Helpline to claim.
 
-  <% if already_abroad %>
+  <% if calculator.already_abroad %>
     <%= render partial: 'tax_credits_already_abroad_helpline' %>
   <% else %>
     <%= render partial: 'tax_credits_going_abroad_helpline' %>
