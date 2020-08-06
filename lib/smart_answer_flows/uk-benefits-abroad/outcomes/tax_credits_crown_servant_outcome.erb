@@ -3,7 +3,7 @@
 
   Contact the Tax Credits Helpline to claim.
 
-  <% if already_abroad %>
+  <% if calculator.already_abroad %>
     <%= render partial: 'tax_credits_already_abroad_helpline' %>
   <% else %>
     <%= render partial: 'tax_credits_going_abroad_helpline' %>
