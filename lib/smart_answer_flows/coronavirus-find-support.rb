@@ -5,6 +5,7 @@ module SmartAnswer
       start_page_content_id "6a6ab3c9-4612-4764-8f2f-2c534c3c6b19"
       flow_content_id "31d81949-aa15-48cf-a7f1-f0d0a670e8db"
       status :draft
+      button_text "Continue"
 
       # ======================================================================
       # What do you need help with because of coronavirus?
