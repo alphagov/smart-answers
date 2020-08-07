@@ -492,13 +492,12 @@ module SmartAnswer
       outcome :outcome_single_birth_nothing
       outcome :outcome_mat_allowance
       outcome :outcome_mat_allowance_14_weeks
-      outcome :outcome_mat_allowance
       outcome :outcome_mat_allowance_mat_leave
-      outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay
       outcome :outcome_mat_allowance_mat_leave_pat_leave
+      outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay
       outcome :outcome_mat_allowance_mat_leave_pat_pay
-      outcome :outcome_mat_allowance_pat_leave_pat_pay
       outcome :outcome_mat_allowance_pat_leave
+      outcome :outcome_mat_allowance_pat_leave_pat_pay
       outcome :outcome_mat_allowance_pat_pay
       outcome :outcome_mat_leave
       outcome :outcome_mat_leave_mat_pay
