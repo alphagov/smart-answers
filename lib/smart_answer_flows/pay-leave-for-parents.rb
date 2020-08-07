@@ -256,7 +256,7 @@ module SmartAnswer
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_both_shared_leave
                   elsif !calculator.mother_earnings_employment?
-                    outcome :outcome_mat_leave_pat_leave_pat_pay_mat_shared_leave
+                    outcome :outcome_mat_leave_pat_leave_pat_pay
                   end
                 elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                   if calculator.mother_earnings_employment?
@@ -365,12 +365,12 @@ module SmartAnswer
             if calculator.partner_continuity? && calculator.partner_lower_earnings?
               if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  outcome :outcome_mat_leave_mat_pay_pat_pay_mat_shared_leave
+                  outcome :outcome_mat_leave_mat_pay_pat_pay
                 elsif calculator.mother_continuity?
                   if calculator.mother_earnings_employment?
-                    outcome :outcome_mat_allowance_mat_leave_pat_pay_mat_shared_leave
+                    outcome :outcome_mat_allowance_mat_leave_pat_pay
                   elsif !calculator.mother_earnings_employment?
-                    outcome :outcome_mat_leave_pat_pay_mat_shared_leave
+                    outcome :outcome_mat_leave_pat_pay
                   end
                 elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                   if !calculator.mother_earnings_employment?
@@ -499,7 +499,6 @@ module SmartAnswer
       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_both_shared_leave
       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_pat_shared_leave
       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave
-      outcome :outcome_mat_allowance_mat_leave_pat_pay_mat_shared_leave
       outcome :outcome_mat_allowance_mat_leave_pat_pay
       outcome :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave
       outcome :outcome_mat_allowance_pat_leave_pat_shared_leave
@@ -508,12 +507,10 @@ module SmartAnswer
       outcome :outcome_mat_leave_mat_pay
       outcome :outcome_mat_leave_mat_pay_pat_leave
       outcome :outcome_mat_leave_mat_pay_pat_leave_pat_pay_both_shared_leave
-      outcome :outcome_mat_leave_mat_pay_pat_pay_mat_shared_leave
+      outcome :outcome_mat_leave_mat_pay_pat_pay
       outcome :outcome_mat_leave_pat_leave
       outcome :outcome_mat_leave_pat_leave_pat_pay
-      outcome :outcome_mat_leave_pat_leave_pat_pay_mat_shared_leave
       outcome :outcome_mat_leave_pat_pay
-      outcome :outcome_mat_leave_pat_pay_mat_shared_leave
       outcome :outcome_mat_pay
       outcome :outcome_mat_pay_pat_leave
       outcome :outcome_mat_pay_pat_leave_pat_pay_pat_shared_leave
