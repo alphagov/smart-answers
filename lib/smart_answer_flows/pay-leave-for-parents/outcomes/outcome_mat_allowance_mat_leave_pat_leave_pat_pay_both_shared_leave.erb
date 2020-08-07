@@ -3,11 +3,11 @@
 
   <%= render partial: 'mat_leave', locals: { calculator: calculator } %>
 
+  <%= render partial: 'pat_leave', locals: { calculator: calculator } %>
+
   <%= render partial: 'pat_pay', locals: { calculator: calculator } %>
 
-  <%= render partial: 'mat_shared_leave' %>
-
-  <%= render partial: 'pat_shared_pay', locals: { calculator: calculator } %>
+  <%= render partial: 'both_shared_leave' %>
 
   <%= render partial: 'extra_help' %>
 <% end %>
