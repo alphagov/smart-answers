@@ -3,12 +3,17 @@ require_relative "flow_test_helper"
 
 require "smart_answer_flows/uk-benefits-abroad"
 
-class UKBenefitsAbroadTest < ActiveSupport::TestCase
+class UKBenefitsAbroadTest < ActionDispatch::IntegrationTest
   include FlowTestHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
     stub_world_locations %w[albania austria canada jamaica kosovo]
+  end
+
+  def assert_current_node(node_name, opts = {})
+    super
+    assert_page_renders
   end
 
   # Q1

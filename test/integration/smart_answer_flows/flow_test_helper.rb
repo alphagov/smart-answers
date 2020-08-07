@@ -37,6 +37,15 @@ module FlowTestHelper
     end
   end
 
+  def assert_page_renders
+    silence_warnings do # Without this get a Mocha deprecation warning that I was unable to find the source of.
+      ContentItemRetriever.stubs(:fetch).returns({})
+      path = "/#{@flow.name}/y/#{@responses.join('/')}"
+      get path
+      assert_equal response.code, "200"
+    end
+  end
+
   def assert_current_node(node_name, opts = {})
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
