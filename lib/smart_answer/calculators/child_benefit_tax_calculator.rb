@@ -147,5 +147,21 @@ module SmartAnswer::Calculators
     def valid_end_date?
       @part_year_claim_dates[@child_index][:end_date] > @part_year_claim_dates[@child_index][:start_date]
     end
+
+    # Methods only used in results view
+    def tax_year_label
+      end_date = @child_benefit_data[@tax_year][:end_date]
+      "#{tax_year} to #{end_date.year}"
+    end
+
+    def sa_register_deadline
+      end_date = @child_benefit_data[@tax_year][:end_date]
+      "5 October #{end_date.year}"
+    end
+
+    def tax_year_incomplete?
+      end_date = @child_benefit_data[@tax_year][:end_date]
+      end_date >= Time.zone.today
+    end
   end
 end

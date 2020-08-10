@@ -1,0 +1,64 @@
+
+<% govspeak_for :body do %>
+  The child benefit received is <%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>.
+
+  <% if calculator.tax_year == "2012" %>
+    Received between 7 January and 5 April 2013.
+  <% end %>
+
+  Use this figure in your <%= calculator.tax_year_label %> Self Assessment tax return (if you fill one in).
+
+
+  ### Tax charge to pay
+
+  <% if calculator.calculate_adjusted_net_income < 50100 %>
+    There is no tax charge if your income is below £50,099.
+    Your partner (if you have one) may have to pay the charge if their income is higher than yours.
+    Find out more about the [tax charge](/child-benefit-tax-charge).
+  <% else %>
+    The estimated tax charge to pay is <%= number_to_currency calculator.tax_estimate, unit: "£", precision: 2 %>.
+
+    <% if calculator.tax_year == "2012" %>
+      The tax charge only applies to the Child Benefit received between 7 January and 5 April 2013
+        and is based on your estimated adjusted net income of <%= number_to_currency calculator.calculate_adjusted_net_income, unit: "£", precision: 2 %>.
+    <% end %>
+
+    <% if calculator.tax_year_incomplete? %>
+      This is an estimate based on your adjusted net income of <%= number_to_currency calculator.calculate_adjusted_net_income, unit: "£", precision: 2 %>
+        - your circumstances may change before the end of the tax year.
+    <% end %>
+
+    The calculator includes the most common sources of income and
+    allowable deductions. If you think you have income or deductions that
+    are not on the calculator, phone the
+    [Income Tax helpline](/government/organisations/hm-revenue-customs/contact/income-tax-enquiries-for-individuals-pensioners-and-employees)
+    to find out if you have to pay the tax charge.
+
+    ### How and when to pay
+
+    To pay the tax charge you must fill in a Self Assessment tax return each tax year. Follow these steps:
+
+    - [Register for Self Assessment](/register-for-self-assessment) if you don’t already fill in a tax return - you should do this by <%= calculator.sa_register_deadline %>.
+    - Fill in the tax return and include the amount of Child Benefit received for the tax year.
+    - Send the tax return.
+    - Pay the tax you owe.
+
+    There are [deadlines](/self-assessment-tax-return-deadlines) for sending the tax return and paying the tax.
+
+    The person with the highest income pays the tax charge, so use your partner’s income in the calculator if it’s higher than yours.
+
+
+    ### Your Child Benefit
+    You can choose to:
+
+    - [stop getting Child Benefit](/child-benefit-tax-charge/stop-child-benefit) - you must pay any tax you owe
+    - carry on getting Child Benefit - for each tax year you get it you must fill in a tax return and pay any tax you owe
+
+    <% if calculator.tax_year == "2012" %>
+      Your result for the next tax year may be higher because the tax charge will apply to the whole tax year (and not just 7 January to 5 April 2013).
+    <% end %>
+
+    Find out about [stopping or carrying on Child Benefit](/child-benefit-tax-charge).
+  <% end %>
+
+<% end %>

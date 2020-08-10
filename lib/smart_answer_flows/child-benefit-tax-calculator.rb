@@ -141,7 +141,11 @@ module SmartAnswer
         option :no
 
         next_node do |response|
+          if response == "yes"
             question :allowable_deductions?
+          else
+            outcome :results
+          end
         end
       end
 
@@ -160,8 +164,13 @@ module SmartAnswer
       radio :add_other_allowable_deductions? do
         option :yes
         option :no
+
         next_node do |response|
+          if response == "yes"
             question :other_allowable_deductions?
+          else
+            outcome :results
+          end
         end
       end
 
@@ -171,11 +180,11 @@ module SmartAnswer
           calculator.other_allowable_deductions = response
         end
         next_node do
-          outcome :outcome_1
+          outcome :results
         end
       end
 
-      outcome :outcome_1
+      outcome :results
     end
   end
 end
