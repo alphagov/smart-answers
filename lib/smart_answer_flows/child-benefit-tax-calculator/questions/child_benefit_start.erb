@@ -2,6 +2,9 @@
   Enter the Child Benefit start date
 <% end %>
 
+<% govspeak_for :body do %>
+  ### Child <%= "#{calculator.child_index+1}" %>
+<% end %>
 
 <% text_for :hint do %>
   You can find the start date on your Child Benefit award notice.

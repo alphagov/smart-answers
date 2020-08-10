@@ -2,6 +2,10 @@
   Enter the Child Benefit stop date
 <% end %>
 
+<% govspeak_for :body do %>
+  ### Child <%= "#{calculator.child_index+1}" %>
+<% end %>
+
 <% text_for :hint do %>
   You can find the stop date on your Child Benefit award notice.
 <% end %>
