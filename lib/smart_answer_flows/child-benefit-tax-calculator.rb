@@ -9,6 +9,22 @@ module SmartAnswer
       # Q1
       value_question :how_many_children?, parse: Integer do
         next_node do
+          question :which_tax_year?
+        end
+      end
+
+      # Q2
+      radio :which_tax_year? do
+        option :"2012"
+        option :"2013"
+        option :"2014"
+        option :"2015"
+        option :"2016"
+        option :"2017"
+        option :"2018"
+        option :"2019"
+        option :"2020"
+        next_node do
           outcome :outcome_1
         end
       end
