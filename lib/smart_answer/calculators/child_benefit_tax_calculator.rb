@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
 
     def self.tax_years
       child_benefit_data.each_with_object([]) do |(key), tax_year|
-        tax_year << key
+        tax_year.unshift(key)
       end
     end
 
