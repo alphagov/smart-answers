@@ -6,7 +6,8 @@ module SmartAnswer
       flow_content_id "26f5df1d-2d73-4abc-85f7-c09c73332693"
       status :draft
 
-      value_question :question_1? do
+      # Q1
+      value_question :how_many_children?, parse: Integer do
         next_node do
           outcome :outcome_1
         end
