@@ -103,6 +103,13 @@ module SmartAnswer
       radio :add_other_allowable_deductions? do
         option :yes
         option :no
+        next_node do |response|
+            question :other_allowable_deductions?
+        end
+      end
+
+      # Q6a
+      money_question :other_allowable_deductions? do
         next_node do
           outcome :outcome_1
         end
