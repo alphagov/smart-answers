@@ -146,6 +146,425 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "calculating the number of weeks/Mondays" do
+        context "for the full tax year 2012/2013" do
+          should "calculate there are 13 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2012",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 13, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2013/2014" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2013",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2014/2015" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2014",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2015/2016" do
+          should "calculate there are 53 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2015",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 53, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2016/2017" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2016",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2017/2018" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2017",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2018/2019" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2018",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2019/2020" do
+          should "calculate there are 52 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 52, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+
+        context "for the full tax year 2020/2021" do
+          should "calculate there are 53 Mondays" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2020",
+              children_count: "1",
+            )
+            start_date = calculator.child_benefit_start_date
+            end_date = calculator.child_benefit_end_date
+            assert_equal 53, calculator.total_number_of_mondays(start_date, end_date)
+          end
+        end
+      end
+
+      context "calculating child benefits received" do
+        context "for the tax year 2012" do
+          should "give the total amount of benefits received for a full tax year 2012" do
+            assert_equal 263.9, ChildBenefitTaxCalculator.new(
+              tax_year: "2012",
+              children_count: 1,
+            ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount of benefits received for a partial tax year" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2012",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2012-06-01"),
+                end_date: Date.parse("2013-04-01"),
+              },
+            }
+            assert_equal 263.9, calculator.benefits_claimed_amount.round(2)
+          end
+        end
+
+        context "for the tax year 2013" do
+          should "give the total amount of benefits received for a full tax year 2013" do
+            assert_equal 1055.6, ChildBenefitTaxCalculator.new(
+              tax_year: "2013",
+              children_count: 1,
+            ).benefits_claimed_amount.round(2)
+          end
+        end
+
+        context "for the tax year 2019" do
+          should "give the total amount received for the full tax year for one child" do
+            assert_equal 1076.4, ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: 1,
+            ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount received for the full tax year for more than one child" do
+            assert_equal 1788.8, ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: 2,
+            ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2020-01-06"),
+                end_date: Date.parse("2020-04-05"),
+              },
+            }
+            assert_equal 269.1, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for more than one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: 2,
+              part_year_children_count: 2,
+            )
+
+            calculator.part_year_claim_dates = {
+              "0" => { # 18 weeks/Mondays
+                start_date: Date.parse("2019-12-2"),
+                end_date: Date.parse("2020-04-05"),
+              },
+              "1" => { # 13 weeks/Mondays
+                start_date: Date.parse("2020-01-06"),
+                end_date: Date.parse("2020-04-05"),
+              },
+            }
+            assert_equal 550.7, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for three children, two of which are partial tax years" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2019",
+              children_count: 3,
+              part_year_children_count: 2,
+            )
+            calculator.part_year_claim_dates = {
+              "0" => { # 18 weeks/Mondays
+                start_date: Date.parse("2019-12-2"),
+                end_date: Date.parse("2020-04-05"),
+              },
+              "1" => { # 13 weeks/Mondays
+                start_date: Date.parse("2020-01-06"),
+                end_date: Date.parse("2020-04-05"),
+              },
+            }
+            assert_equal 1501.1, calculator.benefits_claimed_amount.round(2)
+          end
+        end
+      end
+
+      context "calculating adjusted net income" do
+        should "calculate the adjusted net income with the relevant params" do
+          assert_equal 69_950, ChildBenefitTaxCalculator.new(
+            income_details: 75_500,
+            allowable_deductions: 3000,
+            other_allowable_deductions: 1800,
+            tax_year: "2012",
+            children_count: 2,
+          ).calculate_adjusted_net_income
+        end
+      end # context "calculating adjusted net income"
+
+      context "calculating percentage tax charge" do
+        should "be 0.0 for an income of 50099" do
+          assert_equal 0.0, ChildBenefitTaxCalculator.new(
+            income_details: 50_099,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 1.0 for an income of 50199" do
+          assert_equal 1.0, ChildBenefitTaxCalculator.new(
+            income_details: 50_199,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 2.0 for an income of 50200" do
+          assert_equal 2.0, ChildBenefitTaxCalculator.new(
+            income_details: 50_200,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 40.0 for an income of 54013" do
+          assert_equal 40.0, ChildBenefitTaxCalculator.new(
+            income_details: 54_013,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 40.0 for an income of 54089" do
+          assert_equal 40.0, ChildBenefitTaxCalculator.new(
+            income_details: 54_089,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 99.0 for an income of 59999" do
+          assert_equal 99.0, ChildBenefitTaxCalculator.new(
+            income_details: 59_999,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 100.0 for an income of 60000" do
+          assert_equal 100.0, ChildBenefitTaxCalculator.new(
+            income_details: 60_000,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 100.0 for an income of 60001" do
+          assert_equal 100.0, ChildBenefitTaxCalculator.new(
+            income_details: 60_001,
+            tax_year: "2012",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+      end # calculating percentage tax charge"
+
+      context "calculating the correct amount owed" do
+        context "below the income threshold" do
+          should "be true for incomes under the threshold" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 49_999,
+              tax_year: "2019",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2018-01-01"),
+              },
+            }
+            assert calculator.nothing_owed?
+          end
+
+          should "be true for incomes over the threshold" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 50_100,
+              tax_year: "2019",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2018-01-01"),
+              },
+            }
+            assert_not calculator.nothing_owed?
+          end
+        end
+      end # calculating the correct amount owed"
+
+      context "starting and stopping children" do
+        context "for the tax year 2012-2013" do
+          should "calculate correctly with starting children" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2012",
+              income_details: 61_000,
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2013-03-01"),
+              },
+            }
+            assert_equal 101, calculator.tax_estimate.round(1)
+          end
+
+          should "not tax before Jan 7th 2013" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 61_000,
+              children_count: 1,
+              part_year_children_count: 1,
+              tax_year: "2012",
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2012-05-01"),
+              },
+            }
+            assert_equal 263, calculator.tax_estimate.round(1)
+          end
+        end
+
+        context "for the tax year 2013-2014" do
+          should "calculate correctly for 60k income" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 61_000,
+              children_count: 1,
+              part_year_children_count: 1,
+              tax_year: "2013",
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2014-02-22"),
+              },
+            }
+
+            # starting child for 6 weeks
+            assert_equal 121, calculator.tax_estimate.round(1)
+          end
+        end # tax year 2013-14
+
+        context "for the tax year 2016-2017" do
+          should "calculate correctly with starting children" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 61_000,
+              children_count: 1,
+              part_year_children_count: 1,
+              tax_year: "2016",
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2017-03-01"),
+              },
+            }
+
+            # child from 01/03 to 01/04 => 5 weeks * 20.7
+            assert_equal 103, calculator.tax_estimate.round(1)
+          end
+
+          should "correctly calculate weeks for a child who started & stopped in tax year" do
+            calculator = ChildBenefitTaxCalculator.new(
+              income_details: 61_000,
+              children_count: 1,
+              part_year_children_count: 1,
+              tax_year: "2016",
+            )
+            calculator.part_year_claim_dates = {
+              "0" => {
+                start_date: Date.parse("2017-02-01"),
+                end_date: Date.parse("2017-03-01"),
+              },
+            }
+            # child from 01/02 to 01/03 => 4 weeks * 20.7
+            assert_equal 82, calculator.tax_estimate.round(1)
+          end
+        end # tax year 2016
+      end # starting & stopping children
     end # ChildBenefitTaxCalculator
   end
 end

@@ -9,6 +9,7 @@ module SmartAnswer::Calculators
                   :part_year_claim_dates,
                   :child_index
 
+    NET_INCOME_THRESHOLD = 50_000
     TAX_COMMENCEMENT_DATE = Date.parse("7 Jan 2013") # special case for 2012-13, only weeks from 7th Jan 2013 are taxable
 
     def initialize(children_count: 0,
@@ -76,6 +77,9 @@ module SmartAnswer::Calculators
       total_benefit_amount.to_f
     end
 
+    def nothing_owed?
+      calculate_adjusted_net_income < NET_INCOME_THRESHOLD || tax_estimate.abs.zero?
+    end
 
     def tax_estimate
       (benefits_claimed_amount * (percent_tax_charge / 100.0)).floor
