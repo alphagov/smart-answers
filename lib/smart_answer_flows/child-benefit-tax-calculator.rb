@@ -58,6 +58,14 @@ module SmartAnswer
       radio :add_child_benefit_stop? do
         option :yes
         option :no
+
+        next_node do |response|
+            question :child_benefit_stop?
+        end
+      end
+
+      # Q3d
+      date_question :child_benefit_stop? do
         next_node do
           outcome :outcome_1
         end
