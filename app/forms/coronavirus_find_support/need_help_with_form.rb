@@ -3,8 +3,6 @@ module CoronavirusFindSupport
     include ActiveModel::Model
     include ActiveModel::Validations
 
-    def initialize
-
-    end
+    def initialize; end
   end
 end

@@ -1,7 +1,10 @@
 class SessionAnswersController < ApplicationController
+  rescue_from SessionFlow::FlowNotFoundError, with: :error_404
+  rescue_from SessionFlow::NodeNotFoundError, with: :error_404
 
   def show
     form
+    flow
   end
 
   def update
@@ -9,7 +12,7 @@ class SessionAnswersController < ApplicationController
     redirect_to session_flow_path(flow_name, flow.next_node)
   end
 
-  private
+private
 
   def flow_name
     params[:flow_name]
@@ -28,5 +31,4 @@ class SessionAnswersController < ApplicationController
   def flow
     @flow ||= SessionFlow.call(flow_name, node_name)
   end
-
 end

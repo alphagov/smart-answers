@@ -1,9 +1,10 @@
-
 class SessionFlow
+  FlowNotFoundError = Class.new(StandardError)
+  NodeNotFoundError = Class.new(StandardError)
 
   FLOWS = {
-    coronavirus_find_support: CoronavirusFindSupportFlow
-  }
+    coronavirus_find_support: CoronavirusFindSupportFlow,
+  }.freeze
 
   def self.call(*args)
     new(*args).flow
@@ -16,9 +17,20 @@ class SessionFlow
     @node_name = node_name.to_sym
   end
 
+  def exists?
+    FLOWS.keys.include?(flow_name)
+  end
+
   def flow
-    flow = FLOWS[flow_name]
-    flow.new(node_name)
+    raise FlowNotFoundError, "Flow #{flow_name} not found" unless exists?
+
+    flow = flow_class.new(node_name)
+    raise NodeNotFoundError, "#{node_name} not found in flow #{flow_name}" unless flow.has_node?
+
+    flow
+  end
+
+  def flow_class
+    FLOWS[flow_name]
   end
 end
-

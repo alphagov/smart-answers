@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
