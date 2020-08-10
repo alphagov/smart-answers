@@ -24,6 +24,17 @@ module SmartAnswer
         option :"2018"
         option :"2019"
         option :"2020"
+
+        next_node do
+          question :is_part_year_claim?
+        end
+      end
+
+      # Q3
+      radio :is_part_year_claim? do
+        option :yes
+        option :no
+
         next_node do
           outcome :outcome_1
         end
