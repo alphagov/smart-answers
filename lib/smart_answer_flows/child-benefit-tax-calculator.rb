@@ -95,6 +95,15 @@ module SmartAnswer
       # Q5a
       money_question :allowable_deductions? do
         next_node do
+          question :add_other_allowable_deductions?
+        end
+      end
+
+      # Q6
+      radio :add_other_allowable_deductions? do
+        option :yes
+        option :no
+        next_node do
           outcome :outcome_1
         end
       end
