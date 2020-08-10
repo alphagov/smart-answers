@@ -35,6 +35,13 @@ module SmartAnswer
         option :yes
         option :no
 
+        next_node do |response|
+            question :how_many_children_part_year?
+        end
+      end
+
+      # Q3a
+      value_question :how_many_children_part_year?, parse: Integer do
         next_node do
           outcome :outcome_1
         end
