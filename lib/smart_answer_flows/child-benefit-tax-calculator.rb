@@ -36,7 +36,11 @@ module SmartAnswer
         option :no
 
         next_node do |response|
+          if response == "yes"
             question :how_many_children_part_year?
+          else
+            question :income_details?
+          end
         end
       end
 
@@ -66,6 +70,13 @@ module SmartAnswer
 
       # Q3d
       date_question :child_benefit_stop? do
+        next_node do
+            question :income_details?
+        end
+      end
+
+      # Q4
+      money_question :income_details? do
         next_node do
           outcome :outcome_1
         end
