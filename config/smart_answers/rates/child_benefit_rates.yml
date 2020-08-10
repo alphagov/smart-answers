@@ -2,27 +2,45 @@
 "2012":
   start_date: 2012-04-06
   end_date: 2013-04-05
+  first_child: 20.3
+  additional_child: 13.4
 "2013":
   start_date: 2013-04-06
   end_date: 2014-04-05
+  first_child: 20.3
+  additional_child: 13.4
 "2014":
   start_date: 2014-04-06
   end_date: 2015-04-05
+  first_child: 20.5
+  additional_child: 13.55
 "2015":
   start_date: 2015-04-06
   end_date: 2016-04-05
+  first_child: 20.7
+  additional_child: 13.7
 "2016":
   start_date: 2016-04-06
   end_date: 2017-04-05
+  first_child: 20.7
+  additional_child: 13.7
 "2017":
   start_date: 2017-04-06
   end_date: 2018-04-05
+  first_child: 20.7
+  additional_child: 13.7
 "2018":
   start_date: 2018-04-06
   end_date: 2019-04-05
+  first_child: 20.7
+  additional_child: 13.7
 "2019":
   start_date: 2019-04-06
   end_date: 2020-04-05
+  first_child: 20.7
+  additional_child: 13.7
 "2020":
   start_date: 2020-04-06
   end_date: 2021-04-05
+  first_child: 21.05
+  additional_child: 13.95
