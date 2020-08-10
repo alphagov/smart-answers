@@ -50,6 +50,15 @@ module SmartAnswer
       # Q3b
       date_question :child_benefit_start? do
         next_node do
+          question :add_child_benefit_stop?
+        end
+      end
+
+      # Q3c
+      radio :add_child_benefit_stop? do
+        option :yes
+        option :no
+        next_node do
           outcome :outcome_1
         end
       end
