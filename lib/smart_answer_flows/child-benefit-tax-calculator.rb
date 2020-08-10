@@ -87,7 +87,16 @@ module SmartAnswer
         option :no
 
         next_node do |response|
+          if response == "yes"
             question :child_benefit_stop?
+          else
+            calculator.child_index += 1
+            if calculator.child_index < calculator.part_year_children_count
+              question :child_benefit_start?
+            else
+              question :income_details?
+            end
+          end
         end
       end
 
@@ -106,7 +115,12 @@ module SmartAnswer
         end
 
         next_node do
+          calculator.child_index += 1
+          if calculator.child_index < calculator.part_year_children_count
+            question :child_benefit_start?
+          else
             question :income_details?
+          end
         end
       end
 

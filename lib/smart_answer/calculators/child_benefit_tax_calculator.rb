@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
                   :allowable_deductions,
                   :other_allowable_deductions,
                   :part_year_claim_dates,
+                  :child_index
 
     def initialize(children_count: 0,
                    tax_year: nil,
