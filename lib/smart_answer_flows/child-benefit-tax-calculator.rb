@@ -43,6 +43,13 @@ module SmartAnswer
       # Q3a
       value_question :how_many_children_part_year?, parse: Integer do
         next_node do
+          question :child_benefit_start?
+        end
+      end
+
+      # Q3b
+      date_question :child_benefit_start? do
+        next_node do
           outcome :outcome_1
         end
       end
