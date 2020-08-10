@@ -12,6 +12,11 @@ module SmartAnswer
           self.calculator = Calculators::ChildBenefitTaxCalculator.new
           calculator.children_count = response.to_i
         end
+
+        validate(:valid_number_of_children) do
+          calculator.valid_number_of_children?
+        end
+
         next_node do
           question :which_tax_year?
         end
@@ -52,6 +57,10 @@ module SmartAnswer
           calculator.part_year_children_count = response
         end
 
+        validate(:valid_number_of_part_year_children) do
+          calculator.valid_number_of_part_year_children?
+        end
+
         next_node do
           question :child_benefit_start?
         end
@@ -61,6 +70,10 @@ module SmartAnswer
       date_question :child_benefit_start? do
         on_response do |response|
           calculator.store_date(:start_date, response)
+        end
+
+        validate(:valid_within_tax_year) do
+          calculator.valid_within_tax_year?(:start_date)
         end
 
         next_node do
@@ -82,6 +95,14 @@ module SmartAnswer
       date_question :child_benefit_stop? do
         on_response do |response|
           calculator.store_date(:end_date, response)
+        end
+
+        validate(:valid_within_tax_year) do
+          calculator.valid_within_tax_year?(:end_date)
+        end
+
+        validate(:valid_end_date) do
+          calculator.valid_end_date?
         end
 
         next_node do

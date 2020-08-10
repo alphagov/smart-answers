@@ -33,6 +33,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def child_benefit_end_date
+      selected_tax_year["end_date"]
+    end
+
+    def selected_tax_year
+      @child_benefit_data[@tax_year]
+    end
+
     def self.child_benefit_data
       @child_benefit_data ||= YAML.load_file(Rails.root.join("config/smart_answers/rates/child_benefit_rates.yml")).with_indifferent_access
     end
@@ -46,5 +54,20 @@ module SmartAnswer::Calculators
                                             end
     end
 
+    def valid_number_of_children?
+      @children_count.positive? && @children_count <= 30
+    end
+
+    def valid_number_of_part_year_children?
+      @part_year_children_count.positive? && @part_year_children_count <= @children_count
+    end
+
+    def valid_within_tax_year?(date_type)
+      @part_year_claim_dates[@child_index][date_type] >= selected_tax_year["start_date"] && @part_year_claim_dates[@child_index][date_type] <= child_benefit_end_date
+    end
+
+    def valid_end_date?
+      @part_year_claim_dates[@child_index][:end_date] > @part_year_claim_dates[@child_index][:start_date]
+    end
   end
 end
