@@ -9,7 +9,8 @@ class SessionAnswersController < ApplicationController
 
   def update
     form
-    redirect_to session_flow_path(flow_name, flow.next_node)
+    render json: params
+#    redirect_to session_flow_path(flow_name, flow.next_node)
   end
 
 private
