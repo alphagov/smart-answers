@@ -1,3 +1,7 @@
-:warning: Only merge changes if you are happy for them to go live. :warning: 
+:warning: This application is Continuously Deployed: :warning:
 
-This application is now [continuously deployed](https://docs.publishing.service.gov.uk/manual/development-pipeline.html#merge-your-own-pull-request). Merged changes are automatically deployed to staging and production.
+- Merged changes are automatically deployed to staging and production.
+
+- Make sure you follow [the guidance for deployments](https://docs.publishing.service.gov.uk/manual/development-pipeline.html#merge-your-own-pull-request) **before** you merge.
+
+- Check your branch is being deployed in the [Release app](https://release.publishing.service.gov.uk/applications/smartanswers), after merging.
