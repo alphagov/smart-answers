@@ -1,0 +1,9 @@
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render "session_answers/#{flow_name}/#{node_name}" %>
+  </div>
+</div>
