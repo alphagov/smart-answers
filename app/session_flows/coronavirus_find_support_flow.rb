@@ -1,6 +1,7 @@
 class CoronavirusFindSupportFlow
   NODES = {
     need_help_with: :feel_safe,
+    feel_safe: :afford_rent_mortgage_bills,
   }.freeze
 
   attr_reader :node_name

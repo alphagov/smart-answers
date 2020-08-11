@@ -10,11 +10,12 @@ class SessionFlow
     new(*args).flow
   end
 
-  attr_reader :flow_name, :node_name
+  attr_reader :flow_name, :node_name, :session
 
-  def initialize(flow_name, node_name)
+  def initialize(flow_name, node_name, session)
     @flow_name = flow_name.to_sym
     @node_name = node_name.to_sym
+    @session = session
   end
 
   def exists?

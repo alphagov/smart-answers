@@ -3,7 +3,13 @@ module CoronavirusFindSupport
     include ActiveModel::Model
     include ActiveModel::Validations
 
-    attr_accessor :need_help_with
+    attr_accessor :session, :need_help_with
+    attr_reader :params
+
+    def initialize(params, session)
+      @params = params
+      @session = session
+    end
 
     def options
       {
@@ -20,6 +26,9 @@ module CoronavirusFindSupport
       end
     end
 
-    def initialize; end
+    def save
+      session[:session_answers] ||= {}
+      session[:session_answers][:need_help_with] = params[:need_help_with]
+    end
   end
 end

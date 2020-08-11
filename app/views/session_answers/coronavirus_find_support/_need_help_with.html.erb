@@ -3,14 +3,14 @@
 <% end %>
 
 <%= form_with path: session_flow_path(flow_name, node_name), method: :put, local: true do |form| %>
+  <%= render "govuk_publishing_components/components/checkboxes", {
+    heading: content_tag(:h1, content_for(:title), class: "govuk-fieldset__heading"),
+    heading_size: "xl",
+    name: "#{node_name}[]",
+    items: @form.options
+  } %>
 
-    <%= render "govuk_publishing_components/components/checkboxes", {
-      heading: content_tag(:h1, content_for(:title), class: "govuk-fieldset__heading"),
-      heading_size: "xl",
-      name: "#{node_name}[]",
-      items: @form.options
-    } %>
-
-
-  <%= form.submit(class: "govuk-button", "data-module" => "govuk-button", value: 'Continue') %>
+  <%= render "govuk_publishing_components/components/button", {
+    text: "Continue"
+  } %>
 <% end %>

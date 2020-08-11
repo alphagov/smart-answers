@@ -1,6 +1,8 @@
 class SessionAnswersController < ApplicationController
-  rescue_from SessionFlow::FlowNotFoundError, with: :error_404
-  rescue_from SessionFlow::NodeNotFoundError, with: :error_404
+  layout "session_answers"
+
+  # rescue_from SessionFlow::FlowNotFoundError, with: :error_404
+  # rescue_from SessionFlow::NodeNotFoundError, with: :error_404
 
   def show
     form
@@ -8,9 +10,8 @@ class SessionAnswersController < ApplicationController
   end
 
   def update
-    form
-    render json: params
-#    redirect_to session_flow_path(flow_name, flow.next_node)
+    form.save
+    redirect_to session_flow_path(flow_name, flow.next_node)
   end
 
 private
@@ -26,10 +27,10 @@ private
   helper_method :flow_name, :node_name
 
   def form
-    @form ||= FormFinder.call(flow_name, node_name)
+    @form ||= FormFinder.call(flow_name, node_name, params, session)
   end
 
   def flow
-    @flow ||= SessionFlow.call(flow_name, node_name)
+    @flow ||= SessionFlow.call(flow_name, node_name, session)
   end
 end
