@@ -1,5 +1,7 @@
 class SmartAnswersController < ApplicationController
+  include Slimmer::Template
   include Slimmer::Headers
+  slimmer_template "core_layout"
 
   before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_url, only: %w[show]

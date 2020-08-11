@@ -1,11 +1,7 @@
 class ApplicationController < ActionController::Base
-  include Slimmer::Template
-
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
-
-  slimmer_template "core_layout"
 
 protected
 
