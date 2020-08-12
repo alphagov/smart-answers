@@ -7,7 +7,7 @@
     heading: content_tag(:h1, content_for(:title), class: "govuk-fieldset__heading"),
     heading_size: "xl",
     name: "#{node_name}[]",
-    items: @form.options
+    items: @form.checkbox_options
   } %>
 
   <%= render "govuk_publishing_components/components/button", {

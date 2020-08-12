@@ -1,15 +1,7 @@
 module CoronavirusFindSupport
-  class NeedHelpWithForm
-    include ActiveModel::Model
-    include ActiveModel::Validations
-
-    attr_accessor :session, :need_help_with
-    attr_reader :params
-
-    def initialize(params, session)
-      @params = params
-      @session = session
-    end
+  class NeedHelpWithForm < Form
+    answer_flow :session_answers
+    answer_node :need_help_with
 
     def options
       {
@@ -21,14 +13,7 @@ module CoronavirusFindSupport
         somewhere_to_live: "Having somewhere to live",
         mental_health: "Mental health and wellbeing",
         not_sure: "I'm not sure",
-      }.each_with_object([]) do |(key, value), array|
-        array << { label: value, value: key.to_s }
-      end
-    end
-
-    def save
-      session[:session_answers] ||= {}
-      session[:session_answers][:need_help_with] = params[:need_help_with]
+      }
     end
   end
 end

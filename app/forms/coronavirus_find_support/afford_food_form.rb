@@ -1,12 +1,11 @@
 module CoronavirusFindSupport
-  class FeelSafeForm < Form
+  class AffordFoodForm < Form
     answer_flow :session_answers
-    answer_node :feel_safe
+    answer_node :afford_food
 
     def options
       {
         yes: "Yes",
-        yes_but_i_am_concerned_about_others: "Yes, but I’m worried about the safety of another adult or a child",
         no: "No",
         not_sure: "Not sure",
       }
