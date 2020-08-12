@@ -3,6 +3,10 @@ class FormFinder
     coronavirus_find_support: {
       need_help_with: CoronavirusFindSupport::NeedHelpWithForm,
       feel_safe: CoronavirusFindSupport::FeelSafeForm,
+      afford_rent_mortgage_bills: CoronavirusFindSupport::AffordRentMortgageBillsForm,
+      afford_food: CoronavirusFindSupport::AffordFoodForm,
+      get_food: CoronavirusFindSupport::GetFoodForm,
+      able_to_go_out: CoronavirusFindSupport::AbleToGoOutForm,
     },
   }.freeze
 
