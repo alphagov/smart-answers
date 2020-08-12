@@ -1,6 +1,6 @@
 module CoronavirusFindSupport
   class AffordFoodForm < Form
-    answer_flow :session_answers
+    answer_flow :coronavirus_find_support
     answer_node :afford_food
 
     def options

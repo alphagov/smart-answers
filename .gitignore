@@ -15,3 +15,5 @@ tmp/
 coverage
 
 .byebug_history
+
+yarn.lock

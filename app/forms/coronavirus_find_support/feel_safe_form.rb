@@ -1,6 +1,6 @@
 module CoronavirusFindSupport
   class FeelSafeForm < Form
-    answer_flow :session_answers
+    answer_flow :coronavirus_find_support
     answer_node :feel_safe
 
     def options

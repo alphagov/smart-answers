@@ -24,6 +24,24 @@ class Form
   def initialize(params, session)
     @params = params
     @session = session
+    assign_attributes_from_params
+  end
+
+  # if an attribute is assigned in a child class
+  # for example:
+  #
+  #   `attr_accessor :foo`
+  #
+  # and params contains a value with matching key
+  #
+  #   params = { foo: :bar }
+  #
+  # Then that value will be assigned to the attribute
+  #
+  #   f = MyForm.new(params, {})
+  #   f.foo => :bar
+  def assign_attributes_from_params
+    self.attributes = params.select { |k, _| self.class.attribute_method?(k) }
   end
 
   def checkbox_options
@@ -43,7 +61,19 @@ class Form
   end
 
   def save
-    session[:flow_name] ||= {}
-    session[:flow_name][:node_name] = params[:node_name]
+    prepare_session
+    update_session if valid?
+  end
+
+  def prepare_session
+    session[flow_name] ||= {}
+  end
+
+  def update_session
+    session[flow_name][node_name] = data_to_be_stored_in_session
+  end
+
+  def data_to_be_stored_in_session
+    params[node_name]
   end
 end
