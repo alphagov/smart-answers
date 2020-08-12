@@ -36,6 +36,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
         should "show a validation error if invalid amount" do
           assert_select ".govuk-label", /Salary question with error message/
           assert_select ".govuk-error-message", /salary-question-error-message/
+          assert_contains css_select("title").first.content, /Error/
         end
       end
 

@@ -30,6 +30,7 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
       should "show an error message" do
         submit_response(nil)
         assert_select ".govuk-error-message"
+        assert_contains css_select("title").first.content, /Error/
       end
     end
   end
