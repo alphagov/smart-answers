@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   get "/:flow_name/:node_name", to: "session_answers#show", as: :session_flow
   put "/:flow_name/:node_name", to: "session_answers#update"
+  get "/:flow_name", to: "session_answers#index"
 end

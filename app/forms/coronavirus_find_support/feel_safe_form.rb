@@ -13,5 +13,14 @@ module CoronavirusFindSupport
         not_sure
       ]
     end
+
+    def prepare_session
+      session[flow_name] ||= {}
+      session[flow_name]["feeling_unsafe"] ||= {}
+    end
+
+    def update_session
+      session[flow_name]["feeling_unsafe"][node_name] = data_to_be_stored_in_session
+    end
   end
 end
