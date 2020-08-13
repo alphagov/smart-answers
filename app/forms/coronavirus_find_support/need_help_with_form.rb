@@ -1,8 +1,5 @@
 module CoronavirusFindSupport
   class NeedHelpWithForm < Form
-    answer_flow :coronavirus_find_support
-    answer_node :need_help_with
-
     attr_accessor :need_help_with
 
     validates :need_help_with,

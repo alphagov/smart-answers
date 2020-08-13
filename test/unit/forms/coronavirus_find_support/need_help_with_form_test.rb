@@ -11,11 +11,11 @@ module CoronavirusFindSupport
     end
 
     def params
-      @params ||= { need_help_with: input }
+      @params ||= { need_help_with: input, flow_name: :coronavirus_find_support, node_name: :need_help_with }
     end
 
     def form
-      @form ||= NeedHelpWithForm.new(params, session)
+      @form ||= NeedHelpWithForm.new(ActionController::Parameters.new(params), session)
     end
 
     context "#save" do
