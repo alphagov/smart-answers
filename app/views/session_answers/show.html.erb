@@ -4,6 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <%= render('error_summary', form: @form) if @form.errors.present? %>
     <%= render "session_answers/#{flow_name}/#{node_name}" %>
   </div>
 </div>
