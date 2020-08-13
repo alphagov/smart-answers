@@ -29,6 +29,20 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     #    end
   end
 
+  def params
+    @params ||= { need_help_with: %w[paying_bills] }
+  end
+
   context "PUT /:flow_name/:node_name" do
+    should "redirect to next node" do
+      put session_flow_path(flow_name, node_name), params: params
+      assert_redirected_to session_flow_path(flow_name, :feel_safe)
+    end
+
+    should "render page on error" do
+      @params = {}
+      put session_flow_path(flow_name, node_name), params: params
+      assert_response :success
+    end
   end
 end
