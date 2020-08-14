@@ -29,6 +29,36 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     #    end
   end
 
+  def params
+    @params ||= { need_help_with: %w[paying_bills] }
+  end
+
   context "PUT /:flow_name/:node_name" do
+    setup do
+      put session_flow_path(flow_name, node_name), params: params
+    end
+
+    should "redirect to next node" do
+      assert_redirected_to session_flow_path(flow_name, :feel_safe)
+    end
+  end
+
+  context "PUT /:flow_name/:node_name on error" do
+    setup do
+      @params = {}
+      put session_flow_path(flow_name, node_name), params: params
+    end
+
+    should "re-render page" do
+      assert_response :success
+    end
+
+    should "display an error on element" do
+      assert_match(/govuk-error-message/, response.body)
+    end
+
+    should "display an error summary" do
+      assert_match(/govuk-error-summary/, response.body)
+    end
   end
 end

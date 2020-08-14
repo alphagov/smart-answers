@@ -1,7 +1,10 @@
 module CoronavirusFindSupport
   class NeedHelpWithForm < Form
-    answer_flow :session_answers
-    answer_node :need_help_with
+    attr_accessor :need_help_with
+
+    validates :need_help_with,
+              presence: { message: "Select what you need to find help with, or ‘Not sure’" },
+              valid_options: true
 
     def options
       {

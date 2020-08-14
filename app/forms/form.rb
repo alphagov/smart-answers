@@ -5,7 +5,7 @@ class Form
   NotImplementedError = Class.new(StandardError)
 
   attr_accessor :session
-  attr_reader :params, :question_name, :flow_name
+  attr_reader :params, :question_name
 
   class << self
     attr_reader :flow_name, :node_name
@@ -19,11 +19,43 @@ class Form
     end
   end
 
-  delegate :flow_name, :node_name, to: :class
-
   def initialize(params, session)
     @params = params
     @session = session
+    assign_attributes_from_params
+  end
+
+  # if an attribute is assigned in a child class
+  # for example:
+  #
+  #   `attr_accessor :foo`
+  #
+  # and params contains a value with matching key
+  #
+  #   params = { foo: :bar }
+  #
+  # Then that value will be assigned to the attribute
+  #
+  #   f = MyForm.new(params, {})
+  #   f.foo => :bar
+  def assign_attributes_from_params
+    attributes_in_params = params.slice(*param_keys_that_match_attributes)
+    attributes_in_params.permit!
+    self.attributes = attributes_in_params
+  end
+
+  def param_keys_that_match_attributes
+    keys_to_be_handled_separately = %w[flow_name node_name]
+    keys_that_match_attributes = params.keys.select { |key| self.class.attribute_method?(key) }
+    keys_that_match_attributes - keys_to_be_handled_separately
+  end
+
+  def flow_name
+    @flow_name ||= self.class.flow_name || params[:flow_name]
+  end
+
+  def node_name
+    @node_name ||= self.class.node_name || params[:node_name]
   end
 
   def checkbox_options
@@ -43,7 +75,19 @@ class Form
   end
 
   def save
-    session[:flow_name] ||= {}
-    session[:flow_name][:node_name] = params[:node_name]
+    prepare_session
+    update_session if valid?
+  end
+
+  def prepare_session
+    session[flow_name] ||= {}
+  end
+
+  def update_session
+    session[flow_name][node_name] = data_to_be_stored_in_session
+  end
+
+  def data_to_be_stored_in_session
+    params[node_name]
   end
 end

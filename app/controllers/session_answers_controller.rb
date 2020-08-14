@@ -10,8 +10,11 @@ class SessionAnswersController < ApplicationController
   end
 
   def update
-    form.save
-    redirect_to session_flow_path(flow_name, flow.next_node)
+    if form.save
+      redirect_to session_flow_path(flow_name, flow.next_node)
+    else
+      render :show
+    end
   end
 
 private
