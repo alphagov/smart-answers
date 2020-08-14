@@ -2,21 +2,31 @@ module CoronavirusFindSupport
   class NeedHelpWithForm < Form
     attr_accessor :need_help_with
 
+    def self.i18n_scope
+      [:session_answers, :coronavirus_find_support, :need_help_with]
+    end
+
+    def self.t(translation_name)
+      I18n.t(translation_name, scope:i18n_scope)
+    end
+
+    delegate :my_scope, :t, to: :class
+
     validates :need_help_with,
-              presence: { message: "Select what you need to find help with, or ‘Not sure’" },
+              presence: { message: t("errors.blank") },
               valid_options: true
 
     def options
-      {
-        feeling_unsafe: "Feeling unsafe where you live, or being worried about someone else",
-        paying_bills: "Paying bills",
-        getting_food: "Getting food",
-        being_unemployed: "Being unemployed or not having any work",
-        going_to_work: "Going in to work",
-        somewhere_to_live: "Having somewhere to live",
-        mental_health: "Mental health and wellbeing",
-        not_sure: "I'm not sure",
-      }
+      [
+        :feeling_unsafe,
+        :paying_bills,
+        :getting_food,
+        :being_unemployed,
+        :going_to_work,
+        :somewhere_to_live,
+        :mental_health,
+        :not_sure,
+      ].each_with_object({}) { |option, hash| hash[option] = t("options.#{option}") }
     end
   end
 end
