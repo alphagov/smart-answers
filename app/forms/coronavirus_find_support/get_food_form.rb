@@ -1,7 +1,8 @@
 module CoronavirusFindSupport
   class GetFoodForm < Form
-    answer_flow :coronavirus_find_support
-    answer_node :get_food
+    attr_accessor :get_food
+
+    validates :get_food, presence: { message: "Select yes if you’re able to get food" }
 
     def options
       {

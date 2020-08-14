@@ -1,7 +1,9 @@
 module CoronavirusFindSupport
   class FeelSafeForm < Form
-    answer_flow :coronavirus_find_support
-    answer_node :feel_safe
+    attr_accessor :feel_safe
+
+    validates :feel_safe,
+              presence: { message: "Select if you feel safe where you live or if you’re worried about someone else" }
 
     def options
       {

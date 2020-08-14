@@ -2,15 +2,7 @@
   Are you finding it hard to afford rent, your mortgage or bills?
 <% end %>
 
-<%= form_with path: session_flow_path(flow_name, node_name), method: :put, local: true do |form| %>
-  <%= render "govuk_publishing_components/components/radio", {
-    heading: content_tag(:h1, content_for(:title), class: "govuk-fieldset__heading"),
-    heading_size: "xl",
-    name: "#{node_name}[]",
-    items: @form.radio_options
-  } %>
-
-  <%= render "govuk_publishing_components/components/button", {
-    text: "Continue"
-  } %>
+<%= form_for_node do %>
+  <%= govuk_radio_for_node(@form) %>
+  <%= continue_button %>
 <% end %>

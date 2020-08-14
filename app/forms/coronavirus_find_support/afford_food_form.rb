@@ -1,7 +1,8 @@
 module CoronavirusFindSupport
   class AffordFoodForm < Form
-    answer_flow :coronavirus_find_support
-    answer_node :afford_food
+    attr_accessor :afford_food
+
+    validates :afford_food, presence: { message: "Select yes if you’re finding it hard to afford food" }
 
     def options
       {
