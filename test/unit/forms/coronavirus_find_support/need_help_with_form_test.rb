@@ -90,7 +90,7 @@ module CoronavirusFindSupport
 
       should "populate errors" do
         form.save
-        assert form.errors.present?
+        assert_equal "Please select one of the options provided", form.errors[:need_help_with].join
       end
     end
   end

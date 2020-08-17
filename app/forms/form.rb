@@ -16,8 +16,19 @@ class Form
 
     def answer_node(node_name)
       @node_name = node_name
+      attr_accessor node_name
+    end
+
+    def i18n_scope
+      [:session_answers, flow_name, node_name]
+    end
+
+    def t(translation_name)
+      I18n.t(translation_name, scope: i18n_scope)
     end
   end
+
+  delegate :t, to: :class
 
   def initialize(params, session)
     @params = params
@@ -58,16 +69,20 @@ class Form
     @node_name ||= self.class.node_name || params[:node_name]
   end
 
-  def checkbox_options
-    options.each_with_object([]) do |(key, value), array|
-      array << { label: value, value: key.to_s }
+  def options_for(type)
+    options.map do |option|
+      text = t("options.#{option}")
+      text_key = type == :radio ? :text : :label
+      { text_key => text, value: option }
     end
   end
 
+  def checkbox_options
+    options_for :checkbox
+  end
+
   def radio_options
-    options.each_with_object([]) do |(key, value), array|
-      array << { text: value, value: key.to_s }
-    end
+    options_for :radio
   end
 
   def options

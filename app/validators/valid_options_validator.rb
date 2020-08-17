@@ -13,10 +13,10 @@ class ValidOptionsValidator < ActiveModel::EachValidator
   def validate_each(form, attribute, value)
     return if value.blank?
 
-    mismatch = mismatching(value, form.options.keys)
+    mismatch = mismatching(value, form.options)
 
     unless mismatch.empty?
-      form.errors[attribute] << (options[:message] || "Please select one of the options provided")
+      form.errors[attribute] << (options[:message] || I18n.t(".activemodel.errors.validators.valid_options.message"))
     end
   end
 

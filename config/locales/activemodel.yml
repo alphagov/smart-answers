@@ -1,0 +1,7 @@
+---
+en-GB:
+  activemodel:
+    errors:
+      validators:
+        valid_options:
+          message: Option does not match one of the definded options
