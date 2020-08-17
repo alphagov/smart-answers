@@ -9,33 +9,33 @@ en-GB:
         errors:
           blank: "Select yes if you’re finding it hard to afford food"
         options:
-          yes: Yes
-          no: No
+          "yes": "Yes"
+          "no": "No"
           not_sure: Not sure
       afford_rent_mortgage_bills:
         title: Are you finding it hard to afford rent, your mortgage or bills?
         errors:
           blank: "Select yes if you’re finding it hard to pay your rent, mortgage or bills"
         options:
-          yes: Yes
-          no: No
+          "yes": "Yes"
+          "no": "No"
           not_sure: Not sure
       feel_safe:
         title: Do you feel safe where you live?
         errors:
           blank: "Select if you feel safe where you live or if you’re worried about someone else"
         options:
-          yes: Yes
+          "yes": "Yes"
           yes_but_i_am_concerned_about_others: "Yes, but I’m worried about the safety of another adult or a child"
-          no: No
+          "no": "No"
           not_sure: Not sure
       get_food:
         title: Are you able to get food?
         errors:
           blank: "Select yes if you’re able to get food"
         options:
-          yes: Yes
-          no: No
+          "yes": "Yes"
+          "no": "No"
           not_sure: Not sure
       need_help_with:
         title: What do you need help with because of coronavirus?
