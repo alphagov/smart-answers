@@ -46,9 +46,9 @@ module SmartAnswer
         assert_match @test_obj.content_for(:name), "content"
       end
 
-      should "not be HTML safe" do
+      should "be HTML safe" do
         @test_obj.text_for(:name) { "Text" }
-        assert_not @test_obj.content_for(:name).html_safe?
+        assert @test_obj.content_for(:name).html_safe?
       end
     end
 

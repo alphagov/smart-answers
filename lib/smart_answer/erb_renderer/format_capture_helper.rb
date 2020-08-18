@@ -13,7 +13,7 @@ module SmartAnswer
       content = capture_content(&block)
       content = strip_leading_spaces(content)
       content = normalize_blank_lines(content)
-      content_for(name, content.strip)
+      content_for(name, content.strip.html_safe)
     end
 
     def govspeak_for(name, &block)
