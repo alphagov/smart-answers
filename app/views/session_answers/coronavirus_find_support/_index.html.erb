@@ -1,0 +1,61 @@
+<% content_for :title do %>
+  Find out what support you can get if you’re affected by coronavirus
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Find out what support you can get if you’re affected by coronavirus</h1>
+
+    <p class="govuk-body">Use this service to find out what help and advice you can get from the government and other organisations. You can use it for yourself or someone else.</p>
+
+    <p class="govuk-body">You can find support with:</p>
+
+    <%= render "govuk_publishing_components/components/list", {
+      visible_counters: true,
+      items: [
+        "what to do if you’re feeling unsafe where you live, or if you’re worried about someone else",
+        "paying bills, rent, or your mortgage",
+        "getting food",
+        "being made redundant or unemployed, or not having any work",
+        "what to do if you’re worried about going in to work",
+        "having somewhere to live",
+        "mental health and wellbeing, including information for children",
+      ]
+    } %>
+
+    <%= render "govuk_publishing_components/components/inset_text", {} do %>
+      <p class="govuk-body">If you need medical help,
+        <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/" class="govuk-link">
+          go to NHS 111 online
+        </a>
+      </p>
+    <% end %>
+
+    <a href="/coronavirus_find_support/need_help_with" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      <div class="gem-c-related-navigation">
+        <h2 class="govuk-heading-m">Related content</h2>
+        <a href="/coronavirus" class="govuk-link">Coronavirus (COVID-19): guidance and support</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="gem-c-contextual-footer">
+      <div class="gem-c-related-navigation">
+        <h2 class="govuk-heading-m">Explore the topic</h2>
+        <a href="/coronavirus-taxon" class="govuk-link">Coronavirus (COVID-19)</a>
+      </div>
+    </div>
+  </div>
+</div>

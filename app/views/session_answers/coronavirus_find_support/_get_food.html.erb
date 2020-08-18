@@ -2,6 +2,10 @@
   <%= t('.title') %>
 <% end %>
 
+<% content_for :hint do %>
+  <%= t('.hint') %>
+<% end %>
+
 <%= form_for_node do %>
   <%= govuk_radio_for_node(@form) %>
   <%= continue_button %>

@@ -3,51 +3,140 @@ en-GB:
   session_answers:
     coronavirus_find_support:
       able_to_go_out:
-        title: Are you able to leave your home for food, medicine, or health reasons?
+        title: "Are you able to leave your home for food, medicine, or health reasons?"
+        hint: "Getting food"
+        errors:
+          blank: "Select yes if you’re able to go out to get food"
+        options:
+          "yes": "Yes"
+          no_i_have_coronavirus: "No, I should not go out because I have coronavirus, or someone in my household does"
+          no_i_have_a_medical_condition: "No, I should not go out because I have a medical condition which means I’m extremely vulnerable to coronavirus"
+          no_i_have_a_disability: "No, I’m unable to go out because I have a disability"
+          no_for_another_reason: "No, I’m unable to go out for another reason"
       afford_food:
-        title: Are you finding it hard to afford food?
+        title: "Are you finding it hard to afford food?"
+        hint: "Getting food"
         errors:
           blank: "Select yes if you’re finding it hard to afford food"
         options:
           "yes": "Yes"
           "no": "No"
-          not_sure: Not sure
+          not_sure: "Not sure"
       afford_rent_mortgage_bills:
-        title: Are you finding it hard to afford rent, your mortgage or bills?
+        title: "Are you finding it hard to afford rent, your mortgage or bills?"
+        hint: "Paying your rent, mortgage, or bills"
         errors:
           blank: "Select yes if you’re finding it hard to pay your rent, mortgage or bills"
         options:
           "yes": "Yes"
           "no": "No"
-          not_sure: Not sure
+          not_sure: "Not sure"
+      are_you_off_work_ill:
+        title: "Are you off work because you’re ill or self-isolating?"
+        hint: "Being made redundant or unemployed, or not having any work"
+        errors:
+          blank: "Select yes if you’re off work because you’re ill or self-isolating"
+        options:
+          "yes": "Yes"
+          "no": "No"
       feel_safe:
-        title: Do you feel safe where you live?
+        title: "Do you feel safe where you live?"
+        hint: "Feeling unsafe"
         errors:
           blank: "Select if you feel safe where you live or if you’re worried about someone else"
         options:
           "yes": "Yes"
           yes_but_i_am_concerned_about_others: "Yes, but I’m worried about the safety of another adult or a child"
           "no": "No"
-          not_sure: Not sure
+          not_sure: "Not sure"
       get_food:
-        title: Are you able to get food?
+        title: "Are you able to get food?"
+        hint: "Getting food"
         errors:
           blank: "Select yes if you’re able to get food"
         options:
           "yes": "Yes"
           "no": "No"
-          not_sure: Not sure
+          not_sure: "Not sure"
       need_help_with:
-        title: What do you need help with because of coronavirus?
+        title: "What do you need help with because of coronavirus?"
+        hint: "Select all that apply"
         errors:
-          blank: "Select what you need to find help with, or ‘Not sure’"
-          valid_options: Please select one of the options provided
+          blank: "Select what you need to find help with, or Not sure"
+          valid_options: "Please select one of the options provided"
         options:
-          feeling_unsafe: Feeling unsafe where you live, or being worried about someone else
-          paying_bills: Paying bills
-          getting_food: Getting food
-          being_unemployed: Being unemployed or not having any work
-          going_to_work: Going in to work
-          somewhere_to_live: Having somewhere to live
-          mental_health: Mental health and wellbeing
-          not_sure: "I'm not sure"
+          feeling_unsafe: "Feeling unsafe where you live, or being worried about someone else"
+          paying_bills: "Paying bills"
+          getting_food: "Getting food"
+          being_unemployed: "Being unemployed or not having any work"
+          going_to_work: "Going in to work"
+          somewhere_to_live: "Having somewhere to live"
+          mental_health: "Mental health and wellbeing"
+          not_sure: "I’m not sure"
+      have_somewhere_to_live:
+        title: "Do you have somewhere to live?"
+        hint: "Having somewhere to live"
+        errors:
+          blank: "Select if you have somewhere to live"
+        options:
+          "yes": "Yes"
+          yes_but_i_might_lose_it: "I do now but I might lose it"
+          "no": "No"
+          not_sure: "Not sure"
+      have_you_been_evicted:
+        title: "Have you been evicted?"
+        hint: "Having somewhere to live"
+        errors:
+          blank: "Select if you have been evicted or might be soon"
+        options:
+          "yes": "Yes"
+          yes_i_might_be_soon: "I might be evicted soon"
+          "no": "No"
+          not_sure: "Not sure"
+      have_you_been_made_unemployed:
+        title: "Have you been made redundant or told to stop working?"
+        hint: "Being made redundant or unemployed, or not having any work"
+        errors:
+          blank: "Select if you’ve been made redundant, put on temporary leave (on furlough), or you’re out of work"
+        options:
+          yes_i_have_been_made_unemployed: "Yes, I’ve been made unemployed, or might be soon"
+          yes_i_have_been_put_on_furlough: "Yes, I’ve been put on temporary leave (on furlough), or might be soon"
+          "no": "No"
+          not_sure: "Not sure"
+      mental_health_worries:
+        title: "Are you worried about your mental health, or another adult or child’s mental health?"
+        hint: "Mental health and wellbeing"
+        errors:
+          blank: "Select yes if you’re worried about your mental health or someone else’s mental health"
+        options:
+          "yes": "Yes, I am"
+          "no": "No, I’m not"
+          not_sure: "Not sure"
+      nation:
+        title: "Where do you live?"
+        errors:
+          blank: "Select where you want to find information about"
+          valid_options: "Please select one of the options provided"
+        options:
+          england: "England"
+          scotland: "Scotland"
+          wales: "Wales"
+          northern_ireland: "Northern Ireland"
+      self_employed:
+        title: "Are you self-employed or a sole trader?"
+        hint: "Being made redundant or unemployed, or not having any work"
+        errors:
+          blank: "Select yes if you’re self-employed, a freelancer, or a sole trader"
+        options:
+          "yes": "Yes"
+          "no": "No"
+          not_sure: "Not sure"
+      worried_about_work:
+        title: "Are you worried about going in to work?"
+        hint: "Going in to work"
+        errors:
+          blank: "Select yes if you’re worried about going in to work"
+        options:
+          "yes": "Yes"
+          "no": "No"
+          not_sure: "Not sure"

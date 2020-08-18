@@ -1,0 +1,46 @@
+<% content_for :title do %>
+  Information based on your answers
+<% end %>
+
+<div class="govuk-!-margin-top-3 govuk-!-margin-bottom-6">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Information based on your answers",
+    font_size: "xl"
+  } %>
+  <a class="govuk-link" href="/coronavirus_find_support">Start again</a>
+</div>
+
+<div data-track-ec-list="Find coronavirus support">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+      <% session[:coronavirus_find_support].keys.each do |group| %>
+        <section class="govuk-main-wrapper">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-l"><%= group.humanize %></h2>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+              <% if session[:coronavirus_find_support][group].is_a? String %>
+                <p class="govuk-body"><%= session[:coronavirus_find_support][group] %></p>
+              <% elsif session[:coronavirus_find_support][group].is_a? Array %>
+                <ul class="govuk-list govuk-list--bullet">
+                  <% session[:coronavirus_find_support][group].each do |answer| %>
+                    <li><%= answer.humanize %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                <% session[:coronavirus_find_support][group].each do |key, value| %>
+                  <h3 class="govuk-heading-m"><%= key.humanize %></h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><%= session[:coronavirus_find_support][group][key].first.humanize %></li>
+                  </ul>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+      <% end %>
+    </main>
+  </div>
+</div>

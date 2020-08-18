@@ -70,7 +70,7 @@ module CoronavirusFindSupport
 
       should "populate errors" do
         form.save
-        assert_equal "Select what you need to find help with, or ‘Not sure’", form.errors[:need_help_with].join
+        assert_equal "Select what you need to find help with, or Not sure", form.errors[:need_help_with].join
       end
     end
 

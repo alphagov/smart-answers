@@ -2,15 +2,11 @@
   <%= t('.title') %>
 <% end %>
 
-<%= form_for_node do %>
-  <%= render "govuk_publishing_components/components/checkboxes", {
-    heading: content_tag(:h1, content_for(:title), class: "govuk-fieldset__heading"),
-    heading_size: "xl",
-    name: "#{node_name}[]",
-    items: @form.checkbox_options,
-    error: error_summary(@form, node_name),
-    id: node_name
-  } %>
+<% content_for :hint do %>
+  <%= t('.hint') %>
+<% end %>
 
+<%= form_for_node do %>
+  <%= govuk_checkbox_for_node(@form) %>
   <%= continue_button %>
 <% end %>

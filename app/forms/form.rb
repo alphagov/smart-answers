@@ -5,10 +5,10 @@ class Form
   NotImplementedError = Class.new(StandardError)
 
   attr_accessor :session
-  attr_reader :params, :question_name
+  attr_reader :params
 
   class << self
-    attr_reader :flow_name, :node_name
+    attr_reader :flow_name, :group_name, :node_name
 
     def answer_flow(flow_name)
       @flow_name = flow_name

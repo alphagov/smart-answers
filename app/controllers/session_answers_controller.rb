@@ -4,6 +4,10 @@ class SessionAnswersController < ApplicationController
   # rescue_from SessionFlow::FlowNotFoundError, with: :error_404
   # rescue_from SessionFlow::NodeNotFoundError, with: :error_404
 
+  def index
+    session[flow_name] = nil
+  end
+
   def show
     form
     flow

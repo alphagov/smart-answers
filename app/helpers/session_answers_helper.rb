@@ -16,10 +16,24 @@ module SessionAnswersHelper
       "govuk_publishing_components/components/radio",
       heading: tag.h1(content_for(:title), class: "govuk-fieldset__heading"),
       heading_size: "xl",
+      hint: tag.span(content_for(:hint), class: "govuk-caption-l"),
       name: "#{form.node_name}[]",
       items: form.radio_options,
       error_message: error_summary(form, form.node_name),
       id: form.node_name,
+    )
+  end
+
+  def govuk_checkbox_for_node(form)
+    render(
+      "govuk_publishing_components/components/checkboxes",
+      heading: tag.h1(content_for(:title), class: "govuk-fieldset__heading"),
+      heading_size: "xl",
+      hint_text: tag.span(content_for(:hint), class: "govuk-caption-l"),
+      name: "#{node_name}[]",
+      items: form.checkbox_options,
+      error: error_summary(form, node_name),
+      id: node_name,
     )
   end
 
