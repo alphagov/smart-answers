@@ -25,7 +25,7 @@ class SessionFlow
   def flow
     raise FlowNotFoundError, "Flow #{flow_name} not found" unless exists?
 
-    flow = flow_class.new(node_name)
+    flow = flow_class.new(node_name, session)
     raise NodeNotFoundError, "#{node_name} not found in flow #{flow_name}" unless flow.has_node?
 
     flow

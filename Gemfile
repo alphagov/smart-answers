@@ -9,6 +9,7 @@ gem "sprockets-rails"
 gem "govuk_app_config"
 
 gem "ast"
+gem "finite_machine" # State machine used in session flow
 gem "gds-api-adapters", "~> 67.0"
 gem "govspeak", "~> 6.5.4"
 gem "govuk-content-schema-test-helpers", "~> 1.6.1"

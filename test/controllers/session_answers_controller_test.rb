@@ -39,7 +39,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
 
     should "redirect to next node" do
-      assert_redirected_to session_flow_path(flow_name, :feel_safe)
+      assert_redirected_to session_flow_path(flow_name, :afford_rent_mortgage_bills)
     end
   end
 

@@ -38,6 +38,6 @@ private
   end
 
   def flow
-    @flow ||= SessionFlow.call(flow_name, node_name, session)
+    @flow ||= SessionFlow.call(flow_name, node_name, session[flow_name])
   end
 end
