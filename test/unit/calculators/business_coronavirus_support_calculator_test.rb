@@ -19,18 +19,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "self_assessment_payments" do
-        should "return true when criteria met" do
-          @calculator.self_assessment_july_2020 = "yes"
-          assert @calculator.show?(:self_assessment_payments)
-        end
-
-        should "return false when criteria not met" do
-          @calculator.self_assessment_july_2020 = "no"
-          assert_not @calculator.show?(:self_assessment_payments)
-        end
-      end
-
       context "statutory_sick_rebate" do
         setup do
           @calculator.business_size = "0_to_249"
