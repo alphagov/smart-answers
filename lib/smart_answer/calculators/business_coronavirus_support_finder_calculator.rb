@@ -7,15 +7,11 @@ module SmartAnswer::Calculators
                   :self_employed,
                   :non_domestic_property,
                   :sectors,
-                  :rate_relief_march_2020,
-                  :self_assessment_july_2020
+                  :rate_relief_march_2020
 
     RULES = {
       job_retention_scheme: lambda { |calculator|
         calculator.paye_scheme == "yes"
-      },
-      self_assessment_payments: lambda { |calculator|
-        calculator.self_assessment_july_2020 == "yes"
       },
       statutory_sick_rebate: lambda { |calculator|
         calculator.business_size == "0_to_249" &&

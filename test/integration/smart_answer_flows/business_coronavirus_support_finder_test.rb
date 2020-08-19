@@ -28,8 +28,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "retail_hospitality_or_leisure"
       assert_current_node :rate_relief_march_2020?
       add_response "yes"
-      assert_current_node :self_assessment_july_2020?
-      add_response "yes"
       assert_current_node :results
     end
   end
@@ -48,8 +46,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "no"
       assert_current_node :non_domestic_property?
       add_response "none"
-      assert_current_node :self_assessment_july_2020?
-      add_response "no"
       assert_current_node :results
     end
   end

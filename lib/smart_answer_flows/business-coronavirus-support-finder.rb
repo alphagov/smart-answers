@@ -90,7 +90,7 @@ module SmartAnswer
           if calculator.non_domestic_property != "none"
             question :sectors?
           else
-            question :self_assessment_july_2020?
+            outcome :results
           end
         end
       end
@@ -115,19 +115,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.rate_relief_march_2020 = response
-        end
-
-        next_node do
-          question :self_assessment_july_2020?
-        end
-      end
-
-      multiple_choice :self_assessment_july_2020? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.self_assessment_july_2020 = response
         end
 
         next_node do
