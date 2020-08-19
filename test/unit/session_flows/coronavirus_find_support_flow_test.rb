@@ -10,7 +10,7 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
   end
 
   def flow
-    @flow ||= CoronavirusFindSupportFlow.new(node, session)
+    CoronavirusFindSupportFlow.new(node, session)
   end
 
   # Linear sections

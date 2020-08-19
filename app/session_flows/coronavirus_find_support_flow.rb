@@ -20,39 +20,33 @@ class CoronavirusFindSupportFlow
   def initialize(node_name, session = {})
     @node_name = node_name.to_sym
     @session = session || {}
-    state_machine.restore!(node_name)
   end
 
   def next_node
-    state_machine.next_node
-    state_machine.state
+    nodes[node_name]
   end
 
-  def state_machine
-    @state_machine ||= FiniteMachine.new(self, alias_target: :flow) do
-      initial :need_help_with
-
-      event :next_node, {
-        need_help_with: flow.next_group_start,
-        feel_safe: flow.next_group_start,
-        afford_rent_mortgage_bills: flow.next_group_start,
-        afford_food: :get_food,
-        get_food: flow.node_after_get_food,
-        able_to_go_out: :self_employed,
-        self_employed: flow.node_after_self_employed,
-        have_you_been_made_unemployed: flow.node_after_have_you_been_made_unemployed,
-        are_you_off_work_ill: flow.next_group_start,
-        worried_about_work: flow.next_group_start,
-        have_somewhere_to_live: :have_you_been_evicted,
-        have_you_been_evicted: flow.next_group_start,
-        mental_health_worries: :nation,
-        nation: :results,
-      }
-    end
+  def nodes
+    {
+      need_help_with: next_group_start,
+      feel_safe: next_group_start,
+      afford_rent_mortgage_bills: next_group_start,
+      afford_food: :get_food,
+      get_food: node_after_get_food,
+      able_to_go_out: :self_employed,
+      self_employed: node_after_self_employed,
+      have_you_been_made_unemployed: node_after_have_you_been_made_unemployed,
+      are_you_off_work_ill: next_group_start,
+      worried_about_work: next_group_start,
+      have_somewhere_to_live: :have_you_been_evicted,
+      have_you_been_evicted: next_group_start,
+      mental_health_worries: :nation,
+      nation: :results,
+    }
   end
 
   def has_node?
-    state_machine.states.include?(node_name)
+    nodes.keys.include?(node_name)
   end
 
   def node_after_get_food
