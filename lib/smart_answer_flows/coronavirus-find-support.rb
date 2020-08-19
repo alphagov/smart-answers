@@ -95,30 +95,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.get_food == "yes"
-            question calculator.next_question(:get_food?)
-          else
-            question :able_to_go_out?
-          end
-        end
-      end
-
-      # ======================================================================
-      # Are you able to leave your home for food, medicine, or health reasons?
-      # ======================================================================
-      multiple_choice :able_to_go_out? do
-        option :yes
-        option :no_i_have_coronavirus
-        option :no_i_have_a_medical_condition
-        option :no_i_have_a_disability
-        option :no_for_another_reason
-
-        on_response do |response|
-          calculator.able_to_go_out = response
-        end
-
-        next_node do
-          question :self_employed?
+          question calculator.next_question(:get_food?)
         end
       end
 
