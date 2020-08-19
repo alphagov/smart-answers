@@ -18,7 +18,7 @@ module SmartAnswer
         option :going_to_work
         option :somewhere_to_live
         option :mental_health
-        option :not_sure
+        none_option
 
         on_response do |response|
           self.calculator = Calculators::CoronavirusFindSupportCalculator.new
@@ -262,6 +262,10 @@ module SmartAnswer
 
         on_response do |response|
           calculator.nation = response
+        end
+
+        validate do
+          calculator.valid_nation?
         end
 
         next_node do
