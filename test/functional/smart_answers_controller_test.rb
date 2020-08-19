@@ -116,6 +116,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, params: { id: "smart-answers-controller-sample", started: "y" }
+      assert_contains css_select("title").first.content, /Do you like chocolate?/
+      assert_contains css_select("title").first.content, /Smart answers controller sample/
       assert_select ".govuk-fieldset__legend", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
@@ -123,6 +125,15 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
       get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes" }
+      assert_contains css_select("title").first.content, /sweet-tooth-outcome-title/
+      assert_contains css_select("title").first.content, /Smart answers controller sample/
+      assert_select ".outcome"
+    end
+
+    should "show default outcome title when none is supplied" do
+      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: %w[no no] }
+      assert_contains css_select("title").first.content, /Outcome/
+      assert_contains css_select("title").first.content, /Smart answers controller sample/
       assert_select ".outcome"
     end
 

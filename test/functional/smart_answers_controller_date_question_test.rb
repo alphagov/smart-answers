@@ -53,6 +53,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
         should "show an error message" do
           submit_response(day: "", month: "", year: "")
           assert_select ".govuk-error-message"
+          assert_contains css_select("title").first.content, /Error/
         end
       end
 
