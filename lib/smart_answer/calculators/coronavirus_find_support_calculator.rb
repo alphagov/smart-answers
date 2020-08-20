@@ -6,7 +6,6 @@ module SmartAnswer::Calculators
                   :afford_rent_mortgage_bills,
                   :afford_food,
                   :get_food,
-                  :able_to_go_out,
                   :self_employed,
                   :worried_about_work,
                   :have_somewhere_to_live,

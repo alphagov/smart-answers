@@ -51,8 +51,6 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
 
       assert_current_node :get_food?
       add_response "no"
-      assert_current_node :able_to_go_out?
-      add_response "yes"
       assert_current_node :self_employed?
       add_response "no"
       assert_current_node :have_you_been_made_unemployed?
