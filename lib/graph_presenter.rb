@@ -85,7 +85,7 @@ private
   end
 
   def node_title(node)
-    presenter = QuestionPresenter.new(node, {}, helpers: [MethodMissingHelper])
+    presenter = QuestionPresenter.new(node, nil, {}, helpers: [MethodMissingHelper])
     presenter.title
   end
 

@@ -12,7 +12,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:linked_sickness_end_date?)
         @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "have a must_be_within_eight_weeks error message" do

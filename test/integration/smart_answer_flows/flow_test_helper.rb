@@ -25,14 +25,14 @@ module FlowTestHelper
 
   def current_question
     @current_question ||= begin
-      presenter = QuestionPresenter.new(@flow.node(current_state.current_node), current_state)
+      presenter = QuestionPresenter.new(@flow.node(current_state.current_node), nil, current_state)
       presenter.title
     end
   end
 
   def outcome_body
     @outcome_body ||= begin
-      presenter = OutcomePresenter.new(@flow.node(current_state.current_node), current_state)
+      presenter = OutcomePresenter.new(@flow.node(current_state.current_node), nil, current_state)
       Nokogiri::HTML::DocumentFragment.parse(presenter.body)
     end
   end

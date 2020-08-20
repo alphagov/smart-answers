@@ -12,7 +12,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:when_did_your_tax_credits_award_end?)
         @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "have a default error message" do
@@ -25,7 +25,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:what_date_do_your_accounts_go_up_to?)
         @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "have a default error message" do
@@ -38,7 +38,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:have_you_stopped_trading?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -56,7 +56,7 @@ module SmartAnswer
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
         @state = SmartAnswer::State.new(question)
         @state.accounting_year_ends_on = Date.parse("2016-04-05")
-        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
       end
 
       should "display title with interpolated basis_period_ends_on" do
@@ -80,7 +80,7 @@ module SmartAnswer
         @state = SmartAnswer::State.new(question)
         @state.basis_period_begins_on = Date.parse("2015-04-06")
         @state.basis_period_ends_on = Date.parse("2016-04-05")
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "display title with interpolated basis_period_begins_on and basis_period_ends_on" do
@@ -99,7 +99,7 @@ module SmartAnswer
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
         @state.accounting_year_begins_on = Date.parse("2015-04-06")
-        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -123,7 +123,7 @@ module SmartAnswer
         @state = SmartAnswer::State.new(question)
         @state.tax_year_begins_on = Date.parse("2015-04-06")
         @state.tax_year_ends_on = Date.parse("2016-04-05")
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "display hint with interpolated tax_year_begins_on and tax_year_ends_on" do
@@ -148,7 +148,7 @@ module SmartAnswer
         question = @flow.node(:when_did_you_start_trading?)
         @state = SmartAnswer::State.new(question)
         @state.award_period_ends_on = Date.parse("2015-08-01")
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
       should "display hint with interpolated award_period_ends_on" do
@@ -180,7 +180,7 @@ module SmartAnswer
 
       context "common output" do
         setup do
-          presenter = OutcomePresenter.new(@outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, nil, @state)
           @body = presenter.body
         end
 
@@ -200,7 +200,7 @@ module SmartAnswer
       context "and the stopped_trading_on date is not set" do
         setup do
           @calculator.stubs(stopped_trading_on: nil)
-          presenter = OutcomePresenter.new(@outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, nil, @state)
           @body = presenter.body
         end
 
@@ -212,7 +212,7 @@ module SmartAnswer
       context "and the stopped_trading_on date is set" do
         setup do
           @calculator.stubs(stopped_trading_on: Date.parse("2016-04-05"))
-          presenter = OutcomePresenter.new(@outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, nil, @state)
           @body = presenter.body
         end
 

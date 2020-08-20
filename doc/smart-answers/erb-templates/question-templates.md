@@ -26,6 +26,18 @@ Used as a "hint" paragraph and can only be text. Example:
 <% end %>
 ```
 
+### `:caption`
+
+Used as a "caption" paragraph and can only be text. Example:
+
+```erb
+<% text_for :caption do %>
+  This is a caption
+<% end %>
+```
+
+If `:caption` is not supplied the `:title` (i.e. the flow name) from the `start_node` is used.
+
 ### `:label`
 
 Used as a label (preceding the input control) for value questions. Can only be text. Example:

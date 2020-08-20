@@ -1,8 +1,8 @@
 class QuestionPresenter < NodePresenter
   attr_reader :params
 
-  def initialize(node, state = nil, options = {}, params = {})
-    super(node, state)
+  def initialize(node, flow_presenter, state = nil, options = {}, params = {})
+    super(node, flow_presenter, state)
     @params = params
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
@@ -31,6 +31,12 @@ class QuestionPresenter < NodePresenter
 
   def hint
     @renderer.content_for(:hint)
+  end
+
+  def caption
+    return @renderer.content_for(:caption) if @renderer.content_for(:caption).present?
+
+    @flow_presenter.title
   end
 
   def label

@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       @question = Question::Base.new(nil, :question_name?)
       @renderer = stub("renderer")
-      @presenter = MoneyQuestionPresenter.new(@question, nil, renderer: @renderer)
+      @presenter = MoneyQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
     end
 
     test "#hint_text returns single line of content rendered for hint block" do
@@ -22,6 +22,12 @@ module SmartAnswer
       @renderer.stubs(:content_for).with(:suffix_label).returns("suffix")
 
       assert_equal "body, hint-text, suffix", @presenter.hint_text
+    end
+
+    test "#caption returns the given caption when a caption is given" do
+      @renderer.stubs(:content_for).with(:caption).returns("caption-text")
+
+      assert_equal "caption-text", @presenter.caption
     end
   end
 end
