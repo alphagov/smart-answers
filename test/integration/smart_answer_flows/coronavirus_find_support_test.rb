@@ -11,6 +11,14 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
   end
 
   context "specific outcomes" do
+    should "show no specific information results for the minimal flow" do
+      assert_current_node :need_help_with?
+      add_response "none"
+      assert_current_node :nation?
+      add_response "england"
+      assert_current_node :results
+    end
+
     should "show results for a user that can get food and is self-employed" do
       assert_current_node :need_help_with?
       add_response "being_unemployed,feeling_unsafe,getting_food,going_to_work,mental_health,paying_bills,somewhere_to_live"
