@@ -47,6 +47,16 @@ module FlowTestHelper
     end
   end
 
+  # To be used with test class inheriting from ActionDispatch::IntegrationTest
+  def assert_page_renders
+    silence_warnings do # Without this get a Mocha deprecation warning that I was unable to find the source of.
+      ContentItemRetriever.stubs(:fetch).returns({})
+      path = "/#{@flow.name}/y/#{@responses.join('/')}"
+      get path
+      assert_equal response.code, "200"
+    end
+  end
+
   def assert_current_node_is_error(message = nil)
     assert current_state.error, "Expected #{current_state.current_node} to be in error state"
     assert_equal message, current_state.error if message
