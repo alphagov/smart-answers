@@ -1,6 +1,6 @@
 class OutcomePresenter < NodePresenter
-  def initialize(node, state = nil, options = {}, params = {})
-    super(node, state)
+  def initialize(node, flow_presenter, state = nil, options = {}, params = {})
+    super(node, flow_presenter, state)
     @params = params
     helpers = options[:helpers] || []
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(

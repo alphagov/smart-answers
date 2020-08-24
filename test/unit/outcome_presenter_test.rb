@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       outcome = Outcome.new(nil, :outcome_name)
       @renderer = stub("renderer")
-      @presenter = OutcomePresenter.new(outcome, nil, renderer: @renderer)
+      @presenter = OutcomePresenter.new(outcome, nil, nil, renderer: @renderer)
     end
 
     test "renderer is constructed using template name and directory obtained from outcome node" do
@@ -19,7 +19,7 @@ module SmartAnswer
         ),
       )
 
-      OutcomePresenter.new(outcome)
+      OutcomePresenter.new(outcome, nil)
     end
 
     test "renderer is constructed with default helper modules" do
@@ -32,7 +32,7 @@ module SmartAnswer
         SmartAnswer::MarriageAbroadHelper,
       ]))
 
-      OutcomePresenter.new(outcome)
+      OutcomePresenter.new(outcome, nil)
     end
 
     test "renderer is constructed with supplied helper modules" do
@@ -42,7 +42,7 @@ module SmartAnswer
 
       SmartAnswer::ErbRenderer.expects(:new).with(has_entry(helpers: includes(helper)))
 
-      OutcomePresenter.new(outcome, nil, helpers: [helper])
+      OutcomePresenter.new(outcome, nil, nil, helpers: [helper])
     end
 
     test "#title returns single line of content rendered for title block" do

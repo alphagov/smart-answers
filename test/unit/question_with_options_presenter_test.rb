@@ -11,7 +11,7 @@ module SmartAnswer
 
       renderer.stubs(:option).with(:option_one).returns("option-one-text")
       renderer.stubs(:option).with(:option_two).returns({ label: "option-two-text", hint_text: "option-two-hint" })
-      @presenter = QuestionWithOptionsPresenter.new(question, nil, renderer: renderer)
+      @presenter = QuestionWithOptionsPresenter.new(question, nil, nil, renderer: renderer)
     end
 
     test "#all_options returns options with labels and values" do

@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       @question = Question::Base.new(nil, :question_name?)
       @renderer = stub("renderer")
-      @presenter = QuestionPresenter.new(@question, nil, renderer: @renderer)
+      @presenter = QuestionPresenter.new(@question, nil, nil, renderer: @renderer)
     end
 
     test "renderer is constructed using template name and directory obtained from question node" do
@@ -19,7 +19,7 @@ module SmartAnswer
         ),
       )
 
-      QuestionPresenter.new(question)
+      QuestionPresenter.new(question, nil)
     end
 
     test "#title returns single line of content rendered for title block" do
@@ -58,16 +58,22 @@ module SmartAnswer
       assert_equal "post-body-html", @presenter.post_body
     end
 
+    test "#caption returns single line of content rendered for caption block" do
+      @renderer.stubs(:content_for).with(:caption).returns("caption-text")
+
+      assert_equal "caption-text", @presenter.caption
+    end
+
     test "#error returns nil if there is no error" do
       state = stub("state", error: nil)
-      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, nil, state, renderer: @renderer)
 
       assert_nil presenter.error
     end
 
     test "#error returns error message for specific key if it exists" do
       state = stub("state", error: "error_key")
-      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, nil, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with("error_key").returns("error-message-text")
 
       assert_equal "error-message-text", presenter.error
@@ -75,7 +81,7 @@ module SmartAnswer
 
     test "#error returns error message for fallback key if specific key does not exist" do
       state = stub("state", error: "error_key")
-      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, nil, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with("error_key").returns(nil)
       presenter.stubs(:error_message_for).with("error_message").returns("fallback-error-message-text")
 
@@ -84,7 +90,7 @@ module SmartAnswer
 
     test "#error returns default error message for fallback key does not exist" do
       state = stub("state", error: "error_key")
-      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, nil, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with("error_key").returns(nil)
       presenter.stubs(:error_message_for).with("error_message").returns(nil)
 
@@ -107,6 +113,19 @@ module SmartAnswer
       @renderer.stubs(:relative_erb_template_path).returns("relative-erb-template-path")
 
       assert_equal "relative-erb-template-path", @presenter.relative_erb_template_path
+    end
+
+    test "#caption returns the given caption when a caption is given" do
+      @renderer.stubs(:content_for).with(:caption).returns("caption-text")
+
+      assert_equal "caption-text", @presenter.caption
+    end
+
+    test "#caption returns the caption when both a title and a caption are given" do
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
+      @renderer.stubs(:content_for).with(:caption).returns("caption-text")
+
+      assert_equal "caption-text", @presenter.caption
     end
   end
 end
