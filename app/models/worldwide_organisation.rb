@@ -23,7 +23,7 @@ class WorldwideOrganisation
   end
 
   def fco_sponsored?
-    @sponsors.any? { |sponsor| sponsor["details"]["acronym"] == "FCO" }
+    @sponsors.any? { |sponsor| sponsor["details"]["acronym"].in?(%w[FCO FCDO]) }
   end
 
   def offices_with_service(service_title)
