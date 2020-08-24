@@ -19,16 +19,18 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   end
 
   context "fco_sponsored?" do
-    should "return true for an organisation sponsored by the FCO" do
-      organisation_data = { sponsors: [
-        { details: { acronym: "FCO" } },
-      ] }
-      worldwide_organisation = WorldwideOrganisation.new(organisation_data)
+    should "return true for an organisation sponsored by the FCO or the FCDO" do
+      orgs = %w[FCO FCDO]
 
-      assert_equal true, worldwide_organisation.fco_sponsored?
+      orgs.each do |org|
+        organisation_data = { sponsors: [{ details: { acronym: org } }] }
+        worldwide_organisation = WorldwideOrganisation.new(organisation_data)
+
+        assert_equal true, worldwide_organisation.fco_sponsored?
+      end
     end
 
-    should "return false for an organisation not sponsored by the FCO" do
+    should "return false for an organisation not sponsored by the FCO nor by the FCDO" do
       organisation_data = { sponsors: [] }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
 
