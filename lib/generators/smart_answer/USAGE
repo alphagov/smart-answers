@@ -1,0 +1,12 @@
+Description:
+    Generates base files for a new Smart Answer flow.
+
+Example:
+    rails generate smart_answer foo_bar
+
+    This will create:
+        lib/smart_answer_flows/foo_bar.rb
+        lib/smart_answer_flows/foo_bar/foo_bar.erb
+        lib/smart_answer_flows/foo_bar/questions/question.erb
+        lib/smart_answer_flows/foo_bar/outcomes/results.erb
+        lib/smart_answer/calculators/foo_bar_calculator.rb
