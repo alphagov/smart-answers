@@ -134,3 +134,13 @@ Example with label text and hint text:
   "red-grapes": "Red grapes"
 ) %>
 ```
+
+## Hiding the caption
+
+If you need hide the caption text above the question text. This can be set using the following method:
+
+```erb
+<% hide_caption true %>
+```
+
+By default the caption is shown (`hide_caption false`).

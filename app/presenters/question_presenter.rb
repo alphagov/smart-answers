@@ -34,6 +34,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def caption
+    return nil if @renderer.hide_caption
     return @renderer.content_for(:caption) if @renderer.content_for(:caption).present?
 
     @flow_presenter.title

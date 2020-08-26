@@ -4,7 +4,9 @@ module SmartAnswer
   class QuestionPresenterTest < ActiveSupport::TestCase
     setup do
       @question = Question::Base.new(nil, :question_name?)
+
       @renderer = stub("renderer")
+
       @presenter = QuestionPresenter.new(@question, nil, nil, renderer: @renderer)
     end
 
@@ -59,6 +61,7 @@ module SmartAnswer
     end
 
     test "#caption returns single line of content rendered for caption block" do
+      @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
       assert_equal "caption-text", @presenter.caption
@@ -116,12 +119,14 @@ module SmartAnswer
     end
 
     test "#caption returns the given caption when a caption is given" do
+      @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
       assert_equal "caption-text", @presenter.caption
     end
 
     test "#caption returns the caption when both a title and a caption are given" do
+      @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:title).returns("title-text")
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
