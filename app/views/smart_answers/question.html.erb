@@ -6,8 +6,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'debug' %>
-    <%= form_tag calculate_current_question_path(@presenter), :method => :get do %>
+    <%= render 'smart_answers/debug' %>
+    <%= form_tag current_question_path(@presenter), :method => :get do %>
       <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-8" id="current-question">
         <div data-debug-template-path="<%= question.relative_erb_template_path %>">
           <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>
@@ -37,6 +37,6 @@
       </div>
     <% end %>
 
-    <%= render 'previous_answers' %>
+    <%= render 'smart_answers/previous_answers' %>
   </div>
 </div>

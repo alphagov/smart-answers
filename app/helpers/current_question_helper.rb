@@ -1,8 +1,29 @@
 module CurrentQuestionHelper
-  def calculate_current_question_path(presenter)
+  def current_question_path(presenter)
+    if presenter.use_session?
+      session_answers_question_path(presenter)
+    else
+      smart_answers_question_path(presenter)
+    end
+  end
+
+  def smart_answers_question_path(presenter)
     attrs = params.permit(:id, :started).to_h.symbolize_keys
     attrs[:responses] = presenter.accepted_responses if presenter.accepted_responses.any?
     smart_answer_path(attrs)
+  end
+
+  def session_answers_question_path(presenter)
+    node_name = presenter.current_state.current_node.to_s
+    node_name.delete_suffix!("?")
+    update_session_flow_path(id: params[:id], node_name: node_name)
+  end
+
+  def restart_flow_path(presenter)
+    flow_name = params[:id]
+    flow_name.gsub!(/_/, "-") if presenter.use_session?
+
+    smart_answer_path(flow_name)
   end
 
   def prefill_value_is?(value)
