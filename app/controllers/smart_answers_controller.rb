@@ -61,7 +61,7 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)
-    @presenter = FlowPresenter.new(request, @smart_answer)
+    @presenter = FlowPresenter.new(request.params, @smart_answer)
   end
 
   def flow_registry
