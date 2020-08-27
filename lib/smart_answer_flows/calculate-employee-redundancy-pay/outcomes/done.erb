@@ -1,9 +1,6 @@
-<% text_for :title do %>
-  Statutory redundancy payment: <%= format_money(statutory_redundancy_pay) %> (<%= format_money(statutory_redundancy_pay_ni) %> in Northern Ireland).
-
-<% end %>
-
 <% govspeak_for :body do %>
+  ## Statutory redundancy payment: <%= format_money(statutory_redundancy_pay) %> (<%= format_money(statutory_redundancy_pay_ni) %> in Northern Ireland).
+
   ##How it’s worked out
 
   Your employee's entitlement is <%= number_of_weeks_entitlement %> weeks.

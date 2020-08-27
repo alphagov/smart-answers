@@ -1,12 +1,10 @@
-<% text_for :title do %>
-  <% unless calculator.has_commodity_code? %>
-    The product composition you indicated is not possible.
-  <% else %>
-    The Meursing code for a product with this composition is 7<%= calculator.commodity_code %>.
-  <% end %>
-<% end %>
-
 <% govspeak_for :body do %>
+  <% unless calculator.has_commodity_code? %>
+  ## The product composition you indicated is not possible.
+  <% else %>
+  ## The Meursing code for a product with this composition is 7<%= calculator.commodity_code %>.
+  <% end %>
+
   <% if calculator.has_commodity_code? %>
     Use these four digits together with the ten-digit commodity code from [Trade Tariff](/trade-tariff).
   <% end %>

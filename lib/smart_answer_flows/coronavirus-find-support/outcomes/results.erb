@@ -1,16 +1,14 @@
-<% text_for :title do %>
-  <% if calculator.has_results? %>
-    Information based on your answers
-  <% else %>
-    Information based on your answers - no specific information
-  <% end %>
-<% end %>
-
 <% html_for :body do %>
   <div class="govspeak-wrapper">
 <% end %>
 
 <% govspeak_for :body do %>
+  <% if calculator.has_results? %>
+    ## Information based on your answers
+  <% else %>
+    ## Information based on your answers - no specific information
+  <% end %>
+
   <% if calculator.has_results? %>
 
     <%= render("feeling_unsafe", calculator: calculator) if calculator.user_feels_unsafe? %>

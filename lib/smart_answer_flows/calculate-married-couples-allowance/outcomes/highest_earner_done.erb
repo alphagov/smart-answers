@@ -1,8 +1,6 @@
-<% text_for :title do %>
-  The highest earner qualifies for Married Couple's Allowance - they'll get <%= format_money(calculator.calculate_allowance) %> off their tax bill.
-<% end %>
-
 <% govspeak_for :body do %>
+  ## The highest earner qualifies for Married Couple's Allowance - they'll get <%= format_money(calculator.calculate_allowance) %> off their tax bill.
+
   <%= render partial: 'done_body' %>
 <% end %>
 

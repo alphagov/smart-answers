@@ -1,8 +1,6 @@
-<% text_for :title do %>
-  You’ll need a visa to come to the UK
-<% end %>
-
 <% govspeak_for :body do %>
+  ## You’ll need a visa to come to the UK
+
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   <%= render partial: 'estonia_or_latvia', locals: {calculator: calculator} %>
