@@ -4,7 +4,9 @@ module SmartAnswer
   class MoneyQuestionPresenterTest < ActiveSupport::TestCase
     setup do
       @question = Question::Base.new(nil, :question_name?)
+
       @renderer = stub("renderer")
+
       @presenter = MoneyQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
     end
 
@@ -25,6 +27,7 @@ module SmartAnswer
     end
 
     test "#caption returns the given caption when a caption is given" do
+      @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
       assert_equal "caption-text", @presenter.caption

@@ -71,6 +71,36 @@ module SmartAnswer
       end
     end
 
+    test "#hide_caption returns true if set as true in the view" do
+      erb_template = "<% hide_caption true %>"
+
+      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
+
+        assert renderer.hide_caption
+      end
+    end
+
+    test "#hide_caption returns false if set as false in the view" do
+      erb_template = "<% hide_caption false %>"
+
+      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
+
+        assert_not renderer.hide_caption
+      end
+    end
+
+    test "#hide_caption returns false if not set in the view" do
+      erb_template = ""
+
+      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
+
+        assert_not renderer.hide_caption
+      end
+    end
+
     test "#option returns then option for specified key" do
       erb_template = "<% options(option_one: 'option-one-text', option_two: { label: 'option-two-text', hint_text: 'option-two-hint-text'}) %>"
 

@@ -16,6 +16,8 @@ module SmartAnswer
       @view.extend(ErbRenderer::FormatCaptureHelper)
     end
 
+    delegate :hide_caption, to: :rendered_view
+
     def option(key)
       rendered_view
       @view.options.fetch(key)
