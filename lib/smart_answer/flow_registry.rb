@@ -17,7 +17,7 @@ module SmartAnswer
     end
     attr_reader :load_path
     def find(name)
-      raise NotFound unless available?(name)
+      raise NotFound, "'#{name}' not found" unless available?(name)
 
       find_by_name(name) || raise(NotFound)
     end

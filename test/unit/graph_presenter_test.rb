@@ -1,11 +1,8 @@
 require_relative "../test_helper"
-require_relative "../helpers/fixture_flows_helper"
 require_relative "../fixtures/smart_answer_flows/graph"
 
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
-    include FixtureFlowsHelper
-
     setup do
       setup_fixture_flows
       @flow = SmartAnswer::GraphFlow.build

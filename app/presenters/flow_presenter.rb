@@ -3,14 +3,13 @@ require "node_presenter"
 class FlowPresenter
   include Rails.application.routes.url_helpers
 
-  attr_reader :request, :params, :flow
+  attr_reader :params, :flow
 
-  delegate :need_it, :button_text, to: :flow
+  delegate :need_it, :button_text, :use_session?, to: :flow
   delegate :title, to: :start_node
 
-  def initialize(request, flow)
-    @request = request
-    @params = request.params
+  def initialize(params, flow)
+    @params = params
     @flow = flow
     @node_presenters = {}
   end

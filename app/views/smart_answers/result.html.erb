@@ -8,7 +8,7 @@
 
 <div class="govuk-grid-row">
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">
-    <%= render 'debug' %>
+    <%= render 'smart_answers/debug' %>
     <%= render "govuk_publishing_components/components/title", {
       title: @presenter.title
     } %>
@@ -48,7 +48,7 @@
       });
     </script>
 
-    <%= render 'previous_answers' %>
+    <%= render 'smart_answers/previous_answers' %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>

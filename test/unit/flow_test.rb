@@ -9,6 +9,36 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "sweet-or-savoury", s.name
   end
 
+  test "can set to use session" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session true
+    end
+
+    assert smart_answer.use_session?
+  end
+
+  test "can set to use session with string" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session "yes"
+    end
+
+    assert smart_answer.use_session?
+  end
+
+  test "can set not to use session" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session "false"
+    end
+
+    assert_not smart_answer.use_session?
+  end
+
+  test "defaults to not use session" do
+    smart_answer = SmartAnswer::Flow.new
+
+    assert_not smart_answer.use_session?
+  end
+
   test "Can set button text" do
     text = "continue"
     smart_answer = SmartAnswer::Flow.new do

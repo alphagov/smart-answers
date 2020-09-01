@@ -40,6 +40,14 @@ module SmartAnswer
       @name
     end
 
+    def use_session(use_session) # rubocop:disable Style/TrivialAccessors
+      @use_session = use_session
+    end
+
+    def use_session?
+      ActiveModel::Type::Boolean.new.cast(@use_session)
+    end
+
     def button_text(text = "Next step")
       @button_text ||= text
     end

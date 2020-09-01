@@ -1,12 +1,10 @@
 require_relative "../test_helper"
-require_relative "../helpers/fixture_flows_helper"
 require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-money-question"
 require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   tests SmartAnswersController
 
-  include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
 
   def setup

@@ -6,8 +6,8 @@ class FlowPresenterTest < ActiveSupport::TestCase
       name "flow-name"
       value_question :first_question_key
     end
-    @request = ActionDispatch::TestRequest.create
-    @flow_presenter = FlowPresenter.new(@request, @flow)
+    params = {}
+    @flow_presenter = FlowPresenter.new(params, @flow)
   end
 
   test "#presenter_for returns presenter for Date question" do

@@ -1,11 +1,8 @@
 require_relative "../test_helper"
-require_relative "../helpers/fixture_flows_helper"
 require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample"
 
 class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
   tests SmartAnswersController
-
-  include FixtureFlowsHelper
 
   def setup
     setup_fixture_flows
