@@ -73,6 +73,10 @@ module SmartAnswer::Calculators
       @passport_country == "hong-kong"
     end
 
+    def passport_country_is_ireland?
+      @passport_country == "ireland"
+    end
+
     def passport_country_is_latvia?
       @passport_country == "latvia" || @passport_country == "latvia-alien-passport"
     end

@@ -4,6 +4,18 @@
 
 <% govspeak_for :body do %>
 
+  <% if calculator.passport_country_in_eea?%>
+    <% if calculator.passport_country_is_ireland? %>
+      This will not change when [new immigration rules](/guidance/new-immigration-system-what-you-need-to-know) come in on 1 January 2021.
+    <% else %>
+      You may need a visa if you're coming to the UK on or after 1 January 2021 to work, live or study. [Find how UK immigration is changing for EU nationals](/guidance/new-immigration-system-what-you-need-to-know).
+
+      From 1 January 2021, you can still visit the UK for up to 6 months without applying for a visa
+
+      If you come to the UK by 31 December 2020, you can [apply to the EU Settlement Scheme by 30 June 2021](/settled-status-eu-citizens-families) to continue to work, live or study in the UK.
+    <% end %>
+  <% end %>
+
   <% if calculator.study_visit? %>
     <% if calculator.passport_country_in_epassport_gate_list? %>
       You must go to a border control officer when you arrive in the UK to get a stamp in your passport. This will allow you to study in the UK.
