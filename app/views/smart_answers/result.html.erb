@@ -10,7 +10,7 @@
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">
     <%= render 'smart_answers/debug' %>
     <%= render "govuk_publishing_components/components/title", {
-      title: @presenter.title
+      title: outcome.heading_title
     } %>
 
     <div class="govuk-!-margin-bottom-6 result-body" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
@@ -18,7 +18,7 @@
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title,
           margin_bottom: 6
-        } %>
+        } unless outcome.title_as_heading? %>
       <% end %>
 
       <%= outcome.body %>
