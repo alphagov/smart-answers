@@ -59,6 +59,9 @@ module SmartAnswer::Calculators
       future_fund: lambda { |calculator|
         calculator.annual_turnover == "pre_revenue"
       },
+      kickstart_scheme: lambda { |calculator|
+        calculator.business_based != "northern_ireland"
+      },
     }.freeze
 
     def show?(result_id)
