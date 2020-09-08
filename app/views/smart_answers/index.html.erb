@@ -1,14 +1,35 @@
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1>Smart Answers</h1>
+  <div class="govuk-grid-column-full">
+    <%= render "govuk_publishing_components/components/title", {
+      title: "Smart Answers"
+    } %>
 
-    <ul>
-      <% @flows.each do |flow| %>
-        <li>
-          <%= link_to flow.name, smart_answer_path(flow.name) %>
-          (<%= link_to 'visualise', visualise_path(flow.name) %>)
-        </li>
-      <% end %>
-    </ul>
+    <div class="smart-answers-list">
+      <%= render "govuk_publishing_components/components/table", {
+        head: [
+          { text: "Title" },
+          { text: "Status" },
+          { text: "Questions" },
+          { text: "Outcomes" },
+          { text: "Links" },
+          { text: "" },
+        ],
+        rows: @flows.map { |flow|
+          presenter = FlowPresenter.new({}, flow)
+          [
+            { text: title_and_url(flow.name, presenter.start_node.title) },
+            { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
+            { text: flow.questions.count },
+            { text: flow.outcomes.count },
+            { text: code_links(flow.name) },
+            { text: link_to('Visualise', visualise_path(flow.name)) },
+          ] 
+        }
+      } %>
+    </div>
+
   </div>
 </div>
+
+<style>
+</style>

@@ -15,11 +15,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   context "GET /" do
     setup do
-      @flow_a = stub("flow", name: "flow-a")
-      @flow_b = stub("flow", name: "flow-b")
+      @flow_a = stub(name: "flow-a", status: :published, questions: stub(count: 2), outcomes: stub(count: 3))
+      @flow_b = stub(name: "flow-b", status: :draft, questions: stub(count: 3), outcomes: stub(count: 0))
       registry = stub("Flow registry")
       registry.stubs(:flows).returns([@flow_b, @flow_a])
       @controller.stubs(:flow_registry).returns(registry)
+      FlowPresenter.any_instance.stubs(:start_node).returns(stub(title: "Flow Name"))
     end
 
     should "assign flows sorted alphabetically by name" do
@@ -34,14 +35,29 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "render list of links to flows" do
       get :index
-      assert_select "ul li a[href='/flow-a']", text: "flow-a"
-      assert_select "ul li a[href='/flow-b']", text: "flow-b"
+      assert_select "table td a[href='/flow-a']", text: "/flow-a"
+      assert_select "table td a[href='/flow-b']", text: "/flow-b"
+    end
+
+    should "render links to published flows and status" do
+      get :index
+      assert_select "table td a[href='https://www.gov.uk/flow-a']", text: "Published"
+      assert_select "table td a[href='https://draft-origin.publishing.service.gov.uk/flow-b']", text: "Draft"
     end
 
     should "render links to visualise flows" do
       get :index
-      assert_select "ul li a[href='/flow-a/y/visualise']", text: "visualise"
-      assert_select "ul li a[href='/flow-b/y/visualise']", text: "visualise"
+      assert_select "table td a[href='/flow-a/y/visualise']", text: "Visualise"
+      assert_select "table td a[href='/flow-b/y/visualise']", text: "Visualise"
+    end
+
+    should "render links to code" do
+      get :index
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/flow-a.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/flow-a']", text: "Templates"
+
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/flow-b.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/flow-b']", text: "Templates"
     end
   end
 

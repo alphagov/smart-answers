@@ -54,6 +54,11 @@ $is-ie: false !default;
   }
 }
 
+.smart-answers-list .govuk-table {
+  font-size: 15px;
+}
+
+
 //Heroku alert
 .heroku-alert {
     margin: 0 15px 15px 15px;
