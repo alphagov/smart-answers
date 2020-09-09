@@ -67,6 +67,7 @@ private
 
     :question
   end
+  helper_method :page_type
 
   def next_node_name
     presenter.current_state.current_node.to_s

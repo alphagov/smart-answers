@@ -7,7 +7,9 @@
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require helpers
+//= require components/escape-link
 
-$(document).ready(function() {
-  $('#current-error').focus();
-});
+window.addEventListener('DOMContentLoaded', function () {
+  var error = document.getElementById('current-error');
+  if (error) { error.focus() };
+})

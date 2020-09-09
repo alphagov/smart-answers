@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  def heroku?
+    request.host.include? "herokuapp"
+  end
+  helper_method :heroku?
+
   def error_403
     error(403)
   end
