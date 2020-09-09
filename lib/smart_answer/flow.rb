@@ -131,19 +131,34 @@ module SmartAnswer
       responses.inject(start_state) do |state, response|
         return state if state.error
 
-        begin
-          state = node(state.current_node).transition(state, response)
-          node(state.current_node).evaluate_precalculations(state)
-        rescue BaseStateTransitionError => e
-          if e.is_a?(LoggedError)
-            GovukError.notify e
-          end
+        transistion_state(state, response)
+      end
+    end
 
-          state.dup.tap do |new_state|
-            new_state.error = e.message
-            new_state.freeze
-          end
-        end
+    def resolve_state(responses, requested_node)
+      state = start_state
+
+      until state.nil?
+        return state if state.error
+        return state if state.current_node.to_s == requested_node && !responses.key?(state.current_node.to_s)
+        return state if node(state.current_node).outcome?
+
+        response = responses[state.current_node.to_s]
+        state = transistion_state(state, response)
+      end
+    end
+
+    def transistion_state(state, response)
+      state = node(state.current_node).transition(state, response)
+      node(state.current_node).evaluate_precalculations(state)
+    rescue BaseStateTransitionError => e
+      if e.is_a?(LoggedError)
+        GovukError.notify e
+      end
+
+      state.dup.tap do |new_state|
+        new_state.error = e.message
+        new_state.freeze
       end
     end
 
