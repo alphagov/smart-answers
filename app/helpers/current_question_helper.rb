@@ -15,8 +15,15 @@ module CurrentQuestionHelper
 
   def session_answers_question_path(presenter)
     node_name = presenter.current_state.current_node.to_s
-    node_name.delete_suffix!("?")
     update_session_flow_path(id: params[:id], node_name: node_name)
+  end
+
+  def start_of_flow_path(presenter)
+    if presenter.use_session?
+      session_flow_path(presenter.name, node_name: presenter.questions.first.name)
+    else
+      smart_answer_path(presenter.name, started: "y")
+    end
   end
 
   def restart_flow_path(presenter)
