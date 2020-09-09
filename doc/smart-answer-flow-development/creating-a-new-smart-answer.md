@@ -1,8 +1,38 @@
 # Creating a new Smart Answer
 
-This walks through the basics of creating a new Smart Answer.
+There are two methods for creating a new smart answer:
+  1. automatically - via a rails generator, and
+  2. manually.
 
-## 1. Create a new skeleton flow
+## Using the rails `smart_answer` generator
+
+To automatically generate a skeleton smart answer use the provided rails
+generator...
+
+```bash
+$ rails generate smart_answer my_smart_answer
+```
+
+This will create an example flow, calculator, questions, outcome and landing
+pages.
+
+The generated files do not constitute a complete set of all possible question
+types, and configuration options. However, they should be enough to get you
+started and to show how the various files work together.
+
+To see a list of the files that the generator will create use either the
+`--help` or `--pretend` options, like this...
+
+```bash
+$ rails generate smart_answer --help
+$ rails generate smart_answer my_smart_answer --pretend
+```
+
+## Manually creating a new Smart Answer
+
+This walks through the basics of manually creating a new Smart Answer.
+
+### 1. Create a new skeleton flow
 
 Start by creating a new file to hold the logic of our flow:
 
@@ -37,7 +67,7 @@ This flow contains a single question and a single outcome. Any non-empty respons
 
 If you were to run `rails server` and visit [http://localhost:3000/example-smart-answer][example-smart-answer] at this point, you'd see an error that indicates that we need to add a landing page template.
 
-## 2. Create an ERB landing page template
+### 2. Create an ERB landing page template
 
 Create a new file for our landing page template.
 
@@ -68,7 +98,7 @@ Read more about [landing page templates](/doc/smart-answers/erb-templates/landin
 
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 
-## 3. Create an ERB question page template
+### 3. Create an ERB question page template
 
 Create a new file for our question page template.
 
@@ -99,7 +129,7 @@ Read more about [question page templates](/doc/smart-answers/erb-templates/quest
 
 Enter any value in the text field and click "Next step". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
-## 4. Create an ERB outcome page template
+### 4. Create an ERB outcome page template
 
 Create a new file for our outcome page template.
 
