@@ -1,4 +1,6 @@
 class SessionAnswersController < ApplicationController
+  before_action :set_cache_headers
+
   def show
     @title = presenter.title
     @content_item = ContentItemRetriever.fetch(name) if presenter.finished?
@@ -10,7 +12,23 @@ class SessionAnswersController < ApplicationController
     redirect_to session_flow_path(id: params[:id], node_name: next_node_name)
   end
 
+  def destroy
+    session.delete(:responses)
+
+    if params[:ext_r] == "true"
+      redirect_to "https://bbc.co.uk/news"
+    else
+      redirect_to "/#{params[:id]}"
+    end
+  end
+
 private
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Mon, 01 Jan 1990 00:00:00 GMT"
+  end
 
   def presenter
     @presenter ||= begin

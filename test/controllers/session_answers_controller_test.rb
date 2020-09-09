@@ -21,6 +21,18 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     should "render correct page" do
       assert_match(/What do you need help with because of coronavirus?/, response.body)
     end
+
+    should "set a cache-control response header" do
+      assert_equal response.headers["Cache-Control"], "no-cache, no-store"
+    end
+
+    should "set a pragma response header" do
+      assert_equal response.headers["Pragma"], "no-cache"
+    end
+
+    should "set an expires response header" do
+      assert_equal response.headers["Expires"], "Mon, 01 Jan 1990 00:00:00 GMT"
+    end
   end
 
   def params
@@ -49,6 +61,37 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     should "display error" do
       follow_redirect!
       assert_match(/govuk-error-message/, response.body)
+    end
+  end
+
+  context "GET /:id/destroy_session" do
+    setup do
+      get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
+    end
+
+    should "redirect to external sitewhen the ext_r option is present and true" do
+      get destroy_session_flow_path(id: flow_name, ext_r: "true")
+      assert_redirected_to "https://bbc.co.uk/news"
+    end
+
+    should "remove the session data for the flow when escaping" do
+      get destroy_session_flow_path(id: flow_name, ext_r: "true")
+      assert_nil session[:responses]
+    end
+
+    should "redirect to external sitewhen the ext_r option is present and false" do
+      get destroy_session_flow_path(id: flow_name, ext_r: "false")
+      assert_redirected_to "/#{flow_name}"
+    end
+
+    should "redirect to external sitewhen the ext_r option is not present" do
+      get destroy_session_flow_path(id: flow_name)
+      assert_redirected_to "/#{flow_name}"
+    end
+
+    should "remove the session data for the flow when not escaping" do
+      get destroy_session_flow_path(id: flow_name)
+      assert_nil session[:responses]
     end
   end
 end

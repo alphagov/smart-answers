@@ -39,6 +39,52 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.use_session?
   end
 
+  test "cannot set a flag to use the escape button if the use session flag is not also set" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session false
+      use_escape_button true
+    end
+
+    assert_raises SmartAnswer::Flow::NonSessionBasedFlow do
+      smart_answer.use_escape_button?
+    end
+  end
+
+  test "can set a flag to use the escape button when the use session flag is also set" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session true
+      use_escape_button true
+    end
+
+    assert smart_answer.use_escape_button?
+  end
+
+  test "can set a flag to use the escape button with a string" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session true
+      use_escape_button "yes"
+    end
+
+    assert smart_answer.use_escape_button?
+  end
+
+  test "can set a flag not to use the escape button with a string" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session true
+      use_escape_button "false"
+    end
+
+    assert_not smart_answer.use_escape_button?
+  end
+
+  test "defaults to not use the escape button" do
+    smart_answer = SmartAnswer::Flow.new do
+      use_session true
+    end
+
+    assert_not smart_answer.use_escape_button?
+  end
+
   test "Can set button text" do
     text = "continue"
     smart_answer = SmartAnswer::Flow.new do
