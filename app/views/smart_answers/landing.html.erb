@@ -18,7 +18,7 @@
 
         <%= render "govuk_publishing_components/components/button", {
           text: start_node.start_button_text,
-          href: smart_answer_path(@name.to_s, started: "y"),
+          href: start_of_flow_path(@presenter),
           rel: "nofollow",
           start: true,
           margin_bottom: true,

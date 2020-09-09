@@ -6,4 +6,8 @@ class NodePresenter
     @flow_presenter = flow_presenter
     @state = state || SmartAnswer::State.new(nil)
   end
+
+  def node_name
+    @node.name
+  end
 end

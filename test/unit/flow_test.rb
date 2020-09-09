@@ -338,6 +338,63 @@ class FlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "sequence of two questions with resolve state" do
+    setup do
+      @chocolate = "do_you_like_chocolate?"
+      @jam = "do_you_like_jam?"
+
+      @flow = SmartAnswer::Flow.new do
+        multiple_choice :do_you_like_chocolate? do
+          option :yes
+          option :no
+          next_node do |response|
+            case response
+            when "yes" then outcome :sweet
+            when "no" then question :do_you_like_jam?
+            end
+          end
+        end
+
+        multiple_choice :do_you_like_jam? do
+          option :yes
+          option :no
+          next_node do |response|
+            case response
+            when "yes" then outcome :sweet
+            when "no" then outcome :savoury
+            end
+          end
+        end
+        outcome :sweet
+        outcome :savoury
+      end
+    end
+
+    should "calculate state at start of flow" do
+      assert_equal :do_you_like_chocolate?, @flow.resolve_state({}, @chocolate).current_node
+    end
+
+    should "return sweet if like chocolate" do
+      assert_equal :sweet, @flow.resolve_state({ @chocolate => "yes" }, :sweet).current_node
+    end
+
+    should "return jam question when don't like chocolate" do
+      assert_equal :do_you_like_jam?, @flow.resolve_state({ @chocolate => "no" }, @jam).current_node
+    end
+
+    should "return sweet outcome if don't like chocolate but like jam" do
+      assert_equal :sweet, @flow.resolve_state({ @chocolate => "no", @jam => "yes" }, :sweet).current_node
+    end
+
+    should "return savoury if don't like chocolate nor jam" do
+      assert_equal :savoury, @flow.resolve_state({ @chocolate => "no", @jam => "no" }, :savoury).current_node
+    end
+
+    should "return sweet if on savoury but answer changed to liking chocolate" do
+      assert_equal :sweet, @flow.resolve_state({ @chocolate => "yes", @jam => "no" }, :savoury).current_node
+    end
+  end
+
   should "normalize responses" do
     flow = SmartAnswer::Flow.new do
       multiple_choice :colour? do

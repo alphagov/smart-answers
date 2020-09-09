@@ -5,7 +5,7 @@ class FlowPresenter
 
   attr_reader :params, :flow
 
-  delegate :need_it, :button_text, :use_session?, to: :flow
+  delegate :need_it, :button_text, :use_session?, :questions, to: :flow
   delegate :title, to: :start_node
 
   def initialize(params, flow)
@@ -23,7 +23,12 @@ class FlowPresenter
   end
 
   def current_state
-    @current_state ||= @flow.process(all_responses)
+    @current_state ||= if use_session?
+                         requested_node = params[:node_name] unless params[:next]
+                         @flow.resolve_state(params[:responses], requested_node)
+                       else
+                         @flow.process(all_responses)
+                       end
   end
 
   def name
@@ -75,13 +80,17 @@ class FlowPresenter
     @start_node ||= StartNodePresenter.new(node)
   end
 
-  def change_collapsed_question_link(question_number)
-    smart_answer_path(
-      id: @params[:id],
-      started: "y",
-      responses: accepted_responses[0...question_number - 1],
-      previous_response: accepted_responses[question_number - 1],
-    )
+  def change_collapsed_question_link(question_number, question)
+    if use_session?
+      session_flow_path(params[:id], node_name: question.node_name)
+    else
+      smart_answer_path(
+        id: @params[:id],
+        started: "y",
+        responses: accepted_responses[0...question_number - 1],
+        previous_response: accepted_responses[question_number - 1],
+      )
+    end
   end
 
   def normalize_responses_param
@@ -90,6 +99,8 @@ class FlowPresenter
       []
     when Array
       params[:responses]
+    when ActionController::Parameters
+      current_state.responses
     else
       params[:responses].to_s.split("/")
     end

@@ -14,11 +14,11 @@
     <tbody class="govuk-table__body">
       <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
         <%= render(
-            'previous_answer',
+            'smart_answers/previous_answer',
             question: question,
             accepted_response: @presenter.accepted_responses[number_questions_so_far],
-            question_link: @presenter.change_collapsed_question_link(number_questions_so_far + 1),
-          ) unless @presenter.use_session?
+            question_link: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
+          )
         %>
       <% end %>
     </tbody>

@@ -6,7 +6,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   def nodes
-    %i[need_help_with afford_food]
+    %i[need_help_with? afford_food?]
   end
 
   context "GET /:id/:node_name" do
@@ -42,11 +42,12 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
       get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: { "response" => [], "next" => "1" }
     end
 
-    should "render error successfully" do
-      assert_response :success
+    should "redirect back to show" do
+      assert_redirected_to(session_flow_path(id: flow_name, node_name: nodes[0]))
     end
 
     should "display error" do
+      follow_redirect!
       assert_match(/govuk-error-message/, response.body)
     end
   end
