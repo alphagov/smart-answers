@@ -11,7 +11,7 @@ class FlowContentItem
       title: flow_presenter.title,
       update_type: "minor",
       details: {
-        external_related_links: external_related_links,
+        external_related_links: flow_presenter.external_related_links,
       },
       schema_name: "generic_with_external_related_links",
       document_type: "smart_answer",
@@ -19,7 +19,7 @@ class FlowContentItem
       rendering_app: "smartanswers",
       locale: "en",
       public_updated_at: Time.zone.now.iso8601,
-      routes: routes,
+      routes: [{ type: "prefix", path: base_path }],
     }
   end
 
@@ -29,21 +29,7 @@ class FlowContentItem
 
 private
 
-  def routes
-    [
-      { type: "prefix", path: base_path },
-    ]
-  end
-
   def base_path
     "/" + flow_presenter.slug + "/y"
-  end
-
-  def json_path
-    "#{base_path}.json"
-  end
-
-  def external_related_links
-    flow_presenter.external_related_links
   end
 end

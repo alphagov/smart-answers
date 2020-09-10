@@ -163,13 +163,5 @@ module SmartAnswer
       expected_route = { type: "exact", path: "/flow-slug" }
       assert content_item.payload[:routes].include?(expected_route)
     end
-
-    test "#payload registers an exact json route using the slug of the smart answer" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      expected_route = { type: "exact", path: "/flow-slug.json" }
-      assert content_item.payload[:routes].include?(expected_route)
-    end
   end
 end

@@ -12,7 +12,7 @@ class StartPageContentItem
       description: flow_presenter.description,
       update_type: "minor",
       details: {
-        external_related_links: external_related_links,
+        external_related_links: flow_presenter.external_related_links,
         introductory_paragraph: [
           {
             content: flow_presenter.start_page_body,
@@ -33,7 +33,7 @@ class StartPageContentItem
       rendering_app: "frontend",
       locale: "en",
       public_updated_at: Time.zone.now.iso8601,
-      routes: routes,
+      routes: [{ type: "exact", path: base_path }],
     }
   end
 
@@ -43,22 +43,7 @@ class StartPageContentItem
 
 private
 
-  def routes
-    [
-      { type: "exact", path: base_path },
-      { type: "exact", path: json_path },
-    ]
-  end
-
   def base_path
     "/" + flow_presenter.slug
-  end
-
-  def json_path
-    "#{base_path}.json"
-  end
-
-  def external_related_links
-    flow_presenter.external_related_links
   end
 end
