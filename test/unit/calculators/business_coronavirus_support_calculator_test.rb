@@ -264,6 +264,18 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:future_fund)
         end
       end
+
+      context "kickstart_scheme" do
+        should "return true when business based not in Northern Ireland" do
+          @calculator.business_based = "scotland"
+          assert @calculator.show?(:kickstart_scheme)
+        end
+
+        should "return false when business based in Northern Ireland" do
+          @calculator.business_based = "northern_ireland"
+          assert_not @calculator.show?(:kickstart_scheme)
+        end
+      end
     end
   end
 end
