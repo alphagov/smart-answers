@@ -66,24 +66,4 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       assert_not @presenter.publish?
     end
   end
-
-  context "flows_content" do
-    should "include all flow content" do
-      expected_content = [
-        "QUESTION_1_TITLE",
-        "QUESTION_1_BODY",
-        "QUESTION_1_HINT",
-        "QUESTION_2_TITLE",
-        "QUESTION_2_BODY LINK TEXT →",
-        "QUESTION_2_HINT",
-        "OUTCOME_1_TITLE",
-        "OUTCOME_1_BODY",
-        "OUTCOME_2_TITLE",
-        "OUTCOME_2_BODY",
-        "OUTCOME_3_TITLE",
-        "OUTCOME_3_BODY",
-      ]
-      assert_equal expected_content, @presenter.flows_content
-    end
-  end
 end
