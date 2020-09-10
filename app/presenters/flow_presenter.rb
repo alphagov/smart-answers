@@ -2,10 +2,21 @@ require "node_presenter"
 
 class FlowPresenter
   include Rails.application.routes.url_helpers
+  include ContentItemHelper
 
   attr_reader :params, :flow
 
-  delegate :need_it, :button_text, :use_session?, :questions, :use_escape_button?, :show_escape_link?, to: :flow
+  delegate :need_content_id,
+           :start_page_content_id,
+           :flow_content_id,
+           :need_it,
+           :button_text,
+           :use_session?,
+           :questions,
+           :use_escape_button?,
+           :show_escape_link?,
+           to: :flow
+
   delegate :title, to: :start_node
 
   def initialize(params, flow)
@@ -14,12 +25,44 @@ class FlowPresenter
     @node_presenters = {}
   end
 
+  def slug
+    @flow.name
+  end
+
+  def description
+    start_node.meta_description
+  end
+
+  def external_related_links
+    @flow.external_related_links || []
+  end
+
+  def start_page_body
+    start_node.body
+  end
+
+  def start_page_post_body
+    start_node.post_body
+  end
+
+  def start_page_button_text
+    start_node.start_button_text
+  end
+
   def started?
     params.key?(:started)
   end
 
   def finished?
     current_node.outcome?
+  end
+
+  def publish?
+    @flow.status == :published
+  end
+
+  def flows_content
+    extract_flow_content(@flow)
   end
 
   def current_state

@@ -26,7 +26,7 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
 
     should "create a preview for a draft smart answer" do
       @flow.stubs(:status).returns(:draft)
-      presenter = FlowRegistrationPresenter.new(@flow)
+      presenter = FlowPresenter.new({}, @flow)
       ContentItemSyncer.new.sync([presenter])
 
       assert_requested @start_page_draft_request
@@ -37,7 +37,7 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
 
     should "publish a published smart answer" do
       @flow.stubs(:status).returns(:published)
-      presenter = FlowRegistrationPresenter.new(@flow)
+      presenter = FlowPresenter.new({}, @flow)
       ContentItemSyncer.new.sync([presenter])
 
       assert_requested @start_page_draft_request
