@@ -103,7 +103,7 @@ module SmartAnswer
               question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
             end
           when "winter_fuel_payment"
-            if calculator.eea_country?
+            if calculator.country_eligible_for_winter_fuel_payment?
               if calculator.going_abroad
                 outcome :wfp_going_abroad_outcome # A9 going_abroad
               else

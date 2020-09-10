@@ -43,40 +43,45 @@ module SmartAnswer::Calculators
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
       contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance",
     }.freeze
+    EEA_COUNTRIES = %w[austria
+                       belgium
+                       bulgaria
+                       croatia
+                       cyprus
+                       czech-republic
+                       denmark
+                       estonia
+                       finland
+                       france
+                       germany
+                       gibraltar
+                       greece
+                       hungary
+                       iceland
+                       ireland
+                       italy
+                       latvia
+                       liechtenstein
+                       lithuania
+                       luxembourg
+                       malta
+                       netherlands
+                       norway
+                       poland
+                       portugal
+                       romania
+                       slovakia
+                       slovenia
+                       spain
+                       sweden
+                       switzerland].freeze
 
     def eea_country?
-      %w[austria
-         belgium
-         bulgaria
-         croatia
-         cyprus
-         czech-republic
-         denmark
-         estonia
-         finland
-         france
-         germany
-         gibraltar
-         greece
-         hungary
-         iceland
-         ireland
-         italy
-         latvia
-         liechtenstein
-         lithuania
-         luxembourg
-         malta
-         netherlands
-         norway
-         poland
-         portugal
-         romania
-         slovakia
-         slovenia
-         spain
-         sweden
-         switzerland].include?(country)
+      EEA_COUNTRIES.include?(country)
+    end
+
+    def country_eligible_for_winter_fuel_payment?
+      (EEA_COUNTRIES - %w[cyprus france gibraltar greece malta portugal spain]).include?(country)
     end
 
     def former_yugoslavia?
