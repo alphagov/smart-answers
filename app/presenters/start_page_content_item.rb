@@ -23,7 +23,7 @@ class StartPageContentItem
           content: flow_presenter.start_node.post_body,
           content_type: "text/govspeak",
         ],
-        transaction_start_link: base_path + "/y",
+        transaction_start_link: flow_presenter.start_page_link,
         start_button_text: flow_presenter.start_node.start_button_text,
         hidden_search_terms: flow_presenter.flows_content,
       },

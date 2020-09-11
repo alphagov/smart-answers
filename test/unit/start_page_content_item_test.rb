@@ -23,6 +23,7 @@ module SmartAnswer
           start_button_text: "start-button-text",
         ),
         external_related_links: [],
+        start_page_link: "/flow-name/y",
       )
     end
 

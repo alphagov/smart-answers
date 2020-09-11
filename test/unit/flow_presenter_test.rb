@@ -185,4 +185,16 @@ class FlowPresenterTest < ActiveSupport::TestCase
       assert_not flow_presenter.publish?
     end
   end
+
+  context "#start_page_link" do
+    should "return path to first page in smart flow" do
+      assert_equal "/flow-name/y", @flow_presenter.start_page_link
+    end
+
+    should "return path to first page in session flow using sessions" do
+      @flow.use_session(true)
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_equal "/flow-name/first_question_key", flow_presenter.start_page_link
+    end
+  end
 end

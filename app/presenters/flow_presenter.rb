@@ -135,4 +135,12 @@ class FlowPresenter
   def flows_content
     extract_flow_content(@flow)
   end
+
+  def start_page_link
+    if use_session?
+      session_flow_path(name, node_name: questions.first.name)
+    else
+      smart_answer_path(name, started: "y")
+    end
+  end
 end
