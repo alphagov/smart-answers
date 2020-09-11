@@ -2,12 +2,6 @@
   <%= @title %>
 <% end %>
 
-<% content_for :head do %>
-  <%= javascript_include_tag "application", defer: true %>
-<% end %>
-
-<%= render partial: "smart_answers/heroku_alert" if heroku? %>
-
 <main id="content" role="main">
   <%= yield %>
 </main>

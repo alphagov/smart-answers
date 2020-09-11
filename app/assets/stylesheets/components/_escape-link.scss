@@ -1,0 +1,23 @@
+.app-c-escape-link {
+  @include govuk-font($size: 19, $weight: bold);
+
+  bottom: 0;
+  float: right;
+  padding: govuk-spacing(4) govuk-spacing(3);
+  position: fixed;
+  position: sticky; // scss-lint:disable DuplicateProperty
+  right: 0;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    background-color: govuk-colour('black');
+    color: govuk-colour('white');
+  }
+
+  &:focus {
+    background-color: $govuk-focus-colour;
+    color: $govuk-focus-text-colour;
+  }
+}

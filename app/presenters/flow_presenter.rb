@@ -5,7 +5,7 @@ class FlowPresenter
 
   attr_reader :params, :flow
 
-  delegate :need_it, :button_text, :use_session?, :questions, to: :flow
+  delegate :need_it, :button_text, :use_session?, :questions, :use_escape_button?, :show_escape_link?, to: :flow
   delegate :title, to: :start_node
 
   def initialize(params, flow)

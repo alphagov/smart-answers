@@ -1,0 +1,5 @@
+<%
+  data_attributes ||= {}
+  data_attributes[:module] = 'app-escape-link'
+%>
+<%= link_to "Leave this site", destroy_session_flow_path(ext_r: "true"), class: "app-c-escape-link govuk-link", rel: "nofollow noreferrer noopener", target: "_blank", data: data_attributes %>

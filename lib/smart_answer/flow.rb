@@ -2,6 +2,8 @@ require "ostruct"
 
 module SmartAnswer
   class Flow
+    class NonSessionBasedFlow < StandardError; end
+
     attr_reader :nodes
     attr_accessor :need_content_id
     attr_writer :status
@@ -46,6 +48,20 @@ module SmartAnswer
 
     def use_session?
       ActiveModel::Type::Boolean.new.cast(@use_session)
+    end
+
+    def use_escape_button(use_escape_button) # rubocop:disable Style/TrivialAccessors
+      @use_escape_button = use_escape_button
+    end
+
+    def use_escape_button?
+      raise NonSessionBasedFlow, "This flow is not session-based" unless use_session?
+
+      ActiveModel::Type::Boolean.new.cast(@use_escape_button)
+    end
+
+    def show_escape_link?
+      use_session? && use_escape_button?
     end
 
     def button_text(text = "Next step")

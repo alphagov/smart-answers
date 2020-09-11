@@ -36,6 +36,7 @@ end
 
 group :development, :test do
   gem "byebug"
+  gem "jasmine", "~> 3.6.0"
   gem "pry"
   gem "rubocop-govuk"
 end
@@ -43,6 +44,7 @@ end
 group :test do
   gem "ci_reporter"
   gem "govuk_test"
+  gem "jasmine_selenium_runner", "~> 3.0.0", require: false
   gem "minitest"
   gem "minitest-focus"
   gem "mocha", require: false

@@ -48,11 +48,6 @@ class SmartAnswersController < ApplicationController
 
 private
 
-  def heroku?
-    request.host.include? "herokuapp"
-  end
-  helper_method :heroku?
-
   def debug?
     Rails.env.development? && params[:debug]
   end
@@ -79,6 +74,7 @@ private
       :landing
     end
   end
+  helper_method :page_type
 
   def redirect_response_to_canonical_url
     if params[:next] && !@presenter.current_state.error

@@ -139,6 +139,15 @@ GEM
       domain_name (~> 0.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    jasmine (3.6.0)
+      jasmine-core (~> 3.6.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (3.6.0)
+    jasmine_selenium_runner (3.0.0)
+      jasmine (~> 3.0)
+      selenium-webdriver (~> 3.8)
     json (2.3.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
@@ -183,6 +192,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
+    phantomjs (2.1.1.0)
     plek (4.0.0)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -365,6 +375,8 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_test
   htmlentities
+  jasmine (~> 3.6.0)
+  jasmine_selenium_runner (~> 3.0.0)
   json
   listen
   method_source
