@@ -67,10 +67,10 @@ class FlowRegistrationPresenter
     content = @flow.nodes.flat_map do |node|
       case node
       when SmartAnswer::Question::Base
-        pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
+        pres = QuestionPresenter.new(node, nil, nil, helpers: [MethodMissingHelper])
         [pres.title, pres.body, pres.hint]
       when SmartAnswer::Outcome
-        pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
+        pres = OutcomePresenter.new(node, nil, nil, helpers: [MethodMissingHelper])
         [pres.title, pres.body]
       end
     end
