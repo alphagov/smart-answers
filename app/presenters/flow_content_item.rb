@@ -7,7 +7,7 @@ class FlowContentItem
 
   def payload
     {
-      base_path: base_path,
+      base_path: flow_presenter.start_page_link,
       title: flow_presenter.title,
       update_type: "minor",
       details: {
@@ -19,17 +19,11 @@ class FlowContentItem
       rendering_app: "smartanswers",
       locale: "en",
       public_updated_at: Time.zone.now.iso8601,
-      routes: [{ type: "prefix", path: base_path }],
+      routes: [{ type: "prefix", path: "/#{flow_presenter.name}/" }],
     }
   end
 
   def content_id
     flow_presenter.flow_content_id
-  end
-
-private
-
-  def base_path
-    "/" + flow_presenter.name + "/y"
   end
 end
