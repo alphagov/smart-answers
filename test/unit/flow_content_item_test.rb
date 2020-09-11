@@ -12,7 +12,7 @@ module SmartAnswer
     def stub_flow_registration_presenter
       stub(
         "flow-registration-presenter",
-        slug: "flow-slug",
+        name: "flow-name",
         title: "flow-title",
         external_related_links: [],
       )
@@ -43,11 +43,11 @@ module SmartAnswer
       assert_valid_against_schema(content_item.payload, "generic_with_external_related_links")
     end
 
-    test "#base_path is the slug of the presenter with a prepended slash and appended /y" do
+    test "#base_path is the name of the presenter with a prepended slash and appended /y" do
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      assert_equal "/flow-slug/y", content_item.payload[:base_path]
+      assert_equal "/flow-name/y", content_item.payload[:base_path]
     end
 
     test "#payload title is the title of the presenter" do
@@ -110,11 +110,11 @@ module SmartAnswer
       assert_equal now.iso8601, content_item.payload[:public_updated_at]
     end
 
-    test "#payload registers a prefix route using the slug of the smart answer with /y appended" do
+    test "#payload registers a prefix route using the name of the smart answer with /y appended" do
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      expected_route = { type: "prefix", path: "/flow-slug/y" }
+      expected_route = { type: "prefix", path: "/flow-name/y" }
       assert content_item.payload[:routes].include?(expected_route)
     end
   end

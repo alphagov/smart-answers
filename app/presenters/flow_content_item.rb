@@ -30,6 +30,6 @@ class FlowContentItem
 private
 
   def base_path
-    "/" + flow_presenter.slug + "/y"
+    "/" + flow_presenter.name + "/y"
   end
 end

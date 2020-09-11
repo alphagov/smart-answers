@@ -185,10 +185,4 @@ class FlowPresenterTest < ActiveSupport::TestCase
       assert_not flow_presenter.publish?
     end
   end
-
-  context "slug" do
-    should "use the flow name" do
-      assert_equal "flow-name", @flow_presenter.slug
-    end
-  end
 end

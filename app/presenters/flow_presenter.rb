@@ -6,7 +6,8 @@ class FlowPresenter
 
   attr_reader :params, :flow
 
-  delegate :need_content_id,
+  delegate :name,
+           :need_content_id,
            :start_page_content_id,
            :flow_content_id,
            :need_it,
@@ -17,36 +18,12 @@ class FlowPresenter
            :show_escape_link?,
            to: :flow
 
-  delegate :title, to: :start_node
+  delegate :title, :meta_description, to: :start_node
 
   def initialize(params, flow)
     @params = params
     @flow = flow
     @node_presenters = {}
-  end
-
-  def slug
-    @flow.name
-  end
-
-  def description
-    start_node.meta_description
-  end
-
-  def external_related_links
-    @flow.external_related_links || []
-  end
-
-  def start_page_body
-    start_node.body
-  end
-
-  def start_page_post_body
-    start_node.post_body
-  end
-
-  def start_page_button_text
-    start_node.start_button_text
   end
 
   def started?
@@ -61,10 +38,6 @@ class FlowPresenter
     @flow.status == :published
   end
 
-  def flows_content
-    extract_flow_content(@flow)
-  end
-
   def current_state
     @current_state ||= if use_session?
                          requested_node = params[:node_name] unless params[:next]
@@ -72,10 +45,6 @@ class FlowPresenter
                        else
                          @flow.process(all_responses)
                        end
-  end
-
-  def name
-    @flow.name
   end
 
   def collapsed_questions
@@ -157,5 +126,13 @@ class FlowPresenter
     normalize_responses_param.dup.tap do |responses|
       responses << params[:response] if params[:next]
     end
+  end
+
+  def external_related_links
+    @flow.external_related_links || []
+  end
+
+  def flows_content
+    extract_flow_content(@flow)
   end
 end

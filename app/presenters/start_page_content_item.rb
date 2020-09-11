@@ -9,22 +9,22 @@ class StartPageContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
-      description: flow_presenter.description,
+      description: flow_presenter.meta_description,
       update_type: "minor",
       details: {
         external_related_links: flow_presenter.external_related_links,
         introductory_paragraph: [
           {
-            content: flow_presenter.start_page_body,
+            content: flow_presenter.start_node.body,
             content_type: "text/govspeak",
           },
         ],
         more_information: [
-          content: flow_presenter.start_page_post_body,
+          content: flow_presenter.start_node.post_body,
           content_type: "text/govspeak",
         ],
         transaction_start_link: base_path + "/y",
-        start_button_text: flow_presenter.start_page_button_text,
+        start_button_text: flow_presenter.start_node.start_button_text,
         hidden_search_terms: flow_presenter.flows_content,
       },
       schema_name: "transaction",
@@ -44,6 +44,6 @@ class StartPageContentItem
 private
 
   def base_path
-    "/" + flow_presenter.slug
+    "/" + flow_presenter.name
   end
 end
