@@ -13,7 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render 'smart_answers/debug' %>
-    <%= form_tag current_question_path(@presenter), :method => :get do %>
+    <%= form_tag(current_question_path(@presenter),
+        :method => :get,
+        :data => {
+          module: "track-responses",
+          type: question.partial_template_name,
+          "question-key": question.title
+        }) do %>
       <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-8" id="current-question">
         <div data-debug-template-path="<%= question.relative_erb_template_path %>">
           <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>
