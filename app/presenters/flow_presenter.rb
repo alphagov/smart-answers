@@ -138,7 +138,7 @@ class FlowPresenter
 
   def start_page_link
     if use_session?
-      session_flow_path(name, node_name: questions.first.name)
+      start_session_flow_path(name)
     else
       smart_answer_path(name, started: "y")
     end
