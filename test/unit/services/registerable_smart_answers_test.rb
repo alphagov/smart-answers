@@ -14,6 +14,6 @@ class RegisterableSmartAnswersTest < ActiveSupport::TestCase
 
     flow_presenters = RegisterableSmartAnswers.new.flow_presenters
 
-    assert flow_presenters.first.is_a?(FlowRegistrationPresenter)
+    assert flow_presenters.first.is_a?(FlowPresenter)
   end
 end

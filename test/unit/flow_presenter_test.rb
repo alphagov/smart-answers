@@ -158,4 +158,43 @@ class FlowPresenterTest < ActiveSupport::TestCase
       assert_equal array.map(&:to_s), flow_presenter.normalize_responses_param
     end
   end
+
+  context "#external_related_links" do
+    should "return the external_related_links" do
+      @flow.external_related_links([title: "a-title", url: "a-description"])
+
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_equal [title: "a-title", url: "a-description"], flow_presenter.external_related_links
+    end
+
+    should "return empty list if no external links" do
+      assert_equal [], @flow_presenter.external_related_links
+    end
+  end
+
+  context "publish?" do
+    should "return true for a published flow" do
+      @flow.status(:published)
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert flow_presenter.publish?
+    end
+
+    should "return false true for a draft flow" do
+      @flow.status(:draft)
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_not flow_presenter.publish?
+    end
+  end
+
+  context "#start_page_link" do
+    should "return path to first page in smart flow" do
+      assert_equal "/flow-name/y", @flow_presenter.start_page_link
+    end
+
+    should "return path to first page in session flow using sessions" do
+      @flow.use_session(true)
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_equal "/flow-name/first_question_key", flow_presenter.start_page_link
+    end
+  end
 end

@@ -90,6 +90,6 @@ private
   end
 
   def presenter
-    @presenter ||= FlowRegistrationPresenter.new(@flow)
+    @presenter ||= FlowPresenter.new({}, @flow)
   end
 end

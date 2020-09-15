@@ -12,20 +12,23 @@ module SmartAnswer
     def stub_flow_registration_presenter
       stub(
         "flow-registration-presenter",
-        slug: "flow-slug",
+        name: "flow-name",
         title: "flow-title",
+        start_page_content_id: "content-id",
         flows_content: ["question title"],
-        description: "",
-        start_page_body: "",
-        start_page_post_body: "",
-        start_page_button_text: "",
+        meta_description: "flow-description",
+        start_node: stub(
+          body: "start-page-body",
+          post_body: "start-page-post-body",
+          start_button_text: "start-button-text",
+        ),
         external_related_links: [],
+        start_page_link: "/flow-name/y",
       )
     end
 
     test "#content_id is the content_id of the presenter" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:start_page_content_id).returns("content-id")
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "content-id", content_item.content_id
@@ -48,11 +51,11 @@ module SmartAnswer
       assert_valid_against_schema(content_item.payload, "transaction")
     end
 
-    test "#base_path is the slug of the presenter with a prepended slash" do
+    test "#base_path is the name of the presenter with a prepended slash" do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_equal "/flow-slug", content_item.payload[:base_path]
+      assert_equal "/flow-name", content_item.payload[:base_path]
     end
 
     test "#payload title is the title of the presenter" do
@@ -62,9 +65,8 @@ module SmartAnswer
       assert_equal "flow-title", content_item.payload[:title]
     end
 
-    test "#payload description is the description of the presenter" do
+    test "#payload description is the meta_description of the presenter" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:description).returns("flow-description")
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "flow-description", content_item.payload[:description]
@@ -80,7 +82,6 @@ module SmartAnswer
 
     test "#payload details hash includes includes the introductory paragraph as govspeak" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:start_page_body).returns("start-page-body")
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "start-page-body", content_item.payload[:details][:introductory_paragraph][0][:content]
@@ -89,7 +90,6 @@ module SmartAnswer
 
     test "#payload details hash includes more information as govspeak" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:start_page_post_body).returns("start-page-post-body")
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "start-page-post-body", content_item.payload[:details][:more_information][0][:content]
@@ -100,12 +100,11 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_equal "/flow-slug/y", content_item.payload[:details][:transaction_start_link]
+      assert_equal "/flow-name/y", content_item.payload[:details][:transaction_start_link]
     end
 
     test "#payload details hash includes the text to be used for the start button" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:start_page_button_text).returns("start-button-text")
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "start-button-text", content_item.payload[:details][:start_button_text]
@@ -156,19 +155,11 @@ module SmartAnswer
       assert_equal now.iso8601, content_item.payload[:public_updated_at]
     end
 
-    test "#payload registers an exact route using the slug of the smart answer" do
+    test "#payload registers an exact route using the name of the smart answer" do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      expected_route = { type: "exact", path: "/flow-slug" }
-      assert content_item.payload[:routes].include?(expected_route)
-    end
-
-    test "#payload registers an exact json route using the slug of the smart answer" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      expected_route = { type: "exact", path: "/flow-slug.json" }
+      expected_route = { type: "exact", path: "/flow-name" }
       assert content_item.payload[:routes].include?(expected_route)
     end
   end

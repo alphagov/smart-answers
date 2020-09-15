@@ -1,50 +1,4 @@
-class FlowRegistrationPresenter
-  def initialize(flow)
-    @flow = flow
-  end
-
-  def slug
-    @flow.name
-  end
-
-  def need_content_id
-    @flow.need_content_id
-  end
-
-  def start_page_content_id
-    @flow.start_page_content_id
-  end
-
-  def flow_content_id
-    @flow.flow_content_id
-  end
-
-  delegate :title, to: :start_node
-
-  def description
-    start_node.meta_description
-  end
-
-  def external_related_links
-    @flow.external_related_links || []
-  end
-
-  def start_page_body
-    start_node.body
-  end
-
-  def start_page_post_body
-    start_node.post_body
-  end
-
-  def start_page_button_text
-    start_node.start_button_text
-  end
-
-  def publish?
-    @flow.status == :published
-  end
-
+module ContentItemHelper
   module MethodMissingHelper
     OVERRIDES = {
       "calculator.services_payment_partial_name" => "pay_by_cash_only",
@@ -63,8 +17,8 @@ class FlowRegistrationPresenter
     # rubocop:enable Style/MissingRespondToMissing
   end
 
-  def flows_content
-    content = @flow.nodes.flat_map do |node|
+  def extract_flow_content(flow)
+    content = flow.nodes.flat_map do |node|
       case node
       when SmartAnswer::Question::Base
         pres = QuestionPresenter.new(node, nil, nil, helpers: [MethodMissingHelper])
@@ -84,12 +38,5 @@ class FlowRegistrationPresenter
           .gsub(/(?:<[^>]+>|\s)+/, " ")
           .strip
       end
-  end
-
-private
-
-  def start_node
-    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    StartNodePresenter.new(node)
   end
 end

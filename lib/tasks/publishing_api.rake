@@ -10,7 +10,7 @@ namespace :publishing_api do
     flow_presenters = RegisterableSmartAnswers.new.flow_presenters
     ContentItemSyncer.new.sync(
       flow_presenters.select do |presenter|
-        presenter.slug == args[:slug]
+        presenter.name == args[:slug]
       end,
     )
   end

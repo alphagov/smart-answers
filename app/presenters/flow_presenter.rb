@@ -2,11 +2,23 @@ require "node_presenter"
 
 class FlowPresenter
   include Rails.application.routes.url_helpers
+  include ContentItemHelper
 
   attr_reader :params, :flow
 
-  delegate :need_it, :button_text, :use_session?, :questions, :use_escape_button?, :show_escape_link?, to: :flow
-  delegate :title, to: :start_node
+  delegate :name,
+           :need_content_id,
+           :start_page_content_id,
+           :flow_content_id,
+           :need_it,
+           :button_text,
+           :use_session?,
+           :questions,
+           :use_escape_button?,
+           :show_escape_link?,
+           to: :flow
+
+  delegate :title, :meta_description, to: :start_node
 
   def initialize(params, flow)
     @params = params
@@ -22,6 +34,10 @@ class FlowPresenter
     current_node.outcome?
   end
 
+  def publish?
+    @flow.status == :published
+  end
+
   def current_state
     @current_state ||= if use_session?
                          requested_node = params[:node_name] unless params[:next]
@@ -29,10 +45,6 @@ class FlowPresenter
                        else
                          @flow.process(all_responses)
                        end
-  end
-
-  def name
-    @flow.name
   end
 
   def collapsed_questions
@@ -113,6 +125,22 @@ class FlowPresenter
   def all_responses
     normalize_responses_param.dup.tap do |responses|
       responses << params[:response] if params[:next]
+    end
+  end
+
+  def external_related_links
+    @flow.external_related_links || []
+  end
+
+  def flows_content
+    extract_flow_content(@flow)
+  end
+
+  def start_page_link
+    if use_session?
+      session_flow_path(name, node_name: questions.first.name)
+    else
+      smart_answer_path(name, started: "y")
     end
   end
 end

@@ -22,16 +22,6 @@ class CurrentQuestionHelperTest < ActionView::TestCase
     end
   end
 
-  context "#start_of_flow_path" do
-    should "return path to first page in smart flow" do
-      assert_equal smart_answer_path(flow_name, started: "y"), start_of_flow_path(presenter)
-    end
-
-    should "return path to first page in session flow when session answer" do
-      assert_equal session_flow_path(flow_name, node_name: first_question.name), start_of_flow_path(session_presenter)
-    end
-  end
-
   def flow_name
     "coronavirus-find-support"
   end
