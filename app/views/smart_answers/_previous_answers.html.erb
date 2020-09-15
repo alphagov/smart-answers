@@ -2,7 +2,17 @@
   <table class="govuk-table previous-answers-table">
     <caption class="govuk-table__caption">
       <h2 class="govuk-heading-m">Previous answers</h2>
-      <p class="govuk-body"><%= link_to "Start again", restart_flow_path(@presenter), :class => "govuk-link" %></p>
+      <p class="govuk-body">
+      <%= link_to "Start again", 
+        restart_flow_path(@presenter), 
+        :class => "govuk-link",
+        :data => {
+          module: "track-click",
+          "track-action": "Start again",
+          "track-category": "StartAgain",
+          "track-label": @presenter.current_node.title
+        } %>
+      </p>
     </caption>
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
