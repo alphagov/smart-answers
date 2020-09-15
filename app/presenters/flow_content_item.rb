@@ -19,7 +19,7 @@ class FlowContentItem
       rendering_app: "smartanswers",
       locale: "en",
       public_updated_at: Time.zone.now.iso8601,
-      routes: [{ type: "prefix", path: "/#{flow_presenter.name}/" }],
+      routes: [{ type: "prefix", path: flow_presenter.start_page_link }],
     }
   end
 
