@@ -1,6 +1,10 @@
 class SessionAnswersController < ApplicationController
   before_action :set_cache_headers
 
+  def start
+    redirect_to session_flow_path(id: params[:id], node_name: next_node_name)
+  end
+
   def show
     @title = presenter.title
     @content_item = ContentItemRetriever.fetch(name) if presenter.finished?

@@ -9,7 +9,17 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     %i[need_help_with? afford_food?]
   end
 
-  context "GET /:id/:node_name" do
+  context "GET /:id/s" do
+    setup do
+      get start_session_flow_path(flow_name)
+    end
+
+    should "redirect to show first node" do
+      assert_redirected_to(session_flow_path(id: flow_name, node_name: nodes[0]))
+    end
+  end
+
+  context "GET /:id/s/:node_name" do
     setup do
       get session_flow_path(id: flow_name, node_name: nodes[0])
     end
@@ -39,7 +49,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     { "response" => %w[getting_food], "next" => "1" }
   end
 
-  context "GET /:id/:node_name/next" do
+  context "GET /:id/s/:node_name/next" do
     setup do
       get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
     end
@@ -49,7 +59,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "GET /:id/:node_name/next with error submission" do
+  context "GET /:id/s/:node_name/next with error submission" do
     setup do
       get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: { "response" => [], "next" => "1" }
     end
@@ -64,7 +74,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "GET /:id/destroy_session" do
+  context "GET /:id/s/destroy_session" do
     setup do
       get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
     end
