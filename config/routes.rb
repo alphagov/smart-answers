@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         format: false
   end
 
-  get "/:id/destroy_session", to: "session_answers#destroy", as: :destroy_session_flow
-  get "/:id/:node_name", to: "session_answers#show", as: :session_flow
-  get "/:id/:node_name/next", to: "session_answers#update", as: :update_session_flow
+  get "/:id/s/destroy_session", to: "session_answers#destroy", as: :destroy_session_flow
+  get "/:id/s/:node_name", to: "session_answers#show", as: :session_flow
+  get "/:id/s/:node_name/next", to: "session_answers#update", as: :update_session_flow
 end
