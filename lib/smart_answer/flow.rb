@@ -153,14 +153,19 @@ module SmartAnswer
 
     def resolve_state(responses, requested_node)
       state = start_state
-
       until state.nil?
-        return state if state.error
-        return state if state.current_node.to_s == requested_node && !responses.key?(state.current_node.to_s)
-        return state if node(state.current_node).outcome?
+        node_name = state.current_node.to_s
 
-        response = responses[state.current_node.to_s]
-        state = transistion_state(state, response)
+        return state unless responses.key?(node_name)
+
+        response = responses[node_name]
+        new_state = transistion_state(state, response)
+
+        return new_state if new_state.error
+        return state if node_name == requested_node
+        return new_state if node(new_state.current_node).outcome?
+
+        state = new_state
       end
     end
 
