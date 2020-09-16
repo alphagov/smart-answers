@@ -441,6 +441,102 @@ class FlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "resolve state" do
+    setup do
+      @flow = SmartAnswer::Flow.new do
+        multiple_choice :x do
+          option :yes
+          option :no
+          next_node do |response|
+            case response
+            when "yes" then outcome :y
+            when "no" then question :a
+            end
+          end
+        end
+
+        multiple_choice :y do
+          option :yes
+          option :no
+          next_node do |response|
+            case response
+            when "yes" then outcome :a
+            when "no" then outcome :b
+            end
+          end
+        end
+        outcome :a
+        outcome :b
+      end
+    end
+
+    should "resolve requested node with errors if response missing" do
+      state = @flow.resolve_state({ "x" => nil }, "x")
+      assert_equal :x, state.current_node
+      assert state.error.present?
+    end
+
+    should "resolve requested node with errors if response invalid" do
+      state = @flow.resolve_state({ "x" => "invalid" }, "x")
+      assert_equal :x, state.current_node
+      assert state.error.present?
+    end
+
+    should "resolve requested node if not previously visited" do
+      state = @flow.resolve_state({}, "x")
+      assert_equal :x, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve requested node if response valid" do
+      state = @flow.resolve_state({ "x" => "yes" }, "x")
+      assert_equal :x, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve previous node with errors if response missing for previous node" do
+      state = @flow.resolve_state({ "x" => nil }, "y")
+      assert_equal :x, state.current_node
+      assert state.error.present?
+    end
+
+    should "resolve previous node with errors if response invalid for previous node" do
+      state = @flow.resolve_state({ "x" => "invalid" }, "y")
+      assert_equal :x, state.current_node
+      assert state.error.present?
+    end
+
+    should "resolve previous node if previous node not visited" do
+      state = @flow.resolve_state({}, "y")
+      assert_equal :x, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve node if previous node has valid response" do
+      state = @flow.resolve_state({ "x" => "yes" }, "y")
+      assert_equal :y, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve outcome node if all valid responses given" do
+      state = @flow.resolve_state({ "x" => "yes", "y" => "yes" }, "a")
+      assert_equal :a, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve correct outcome node for given valid responses" do
+      state = @flow.resolve_state({ "x" => "yes", "y" => "yes" }, "b")
+      assert_equal :a, state.current_node
+      assert state.error.blank?
+    end
+
+    should "resolve correct outcome node even f" do
+      state = @flow.resolve_state({ "x" => "yes", "y" => "yes" }, "b")
+      assert_equal :a, state.current_node
+      assert state.error.blank?
+    end
+  end
+
   should "normalize responses" do
     flow = SmartAnswer::Flow.new do
       multiple_choice :colour? do
