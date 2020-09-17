@@ -1,11 +1,7 @@
 <% use_title_as_h1 true %>
 
 <% text_for :title do %>
-  <% if calculator.has_results? %>
     Information based on your answers
-  <% else %>
-    Information based on your answers - no specific information
-  <% end %>
 <% end %>
 
 <% html_for :body do %>
@@ -26,14 +22,20 @@
   <% else %>
     Based on your answers, there’s no specific information for you in this service at the moment. It will be updated regularly.
 
-    [Find all information on coronavirus, including how to protect yourself and get financial support](https://www.gov.uk/coronavirus)
+    [Financial help and information on staying safe at work](/coronavirus/worker-support)
+
+    [Information for businesses on getting financial help and keeping the workplace safe](/coronavirus/business-support)
+
+    [Information for teachers, school leaders, carers, parents and students](/coronavirus/education-and-childcare)
+
+    [Find out if you can get help from your local council](/coronavirus-local-help)
 
     <% if calculator.needs_help_in?("england") %>
       [Find information about what you can do from Citizens Advice](https://www.citizensadvice.org.uk/health/coronavirus-what-it-means-for-you/)
     <% end %>
 
     <% if calculator.needs_help_in?("northern_ireland") %>
-      [Additional information for Northern Ireland](https://www.nidirect.gov.uk/campaigns/coronavirus-covid-19)
+      [Additional information for Northern Ireland (NI Direct)](https://www.nidirect.gov.uk/campaigns/coronavirus-covid-19)
 
       [Get advice from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
     <% end %>
@@ -47,7 +49,7 @@
     <% end %>
 
     <% if calculator.needs_help_in?("wales") %>
-      [Additional information for Wales](https://gov.wales/coronavirus)
+      [Additional information for Wales (Welsh Government)](https://gov.wales/coronavirus)
 
       [Get advice from Citizens Advice](https://www.citizensadvice.org.uk/wales/health/coronavirus-what-it-means-for-you/)
     <% end %>
@@ -56,7 +58,7 @@
   $CTA
     ### Help us improve
 
-    [Give feedback on this service](https://www.gov.uk/done/find-coronavirus-support)
+    [Give feedback on this service](/done/find-coronavirus-support)
   $CTA
 <% end %>
 
