@@ -17,7 +17,7 @@ class SessionAnswersController < ApplicationController
   end
 
   def destroy
-    session.delete(:responses)
+    session_store.clear
 
     if params[:ext_r] == "true"
       redirect_to "https://bbc.co.uk/news"

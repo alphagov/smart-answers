@@ -43,4 +43,19 @@ class SessionStoreTest < ActiveSupport::TestCase
       assert_equal [:a, node_name, :c], session[flow_name].keys
     end
   end
+
+  context "#clear" do
+    should "remove entries from session" do
+      session_store.add_response(response)
+      session_store.clear
+      assert_equal({}, session)
+    end
+
+    should "not change other data in session" do
+      other_data = { foo: :bar }
+      session.merge! other_data
+      session_store.clear
+      assert_equal other_data, session
+    end
+  end
 end

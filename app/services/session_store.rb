@@ -14,4 +14,8 @@ class SessionStore
   def add_response(response)
     hash[current_node] = response
   end
+
+  def clear
+    session.delete(flow_name)
+  end
 end
