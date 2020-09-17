@@ -115,7 +115,7 @@ module SmartAnswer
 
         next_node do
           if calculator.self_employed == "yes"
-            question :worried_about_work?
+            question calculator.next_question(:have_you_been_made_unemployed?)
           else
             question :have_you_been_made_unemployed?
           end
@@ -136,27 +136,7 @@ module SmartAnswer
         end
 
         next_node do
-          if %w[yes_i_have_been_made_unemployed yes_i_have_been_put_on_furlough].include? calculator.have_you_been_made_unemployed
-            question :worried_about_work?
-          else
-            question :are_you_off_work_ill?
-          end
-        end
-      end
-
-      # ======================================================================
-      # Are you off work because you're ill or self-isolating?
-      # ======================================================================
-      multiple_choice :are_you_off_work_ill? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.are_you_off_work_ill = response
-        end
-
-        next_node do
-          question calculator.next_question(:are_you_off_work_ill?)
+          question calculator.next_question(:have_you_been_made_unemployed?)
         end
       end
 
@@ -173,7 +153,23 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:worried_about_work?)
+          question :are_you_off_work_ill?
+        end
+      end
+
+      # ======================================================================
+      # Are you off work because you're ill or self-isolating?
+      # ======================================================================
+      multiple_choice :are_you_off_work_ill? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.are_you_off_work_ill = response
+        end
+
+        next_node do
+          question calculator.next_question(:are_you_off_work_ill?)
         end
       end
 

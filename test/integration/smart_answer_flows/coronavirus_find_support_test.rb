@@ -36,6 +36,8 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
 
       assert_current_node :worried_about_work?
       add_response "yes"
+      assert_current_node :are_you_off_work_ill?
+      add_response "yes"
       assert_current_node :have_somewhere_to_live?
       add_response "no"
       assert_current_node :have_you_been_evicted?
@@ -66,6 +68,8 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
 
       assert_current_node :worried_about_work?
       add_response "yes"
+      assert_current_node :are_you_off_work_ill?
+      add_response "no"
       assert_current_node :have_somewhere_to_live?
       add_response "no"
       assert_current_node :have_you_been_evicted?
@@ -93,11 +97,11 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
       add_response "no"
       assert_current_node :have_you_been_made_unemployed?
       add_response "no"
-      assert_current_node :are_you_off_work_ill?
-      add_response "no"
 
       assert_current_node :worried_about_work?
       add_response "yes"
+      assert_current_node :are_you_off_work_ill?
+      add_response "no"
       assert_current_node :have_somewhere_to_live?
       add_response "no"
       assert_current_node :have_you_been_evicted?
