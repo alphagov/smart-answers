@@ -17,8 +17,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
     end
 
     should "return root smart answer path for session answer" do
-      @params = { id: "coronavirus_find_support" }
-      assert_equal smart_answer_path(flow_name), restart_flow_path(session_presenter)
+      assert_equal destroy_session_flow_path(flow_name), restart_flow_path(session_presenter)
     end
   end
 

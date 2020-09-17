@@ -19,10 +19,11 @@ module CurrentQuestionHelper
   end
 
   def restart_flow_path(presenter)
-    flow_name = params[:id]
-    flow_name.gsub!(/_/, "-") if presenter.use_session?
-
-    smart_answer_path(flow_name)
+    if presenter.use_session?
+      destroy_session_flow_path(presenter.name)
+    else
+      smart_answer_path(presenter.name)
+    end
   end
 
   def prefill_value_is?(value)
