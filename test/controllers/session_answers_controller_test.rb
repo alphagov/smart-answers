@@ -6,7 +6,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   def nodes
-    %i[need_help_with? afford_food?]
+    %i[need_help_with afford_food]
   end
 
   # Session is not directly accessible in controller tests

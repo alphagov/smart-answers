@@ -12,7 +12,7 @@ module SmartAnswer
       # ======================================================================
       # What do you need help with because of coronavirus?
       # ======================================================================
-      checkbox_question :need_help_with? do
+      checkbox_question :need_help_with do
         option :feeling_unsafe
         option :paying_bills
         option :getting_food
@@ -28,14 +28,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:need_help_with?)
+          question calculator.next_question(:need_help_with)
         end
       end
 
       # ======================================================================
       # Do you feel safe where you live?
       # ======================================================================
-      multiple_choice :feel_safe? do
+      multiple_choice :feel_safe do
         option :yes
         option :yes_but_i_am_concerned_about_others
         option :no
@@ -46,14 +46,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:feel_safe?)
+          question calculator.next_question(:feel_safe)
         end
       end
 
       # ======================================================================
       # Are you finding it hard to afford rent, your mortgage or bills?
       # ======================================================================
-      multiple_choice :afford_rent_mortgage_bills? do
+      multiple_choice :afford_rent_mortgage_bills do
         option :yes
         option :no
         option :not_sure
@@ -63,14 +63,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:afford_rent_mortgage_bills?)
+          question calculator.next_question(:afford_rent_mortgage_bills)
         end
       end
 
       # ======================================================================
       # Are you finding it hard to afford food?
       # ======================================================================
-      multiple_choice :afford_food? do
+      multiple_choice :afford_food do
         option :yes
         option :no
         option :not_sure
@@ -80,14 +80,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :get_food?
+          question :get_food
         end
       end
 
       # ======================================================================
       # Are your able to get food?
       # ======================================================================
-      multiple_choice :get_food? do
+      multiple_choice :get_food do
         option :yes
         option :no
         option :not_sure
@@ -97,14 +97,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:get_food?)
+          question calculator.next_question(:get_food)
         end
       end
 
       # ======================================================================
       # Are you self-employed or a sole trader?
       # ======================================================================
-      multiple_choice :self_employed? do
+      multiple_choice :self_employed do
         option :yes
         option :no
         option :not_sure
@@ -115,9 +115,9 @@ module SmartAnswer
 
         next_node do
           if calculator.self_employed == "yes"
-            question calculator.next_question(:have_you_been_made_unemployed?)
+            question calculator.next_question(:have_you_been_made_unemployed)
           else
-            question :have_you_been_made_unemployed?
+            question :have_you_been_made_unemployed
           end
         end
       end
@@ -125,7 +125,7 @@ module SmartAnswer
       # ======================================================================
       # Have you been told to stop working?
       # ======================================================================
-      multiple_choice :have_you_been_made_unemployed? do
+      multiple_choice :have_you_been_made_unemployed do
         option :yes_i_have_been_made_unemployed
         option :yes_i_have_been_put_on_furlough
         option :no
@@ -136,14 +136,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:have_you_been_made_unemployed?)
+          question calculator.next_question(:have_you_been_made_unemployed)
         end
       end
 
       # ======================================================================
       # Are you worried about going in to work?
       # ======================================================================
-      multiple_choice :worried_about_work? do
+      multiple_choice :worried_about_work do
         option :yes
         option :no
         option :not_sure
@@ -153,14 +153,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :are_you_off_work_ill?
+          question :are_you_off_work_ill
         end
       end
 
       # ======================================================================
       # Are you off work because you're ill or self-isolating?
       # ======================================================================
-      multiple_choice :are_you_off_work_ill? do
+      multiple_choice :are_you_off_work_ill do
         option :yes
         option :no
 
@@ -169,14 +169,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:are_you_off_work_ill?)
+          question calculator.next_question(:are_you_off_work_ill)
         end
       end
 
       # ======================================================================
       # Do you have somewhere to live?
       # ======================================================================
-      multiple_choice :have_somewhere_to_live? do
+      multiple_choice :have_somewhere_to_live do
         option :yes
         option :yes_but_i_might_lose_it
         option :no
@@ -187,14 +187,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :have_you_been_evicted?
+          question :have_you_been_evicted
         end
       end
 
       # ======================================================================
       # Have you been evicted?
       # ======================================================================
-      multiple_choice :have_you_been_evicted? do
+      multiple_choice :have_you_been_evicted do
         option :yes
         option :yes_i_might_be_soon
         option :no
@@ -205,14 +205,14 @@ module SmartAnswer
         end
 
         next_node do
-          question calculator.next_question(:have_you_been_evicted?)
+          question calculator.next_question(:have_you_been_evicted)
         end
       end
 
       # ======================================================================
       # Are you worries about your mental health or someone else's mental health?
       # ======================================================================
-      multiple_choice :mental_health_worries? do
+      multiple_choice :mental_health_worries do
         option :yes
         option :no
         option :not_sure
@@ -222,14 +222,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :nation?
+          question :nation
         end
       end
 
       # ======================================================================
       # Where do you live?
       # ======================================================================
-      multiple_choice :nation? do
+      multiple_choice :nation do
         option :england
         option :scotland
         option :wales
