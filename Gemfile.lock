@@ -119,7 +119,7 @@ GEM
       sentry-raven (>= 2.7.1, < 3.1.0)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.7)
-    govuk_publishing_components (21.66.1)
+    govuk_publishing_components (21.66.2)
       govuk_app_config
       kramdown
       plek
