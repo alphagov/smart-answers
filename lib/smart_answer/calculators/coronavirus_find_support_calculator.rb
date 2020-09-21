@@ -27,9 +27,7 @@ module SmartAnswer::Calculators
     end
 
     def needs_help_in?(given_nation)
-      return false if nation.blank?
-
-      nation.split(",").include? given_nation
+      nation == given_nation
     end
 
     def user_feels_unsafe?

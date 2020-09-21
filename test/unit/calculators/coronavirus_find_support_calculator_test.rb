@@ -238,12 +238,12 @@ module SmartAnswer::Calculators
 
     context "#needs_help_in?" do
       should "return true if the given nation has been chosen" do
-        @calculator.nation = "one,two,three,four"
+        @calculator.nation = "one"
         assert_equal @calculator.needs_help_in?("one"), true
       end
 
       should "return false if the given nation has not been chosen" do
-        @calculator.nation = "one,two,three,four"
+        @calculator.nation = "one"
         assert_equal @calculator.needs_help_in?("five"), false
       end
 
