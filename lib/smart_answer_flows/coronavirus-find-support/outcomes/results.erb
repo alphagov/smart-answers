@@ -11,13 +11,13 @@
 <% govspeak_for :body do %>
   <% if calculator.has_results? %>
 
-    <%= render("feeling_unsafe", calculator: calculator) if calculator.user_feels_unsafe? %>
-    <%= render("paying_bills", calculator: calculator) if calculator.user_cannot_pay_their_bills? %>
-    <%= render("getting_food", calculator: calculator) if calculator.user_cannot_get_food? %>
-    <%= render("being_unemployed", calculator: calculator) if calculator.user_is_unemployed? %>
-    <%= render("going_to_work", calculator: calculator) if calculator.user_is_worried_about_going_to_work? %>
-    <%= render("somewhere_to_live", calculator: calculator) if calculator.user_needs_somewhere_to_live? %>
-    <%= render("mental_health", calculator: calculator) if calculator.user_has_mental_health_worries? %>
+    <%= render("feeling_unsafe", calculator: calculator) if calculator.show_group?(:feeling_unsafe) %>
+    <%= render("paying_bills", calculator: calculator) if calculator.show_group?(:paying_bills) %>
+    <%= render("getting_food", calculator: calculator) if calculator.show_group?(:getting_food) %>
+    <%= render("being_unemployed", calculator: calculator) if calculator.show_group?(:being_unemployed) %>
+    <%= render("going_to_work", calculator: calculator) if calculator.show_group?(:going_in_to_work) %>
+    <%= render("somewhere_to_live", calculator: calculator) if calculator.show_group?(:somewhere_to_live) %>
+    <%= render("mental_health", calculator: calculator) if calculator.show_group?(:mental_health) %>
 
   <% else %>
     Based on your answers, there’s no specific information for you in this service at the moment. It will be updated regularly.

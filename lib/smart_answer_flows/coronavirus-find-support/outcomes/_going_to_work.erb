@@ -1,72 +1,76 @@
 ## Being worried about working, or off work because you’re self-isolating
 
-### If you’re worried about going in to work
+<% if calculator.show_section?(:worried_about_work) %>
+  ### If you’re worried about going in to work
 
-<% if calculator.needs_help_in?("england") %>
-  [Check if you should go back in to work](https://www.gov.uk/check-how-to-return-to-work-safely)
+  <% if calculator.needs_help_in?("england") %>
+    [Check if you should go back in to work](https://www.gov.uk/check-how-to-return-to-work-safely)
+  <% end %>
+
+  <% if calculator.needs_help_in?("england") %>
+    [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice)](https://www.citizensadvice.org.uk/work/coronavirus-if-youre-worried-about-working/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("scotland") %>
+    [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/work/coronavirus-if-youre-worried-about-working/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("wales") %>
+    [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice)](https://www.citizensadvice.org.uk/wales/work/coronavirus-if-youre-worried-about-working/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("northern_ireland") %>
+    [Get help from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
+  <% end %>
+
+  [You might have a right to request flexible working, for example working from home - find out how you can make a request (Acas)](https://www.acas.org.uk/making-a-flexible-working-request)
+
+  [Find out if you can take time off for your family and dependents, and what to do if you have problems taking time off](https://www.gov.uk/time-off-for-dependants)
+
+  [Check what help you can get with childcare costs](https://www.gov.uk/childcare-calculator?step-by-step-nav=f237ec8e-e82c-4ffa-8fba-2a88a739783b)
+
+  [Find out if you can take unpaid parental leave](https://www.gov.uk/parental-leave)
+
+  [What to do if you’re shielding because you’ve been told by a doctor you’re clinically extremely vulnerable, but you’ve been told to go back to work](https://www.gov.uk/government/publications/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19#work-and-employment-for-those-who-are-shielding)
+
+  [Your rights if you're pregnant](https://www.gov.uk/working-when-pregnant-your-rights)
+
+  #### Support and advice
+
+  <% if calculator.needs_help_in?("england") %>
+    [What to do if you’re not getting your maternity rights (Citizens Advice)](https://www.citizensadvice.org.uk/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("wales") %>
+    [What to do if you’re not getting your maternity rights (Citizens Advice)](https://www.citizensadvice.org.uk/wales/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("scotland") %>
+    [What to do if you’re not getting your maternity rights (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
+  <% end %>
+
+  [Advice on returning to work after being off (Acas)](https://www.acas.org.uk/absence-from-work/returning-to-work-after-absence)
+
+  [Your rights if you think you might have been discriminated against at work](https://www.gov.uk/discrimination-your-rights/discrimination-at-work)
 <% end %>
 
-<% if calculator.needs_help_in?("england") %>
-  [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice)](https://www.citizensadvice.org.uk/work/coronavirus-if-youre-worried-about-working/)
+<% if calculator.show_section?(:are_you_off_work_ill) %>
+  ### If you’re off work because you’re ill or self isolating
+
+  [What to do if you’re employed but cannot work, for example if you’re ill](https://www.gov.uk/guidance/coronavirus-covid-19-what-to-do-if-youre-employed-and-cannot-work)
+
+  [Your employment rights if you’re self-isolating after returning to the UK](https://www.gov.uk/guidance/self-isolating-after-returning-to-the-uk-your-employment-rights)
+
+  <% if calculator.needs_help_in?("wales") %>
+    [Check if you’re eligible for the Discretionary Assistance Fund (Welsh Government)](https://gov.wales/discretionary-assistance-fund-daf)
+  <% end %>
+
+  #### Support and advice
+
+  [Find out about the help you can get if you’re self-employed or work in the gig economy (Money Advice Service)](https://www.moneyadviceservice.org.uk/en/articles/coronavirus-what-it-means-for-you)
+
+  [Find out about getting statutory sick pay if you’re self-isolating (Acas)](https://www.acas.org.uk/coronavirus/self-isolation-and-sick-pay)
 <% end %>
-
-<% if calculator.needs_help_in?("scotland") %>
-  [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/work/coronavirus-if-youre-worried-about-working/)
-<% end %>
-
-<% if calculator.needs_help_in?("wales") %>
-  [What to do if you’ve been told to go back in to work and you’re worried (Citizens Advice)](https://www.citizensadvice.org.uk/wales/work/coronavirus-if-youre-worried-about-working/)
-<% end %>
-
-<% if calculator.needs_help_in?("northern_ireland") %>
-  [Get help from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
-<% end %>
-
-[You might have a right to request flexible working, for example working from home - find out how you can make a request (Acas)](https://www.acas.org.uk/making-a-flexible-working-request)
-
-[Find out if you can take time off for your family and dependents, and what to do if you have problems taking time off](https://www.gov.uk/time-off-for-dependants)
-
-[Check what help you can get with childcare costs](https://www.gov.uk/childcare-calculator?step-by-step-nav=f237ec8e-e82c-4ffa-8fba-2a88a739783b)
-
-[Find out if you can take unpaid parental leave](https://www.gov.uk/parental-leave)
-
-[What to do if you’re shielding because you’ve been told by a doctor you’re clinically extremely vulnerable, but you’ve been told to go back to work](https://www.gov.uk/government/publications/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19#work-and-employment-for-those-who-are-shielding)
-
-[Your rights if you're pregnant](https://www.gov.uk/working-when-pregnant-your-rights)
-
-#### Support and advice
-
-<% if calculator.needs_help_in?("england") %>
-  [What to do if you’re not getting your maternity rights (Citizens Advice)](https://www.citizensadvice.org.uk/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
-<% end %>
-
-<% if calculator.needs_help_in?("wales") %>
-  [What to do if you’re not getting your maternity rights (Citizens Advice)](https://www.citizensadvice.org.uk/wales/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
-<% end %>
-
-<% if calculator.needs_help_in?("scotland") %>
-  [What to do if you’re not getting your maternity rights (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/work/rights-at-work/parental-rights/if-you-dont-get-your-maternity-rights/)
-<% end %>
-
-[Advice on returning to work after being off (Acas)](https://www.acas.org.uk/absence-from-work/returning-to-work-after-absence)
-
-[Your rights if you think you might have been discriminated against at work](https://www.gov.uk/discrimination-your-rights/discrimination-at-work)
-
-### If you’re off work because you’re ill or self isolating
-
-[What to do if you’re employed but cannot work, for example if you’re ill](https://www.gov.uk/guidance/coronavirus-covid-19-what-to-do-if-youre-employed-and-cannot-work)
-
-[Your employment rights if you’re self-isolating after returning to the UK](https://www.gov.uk/guidance/self-isolating-after-returning-to-the-uk-your-employment-rights)
-
-<% if calculator.needs_help_in?("wales") %>
-  [Check if you’re eligible for the Discretionary Assistance Fund (Welsh Government)](https://gov.wales/discretionary-assistance-fund-daf)
-<% end %>
-
-#### Support and advice
-
-[Find out about the help you can get if you’re self-employed or work in the gig economy (Money Advice Service)](https://www.moneyadviceservice.org.uk/en/articles/coronavirus-what-it-means-for-you)
-
-[Find out about getting statutory sick pay if you’re self-isolating (Acas)](https://www.acas.org.uk/coronavirus/self-isolation-and-sick-pay)
 
 $CTA
   <h3 class="app-c-callout-title">Was this information on going in to work helpful?</h3>

@@ -1,36 +1,38 @@
 ## Mental health and wellbeing
 
-### If you’re worried about your mental health or someone else’s mental health
+<% if calculator.show_section?(:mental_health_worries) %>
+  ### If you’re worried about your mental health or someone else’s mental health
 
-[Getting urgent help for mental health issues (NHS)](https://www.nhs.uk/using-the-nhs/nhs-services/mental-health-services/dealing-with-a-mental-health-crisis-or-emergency/)
+  [Getting urgent help for mental health issues (NHS)](https://www.nhs.uk/using-the-nhs/nhs-services/mental-health-services/dealing-with-a-mental-health-crisis-or-emergency/)
 
-[Coronavirus and wellbeing (NHS)](https://www.nhs.uk/oneyou/every-mind-matters)
+  [Coronavirus and wellbeing (NHS)](https://www.nhs.uk/oneyou/every-mind-matters)
 
-[Coping with mental health problems during coronavirus (Mind)](https://www.mind.org.uk/information-support/coronavirus/coping-with-mental-health-problems-during-coronavirus/)
+  [Coping with mental health problems during coronavirus (Mind)](https://www.mind.org.uk/information-support/coronavirus/coping-with-mental-health-problems-during-coronavirus/)
 
-[Managing feelings about lockdown easing (Mind)](https://www.mind.org.uk/information-support/coronavirus/managing-feelings-about-lockdown-easing/)
+  [Managing feelings about lockdown easing (Mind)](https://www.mind.org.uk/information-support/coronavirus/managing-feelings-about-lockdown-easing/)
 
-[Help for mental health problems if you're LGBT (NHS)](https://www.nhs.uk/conditions/stress-anxiety-depression/mental-health-issues-if-you-are-gay-lesbian-or-bisexual)
+  [Help for mental health problems if you're LGBT (NHS)](https://www.nhs.uk/conditions/stress-anxiety-depression/mental-health-issues-if-you-are-gay-lesbian-or-bisexual)
 
-[Getting help with your mental health if you’re a young person (Young Minds)](https://youngminds.org.uk/find-help/looking-after-yourself/coronavirus-and-mental-health/)
+  [Getting help with your mental health if you’re a young person (Young Minds)](https://youngminds.org.uk/find-help/looking-after-yourself/coronavirus-and-mental-health/)
 
-[Register for phone calls from a volunteer if you’re shielding, isolating, a carer, or having less contact with other people (NHS Volunteer Responders)](https://nhsvolunteerresponders.org.uk/services)
+  [Register for phone calls from a volunteer if you’re shielding, isolating, a carer, or having less contact with other people (NHS Volunteer Responders)](https://nhsvolunteerresponders.org.uk/services)
 
-[Get advice from Age UK if you’re an older person, their carer, their family or friend](https://www.ageuk.org.uk/services/age-uk-advice-line/)
+  [Get advice from Age UK if you’re an older person, their carer, their family or friend](https://www.ageuk.org.uk/services/age-uk-advice-line/)
 
-<% if calculator.needs_help_in?("northern_ireland") %>
-  [Additional information about taking care of your mental health (NI direct)](https://www.nidirect.gov.uk/articles/coronavirus-covid-19-taking-care-your-mental-health-and-wellbeing)
+  <% if calculator.needs_help_in?("northern_ireland") %>
+    [Additional information about taking care of your mental health (NI direct)](https://www.nidirect.gov.uk/articles/coronavirus-covid-19-taking-care-your-mental-health-and-wellbeing)
+  <% end %>
+
+  <% if calculator.needs_help_in?("wales") %>
+    [Additional information about taking care of your mental health (Public Health Wales)](https://phw.nhs.wales/topics/latest-information-on-novel-coronavirus-covid-19/staying-well-at-home/how-are-you-feeling/)
+  <% end %>
+
+  <% if calculator.needs_help_in?("scotland") %>
+    [Additional information about coronavirus and your mental wellbeing from the Scottish Association for Mental Health](https://www.samh.org.uk/about-mental-health/self-help-and-wellbeing/coronavirus-and-your-mental-wellbeing)
+  <% end %>
+
+  [Supporting children’s mental health during coronavirus (Young Minds)](https://youngminds.org.uk/find-help/for-parents/supporting-your-child-during-the-coronavirus-pandemic/)
 <% end %>
-
-<% if calculator.needs_help_in?("wales") %>
-  [Additional information about taking care of your mental health (Public Health Wales)](https://phw.nhs.wales/topics/latest-information-on-novel-coronavirus-covid-19/staying-well-at-home/how-are-you-feeling/)
-<% end %>
-
-<% if calculator.needs_help_in?("scotland") %>
-  [Additional information about coronavirus and your mental wellbeing from the Scottish Association for Mental Health](https://www.samh.org.uk/about-mental-health/self-help-and-wellbeing/coronavirus-and-your-mental-wellbeing)
-<% end %>
-
-[Supporting children’s mental health during coronavirus (Young Minds)](https://youngminds.org.uk/find-help/for-parents/supporting-your-child-during-the-coronavirus-pandemic/)
 
 $CTA
   <h3 class="app-c-callout-title">Was this information on mental health and wellbeing helpful?</h3>

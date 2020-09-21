@@ -112,5 +112,33 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
       add_response "england"
       assert_current_node :results
     end
+
+    should "not be possible to reach the results page without the no-results text being shown" do
+      assert_current_node :need_help_with
+      add_response "feeling_unsafe"
+      assert_current_node :feel_safe
+      add_response "yes"
+      assert_current_node :nation
+      add_response "england"
+      assert_current_node :results
+
+      assert_match(/Based on your answers, there’s no specific information for you in this service at the moment. It will be updated regularly./, outcome_body)
+    end
+
+    should "show only the appropriate sub-sections that are required based on the users given responses" do
+      assert_current_node :need_help_with
+      add_response "getting_food"
+      assert_current_node :afford_food
+      add_response "yes"
+      assert_current_node :get_food
+      add_response "yes"
+      assert_current_node :nation
+      add_response "england"
+      assert_current_node :results
+
+      assert_match(/Getting food/, outcome_body)
+      assert_match(/If you’re finding it hard to afford food/, outcome_body)
+      assert_no_match(/If you’re unable to get food/, outcome_body)
+    end
   end
 end
