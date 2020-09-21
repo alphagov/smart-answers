@@ -14,12 +14,6 @@ module SmartAnswer::Calculators
                   :have_you_been_made_unemployed,
                   :mental_health_worries
 
-    def valid_nation?
-      return false if nation.blank?
-
-      nation != "none"
-    end
-
     def has_results?
       return false if need_help_with.blank?
 
