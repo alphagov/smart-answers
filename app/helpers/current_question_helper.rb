@@ -15,7 +15,7 @@ module CurrentQuestionHelper
 
   def session_answers_question_path(presenter)
     node_name = presenter.current_state.current_node.to_s
-    update_session_flow_path(id: params[:id], node_name: node_name)
+    update_session_flow_path(id: params[:id], node_slug: node_name.dasherize)
   end
 
   def restart_flow_path(presenter)
