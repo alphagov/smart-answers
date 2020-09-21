@@ -45,7 +45,7 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
       assert_current_node :mental_health_worries?
       add_response "yes"
       assert_current_node :nation?
-      add_response "england,scotland,wales,northern_ireland"
+      add_response "england"
       assert_current_node :results
     end
 
@@ -77,7 +77,7 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
       assert_current_node :mental_health_worries?
       add_response "yes"
       assert_current_node :nation?
-      add_response "england,scotland,wales,northern_ireland"
+      add_response "england"
       assert_current_node :results
     end
 
@@ -109,7 +109,7 @@ class CoronavirusFindSupportFlowTest < ActiveSupport::TestCase
       assert_current_node :mental_health_worries?
       add_response "yes"
       assert_current_node :nation?
-      add_response "england,scotland,wales,northern_ireland"
+      add_response "england"
       assert_current_node :results
     end
   end

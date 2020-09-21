@@ -229,7 +229,7 @@ module SmartAnswer
       # ======================================================================
       # Where do you live?
       # ======================================================================
-      checkbox_question :nation? do
+      multiple_choice :nation? do
         option :england
         option :scotland
         option :wales
@@ -237,10 +237,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.nation = response
-        end
-
-        validate do
-          calculator.valid_nation?
         end
 
         next_node do
