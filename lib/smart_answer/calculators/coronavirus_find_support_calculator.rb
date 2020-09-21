@@ -76,8 +76,8 @@ module SmartAnswer::Calculators
         feel_safe?
         afford_rent_mortgage_bills?
         get_food?
+        have_you_been_made_unemployed?
         are_you_off_work_ill?
-        worried_about_work?
         have_you_been_evicted?
       ]
 
