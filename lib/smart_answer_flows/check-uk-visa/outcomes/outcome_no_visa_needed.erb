@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  You do not currently need a visa
+  <% if calculator.study_visit? %>
+    You do not need a visa to come to the UK
+  <%else %>
+    You do not currently need a visa
+  <% end%>
 <% end %>
 
 <% govspeak_for :body do %>
