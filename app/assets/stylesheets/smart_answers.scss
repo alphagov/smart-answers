@@ -51,6 +51,9 @@ $is-ie: false !default;
       margin-bottom: govuk-spacing(8);
     }
 
+    .app-c-callout-title {
+      @extend %govuk-heading-s;
+    }
   }
 }
 
