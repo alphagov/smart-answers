@@ -6,7 +6,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   def nodes
-    %i[need_help_with? afford_food?]
+    %i[need-help-with afford-food]
   end
 
   # Session is not directly accessible in controller tests
@@ -26,13 +26,13 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
 
     should "redirect to show first node" do
-      assert_redirected_to(session_flow_path(id: flow_name, node_name: nodes[0]))
+      assert_redirected_to(session_flow_path(id: flow_name, node_slug: nodes[0]))
     end
   end
 
-  context "GET /:id/s/:node_name" do
+  context "GET /:id/s/:node_slug" do
     setup do
-      get session_flow_path(id: flow_name, node_name: nodes[0])
+      get session_flow_path(id: flow_name, node_slug: nodes[0])
     end
 
     should "be successful" do
@@ -60,25 +60,25 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     { "response" => %w[getting_food], "next" => "1" }
   end
 
-  context "GET /:id/s/:node_name/next" do
+  context "GET /:id/s/:node_slug/next" do
     should "redirect to next node" do
-      get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
-      assert_redirected_to(session_flow_path(id: flow_name, node_name: nodes[1]))
+      get update_session_flow_path(id: flow_name, node_slug: nodes[0]), params: params
+      assert_redirected_to(session_flow_path(id: flow_name, node_slug: nodes[1]))
     end
 
     should "updates session" do
       session_store.expects(:add_response).with(params["response"])
-      get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
+      get update_session_flow_path(id: flow_name, node_slug: nodes[0]), params: params
     end
   end
 
-  context "GET /:id/s/:node_name/next with error submission" do
+  context "GET /:id/s/:node_slug/next with error submission" do
     setup do
-      get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: { "response" => [], "next" => "1" }
+      get update_session_flow_path(id: flow_name, node_slug: nodes[0]), params: { "response" => [], "next" => "1" }
     end
 
     should "redirect back to show" do
-      assert_redirected_to(session_flow_path(id: flow_name, node_name: nodes[0]))
+      assert_redirected_to(session_flow_path(id: flow_name, node_slug: nodes[0]))
     end
 
     should "display error" do
@@ -89,7 +89,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
 
   context "GET /:id/s/destroy_session" do
     setup do
-      get update_session_flow_path(id: flow_name, node_name: nodes[0]), params: params
+      get update_session_flow_path(id: flow_name, node_slug: nodes[0]), params: params
     end
 
     should "redirect to external sitewhen the ext_r option is present and true" do

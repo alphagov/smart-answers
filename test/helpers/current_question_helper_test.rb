@@ -7,7 +7,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
     end
 
     should "return link to session answer when flow uses sessions" do
-      assert_equal update_session_flow_path(flow_name, node_name), current_question_path(session_presenter)
+      assert_equal update_session_flow_path(flow_name, node_name.dasherize), current_question_path(session_presenter)
     end
   end
 

@@ -94,7 +94,7 @@ class FlowPresenter
 
   def change_collapsed_question_link(question_number, question)
     if use_session?
-      session_flow_path(params[:id], node_name: question.node_name)
+      session_flow_path(params[:id], node_slug: question.node_slug)
     else
       smart_answer_path(
         id: @params[:id],

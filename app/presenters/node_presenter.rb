@@ -10,4 +10,8 @@ class NodePresenter
   def node_name
     @node.name
   end
+
+  def node_slug
+    node_name.to_s.dasherize
+  end
 end

@@ -10,189 +10,189 @@ module SmartAnswer::Calculators
       context "user is on the need_help_with? node" do
         should "return feel_safe? when paying_bills has been chosen" do
           @calculator.need_help_with = "feeling_unsafe"
-          assert_equal @calculator.next_question(:need_help_with?), :feel_safe?
+          assert_equal @calculator.next_question(:need_help_with), :feel_safe
         end
 
         should "return afford_rent_mortgage_bills? when paying_bills has been chosen" do
           @calculator.need_help_with = "paying_bills"
-          assert_equal @calculator.next_question(:need_help_with?), :afford_rent_mortgage_bills?
+          assert_equal @calculator.next_question(:need_help_with), :afford_rent_mortgage_bills
         end
 
         should "return self_employed? when getting_food has been chosen" do
           @calculator.need_help_with = "getting_food"
-          assert_equal @calculator.next_question(:need_help_with?), :afford_food?
+          assert_equal @calculator.next_question(:need_help_with), :afford_food
         end
 
         should "return self_employed? when being_unemployed has been chosen" do
           @calculator.need_help_with = "being_unemployed"
-          assert_equal @calculator.next_question(:need_help_with?), :self_employed?
+          assert_equal @calculator.next_question(:need_help_with), :self_employed
         end
 
         should "return worried_about_work? when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:need_help_with?), :worried_about_work?
+          assert_equal @calculator.next_question(:need_help_with), :worried_about_work
         end
 
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:need_help_with?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:need_help_with), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:need_help_with?), :mental_health_worries?
+          assert_equal @calculator.next_question(:need_help_with), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:need_help_with?), :nation?
+          assert_equal @calculator.next_question(:need_help_with), :nation
         end
       end
 
       context "user is on the feel_safe? node" do
         should "return afford_rent_mortgage_bills? when paying_bills has been chosen" do
           @calculator.need_help_with = "paying_bills"
-          assert_equal @calculator.next_question(:feel_safe?), :afford_rent_mortgage_bills?
+          assert_equal @calculator.next_question(:feel_safe), :afford_rent_mortgage_bills
         end
 
         should "return self_employed? when getting_food has been chosen" do
           @calculator.need_help_with = "getting_food"
-          assert_equal @calculator.next_question(:feel_safe?), :afford_food?
+          assert_equal @calculator.next_question(:feel_safe), :afford_food
         end
 
         should "return self_employed? when being_unemployed has been chosen" do
           @calculator.need_help_with = "being_unemployed"
-          assert_equal @calculator.next_question(:feel_safe?), :self_employed?
+          assert_equal @calculator.next_question(:feel_safe), :self_employed
         end
 
         should "return worried_about_work? when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:feel_safe?), :worried_about_work?
+          assert_equal @calculator.next_question(:feel_safe), :worried_about_work
         end
 
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:feel_safe?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:feel_safe), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:feel_safe?), :mental_health_worries?
+          assert_equal @calculator.next_question(:feel_safe), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:feel_safe?), :nation?
+          assert_equal @calculator.next_question(:feel_safe), :nation
         end
       end
 
       context "user is on the afford_rent_mortgage_bills? node" do
         should "return self_employed? when getting_food has been chosen" do
           @calculator.need_help_with = "getting_food"
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :afford_food?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :afford_food
         end
 
         should "return self_employed? when being_unemployed has been chosen" do
           @calculator.need_help_with = "being_unemployed"
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :self_employed?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :self_employed
         end
 
         should "return worried_about_work? when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :worried_about_work?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :worried_about_work
         end
 
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :mental_health_worries?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:afford_rent_mortgage_bills?), :nation?
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :nation
         end
       end
 
       context "user is on the get_food? node" do
         should "return self_employed? when being_unemployed has been chosen" do
           @calculator.need_help_with = "being_unemployed"
-          assert_equal @calculator.next_question(:get_food?), :self_employed?
+          assert_equal @calculator.next_question(:get_food), :self_employed
         end
 
         should "return worried_about_work? when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:get_food?), :worried_about_work?
+          assert_equal @calculator.next_question(:get_food), :worried_about_work
         end
 
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:get_food?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:get_food), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:get_food?), :mental_health_worries?
+          assert_equal @calculator.next_question(:get_food), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:get_food?), :nation?
+          assert_equal @calculator.next_question(:get_food), :nation
         end
       end
 
       context "user is on the have_you_been_made_unemployed? node" do
         should "return worried_about_work? when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:have_you_been_made_unemployed?), :worried_about_work?
+          assert_equal @calculator.next_question(:have_you_been_made_unemployed), :worried_about_work
         end
 
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:have_you_been_made_unemployed?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:have_you_been_made_unemployed), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:have_you_been_made_unemployed?), :mental_health_worries?
+          assert_equal @calculator.next_question(:have_you_been_made_unemployed), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:have_you_been_made_unemployed?), :nation?
+          assert_equal @calculator.next_question(:have_you_been_made_unemployed), :nation
         end
       end
 
       context "user is on the are_you_off_work_ill? node" do
         should "return have_somewhere_to_live? when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:are_you_off_work_ill?), :have_somewhere_to_live?
+          assert_equal @calculator.next_question(:are_you_off_work_ill), :have_somewhere_to_live
         end
 
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:are_you_off_work_ill?), :mental_health_worries?
+          assert_equal @calculator.next_question(:are_you_off_work_ill), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:are_you_off_work_ill?), :nation?
+          assert_equal @calculator.next_question(:are_you_off_work_ill), :nation
         end
       end
 
       context "user is on the have_you_been_evicted? node" do
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:have_you_been_evicted?), :mental_health_worries?
+          assert_equal @calculator.next_question(:have_you_been_evicted), :mental_health_worries
         end
 
         should "return nation? when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:have_you_been_evicted?), :nation?
+          assert_equal @calculator.next_question(:have_you_been_evicted), :nation
         end
       end
     end

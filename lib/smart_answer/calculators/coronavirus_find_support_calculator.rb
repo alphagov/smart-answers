@@ -64,31 +64,31 @@ module SmartAnswer::Calculators
 
     def next_question(current_node)
       nodes = %i[
-        need_help_with?
-        feel_safe?
-        afford_rent_mortgage_bills?
-        get_food?
-        have_you_been_made_unemployed?
-        are_you_off_work_ill?
-        have_you_been_evicted?
+        need_help_with
+        feel_safe
+        afford_rent_mortgage_bills
+        get_food
+        have_you_been_made_unemployed
+        are_you_off_work_ill
+        have_you_been_evicted
       ]
 
       if nodes.slice(0..0).include?(current_node) && needs_help_with?("feeling_unsafe")
-        :feel_safe?
+        :feel_safe
       elsif nodes.slice(0..1).include?(current_node) && needs_help_with?("paying_bills")
-        :afford_rent_mortgage_bills?
+        :afford_rent_mortgage_bills
       elsif nodes.slice(0..2).include?(current_node) && needs_help_with?("getting_food")
-        :afford_food?
+        :afford_food
       elsif nodes.slice(0..3).include?(current_node) && needs_help_with?("being_unemployed")
-        :self_employed?
+        :self_employed
       elsif nodes.slice(0..4).include?(current_node) && needs_help_with?("going_to_work")
-        :worried_about_work?
+        :worried_about_work
       elsif nodes.slice(0..5).include?(current_node) && needs_help_with?("somewhere_to_live")
-        :have_somewhere_to_live?
+        :have_somewhere_to_live
       elsif nodes.slice(0..6).include?(current_node) && needs_help_with?("mental_health")
-        :mental_health_worries?
+        :mental_health_worries
       else
-        :nation?
+        :nation
       end
     end
   end
