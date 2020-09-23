@@ -18,7 +18,7 @@ class SessionAnswersTest < ActionDispatch::SystemTestCase
     check("Not sure", visible: false)
     click_on "Continue"
     within "legend" do
-      assert_page_has_content "Where do you want to find information about?"
+      assert_page_has_content "Do you feel safe where you live?"
     end
     click_on "Change"
     within "legend" do

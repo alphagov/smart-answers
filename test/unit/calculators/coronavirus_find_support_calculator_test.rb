@@ -354,6 +354,11 @@ module SmartAnswer::Calculators
         @calculator.need_help_with = nil
         assert_equal @calculator.needs_help_with?("one"), false
       end
+
+      should "return true if the none item has been chosen" do
+        @calculator.need_help_with = "none"
+        assert_equal @calculator.needs_help_with?("one"), true
+      end
     end
 
     context "#needs_help_in?" do
@@ -380,6 +385,11 @@ module SmartAnswer::Calculators
 
     context "#next_question" do
       context "user is on the need_help_with? node" do
+        should "return feel_safe? when 'none' has been chosen" do
+          @calculator.need_help_with = "none"
+          assert_equal @calculator.next_question(:need_help_with), :feel_safe
+        end
+
         should "return feel_safe? when paying_bills has been chosen" do
           @calculator.need_help_with = "feeling_unsafe"
           assert_equal @calculator.next_question(:need_help_with), :feel_safe
@@ -413,11 +423,6 @@ module SmartAnswer::Calculators
         should "return mental_health_worries? when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
           assert_equal @calculator.next_question(:need_help_with), :mental_health_worries
-        end
-
-        should "return nation? when there are no other selected options" do
-          @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:need_help_with), :nation
         end
       end
 
