@@ -1,53 +1,55 @@
 ## Paying your rent, mortgage, or bills
 
-### If you’re finding it hard to pay your rent, mortgage or bills
+<% if calculator.show_section?(:afford_rent_mortgage_bills) %>
+  ### If you’re finding it hard to pay your rent, mortgage or bills
 
-<% if calculator.needs_help_in?("england") %>
-  [What to do if you cannot pay your rent or mortgage (Shelter)](https://england.shelter.org.uk/housing_advice/coronavirus)
-<% end %>
+  <% if calculator.needs_help_in?("england") %>
+    [What to do if you cannot pay your rent or mortgage (Shelter)](https://england.shelter.org.uk/housing_advice/coronavirus)
+  <% end %>
 
-<% if calculator.needs_help_in?("scotland") %>
-  [What to do if you cannot pay your rent or mortgage (Shelter Scotland)](https://scotland.shelter.org.uk/get_advice/scottish_housing_advice_coronavirus_COVID_19)
-<% end %>
+  <% if calculator.needs_help_in?("scotland") %>
+    [What to do if you cannot pay your rent or mortgage (Shelter Scotland)](https://scotland.shelter.org.uk/get_advice/scottish_housing_advice_coronavirus_COVID_19)
+  <% end %>
 
-<% if calculator.needs_help_in?("wales") %>
-  [What to do if you cannot pay your rent or mortgage (Shelter Cymru)](https://sheltercymru.org.uk/get-advice/coronavirus/)
-<% end %>
+  <% if calculator.needs_help_in?("wales") %>
+    [What to do if you cannot pay your rent or mortgage (Shelter Cymru)](https://sheltercymru.org.uk/get-advice/coronavirus/)
+  <% end %>
 
-<% if calculator.needs_help_in?("england") %>
-  [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice)](https://www.citizensadvice.org.uk/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
-<% end %>
+  <% if calculator.needs_help_in?("england") %>
+    [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice)](https://www.citizensadvice.org.uk/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
+  <% end %>
 
-<% if calculator.needs_help_in?("scotland") %>
-  [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
-<% end %>
+  <% if calculator.needs_help_in?("scotland") %>
+    [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice Scotland)](https://www.citizensadvice.org.uk/scotland/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
+  <% end %>
 
-<% if calculator.needs_help_in?("wales") %>
-  [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice)](https://www.citizensadvice.org.uk/wales/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
-<% end %>
+  <% if calculator.needs_help_in?("wales") %>
+    [What to do if you cannot pay your bills or mortgage, including if you cannot go out to pay them (Citizens Advice)](https://www.citizensadvice.org.uk/wales/debt-and-money/if-you-cant-pay-your-bills-because-of-coronavirus/)
+  <% end %>
 
-<% if calculator.needs_help_in?("northern_ireland") %>
-  [Get help from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
+  <% if calculator.needs_help_in?("northern_ireland") %>
+    [Get help from Citizens Advice](https://www.citizensadvice.org.uk/about-us/northern-ireland/)
 
-  [Get help from the housing and debt helpline for Northern Ireland (Housing Rights)](https://www.housingrights.org.uk/)
-<% end %>
+    [Get help from the housing and debt helpline for Northern Ireland (Housing Rights)](https://www.housingrights.org.uk/)
+  <% end %>
 
-[Find out if you can get help paying for childcare](https://www.gov.uk/get-childcare)
+  [Find out if you can get help paying for childcare](https://www.gov.uk/get-childcare)
 
-[Find out if you can get help in your local area](https://www.gov.uk/coronavirus-local-help)
+  [Find out if you can get help in your local area](https://www.gov.uk/coronavirus-local-help)
 
-#### Support and advice
+  #### Support and advice
 
-[Your rights if you’re finding it hard to pay rent](https://www.gov.uk/government/publications/covid-19-and-renting-guidance-for-landlords-tenants-and-local-authorities)
+  [Your rights if you’re finding it hard to pay rent](https://www.gov.uk/government/publications/covid-19-and-renting-guidance-for-landlords-tenants-and-local-authorities)
 
-<% if calculator.needs_help_in?("wales") %>
-  [What to do if you’re finding it hard to pay rent (Welsh Government)](https://gov.wales/coronavirus-covid-19-guidance-for-tenants-in-the-private-rented-sector-html)
-<% end %>
+  <% if calculator.needs_help_in?("wales") %>
+    [What to do if you’re finding it hard to pay rent (Welsh Government)](https://gov.wales/coronavirus-covid-19-guidance-for-tenants-in-the-private-rented-sector-html)
+  <% end %>
 
-<% if calculator.needs_help_in?("scotland") %>
-  [Find out about your rights if you have a private landlord (mygov.scot)](https://www.mygov.scot/private-rental-rights/)
+  <% if calculator.needs_help_in?("scotland") %>
+    [Find out about your rights if you have a private landlord (mygov.scot)](https://www.mygov.scot/private-rental-rights/)
 
-  [Find out about your rights if you have a social landlord (mygov.scot)](https://www.mygov.scot/social-rental-rights/)
+    [Find out about your rights if you have a social landlord (mygov.scot)](https://www.mygov.scot/social-rental-rights/)
+  <% end %>
 <% end %>
 
 $CTA
