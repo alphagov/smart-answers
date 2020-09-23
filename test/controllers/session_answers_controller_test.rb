@@ -44,15 +44,8 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
 
     should "set a cache-control response header" do
-      assert_equal response.headers["Cache-Control"], "no-cache, no-store"
-    end
-
-    should "set a pragma response header" do
-      assert_equal response.headers["Pragma"], "no-cache"
-    end
-
-    should "set an expires response header" do
-      assert_equal response.headers["Expires"], "Mon, 01 Jan 1990 00:00:00 GMT"
+      cache_options = %w[private no-store max-age=0 must-revalidate]
+      assert_equal cache_options.sort, response.headers["Cache-Control"].split(/[,\s]+/).sort
     end
   end
 
