@@ -36,7 +36,7 @@ private
 
   def presenter
     @presenter ||= begin
-      params.merge!(responses: session_store.hash)
+      params.merge!(responses: session_store.hash, node_name: node_name)
       FlowPresenter.new(params, smart_answer)
     end
   end
