@@ -119,7 +119,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
 
     should "with session answer" do
-      name = "coronavirus-find-support"
+      name = "find-coronavirus-support"
       flow = flow_registry.find(name)
       params = { id: name }
       flow_presenter = FlowPresenter.new(params, flow)

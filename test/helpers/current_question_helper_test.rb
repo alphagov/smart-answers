@@ -22,7 +22,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
   end
 
   def flow_name
-    "coronavirus-find-support"
+    "find-coronavirus-support"
   end
 
   def node_name
