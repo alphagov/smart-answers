@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class CoronavirusFindSupportCalculator
+  class FindCoronavirusSupportCalculator
     attr_accessor :nation,
                   :need_help_with,
                   :feel_safe,

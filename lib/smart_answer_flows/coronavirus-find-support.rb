@@ -23,7 +23,7 @@ module SmartAnswer
         none_option
 
         on_response do |response|
-          self.calculator = Calculators::CoronavirusFindSupportCalculator.new
+          self.calculator = Calculators::FindCoronavirusSupportCalculator.new
           calculator.need_help_with = response
         end
 

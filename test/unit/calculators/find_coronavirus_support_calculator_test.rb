@@ -1,9 +1,9 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class CoronavirusFindSupportCalculatorTest < ActiveSupport::TestCase
+  class FindCoronavirusSupportCalculatorTest < ActiveSupport::TestCase
     setup do
-      @calculator = CoronavirusFindSupportCalculator.new
+      @calculator = FindCoronavirusSupportCalculator.new
     end
 
     context "#show_group?" do
