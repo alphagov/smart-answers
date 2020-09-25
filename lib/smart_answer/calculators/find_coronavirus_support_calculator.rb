@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
         calculator.needs_help_with?("being_unemployed") && calculator.have_you_been_made_unemployed != "no"
       },
       self_employed: lambda { |calculator|
-        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "yes"
+        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "no"
       },
       worried_about_work: lambda { |calculator|
         calculator.needs_help_with?("going_in_to_work") && calculator.worried_about_work != "no"
@@ -61,7 +61,7 @@ module SmartAnswer::Calculators
     }.freeze
 
     def show_group?(name)
-      GROUPS[name].map { |section| show_section?(section) }.any?
+      GROUPS[name].any? { |section| show_section?(section) }
     end
 
     def show_section?(name)
@@ -69,7 +69,7 @@ module SmartAnswer::Calculators
     end
 
     def has_results?
-      GROUPS.keys.map { |group| show_group?(group) }.any?
+      GROUPS.keys.any? { |group| show_group?(group) }
     end
 
     def needs_help_with?(given_help_item)
