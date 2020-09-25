@@ -4,7 +4,7 @@ module SmartAnswer
       name "find-coronavirus-support"
       start_page_content_id "d67f2c92-d0f0-438b-9c81-c0059dd71baf"
       flow_content_id "31d81949-aa15-48cf-a7f1-f0d0a670e8db"
-      status :draft
+      status :published
       use_session true
       use_escape_button true
       hide_previous_answers_on_results_page true
