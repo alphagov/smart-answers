@@ -2,6 +2,7 @@ class SessionAnswersController < ApplicationController
   before_action :set_cache_headers
 
   def start
+    session_store.clear
     redirect_to session_flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
