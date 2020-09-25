@@ -26,6 +26,22 @@ class SessionAnswersTest < ActionDispatch::SystemTestCase
     end
   end
 
+  test "Returning to start of flow resets session" do
+    visit "coronavirus-find-support/s"
+    within "legend" do
+      assert_page_has_content "What do you need help with because of coronavirus?"
+    end
+    check("Not sure", visible: false)
+    click_on "Continue"
+    within "legend" do
+      assert_page_has_content "Do you feel safe where you live?"
+    end
+    visit "coronavirus-find-support/s"
+    within "legend" do
+      assert_page_has_content "What do you need help with because of coronavirus?"
+    end
+  end
+
   def assert_page_has_content(text)
     assert page.has_content?(text), "'#{text}' not found in page"
   end
