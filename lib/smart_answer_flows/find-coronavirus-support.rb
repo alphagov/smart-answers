@@ -1,7 +1,7 @@
 module SmartAnswer
-  class CoronavirusFindSupportFlow < Flow
+  class FindCoronavirusSupportFlow < Flow
     def define
-      name "coronavirus-find-support"
+      name "find-coronavirus-support"
       start_page_content_id "6a6ab3c9-4612-4764-8f2f-2c534c3c6b19"
       flow_content_id "31d81949-aa15-48cf-a7f1-f0d0a670e8db"
       status :draft
@@ -23,7 +23,7 @@ module SmartAnswer
         none_option
 
         on_response do |response|
-          self.calculator = Calculators::CoronavirusFindSupportCalculator.new
+          self.calculator = Calculators::FindCoronavirusSupportCalculator.new
           calculator.need_help_with = response
         end
 

@@ -11,7 +11,7 @@ class SessionAnswersTest < ActionDispatch::SystemTestCase
   end
 
   test "Change link returns previously visited page" do
-    visit "coronavirus-find-support/s"
+    visit "find-coronavirus-support/s"
     within "legend" do
       assert_page_has_content "What do you need help with because of coronavirus?"
     end

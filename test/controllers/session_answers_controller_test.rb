@@ -2,7 +2,7 @@ require "test_helper"
 
 class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
   def flow_name
-    :coronavirus_find_support
+    :find_coronavirus_support
   end
 
   def nodes
