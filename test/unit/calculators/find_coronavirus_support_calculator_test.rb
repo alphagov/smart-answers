@@ -200,16 +200,23 @@ module SmartAnswer::Calculators
       end
 
       context "have_you_been_made_unemployed" do
-        should "return true when criteria is met" do
+        should "return true when user selects needing help with being unemployed" do
           @calculator.need_help_with = "being_unemployed"
-          @calculator.have_you_been_made_unemployed = "yes"
+          @calculator.have_you_been_made_unemployed = "yes_i_have_been_made_unemployed"
 
           assert @calculator.show_section?(:have_you_been_made_unemployed)
         end
 
-        should "return false when criteria is not met" do
+        should "return false when user selects not needing help with being unemployed" do
           @calculator.need_help_with = "being_unemployed"
           @calculator.have_you_been_made_unemployed = "no"
+
+          assert_not @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+
+        should "return false when user selects not selected needing help with being unemployed" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = nil
 
           assert_not @calculator.show_section?(:have_you_been_made_unemployed)
         end

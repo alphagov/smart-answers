@@ -38,6 +38,8 @@ module SmartAnswer::Calculators
         calculator.needs_help_with?("getting_food") && calculator.get_food != "yes"
       },
       have_you_been_made_unemployed: lambda { |calculator|
+        return false if calculator.have_you_been_made_unemployed.blank?
+
         calculator.needs_help_with?("being_unemployed") && calculator.have_you_been_made_unemployed != "no"
       },
       self_employed: lambda { |calculator|
