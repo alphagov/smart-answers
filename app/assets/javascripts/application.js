@@ -8,8 +8,9 @@
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require helpers
 //= require components/escape-link
+//= require modules/track-responses
 
 window.addEventListener('DOMContentLoaded', function () {
   var error = document.getElementById('current-error');
-  if (error) { error.focus() };
+  if (error) { error.focus() }
 })
