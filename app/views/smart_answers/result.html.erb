@@ -16,7 +16,8 @@
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">
     <%= render 'smart_answers/debug' %>
     <%= render "govuk_publishing_components/components/title", {
-      title: outcome.heading_title
+      title: outcome.heading_title,
+      margin_bottom: @presenter.hide_previous_answers_on_results_page? ? 6 : nil
     } %>
 
     <div class="govuk-!-margin-bottom-6 result-body" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
@@ -25,6 +26,20 @@
           text: outcome.title,
           margin_bottom: 6
         } unless outcome.title_as_heading? %>
+      <% end %>
+
+      <% if @presenter.hide_previous_answers_on_results_page? %>
+        <p class="govuk-body govuk-!-margin-bottom-6">
+          <%= link_to "Start again",
+            restart_flow_path(@presenter),
+            :class => "govuk-link",
+            :data => {
+              module: "track-click",
+              "track-action": "Start again",
+              "track-category": "StartAgain",
+              "track-label": @presenter.current_node.title
+            } %>
+        </p>
       <% end %>
 
       <%= outcome.body %>
@@ -54,7 +69,9 @@
       });
     </script>
 
-    <%= render 'smart_answers/previous_answers' %>
+    <% unless @presenter.hide_previous_answers_on_results_page? %>
+      <%= render 'smart_answers/previous_answers' %>
+    <% end %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>

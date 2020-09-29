@@ -64,6 +64,14 @@ module SmartAnswer
       use_session? && use_escape_button?
     end
 
+    def hide_previous_answers_on_results_page(hide_previous_answers_on_results_page) # rubocop:disable Style/TrivialAccessors
+      @hide_previous_answers_on_results_page = hide_previous_answers_on_results_page
+    end
+
+    def hide_previous_answers_on_results_page?
+      ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
+    end
+
     def button_text(text = "Next step")
       @button_text ||= text
     end
