@@ -16,6 +16,7 @@ class FlowPresenter
            :questions,
            :use_escape_button?,
            :show_escape_link?,
+           :hide_previous_answers_on_results_page?,
            to: :flow
 
   delegate :title, :meta_description, to: :start_node

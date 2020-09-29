@@ -85,6 +85,36 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.use_escape_button?
   end
 
+  test "can set flag to hide previous answers on results page" do
+    smart_answer = SmartAnswer::Flow.new do
+      hide_previous_answers_on_results_page true
+    end
+
+    assert smart_answer.hide_previous_answers_on_results_page?
+  end
+
+  test "can set flag to hide previous answers on results pagewith string" do
+    smart_answer = SmartAnswer::Flow.new do
+      hide_previous_answers_on_results_page "yes"
+    end
+
+    assert smart_answer.hide_previous_answers_on_results_page?
+  end
+
+  test "can set flag not to hide previous answers on results page" do
+    smart_answer = SmartAnswer::Flow.new do
+      hide_previous_answers_on_results_page "false"
+    end
+
+    assert_not smart_answer.hide_previous_answers_on_results_page?
+  end
+
+  test "defaults to show previous answers on results page" do
+    smart_answer = SmartAnswer::Flow.new
+
+    assert_not smart_answer.hide_previous_answers_on_results_page?
+  end
+
   test "Can set button text" do
     text = "continue"
     smart_answer = SmartAnswer::Flow.new do
