@@ -81,21 +81,21 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "going_in_to_work" do
+      context "going_to_work" do
         should "return true when criteria is met" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.worried_about_work = "yes"
           @calculator.are_you_off_work_ill = "yes"
 
-          assert @calculator.show_group?(:going_in_to_work)
+          assert @calculator.show_group?(:going_to_work)
         end
 
         should "return false when criteria is not met" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.worried_about_work = "no"
           @calculator.are_you_off_work_ill = "no"
 
-          assert_not @calculator.show_group?(:going_in_to_work)
+          assert_not @calculator.show_group?(:going_to_work)
         end
       end
 
@@ -295,21 +295,21 @@ module SmartAnswer::Calculators
 
       context "worried_about_work" do
         should "return true when worried about going into work" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.worried_about_work = "yes"
 
           assert @calculator.show_section?(:worried_about_work)
         end
 
         should "return true when not sure" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.worried_about_work = "not_sure"
 
           assert @calculator.show_section?(:worried_about_work)
         end
 
         should "return false when not worried" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.worried_about_work = "no"
 
           assert_not @calculator.show_section?(:worried_about_work)
@@ -318,14 +318,14 @@ module SmartAnswer::Calculators
 
       context "are_you_off_work_ill" do
         should "return true when off work ill" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.are_you_off_work_ill = "yes"
 
           assert @calculator.show_section?(:are_you_off_work_ill)
         end
 
         should "return false when not off work ill" do
-          @calculator.need_help_with = "going_in_to_work"
+          @calculator.need_help_with = "going_to_work"
           @calculator.are_you_off_work_ill = "no"
 
           assert_not @calculator.show_section?(:are_you_off_work_ill)

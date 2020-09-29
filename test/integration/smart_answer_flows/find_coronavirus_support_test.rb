@@ -44,7 +44,7 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
       add_response "no"
 
       # ======================================================================
-      # Group: going_in_to_work
+      # Group: going_to_work
       # ======================================================================
       assert_current_node :worried_about_work
       add_response "no"
