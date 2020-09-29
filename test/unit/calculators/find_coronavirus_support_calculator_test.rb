@@ -136,14 +136,28 @@ module SmartAnswer::Calculators
 
     context "#show_section?" do
       context "feel_safe" do
-        should "return true when criteria is met" do
+        should "return true when not feeling safe" do
           @calculator.need_help_with = "feeling_unsafe"
           @calculator.feel_safe = "no"
 
           assert @calculator.show_section?(:feel_safe)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "feeling_unsafe"
+          @calculator.feel_safe = "not_sure"
+
+          assert @calculator.show_section?(:feel_safe)
+        end
+
+        should "return true when worried someone else" do
+          @calculator.need_help_with = "feeling_unsafe"
+          @calculator.feel_safe = "yes_but_i_am_concerned_about_others"
+
+          assert @calculator.show_section?(:feel_safe)
+        end
+
+        should "return false when feeling safe" do
           @calculator.need_help_with = "feeling_unsafe"
           @calculator.feel_safe = "yes"
 
@@ -152,14 +166,21 @@ module SmartAnswer::Calculators
       end
 
       context "afford_rent_mortgage_bills" do
-        should "return true when criteria is met" do
+        should "return true when finding it hard to afford bills" do
           @calculator.need_help_with = "paying_bills"
           @calculator.afford_rent_mortgage_bills = "yes"
 
           assert @calculator.show_section?(:afford_rent_mortgage_bills)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "paying_bills"
+          @calculator.afford_rent_mortgage_bills = "not_sure"
+
+          assert @calculator.show_section?(:afford_rent_mortgage_bills)
+        end
+
+        should "return false when not finding it hard to afford bills" do
           @calculator.need_help_with = "paying_bills"
           @calculator.afford_rent_mortgage_bills = "no"
 
@@ -168,14 +189,21 @@ module SmartAnswer::Calculators
       end
 
       context "afford_food" do
-        should "return true when criteria is met" do
+        should "return true when can't affort food" do
           @calculator.need_help_with = "getting_food"
           @calculator.afford_food = "yes"
 
           assert @calculator.show_section?(:afford_food)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "getting_food"
+          @calculator.afford_food = "not_sure"
+
+          assert @calculator.show_section?(:afford_food)
+        end
+
+        should "return false when can afford food" do
           @calculator.need_help_with = "getting_food"
           @calculator.afford_food = "no"
 
@@ -184,14 +212,20 @@ module SmartAnswer::Calculators
       end
 
       context "get_food" do
-        should "return true when criteria is met" do
+        should "return true when not able to get food" do
           @calculator.need_help_with = "getting_food"
           @calculator.get_food = "no"
 
           assert @calculator.show_section?(:get_food)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "getting_food"
+          @calculator.get_food = "not_sure"
+
+          assert @calculator.show_section?(:get_food)
+        end
+        should "return false when able to get food" do
           @calculator.need_help_with = "getting_food"
           @calculator.get_food = "yes"
 
@@ -199,45 +233,22 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "have_you_been_made_unemployed" do
-        should "return true when user selects needing help with being unemployed" do
-          @calculator.need_help_with = "being_unemployed"
-          @calculator.have_you_been_made_unemployed = "yes_i_have_been_made_unemployed"
-
-          assert @calculator.show_section?(:have_you_been_made_unemployed)
-        end
-
-        should "return false when user selects not needing help with being unemployed" do
-          @calculator.need_help_with = "being_unemployed"
-          @calculator.have_you_been_made_unemployed = "no"
-
-          assert_not @calculator.show_section?(:have_you_been_made_unemployed)
-        end
-
-        should "return false when user selects not selected needing help with being unemployed" do
-          @calculator.need_help_with = "being_unemployed"
-          @calculator.have_you_been_made_unemployed = nil
-
-          assert_not @calculator.show_section?(:have_you_been_made_unemployed)
-        end
-      end
-
       context "self_employed" do
-        should "return true when need help with being unemployed and self-employed" do
+        should "return true when self employeed" do
           @calculator.need_help_with = "being_unemployed"
           @calculator.self_employed = "yes"
 
           assert @calculator.show_section?(:self_employed)
         end
 
-        should "return true when need help with being unemployed and unsure about beign self-employed" do
+        should "return true when not sure if self employeed" do
           @calculator.need_help_with = "being_unemployed"
           @calculator.self_employed = "not_sure"
 
           assert @calculator.show_section?(:self_employed)
         end
 
-        should "return false when criteria is not met" do
+        should "return false when not self employed" do
           @calculator.need_help_with = "being_unemployed"
           @calculator.self_employed = "no"
 
@@ -245,15 +256,59 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "have_you_been_made_unemployed" do
+        should "return true when been made unemployed" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = "yes_i_have_been_made_unemployed"
+
+          assert @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+
+        should "return true when been put on furlough" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = "yes_i_have_been_put_on_furlough"
+
+          assert @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+
+        should "return true when not sure" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = "not_sure"
+
+          assert @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+
+        should "return false when user when not unemployed" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = "no"
+
+          assert_not @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+
+        should "return false when user hasn't answered" do
+          @calculator.need_help_with = "being_unemployed"
+          @calculator.have_you_been_made_unemployed = nil
+
+          assert_not @calculator.show_section?(:have_you_been_made_unemployed)
+        end
+      end
+
       context "worried_about_work" do
-        should "return true when criteria is met" do
+        should "return true when worried about going into work" do
           @calculator.need_help_with = "going_in_to_work"
           @calculator.worried_about_work = "yes"
 
           assert @calculator.show_section?(:worried_about_work)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "going_in_to_work"
+          @calculator.worried_about_work = "not_sure"
+
+          assert @calculator.show_section?(:worried_about_work)
+        end
+
+        should "return false when not worried" do
           @calculator.need_help_with = "going_in_to_work"
           @calculator.worried_about_work = "no"
 
@@ -262,14 +317,14 @@ module SmartAnswer::Calculators
       end
 
       context "are_you_off_work_ill" do
-        should "return true when criteria is met" do
+        should "return true when off work ill" do
           @calculator.need_help_with = "going_in_to_work"
           @calculator.are_you_off_work_ill = "yes"
 
           assert @calculator.show_section?(:are_you_off_work_ill)
         end
 
-        should "return false when criteria is not met" do
+        should "return false when not off work ill" do
           @calculator.need_help_with = "going_in_to_work"
           @calculator.are_you_off_work_ill = "no"
 
@@ -278,9 +333,23 @@ module SmartAnswer::Calculators
       end
 
       context "have_somewhere_to_live" do
-        should "return true when criteria is met" do
+        should "return true when nowhere to live" do
           @calculator.need_help_with = "somewhere_to_live"
           @calculator.have_somewhere_to_live = "no"
+
+          assert @calculator.show_section?(:have_somewhere_to_live)
+        end
+
+        should "return true when might lose somewhere to live" do
+          @calculator.need_help_with = "somewhere_to_live"
+          @calculator.have_somewhere_to_live = "yes_but_i_might_lose_it"
+
+          assert @calculator.show_section?(:have_somewhere_to_live)
+        end
+
+        should "return true when not sure" do
+          @calculator.need_help_with = "somewhere_to_live"
+          @calculator.have_somewhere_to_live = "not_sure"
 
           assert @calculator.show_section?(:have_somewhere_to_live)
         end
@@ -294,9 +363,23 @@ module SmartAnswer::Calculators
       end
 
       context "have_you_been_evicted" do
-        should "return true when criteria is met" do
+        should "return true when have been evicted" do
           @calculator.need_help_with = "somewhere_to_live"
           @calculator.have_you_been_evicted = "yes"
+
+          assert @calculator.show_section?(:have_you_been_evicted)
+        end
+
+        should "return true when have been soon to be evicted" do
+          @calculator.need_help_with = "somewhere_to_live"
+          @calculator.have_you_been_evicted = "yes_i_might_be_soon"
+
+          assert @calculator.show_section?(:have_you_been_evicted)
+        end
+
+        should "return true when not sure" do
+          @calculator.need_help_with = "somewhere_to_live"
+          @calculator.have_you_been_evicted = "not_sure"
 
           assert @calculator.show_section?(:have_you_been_evicted)
         end
@@ -310,14 +393,21 @@ module SmartAnswer::Calculators
       end
 
       context "mental_health_worries" do
-        should "return true when criteria is met" do
+        should "return true when has worries" do
           @calculator.need_help_with = "mental_health"
           @calculator.mental_health_worries = "yes"
 
           assert @calculator.show_section?(:mental_health_worries)
         end
 
-        should "return false when criteria is not met" do
+        should "return true when not sure" do
+          @calculator.need_help_with = "mental_health"
+          @calculator.mental_health_worries = "not_sure"
+
+          assert @calculator.show_section?(:mental_health_worries)
+        end
+
+        should "return false when no worries" do
           @calculator.need_help_with = "mental_health"
           @calculator.mental_health_worries = "no"
 

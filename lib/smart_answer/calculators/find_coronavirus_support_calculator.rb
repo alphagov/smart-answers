@@ -37,13 +37,13 @@ module SmartAnswer::Calculators
       get_food: lambda { |calculator|
         calculator.needs_help_with?("getting_food") && calculator.get_food != "yes"
       },
+      self_employed: lambda { |calculator|
+        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "no"
+      },
       have_you_been_made_unemployed: lambda { |calculator|
         return false if calculator.have_you_been_made_unemployed.blank?
 
         calculator.needs_help_with?("being_unemployed") && calculator.have_you_been_made_unemployed != "no"
-      },
-      self_employed: lambda { |calculator|
-        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "no"
       },
       worried_about_work: lambda { |calculator|
         calculator.needs_help_with?("going_in_to_work") && calculator.worried_about_work != "no"
