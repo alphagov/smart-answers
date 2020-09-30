@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
       paying_bills: [:afford_rent_mortgage_bills],
       getting_food: %i[afford_food get_food],
       being_unemployed: %i[have_you_been_made_unemployed self_employed],
-      going_in_to_work: %i[worried_about_work are_you_off_work_ill],
+      going_to_work: %i[worried_about_work are_you_off_work_ill],
       somewhere_to_live: %i[have_somewhere_to_live have_you_been_evicted],
       mental_health: [:mental_health_worries],
     }.freeze
@@ -37,19 +37,19 @@ module SmartAnswer::Calculators
       get_food: lambda { |calculator|
         calculator.needs_help_with?("getting_food") && calculator.get_food != "yes"
       },
+      self_employed: lambda { |calculator|
+        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "no"
+      },
       have_you_been_made_unemployed: lambda { |calculator|
         return false if calculator.have_you_been_made_unemployed.blank?
 
         calculator.needs_help_with?("being_unemployed") && calculator.have_you_been_made_unemployed != "no"
       },
-      self_employed: lambda { |calculator|
-        calculator.needs_help_with?("being_unemployed") && calculator.self_employed != "no"
-      },
       worried_about_work: lambda { |calculator|
-        calculator.needs_help_with?("going_in_to_work") && calculator.worried_about_work != "no"
+        calculator.needs_help_with?("going_to_work") && calculator.worried_about_work != "no"
       },
       are_you_off_work_ill: lambda { |calculator|
-        calculator.needs_help_with?("going_in_to_work") && calculator.are_you_off_work_ill == "yes"
+        calculator.needs_help_with?("going_to_work") && calculator.are_you_off_work_ill == "yes"
       },
       have_somewhere_to_live: lambda { |calculator|
         calculator.needs_help_with?("somewhere_to_live") && calculator.have_somewhere_to_live != "yes"
