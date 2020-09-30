@@ -375,8 +375,8 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_test
   htmlentities
-  jasmine (~> 3.6.0)
-  jasmine_selenium_runner (~> 3.0.0)
+  jasmine
+  jasmine_selenium_runner
   json
   listen
   method_source
