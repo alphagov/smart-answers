@@ -9,15 +9,18 @@ module SmartAnswer
 
       date_question :when_does_your_vat_accounting_period_end? do
         default_day { -1 }
-        next_node do
-          question :how_do_you_want_to_pay?
+
+        on_response do
+          self.calculator = Calculators::VatPaymentDeadlines.new
         end
 
-        calculate :period_end_date do |response|
-          date = response
-          raise InvalidResponse unless date == date.end_of_month
+        validate :error_message do |response|
+          response == response.end_of_month
+        end
 
-          date
+        next_node do |response|
+          calculator.period_end_date = response
+          question :how_do_you_want_to_pay?
         end
       end
 
@@ -30,15 +33,8 @@ module SmartAnswer
         option "chaps"
         option "cheque"
 
-        calculate :calculator do |response|
-          Calculators::VatPaymentDeadlines.new(period_end_date, response)
-        end
-
-        calculate :last_payment_date do
-          calculator.last_payment_date.strftime("%e %B %Y").strip
-        end
-        calculate :funds_received_by do
-          calculator.funds_received_by.strftime("%e %B %Y").strip
+        on_response do |response|
+          calculator.payment_method = response
         end
 
         next_node do |response|
@@ -61,19 +57,13 @@ module SmartAnswer
         end
       end
 
-      outcome :result_direct_debit do
-        precalculate(:last_dd_setup_date) { last_payment_date }
-        precalculate(:funds_taken) { funds_received_by }
-      end
+      outcome :result_direct_debit
       outcome :result_online_telephone_banking
       outcome :result_online_debit_credit_card
       outcome :result_bacs_direct_credit
       outcome :result_bank_giro
       outcome :result_chaps
-      outcome :result_cheque do
-        precalculate(:last_posting_date) { last_payment_date }
-        precalculate(:funds_cleared_by) { funds_received_by }
-      end
+      outcome :result_cheque
     end
   end
 end
