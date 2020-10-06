@@ -7,19 +7,16 @@ module SmartAnswer
       status :published
       satisfies_need "7389628a-b288-45c4-a8c3-f4d9de7f8873"
 
-      sf_calculator = Calculators::StudentFinanceCalculator.new
-
       # Q1
       multiple_choice :when_does_your_course_start? do
         option :"2019-2020"
         option :"2020-2021"
 
         on_response do |response|
-          self.calculator = sf_calculator
+          self.calculator = Calculators::StudentFinanceCalculator.new
           calculator.course_start = response
         end
 
-        save_input_as :start_date
         next_node do
           question :what_type_of_student_are_you?
         end
@@ -32,8 +29,6 @@ module SmartAnswer
         option :"eu-full-time"
         option :"eu-part-time"
 
-        save_input_as :course_type
-
         on_response do |response|
           calculator.course_type = response
         end
@@ -45,16 +40,16 @@ module SmartAnswer
 
       # Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
-        calculate :tuition_fee_amount do |response|
-          if response > calculator.tuition_fee_maximum
-            raise SmartAnswer::InvalidResponse
-          end
+        on_response do |response|
+          calculator.tuition_fee_amount = SmartAnswer::Money.new(response)
+        end
 
-          SmartAnswer::Money.new(response)
+        validate do
+          calculator.valid_tuition_fee_amount?
         end
 
         next_node do
-          case course_type
+          case calculator.course_type
           when "uk-full-time"
             question :where_will_you_live_while_studying?
           when "uk-part-time"
@@ -64,13 +59,12 @@ module SmartAnswer
           end
         end
       end
+
       # Q4
       multiple_choice :where_will_you_live_while_studying? do
         option :'at-home'
         option :'away-outside-london'
         option :'away-in-london'
-
-        save_input_as :where_living
 
         on_response do |response|
           calculator.residence = response
@@ -88,7 +82,7 @@ module SmartAnswer
         end
 
         next_node do
-          case course_type
+          case calculator.course_type
           when "uk-full-time"
             question :do_any_of_the_following_apply_uk_full_time_students_only?
           when "uk-part-time"
@@ -100,11 +94,11 @@ module SmartAnswer
       # Q6a
       value_question :how_many_credits_will_you_study?, parse: Float do
         on_response do |response|
-          if response.negative?
-            raise SmartAnswer::InvalidResponse
-          end
-
           calculator.part_time_credits = response
+        end
+
+        validate do
+          calculator.valid_credit_amount?
         end
 
         next_node do
@@ -115,11 +109,11 @@ module SmartAnswer
       # Q6b
       value_question :how_many_credits_does_a_full_time_student_study?, parse: Float do
         on_response do |response|
-          if response.negative? || response < calculator.part_time_credits
-            raise SmartAnswer::InvalidResponse
-          end
-
           calculator.full_time_credits = response
+        end
+
+        validate do
+          calculator.valid_full_time_credit_amount?
         end
 
         next_node do
@@ -134,10 +128,6 @@ module SmartAnswer
         option :"has-disability"
         option :"low-income"
         option :no
-
-        calculate :uk_ft_circumstances do |response|
-          response.split(",")
-        end
 
         on_response do |response|
           calculator.uk_ft_circumstances = response.split(",")
@@ -154,8 +144,8 @@ module SmartAnswer
         option :"low-income"
         option :no
 
-        calculate :all_uk_students_circumstances do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.uk_all_circumstances = response.split(",")
         end
 
         next_node do
@@ -170,10 +160,12 @@ module SmartAnswer
         option :"social-work"
         option :"none-of-the-above"
 
-        save_input_as :course_studied
+        on_response do |response|
+          calculator.course_studied = response
+        end
 
         next_node do |response|
-          case course_type
+          case calculator.course_type
           when "uk-full-time"
             if response == "dental-medical-healthcare"
               question :are_you_a_doctor_or_dentist?

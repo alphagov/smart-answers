@@ -5,11 +5,11 @@
 
   You could get per year:
 
-  <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: start_date } %>
+  <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start } %>
 
   ###Extra student funding
 
-  <% if uk_ft_circumstances.include?('no') && course_studied == 'none-of-the-above' %>
+  <% if calculator.uk_ft_circumstances.include?('no') && calculator.course_studied == 'none-of-the-above' %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     Depending on your income and circumstances, you could get:
@@ -24,7 +24,7 @@
       - up to <%= format_money(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
     <% end %>
 
-    <% if uk_ft_circumstances.include?('children-under-17') %>
+    <% if calculator.uk_ft_circumstances.include?('children-under-17') %>
       - [Child Tax Credit](/child-tax-credit)
     <% end %>
 
@@ -32,21 +32,21 @@
       - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
-    <% if uk_ft_circumstances.include?('has-disability') %>
+    <% if calculator.uk_ft_circumstances.include?('has-disability') %>
       - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
     <% end %>
 
-    <% if uk_ft_circumstances.include?('low-income') %>
+    <% if calculator.uk_ft_circumstances.include?('low-income') %>
       - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
     <% end %>
 
-    <% if course_studied == 'teacher-training' %>
+    <% if calculator.course_studied == 'teacher-training' %>
       - [Funding for teacher training](/teacher-training-funding)
-    <% elsif course_studied == 'social-work' %>
+    <% elsif calculator.course_studied == 'social-work' %>
       - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
     <% end %>
 
-    <%= render partial: 'uk_extra_help', locals: { course_type: course_type } %>
+    <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
 
     <%= render partial: 'next_steps' %>
   <% end %>

@@ -1,29 +1,29 @@
 - NHS Bursary (funding towards your fees and living costs)
 
-<% if uk_ft_circumstances.include?('has-disability') %>
+<% if calculator.uk_ft_circumstances.include?('has-disability') %>
   - Disabled Students' Allowance
 <% end %>
 
-<% if uk_ft_circumstances.include?('children-under-17') %>
+<% if calculator.uk_ft_circumstances.include?('children-under-17') %>
   - Childcare Allowance
   - Parents' Learning Allowance
 <% end %>
 
-<% if uk_ft_circumstances.include?('dependant-adult') %>
+<% if calculator.uk_ft_circumstances.include?('dependant-adult') %>
   - Dependants' Allowance
 <% end %>
 
 - Extra Weeks Allowance
 - Practice placement expenses
 
-<% if uk_ft_circumstances.include?('children-under-17') || uk_ft_circumstances.include?('low-income') %>
+<% if calculator.uk_ft_circumstances.include?('children-under-17') || calculator.uk_ft_circumstances.include?('low-income') %>
   Each year you could also get:
 
-  <% if uk_ft_circumstances.include?('children-under-17') %>
+  <% if calculator.uk_ft_circumstances.include?('children-under-17') %>
     - [Child Tax Credit](/child-tax-credit)
   <% end %>
 
-  <% if uk_ft_circumstances.include?('low-income') %>
+  <% if calculator.uk_ft_circumstances.include?('low-income') %>
     - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
   <% end %>
 <% end %>
