@@ -27,7 +27,7 @@
 
   ###Extra student funding
 
-  <% if calculator.uk_all_circumstances.include?('no') and calculator.course_studied != 'teacher-training' and calculator.course_studied != 'social-work' %>
+  <% if calculator.ineligible_for_extra_grants? %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     You could get:

@@ -187,6 +187,10 @@ module SmartAnswer
         full_time_credits.positive? && full_time_credits >= part_time_credits
       end
 
+      def ineligible_for_extra_grants?
+        uk_all_circumstances.include?("no") && course_studied != "teacher-training" && course_studied != "social-work"
+      end
+
     private
 
       def max_loan_amount
