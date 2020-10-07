@@ -1,0 +1,14 @@
+<% text_for :title do %>
+  Here be links
+  <%= link_to "This link", "http://example.com/one" %>
+<% end %>
+
+<% govspeak_for :body do %>
+  This is some text.
+  [This is a link](https://example.com/two)
+  Some more text
+<% end %>
+
+<% html_for :body do %>
+  There is a link <a href="http://example.com/three">here</a>
+<% end %>
