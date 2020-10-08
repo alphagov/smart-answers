@@ -49,6 +49,16 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "GET /:id/s/:node_slug with later slug" do
+    setup do
+      get session_flow_path(id: flow_name, node_slug: nodes[1])
+    end
+
+    should "redirect later node to earlier node if session data not present" do
+      assert_redirected_to(session_flow_path(id: flow_name, node_slug: nodes[0]))
+    end
+  end
+
   def params
     { "response" => %w[getting_food], "next" => "1" }
   end
