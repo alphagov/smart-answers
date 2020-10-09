@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "b91945bf-56f6-46aa-b25f-0066bc2377b6"
 
       # Q1
-      multiple_choice :which_calculation? do
+      radio :which_calculation? do
         option :age
         option :bus_pass
 
@@ -47,7 +47,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :gender? do
+      radio :gender? do
         option :male
         option :female
 

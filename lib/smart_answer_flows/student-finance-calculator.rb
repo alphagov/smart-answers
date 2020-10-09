@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "7389628a-b288-45c4-a8c3-f4d9de7f8873"
 
       # Q1
-      multiple_choice :when_does_your_course_start? do
+      radio :when_does_your_course_start? do
         option :"2019-2020"
         option :"2020-2021"
 
@@ -23,7 +23,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :what_type_of_student_are_you? do
+      radio :what_type_of_student_are_you? do
         option :"uk-full-time"
         option :"uk-part-time"
         option :"eu-full-time"
@@ -61,7 +61,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :where_will_you_live_while_studying? do
+      radio :where_will_you_live_while_studying? do
         option :'at-home'
         option :'away-outside-london'
         option :'away-in-london'
@@ -154,7 +154,7 @@ module SmartAnswer
       end
 
       # Q8a
-      multiple_choice :what_course_are_you_studying? do
+      radio :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
         option :"social-work"
@@ -181,7 +181,7 @@ module SmartAnswer
       end
 
       # Q8b
-      multiple_choice :are_you_a_doctor_or_dentist? do
+      radio :are_you_a_doctor_or_dentist? do
         option :yes
         option :no
 

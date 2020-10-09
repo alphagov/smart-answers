@@ -2,7 +2,7 @@ module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     class AdoptionCalculatorFlow < Flow
       def define
-        multiple_choice :taking_paternity_or_maternity_leave_for_adoption? do
+        radio :taking_paternity_or_maternity_leave_for_adoption? do
           option :paternity
           option :maternity
 
@@ -16,7 +16,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :adoption_is_from_overseas? do
+        radio :adoption_is_from_overseas? do
           option :yes
           option :no
 
@@ -92,7 +92,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :adoption_did_the_employee_work_for_you? do
+        radio :adoption_did_the_employee_work_for_you? do
           option :yes
           option :no
 
@@ -110,7 +110,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :adoption_employment_contract? do
+        radio :adoption_employment_contract? do
           option :yes
           option :no
 
@@ -127,7 +127,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :adoption_is_the_employee_on_your_payroll? do
+        radio :adoption_is_the_employee_on_your_payroll? do
           option :yes
           option :no
 
@@ -247,7 +247,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :pay_frequency_adoption? do
+        radio :pay_frequency_adoption? do
           option :weekly
           option :every_2_weeks
           option :every_4_weeks
@@ -293,7 +293,7 @@ module SmartAnswer
           end
         end
 
-        multiple_choice :how_do_you_want_the_sap_calculated? do
+        radio :how_do_you_want_the_sap_calculated? do
           option :weekly_starting
           option :usual_paydates
 

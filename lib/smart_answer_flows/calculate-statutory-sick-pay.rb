@@ -32,7 +32,7 @@ module SmartAnswer
       end
 
       # Question 2
-      multiple_choice :coronavirus_related? do
+      radio :coronavirus_related? do
         option :yes
         option :no
 
@@ -50,7 +50,7 @@ module SmartAnswer
       end
 
       # Question 2.1
-      multiple_choice :coronavirus_gp_letter? do
+      radio :coronavirus_gp_letter? do
         option :yes
         option :no
 
@@ -68,7 +68,7 @@ module SmartAnswer
       end
 
       # Question 2.2
-      multiple_choice :coronavirus_self_or_cohabitant? do
+      radio :coronavirus_self_or_cohabitant? do
         option :self
         option :cohabitant
 
@@ -83,7 +83,7 @@ module SmartAnswer
       end
 
       # Question 3
-      multiple_choice :employee_tell_within_limit? do
+      radio :employee_tell_within_limit? do
         option :yes
         option :no
 
@@ -97,7 +97,7 @@ module SmartAnswer
       end
 
       # Question 4
-      multiple_choice :employee_work_different_days? do
+      radio :employee_work_different_days? do
         option :yes
         option :no
 
@@ -152,7 +152,7 @@ module SmartAnswer
       end
 
       # Question 7
-      multiple_choice :has_linked_sickness? do
+      radio :has_linked_sickness? do
         option :yes
         option :no
 
@@ -223,7 +223,7 @@ module SmartAnswer
       end
 
       # Question 8.1
-      multiple_choice :paid_at_least_8_weeks? do
+      radio :paid_at_least_8_weeks? do
         option :eight_weeks_more
         option :eight_weeks_less
         option :before_payday
@@ -244,7 +244,7 @@ module SmartAnswer
       end
 
       # Question 8.2
-      multiple_choice :how_often_pay_employee_pay_patterns? do
+      radio :how_often_pay_employee_pay_patterns? do
         option :weekly
         option :fortnightly
         option :every_4_weeks

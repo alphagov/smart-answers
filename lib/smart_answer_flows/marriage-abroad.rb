@@ -43,7 +43,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :legal_residency? do
+      radio :legal_residency? do
         option :uk
         option :ceremony_country
         option :third_country
@@ -64,7 +64,7 @@ module SmartAnswer
       end
 
       # Q3a
-      multiple_choice :marriage_or_pacs? do
+      radio :marriage_or_pacs? do
         option :marriage
         option :pacs
 
@@ -78,7 +78,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :what_is_your_partners_nationality? do
+      radio :what_is_your_partners_nationality? do
         option :partner_british
         option :partner_local
         option :partner_other
@@ -93,7 +93,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :partner_opposite_or_same_sex? do
+      radio :partner_opposite_or_same_sex? do
         option :opposite_sex
         option :same_sex
 

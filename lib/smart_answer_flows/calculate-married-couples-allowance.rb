@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "39e28d41-a13b-441d-8bf2-f1fc54992aea"
 
-      multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
+      radio :were_you_or_your_partner_born_on_or_before_6_april_1935? do
         option :yes
         option :no
 
@@ -25,7 +25,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
+      radio :did_you_marry_or_civil_partner_before_5_december_2005? do
         option :yes
         option :no
 
@@ -100,7 +100,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :paying_into_a_pension? do
+      radio :paying_into_a_pension? do
         option :yes
         option :no
 

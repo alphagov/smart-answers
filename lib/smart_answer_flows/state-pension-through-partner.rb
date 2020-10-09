@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "50721588-6952-4280-be7b-30d5402e715d"
 
       # Q1
-      multiple_choice :what_is_your_marital_status? do
+      radio :what_is_your_marital_status? do
         option :married
         option :widowed
         option :divorced
@@ -28,7 +28,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :when_will_you_reach_pension_age? do
+      radio :when_will_you_reach_pension_age? do
         option :your_pension_age_before_specific_date
         option :your_pension_age_after_specific_date
 
@@ -48,7 +48,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :when_will_your_partner_reach_pension_age? do
+      radio :when_will_your_partner_reach_pension_age? do
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date
 
@@ -68,7 +68,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :what_is_your_gender? do
+      radio :what_is_your_gender? do
         option :male_gender
         option :female_gender
 

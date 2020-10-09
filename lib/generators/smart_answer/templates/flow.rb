@@ -12,7 +12,7 @@ module SmartAnswer
       # - Country select
       # - Date
       # - Money
-      # - Multiple choice
+      # - Radio
       # - Postcode
       # - Salary
       # - Value (text)

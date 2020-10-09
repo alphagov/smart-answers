@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "e220b484-a097-4ed4-ae3d-ac982b10c8cd"
 
-      multiple_choice :which_year? do
+      radio :which_year? do
         option :"2012-13"
         option :"2013-14"
         option :"2014-15"
@@ -26,7 +26,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :how_submitted? do
+      radio :how_submitted? do
         option :online
         option :paper
 

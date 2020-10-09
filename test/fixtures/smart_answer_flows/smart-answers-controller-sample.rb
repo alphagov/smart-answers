@@ -4,7 +4,7 @@ module SmartAnswer
       name "smart-answers-controller-sample"
       satisfies_need "7da2fa63-190c-446e-b3e5-94480f0e46e7"
 
-      multiple_choice :do_you_like_chocolate? do
+      radio :do_you_like_chocolate? do
         option :yes
         option :no
 
@@ -18,7 +18,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :do_you_like_jam? do
+      radio :do_you_like_jam? do
         option :yes
         option :no
 

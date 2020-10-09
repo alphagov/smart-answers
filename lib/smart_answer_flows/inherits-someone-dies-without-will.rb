@@ -11,7 +11,7 @@ module SmartAnswer
       # as the flow chart rather than to minimise repetition.
 
       # Q1
-      multiple_choice :region? do
+      radio :region? do
         option :"england-and-wales"
         option :scotland
         option :"northern-ireland"
@@ -28,7 +28,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :partner? do
+      radio :partner? do
         option :yes
         option :no
 
@@ -55,7 +55,7 @@ module SmartAnswer
       end
 
       # Q3 (Ireland)
-      multiple_choice :estate_over_250000? do
+      radio :estate_over_250000? do
         option :yes
         option :no
 
@@ -80,7 +80,7 @@ module SmartAnswer
       end
 
       # Q3 (England and Wales)
-      multiple_choice :estate_over_270000? do
+      radio :estate_over_270000? do
         option :yes
         option :no
 
@@ -105,7 +105,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :children? do
+      radio :children? do
         option :yes
         option :no
 
@@ -169,7 +169,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :parents? do
+      radio :parents? do
         option :yes
         option :no
 
@@ -208,7 +208,7 @@ module SmartAnswer
       end
 
       # Q6
-      multiple_choice :siblings? do
+      radio :siblings? do
         option :yes
         option :no
 
@@ -272,7 +272,7 @@ module SmartAnswer
       end
 
       # Q61
-      multiple_choice :siblings_including_mixed_parents? do
+      radio :siblings_including_mixed_parents? do
         option :yes
         option :no
 
@@ -289,7 +289,7 @@ module SmartAnswer
       end
 
       # Q7
-      multiple_choice :grandparents? do
+      radio :grandparents? do
         option :yes
         option :no
 
@@ -323,7 +323,7 @@ module SmartAnswer
       end
 
       # Q8
-      multiple_choice :aunts_or_uncles? do
+      radio :aunts_or_uncles? do
         option :yes
         option :no
 
@@ -357,7 +357,7 @@ module SmartAnswer
       end
 
       # Q20
-      multiple_choice :half_siblings? do
+      radio :half_siblings? do
         option :yes
         option :no
 
@@ -374,7 +374,7 @@ module SmartAnswer
       end
 
       # Q21
-      multiple_choice :half_aunts_or_uncles? do
+      radio :half_aunts_or_uncles? do
         option :yes
         option :no
 
@@ -391,7 +391,7 @@ module SmartAnswer
       end
 
       # Q40
-      multiple_choice :great_aunts_or_uncles? do
+      radio :great_aunts_or_uncles? do
         option :yes
         option :no
 
@@ -408,7 +408,7 @@ module SmartAnswer
       end
 
       # Q60
-      multiple_choice :more_than_one_child? do
+      radio :more_than_one_child? do
         option :yes
         option :no
 

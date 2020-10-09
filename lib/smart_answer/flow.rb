@@ -95,7 +95,7 @@ module SmartAnswer
       @status
     end
 
-    def multiple_choice(name, &block)
+    def radio(name, &block)
       add_node Question::Radio.new(self, name, &block)
     end
 

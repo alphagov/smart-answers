@@ -10,7 +10,7 @@ module SmartAnswer
       config = Calculators::BenefitCapCalculatorConfiguration.new
 
       # Q1
-      multiple_choice :receive_housing_benefit? do
+      radio :receive_housing_benefit? do
         option :yes
         option :no
 
@@ -26,7 +26,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :working_tax_credit? do
+      radio :working_tax_credit? do
         option :yes
         option :no
 
@@ -128,7 +128,7 @@ module SmartAnswer
       end
 
       # Q6
-      multiple_choice :single_couple_lone_parent? do
+      radio :single_couple_lone_parent? do
         precalculate :weekly_benefit_cap_descriptions do
           config.weekly_benefit_cap_descriptions
         end

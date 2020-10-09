@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "a22c3cfa-0590-4a00-9846-f67df3df0071"
 
       # Q1
-      multiple_choice :basis_of_calculation? do
+      radio :basis_of_calculation? do
         option "days-worked-per-week"
         option "hours-worked-per-week"
         option "irregular-hours"
@@ -32,7 +32,7 @@ module SmartAnswer
       end
 
       # Q2, Q35
-      multiple_choice :calculation_period? do
+      radio :calculation_period? do
         option "full-year"
         option "starting"
         option "leaving"
@@ -189,7 +189,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :shift_worker_basis? do
+      radio :shift_worker_basis? do
         option "full-year"
         option "starting"
         option "leaving"

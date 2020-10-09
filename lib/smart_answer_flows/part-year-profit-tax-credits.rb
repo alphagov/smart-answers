@@ -34,7 +34,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :have_you_stopped_trading? do
+      radio :have_you_stopped_trading? do
         option "yes"
         option "no"
 
@@ -55,7 +55,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :did_you_start_trading_before_the_relevant_accounting_year? do
+      radio :did_you_start_trading_before_the_relevant_accounting_year? do
         option "yes"
         option "no"
 
@@ -90,7 +90,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :do_your_accounts_cover_a_12_month_period? do
+      radio :do_your_accounts_cover_a_12_month_period? do
         option "yes"
         option "no"
 

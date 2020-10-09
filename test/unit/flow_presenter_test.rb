@@ -27,7 +27,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   test "#presenter_for returns presenter for MultipleChoice question" do
-    question = @flow.multiple_choice(:question_key).last
+    question = @flow.radio(:question_key).last
     node_presenter = @flow_presenter.presenter_for(question)
     assert_instance_of MultipleChoiceQuestionPresenter, node_presenter
   end
@@ -77,7 +77,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   test "#presenter_for always returns same presenter for a given question" do
-    question = @flow.multiple_choice(:question_key).last
+    question = @flow.radio(:question_key).last
     node_presenter1 = @flow_presenter.presenter_for(question)
     node_presenter2 = @flow_presenter.presenter_for(question)
     assert_same node_presenter1, node_presenter2

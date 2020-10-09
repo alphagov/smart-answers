@@ -10,7 +10,7 @@ module SmartAnswer
       # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
-      multiple_choice :how_many_payments_weekly? do
+      radio :how_many_payments_weekly? do
         payment_options_weekly.each_key do |payment_option|
           option payment_option
         end
@@ -39,7 +39,7 @@ module SmartAnswer
       # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
-      multiple_choice :how_many_payments_every_2_weeks? do
+      radio :how_many_payments_every_2_weeks? do
         payment_options_every_2_weeks.each_key do |payment_option|
           option payment_option
         end
@@ -68,7 +68,7 @@ module SmartAnswer
       # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
-      multiple_choice :how_many_payments_every_4_weeks? do
+      radio :how_many_payments_every_4_weeks? do
         payment_options_every_4_weeks.each_key do |payment_option|
           option payment_option
         end
@@ -97,7 +97,7 @@ module SmartAnswer
       # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
-      multiple_choice :how_many_payments_monthly? do
+      radio :how_many_payments_monthly? do
         payment_options_monthly.each_key do |payment_option|
           option payment_option
         end

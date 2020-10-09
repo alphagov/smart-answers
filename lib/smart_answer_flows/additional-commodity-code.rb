@@ -9,7 +9,7 @@ module SmartAnswer
       satisfies_need "835da435-b6ea-4c76-a584-75c1082d86f5"
 
       # Q1
-      multiple_choice :how_much_starch_glucose? do
+      radio :how_much_starch_glucose? do
         option 0
         option 5
         option 25
@@ -36,7 +36,7 @@ module SmartAnswer
       end
 
       # Q2ab
-      multiple_choice :how_much_sucrose_1? do
+      radio :how_much_sucrose_1? do
         option 0
         option 5
         option 30
@@ -53,7 +53,7 @@ module SmartAnswer
       end
 
       # Q2c
-      multiple_choice :how_much_sucrose_2? do
+      radio :how_much_sucrose_2? do
         option 0
         option 5
         option 30
@@ -69,7 +69,7 @@ module SmartAnswer
       end
 
       # Q2d
-      multiple_choice :how_much_sucrose_3? do
+      radio :how_much_sucrose_3? do
         option 0
         option 5
         option 30
@@ -84,7 +84,7 @@ module SmartAnswer
       end
 
       # Q2e
-      multiple_choice :how_much_sucrose_4? do
+      radio :how_much_sucrose_4? do
         option 0
         option 5
 
@@ -98,7 +98,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :how_much_milk_fat? do
+      radio :how_much_milk_fat? do
         option 0
         option 1
         option 3
@@ -135,7 +135,7 @@ module SmartAnswer
       end
 
       # Q3ab
-      multiple_choice :how_much_milk_protein_ab? do
+      radio :how_much_milk_protein_ab? do
         option 0
         option 2
         option 6
@@ -153,7 +153,7 @@ module SmartAnswer
       end
 
       # Q3c
-      multiple_choice :how_much_milk_protein_c? do
+      radio :how_much_milk_protein_c? do
         option 0
         option 2
         option 12
@@ -168,7 +168,7 @@ module SmartAnswer
       end
 
       # Q3d
-      multiple_choice :how_much_milk_protein_d? do
+      radio :how_much_milk_protein_d? do
         option 0
         option 4
         option 15
@@ -183,7 +183,7 @@ module SmartAnswer
       end
 
       # Q3ef
-      multiple_choice :how_much_milk_protein_ef? do
+      radio :how_much_milk_protein_ef? do
         option 0
         option 6
         option 18
@@ -198,7 +198,7 @@ module SmartAnswer
       end
 
       # Q3gh
-      multiple_choice :how_much_milk_protein_gh? do
+      radio :how_much_milk_protein_gh? do
         option 0
         option 6
 

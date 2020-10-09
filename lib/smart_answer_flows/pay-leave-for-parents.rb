@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "558b11d4-e164-40e2-96a2-f20643fe4539"
 
-      multiple_choice :two_carers do
+      radio :two_carers do
         option "yes"
         option "no"
 
@@ -31,7 +31,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :employment_status_of_mother do
+      radio :employment_status_of_mother do
         option "employee"
         option "worker"
         option "self-employed"
@@ -55,7 +55,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :employment_status_of_partner do
+      radio :employment_status_of_partner do
         option "employee"
         option "worker"
         option "self-employed"
@@ -75,7 +75,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :mother_started_working_before_continuity_start_date do
+      radio :mother_started_working_before_continuity_start_date do
         option "yes"
         option "no"
 
@@ -88,7 +88,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :mother_still_working_on_continuity_end_date do
+      radio :mother_still_working_on_continuity_end_date do
         option "yes"
         option "no"
 
@@ -101,7 +101,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :mother_earned_more_than_lower_earnings_limit do
+      radio :mother_earned_more_than_lower_earnings_limit do
         option "yes"
         option "no"
 
@@ -137,7 +137,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :mother_worked_at_least_26_weeks do
+      radio :mother_worked_at_least_26_weeks do
         option "yes"
         option "no"
 
@@ -150,7 +150,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :mother_earned_at_least_390 do
+      radio :mother_earned_at_least_390 do
         option "yes"
         option "no"
 
@@ -212,7 +212,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :partner_started_working_before_continuity_start_date do
+      radio :partner_started_working_before_continuity_start_date do
         option "yes"
         option "no"
 
@@ -225,7 +225,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :partner_still_working_on_continuity_end_date do
+      radio :partner_still_working_on_continuity_end_date do
         option "yes"
         option "no"
 
@@ -238,7 +238,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :partner_earned_more_than_lower_earnings_limit do
+      radio :partner_earned_more_than_lower_earnings_limit do
         option "yes"
         option "no"
 
@@ -641,7 +641,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :partner_worked_at_least_26_weeks do
+      radio :partner_worked_at_least_26_weeks do
         option "yes"
         option "no"
 
@@ -654,7 +654,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :partner_earned_at_least_390 do
+      radio :partner_earned_at_least_390 do
         option "yes"
         option "no"
 

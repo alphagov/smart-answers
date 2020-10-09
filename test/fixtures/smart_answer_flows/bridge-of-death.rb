@@ -11,7 +11,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :what_is_your_quest? do
+      radio :what_is_your_quest? do
         option :to_seek_the_holy_grail
         option :to_rescue_the_princess
         option :dunno
@@ -32,7 +32,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :what_is_your_favorite_colour? do
+      radio :what_is_your_favorite_colour? do
         option :blue
         option :blue_no_yellow
         option :red

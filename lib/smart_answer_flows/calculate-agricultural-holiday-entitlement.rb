@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "a22c3cfa-0590-4a00-9846-f67df3df0071"
 
-      multiple_choice :work_the_same_number_of_days_each_week? do
+      radio :work_the_same_number_of_days_each_week? do
         option "same-number-of-days"
         option "different-number-of-days"
 
@@ -25,7 +25,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :how_many_days_per_week? do
+      radio :how_many_days_per_week? do
         option "7-days"
         option "6-days"
         option "5-days"
@@ -58,7 +58,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :worked_for_same_employer? do
+      radio :worked_for_same_employer? do
         option "same-employer"
         option "multiple-employers"
 

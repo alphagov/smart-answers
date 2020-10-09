@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "f59b3c90-a1a8-4fa9-a593-2b218b25c0fd"
 
       # Q1 - vehicle expense
-      multiple_choice :vehicle_expense? do
+      radio :vehicle_expense? do
         option :car
         option :van
         option :motorcycle
@@ -25,7 +25,7 @@ module SmartAnswer
       end
 
       # Q2 - home or business premises expense
-      multiple_choice :home_or_business_premises_expense? do
+      radio :home_or_business_premises_expense? do
         option :using_home_for_business
         option :live_on_business_premises
         option :no_expense
@@ -54,7 +54,7 @@ module SmartAnswer
       end
 
       # Q3 - buying new vehicle?
-      multiple_choice :buying_new_vehicle? do
+      radio :buying_new_vehicle? do
         option :new
         option :used
         option :no
@@ -78,7 +78,7 @@ module SmartAnswer
       # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don't go to Q4 & Q8
       #
       # if no go to Q4
-      multiple_choice :capital_allowances? do
+      radio :capital_allowances? do
         option :capital_allowance
         option :simplified_expenses
         option :no
@@ -116,7 +116,7 @@ module SmartAnswer
       end
 
       # Q5 - Was your car new or second-hand when you started using it for your business?
-      multiple_choice :car_status_before_usage? do
+      radio :car_status_before_usage? do
         option :new
         option :used
 
@@ -145,7 +145,7 @@ module SmartAnswer
       end
 
       # Q7 - is vehicle green?
-      multiple_choice :is_vehicle_green? do
+      radio :is_vehicle_green? do
         option :low
         option :medium
         option :high

@@ -13,7 +13,7 @@ module SmartAnswer
       satisfies_need "ee96f915-9dbd-4bf9-a6fc-21ad237de88b"
 
       ## Q1
-      multiple_choice :what_type_of_leave? do
+      radio :what_type_of_leave? do
         save_input_as :leave_type
         option :maternity
         option :paternity
