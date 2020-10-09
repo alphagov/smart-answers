@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class MultipleChoiceQuestionTest < ActiveSupport::TestCase
     test "Can list options" do
-      q = Question::MultipleChoice.new(nil, :example) do
+      q = Question::Radio.new(nil, :example) do
         option :yes
         option :no
       end
@@ -12,7 +12,7 @@ module SmartAnswer
     end
 
     test "Can list options without transitions" do
-      q = Question::MultipleChoice.new(nil, :example) do
+      q = Question::Radio.new(nil, :example) do
         option :yes
         option :no
       end
@@ -21,7 +21,7 @@ module SmartAnswer
     end
 
     test "Can determine next state on provision of an input" do
-      q = Question::MultipleChoice.new(nil, :example) do
+      q = Question::Radio.new(nil, :example) do
         option :yes
         option :no
         next_node { outcome :fred }
@@ -34,7 +34,7 @@ module SmartAnswer
     end
 
     test "Can remove all options" do
-      question = Question::MultipleChoice.new(nil, :example) do
+      question = Question::Radio.new(nil, :example) do
         option :yes
         option :no
       end
@@ -44,7 +44,7 @@ module SmartAnswer
     end
 
     test "Can add options after removing them" do
-      question = Question::MultipleChoice.new(nil, :example) do
+      question = Question::Radio.new(nil, :example) do
         option :yes
         option :no
       end
@@ -56,7 +56,7 @@ module SmartAnswer
     end
 
     test "Next node default can be given by block" do
-      q = Question::MultipleChoice.new(nil, :example) do
+      q = Question::Radio.new(nil, :example) do
         option :yes
         option :no
         next_node { outcome :baz }
@@ -67,7 +67,7 @@ module SmartAnswer
     end
 
     test "Error raised on illegal input" do
-      q = Question::MultipleChoice.new(nil, :example) do
+      q = Question::Radio.new(nil, :example) do
         option :yes
       end
 

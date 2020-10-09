@@ -96,7 +96,7 @@ module SmartAnswer
     end
 
     def multiple_choice(name, &block)
-      add_node Question::MultipleChoice.new(self, name, &block)
+      add_node Question::Radio.new(self, name, &block)
     end
 
     def country_select(name, options = {}, &block)

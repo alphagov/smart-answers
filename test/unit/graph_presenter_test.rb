@@ -15,9 +15,9 @@ module SmartAnswer
 
     test "presents labels of graph flow" do
       expected_labels = {
-        q1?: "MultipleChoice\n-\nWhat is the answer to q1?\n\n( ) yes\n( ) no",
-        q2?: "MultipleChoice\n-\nWhat is the answer to q2?\n\n( ) a\n( ) b",
-        q_with_interpolation?: "MultipleChoice\n-\nQuestion with <%= inter.pol.ation %>?\n\n( ) x\n( ) y",
+        q1?: "Radio\n-\nWhat is the answer to q1?\n\n( ) yes\n( ) no",
+        q2?: "Radio\n-\nWhat is the answer to q2?\n\n( ) a\n( ) b",
+        q_with_interpolation?: "Radio\n-\nQuestion with <%= inter.pol.ation %>?\n\n( ) x\n( ) y",
         done_a: "Outcome\n-\ndone_a",
         done_b: "Outcome\n-\ndone_b",
       }
