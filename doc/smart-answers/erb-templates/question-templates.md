@@ -109,7 +109,7 @@ This is done using a call to the `options` method.
 
 ### `options(hash)`
 
-Valid for [multiple choice](../question-types.md#multiple_choice) and [checkbox question](../question-types.md#checkbox_question) types. `hash` argument is a `Hash` of option keys (strings) and values (strings or hashes).
+Valid for [radio](../question-types.md#radio) and [checkbox](../question-types.md#checkbox_question) question types. `hash` argument is a `Hash` of option keys (strings) and values (strings or hashes).
 It is used to specify the human-readable label text or hint text for each of the option keys.
 
 Example with only label text:

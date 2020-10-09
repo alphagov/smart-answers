@@ -106,7 +106,7 @@ module SmartAnswer
 
       # metadata specified here
 
-      multiple_choice :question_key do
+      radio :question_key do
         option :option_key_1
         option :option_key_2
 
@@ -226,7 +226,7 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 # => #<SmartAnswer::State current_node=:third_node, path=[:first_node, :second_node], responses=["first-response", "second-response"], response=nil, error=nil>
 ```
 
-> Note that some of the application code (e.g. illegal multiple choice response) erroneously sets the error key to the validation error message *string*. Since this string is not the *key* to an error message, the default error message is displayed.
+> Note that some of the application code (e.g. illegal radio response) erroneously sets the error key to the validation error message *string*. Since this string is not the *key* to an error message, the default error message is displayed.
 
 #### In-question blocks
 

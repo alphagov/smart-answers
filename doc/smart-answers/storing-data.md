@@ -20,7 +20,7 @@ __NOTE.__ `precalculate` blocks are not evaluated in the first question. This is
 __NOTE.__ `on_response` blocks are not named, because they don't automatically store a value in a state variable. In fact doing so is actively discouraged apart from when storing a calculator object in the first question of a flow:
 
 ```ruby
-multiple_choice :question_1? do
+radio :question_1? do
   option :option_1
   option :option_2
 
@@ -63,7 +63,7 @@ end
 The flow below illustrates the data available to the different Question node methods.
 
 ```ruby
-multiple_choice :question_1? do
+radio :question_1? do
   option :q1_option
 
   next_node do
@@ -75,7 +75,7 @@ multiple_choice :question_1? do
   end
 end
 
-multiple_choice :question_2? do
+radio :question_2? do
   option :q2_option
 
   precalculate :q2_precalculated_answer do
