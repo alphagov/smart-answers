@@ -21,6 +21,8 @@ class FlowPresenter
 
   delegate :title, :meta_description, to: :start_node
 
+  delegate :node_slug, to: :current_node
+
   def initialize(params, flow)
     @params = params
     @flow = flow
