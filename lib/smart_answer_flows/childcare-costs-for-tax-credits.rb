@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "e2826e36-a66a-4970-955c-3767674ae82e"
 
       # Q1
-      multiple_choice :currently_claiming? do
+      radio :currently_claiming? do
         option :yes
         option :no
 
@@ -27,7 +27,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :how_often_use_childcare? do
+      radio :how_often_use_childcare? do
         option :regularly_less_than_year
         option :regularly_more_than_year
         option :only_short_while
@@ -45,7 +45,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :have_costs_changed? do
+      radio :have_costs_changed? do
         option :yes
         option :no
 
@@ -60,7 +60,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :how_often_pay_1? do
+      radio :how_often_pay_1? do
         option :weekly_same_amount
         option :weekly_diff_amount
         option :monthly_same_amount
@@ -82,7 +82,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :how_often_pay_2? do
+      radio :how_often_pay_2? do
         option :weekly_same_amount
         option :weekly_diff_amount
         option :monthly_same_amount
@@ -159,7 +159,7 @@ module SmartAnswer
       end
 
       # Q11
-      multiple_choice :pay_same_each_time? do
+      radio :pay_same_each_time? do
         option :yes
         option :no
 
@@ -174,7 +174,7 @@ module SmartAnswer
       end
 
       # Q12
-      multiple_choice :how_often_pay_providers? do
+      radio :how_often_pay_providers? do
         option :weekly
         option :fortnightly
         option :every_4_weeks

@@ -36,7 +36,7 @@ module SmartAnswer
       # ======================================================================
       # Do you feel safe where you live?
       # ======================================================================
-      multiple_choice :feel_safe do
+      radio :feel_safe do
         option :yes
         option :yes_but_i_am_concerned_about_others
         option :no
@@ -54,7 +54,7 @@ module SmartAnswer
       # ======================================================================
       # Are you finding it hard to afford rent, your mortgage or bills?
       # ======================================================================
-      multiple_choice :afford_rent_mortgage_bills do
+      radio :afford_rent_mortgage_bills do
         option :yes
         option :no
         option :not_sure
@@ -71,7 +71,7 @@ module SmartAnswer
       # ======================================================================
       # Are you finding it hard to afford food?
       # ======================================================================
-      multiple_choice :afford_food do
+      radio :afford_food do
         option :yes
         option :no
         option :not_sure
@@ -88,7 +88,7 @@ module SmartAnswer
       # ======================================================================
       # Are your able to get food?
       # ======================================================================
-      multiple_choice :get_food do
+      radio :get_food do
         option :yes
         option :no
         option :not_sure
@@ -105,7 +105,7 @@ module SmartAnswer
       # ======================================================================
       # Are you self-employed or a sole trader?
       # ======================================================================
-      multiple_choice :self_employed do
+      radio :self_employed do
         option :yes
         option :no
         option :not_sure
@@ -126,7 +126,7 @@ module SmartAnswer
       # ======================================================================
       # Have you been told to stop working?
       # ======================================================================
-      multiple_choice :have_you_been_made_unemployed do
+      radio :have_you_been_made_unemployed do
         option :yes_i_have_been_made_unemployed
         option :yes_i_have_been_put_on_furlough
         option :no
@@ -144,7 +144,7 @@ module SmartAnswer
       # ======================================================================
       # Are you worried about going in to work?
       # ======================================================================
-      multiple_choice :worried_about_work do
+      radio :worried_about_work do
         option :yes
         option :no
         option :not_sure
@@ -161,7 +161,7 @@ module SmartAnswer
       # ======================================================================
       # Are you off work because you're ill or self-isolating?
       # ======================================================================
-      multiple_choice :are_you_off_work_ill do
+      radio :are_you_off_work_ill do
         option :yes
         option :no
 
@@ -177,7 +177,7 @@ module SmartAnswer
       # ======================================================================
       # Do you have somewhere to live?
       # ======================================================================
-      multiple_choice :have_somewhere_to_live do
+      radio :have_somewhere_to_live do
         option :yes
         option :yes_but_i_might_lose_it
         option :no
@@ -195,7 +195,7 @@ module SmartAnswer
       # ======================================================================
       # Have you been evicted?
       # ======================================================================
-      multiple_choice :have_you_been_evicted do
+      radio :have_you_been_evicted do
         option :yes
         option :yes_i_might_be_soon
         option :no
@@ -213,7 +213,7 @@ module SmartAnswer
       # ======================================================================
       # Are you worries about your mental health or someone else's mental health?
       # ======================================================================
-      multiple_choice :mental_health_worries do
+      radio :mental_health_worries do
         option :yes
         option :no
         option :not_sure
@@ -230,7 +230,7 @@ module SmartAnswer
       # ======================================================================
       # Where do you live?
       # ======================================================================
-      multiple_choice :nation do
+      radio :nation do
         option :england
         option :scotland
         option :wales

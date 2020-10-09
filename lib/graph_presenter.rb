@@ -49,7 +49,7 @@ private
   def graph_label_text(node)
     text = node.class.to_s.split("::").last + "\n-\n"
     case node
-    when SmartAnswer::Question::MultipleChoice
+    when SmartAnswer::Question::Radio
       text << word_wrap(node_title(node))
       text << "\n\n"
       text << node.permitted_options.map { |o| "( ) #{o}" }.join("\n")

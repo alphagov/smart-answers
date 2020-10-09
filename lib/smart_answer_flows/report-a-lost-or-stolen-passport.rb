@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "1de5292b-6696-4149-94b9-1e0b6f8b7119"
 
-      multiple_choice :where_was_the_passport_lost_or_stolen? do
+      radio :where_was_the_passport_lost_or_stolen? do
         option :in_the_uk
         option :abroad
 

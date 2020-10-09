@@ -4,7 +4,7 @@ module SmartAnswer
       name "graph"
       status :draft
 
-      multiple_choice :q1? do
+      radio :q1? do
         option :yes
         option :no
 
@@ -13,7 +13,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :q2? do
+      radio :q2? do
         option :a
         option :b
 
@@ -26,7 +26,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :q_with_interpolation? do
+      radio :q_with_interpolation? do
         option :x
         option :y
 

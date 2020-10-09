@@ -186,7 +186,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build multiple choice question nodes" do
     s = SmartAnswer::Flow.new do
-      multiple_choice :do_you_like_chocolate? do
+      radio :do_you_like_chocolate? do
         option :yes
         option :no
         next_node do |response|
@@ -327,7 +327,7 @@ class FlowTest < ActiveSupport::TestCase
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do
-        multiple_choice :do_you_like_chocolate? do
+        radio :do_you_like_chocolate? do
           option :yes
           option :no
           next_node do |response|
@@ -338,7 +338,7 @@ class FlowTest < ActiveSupport::TestCase
           end
         end
 
-        multiple_choice :do_you_like_jam? do
+        radio :do_you_like_jam? do
           option :yes
           option :no
           next_node do |response|
@@ -420,7 +420,7 @@ class FlowTest < ActiveSupport::TestCase
       @jam = "do_you_like_jam?"
 
       @flow = SmartAnswer::Flow.new do
-        multiple_choice :do_you_like_chocolate? do
+        radio :do_you_like_chocolate? do
           option :yes
           option :no
           next_node do |response|
@@ -431,7 +431,7 @@ class FlowTest < ActiveSupport::TestCase
           end
         end
 
-        multiple_choice :do_you_like_jam? do
+        radio :do_you_like_jam? do
           option :yes
           option :no
           next_node do |response|
@@ -474,7 +474,7 @@ class FlowTest < ActiveSupport::TestCase
   context "resolve state" do
     setup do
       @flow = SmartAnswer::Flow.new do
-        multiple_choice :x do
+        radio :x do
           option :yes
           option :no
           next_node do |response|
@@ -485,7 +485,7 @@ class FlowTest < ActiveSupport::TestCase
           end
         end
 
-        multiple_choice :y do
+        radio :y do
           option :yes
           option :no
           next_node do |response|
@@ -569,7 +569,7 @@ class FlowTest < ActiveSupport::TestCase
 
   should "normalize responses" do
     flow = SmartAnswer::Flow.new do
-      multiple_choice :colour? do
+      radio :colour? do
         option :red
         option :blue
 

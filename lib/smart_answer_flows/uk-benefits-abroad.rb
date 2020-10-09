@@ -11,7 +11,7 @@ module SmartAnswer
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       # Q1
-      multiple_choice :going_or_already_abroad? do
+      radio :going_or_already_abroad? do
         option :going_abroad
         option :already_abroad
 
@@ -26,7 +26,7 @@ module SmartAnswer
       end
 
       # Q2 going_abroad and Q3 already_abroad
-      multiple_choice :which_benefit? do
+      radio :which_benefit? do
         option :jsa
         option :pension
         option :winter_fuel_payment
@@ -211,7 +211,7 @@ module SmartAnswer
       end
 
       # Q8 going_abroad and Q7 already_abroad
-      multiple_choice :working_for_a_uk_employer? do
+      radio :working_for_a_uk_employer? do
         option :yes
         option :no
 
@@ -226,7 +226,7 @@ module SmartAnswer
       end
 
       # Q9 going_abroad and Q8 already_abroad
-      multiple_choice :eligible_for_smp? do
+      radio :eligible_for_smp? do
         option :yes
         option :no
 
@@ -241,7 +241,7 @@ module SmartAnswer
       end
 
       # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
-      multiple_choice :employer_paying_ni? do
+      radio :employer_paying_ni? do
         option :yes
         option :no
 
@@ -296,7 +296,7 @@ module SmartAnswer
       end
 
       # Q15 going_abroad and Q14 already_abroad
-      multiple_choice :working_for_uk_employer_ssp? do
+      radio :working_for_uk_employer_ssp? do
         option :yes
         option :no
 
@@ -318,7 +318,7 @@ module SmartAnswer
       end
 
       # Q17 going_abroad and Q16 already_abroad
-      multiple_choice :eligible_for_tax_credits? do
+      radio :eligible_for_tax_credits? do
         option :crown_servant
         option :cross_border_worker
         option :none_of_the_above
@@ -336,7 +336,7 @@ module SmartAnswer
       end
 
       # Q19 going_abroad and Q18 already_abroad
-      multiple_choice :tax_credits_children? do
+      radio :tax_credits_children? do
         option :yes
         option :no
 
@@ -370,7 +370,7 @@ module SmartAnswer
       end
 
       # Q23 going_abroad and Q22 already_abroad
-      multiple_choice :tax_credits_why_going_abroad? do
+      radio :tax_credits_why_going_abroad? do
         option :tax_credits_holiday
         option :tax_credits_medical_treatment
         option :tax_credits_death
@@ -386,7 +386,7 @@ module SmartAnswer
       end
 
       # Q26 going_abroad and Q25 already_abroad
-      multiple_choice :iidb_already_claiming? do
+      radio :iidb_already_claiming? do
         option :yes
         option :no
 
@@ -401,7 +401,7 @@ module SmartAnswer
       end
 
       # Q30 going_abroad and Q29 already_abroad
-      multiple_choice :db_claiming_benefits? do
+      radio :db_claiming_benefits? do
         option :yes
         option :no
 
@@ -461,7 +461,7 @@ module SmartAnswer
       end
 
       # Q35 going_abroad
-      multiple_choice :is_abroad_for_treatment? do
+      radio :is_abroad_for_treatment? do
         option :yes
         option :no
 
@@ -515,7 +515,7 @@ module SmartAnswer
 
       # Going abroad questions
       # Going abroad Q3 going_abroad
-      multiple_choice :jsa_how_long_abroad? do
+      radio :jsa_how_long_abroad? do
         option :less_than_a_year_medical
         option :less_than_a_year_other
         option :more_than_a_year
@@ -532,7 +532,7 @@ module SmartAnswer
         end
       end
       # Going abroad Q18 (tax credits) and Q17 already_abroad
-      multiple_choice :tax_credits_how_long_abroad? do
+      radio :tax_credits_how_long_abroad? do
         option :tax_credits_up_to_a_year
         option :tax_credits_more_than_a_year
 
@@ -547,7 +547,7 @@ module SmartAnswer
       end
 
       # Going abroad Q24 going_abroad (ESA) and Q23 already_abroad
-      multiple_choice :esa_how_long_abroad? do
+      radio :esa_how_long_abroad? do
         option :esa_under_a_year_medical
         option :esa_under_a_year_other
         option :esa_more_than_a_year
@@ -568,7 +568,7 @@ module SmartAnswer
       end
 
       # Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
-      multiple_choice :db_how_long_abroad? do
+      radio :db_how_long_abroad? do
         option :temporary
         option :permanent
 
@@ -584,7 +584,7 @@ module SmartAnswer
       end
 
       # Going abroad Q32 going_abroad (Income Support)
-      multiple_choice :is_how_long_abroad? do
+      radio :is_how_long_abroad? do
         option :is_under_a_year_medical
         option :is_under_a_year_other
         option :is_more_than_a_year

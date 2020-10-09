@@ -10,7 +10,7 @@ module SmartAnswer
       satisfies_need "6f764f56-01af-415f-8bfb-60bda489c015"
 
       # Q1
-      multiple_choice :what_would_you_like_to_check? do
+      radio :what_would_you_like_to_check? do
         option "current_payment"
         option "past_payment"
 

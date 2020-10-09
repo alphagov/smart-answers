@@ -1,6 +1,6 @@
 module SmartAnswer
   module Question
-    class MultipleChoice < Base
+    class Radio < Base
       attr_reader :permitted_options
 
       def initialize(flow, name, &block)

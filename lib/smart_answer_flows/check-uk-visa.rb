@@ -39,7 +39,7 @@ module SmartAnswer
       end
 
       # Q1b
-      multiple_choice :israeli_document_type? do
+      radio :israeli_document_type? do
         option :"full-passport"
         option :"provisional-passport"
 
@@ -53,7 +53,7 @@ module SmartAnswer
       end
 
       # Q1c / Q1d
-      multiple_choice :what_sort_of_passport? do
+      radio :what_sort_of_passport? do
         option :citizen
         option :alien
 
@@ -73,7 +73,7 @@ module SmartAnswer
       end
 
       # Q1e / Q1f
-      multiple_choice :what_sort_of_travel_document? do
+      radio :what_sort_of_travel_document? do
         option :passport
         option :travel_document
 
@@ -87,7 +87,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :purpose_of_visit? do
+      radio :purpose_of_visit? do
         option :tourism
         option :work
         option :study
@@ -102,7 +102,7 @@ module SmartAnswer
       end
 
       # Q2a
-      multiple_choice :travelling_to_cta? do
+      radio :travelling_to_cta? do
         option :channel_islands_or_isle_of_man
         option :republic_of_ireland
         option :somewhere_else
@@ -135,7 +135,7 @@ module SmartAnswer
       end
 
       # Q2b
-      multiple_choice :channel_islands_or_isle_of_man? do
+      radio :channel_islands_or_isle_of_man? do
         option :tourism
         option :work
         option :study
@@ -149,7 +149,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :passing_through_uk_border_control? do
+      radio :passing_through_uk_border_control? do
         option :yes
         option :no
 
@@ -183,7 +183,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :staying_for_how_long? do
+      radio :staying_for_how_long? do
         option :six_months_or_less
         option :longer_than_six_months
 
@@ -235,7 +235,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :travelling_visiting_partner_family_member? do
+      radio :travelling_visiting_partner_family_member? do
         option :yes
         option :no
 
@@ -249,7 +249,7 @@ module SmartAnswer
       end
 
       # Q6
-      multiple_choice :article_10_card? do
+      radio :article_10_card? do
         option :yes
         option :no
 
@@ -265,7 +265,7 @@ module SmartAnswer
       end
 
       # Q7
-      multiple_choice :partner_family_british_citizen? do
+      radio :partner_family_british_citizen? do
         option :yes
         option :no
 
@@ -279,7 +279,7 @@ module SmartAnswer
       end
 
       # Q8
-      multiple_choice :partner_family_eea? do
+      radio :partner_family_eea? do
         option :yes
         option :no
 

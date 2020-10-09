@@ -3,7 +3,7 @@ module SmartAnswer
     class MinimumWageFlow < Flow
       def define
         # Q2
-        multiple_choice :are_you_an_apprentice? do
+        radio :are_you_an_apprentice? do
           option "not_an_apprentice"
           option "apprentice_under_19"
           option "apprentice_over_19_first_year"
@@ -22,7 +22,7 @@ module SmartAnswer
         end
 
         # Q2 Past
-        multiple_choice :were_you_an_apprentice? do
+        radio :were_you_an_apprentice? do
           option "no"
           option "apprentice_under_19"
           option "apprentice_over_19"
@@ -120,7 +120,7 @@ module SmartAnswer
         end
 
         # Q7
-        multiple_choice :is_provided_with_accommodation? do
+        radio :is_provided_with_accommodation? do
           option "no"
           option "yes_free"
           option "yes_charged"
@@ -138,7 +138,7 @@ module SmartAnswer
         end
 
         # Q7 Past
-        multiple_choice :was_provided_with_accommodation? do
+        radio :was_provided_with_accommodation? do
           option "no"
           option "yes_free"
           option "yes_charged"
@@ -206,7 +206,7 @@ module SmartAnswer
         end
 
         # Q8
-        multiple_choice :does_employer_charge_for_job_requirements? do
+        radio :does_employer_charge_for_job_requirements? do
           option "yes"
           option "no"
 
@@ -217,7 +217,7 @@ module SmartAnswer
         end
 
         # Q8 past
-        multiple_choice :did_employer_charge_for_job_requirements? do
+        radio :did_employer_charge_for_job_requirements? do
           option "yes"
           option "no"
 
@@ -228,7 +228,7 @@ module SmartAnswer
         end
 
         # Q9
-        multiple_choice :current_additional_work_outside_shift? do
+        radio :current_additional_work_outside_shift? do
           option "yes"
           option "no"
 
@@ -247,7 +247,7 @@ module SmartAnswer
         end
 
         # Q9 past
-        multiple_choice :past_additional_work_outside_shift? do
+        radio :past_additional_work_outside_shift? do
           option "yes"
           option "no"
 
@@ -266,7 +266,7 @@ module SmartAnswer
         end
 
         # Q9a
-        multiple_choice :current_paid_for_work_outside_shift? do
+        radio :current_paid_for_work_outside_shift? do
           option "yes"
           option "no"
 
@@ -285,7 +285,7 @@ module SmartAnswer
         end
 
         # Q9a past
-        multiple_choice :past_paid_for_work_outside_shift? do
+        radio :past_paid_for_work_outside_shift? do
           option "yes"
           option "no"
 

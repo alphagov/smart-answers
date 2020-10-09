@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class QuestionWithOptionsPresenterTest < ActiveSupport::TestCase
     setup do
-      question = Question::MultipleChoice.new(nil, :question_name?)
+      question = Question::Radio.new(nil, :question_name?)
       question.option(:option_one)
       question.option(:option_two)
 

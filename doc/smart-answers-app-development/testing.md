@@ -57,7 +57,7 @@ Here's an example Smart Answer flow and how the two approaches to testing differ
 ```ruby
 status :published
 
-multiple_choice :question_1? do
+radio :question_1? do
   option :A
   option :B
 
@@ -66,7 +66,7 @@ multiple_choice :question_1? do
   end
 end
 
-multiple_choice :question_2? do
+radio :question_2? do
   option :C
   option :D
 
@@ -75,7 +75,7 @@ multiple_choice :question_2? do
   end
 end
 
-multiple_choice :question_3? do
+radio :question_3? do
   option :E
   option :F
 

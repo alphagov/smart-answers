@@ -69,7 +69,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :which_choice? do
+      radio :which_choice? do
         option :one
         option :two
         option :three
@@ -80,7 +80,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :which_boolean_choice? do
+      radio :which_boolean_choice? do
         option :yes
         option :no
 

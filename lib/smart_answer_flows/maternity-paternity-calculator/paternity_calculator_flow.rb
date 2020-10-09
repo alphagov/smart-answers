@@ -5,7 +5,7 @@ module SmartAnswer
         days_of_the_week = Calculators::MaternityPayCalculator::DAYS_OF_THE_WEEK
 
         ## QP0
-        multiple_choice :leave_or_pay_for_adoption? do
+        radio :leave_or_pay_for_adoption? do
           option :yes
           option :no
 
@@ -97,7 +97,7 @@ module SmartAnswer
         end
 
         ## QP3
-        multiple_choice :employee_responsible_for_upbringing? do
+        radio :employee_responsible_for_upbringing? do
           option :yes
           option :no
           save_input_as :paternity_responsible
@@ -129,7 +129,7 @@ module SmartAnswer
         end
 
         ## QAP3 - Paternity Adoption
-        multiple_choice :padoption_employee_responsible_for_upbringing? do
+        radio :padoption_employee_responsible_for_upbringing? do
           option :yes
           option :no
           save_input_as :paternity_responsible
@@ -157,7 +157,7 @@ module SmartAnswer
         end
 
         ## QP4 - Shared flow onwards
-        multiple_choice :employee_work_before_employment_start? do
+        radio :employee_work_before_employment_start? do
           option :yes
           option :no
           save_input_as :paternity_employment_start ## Needed only in outcome
@@ -173,7 +173,7 @@ module SmartAnswer
         end
 
         ## QP5
-        multiple_choice :employee_has_contract_paternity? do
+        radio :employee_has_contract_paternity? do
           option :yes
           option :no
           save_input_as :has_contract
@@ -184,7 +184,7 @@ module SmartAnswer
         end
 
         ## QP6
-        multiple_choice :employee_on_payroll_paternity? do
+        radio :employee_on_payroll_paternity? do
           option :yes
           option :no
 
@@ -228,7 +228,7 @@ module SmartAnswer
         end
 
         ## QP7
-        multiple_choice :employee_still_employed_on_birth_date? do
+        radio :employee_still_employed_on_birth_date? do
           option :yes
           option :no
           save_input_as :employed_dob
@@ -269,7 +269,7 @@ module SmartAnswer
         end
 
         ## QP9
-        multiple_choice :employee_paternity_length? do
+        radio :employee_paternity_length? do
           option :one_week
           option :two_weeks
           save_input_as :leave_amount
@@ -336,7 +336,7 @@ module SmartAnswer
         end
 
         ## QP12
-        multiple_choice :pay_frequency_paternity? do
+        radio :pay_frequency_paternity? do
           option :weekly
           option :every_2_weeks
           option :every_4_weeks
@@ -382,7 +382,7 @@ module SmartAnswer
         end
 
         ## QP14
-        multiple_choice :how_do_you_want_the_spp_calculated? do
+        radio :how_do_you_want_the_spp_calculated? do
           option :weekly_starting
           option :usual_paydates
 
@@ -415,7 +415,7 @@ module SmartAnswer
         end
 
         ## QP16
-        multiple_choice :monthly_pay_paternity? do
+        radio :monthly_pay_paternity? do
           option :first_day_of_the_month
           option :last_day_of_the_month
           option :specific_date_each_month
@@ -476,7 +476,7 @@ module SmartAnswer
         end
 
         ## QP19
-        multiple_choice :day_of_the_month_paternity? do
+        radio :day_of_the_month_paternity? do
           option :"0"
           option :"1"
           option :"2"
@@ -496,7 +496,7 @@ module SmartAnswer
         end
 
         ## QP20
-        multiple_choice :pay_date_options_paternity? do
+        radio :pay_date_options_paternity? do
           option :first
           option :second
           option :third

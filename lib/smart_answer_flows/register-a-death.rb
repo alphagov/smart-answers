@@ -8,7 +8,7 @@ module SmartAnswer
       satisfies_need "d2c1fda5-92d4-4368-a8d0-307290989887"
 
       # Q1
-      multiple_choice :where_did_the_death_happen? do
+      radio :where_did_the_death_happen? do
         on_response do |response|
           self.calculator = Calculators::RegisterADeathCalculator.new
           calculator.location_of_death = response
@@ -35,7 +35,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :did_the_person_die_at_home_hospital? do
+      radio :did_the_person_die_at_home_hospital? do
         option :at_home_hospital
         option :elsewhere
 
@@ -49,7 +49,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :was_death_expected? do
+      radio :was_death_expected? do
         option :yes
         option :no
 
@@ -80,7 +80,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :where_are_you_now? do
+      radio :where_are_you_now? do
         option :same_country
         option :another_country
         option :in_the_uk

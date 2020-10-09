@@ -65,7 +65,7 @@ module SmartAnswer
         end
 
         ## QM3
-        multiple_choice :did_the_employee_work_for_you_between? do
+        radio :did_the_employee_work_for_you_between? do
           option :yes
           option :no
           calculate :not_entitled_to_pay_reason do |response|
@@ -92,7 +92,7 @@ module SmartAnswer
         end
 
         ## QM4
-        multiple_choice :does_the_employee_work_for_you_now? do
+        radio :does_the_employee_work_for_you_now? do
           option :yes
           option :no
 
@@ -150,7 +150,7 @@ module SmartAnswer
         end
 
         ## QM7
-        multiple_choice :pay_frequency? do
+        radio :pay_frequency? do
           option :weekly
           option :every_2_weeks
           option :every_4_weeks
@@ -187,7 +187,7 @@ module SmartAnswer
         end
 
         ## QM9
-        multiple_choice :how_do_you_want_the_smp_calculated? do
+        radio :how_do_you_want_the_smp_calculated? do
           option :weekly_starting
           option :usual_paydates
 
@@ -219,7 +219,7 @@ module SmartAnswer
         end
 
         ## QM11
-        multiple_choice :when_in_the_month_is_the_employee_paid? do
+        radio :when_in_the_month_is_the_employee_paid? do
           option :first_day_of_the_month
           option :last_day_of_the_month
           option :specific_date_each_month
@@ -270,7 +270,7 @@ module SmartAnswer
         end
 
         ## QM14
-        multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
+        radio :what_particular_day_of_the_month_is_the_employee_paid? do
           days_of_the_week.each { |d| option d.to_sym }
 
           calculate :pay_day_in_week do |response|
@@ -283,7 +283,7 @@ module SmartAnswer
         end
 
         ## QM15
-        multiple_choice :which_week_in_month_is_the_employee_paid? do
+        radio :which_week_in_month_is_the_employee_paid? do
           option :first
           option :second
           option :third

@@ -24,7 +24,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :how_do_you_want_to_pay? do
+      radio :how_do_you_want_to_pay? do
         option "direct-debit"
         option "online-telephone-banking"
         option "online-debit-credit-card"

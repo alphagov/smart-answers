@@ -25,7 +25,7 @@
   * Validation: Must be a number.
   * Response: `Money` object.
 
-## `multiple_choice`
+## `radio`
   * User input: Choose a single option from a list of options.
   * Validation: Must be in the list of options.
   * Response: String containing the chosen option.

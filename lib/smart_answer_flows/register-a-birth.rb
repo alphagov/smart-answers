@@ -26,7 +26,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :who_has_british_nationality? do
+      radio :who_has_british_nationality? do
         option :mother
         option :father
         option :mother_and_father
@@ -47,7 +47,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :married_couple_or_civil_partnership? do
+      radio :married_couple_or_civil_partnership? do
         option :yes
         option :no
 
@@ -83,7 +83,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :where_are_you_now? do
+      radio :where_are_you_now? do
         option :same_country
         option :another_country
         option :in_the_uk

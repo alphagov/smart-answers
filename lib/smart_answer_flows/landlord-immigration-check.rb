@@ -24,7 +24,7 @@ module SmartAnswer
       end
 
       # Q1
-      multiple_choice :main_home? do
+      radio :main_home? do
         option "yes"
         option "no"
 
@@ -39,7 +39,7 @@ module SmartAnswer
       end
 
       # Q2
-      multiple_choice :tenant_over_18? do
+      radio :tenant_over_18? do
         option "yes"
         option "no"
 
@@ -54,7 +54,7 @@ module SmartAnswer
       end
 
       # Q3
-      multiple_choice :property_type? do
+      radio :property_type? do
         option "holiday_accommodation"
         option "social_housing"
         option "care_home"
@@ -87,7 +87,7 @@ module SmartAnswer
       end
 
       # Q3a
-      multiple_choice :what_nationality? do
+      radio :what_nationality? do
         option "british-or-irish"
         option "eea"
         option "non-eea"
@@ -112,7 +112,7 @@ module SmartAnswer
       end
 
       # Q4
-      multiple_choice :has_uk_passport? do
+      radio :has_uk_passport? do
         option "yes"
         option "no"
 
@@ -131,7 +131,7 @@ module SmartAnswer
       end
 
       # Q5
-      multiple_choice :family_permit? do
+      radio :family_permit? do
         option "yes"
         option "no"
 
@@ -146,7 +146,7 @@ module SmartAnswer
       end
 
       # Q7
-      multiple_choice :has_eu_documents? do
+      radio :has_eu_documents? do
         option "yes"
         option "no"
 
@@ -165,7 +165,7 @@ module SmartAnswer
       end
 
       # Q9
-      multiple_choice :has_documents? do
+      radio :has_documents? do
         option "yes"
         option "no"
 
@@ -180,7 +180,7 @@ module SmartAnswer
       end
 
       # Q10
-      multiple_choice :has_other_documents? do
+      radio :has_other_documents? do
         option "yes"
         option "no"
 
@@ -200,7 +200,7 @@ module SmartAnswer
       end
 
       # new Q14
-      multiple_choice :waiting_for_documents? do
+      radio :waiting_for_documents? do
         option "yes"
         option "no"
 
@@ -215,7 +215,7 @@ module SmartAnswer
       end
 
       # Q12
-      multiple_choice :time_limited_to_remain? do
+      radio :time_limited_to_remain? do
         option "yes"
         option "no"
 
@@ -230,7 +230,7 @@ module SmartAnswer
       end
 
       # Q15
-      multiple_choice :immigration_application? do
+      radio :immigration_application? do
         option "yes"
         option "no"
 
@@ -245,7 +245,7 @@ module SmartAnswer
       end
 
       # Q13
-      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
+      radio :has_residence_card_or_eu_eea_swiss_family_member? do
         option "yes"
         option "no"
 

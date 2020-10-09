@@ -62,7 +62,7 @@ class FlowPresenter
                         DateQuestionPresenter
                       when SmartAnswer::Question::CountrySelect
                         CountrySelectQuestionPresenter
-                      when SmartAnswer::Question::MultipleChoice
+                      when SmartAnswer::Question::Radio
                         MultipleChoiceQuestionPresenter
                       when SmartAnswer::Question::Checkbox
                         CheckboxQuestionPresenter
