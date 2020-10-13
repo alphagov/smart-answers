@@ -16,10 +16,10 @@ module SmartAnswer
         option :scotland
         option :"northern-ireland"
 
-        save_input_as :region
-
-        calculate :next_steps do
-          %i[wills_link inheritance_link]
+        on_response do |response|
+          self.calculator = Calculators::InheritsSomeoneDiesWithoutWillCalculator.new
+          calculator.region = response
+          calculator.next_steps = %i[wills_link inheritance_link]
         end
 
         next_node do
@@ -32,20 +32,21 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :partner
+        on_response do |response|
+          calculator.partner = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales", "northern-ireland"
-            case response
-            when "yes"
-              case region
+            if calculator.partner?
+              case calculator.region
               when "england-and-wales"
                 question :estate_over_270000?
               when "northern-ireland"
                 question :estate_over_250000?
               end
-            when "no"
+            else
               question :children?
             end
           when "scotland"
@@ -59,21 +60,15 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :estate_over_250000
-
-        calculate :next_steps do
-          if estate_over_250000 == "yes"
-            next_steps
-          else
-            [:wills_link]
-          end
+        on_response do |response|
+          calculator.estate_over_250000 = response
+          calculator.next_steps = [:wills_link] unless calculator.estate_over_250000?
         end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.estate_over_250000?
             question :children?
-          when "no"
+          else
             outcome :outcome_60
           end
         end
@@ -84,21 +79,15 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :estate_over_270000
-
-        calculate :next_steps do
-          if estate_over_270000 == "yes"
-            next_steps
-          else
-            [:wills_link]
-          end
+        on_response do |response|
+          calculator.estate_over_270000 = response
+          calculator.next_steps = [:wills_link] unless calculator.estate_over_270000?
         end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.estate_over_270000?
             question :children?
-          when "no"
+          else
             outcome :outcome_1
           end
         end
@@ -109,60 +98,47 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :children
+        on_response do |response|
+          calculator.children = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales"
-            case partner
-            when "yes"
-              case response
-              when "yes"
+            if calculator.partner?
+              if calculator.children?
                 outcome :outcome_20
-              when "no"
+              else
                 outcome :outcome_1
               end
-            when "no"
-              case response
-              when "yes"
-                outcome :outcome_2
-              when "no"
-                question :parents?
-              end
+            elsif calculator.children?
+              outcome :outcome_2
+            else
+              question :parents?
             end
           when "scotland"
-            case partner
-            when "yes"
-              case response
-              when "yes"
+            if calculator.partner?
+              if calculator.children?
                 outcome :outcome_40
-              when "no"
+              else
                 question :parents?
               end
-            when "no"
-              case response
-              when "yes"
-                outcome :outcome_2
-              when "no"
-                question :parents?
-              end
+            elsif calculator.children?
+              outcome :outcome_2
+            else
+              question :parents?
             end
           when "northern-ireland"
-            case partner
-            when "yes"
-              case response
-              when "yes"
+            if calculator.partner?
+              if calculator.children?
                 question :more_than_one_child?
-              when "no"
+              else
                 question :parents?
               end
-            when "no"
-              case response
-              when "yes"
-                outcome :outcome_66
-              when "no"
-                question :parents?
-              end
+            elsif calculator.children?
+              outcome :outcome_66
+            else
+              question :parents?
             end
           end
         end
@@ -173,35 +149,31 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :parents
+        on_response do |response|
+          calculator.parents = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales"
-            case response
-            when "yes"
+            if calculator.parents?
               outcome :outcome_3
-            when "no"
+            else
               question :siblings?
             end
           when "scotland"
             question :siblings?
           when "northern-ireland"
-            case partner
-            when "yes"
-              case response
-              when "yes"
+            if calculator.partner?
+              if calculator.parents?
                 outcome :outcome_63
-              when "no"
+              else
                 question :siblings_including_mixed_parents?
               end
-            when "no"
-              case response
-              when "yes"
-                outcome :outcome_3
-              when "no"
-                question :siblings?
-              end
+            elsif calculator.parents?
+              outcome :outcome_3
+            else
+              question :siblings?
             end
           end
         end
@@ -212,59 +184,46 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :siblings
+        on_response do |response|
+          calculator.siblings = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales"
-            case response
-            when "yes"
+            if calculator.siblings?
               outcome :outcome_4
-            when "no"
+            else
               question :half_siblings?
             end
           when "scotland"
-            case partner
-            when "yes"
-              case parents
-              when "yes"
-                case response
-                when "yes"
+            if calculator.partner?
+              if calculator.parents?
+                if calculator.siblings?
                   outcome :outcome_43
-                when "no"
+                else
                   outcome :outcome_42
                 end
-              when "no"
-                case response
-                when "yes"
-                  outcome :outcome_41
-                when "no"
-                  outcome :outcome_1
-                end
+              elsif calculator.siblings?
+                outcome :outcome_41
+              else
+                outcome :outcome_1
               end
-            when "no"
-              case parents
-              when "yes"
-                case response
-                when "yes"
-                  outcome :outcome_44
-                when "no"
-                  outcome :outcome_3
-                end
-              when "no"
-                case response
-                when "yes"
-                  outcome :outcome_4
-                when "no"
-                  question :aunts_or_uncles?
-                end
+            elsif calculator.parents?
+              if calculator.siblings?
+                outcome :outcome_44
+              else
+                outcome :outcome_3
               end
+            elsif calculator.siblings?
+              outcome :outcome_4
+            else
+              question :aunts_or_uncles?
             end
           when "northern-ireland"
-            case response
-            when "yes"
+            if calculator.siblings?
               outcome :outcome_4
-            when "no"
+            else
               question :grandparents?
             end
           end
@@ -276,13 +235,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :siblings
+        on_response do |response|
+          calculator.siblings_including_mixed_parents = response
+        end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.siblings_including_mixed_parents?
             outcome :outcome_64
-          when "no"
+          else
             outcome :outcome_65
           end
         end
@@ -293,29 +253,28 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :grandparents
+        on_response do |response|
+          calculator.grandparents = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales"
-            case response
-            when "yes"
+            if calculator.grandparents?
               outcome :outcome_5
-            when "no"
+            else
               question :aunts_or_uncles?
             end
           when "scotland"
-            case response
-            when "yes"
+            if calculator.grandparents?
               outcome :outcome_5
-            when "no"
+            else
               question :great_aunts_or_uncles?
             end
           when "northern-ireland"
-            case response
-            when "yes"
+            if calculator.grandparents?
               outcome :outcome_5
-            when "no"
+            else
               question :aunts_or_uncles?
             end
           end
@@ -327,29 +286,28 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :aunts_or_uncles
+        on_response do |response|
+          calculator.aunts_or_uncles = response
+        end
 
-        next_node do |response|
-          case region
+        next_node do
+          case calculator.region
           when "england-and-wales"
-            case response
-            when "yes"
+            if calculator.aunts_or_uncles?
               outcome :outcome_6
-            when "no"
+            else
               question :half_aunts_or_uncles?
             end
           when "scotland"
-            case response
-            when "yes"
+            if calculator.aunts_or_uncles?
               outcome :outcome_6
-            when "no"
+            else
               question :grandparents?
             end
           when "northern-ireland"
-            case response
-            when "yes"
+            if calculator.aunts_or_uncles?
               outcome :outcome_6
-            when "no"
+            else
               outcome :outcome_67
             end
           end
@@ -361,13 +319,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :half_siblings
+        on_response do |response|
+          calculator.half_siblings = response
+        end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.half_siblings?
             outcome :outcome_23
-          when "no"
+          else
             question :grandparents?
           end
         end
@@ -378,13 +337,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :half_aunts_or_uncles
+        on_response do |response|
+          calculator.half_aunts_or_uncles = response
+        end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.half_aunts_or_uncles?
             outcome :outcome_24
-          when "no"
+          else
             outcome :outcome_25
           end
         end
@@ -395,13 +355,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :great_aunts_or_uncles
+        on_response do |response|
+          calculator.great_aunts_or_uncles = response
+        end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.great_aunts_or_uncles?
             outcome :outcome_45
-          when "no"
+          else
             outcome :outcome_46
           end
         end
@@ -412,13 +373,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :more_than_one_child
+        on_response do |response|
+          calculator.more_than_one_child = response
+        end
 
-        next_node do |response|
-          case response
-          when "yes"
+        next_node do
+          if calculator.more_than_one_child?
             outcome :outcome_61
-          when "no"
+          else
             outcome :outcome_62
           end
         end
@@ -434,12 +396,7 @@ module SmartAnswer
       outcome :outcome_20
       outcome :outcome_23
       outcome :outcome_24
-
-      outcome :outcome_25 do
-        precalculate :next_steps do
-          [:ownerless_link]
-        end
-      end
+      outcome :outcome_25
 
       outcome :outcome_40
       outcome :outcome_41
@@ -447,12 +404,7 @@ module SmartAnswer
       outcome :outcome_43
       outcome :outcome_44
       outcome :outcome_45
-
-      outcome :outcome_46 do
-        precalculate :next_steps do
-          [:ownerless_link]
-        end
-      end
+      outcome :outcome_46
 
       outcome :outcome_60
       outcome :outcome_61
@@ -461,12 +413,7 @@ module SmartAnswer
       outcome :outcome_64
       outcome :outcome_65
       outcome :outcome_66
-
-      outcome :outcome_67 do
-        precalculate :next_steps do
-          [:ownerless_link]
-        end
-      end
+      outcome :outcome_67
     end
   end
 end
