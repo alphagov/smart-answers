@@ -19,7 +19,7 @@
       title: outcome.heading_title
     } %>
 
-    <div class="govuk-!-margin-bottom-6 result-body" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
+    <div class="govuk-!-margin-bottom-6 result-body">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title,

@@ -24,14 +24,6 @@ module SmartAnswer
       end
     end
 
-    test "#relative_erb_template_path returns a template path relative to Rails.root" do
-      with_erb_template_file("template-name", "") do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-        Rails.stubs(:root).returns(erb_template_directory)
-        assert_equal "template-name.erb", renderer.relative_erb_template_path
-      end
-    end
-
     test "#content_for raises an exception when the erb template doesn't exist" do
       renderer = ErbRenderer.new(template_directory: Pathname.new("/path/to/non-existent"), template_name: "template-name")
 
