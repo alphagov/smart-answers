@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  def debug?
+    Rails.env.development? && params[:debug]
+  end
+  helper_method :debug?
+
   def heroku?
     request.host.include? "herokuapp"
   end

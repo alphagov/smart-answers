@@ -92,9 +92,4 @@ private
   def next_node_slug
     presenter.current_state.current_node.to_s.dasherize
   end
-
-  def debug?
-    Rails.env.development? && params[:debug]
-  end
-  helper_method :debug?
 end
