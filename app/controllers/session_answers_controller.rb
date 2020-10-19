@@ -49,7 +49,7 @@ private
   def presenter
     @presenter ||= begin
       params.merge!(responses: session_store.hash, node_name: node_name)
-      FlowPresenter.new(params, smart_answer)
+      FlowPresenter.new(params, flow)
     end
   end
 
@@ -57,8 +57,8 @@ private
     @name ||= params[:id].gsub(/_/, "-").to_sym
   end
 
-  def smart_answer
-    @smart_answer ||= flow_registry.find(name.to_s)
+  def flow
+    @flow ||= SmartAnswer::FlowRegistry.instance.find(name.to_s)
   end
 
   def session_store
@@ -71,10 +71,6 @@ private
 
   def node_name
     @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
-  end
-
-  def flow_registry
-    SmartAnswer::FlowRegistry.instance
   end
 
   def add_new_response_to_session
