@@ -140,7 +140,7 @@ $ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.erb
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a list of "Previous answers".
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a list of "Your answers".
 
 Open the new outcome page template in your editor and copy/paste the following content:
 
