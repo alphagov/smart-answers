@@ -6,8 +6,7 @@ module SmartAnswer
       initial_state.each do |variable, value|
         @state.send("#{variable}=", value)
       end
-      @precalculated_state = @question.evaluate_precalculations(@state)
-      @new_state = @question.transition(@precalculated_state, responding_with)
+      @new_state = @question.transition(@state, responding_with)
     end
 
     def assert_node_exists(key)

@@ -4,6 +4,7 @@ module SmartAnswer
   module FlowUnitTestHelper
     class TestNode
       include Mocha::API
+      attr_reader :state
 
       def initialize(flow, name)
         @flow = flow
@@ -23,10 +24,6 @@ module SmartAnswer
       def with_stubbed_calculator(stubs = {})
         @calculator_stubs.merge!(stubs)
         with(calculator: stub_everything(@calculator_stubs))
-      end
-
-      def state
-        @question.evaluate_precalculations(@state)
       end
 
       def answer_with(response)
