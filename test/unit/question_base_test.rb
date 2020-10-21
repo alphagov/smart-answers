@@ -168,30 +168,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       end
     end
 
-    should "execute calculate block with response and save result on new state" do
-      @question.calculate :complementary_colour do |response|
-        response == :red ? :green : :red
-      end
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :green, new_state.complementary_colour
-      assert new_state.frozen?
-    end
-
-    should "execute calculate block with saved input and save result on new state" do
-      @question.save_input_as :colour_preference
-      @question.calculate :complementary_colour do
-        colour_preference == :red ? :green : :red
-      end
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :green, new_state.complementary_colour
-      assert new_state.frozen?
-    end
-  end
-
   context "#next_node_for" do
     should "raise an exception if next_node does not return key via question or outcome method" do
       @question.next_node do

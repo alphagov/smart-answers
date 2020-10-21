@@ -1,11 +1,10 @@
 # Storing data for later use
 
-You can use the `on_response`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
+You can use the `on_response` and `save_input_as` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
 
 * `on_response` values are available in:
   * The `validate` block
   * The `next_node` block
-  * The `calculate` block
   * All subsequent questions and outcomes
 
 __NOTE.__ `on_response` blocks are not named, because they don't automatically store a value in a state variable. In fact doing so is actively discouraged apart from when storing a calculator object in the first question of a flow:
@@ -45,10 +44,6 @@ end
 ```
 
 * `save_input_as` values are available in:
-  * The `calculate` block
-  * All subsequent questions and outcomes
-
-* `calculate` values are available in:
   * All subsequent questions and outcomes
 
 The flow below illustrates the data available to the different Question node methods.
@@ -60,10 +55,6 @@ radio :question_1? do
   next_node do
     question :question_2?
   end
-
-  calculate :q1_calculated_answer do
-    'q1-calculated-answer'
-  end
 end
 
 radio :question_2? do
@@ -72,7 +63,6 @@ radio :question_2? do
   on_response do |response|
     # response                => 'q2_option'
     # responses               => ['q1_option']
-    # q1_calculated_answer    => 'q1-calculated-answer'
 
     self.q2_saved_response = response
   end
@@ -80,25 +70,15 @@ radio :question_2? do
   validate do |response|
     # response                       => 'q2_option'
     # responses                      => ['q1_option']
-    # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_saved_response              => 'q2_option'
   end
 
   next_node do |response|
     # response                       => 'q2_option'
     # responses                      => ['q1_option']
-    # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_saved_response              => 'q2_option'
   end
 
   save_input_as :q2_answer
-
-  calculate :q2_calculated_answer do |response|
-    # response                       => 'q2_option'
-    # responses                      => ['q1_option', 'q2_option']
-    # q1_calculated_answer           => 'q1-calculated-answer'
-    # q2_answer                      => 'q2_option'
-    # q2_saved_response              => 'q2_option'
-  end
 end
 ```

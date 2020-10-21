@@ -63,9 +63,6 @@ module SmartAnswer
         new_state = new_state.transition_to(next_node, input) do |state|
           state.save_input_as @saved_input if @saved_input
         end
-        @calculations.each do |calculation|
-          new_state = calculation.evaluate(new_state, input)
-        end
         new_state
       end
 

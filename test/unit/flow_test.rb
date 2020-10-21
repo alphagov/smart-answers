@@ -606,23 +606,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal SmartAnswer::Money.new("1"), state.price
   end
 
-  should "perform calculations on saved inputs" do
-    flow = SmartAnswer::Flow.new do
-      money_question :how_much? do
-        next_node { outcome :done }
-        save_input_as :price
-        calculate :double do
-          price.value * 2
-        end
-      end
-      outcome :done
-    end
-
-    state = flow.process(%w[1])
-    assert_equal SmartAnswer::Money.new("1"), state.price
-    assert_equal 2.0, state.double
-  end
-
   should "raise an error if next state is not defined" do
     flow = SmartAnswer::Flow.new do
       date_question :when?

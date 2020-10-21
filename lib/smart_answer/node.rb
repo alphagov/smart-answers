@@ -3,13 +3,12 @@ require "active_support/inflector"
 module SmartAnswer
   class Node
     attr_accessor :flow
-    attr_reader :name, :calculations
+    attr_reader :name
 
     def initialize(flow, name, &block)
       @flow = flow
       @name = name
       @on_response_blocks = []
-      @calculations = []
       instance_eval(&block) if block_given?
     end
 
@@ -23,10 +22,6 @@ module SmartAnswer
 
     def on_response(&block)
       @on_response_blocks << Block.new(&block)
-    end
-
-    def calculate(variable_name, &block)
-      @calculations << Calculation.new(variable_name, &block)
     end
 
     def outcome?

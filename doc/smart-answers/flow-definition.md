@@ -230,7 +230,7 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 
 #### In-question blocks
 
-All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `on_response`, `validate`, `next_node` & `calculate`. The `save_input_as` method is used in a similar way, but does not accept a block.
+All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `on_response`, `validate` and `next_node`. The `save_input_as` method is used in a similar way, but does not accept a block.
 
 The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
 
@@ -244,7 +244,6 @@ The block types are executed in the following order:
 * [`validate`](#validatemessage_key-block)
 * [`next_node`](#next_nodeblock)
 * [`save_input_as`](#save_input_asvariable_name)
-* [`calculate`](#calculatevariable_name-block)
 
 Each of these block types and the point at which they are executed is explained in more detail below:
 
@@ -297,19 +296,10 @@ end
 
 * Although you can call this method multiple times within a single question, only the last call will actually have any effect.
 * This method is intended to allow you to store the response to the current question for use in blocks in *subsequent* nodes.
-* The response is stored after the `next_node` block has been executed and before any `calculate` blocks are executed.
+* The response is stored after the `next_node` block has been executed.
 * The response is stored on the state object as a state variable named `variable_name`.
 
 > The use of these blocks is deprecated and should never be necessary; `on_response` blocks should be used instead.
-
-##### `calculate(variable_name, &block)`
-
-* These blocks were intended to be used to store state variables that are needed in subsequent questions or outcomes.
-* These blocks are executed after `save_input_as` has executed.
-* The parsed response is passed to the block as the only argument and by convention is named `response`.
-* The block return value is stored on the state object as a state variable named `variable_name`.
-
-> The use of these blocks is deprecated and should never be necessary. Define methods on a `calculator` object instead.
 
 #### Further information
 
@@ -324,7 +314,6 @@ See the [documentation for question templates](/doc/smart-answers/erb-templates/
 These are very similar to question nodes. There should never be a response associated with an outcome node. Having said that, the following methods are all _technically_ available within the node definition, because they are instance methods on `SmartAnswer::Outcome` (or its superclasses):
 
 * [`on_response`](#on_responseblock)
-* [`calculate`](#calculatevariable_name-block)
 
 If any attempt is made to process a response when the current node is an outcome node (e.g. by hacking the URL path), an exception will be raised.
 

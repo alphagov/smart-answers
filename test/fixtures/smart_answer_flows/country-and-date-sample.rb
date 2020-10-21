@@ -15,10 +15,11 @@ module SmartAnswer
         from { Date.parse("1900-01-01") }
         to { Time.zone.today }
 
-        save_input_as :date_moved
-        calculate :years_there do
-          ((Time.zone.today - date_moved) / 365.25).to_i
+        on_response do |response|
+          self.years_there = ((Time.zone.today - response) / 365.25).to_i
         end
+
+        save_input_as :date_moved
 
         next_node do
           question :which_country_were_you_born_in?
