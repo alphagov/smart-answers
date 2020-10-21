@@ -230,7 +230,7 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 
 #### In-question blocks
 
-All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `on_response`, `validate` and `next_node`. The `save_input_as` method is used in a similar way, but does not accept a block.
+All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `on_response`, `validate` and `next_node`.
 
 The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
 
@@ -243,7 +243,6 @@ The block types are executed in the following order:
 * [`on_response`](#on_responseblock)
 * [`validate`](#validatemessage_key-block)
 * [`next_node`](#next_nodeblock)
-* [`save_input_as`](#save_input_asvariable_name)
 
 Each of these block types and the point at which they are executed is explained in more detail below:
 
@@ -286,20 +285,11 @@ end
 
 * There must only be one of these blocks per question definition.
 * This block is intended to determine which node comes next based on the user responses so far.
-* These blocks are executed after all the `validate` blocks have been executed and before any `save_input_as` blocks are executed.
+* These blocks are executed after all the `validate` blocks have been executed.
 * The built-in state variables, `path`, `current_node` & `responses`, are updated if this block returns successfully.
 * The block return value must be the result of calling the `#question` or `#outcome` methods passing in the key of the next node - see the [next node documentation](next-node-rules.md) for more details.
 
 > The use of this block type is *required*. However, it should call methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
-
-##### `save_input_as(variable_name)`
-
-* Although you can call this method multiple times within a single question, only the last call will actually have any effect.
-* This method is intended to allow you to store the response to the current question for use in blocks in *subsequent* nodes.
-* The response is stored after the `next_node` block has been executed.
-* The response is stored on the state object as a state variable named `variable_name`.
-
-> The use of these blocks is deprecated and should never be necessary; `on_response` blocks should be used instead.
 
 #### Further information
 

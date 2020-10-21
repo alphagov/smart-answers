@@ -5,9 +5,8 @@ module SmartAnswer
       status :draft
 
       salary_question :how_much_do_you_earn? do
-        save_input_as :salary
-
         on_response do |response|
+          self.salary = response
           self.annual_salary = SmartAnswer::Money.new(response.per_week * 52)
         end
 

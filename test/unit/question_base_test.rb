@@ -108,14 +108,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal "something", input_was
     end
 
-    should "make save_input_as method available to code in next_node block" do
-      @question.save_input_as :colour_preference
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :red, new_state.colour_preference
-    end
-
     should "save input sequence on new state" do
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
@@ -167,6 +159,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
         @question.transition(initial_state, :red)
       end
     end
+  end
 
   context "#next_node_for" do
     should "raise an exception if next_node does not return key via question or outcome method" do

@@ -6,8 +6,6 @@ These concerns should really be split. Routing belongs in the flow, policy/calcu
 
 We've refactored a number of these Smart Answers and have a rough set of steps that we follow:
 
-* Remove unused code from the flow, e.g. unused `save_input_as`. See commit [fe4014d7c007108f3daa07f1c5dd749f5de683a0](https://github.com/alphagov/smart-answers/commit/fe4014d7c007108f3daa07f1c5dd749f5de683a0) for an example.
-
 * Include `ActiveModel::Model` in the calculator so that it's easy to instantiate it with a number of attributes set. See commit [f78671a062339ae97abb5cb267b55536233316c9](https://github.com/alphagov/smart-answers/commit/f78671a062339ae97abb5cb267b55536233316c9) for an example.
 
 * Instantiate the calculator in a `on_response` block in the first question. See commit [0df6fd7df9a00ec882edf249eeaaa68a291633c5](https://github.com/alphagov/smart-answers/commit/0df6fd7df9a00ec882edf249eeaaa68a291633c5) for an example.
@@ -21,7 +19,7 @@ value_question :first_question? do
 end
 ```
 
-* Save the responses to questions on the calculator object using an `on_response` block rather than using `save_input_as`. See commit [b17128fb92b89941238a7e94b0c1abebe4351a83](https://github.com/alphagov/smart-answers/commit/b17128fb92b89941238a7e94b0c1abebe4351a83) for an example.
+* Save the responses to questions on the calculator object using an `on_response` block. 
 
 ```ruby
 value_question :subsequent_question? do

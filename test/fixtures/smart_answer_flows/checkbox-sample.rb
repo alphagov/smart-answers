@@ -10,7 +10,9 @@ module SmartAnswer
         option :ice_cream
         option :pepperoni
 
-        save_input_as :toppings
+        on_response do |response|
+          self.toppings = response
+        end
 
         next_node do |response|
           if response == "none"

@@ -50,19 +50,13 @@ module SmartAnswer
         next_node.to_sym
       end
 
-      def save_input_as(variable_name)
-        @saved_input = variable_name
-      end
-
       def transition(current_state, raw_input)
         input = parse_input(raw_input)
         new_state = @on_response_blocks.inject(current_state.dup) do |state, block|
           block.evaluate(state, input)
         end
         next_node = next_node_for(new_state, input)
-        new_state = new_state.transition_to(next_node, input) do |state|
-          state.save_input_as @saved_input if @saved_input
-        end
+        new_state = new_state.transition_to(next_node, input)
         new_state
       end
 

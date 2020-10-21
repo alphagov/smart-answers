@@ -4,7 +4,9 @@ module SmartAnswer
       name "education-sample"
 
       postcode_question :user_input? do
-        save_input_as :user_input
+        on_response do |response|
+          self.user_input = response
+        end
 
         next_node do
           outcome :outcome

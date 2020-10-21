@@ -18,22 +18,17 @@ module SmartAnswer
       method_name =~ /=$/ || super
     end
 
-    def transition_to(new_node, input, &block)
+    def transition_to(new_node, input)
       dup.tap do |new_state|
         new_state.path << current_node
         new_state.current_node = new_node
         new_state.responses << input
-        block.call(new_state) if block_given?
         new_state.freeze
       end
     end
 
     def to_hash
       @table
-    end
-
-    def save_input_as(name)
-      __send__ "#{name}=", responses.last
     end
 
   private

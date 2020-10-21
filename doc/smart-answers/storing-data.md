@@ -1,6 +1,6 @@
 # Storing data for later use
 
-You can use the `on_response` and `save_input_as` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
+You can use the `on_response` method to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
 
 * `on_response` values are available in:
   * The `validate` block
@@ -43,9 +43,6 @@ value_question :question_2? do
 end
 ```
 
-* `save_input_as` values are available in:
-  * All subsequent questions and outcomes
-
 The flow below illustrates the data available to the different Question node methods.
 
 ```ruby
@@ -78,7 +75,5 @@ radio :question_2? do
     # responses                      => ['q1_option']
     # q2_saved_response              => 'q2_option'
   end
-
-  save_input_as :q2_answer
 end
 ```

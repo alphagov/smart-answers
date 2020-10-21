@@ -234,7 +234,9 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build value question nodes" do
     s = SmartAnswer::Flow.new do
       value_question :what_colour_are_the_bottles? do
-        save_input_as :bottle_colour
+        on_response do |response|
+          self.bottle_colour = response
+        end
       end
     end
 
@@ -246,7 +248,9 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build value question nodes with parse option specified" do
     s = SmartAnswer::Flow.new do
       value_question :how_many_green_bottles?, parse: Integer do
-        save_input_as :num_bottles
+        on_response do |response|
+          self.num_bottles = response
+        end
       end
     end
 
@@ -257,7 +261,9 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build money question nodes" do
     s = SmartAnswer::Flow.new do
       money_question :how_much? do
-        save_input_as :price
+        on_response do |response|
+          self.price = response
+        end
       end
     end
 
