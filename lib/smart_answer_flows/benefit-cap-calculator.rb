@@ -14,7 +14,9 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :housing_benefit
+        on_response do |response|
+          self.housing_benefit = response
+        end
 
         next_node do |response|
           if response == "yes"
@@ -112,7 +114,9 @@ module SmartAnswer
 
       # Q5p
       money_question :housing_benefit_amount? do
-        save_input_as :housing_benefit_amount
+        on_response do |response|
+          self.housing_benefit_amount = response
+        end
 
         calculate :total_benefits do |response|
           total_benefits + response.to_f
@@ -137,7 +141,9 @@ module SmartAnswer
           option weekly_benefit_cap
         end
 
-        save_input_as :family_type
+        on_response do |response|
+          self.family_type = response
+        end
 
         next_node do
           question :enter_postcode?
