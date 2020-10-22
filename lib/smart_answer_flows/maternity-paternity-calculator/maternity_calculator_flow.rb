@@ -226,7 +226,9 @@ module SmartAnswer
           option :last_working_day_of_the_month
           option :a_certain_week_day_each_month
 
-          save_input_as :monthly_pay_method
+          on_response do |response|
+            self.monthly_pay_method = response
+          end
 
           next_node do |response|
             case response

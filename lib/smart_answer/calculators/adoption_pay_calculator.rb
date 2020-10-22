@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class AdoptionPayCalculator < MaternityPayCalculator
-    attr_reader :adoption_placement_date, :match_date, :matched_week
-    attr_accessor :employee_has_contract_adoption
+    attr_reader :match_date, :matched_week
+    attr_accessor :adoption_placement_date, :employee_has_contract_adoption
 
     def initialize(match_date)
       @match_date = match_date
@@ -17,20 +17,26 @@ module SmartAnswer::Calculators
     end
 
     def relevant_week
-      @matched_week
+      matched_week
     end
 
-    def adoption_placement_date=(date)
-      @adoption_placement_date = date
-      @leave_earliest_start_date = 14.days.ago(date)
+    def leave_earliest_start_date(adoption_is_from_overseas = false)
+      return adoption_placement_date if adoption_is_from_overseas
+
+      14.days.ago(adoption_placement_date)
+    end
+
+    def leave_latest_start_date(adoption_is_from_overseas = false)
+      days_after = adoption_is_from_overseas ? 27 : 1
+      days_after.days.from_now(adoption_placement_date)
     end
 
     def adoption_qualifying_start
-      @match_date.sunday? ? @match_date : @match_date.beginning_of_week(:sunday)
+      match_date.sunday? ? match_date : match_date.beginning_of_week(:sunday)
     end
 
     def a_notice_leave
-      @match_date + 7
+      match_date + 7
     end
 
     def no_contract_not_on_payroll?
@@ -49,7 +55,7 @@ module SmartAnswer::Calculators
 
     def rate_for(date)
       awe = truncate((average_weekly_earnings.to_f / 100) * 90)
-      if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse("5 April 2015")
+      if date < 6.weeks.since(leave_start_date) && match_date >= Date.parse("5 April 2015")
         awe
       else
         [statutory_rate(date), awe].min

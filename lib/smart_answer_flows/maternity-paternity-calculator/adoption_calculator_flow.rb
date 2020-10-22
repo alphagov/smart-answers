@@ -20,8 +20,8 @@ module SmartAnswer
           option :yes
           option :no
 
-          calculate :adoption_is_from_overseas do |response|
-            response == "yes"
+          on_response do |response|
+            self.adoption_is_from_overseas = (response == "yes")
           end
 
           next_node do
@@ -30,11 +30,9 @@ module SmartAnswer
         end
 
         date_question :date_of_adoption_match? do
-          calculate :match_date do |response|
-            response
-          end
-          calculate :calculator do
-            Calculators::AdoptionPayCalculator.new(match_date)
+          on_response do |response|
+            self.match_date = response
+            self.calculator = Calculators::AdoptionPayCalculator.new(match_date)
           end
 
           next_node do
@@ -43,44 +41,22 @@ module SmartAnswer
         end
 
         date_question :date_of_adoption_placement? do
-          calculate :adoption_placement_date do |response|
-            placement_date = response
-            raise SmartAnswer::InvalidResponse if placement_date < match_date
+          on_response do |response|
+            self.adoption_placement_date = response
+            calculator.adoption_placement_date = adoption_placement_date
 
-            calculator.adoption_placement_date = placement_date
-            placement_date
+            self.a_leave_earliest_start = calculator.leave_earliest_start_date(adoption_is_from_overseas)
+            self.a_leave_earliest_start_formatted = calculator.format_date(a_leave_earliest_start)
+
+            self.a_leave_latest_start = calculator.leave_latest_start_date(adoption_is_from_overseas)
+            self.a_leave_latest_start_formatted = calculator.format_date(a_leave_latest_start)
+
+            self.employment_start = calculator.a_employment_start
+            self.qualifying_week_start = calculator.adoption_qualifying_start
           end
 
-          calculate :a_leave_earliest_start do
-            if adoption_is_from_overseas
-              adoption_placement_date
-            else
-              adoption_placement_date - 14
-            end
-          end
-
-          calculate :a_leave_earliest_start_formatted do
-            calculator.format_date a_leave_earliest_start
-          end
-
-          calculate :a_leave_latest_start do
-            if adoption_is_from_overseas
-              adoption_placement_date + 27
-            else
-              adoption_placement_date + 1
-            end
-          end
-
-          calculate :a_leave_latest_start_formatted do
-            calculator.format_date(a_leave_latest_start)
-          end
-
-          calculate :employment_start do
-            calculator.a_employment_start
-          end
-
-          calculate :qualifying_week_start do
-            calculator.adoption_qualifying_start
+          validate :error_message do |_response|
+            adoption_placement_date >= match_date
           end
 
           next_node do
@@ -133,14 +109,8 @@ module SmartAnswer
 
           on_response do |response|
             calculator.on_payroll = response
-          end
-
-          calculate :to_saturday do
-            calculator.matched_week.last
-          end
-
-          calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
+            self.to_saturday = calculator.matched_week.last
+            self.to_saturday_formatted = calculator.format_date_day(to_saturday)
           end
 
           next_node do
@@ -155,40 +125,22 @@ module SmartAnswer
         end
 
         date_question :adoption_date_leave_starts? do
-          calculate :adoption_date_leave_starts do |response|
-            adoption_leave_start_date = response
-
-            if adoption_leave_start_date < a_leave_earliest_start
-              raise SmartAnswer::InvalidResponse, :error_leave_starts_too_early
-            elsif adoption_leave_start_date > a_leave_latest_start
-              raise SmartAnswer::InvalidResponse, :error_leave_starts_too_late
-            end
-
-            calculator.leave_start_date = adoption_leave_start_date
+          on_response do |response|
+            self.leave_start_date = response
+            calculator.leave_start_date = leave_start_date
+            self.leave_end_date = calculator.leave_end_date
+            self.pay_start_date = calculator.pay_start_date
+            self.pay_end_date = calculator.pay_end_date
+            self.a_notice_leave = calculator.a_notice_leave.to_s(:govuk_date) if calculator.a_notice_leave
+            self.overseas_adoption_leave_employment_threshold = calculator.overseas_adoption_leave_employment_threshold
           end
 
-          calculate :leave_start_date do
-            calculator.leave_start_date
+          validate :error_leave_starts_too_early do
+            leave_start_date >= a_leave_earliest_start
           end
 
-          calculate :leave_end_date do
-            calculator.leave_end_date
-          end
-
-          calculate :pay_start_date do
-            calculator.pay_start_date
-          end
-
-          calculate :pay_end_date do
-            calculator.pay_end_date
-          end
-
-          calculate :a_notice_leave do
-            calculator.format_date calculator.a_notice_leave
-          end
-
-          calculate :overseas_adoption_leave_employment_threshold do
-            calculator.overseas_adoption_leave_employment_threshold
+          validate :error_leave_starts_too_late do
+            leave_start_date <= a_leave_latest_start
           end
 
           next_node do
@@ -206,13 +158,17 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          calculate :last_payday do |response|
-            last_payday = response
+          on_response do |response|
+            self.last_payday = response
             calculator.last_payday = last_payday
-            raise SmartAnswer::InvalidResponse if last_payday > to_saturday
-
-            last_payday
+            self.payday_offset = calculator.payday_offset
+            self.payday_offset_formatted = calculator.format_date(payday_offset)
           end
+
+          validate :error_message do
+            last_payday <= to_saturday
+          end
+
           next_node do
             question :payday_eight_weeks_adoption?
           end
@@ -222,24 +178,14 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          precalculate :payday_offset do
-            calculator.payday_offset
+          on_response do |response|
+            self.last_payday_eight_weeks = response + 1.day
+            calculator.pre_offset_payday = last_payday_eight_weeks
+            self.relevant_period = calculator.formatted_relevant_period
           end
 
-          precalculate :payday_offset_formatted do
-            calculator.format_date_day payday_offset
-          end
-
-          calculate :last_payday_eight_weeks do |response|
-            payday = response + 1.day
-            raise SmartAnswer::InvalidResponse if payday > payday_offset
-
-            calculator.pre_offset_payday = payday
-            payday
-          end
-
-          calculate :relevant_period do
-            calculator.formatted_relevant_period
+          validate :error_message do
+            calculator.payday_offset >= last_payday_eight_weeks
           end
 
           next_node do
@@ -254,12 +200,8 @@ module SmartAnswer
           option :monthly
 
           on_response do |response|
-            calculator.pay_pattern = response
-          end
-
-          calculate :calculator do |response|
-            calculator.pay_method = response
-            calculator
+            self.pay_pattern = response
+            calculator.pay_pattern = pay_pattern
           end
 
           next_node do
@@ -270,10 +212,7 @@ module SmartAnswer
         money_question :earnings_for_pay_period_adoption? do
           on_response do |response|
             calculator.earnings_for_pay_period = response
-          end
-
-          calculate :lower_earning_limit do
-            sprintf("%.2f", calculator.lower_earning_limit)
+            self.lower_earning_limit = sprintf("%.2f", calculator.lower_earning_limit)
           end
 
           next_node do
@@ -297,10 +236,12 @@ module SmartAnswer
           option :weekly_starting
           option :usual_paydates
 
-          save_input_as :sap_calculation_method
+          on_response do |response|
+            self.sap_calculation_method = response
+          end
 
-          next_node do |response|
-            if response == "weekly_starting"
+          next_node do
+            if sap_calculation_method == "weekly_starting"
               outcome :adoption_leave_and_pay
             elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
