@@ -1,5 +1,17 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
+    def self.new_housing_benefit_amount(housing_benefit_amount, total_over_cap)
+      housing_benefit_amount.to_f - total_over_cap.to_f
+    end
+
+    def self.new_housing_benefit(amount)
+      amount = sprintf("%.2f", amount)
+      if amount < "0.5"
+        amount = sprintf("%.2f", 0.5)
+      end
+      amount
+    end
+
     def self.weekly_benefit_caps(region = :national)
       data.fetch(:weekly_benefit_caps)[region].with_indifferent_access
     end

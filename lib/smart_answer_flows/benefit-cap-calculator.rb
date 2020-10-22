@@ -115,10 +115,6 @@ module SmartAnswer
 
       # Q6
       radio :single_couple_lone_parent? do
-        precalculate :weekly_benefit_cap_descriptions do
-          config.weekly_benefit_cap_descriptions
-        end
-
         config.weekly_benefit_caps.each_key do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
@@ -165,37 +161,14 @@ module SmartAnswer
       outcome :outcome_not_affected_no_housing_benefit
 
       ## Outcome 8
-      outcome :outcome_affected_greater_than_cap_london do
-        precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
-        end
-
-        precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
-        end
-      end
+      outcome :outcome_affected_greater_than_cap_london
 
       ## Outcome 10
-      outcome :outcome_affected_greater_than_cap_national do
-        precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
-        end
-
-        precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
-        end
-      end
+      outcome :outcome_affected_greater_than_cap_national
 
       ## Outcome 9
       outcome :outcome_not_affected_less_than_cap_london
+
       ## Outcome 11
       outcome :outcome_not_affected_less_than_cap_national
     end
