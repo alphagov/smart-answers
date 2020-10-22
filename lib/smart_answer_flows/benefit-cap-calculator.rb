@@ -7,7 +7,7 @@ module SmartAnswer
       status :published
       satisfies_need "8474ef2f-6bc2-44be-8883-8a795d728c51"
 
-      config = Calculators::BenefitCapCalculatorConfiguration.new
+      config = Calculators::BenefitCapCalculatorConfiguration
 
       # Q1
       radio :receive_housing_benefit? do
@@ -15,6 +15,7 @@ module SmartAnswer
         option :no
 
         on_response do |response|
+          self.config = config
           self.housing_benefit = response
         end
 
@@ -52,15 +53,14 @@ module SmartAnswer
           option exempt_benefit
         end
 
-        on_response do |response|
-          config.exempted_benefits = response.split(",")
+        on_response do
           self.benefit_options = config.descriptions.merge(none_above: "None of the above")
           self.total_benefits = 0
           self.benefit_cap = 0
         end
 
-        next_node do
-          if config.exempted_benefits?
+        next_node do |response|
+          if config.exempted_benefits?(response.split(","))
             outcome :outcome_not_affected_exemptions
           else
             question :receiving_non_exemption_benefits?
