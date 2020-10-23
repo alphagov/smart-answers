@@ -112,12 +112,6 @@ module SmartAnswer
       assert_nil @presenter.error_message_for("error_key")
     end
 
-    test "#relative_erb_template_path delegates to renderer" do
-      @renderer.stubs(:relative_erb_template_path).returns("relative-erb-template-path")
-
-      assert_equal "relative-erb-template-path", @presenter.relative_erb_template_path
-    end
-
     test "#caption returns the given caption when a caption is given" do
       @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")

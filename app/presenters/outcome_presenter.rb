@@ -34,8 +34,4 @@ class OutcomePresenter < NodePresenter
   def next_steps
     @renderer.content_for(:next_steps)
   end
-
-  def relative_erb_template_path
-    @renderer.relative_erb_template_path
-  end
 end

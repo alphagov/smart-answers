@@ -24,12 +24,6 @@ module SmartAnswer
       @view.options.fetch(key)
     end
 
-    def relative_erb_template_path
-      template = @view.lookup_context.find_template(@template_name)
-      path = Pathname.new(template.identifier)
-      path.relative_path_from(Rails.root).to_s
-    end
-
     def content_for(name)
       rendered_view.content_for(name) || ""
     end

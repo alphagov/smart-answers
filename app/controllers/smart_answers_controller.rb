@@ -48,11 +48,6 @@ class SmartAnswersController < ApplicationController
 
 private
 
-  def debug?
-    Rails.env.development? && params[:debug]
-  end
-  helper_method :debug?
-
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)

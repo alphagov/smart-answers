@@ -84,11 +84,5 @@ module SmartAnswer
 
       assert_equal "next-steps-html", @presenter.next_steps
     end
-
-    test "#relative_erb_template_path delegates to renderer" do
-      @renderer.stubs(:relative_erb_template_path).returns("relative-erb-template-path")
-
-      assert_equal "relative-erb-template-path", @presenter.relative_erb_template_path
-    end
   end
 end
