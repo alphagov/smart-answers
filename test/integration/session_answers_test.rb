@@ -15,10 +15,10 @@ class SessionAnswersTest < ActionDispatch::SystemTestCase
     within "legend" do
       assert_page_has_content "What do you need help with because of coronavirus?"
     end
-    check("Not sure", visible: false)
+    check("None of these", visible: false)
     click_on "Continue"
     within "legend" do
-      assert_page_has_content "Do you feel safe where you live?"
+      assert_page_has_content "Where do you want to find information about?"
     end
     click_on "Change"
     within "legend" do
@@ -31,10 +31,10 @@ class SessionAnswersTest < ActionDispatch::SystemTestCase
     within "legend" do
       assert_page_has_content "What do you need help with because of coronavirus?"
     end
-    check("Not sure", visible: false)
+    check("None of these", visible: false)
     click_on "Continue"
     within "legend" do
-      assert_page_has_content "Do you feel safe where you live?"
+      assert_page_has_content "Where do you want to find information about?"
     end
     visit "find-coronavirus-support/s"
     within "legend" do

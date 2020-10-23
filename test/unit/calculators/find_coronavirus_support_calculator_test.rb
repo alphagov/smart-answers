@@ -467,7 +467,7 @@ module SmartAnswer::Calculators
 
       should "return true if the none item has been chosen" do
         @calculator.need_help_with = "none"
-        assert_equal @calculator.needs_help_with?("one"), true
+        assert_equal @calculator.needs_help_with?("one"), false
       end
     end
 
@@ -497,7 +497,7 @@ module SmartAnswer::Calculators
       context "user is on the need_help_with node" do
         should "return feel_safe when 'none' has been chosen" do
           @calculator.need_help_with = "none"
-          assert_equal @calculator.next_question(:need_help_with), :feel_safe
+          assert_equal @calculator.next_question(:need_help_with), :nation
         end
 
         should "return feel_safe when paying_bills has been chosen" do
