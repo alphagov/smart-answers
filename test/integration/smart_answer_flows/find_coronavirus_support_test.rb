@@ -11,60 +11,9 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
   end
 
   context "specific outcomes" do
-    should "ask the user to answer questions in all groups if none is selected for the need_help_with question" do
+    should "skip to nation question if none is selected for the need_help_with question" do
       assert_current_node :need_help_with
       add_response "none"
-
-      # ======================================================================
-      # Group: feeling_unsafe
-      # ======================================================================
-      assert_current_node :feel_safe
-      add_response "yes"
-
-      # ======================================================================
-      # Group: paying_bills
-      # ======================================================================
-      assert_current_node :afford_rent_mortgage_bills
-      add_response "no"
-
-      # ======================================================================
-      # Group: getting_food
-      # ======================================================================
-      assert_current_node :afford_food
-      add_response "no"
-      assert_current_node :get_food
-      add_response "yes"
-
-      # ======================================================================
-      # Group: being_unemployed
-      # ======================================================================
-      assert_current_node :self_employed
-      add_response "no"
-      assert_current_node :have_you_been_made_unemployed
-      add_response "no"
-
-      # ======================================================================
-      # Group: going_to_work
-      # ======================================================================
-      assert_current_node :worried_about_work
-      add_response "no"
-      assert_current_node :are_you_off_work_ill
-      add_response "no"
-
-      # ======================================================================
-      # Group: somewhere_to_live
-      # ======================================================================
-      assert_current_node :have_somewhere_to_live
-      add_response "yes"
-      assert_current_node :have_you_been_evicted
-      add_response "no"
-
-      # ======================================================================
-      # Group: mental_health
-      # ======================================================================
-      assert_current_node :mental_health_worries
-      add_response "no"
-
       assert_current_node :nation
       add_response "england"
       assert_current_node :results

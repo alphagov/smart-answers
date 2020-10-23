@@ -77,8 +77,6 @@ module SmartAnswer::Calculators
     def needs_help_with?(given_help_item)
       return false if need_help_with.blank?
 
-      return true if need_help_with == "none"
-
       need_help_with.split(",").include? given_help_item
     end
 
