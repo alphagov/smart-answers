@@ -32,6 +32,21 @@ module SmartAnswer
       assert_equal([nil, nil, nil], @presenter.checkboxes.map { |c| c[:checked] })
     end
 
+    test "#checkboxes return array including an or divider for none options" do
+      @question.none_option
+      @renderer.stubs(:option).with(:none).returns({ label: "None" })
+
+      expected_value = [
+        { label: "Option 1", value: "option1", hint: nil, checked: nil, exclusive: nil },
+        { label: "Option 2", value: "option2", hint: "Hint 2", checked: nil, exclusive: nil },
+        { label: "Option 3", value: "option3", hint: nil, checked: nil, exclusive: nil },
+        :or,
+        { label: "None", value: "none", hint: nil, checked: nil, exclusive: true },
+      ]
+
+      assert_equal expected_value, @presenter.checkboxes
+    end
+
     test "#caption returns the given caption when a caption is given" do
       @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")

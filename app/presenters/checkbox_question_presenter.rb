@@ -20,8 +20,12 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def checkboxes
-    options.map do |option|
-      {
+    options.each_with_object([]) do |option, items|
+      if option[:value] == "none"
+        items << :or
+      end
+
+      items << {
         label: option[:label],
         value: option[:value],
         hint: option[:hint_text],
