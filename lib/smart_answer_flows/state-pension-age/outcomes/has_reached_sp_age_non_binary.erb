@@ -1,0 +1,16 @@
+<% govspeak_for :body do %>
+  Your State Pension age is worked out based on your legal sex. You can find this on your State Pension award letter.
+
+  If your legal sex is ‘female’, you’ll have reached State Pension age on <%= format_date(calculator.state_pension_date(:female)) %>, aged <%= calculator.state_pension_age(:female) %>.
+
+  If your legal sex is ‘male’, you’ll have reached State Pension age on <%= format_date(calculator.state_pension_date(:male)) %>, aged <%= calculator.state_pension_age(:male) %>.
+  
+  You should already have your pension claim pack.
+
+  Contact the Pension Service on 0800 731 7898 if you have not received it.
+
+  ##Pension Credit
+  You might get [Pension Credit](/pension-credit) if you’re retired and on a low income.
+
+  [Check if you’re eligible to claim Pension Credit](/pension-credit/eligibility).
+<% end %>

@@ -1,8 +1,14 @@
 <% text_for :title do %>
-  Are you a man or a woman?
+  Are you male or female?
+<% end %>
+
+<% text_for :hint do %>
+  Your State Pension age is worked out using your legal sex and age if you were born before 6 December 1953.
 <% end %>
 
 <% options(
   "male": "Man",
-  "female": "Woman"
+  "female": "Woman",
+  "non_binary": "Non-binary",
+  "prefer_not_to_say": "Prefer not to say"
 ) %>

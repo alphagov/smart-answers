@@ -58,6 +58,30 @@ class StatePensionAgeTest < ActiveSupport::TestCase
         assert_current_node :has_reached_sp_age
       end
     end
+
+    context "when gender is non-binary" do
+      setup do
+        add_response :age
+        add_response Date.parse("5th December 1953")
+        add_response :non_binary
+      end
+
+      should "display the outcome" do
+        assert_current_node :has_reached_sp_age_non_binary
+      end
+    end
+
+    context "when gender is prefer not to say" do
+      setup do
+        add_response :age
+        add_response Date.parse("5th December 1953")
+        add_response :prefer_not_to_say
+      end
+
+      should "display the outcome" do
+        assert_current_node :has_reached_sp_age_non_binary
+      end
+    end
   end
 
   # Calculating State Pension Age
