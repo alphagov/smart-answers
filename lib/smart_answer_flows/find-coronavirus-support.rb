@@ -36,18 +36,18 @@ module SmartAnswer
       # ======================================================================
       # Do you feel safe where you live?
       # ======================================================================
-      radio :feel_safe do
+      radio :feel_unsafe do
         option :yes
-        option :yes_but_i_am_concerned_about_others
+        option :concerned_about_others
         option :no
         option :not_sure
 
         on_response do |response|
-          calculator.feel_safe = response
+          calculator.feel_unsafe = response
         end
 
         next_node do
-          question calculator.next_question(:feel_safe)
+          question calculator.next_question(:feel_unsafe)
         end
       end
 

@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class FindCoronavirusSupportCalculator
     attr_accessor :nation,
                   :need_help_with,
-                  :feel_safe,
+                  :feel_unsafe,
                   :afford_rent_mortgage_bills,
                   :afford_food,
                   :get_food,
@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
                   :mental_health_worries
 
     GROUPS = {
-      feeling_unsafe: [:feel_safe],
+      feeling_unsafe: [:feel_unsafe],
       paying_bills: [:afford_rent_mortgage_bills],
       getting_food: %i[afford_food get_food],
       being_unemployed: %i[have_you_been_made_unemployed self_employed],
@@ -25,8 +25,8 @@ module SmartAnswer::Calculators
     }.freeze
 
     SECTIONS = {
-      feel_safe: lambda { |calculator|
-        calculator.needs_help_with?("feeling_unsafe") && calculator.feel_safe != "yes"
+      feel_unsafe: lambda { |calculator|
+        calculator.needs_help_with?("feeling_unsafe") && calculator.feel_unsafe != "no"
       },
       afford_rent_mortgage_bills: lambda { |calculator|
         calculator.needs_help_with?("paying_bills") && calculator.afford_rent_mortgage_bills != "no"
@@ -87,7 +87,7 @@ module SmartAnswer::Calculators
     def next_question(current_node)
       nodes = %i[
         need_help_with
-        feel_safe
+        feel_unsafe
         afford_rent_mortgage_bills
         get_food
         have_you_been_made_unemployed
@@ -96,7 +96,7 @@ module SmartAnswer::Calculators
       ]
 
       if nodes.slice(0..0).include?(current_node) && needs_help_with?("feeling_unsafe")
-        :feel_safe
+        :feel_unsafe
       elsif nodes.slice(0..1).include?(current_node) && needs_help_with?("paying_bills")
         :afford_rent_mortgage_bills
       elsif nodes.slice(0..2).include?(current_node) && needs_help_with?("getting_food")

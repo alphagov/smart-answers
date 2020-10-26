@@ -7,17 +7,17 @@ module SmartAnswer::Calculators
     end
 
     context "#show_group?" do
-      context "feel_safe" do
+      context "feel_unsafe" do
         should "return true when criteria is met" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "no"
+          @calculator.feel_unsafe = "yes"
 
           assert @calculator.show_group?(:feeling_unsafe)
         end
 
         should "return false when criteria is not met" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "yes"
+          @calculator.feel_unsafe = "no"
 
           assert_not @calculator.show_group?(:feeling_unsafe)
         end
@@ -135,33 +135,33 @@ module SmartAnswer::Calculators
     end
 
     context "#show_section?" do
-      context "feel_safe" do
+      context "feel_unsafe" do
         should "return true when not feeling safe" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "no"
+          @calculator.feel_unsafe = "yes"
 
-          assert @calculator.show_section?(:feel_safe)
+          assert @calculator.show_section?(:feel_unsafe)
         end
 
         should "return true when not sure" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "not_sure"
+          @calculator.feel_unsafe = "not_sure"
 
-          assert @calculator.show_section?(:feel_safe)
+          assert @calculator.show_section?(:feel_unsafe)
         end
 
         should "return true when worried someone else" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "yes_but_i_am_concerned_about_others"
+          @calculator.feel_unsafe = "concerned_about_others"
 
-          assert @calculator.show_section?(:feel_safe)
+          assert @calculator.show_section?(:feel_unsafe)
         end
 
         should "return false when feeling safe" do
           @calculator.need_help_with = "feeling_unsafe"
-          @calculator.feel_safe = "yes"
+          @calculator.feel_unsafe = "no"
 
-          assert_not @calculator.show_section?(:feel_safe)
+          assert_not @calculator.show_section?(:feel_unsafe)
         end
       end
 
@@ -419,7 +419,7 @@ module SmartAnswer::Calculators
     context "#has_results?" do
       should "return true when criteria is met" do
         @calculator.need_help_with = "feeling_unsafe,paying_bills,mental_health"
-        @calculator.feel_safe = "no"
+        @calculator.feel_unsafe = "yes"
         @calculator.afford_rent_mortgage_bills = "yes"
         @calculator.mental_health_worries = "no"
 
@@ -428,7 +428,7 @@ module SmartAnswer::Calculators
 
       should "return false when criteria is not met" do
         @calculator.need_help_with = "feeling_unsafe,going_to_work,mental_health"
-        @calculator.feel_safe = "yes"
+        @calculator.feel_unsafe = "no"
         @calculator.worried_about_work = "no"
         @calculator.mental_health_worries = "no"
 
@@ -495,14 +495,14 @@ module SmartAnswer::Calculators
 
     context "#next_question" do
       context "user is on the need_help_with node" do
-        should "return feel_safe when 'none' has been chosen" do
+        should "return nation when 'none' has been chosen" do
           @calculator.need_help_with = "none"
           assert_equal @calculator.next_question(:need_help_with), :nation
         end
 
-        should "return feel_safe when paying_bills has been chosen" do
+        should "return feel_unsafe when feeling unsafe has been chosen" do
           @calculator.need_help_with = "feeling_unsafe"
-          assert_equal @calculator.next_question(:need_help_with), :feel_safe
+          assert_equal @calculator.next_question(:need_help_with), :feel_unsafe
         end
 
         should "return afford_rent_mortgage_bills when paying_bills has been chosen" do
@@ -536,40 +536,40 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "user is on the feel_safe node" do
+      context "user is on the feel_unsafe node" do
         should "return afford_rent_mortgage_bills when paying_bills has been chosen" do
           @calculator.need_help_with = "paying_bills"
-          assert_equal @calculator.next_question(:feel_safe), :afford_rent_mortgage_bills
+          assert_equal @calculator.next_question(:feel_unsafe), :afford_rent_mortgage_bills
         end
 
         should "return self_employed when getting_food has been chosen" do
           @calculator.need_help_with = "getting_food"
-          assert_equal @calculator.next_question(:feel_safe), :afford_food
+          assert_equal @calculator.next_question(:feel_unsafe), :afford_food
         end
 
         should "return self_employed when being_unemployed has been chosen" do
           @calculator.need_help_with = "being_unemployed"
-          assert_equal @calculator.next_question(:feel_safe), :self_employed
+          assert_equal @calculator.next_question(:feel_unsafe), :self_employed
         end
 
         should "return worried_about_work when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
-          assert_equal @calculator.next_question(:feel_safe), :worried_about_work
+          assert_equal @calculator.next_question(:feel_unsafe), :worried_about_work
         end
 
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:feel_safe), :have_somewhere_to_live
+          assert_equal @calculator.next_question(:feel_unsafe), :have_somewhere_to_live
         end
 
         should "return mental_health_worries when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:feel_safe), :mental_health_worries
+          assert_equal @calculator.next_question(:feel_unsafe), :mental_health_worries
         end
 
         should "return nation when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:feel_safe), :nation
+          assert_equal @calculator.next_question(:feel_unsafe), :nation
         end
       end
 

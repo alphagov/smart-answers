@@ -22,8 +22,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
     should "show no specific information results for the minimal flow" do
       assert_current_node :need_help_with
       add_response "feeling_unsafe"
-      assert_current_node :feel_safe
-      add_response "yes"
+      assert_current_node :feel_unsafe
+      add_response "no"
       assert_current_node :nation
       add_response "england"
       assert_current_node :results
@@ -32,8 +32,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
     should "show results for a user that can get food and is self-employed" do
       assert_current_node :need_help_with
       add_response "being_unemployed,feeling_unsafe,getting_food,going_to_work,mental_health,paying_bills,somewhere_to_live"
-      assert_current_node :feel_safe
-      add_response "no"
+      assert_current_node :feel_unsafe
+      add_response "yes"
       assert_current_node :afford_rent_mortgage_bills
       add_response "no"
       assert_current_node :afford_food
@@ -62,8 +62,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
     should "show results for a user that cannot get food, is not self-employed, and has been made unemployed" do
       assert_current_node :need_help_with
       add_response "being_unemployed,feeling_unsafe,getting_food,going_to_work,mental_health,paying_bills,somewhere_to_live"
-      assert_current_node :feel_safe
-      add_response "no"
+      assert_current_node :feel_unsafe
+      add_response "yes"
       assert_current_node :afford_rent_mortgage_bills
       add_response "no"
       assert_current_node :afford_food
@@ -94,8 +94,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
     should "show results for a user that can get food, is not self-employed, and has not been made unemployed" do
       assert_current_node :need_help_with
       add_response "being_unemployed,feeling_unsafe,getting_food,going_to_work,mental_health,paying_bills,somewhere_to_live"
-      assert_current_node :feel_safe
-      add_response "no"
+      assert_current_node :feel_unsafe
+      add_response "yes"
       assert_current_node :afford_rent_mortgage_bills
       add_response "no"
       assert_current_node :afford_food
@@ -126,8 +126,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
     should "not be possible to reach the results page without the no-results text being shown" do
       assert_current_node :need_help_with
       add_response "feeling_unsafe"
-      assert_current_node :feel_safe
-      add_response "yes"
+      assert_current_node :feel_unsafe
+      add_response "no"
       assert_current_node :nation
       add_response "england"
       assert_current_node :results
