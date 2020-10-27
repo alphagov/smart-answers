@@ -68,9 +68,13 @@ module SmartAnswer
 
     context "when answering date_of_adoption_placement?" do
       setup do
+        match_date = Date.parse("1 October 2017")
+        calculator = Calculators::AdoptionPayCalculator.new(match_date)
         @question = TestNode.new(@flow, :date_of_adoption_placement?)
-          .with_stubbed_calculator
-          .with(match_date: Date.parse("1 October 2017"))
+          .with(
+            match_date: match_date,
+            calculator: calculator,
+          )
       end
 
       context "with an adoption from the UK" do

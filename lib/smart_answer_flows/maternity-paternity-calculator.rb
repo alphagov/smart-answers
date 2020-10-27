@@ -14,24 +14,27 @@ module SmartAnswer
 
       ## Q1
       radio :what_type_of_leave? do
-        save_input_as :leave_type
         option :maternity
         option :paternity
         option :adoption
 
-        calculate :leave_spp_claim_link
-        calculate :notice_of_leave_deadline
-        calculate :monthly_pay_method
-        calculate :smp_calculation_method
-        calculate :sap_calculation_method
-        calculate :above_lower_earning_limit
-        calculate :paternity_adoption
-        calculate :spp_calculation_method
-        calculate :has_contract
-        calculate :paternity_employment_start
+        on_response do |response|
+          self.leave_type = response
 
-        next_node do |response|
-          case response
+          self.leave_spp_claim_link = nil
+          self.notice_of_leave_deadline = nil
+          self.monthly_pay_method = nil
+          self.smp_calculation_method = nil
+          self.sap_calculation_method = nil
+          self.above_lower_earning_limit = nil
+          self.paternity_adoption = nil
+          self.spp_calculation_method = nil
+          self.has_contract = nil
+          self.paternity_employment_start = nil
+        end
+
+        next_node do
+          case leave_type
           when "maternity"
             question :baby_due_date_maternity?
           when "paternity"
