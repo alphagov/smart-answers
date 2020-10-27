@@ -36,11 +36,11 @@ module SmartAnswer
       end
 
       radio :annual_turnover? do
-        option :"500m_and_over"
-        option :"45m_to_500m"
-        option :"85k_to_45m"
-        option :under_85k
         option :pre_revenue
+        option :under_85k
+        option :"85k_to_45m"
+        option :"45m_to_500m"
+        option :"500m_and_over"
 
         on_response do |response|
           calculator.annual_turnover = response
@@ -78,9 +78,9 @@ module SmartAnswer
       end
 
       radio :non_domestic_property? do
-        option :"51k_and_over"
-        option :under_51k
         option :none
+        option :under_51k
+        option :"51k_and_over"
 
         on_response do |response|
           calculator.non_domestic_property = response
