@@ -13,6 +13,6 @@ module IndexHelper
 
   def code_links(flow_name)
     tag.p(link_to("Definition", "https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/#{flow_name}.rb")) +
-      tag.p(link_to("Templates", "https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/#{flow_name}"))
+      tag.p(link_to("Content files", "https://www.github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/#{flow_name}"))
   end
 end
