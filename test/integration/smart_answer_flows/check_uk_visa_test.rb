@@ -201,8 +201,24 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "austria"
     end
 
-    should "go to outcome no visa needed" do
-      assert_current_node :outcome_no_visa_needed
+    should "go ask what when are you coming to the UK" do
+      assert_current_node :when_are_you_coming_to_the_uk?
+    end
+
+    context "before 2021" do
+      setup { add_response "before_2021" }
+
+      should "take you to outcome no visa outcome_no_visa_needed" do
+        assert_current_node :outcome_no_visa_needed
+      end
+    end
+
+    context "after 2021" do
+      setup { add_response "from_2021" }
+
+      should "ask what are you coming to the UK to do" do
+        assert_current_node :purpose_of_visit?
+      end
     end
   end
 
@@ -1040,14 +1056,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "take you to outcome visit waiver" do
       assert_current_node :outcome_visit_waiver
-    end
-  end
-  context "testing croatia phrase list" do
-    setup do
-      add_response "croatia"
-    end
-    should "takes you to outcome_no_visa_needed" do
-      assert_current_node :outcome_no_visa_needed
     end
   end
 

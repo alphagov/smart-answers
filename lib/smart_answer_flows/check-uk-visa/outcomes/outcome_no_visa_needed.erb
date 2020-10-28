@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  <% if calculator.study_visit? || calculator.passport_country_is_ireland? %>
+  <% if calculator.study_visit? || calculator.passport_country_is_ireland? || calculator.passport_country_in_eea? %>
     You do not need a visa to come to the UK
   <% else %>
     You do not currently need a visa
@@ -12,25 +12,9 @@
     <% if calculator.passport_country_is_ireland? %>
       This will not change when [new immigration rules](/guidance/new-immigration-system-what-you-need-to-know) come in on 1 January 2021.
     <% else %>
-     You do not need a visa if you enter the UK by 11pm on 31 December 2020.
+      You do not need a visa if you enter the UK by 11pm on 31 December 2020.
 
-      If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families)  by 30 June 2021 to continue to work, live or study in the UK.
-
-      ##If you come to the UK from 1 January 2021
-
-      You will still be able to visit the UK for up to 6 months without applying for a visa.
-
-      You can apply now for a:
-
-      * [Student visa](/student-visa) - to study in the UK if you’re 16 or over
-      * [Child Student visa](/child-study-visa) - if you’re aged 4 to 17 and studying at an independent school
-      * [Parent of a Child Student](/parent-of-a-child-at-school-visa) - if your child is under 12 and at an independent day school
-
-      If you’re coming to the UK for another reason, you’ll be able to apply for a visa from 1 December 2020. [Find how UK immigration is changing for EU nationals](/guidance/new-immigration-system-what-you-need-to-know).
-
-      ###If you or your close family member were living in the UK before 31 December 2020
-
-      You may be able to apply to the free [EU Settlement Scheme](/settled-status-eu-citizens-families) instead of applying for a visa. If you're joining your close family member, they must be a citizen of an EU country, Switzerland, Norway, Iceland or Liechtenstein.
+      If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families) by 30 June 2021 to continue to work, live or study in the UK.
     <% end %>
   <% end %>
 
