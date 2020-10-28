@@ -325,6 +325,10 @@ module SmartAnswer::Calculators
       average_weekly_earnings < lower_earning_limit
     end
 
+    def payday_offset_formatted
+      format_date_day payday_offset
+    end
+
   private
 
     def valid_payment_option?

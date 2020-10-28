@@ -9,9 +9,10 @@ module SmartAnswer
           from { 1.year.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          calculate :calculator do |response|
-            Calculators::MaternityPayCalculator.new(response)
+          on_response do |response|
+            self.calculator = Calculators::MaternityPayCalculator.new(response)
           end
+
           next_node do
             question :date_leave_starts?
           end
@@ -22,43 +23,22 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          precalculate :leave_earliest_start_date do
-            calculator.leave_earliest_start_date
+          on_response do |response|
+            self.leave_start_date = response
+            calculator.leave_start_date = leave_start_date
+            self.leave_end_date = calculator.leave_end_date
+            self.notice_of_leave_deadline = calculator.notice_of_leave_deadline
+            self.pay_start_date = calculator.pay_start_date
+            self.pay_end_date = calculator.pay_end_date
+            self.employment_start = calculator.employment_start
+            self.qualifying_week_start = calculator.qualifying_week.first
+            self.ssp_stop = calculator.ssp_stop
           end
 
-          calculate :leave_start_date do |response|
-            ls_date = response
-            raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
-
-            calculator.leave_start_date = ls_date
-            calculator.leave_start_date
+          validate :error_message do
+            leave_start_date >= calculator.leave_earliest_start_date
           end
 
-          calculate :leave_end_date do
-            calculator.leave_end_date
-          end
-          calculate :leave_earliest_start_date do
-            calculator.leave_earliest_start_date
-          end
-          calculate :notice_of_leave_deadline do
-            calculator.notice_of_leave_deadline
-          end
-
-          calculate :pay_start_date do
-            calculator.pay_start_date
-          end
-          calculate :pay_end_date do
-            calculator.pay_end_date
-          end
-          calculate :employment_start do
-            calculator.employment_start
-          end
-          calculate :qualifying_week_start do
-            calculator.qualifying_week.first
-          end
-          calculate :ssp_stop do
-            calculator.ssp_stop
-          end
           next_node do
             question :did_the_employee_work_for_you_between?
           end
@@ -68,21 +48,16 @@ module SmartAnswer
         radio :did_the_employee_work_for_you_between? do
           option :yes
           option :no
-          calculate :not_entitled_to_pay_reason do |response|
-            response == "no" ? :not_worked_long_enough_and_not_on_payroll : nil
-          end
-          calculate :to_saturday do
-            calculator.qualifying_week.last
-          end
 
-          calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
+          on_response do |response|
+            self.has_employment_contract_between_dates = response
+            self.not_entitled_to_pay_reason = response == "no" ? :not_worked_long_enough_and_not_on_payroll : nil
+            self.to_saturday = calculator.qualifying_week.last
+            self.to_saturday_formatted = calculator.format_date_day(to_saturday)
           end
 
-          save_input_as :has_employment_contract_between_dates
-
-          next_node do |response|
-            case response
+          next_node do
+            case has_employment_contract_between_dates
             when "yes"
               question :last_normal_payday?
             when "no"
@@ -96,7 +71,9 @@ module SmartAnswer
           option :yes
           option :no
 
-          save_input_as :has_employment_contract_now
+          on_response do |response|
+            self.has_employment_contract_now = response
+          end
 
           next_node do
             outcome :maternity_leave_and_pay_result
@@ -108,12 +85,15 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          calculate :last_payday do |response|
-            calculator.last_payday = response
-            raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
-
-            calculator.last_payday
+          on_response do |response|
+            self.last_payday = response
+            calculator.last_payday = last_payday
           end
+
+          validate :error_message do
+            calculator.last_payday <= to_saturday
+          end
+
           next_node do
             question :payday_eight_weeks?
           end
@@ -124,24 +104,14 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          precalculate :payday_offset do
-            calculator.payday_offset
+          on_response do |response|
+            self.last_payday_eight_weeks = 1.day.after(response)
+            calculator.pre_offset_payday = last_payday_eight_weeks
+            self.relevant_period = calculator.formatted_relevant_period
           end
 
-          precalculate :payday_offset_formatted do
-            calculator.format_date_day payday_offset
-          end
-
-          calculate :last_payday_eight_weeks do |response|
-            payday = response + 1.day
-            raise SmartAnswer::InvalidResponse if payday > payday_offset
-
-            calculator.pre_offset_payday = payday
-            payday
-          end
-
-          calculate :relevant_period do
-            calculator.formatted_relevant_period
+          validate :error_message do
+            last_payday_eight_weeks <= calculator.payday_offset
           end
 
           next_node do
@@ -191,26 +161,26 @@ module SmartAnswer
           option :weekly_starting
           option :usual_paydates
 
-          save_input_as :smp_calculation_method
+          on_response do |response|
+            self.smp_calculation_method = response
+          end
 
-          next_node do |response|
-            if response == "usual_paydates"
-              if calculator.pay_pattern == "monthly"
-                question :when_in_the_month_is_the_employee_paid?
-              else
-                question :when_is_your_employees_next_pay_day?
-              end
-            else
+          next_node do
+            if smp_calculation_method != "usual_paydates"
               outcome :maternity_leave_and_pay_result
+            elsif calculator.pay_pattern == "monthly"
+              question :when_in_the_month_is_the_employee_paid?
+            else
+              question :when_is_your_employees_next_pay_day?
             end
           end
         end
 
         ## QM10
         date_question :when_is_your_employees_next_pay_day? do
-          calculate :next_pay_day do |response|
-            calculator.pay_date = response
-            calculator.pay_date
+          on_response do |response|
+            self.next_pay_day = response
+            calculator.pay_date = next_pay_day
           end
 
           next_node do
@@ -246,11 +216,13 @@ module SmartAnswer
 
         ## QM12
         value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
-          calculate :pay_day_in_month do |response|
-            day = response
-            raise InvalidResponse unless day.positive? && day < 32
+          on_response do |response|
+            self.pay_day_in_month = response
+            calculator.pay_day_in_month = pay_day_in_month
+          end
 
-            calculator.pay_day_in_month = day
+          validate :error_message do
+            pay_day_in_month.positive? && pay_day_in_month < 32
           end
 
           next_node do
@@ -262,10 +234,12 @@ module SmartAnswer
         checkbox_question :what_days_does_the_employee_work? do
           (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
-          calculate :last_day_in_week_worked do |response|
-            calculator.work_days = response.split(",").map(&:to_i)
-            calculator.pay_day_in_week = response.split(",").max.to_i
+          on_response do |response|
+            self.last_day_in_week_worked = response
+            calculator.work_days = last_day_in_week_worked.split(",").map(&:to_i)
+            calculator.pay_day_in_week = calculator.work_days.max
           end
+
           next_node do
             outcome :maternity_leave_and_pay_result
           end
@@ -275,10 +249,11 @@ module SmartAnswer
         radio :what_particular_day_of_the_month_is_the_employee_paid? do
           days_of_the_week.each { |d| option d.to_sym }
 
-          calculate :pay_day_in_week do |response|
-            calculator.pay_day_in_week = days_of_the_week.index(response)
-            response
+          on_response do |response|
+            self.pay_day_in_week = response
+            calculator.pay_day_in_week = days_of_the_week.index(pay_day_in_week)
           end
+
           next_node do
             question :which_week_in_month_is_the_employee_paid?
           end
@@ -292,8 +267,9 @@ module SmartAnswer
           option :fourth
           option :last
 
-          calculate :pay_week_in_month do |response|
-            calculator.pay_week_in_month = response
+          on_response do |response|
+            self.pay_week_in_month = response
+            calculator.pay_week_in_month = pay_week_in_month
           end
           next_node do
             outcome :maternity_leave_and_pay_result

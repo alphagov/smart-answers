@@ -25,7 +25,7 @@
       ##Statutory Maternity Pay
 
       The employee is not entitled to Statutory Maternity Pay.
-      Their average weekly earnings are <%= format_money(average_weekly_earnings) %> (you can’t round this figure up or down). To qualify:
+      Their average weekly earnings are <%= format_money(calculator.average_weekly_earnings) %> (you can’t round this figure up or down). To qualify:
 
     <% else %>
       ##Statutory Maternity Pay
@@ -36,12 +36,11 @@
     <% case not_entitled_to_pay_reason %>
     <% when :must_earn_over_threshold %>
 
-      + <%= render partial: 'must_earn_over_threshold',
-                 locals: {
-                   average_weekly_earnings: average_weekly_earnings,
+      + <%= render 'must_earn_over_threshold',
+                   average_weekly_earnings: calculator.average_weekly_earnings,
                    relevant_period: relevant_period,
                    lower_earning_limit: lower_earning_limit
-                 } %>
+        %>
     <% when :not_worked_long_enough_and_not_on_payroll %>
 
       + they must have worked continually for you between <%= format_date(employment_start) %> and <%= format_date(qualifying_week_start) %>.
@@ -61,8 +60,8 @@
 
     Pay | Key facts
     -|-
-    Average weekly earnings | £<%= number_with_precision(average_weekly_earnings, precision: 7) %> (don't round this up or down)
-    Latest date to claim SMP | <%= format_date(notice_request_pay) %>
+    Average weekly earnings | £<%= number_with_precision(calculator.average_weekly_earnings, precision: 7) %> (don't round this up or down)
+    Latest date to claim SMP | <%= format_date(calculator.notice_request_pay) %>
     SMP start date due to pregnancy related illness| <%= format_date(ssp_stop) %>
     Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
 
