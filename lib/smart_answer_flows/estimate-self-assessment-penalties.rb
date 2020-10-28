@@ -8,13 +8,13 @@ module SmartAnswer
       satisfies_need "e220b484-a097-4ed4-ae3d-ac982b10c8cd"
 
       radio :which_year? do
-        option :"2012-13"
         option :"2013-14"
         option :"2014-15"
         option :"2015-16"
         option :"2016-17"
         option :"2017-18"
         option :"2018-19"
+        option :"2019-20"
 
         on_response do |response|
           self.calculator = Calculators::SelfAssessmentPenalties.new
