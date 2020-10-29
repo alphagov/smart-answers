@@ -4,6 +4,8 @@ module SmartAnswer::Calculators
     attr_reader :country
 
     PRISONER_PACKS = YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml")).freeze
+    COUNTRIES_WITH_REGIONS = %w[cyprus].freeze
+    COUNTRIES_WITHOUT_TRANFSERS_BACK = %w[austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia].freeze
 
     def initialize(country)
       @country = country
@@ -23,10 +25,6 @@ module SmartAnswer::Calculators
         new_link
       end
       output.join("\n")
-    end
-
-    def countries_with_regions
-      %w[cyprus]
     end
 
     def get_country_regions
@@ -83,12 +81,12 @@ module SmartAnswer::Calculators
     def has_extra_downloads
       extra_downloads = [police, judicial, consul, prison, lawyer, benefits, doc, pdf]
 
-      extra_downloads.any?(&:present?) || countries_with_regions.include?(country)
+      extra_downloads.any?(&:present?) || COUNTRIES_WITH_REGIONS.include?(country)
     end
 
     def region_downloads
       links = []
-      if countries_with_regions.include?(country)
+      if COUNTRIES_WITH_REGIONS.include?(country)
         regions = get_country_regions
         regions.each_value do |val|
           links << "- [#{val['url_text']}](#{val['link']})"
@@ -98,7 +96,7 @@ module SmartAnswer::Calculators
     end
 
     def transfer_back
-      %w[austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia].exclude?(country)
+      COUNTRIES_WITHOUT_TRANFSERS_BACK.exclude?(country)
     end
   end
 end
