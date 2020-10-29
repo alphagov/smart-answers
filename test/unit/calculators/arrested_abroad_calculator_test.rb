@@ -24,6 +24,26 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "has extra downloads" do
+        should "return true for countries with regions" do
+          calc = ArrestedAbroad.new("cyprus")
+          calc.stubs(:country_name).returns("Cyprus")
+          assert calc.has_extra_downloads
+        end
+
+        should "return false if not a country with regions nor has extra download links" do
+          calc = ArrestedAbroad.new("bermuda")
+          calc.stubs(:country_name).returns("Bermuda")
+          assert_not calc.has_extra_downloads
+        end
+
+        should "return true if country has extra download links" do
+          calc = ArrestedAbroad.new("australia")
+          calc.stubs(:country_name).returns("Australia")
+          assert calc.has_extra_downloads
+        end
+      end
+
       context "countries with regions" do
         should "pull out regions of the YML for Cyprus" do
           calc = ArrestedAbroad.new("cyprus")

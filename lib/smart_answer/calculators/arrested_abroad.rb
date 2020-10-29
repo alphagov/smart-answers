@@ -81,9 +81,9 @@ module SmartAnswer::Calculators
     end
 
     def has_extra_downloads
-      [police, judicial, consul, prison, lawyer, benefits, doc, pdf].count { |x|
-        x != ""
-      }.positive? || countries_with_regions.include?(country)
+      extra_downloads = [police, judicial, consul, prison, lawyer, benefits, doc, pdf]
+
+      extra_downloads.any?(&:present?) || countries_with_regions.include?(country)
     end
 
     def region_downloads
