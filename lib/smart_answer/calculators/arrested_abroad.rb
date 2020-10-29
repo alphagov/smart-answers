@@ -85,13 +85,12 @@ module SmartAnswer::Calculators
     end
 
     def region_downloads
-      links = []
-      if COUNTRIES_WITH_REGIONS.include?(country)
-        regions = get_country_regions
-        regions.each_value do |val|
-          links << "- [#{val['url_text']}](#{val['link']})"
-        end
+      return "" unless COUNTRIES_WITH_REGIONS.include?(country)
+
+      links = get_country_regions.values.map do |region|
+        "- [#{region['url_text']}](#{region['link']})"
       end
+
       links.join("\n")
     end
 
