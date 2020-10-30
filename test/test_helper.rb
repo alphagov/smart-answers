@@ -43,6 +43,7 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::Imminence
   include GdsApi::TestHelpers::PublishingApi
   include GdsApi::TestHelpers::Worldwide
+  include ActionDispatch::Assertions
   parallelize workers: 6
 end
 
