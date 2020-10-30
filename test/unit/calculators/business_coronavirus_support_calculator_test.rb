@@ -88,33 +88,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "retail_hospitality_leisure_grant_funding" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.non_domestic_property = "under_51k"
-          @calculator.sectors = %w[retail_hospitality_or_leisure]
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when in a devolved administration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when non-domestic property is valued over £51k" do
-          @calculator.non_domestic_property = "51k_and_over"
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when not in supported business sector" do
-          @calculator.sectors = %w[nurseries]
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-      end
-
       context "nursery_support" do
         setup do
           @calculator.business_based = "england"
