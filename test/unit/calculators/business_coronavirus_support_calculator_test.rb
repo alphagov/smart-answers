@@ -88,33 +88,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "retail_hospitality_leisure_grant_funding" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.non_domestic_property = "under_51k"
-          @calculator.sectors = %w[retail_hospitality_or_leisure]
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when in a devolved administration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when non-domestic property is valued over £51k" do
-          @calculator.non_domestic_property = "51k_and_over"
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-
-        should "return false when not in supported business sector" do
-          @calculator.sectors = %w[nurseries]
-          assert_not @calculator.show?(:retail_hospitality_leisure_grant_funding)
-        end
-      end
-
       context "nursery_support" do
         setup do
           @calculator.business_based = "england"
@@ -139,39 +112,6 @@ module SmartAnswer::Calculators
         should "return false when not supported business sector" do
           @calculator.sectors = %w[retail_hospitality_or_leisure]
           assert_not @calculator.show?(:nursery_support)
-        end
-      end
-
-      context "small_business_grant_funding" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.business_size = "0_to_249"
-          @calculator.non_domestic_property = "under_51k"
-          @calculator.rate_relief_march_2020 = "yes"
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when based in devolved administration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when business has over 249 employees" do
-          @calculator.business_size = "over_249"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when no non-domestic property" do
-          @calculator.non_domestic_property = "none"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when business is not in receipt of rate relief" do
-          @calculator.rate_relief_march_2020 = "no"
-          assert_not @calculator.show?(:small_business_grant_funding)
         end
       end
 
