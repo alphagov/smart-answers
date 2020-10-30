@@ -115,39 +115,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "small_business_grant_funding" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.business_size = "0_to_249"
-          @calculator.non_domestic_property = "under_51k"
-          @calculator.rate_relief_march_2020 = "yes"
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when based in devolved administration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when business has over 249 employees" do
-          @calculator.business_size = "over_249"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when no non-domestic property" do
-          @calculator.non_domestic_property = "none"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-
-        should "return false when business is not in receipt of rate relief" do
-          @calculator.rate_relief_march_2020 = "no"
-          assert_not @calculator.show?(:small_business_grant_funding)
-        end
-      end
-
       context "discretionary_grant" do
         setup do
           @calculator.business_based = "england"

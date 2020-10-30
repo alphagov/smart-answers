@@ -31,12 +31,6 @@ module SmartAnswer::Calculators
           calculator.non_domestic_property != "none" &&
           calculator.sectors.include?("nurseries")
       },
-      small_business_grant_funding: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.business_size == "0_to_249" &&
-          calculator.non_domestic_property != "none" &&
-          calculator.rate_relief_march_2020 == "yes"
-      },
       discretionary_grant: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.business_size == "0_to_249" &&
