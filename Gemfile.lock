@@ -100,6 +100,9 @@ GEM
       null_logger
       plek (>= 1.9.0)
       rest-client (~> 2.0)
+    gds_zendesk (3.2.0)
+      null_logger (~> 0)
+      zendesk_api (~> 1.27)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     govspeak (6.5.6)
@@ -134,12 +137,14 @@ GEM
       selenium-webdriver (>= 3.142)
       webdrivers (>= 4)
     hashdiff (1.0.1)
+    hashie (4.1.0)
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    inflection (1.0.0)
     jasmine (3.6.0)
       jasmine-core (~> 3.6.0)
       phantomjs
@@ -360,6 +365,12 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.0)
+    zendesk_api (1.28.0)
+      faraday (>= 0.9.0, < 2.0.0)
+      hashie (>= 3.5.2, < 5.0.0)
+      inflection
+      mime-types
+      multipart-post (~> 2.0)
 
 PLATFORMS
   ruby
@@ -371,6 +382,7 @@ DEPENDENCIES
   byebug
   ci_reporter
   gds-api-adapters
+  gds_zendesk
   govspeak
   govuk-content-schema-test-helpers
   govuk_app_config
