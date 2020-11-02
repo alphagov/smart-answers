@@ -9,38 +9,36 @@ module SmartAnswer::Calculators
 
     DEADLINES = {
       online_filing_deadline: {
-        "2012-13": ONLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
         "2013-14": ONLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2014-15": ONLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": ONLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
+        "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
       },
       offline_filing_deadline: {
-        "2012-13": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2013).begins_on,
         "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
         "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2017-18": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2018-19": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
+        "2019-20": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
       },
       payment_deadline: {
-        "2012-13": PAYMENT_DEADLINE_YEAR.starting_in(2014).begins_on,
         "2013-14": PAYMENT_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2014-15": PAYMENT_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": PAYMENT_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": PAYMENT_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": PAYMENT_DEADLINE_YEAR.starting_in(2020).begins_on,
+        "2019-20": PAYMENT_DEADLINE_YEAR.starting_in(2021).begins_on,
       },
     }.freeze
 
     def tax_year_range
       case tax_year
-      when "2012-13"
-        SmartAnswer::YearRange.tax_year.starting_in(2012)
       when "2013-14"
         SmartAnswer::YearRange.tax_year.starting_in(2013)
       when "2014-15"
@@ -53,6 +51,8 @@ module SmartAnswer::Calculators
         SmartAnswer::YearRange.tax_year.starting_in(2017)
       when "2018-19"
         SmartAnswer::YearRange.tax_year.starting_in(2018)
+      when "2019-20"
+        SmartAnswer::YearRange.tax_year.starting_in(2019)
       end
     end
 
@@ -62,8 +62,6 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when "2012-13"
-        PENALTY_YEAR.starting_in(2015).begins_on
       when "2013-14"
         PENALTY_YEAR.starting_in(2016).begins_on
       when "2014-15"
@@ -76,6 +74,8 @@ module SmartAnswer::Calculators
         PENALTY_YEAR.starting_in(2020).begins_on
       when "2018-19"
         PENALTY_YEAR.starting_in(2021).begins_on
+      when "2019-20"
+        PENALTY_YEAR.starting_in(2022).begins_on
       end
     end
 
