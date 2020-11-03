@@ -47,7 +47,9 @@
     [Find out if you can get help from the Scottish Government](https://www.gov.scot/publications/coronavirus-covid-19-help-for-vulnerable-people)
   <% end %>
 
-  You might be able to phone or email your local shops to get a food delivery, or get food online
+  <% if calculator.needs_help_in?("england") %>
+    [Register to get support if you're clinically extremely vulnerable to coronavirus](https://www.gov.uk/coronavirus-shielding-support)
+  <% end %>
 
   [Find out if you can get support if you cannot go out to get food, for example if you're self isolating or vulnerable](https://volunteering.royalvoluntaryservice.org.uk/nhs-volunteer-responders-portal/isolating)
 
