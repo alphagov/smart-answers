@@ -237,7 +237,8 @@ module SmartAnswer
                 outcome :outcome_work_waiver
               elsif (calculator.passport_country_in_ukot_list? ||
                   calculator.passport_country_is_taiwan? ||
-                  calculator.passport_country_in_non_visa_national_list?) &&
+                  calculator.passport_country_in_non_visa_national_list? ||
+                  calculator.passport_country_in_eea?) &&
                   !calculator.travel_document?
                 # outcome 5.5 work N no visa needed
                 outcome :outcome_work_n

@@ -235,6 +235,22 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           assert_current_node :outcome_study_y
         end
       end
+
+      context "coming to the UK to work" do
+        setup do
+          add_response "work"
+        end
+
+        should "take you to outcome outcome_work_n if six months or less" do
+          add_response "six_months_or_less"
+          assert_current_node :outcome_work_n
+        end
+
+        should "take you to outcome outcome_work_y if longer than six months" do
+          add_response "longer_than_six_months"
+          assert_current_node :outcome_work_y
+        end
+      end
     end
   end
 
