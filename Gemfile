@@ -9,6 +9,7 @@ gem "govuk_app_config"
 
 gem "ast"
 gem "gds-api-adapters"
+gem "gds_zendesk"
 gem "govspeak"
 gem "govuk-content-schema-test-helpers"
 gem "govuk_publishing_components"

@@ -37,12 +37,12 @@ private
 
   def generate_report
     link_report = link_checker_api.create_batch(urls, checked_within: 5)
-    wait_time = 0.5
+    wait_time = 1
 
     while link_report.status == :in_progress
       sleep(wait_time)
       link_report = link_checker_api.get_batch(link_report.id)
-      wait_time *= 2
+      wait_time *= 1.5
     end
     link_report
   end
