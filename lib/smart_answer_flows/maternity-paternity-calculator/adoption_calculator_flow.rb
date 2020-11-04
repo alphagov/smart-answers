@@ -55,7 +55,7 @@ module SmartAnswer
             self.qualifying_week_start = calculator.adoption_qualifying_start
           end
 
-          validate :error_message do |_response|
+          validate :error_message do
             adoption_placement_date >= match_date
           end
 

@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  What was the last normal payday before <%= payday_offset_formatted %>?
+  What was the last normal payday before <%= calculator.payday_offset_formatted %>?
 <% end %>
 
 <% text_for :hint do %>
@@ -7,5 +7,5 @@
 <% end %>
 
 <% text_for :error_message do %>
-  You must enter a date before <%= payday_offset_formatted %>
+  You must enter a date before <%= calculator.payday_offset_formatted %>
 <% end %>
