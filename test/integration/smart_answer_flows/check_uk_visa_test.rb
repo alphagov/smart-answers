@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
+    @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong ireland latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -183,6 +183,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       should "show outcome no visa needed" do
         assert_current_node :outcome_no_visa_needed
       end
+    end
+  end
+
+  context "choose Ireland" do
+    setup do
+      add_response "ireland"
+    end
+
+    should "go to outcome no visa needed" do
+      assert_current_node :outcome_no_visa_needed
     end
   end
 
