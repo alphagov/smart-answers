@@ -9,7 +9,7 @@
     |Start                         | <%= format_date(leave_start_date) %>          |
     |End                           | <%= format_date(leave_end_date) %>            |
     |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | <%= format_date(notice_of_leave_deadline) %>  |
-    |Earliest date leave can start | <%= format_date(leave_earliest_start_date) %> |
+    |Earliest date leave can start | <%= format_date(calculator.leave_earliest_start_date) %> |
 
   <% else %>
     ##Statutory Maternity Leave
