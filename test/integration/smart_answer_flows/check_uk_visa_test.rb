@@ -251,6 +251,46 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           assert_current_node :outcome_work_y
         end
       end
+
+      context "coming to the UK on transit" do
+        setup do
+          add_response "transit"
+        end
+
+        should "take you to outcome 'Where are you travelling to?'" do
+          assert_current_node :travelling_to_cta?
+        end
+
+        context "to the Channel Islands or Isle of Man" do
+          setup do
+            add_response "channel_islands_or_isle_of_man"
+          end
+
+          should "ask you what you will be doing in Channel Islands or Isle of Man" do
+            assert_current_node :channel_islands_or_isle_of_man?
+          end
+        end
+
+        context "to the Republic of Ireland" do
+          setup do
+            add_response "republic_of_ireland"
+          end
+
+          should "take you to outcome no visa needed" do
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "to somewhere else" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "take you to outcome no visa needed" do
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
     end
   end
 

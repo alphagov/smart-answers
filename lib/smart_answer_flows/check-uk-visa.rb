@@ -132,6 +132,7 @@ module SmartAnswer
             next question(:channel_islands_or_isle_of_man?)
           elsif calculator.travelling_to_ireland?
             if (calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_eea? ||
                 calculator.passport_country_in_ukot_list?) &&
                 !calculator.travel_document?
               next outcome(:outcome_no_visa_needed)
@@ -140,6 +141,7 @@ module SmartAnswer
             end
           elsif calculator.travelling_to_elsewhere?
             if (calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_eea? ||
                 calculator.passport_country_in_ukot_list?) &&
                 !calculator.travel_document?
               next outcome(:outcome_no_visa_needed)
@@ -421,6 +423,7 @@ module SmartAnswer
               calculator.passport_country_is_taiwan? ||
               calculator.passport_country_is_venezuela? ||
               calculator.passport_country_in_non_visa_national_list? ||
+              calculator.passport_country_in_eea? ||
               calculator.passport_country_in_ukot_list? ||
               calculator.travel_document?
             next question(:travelling_to_cta?)
