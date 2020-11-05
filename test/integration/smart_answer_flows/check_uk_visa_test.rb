@@ -262,6 +262,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
 
+      context "coming to the UK for a long stay with family" do
+        setup do
+          add_response "family"
+        end
+
+        should "take you to outcome outcome_joining_family_nvn" do
+          assert_current_node :outcome_joining_family_nvn
+        end
+      end
+
       context "coming to the UK on transit" do
         setup do
           add_response "transit"

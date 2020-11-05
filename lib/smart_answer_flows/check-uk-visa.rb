@@ -436,7 +436,7 @@ module SmartAnswer
         if calculator.family_visit?
           if calculator.passport_country_in_ukot_list?
             next outcome(:outcome_joining_family_m)
-          elsif calculator.passport_country_in_non_visa_national_list?
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
             next outcome(:outcome_joining_family_nvn)
           else
             next question(:article_10_card?)
