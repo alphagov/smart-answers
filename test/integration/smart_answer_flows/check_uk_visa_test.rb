@@ -220,6 +220,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :purpose_of_visit?
       end
 
+      context "coming to the UK for tourism" do
+        setup do
+          add_response "tourism"
+        end
+
+        should "take you to outcome no visa outcome_school_n" do
+          assert_current_node :outcome_school_n
+        end
+      end
+
       context "coming to the UK to study" do
         setup do
           add_response "study"
