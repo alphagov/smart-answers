@@ -292,6 +292,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
 
+      context "coming to the UK for private medical treatment" do
+        setup do
+          add_response "medical"
+        end
+
+        should "take you to outcome outcome_medical_n" do
+          assert_current_node :outcome_medical_n
+        end
+      end
+
       context "coming to the UK on transit" do
         setup do
           add_response "transit"
