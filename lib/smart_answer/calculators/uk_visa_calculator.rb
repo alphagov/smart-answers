@@ -2,6 +2,7 @@ module SmartAnswer::Calculators
   class UkVisaCalculator
     include ActiveModel::Model
 
+    attr_writer :when_coming_to_uk_answer
     attr_writer :passport_country
     attr_writer :purpose_of_visit_answer
     attr_writer :travelling_to_cta_answer
@@ -95,6 +96,10 @@ module SmartAnswer::Calculators
 
     def travel_document?
       @travel_document_type == "travel_document"
+    end
+
+    def travelling_before_2021?
+      @when_coming_to_uk_answer == "before_2021"
     end
 
     def tourism_visit?

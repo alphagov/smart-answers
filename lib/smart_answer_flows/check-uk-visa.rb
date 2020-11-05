@@ -93,6 +93,10 @@ module SmartAnswer
         option :before_2021
         option :from_2021
 
+        on_response do |response|
+          calculator.when_coming_to_uk_answer = response
+        end
+
         next_node do |response|
           if response == "before_2021"
             outcome :outcome_no_visa_needed
