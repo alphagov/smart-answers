@@ -1,5 +1,6 @@
 <% text_for :title do %>
-  <% if calculator.study_visit? || calculator.passport_country_is_ireland? || calculator.passport_country_in_eea? %>
+  <% if calculator.study_visit? || calculator.passport_country_is_ireland? ||
+    (calculator.passport_country_in_eea? && !calculator.travelling_to_elsewhere? && !calculator.travelling_to_ireland?) %>
     You do not need a visa to come to the UK
   <% else %>
     You do not currently need a visa
@@ -8,17 +9,13 @@
 
 <% govspeak_for :body do %>
 
-  <% if calculator.passport_country_in_eea?%>
-    <% if calculator.passport_country_is_ireland? %>
-      This will not change when [new immigration rules](/guidance/new-immigration-system-what-you-need-to-know) come in on 1 January 2021.
-    <% else %>
-      You do not need a visa if you enter the UK by 11pm on 31 December 2020.
+  <% if calculator.passport_country_is_ireland? %>
+    This will not change when [new immigration rules](/guidance/new-immigration-system-what-you-need-to-know) come in on 1 January 2021.
+  <% elsif calculator.passport_country_in_eea? && calculator.travelling_before_2021? %>
+    You do not need a visa if you enter the UK by 11pm on 31 December 2020.
 
-      If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families) by 30 June 2021 to continue to work, live or study in the UK.
-    <% end %>
-  <% end %>
-
-  <% if calculator.study_visit? %>
+    If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families) by 30 June 2021 to continue to work, live or study in the UK.
+  <% elsif calculator.study_visit? %>
     <% if calculator.passport_country_in_epassport_gate_list? %>
       You must go to a border control officer when you arrive in the UK to get a stamp in your passport. This will allow you to study in the UK.
 
@@ -41,14 +38,14 @@
     ^ You must always have these documents with you if you’re travelling in and out of the UK during your stay. ^
 
   <% elsif calculator.travelling_to_elsewhere? %>
-    <% if calculator.passport_country_in_non_visa_national_list? ||
+    <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? ||
       calculator.passport_country_in_ukot_list?  %>
 
       However, you should bring evidence of your onward journey to show to officers at the UK border.
     <% end %>
 
   <% elsif calculator.travelling_to_ireland? %>
-    <% if calculator.passport_country_in_non_visa_national_list? ||
+    <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? ||
       calculator.passport_country_in_ukot_list?  %>
 
       However, you should bring the evidence of your onward journey to show to officers at the UK border.
