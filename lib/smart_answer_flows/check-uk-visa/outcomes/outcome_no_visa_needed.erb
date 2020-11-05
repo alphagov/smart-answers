@@ -11,21 +11,13 @@
     You do not need a visa if you enter the UK by 11pm on 31 December 2020.
 
     If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families) by 30 June 2021 to continue to work, live or study in the UK.
-  <% elsif calculator.travelling_to_elsewhere? %>
-    <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? ||
-      calculator.passport_country_in_ukot_list?  %>
+  <% elsif (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
+       (calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? || calculator.passport_country_in_ukot_list?) %>
 
-      However, you should bring evidence of your onward journey to show to officers at the UK border.
-    <% end %>
+    However, you should bring evidence of your onward journey to show to officers at the UK border.
 
-  <% elsif calculator.travelling_to_ireland? %>
-    <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? ||
-      calculator.passport_country_in_ukot_list?  %>
-
-      However, you should bring the evidence of your onward journey to show to officers at the UK border.
-
+    <% if calculator.travelling_to_ireland? %>
       %You may want to [apply for a visa](/browse/visas-immigration/tourist-short-stay-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
-
     <% end %>
   <% end %>
 <% end %>
