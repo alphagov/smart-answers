@@ -262,6 +262,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
 
+      context "coming to the UK for marriage" do
+        setup do
+          add_response "marriage"
+        end
+
+        should "take you to outcome outcome_marriage_nvn_ukot" do
+          assert_current_node :outcome_marriage_nvn_ukot
+        end
+      end
+
       context "coming to the UK for a long stay with family" do
         setup do
           add_response "family"
