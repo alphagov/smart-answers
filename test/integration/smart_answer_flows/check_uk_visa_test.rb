@@ -192,7 +192,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
 
     should "go to outcome no visa needed" do
-      assert_current_node :outcome_no_visa_needed
+      assert_current_node :outcome_no_visa_needed_ireland
     end
   end
 

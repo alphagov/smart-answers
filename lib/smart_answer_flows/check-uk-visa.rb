@@ -31,7 +31,7 @@ module SmartAnswer
           elsif calculator.passport_country_is_macao?
             question :what_sort_of_travel_document?
           elsif calculator.passport_country_is_ireland?
-            outcome :outcome_no_visa_needed
+            outcome :outcome_no_visa_needed_ireland
           elsif calculator.passport_country_in_eea?
             question :when_are_you_coming_to_the_uk?
           else
@@ -325,6 +325,7 @@ module SmartAnswer
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
+      outcome :outcome_no_visa_needed_ireland
       outcome :outcome_partner_family_british_citizen_y
       outcome :outcome_partner_family_eea_y
       outcome :outcome_partner_family_eea_n

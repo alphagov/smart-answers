@@ -1,6 +1,5 @@
 <% text_for :title do %>
-  <% if calculator.passport_country_is_ireland? ||
-    (calculator.passport_country_in_eea? && !calculator.travelling_to_elsewhere? && !calculator.travelling_to_ireland?) %>
+  <% if calculator.passport_country_in_eea? && !calculator.travelling_to_elsewhere? && !calculator.travelling_to_ireland? %>
     You do not need a visa to come to the UK
   <% else %>
     You do not currently need a visa
@@ -8,10 +7,7 @@
 <% end %>
 
 <% govspeak_for :body do %>
-
-  <% if calculator.passport_country_is_ireland? %>
-    This will not change when [new immigration rules](/guidance/new-immigration-system-what-you-need-to-know) come in on 1 January 2021.
-  <% elsif calculator.passport_country_in_eea? && calculator.travelling_before_2021? %>
+  <% if calculator.passport_country_in_eea? && calculator.travelling_before_2021? %>
     You do not need a visa if you enter the UK by 11pm on 31 December 2020.
 
     If you come to the UK before this time, you can apply to the [EU Settlement Scheme](/settled-status-eu-citizens-families) by 30 June 2021 to continue to work, live or study in the UK.
