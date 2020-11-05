@@ -368,7 +368,7 @@ module SmartAnswer
             next outcome(:outcome_school_waiver)
           elsif calculator.passport_country_is_taiwan?
             next outcome(:outcome_study_waiver_taiwan)
-          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list? || calculator.passport_country_in_eea?
             next outcome(:outcome_school_n)
           else
             next outcome(:outcome_school_y)

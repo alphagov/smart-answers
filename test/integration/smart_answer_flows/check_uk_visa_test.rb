@@ -282,6 +282,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
 
+      context "coming to the UK to stay with child if they're at school" do
+        setup do
+          add_response "school"
+        end
+
+        should "take you to outcome outcome_school_n" do
+          assert_current_node :outcome_school_n
+        end
+      end
+
       context "coming to the UK on transit" do
         setup do
           add_response "transit"
