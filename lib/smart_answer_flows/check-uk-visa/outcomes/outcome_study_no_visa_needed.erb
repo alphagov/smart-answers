@@ -1,0 +1,26 @@
+<% text_for :title do %>
+  You do not need a visa to come to the UK
+<% end %>
+
+<% govspeak_for :body do %>
+  <% if calculator.passport_country_in_epassport_gate_list? %>
+    You must go to a border control officer when you arrive in the UK to get a stamp in your passport. This will allow you to study in the UK.
+
+    ^You cannot get a stamp if you use the ePassport gates.
+  <% end %>
+
+  You should bring documents with you that show you:
+
+    - have been accepted on a course by an [accredited institution](/study-visit-visa/eligibility) or by a UK Higher Education Institution, for example, a letter of acceptance from the institution
+    - are able to fund your stay in the UK and return journey
+    - intend to leave the UK at the end of your course
+
+  You’ll also need to show:
+
+    - details of where you intend to stay
+    - contact details for at least one parent or guardian in your home country (if you’re under 18 years old)
+
+  If you're under 18 and travelling without your parent or guardian, you'll need to provide [extra information to show they’ve given you permission](/study-visit-visa/documents-you-must-provide).
+
+  ^ You must always have these documents with you if you’re travelling in and out of the UK during your stay. ^
+<% end %>

@@ -235,9 +235,9 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "study"
         end
 
-        should "take you to outcome no visa outcome_no_visa_needed if six months or less" do
+        should "take you to outcome no visa outcome_study_no_visa_needed if six months or less" do
           add_response "six_months_or_less"
-          assert_current_node :outcome_no_visa_needed
+          assert_current_node :outcome_study_no_visa_needed
         end
 
         should "take you to outcome no visa outcome_study_y if longer than six months" do
@@ -366,8 +366,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "study"
         add_response "six_months_or_less"
       end
-      should "take you to outcome no visa outcome_no_visa_needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "take you to outcome no visa outcome_study_no_visa_needed" do
+        assert_current_node :outcome_study_no_visa_needed
       end
     end
     context "coming to the UK to work" do
@@ -956,7 +956,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "6 months or less" do
           should "take you to no visa needed outcome" do
             add_response "six_months_or_less"
-            assert_current_node :outcome_no_visa_needed
+            assert_current_node :outcome_study_no_visa_needed
           end
         end
         context "more than 6 months" do
@@ -1130,7 +1130,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "6 months or less" do
           should "take you to no visa needed outcome" do
             add_response "six_months_or_less"
-            assert_current_node :outcome_no_visa_needed
+            assert_current_node :outcome_study_no_visa_needed
           end
         end
         context "more than 6 months" do
@@ -1221,8 +1221,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         setup do
           add_response "six_months_or_less"
         end
-        should "take you to outcome_no_visa_needed" do
-          assert_current_node :outcome_no_visa_needed
+        should "take you to outcome_study_no_visa_needed" do
+          assert_current_node :outcome_study_no_visa_needed
         end
       end
     end # end canada study reason

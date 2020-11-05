@@ -236,7 +236,7 @@ module SmartAnswer
                   calculator.travel_document?
                 outcome :outcome_study_m # outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
-                outcome :outcome_no_visa_needed # outcome 1 no visa needed
+                outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
               end
             elsif calculator.work_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
@@ -335,6 +335,7 @@ module SmartAnswer
       outcome :outcome_study_m
       outcome :outcome_study_waiver
       outcome :outcome_study_waiver_taiwan
+      outcome :outcome_study_no_visa_needed
       outcome :outcome_study_y
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_leaving_airport_datv
