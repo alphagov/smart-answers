@@ -341,6 +341,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "coming to the UK for official diplomatic/government business" do
+        setup do
+          add_response "diplomatic"
+        end
+
+        should "take you to outcome outcome_diplomatic_business" do
+          assert_current_node :outcome_diplomatic_business
+        end
+      end
     end
   end
 
