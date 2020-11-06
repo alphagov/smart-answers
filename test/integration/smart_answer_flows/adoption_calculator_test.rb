@@ -129,7 +129,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                                 # QA12
                                 should "go to outcome" do
                                   assert_current_node :adoption_leave_and_pay
-                                  assert_state_variable :average_weekly_earnings, "346.15"
+                                  assert_equal current_state.calculator.average_weekly_earnings.round(2), 346.15
                                 end
                               end
 
@@ -391,7 +391,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                                 # QA12
                                 should "go to outcome" do
                                   assert_current_node :adoption_leave_and_pay
-                                  assert_state_variable :average_weekly_earnings, "346.15"
+                                  assert_equal current_state.calculator.average_weekly_earnings.round(2), 346.15
                                 end
                               end
 

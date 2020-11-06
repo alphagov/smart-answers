@@ -26,7 +26,6 @@ module SmartAnswer
           self.monthly_pay_method = nil
           self.smp_calculation_method = nil
           self.sap_calculation_method = nil
-          self.above_lower_earning_limit = nil
           self.paternity_adoption = nil
           self.spp_calculation_method = nil
           self.has_contract = nil

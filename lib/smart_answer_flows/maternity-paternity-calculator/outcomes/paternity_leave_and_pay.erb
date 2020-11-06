@@ -12,14 +12,14 @@
                } %>
   <% end %>
 
-  <% unless above_lower_earning_limit %>
+  <% unless calculator.above_lower_earning_limit %>
     <%= render partial: 'paternity_not_entitled_to_pay_intro' %>
 
     + <%= render partial: 'must_earn_over_threshold',
                locals: {
-                 average_weekly_earnings: average_weekly_earnings,
+                 average_weekly_earnings: calculator.average_weekly_earnings,
                  relevant_period: relevant_period,
-                 lower_earning_limit: lower_earning_limit
+                 lower_earning_limit: calculator.lower_earning_limit
                } %>
 
     <%= render partial: 'paternity_not_entitled_to_pay_outro' %>
@@ -29,28 +29,28 @@
 
       The employee is entitled to SAP.
 
-      Their average weekly earnings are: <%= format_money(average_weekly_earnings) %>
+      Their average weekly earnings are: <%= format_money(calculator.average_weekly_earnings) %>
 
       ## SAP calculation
 
       Date | SAP amount
       -|-
-      <%= pay_dates_and_pay %>
-       | **Total SAP: <%= format_money(total_spp) %>**
+      <%= calculator.pay_dates_and_pay %>
+       | **Total SAP: <%= format_money(calculator.total_sap) %>**
 
     <% else %>
       ##Statutory Paternity Pay (SPP)
 
       The employee is entitled to SPP.
 
-      Their average weekly earnings are: <%= format_money(average_weekly_earnings) %>
+      Their average weekly earnings are: <%= format_money(calculator.average_weekly_earnings) %>
 
       ## SPP calculation
 
       Date | SPP amount
       -|-
-      <%= pay_dates_and_pay %>
-       | **Total SPP: <%= format_money(total_spp) %>**
+      <%= calculator.pay_dates_and_pay %>
+       | **Total SPP: <%= format_money(calculator.total_spp) %>**
 
     <% end %>
 
