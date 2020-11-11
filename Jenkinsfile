@@ -9,5 +9,6 @@ node {
     repoName: 'smart-answers',
     brakeman: true,
     rubyLintDiff: false,
+    afterTest: { sh("bundle exec whenever --update-crontab") },
   )
 }

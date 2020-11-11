@@ -25,6 +25,7 @@ gem "slimmer"
 gem "tilt"
 gem "uglifier"
 gem "uk_postcode"
+gem "whenever", require: false
 
 group :development do
   gem "better_errors"
