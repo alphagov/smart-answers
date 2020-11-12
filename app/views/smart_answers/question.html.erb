@@ -37,7 +37,7 @@
 
         <%= render partial: "smart_answers/inputs/#{question.partial_template_name}", locals: { question: question } %>
 
-        <%= question.post_body %>
+        <%= content_tag(:div, question.post_body, class: "govuk-!-margin-bottom-4") if question.post_body.present? %>
 
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
