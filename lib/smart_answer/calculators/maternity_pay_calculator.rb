@@ -73,8 +73,12 @@ module SmartAnswer::Calculators
       @ssp_stop = @expected_week.weeks_after(-4).begins_on
     end
 
-    def self.payment_options(period)
-      PAYMENT_OPTIONS.fetch(period, {})
+    def self.payment_options
+      PAYMENT_OPTIONS
+    end
+
+    def payment_options
+      self.class.payment_options
     end
 
     def number_of_payments

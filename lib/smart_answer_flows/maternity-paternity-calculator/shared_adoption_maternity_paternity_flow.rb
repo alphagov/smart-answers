@@ -1,22 +1,15 @@
 module SmartAnswer
   class SharedAdoptionMaternityPaternityFlow < Flow
     def define
-      payment_options_weekly = Calculators::MaternityPayCalculator.payment_options("weekly")
-      payment_options_every_2_weeks = Calculators::MaternityPayCalculator.payment_options("every_2_weeks")
-      payment_options_every_4_weeks = Calculators::MaternityPayCalculator.payment_options("every_4_weeks")
-      payment_options_monthly = Calculators::MaternityPayCalculator.payment_options("monthly")
+      payment_options = Calculators::MaternityPayCalculator.payment_options
 
       # This question is being used in:
       # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_weekly? do
-        payment_options_weekly.each_key do |payment_option|
+        payment_options[:weekly].each_key do |payment_option|
           option payment_option
-        end
-
-        precalculate :payment_options_weekly do
-          payment_options_weekly
         end
 
         on_response do |response|
@@ -40,12 +33,8 @@ module SmartAnswer
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_every_2_weeks? do
-        payment_options_every_2_weeks.each_key do |payment_option|
+        payment_options[:every_2_weeks].each_key do |payment_option|
           option payment_option
-        end
-
-        precalculate :payment_options_every_2_weeks do
-          payment_options_every_2_weeks
         end
 
         on_response do |response|
@@ -69,12 +58,8 @@ module SmartAnswer
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_every_4_weeks? do
-        payment_options_every_4_weeks.each_key do |payment_option|
+        payment_options[:every_4_weeks].each_key do |payment_option|
           option payment_option
-        end
-
-        precalculate :payment_options_every_4_weeks do
-          payment_options_every_4_weeks
         end
 
         on_response do |response|
@@ -98,12 +83,8 @@ module SmartAnswer
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_monthly? do
-        payment_options_monthly.each_key do |payment_option|
+        payment_options[:monthly].each_key do |payment_option|
           option payment_option
-        end
-
-        precalculate :payment_options_monthly do
-          payment_options_monthly
         end
 
         on_response do |response|

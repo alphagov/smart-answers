@@ -581,28 +581,28 @@ module SmartAnswer::Calculators
 
       context "payment_options" do
         should "return weekly payment options when supplied with weekly" do
-          weekly = MaternityPayCalculator.payment_options("weekly")
+          weekly = MaternityPayCalculator.payment_options["weekly"]
 
           assert_equal %w[8 9 10], weekly.keys
           assert_equal ["8 payments or fewer", "9 payments", "10 payments"], weekly.values
         end
 
         should "return monthly payment options when supplied with monthly" do
-          monthly = MaternityPayCalculator.payment_options("monthly")
+          monthly = MaternityPayCalculator.payment_options["monthly"]
 
           assert_equal %w[2 3], monthly.keys
           assert_equal ["1 or 2 payments", "3 payments"], monthly.values
         end
 
         should "return 2 weeks payment options when supplied with every 2 weeks" do
-          every_2_weeks = MaternityPayCalculator.payment_options("every_2_weeks")
+          every_2_weeks = MaternityPayCalculator.payment_options["every_2_weeks"]
 
           assert_equal %w[4 5], every_2_weeks.keys
           assert_equal ["4 payments or fewer", "5 payments"], every_2_weeks.values
         end
 
         should "return 4 weeks payment options when supplied with every 4 weeks" do
-          every_4_weeks = MaternityPayCalculator.payment_options("every_4_weeks")
+          every_4_weeks = MaternityPayCalculator.payment_options["every_4_weeks"]
 
           assert_equal %w[1 2], every_4_weeks.keys
           assert_equal ["1 payment", "2 payments"], every_4_weeks.values
