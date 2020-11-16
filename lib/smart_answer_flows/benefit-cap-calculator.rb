@@ -7,14 +7,17 @@ module SmartAnswer
       status :published
       satisfies_need "8474ef2f-6bc2-44be-8883-8a795d728c51"
 
-      config = Calculators::BenefitCapCalculatorConfiguration.new
+      config = Calculators::BenefitCapCalculatorConfiguration
 
       # Q1
       radio :receive_housing_benefit? do
         option :yes
         option :no
 
-        save_input_as :housing_benefit
+        on_response do |response|
+          self.config = config
+          self.housing_benefit = response
+        end
 
         next_node do |response|
           if response == "yes"
@@ -30,12 +33,9 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :exempt_benefits_descriptions do
-          config.exempt_benefits.values
-        end
-
-        calculate :exempt_benefits do
-          config.exempt_benefits
+        on_response do
+          self.exempt_benefits_descriptions = config.exempt_benefits.values
+          self.exempt_benefits = config.exempt_benefits
         end
 
         next_node do |response|
@@ -53,24 +53,14 @@ module SmartAnswer
           option exempt_benefit
         end
 
-        on_response do |response|
-          config.exempted_benefits = response.split(",")
+        on_response do
+          self.benefit_options = config.descriptions.merge(none_above: "None of the above")
+          self.total_benefits = 0
+          self.benefit_cap = 0
         end
 
-        calculate :benefit_options do
-          config.descriptions.merge(none_above: "None of the above")
-        end
-
-        calculate :total_benefits do
-          0
-        end
-
-        calculate :benefit_cap do
-          0
-        end
-
-        next_node do
-          if config.exempted_benefits?
+        next_node do |response|
+          if config.exempted_benefits?(response.split(","))
             outcome :outcome_not_affected_exemptions
           else
             question :receiving_non_exemption_benefits?
@@ -100,8 +90,8 @@ module SmartAnswer
       # Q5a-o
       config.questions.each do |(_benefit, method)|
         money_question method do
-          calculate :total_benefits do |response|
-            total_benefits + response.to_f
+          on_response do |response|
+            self.total_benefits = total_benefits + response.to_f
           end
 
           next_node do
@@ -112,14 +102,10 @@ module SmartAnswer
 
       # Q5p
       money_question :housing_benefit_amount? do
-        save_input_as :housing_benefit_amount
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        calculate :housing_benefit_amount do
-          sprintf("%.2f", housing_benefit_amount)
+        on_response do |response|
+          self.housing_benefit_amount = response
+          self.total_benefits += housing_benefit_amount.to_f
+          self.housing_benefit_amount = sprintf("%.2f", housing_benefit_amount)
         end
 
         next_node do
@@ -129,15 +115,13 @@ module SmartAnswer
 
       # Q6
       radio :single_couple_lone_parent? do
-        precalculate :weekly_benefit_cap_descriptions do
-          config.weekly_benefit_cap_descriptions
-        end
-
         config.weekly_benefit_caps.each_key do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 
-        save_input_as :family_type
+        on_response do |response|
+          self.family_type = response
+        end
 
         next_node do
           question :enter_postcode?
@@ -146,16 +130,10 @@ module SmartAnswer
 
       # Q7 Enter a postcode
       postcode_question :enter_postcode? do
-        calculate :benefit_cap do |response|
-          sprintf("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
-        end
-
-        calculate :total_benefits_amount do
-          sprintf("%.2f", total_benefits)
-        end
-
-        calculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        on_response do |response|
+          self.benefit_cap = sprintf("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
+          self.total_benefits_amount = sprintf("%.2f", total_benefits)
+          self.total_over_cap = sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
 
         next_node do |response|
@@ -183,37 +161,14 @@ module SmartAnswer
       outcome :outcome_not_affected_no_housing_benefit
 
       ## Outcome 8
-      outcome :outcome_affected_greater_than_cap_london do
-        precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
-        end
-
-        precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
-        end
-      end
+      outcome :outcome_affected_greater_than_cap_london
 
       ## Outcome 10
-      outcome :outcome_affected_greater_than_cap_national do
-        precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
-        end
-
-        precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
-        end
-      end
+      outcome :outcome_affected_greater_than_cap_national
 
       ## Outcome 9
       outcome :outcome_not_affected_less_than_cap_london
+
       ## Outcome 11
       outcome :outcome_not_affected_less_than_cap_national
     end

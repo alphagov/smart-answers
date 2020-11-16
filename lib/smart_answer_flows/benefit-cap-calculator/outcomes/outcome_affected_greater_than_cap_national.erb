@@ -3,6 +3,11 @@
 
 <% end %>
 
+<%
+  new_housing_benefit_amount = config.new_housing_benefit_amount(housing_benefit_amount, total_over_cap)
+  new_housing_benefit = config.new_housing_benefit(new_housing_benefit_amount)
+%>
+
 <% govspeak_for :body do %>
 
   Your weekly benefits | Outside London benefit cap

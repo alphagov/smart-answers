@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class BenefitCapCalculatorConfigurationTest < ActiveSupport::TestCase
     context BenefitCapCalculatorConfiguration do
       setup do
-        @config = BenefitCapCalculatorConfiguration.new
+        @config = BenefitCapCalculatorConfiguration
       end
 
       context "national weekly_benefit_caps" do
@@ -50,7 +50,7 @@ module SmartAnswer::Calculators
 
       context "Flow configuration" do
         setup do
-          BenefitCapCalculatorConfiguration.any_instance.stubs(:data).returns(
+          BenefitCapCalculatorConfiguration.stubs(:data).returns(
             weekly_benefit_caps: {
               national: {
                 first: {
