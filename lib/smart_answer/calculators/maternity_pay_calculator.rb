@@ -350,7 +350,7 @@ module SmartAnswer::Calculators
       total_statutory_pay if above_lower_earning_limit
     end
 
-    def total_ssp
+    def total_spp
       total_statutory_pay if above_lower_earning_limit
     end
 
