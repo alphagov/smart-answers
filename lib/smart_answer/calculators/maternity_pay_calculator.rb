@@ -333,6 +333,27 @@ module SmartAnswer::Calculators
       format_date_day payday_offset
     end
 
+    def above_lower_earning_limit
+      average_weekly_earnings > lower_earning_limit
+    end
+
+    def pay_dates_and_pay
+      if above_lower_earning_limit
+        lines = paydates_and_pay.map do |date_and_pay|
+          %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+        end
+        lines.join("\n")
+      end
+    end
+
+    def total_sap
+      total_statutory_pay if above_lower_earning_limit
+    end
+
+    def total_ssp
+      total_statutory_pay if above_lower_earning_limit
+    end
+
   private
 
     def valid_payment_option?

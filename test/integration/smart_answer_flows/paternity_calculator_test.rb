@@ -130,7 +130,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                             # QP11
                             should "ask for payday eight weeks before" do
                               assert_current_node :payday_eight_weeks_paternity?
-                              assert_state_variable :payday_offset, Date.parse("6 January 2013")
                             end
 
                             context "answer 1 November 2012" do
@@ -139,6 +138,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                               # QP12
                               should "ask for frequency of pay" do
                                 assert_current_node :pay_frequency_paternity?
+                                assert_state_variable :payday_offset, Date.parse("6 January 2013")
                               end
 
                               context "answer monthly" do
@@ -230,7 +230,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                             setup { add_response "second" }
 
                                             should "give the result" do
-                                              assert_state_variable :pay_method, "a_certain_week_day_each_month"
                                               assert_current_node :paternity_leave_and_pay
                                             end
                                           end # QP20 end
@@ -245,7 +244,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                       should "go to outcome" do
                                         assert_current_node :paternity_leave_and_pay
                                         assert_state_variable "has_contract", "yes"
-                                        assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
+                                        assert_equal current_state.calculator.pay_dates_and_pay, "18 June 2013|£103.85"
                                       end
                                     end # QP14 end SPP calculated weekly
                                   end
@@ -256,7 +255,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
 
                                   should "go to outcome" do
                                     assert_state_variable :has_contract, "yes"
-                                    assert_state_variable :lower_earning_limit, "107.00"
+                                    assert_equal current_state.calculator.lower_earning_limit, 107
                                     assert_current_node :paternity_leave_and_pay
                                   end
                                 end # QP 13 end earnings less than 109 between relevant period
@@ -269,8 +268,8 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   add_response "8"
                                   add_response "usual_paydates"
                                   add_response "2013-01-01"
-                                  assert_state_variable :average_weekly_earnings, "625.00"
-                                  assert_state_variable :pay_dates_and_pay, "18 June 2013|£136.78"
+                                  assert_equal current_state.calculator.average_weekly_earnings, 625
+                                  assert_equal current_state.calculator.pay_dates_and_pay, "18 June 2013|£136.78"
                                   assert_current_node :paternity_leave_and_pay
                                 end
                               end
@@ -414,7 +413,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           assert_current_node :paternity_leave_and_pay
           assert_state_variable :relevant_period, "Saturday, 23 November 2013 and Friday, 17 January 2014"
           assert_state_variable :to_saturday_formatted, "Saturday, 18 January 2014"
-          assert_state_variable :lower_earning_limit, "109.00"
+          assert_equal current_state.calculator.lower_earning_limit, 109
         end
       end # QP0 no with 2013/2014 figures
 
@@ -437,7 +436,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           assert_current_node :paternity_leave_and_pay
           assert_state_variable :relevant_period, "Wednesday, 03 April 2013 and Sunday, 06 April 2014"
           assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
-          assert_state_variable :lower_earning_limit, "111.00"
+          assert_equal current_state.calculator.lower_earning_limit, 111
         end
       end # QP0 no with 2014/2015 figures
 
@@ -503,7 +502,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           add_response "925.0"
 
           assert_current_node :paternity_leave_and_pay
-          assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
+          assert_equal current_state.calculator.lower_earning_limit, 118
         end
 
         context "answer no to contract" do

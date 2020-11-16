@@ -21,12 +21,9 @@ module SmartAnswer
 
         ## QP1
         date_question :baby_due_date_paternity? do
-          calculate :due_date do |response|
-            response
-          end
-
-          calculate :calculator do
-            Calculators::PaternityPayCalculator.new(due_date)
+          on_response do |response|
+            self.due_date = response
+            self.calculator = Calculators::PaternityPayCalculator.new(due_date)
           end
 
           next_node do
@@ -36,20 +33,11 @@ module SmartAnswer
 
         ## QAP1 - Paternity Adoption
         date_question :employee_date_matched_paternity_adoption? do
-          calculate :matched_date do |response|
-            response
-          end
-
-          calculate :calculator do
-            Calculators::PaternityAdoptionPayCalculator.new(matched_date)
-          end
-
-          calculate :leave_type do
-            "paternity_adoption"
-          end
-
-          calculate :paternity_adoption do
-            leave_type == "paternity_adoption"
+          on_response do |response|
+            self.matched_date = response
+            self.calculator = Calculators::PaternityAdoptionPayCalculator.new(matched_date)
+            self.leave_type = "paternity_adoption"
+            self.paternity_adoption = true
           end
 
           next_node do
@@ -59,13 +47,9 @@ module SmartAnswer
 
         ## QP2
         date_question :baby_birth_date_paternity? do
-          calculate :date_of_birth do |response|
-            response
-          end
-
-          calculate :calculator do
+          on_response do |response|
+            self.date_of_birth = response
             calculator.date_of_birth = date_of_birth
-            calculator
           end
 
           next_node do
@@ -75,20 +59,15 @@ module SmartAnswer
 
         ## QAP2 - Paternity Adoption
         date_question :padoption_date_of_adoption_placement? do
-          calculate :ap_adoption_date do |response|
-            placement_date = response
-            raise SmartAnswer::InvalidResponse if placement_date < matched_date
-
-            calculator.adoption_placement_date = placement_date
-            placement_date
+          on_response do |response|
+            self.ap_adoption_date = response
+            calculator.adoption_placement_date = ap_adoption_date
+            self.ap_adoption_date_formatted = calculator.format_date_day ap_adoption_date
+            self.matched_date_formatted = calculator.format_date_day matched_date
           end
 
-          calculate :ap_adoption_date_formatted do
-            calculator.format_date_day ap_adoption_date
-          end
-
-          calculate :matched_date_formatted do
-            calculator.format_date_day matched_date
+          validate :error_message do
+            ap_adoption_date >= matched_date
           end
 
           next_node do
@@ -100,26 +79,17 @@ module SmartAnswer
         radio :employee_responsible_for_upbringing? do
           option :yes
           option :no
-          save_input_as :paternity_responsible
 
-          calculate :employment_start do
-            calculator.employment_start
+          on_response do |response|
+            self.paternity_responsible = response
+            self.employment_start = calculator.employment_start
+            self.employment_end = due_date
+            self.qualifying_week_start = calculator.qualifying_week.first
+            self.p_notice_leave = calculator.notice_of_leave_deadline
           end
 
-          calculate :employment_end do
-            due_date
-          end
-
-          calculate :qualifying_week_start do
-            calculator.qualifying_week.first
-          end
-
-          calculate :p_notice_leave do
-            calculator.notice_of_leave_deadline
-          end
-
-          next_node do |response|
-            case response
+          next_node do
+            case paternity_responsible
             when "yes"
               question :employee_work_before_employment_start?
             when "no"
@@ -132,22 +102,16 @@ module SmartAnswer
         radio :padoption_employee_responsible_for_upbringing? do
           option :yes
           option :no
-          save_input_as :paternity_responsible
 
-          calculate :employment_start do
-            calculator.a_employment_start
+          on_response do |response|
+            self.paternity_responsible = response
+            self.employment_start = calculator.a_employment_start
+            self.employment_end = matched_date
+            self.qualifying_week_start = calculator.adoption_qualifying_start
           end
 
-          calculate :employment_end do
-            matched_date
-          end
-
-          calculate :qualifying_week_start do
-            calculator.adoption_qualifying_start
-          end
-
-          next_node do |response|
-            case response
+          next_node do
+            case paternity_responsible
             when "yes"
               question :employee_work_before_employment_start? # Combined flow
             when "no"
@@ -160,10 +124,13 @@ module SmartAnswer
         radio :employee_work_before_employment_start? do
           option :yes
           option :no
-          save_input_as :paternity_employment_start ## Needed only in outcome
 
-          next_node do |response|
-            case response
+          on_response do |response|
+            self.paternity_employment_start = response
+          end
+
+          next_node do
+            case paternity_employment_start
             when "yes"
               question :employee_has_contract_paternity?
             when "no"
@@ -176,7 +143,10 @@ module SmartAnswer
         radio :employee_has_contract_paternity? do
           option :yes
           option :no
-          save_input_as :has_contract
+
+          on_response do |response|
+            self.has_contract = response
+          end
 
           next_node do
             question :employee_on_payroll_paternity?
@@ -190,34 +160,24 @@ module SmartAnswer
 
           on_response do |response|
             calculator.on_payroll = response
-          end
 
-          calculate :leave_spp_claim_link do
-            paternity_adoption ? "adoption" : "notice-period"
-          end
-
-          calculate :to_saturday do
             if paternity_adoption
-              calculator.matched_week.last
+              self.leave_spp_claim_link = "adoption"
+              self.to_saturday = calculator.matched_week.last
+              self.still_employed_date = calculator.employment_end
+              self.start_leave_hint = ap_adoption_date_formatted
             else
-              calculator.qualifying_week.last
+              self.leave_spp_claim_link = "notice-period"
+              self.to_saturday = calculator.qualifying_week.last
+              self.still_employed_date = date_of_birth
+              self.start_leave_hint = date_of_birth
             end
+
+            self.to_saturday_formatted = calculator.format_date_day to_saturday
           end
 
-          calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
-          end
-
-          calculate :still_employed_date do
-            paternity_adoption ? calculator.employment_end : date_of_birth
-          end
-
-          calculate :start_leave_hint do
-            paternity_adoption ? ap_adoption_date_formatted : date_of_birth
-          end
-
-          next_node do |response|
-            if response == "yes"
+          next_node do
+            if calculator.on_payroll == "yes"
               question :employee_still_employed_on_birth_date?
             elsif has_contract == "no"
               outcome :paternity_not_entitled_to_leave_or_pay
@@ -231,10 +191,13 @@ module SmartAnswer
         radio :employee_still_employed_on_birth_date? do
           option :yes
           option :no
-          save_input_as :employed_dob
 
-          next_node do |response|
-            if has_contract == "no" && response == "no"
+          on_response do |response|
+            self.employed_dob = response
+          end
+
+          next_node do
+            if has_contract == "no" && employed_dob == "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             else
               question :employee_start_paternity?
@@ -247,20 +210,19 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          save_input_as :employee_leave_start
-
-          calculate :leave_start_date do |response|
-            calculator.leave_start_date = response
-            if paternity_adoption
-              raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
-            else
-              raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth # rubocop:disable Style/IfInsideElse
-            end
-            calculator.leave_start_date
+          on_response do |response|
+            self.employee_leave_start = response
+            self.leave_start_date = employee_leave_start
+            calculator.leave_start_date = employee_leave_start
+            self.notice_of_leave_deadline = calculator.notice_of_leave_deadline
           end
 
-          calculate :notice_of_leave_deadline do
-            calculator.notice_of_leave_deadline
+          validate :error_message do
+            calculator.leave_start_date >= if paternity_adoption
+                                             ap_adoption_date
+                                           else
+                                             date_of_birth
+                                           end
           end
 
           next_node do
@@ -272,11 +234,11 @@ module SmartAnswer
         radio :employee_paternity_length? do
           option :one_week
           option :two_weeks
-          save_input_as :leave_amount
 
-          calculate :leave_end_date do |response|
-            calculator.paternity_leave_duration = response
-            calculator.pay_end_date
+          on_response do |response|
+            self.leave_amount = response
+            calculator.paternity_leave_duration = leave_amount
+            self.leave_end_date = calculator.pay_end_date
           end
 
           next_node do
@@ -293,11 +255,12 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          calculate :calculator do |response|
+          on_response do |response|
             calculator.last_payday = response
-            raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
+          end
 
-            calculator
+          validate :error_message do
+            calculator.last_payday <= to_saturday
           end
 
           next_node do
@@ -310,24 +273,14 @@ module SmartAnswer
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
 
-          precalculate :payday_offset do
-            calculator.payday_offset
+          on_response do |response|
+            calculator.pre_offset_payday = response + 1.day
+            self.relevant_period = calculator.formatted_relevant_period
+            self.payday_offset = calculator.payday_offset
           end
 
-          precalculate :payday_offset_formatted do
-            calculator.format_date_day payday_offset
-          end
-
-          calculate :pre_offset_payday do |response|
-            payday = response + 1.day
-            raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
-
-            calculator.pre_offset_payday = payday
-            payday
-          end
-
-          calculate :relevant_period do
-            calculator.formatted_relevant_period
+          validate :error_message do
+            calculator.pre_offset_payday <= calculator.payday_offset
           end
 
           next_node do
@@ -344,11 +297,7 @@ module SmartAnswer
 
           on_response do |response|
             calculator.pay_pattern = response
-          end
-
-          calculate :calculator do |response|
-            calculator.pay_method = response
-            calculator
+            calculator.pay_method = calculator.pay_pattern
           end
 
           next_node do
@@ -359,10 +308,9 @@ module SmartAnswer
         ## QP13
         money_question :earnings_for_pay_period_paternity? do
           on_response do |response|
-            calculator.earnings_for_pay_period = response
+            self.earnings = response
+            calculator.earnings_for_pay_period = earnings
           end
-
-          save_input_as :earnings
 
           next_node do
             if calculator.average_weekly_earnings_under_lower_earning_limit?
@@ -386,10 +334,12 @@ module SmartAnswer
           option :weekly_starting
           option :usual_paydates
 
-          save_input_as :spp_calculation_method
+          on_response do |response|
+            self.spp_calculation_method = response
+          end
 
-          next_node do |response|
-            if response == "weekly_starting"
+          next_node do
+            if spp_calculation_method == "weekly_starting"
               outcome :paternity_leave_and_pay
             elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
@@ -403,12 +353,12 @@ module SmartAnswer
         date_question :next_pay_day_paternity? do
           from { 2.years.ago(Time.zone.today) }
           to { 2.years.since(Time.zone.today) }
-          save_input_as :next_pay_day
 
-          calculate :calculator do |response|
-            calculator.pay_date = response
-            calculator
+          on_response do |response|
+            self.next_pay_day = response
+            calculator.pay_date = next_pay_day
           end
+
           next_node do
             outcome :paternity_leave_and_pay
           end
@@ -426,12 +376,12 @@ module SmartAnswer
             self.monthly_pay_method = response
           end
 
-          next_node do |response|
-            if response == "specific_date_each_month"
+          next_node do
+            if monthly_pay_method == "specific_date_each_month"
               question :specific_date_each_month_paternity?
-            elsif response == "last_working_day_of_the_month"
+            elsif monthly_pay_method == "last_working_day_of_the_month"
               question :days_of_the_week_paternity?
-            elsif response == "a_certain_week_day_each_month"
+            elsif monthly_pay_method == "a_certain_week_day_each_month"
               question :day_of_the_month_paternity?
             elsif leave_type == "adoption"
               outcome :adoption_leave_and_pay
@@ -443,11 +393,12 @@ module SmartAnswer
 
         ## QP17
         value_question :specific_date_each_month_paternity?, parse: :to_i do
-          calculate :pay_day_in_month do |response|
-            day = response
-            raise InvalidResponse unless day.positive? && day < 32
+          on_response do |response|
+            calculator.pay_day_in_month = response
+          end
 
-            calculator.pay_day_in_month = day
+          validate :error_message do
+            calculator.pay_day_in_month.positive? && calculator.pay_day_in_month < 32
           end
 
           next_node do
@@ -463,7 +414,7 @@ module SmartAnswer
         checkbox_question :days_of_the_week_paternity? do
           (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
-          calculate :last_day_in_week_worked do |response|
+          on_response do |response|
             calculator.work_days = response.split(",").map(&:to_i)
             calculator.pay_day_in_week = response.split(",").max.to_i
           end
@@ -487,9 +438,9 @@ module SmartAnswer
           option :"5"
           option :"6"
 
-          calculate :pay_day_in_week do |response|
+          on_response do |response|
             calculator.pay_day_in_week = response.to_i
-            days_of_the_week[response.to_i]
+            self.pay_day_in_week = days_of_the_week[calculator.pay_day_in_week]
           end
 
           next_node do
@@ -505,7 +456,7 @@ module SmartAnswer
           option :fourth
           option :last
 
-          calculate :pay_week_in_month do |response|
+          on_response do |response|
             calculator.pay_week_in_month = response
           end
 
@@ -520,22 +471,10 @@ module SmartAnswer
 
         # Paternity outcomes
         outcome :paternity_leave_and_pay do
-          precalculate :has_contract do
-            has_contract
-          end
-
-          precalculate :leave_spp_claim_link do
-            leave_spp_claim_link
-          end
-
-          precalculate :notice_of_leave_deadline do
-            notice_of_leave_deadline
-          end
-
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
-                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
+                if monthly_pay_method == "specific_date_each_month" && calculator.pay_day_in_month > 28
                   "last_day_of_the_month"
                 else
                   monthly_pay_method
@@ -547,47 +486,8 @@ module SmartAnswer
               end
             )
           end
-
-          precalculate :above_lower_earning_limit do
-            calculator.average_weekly_earnings > calculator.lower_earning_limit
-          end
-
-          precalculate :lower_earning_limit do
-            sprintf("%.2f", calculator.lower_earning_limit)
-          end
-
-          precalculate :entitled_to_pay do
-            above_lower_earning_limit
-          end
-
-          precalculate :pay_dates_and_pay do
-            if entitled_to_pay && above_lower_earning_limit
-              lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
-              end
-              lines.join("\n")
-            end
-          end
-
-          precalculate :total_spp do
-            if above_lower_earning_limit
-              sprintf("%.2f", calculator.total_statutory_pay)
-            end
-          end
-
-          precalculate :average_weekly_earnings do
-            sprintf("%.2f", calculator.average_weekly_earnings)
-          end
         end
-
-        outcome :paternity_not_entitled_to_leave_or_pay do
-          precalculate :has_contract do
-            has_contract
-          end
-          precalculate :paternity_employment_start do
-            paternity_employment_start
-          end
-        end
+        outcome :paternity_not_entitled_to_leave_or_pay
       end
     end
   end
