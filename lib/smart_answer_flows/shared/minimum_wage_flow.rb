@@ -161,11 +161,13 @@ module SmartAnswer
             calculator.valid_accommodation_charge?(response)
           end
 
+          on_response do |response|
+            self.accommodation_charge = response
+          end
+
           next_node do
             question :current_accommodation_usage?
           end
-
-          save_input_as :accommodation_charge
         end
 
         # Q7a Past
@@ -174,11 +176,13 @@ module SmartAnswer
             calculator.valid_accommodation_charge?(response)
           end
 
+          on_response do |response|
+            self.accommodation_charge = response
+          end
+
           next_node do
             question :past_accommodation_usage?
           end
-
-          save_input_as :accommodation_charge
         end
 
         # Q7b
