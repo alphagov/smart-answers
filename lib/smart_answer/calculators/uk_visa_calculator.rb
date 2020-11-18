@@ -423,6 +423,7 @@ module SmartAnswer::Calculators
       japan
       monaco
       new-zealand
+      san-marino
       south-korea
       taiwan
     ].freeze
