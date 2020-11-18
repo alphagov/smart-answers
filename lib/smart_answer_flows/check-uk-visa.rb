@@ -346,6 +346,7 @@ module SmartAnswer
       outcome :outcome_transit_taiwan_through_border_control
       outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_transit_venezuela
+      outcome :outcome_tourism_n
       outcome :outcome_tourism_visa_partner
       outcome :outcome_visit_waiver
       outcome :outcome_visit_waiver_taiwan
@@ -405,7 +406,7 @@ module SmartAnswer
               calculator.passport_country_in_eea? ||
               calculator.passport_country_in_ukot_list?) &&
               !calculator.travel_document?
-            next outcome(:outcome_school_n) # outcome does not contain school specific content
+            next outcome(:outcome_tourism_n)
           else
             next question(:travelling_visiting_partner_family_member?)
           end

@@ -225,8 +225,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "tourism"
         end
 
-        should "take you to outcome no visa outcome_school_n" do
-          assert_current_node :outcome_school_n
+        should "take you to outcome no visa outcome_tourism_n" do
+          assert_current_node :outcome_tourism_n
         end
       end
 
@@ -383,8 +383,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response "tourism"
       end
-      should "take you to school_n outcome" do
-        assert_current_node :outcome_school_n
+      should "take you to outcome_tourism_n outcome" do
+        assert_current_node :outcome_tourism_n
       end
     end
     context "visiting child at school" do
@@ -458,8 +458,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response "tourism"
       end
-      should "take you to school_n outcome" do
-        assert_current_node :outcome_school_n
+      should "take you to outcome_tourism_n outcome" do
+        assert_current_node :outcome_tourism_n
       end
     end
     context "visiting child at school" do
@@ -922,10 +922,9 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       context "tourism, visiting friends or family" do
-        should "take you to the school_n" do
+        should "take you to the outcome_tourism_n" do
           add_response "tourism"
-          # The school outcome does not contain school-specific content
-          assert_current_node :outcome_school_n
+          assert_current_node :outcome_tourism_n
         end
       end
 
@@ -1096,10 +1095,9 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       context "tourism, visiting friends or family" do
-        should "take you to the school_n" do
+        should "take you to the outcome_tourism_n" do
           add_response "tourism"
-          # The school outcome does not contain school-specific content
-          assert_current_node :outcome_school_n
+          assert_current_node :outcome_tourism_n
         end
       end
 
