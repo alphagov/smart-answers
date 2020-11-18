@@ -237,11 +237,11 @@ module SmartAnswer
           option :usual_paydates
 
           on_response do |response|
-            self.sap_calculation_method = response
+            calculator.period_calculation_method = response
           end
 
           next_node do
-            if sap_calculation_method == "weekly_starting"
+            if calculator.period_calculation_method == "weekly_starting"
               outcome :adoption_leave_and_pay
             elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
@@ -251,23 +251,7 @@ module SmartAnswer
           end
         end
 
-        outcome :adoption_leave_and_pay do
-          precalculate :pay_method do
-            calculator.pay_method = (
-              if monthly_pay_method
-                if monthly_pay_method == "specific_date_each_month" && calculator.pay_day_in_month > 28
-                  "last_day_of_the_month"
-                else
-                  monthly_pay_method
-                end
-              elsif sap_calculation_method == "weekly_starting"
-                sap_calculation_method
-              else
-                calculator.pay_pattern
-              end
-            )
-          end
-        end
+        outcome :adoption_leave_and_pay
         outcome :adoption_not_entitled_to_leave_or_pay
       end
     end

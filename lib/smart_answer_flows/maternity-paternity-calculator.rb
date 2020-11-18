@@ -24,10 +24,8 @@ module SmartAnswer
           self.leave_spp_claim_link = nil
           self.notice_of_leave_deadline = nil
           self.monthly_pay_method = nil
-          self.smp_calculation_method = nil
-          self.sap_calculation_method = nil
+          self.period_calculation_method = nil
           self.paternity_adoption = nil
-          self.spp_calculation_method = nil
           self.has_contract = nil
           self.paternity_employment_start = nil
         end

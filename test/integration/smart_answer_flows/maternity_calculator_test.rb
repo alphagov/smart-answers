@@ -219,7 +219,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
                           should "show the result node" do
                             assert_current_node :maternity_leave_and_pay_result
-                            assert_state_variable :pay_method, "weekly"
+                            assert_equal current_state.calculator.pay_method, "weekly"
                           end
 
                           should "calculate dates and pay amounts" do
@@ -281,13 +281,13 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                     should "calculate the SMP for first day of the month" do
                       add_response "first_day_of_the_month"
                       assert_current_node :maternity_leave_and_pay_result
-                      assert_state_variable :monthly_pay_method, "first_day_of_the_month"
+                      assert_equal current_state.calculator.monthly_pay_method, "first_day_of_the_month"
                     end
 
                     should "calculate the SMP for last day of the month" do
                       add_response "last_day_of_the_month"
                       assert_current_node :maternity_leave_and_pay_result
-                      assert_state_variable :pay_method, "last_day_of_the_month"
+                      assert_equal current_state.calculator.pay_method, "last_day_of_the_month"
                     end
 
                     should "calculate the dates and payment amounts" do
@@ -321,7 +321,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       should "store this as pay_day_in_month" do
-                        assert_state_variable :monthly_pay_method, "last_working_day_of_the_month"
+                        assert_equal current_state.calculator.monthly_pay_method, "last_working_day_of_the_month"
                       end
 
                       should "ask what days the employee works" do
@@ -441,7 +441,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response "29"
         end
         should "assume values over 28 as the last day of the month" do
-          assert_state_variable :pay_method, "last_day_of_the_month"
+          assert_equal current_state.calculator.pay_method, "last_day_of_the_month"
         end
       end
       context "calculate maternity with £4000 earnings" do

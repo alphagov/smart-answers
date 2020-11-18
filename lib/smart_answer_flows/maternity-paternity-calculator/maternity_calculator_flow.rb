@@ -162,11 +162,11 @@ module SmartAnswer
           option :usual_paydates
 
           on_response do |response|
-            self.smp_calculation_method = response
+            calculator.period_calculation_method = response
           end
 
           next_node do
-            if smp_calculation_method != "usual_paydates"
+            if calculator.period_calculation_method != "usual_paydates"
               outcome :maternity_leave_and_pay_result
             elsif calculator.pay_pattern == "monthly"
               question :when_in_the_month_is_the_employee_paid?
@@ -197,11 +197,11 @@ module SmartAnswer
           option :a_certain_week_day_each_month
 
           on_response do |response|
-            self.monthly_pay_method = response
+            calculator.monthly_pay_method = response
           end
 
-          next_node do |response|
-            case response
+          next_node do
+            case calculator.monthly_pay_method
             when "first_day_of_the_month", "last_day_of_the_month"
               outcome :maternity_leave_and_pay_result
             when "specific_date_each_month"
@@ -278,21 +278,6 @@ module SmartAnswer
 
         ## Maternity outcomes
         outcome :maternity_leave_and_pay_result do
-          precalculate :pay_method do
-            calculator.pay_method = (
-              if monthly_pay_method
-                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
-                  "last_day_of_the_month"
-                else
-                  monthly_pay_method
-                end
-              elsif smp_calculation_method == "weekly_starting"
-                smp_calculation_method
-              elsif calculator.pay_pattern
-                calculator.pay_pattern
-              end
-            )
-          end
           precalculate :smp_a do
             sprintf("%.2f", calculator.statutory_maternity_rate_a)
           end
