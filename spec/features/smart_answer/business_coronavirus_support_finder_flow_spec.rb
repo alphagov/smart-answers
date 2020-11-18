@@ -15,7 +15,8 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
       self_employed: "Are you self-employed?",
       what_size_was_your_buisness: "What size was your business as of 28 February?",
-      where_is_your_business_based: "Where is your business based?",
+      restricted_sector: "Is your business a nightclub, dance hall or adult entertainment venue?",
+      closed_by_restrictions: "Has your business closed by law because of coronavirus?",
       results: "Support you may be entitled to",
     }
   end
@@ -54,6 +55,14 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     expect(page).to have_selector("h1", text: headings[:non_domestic_property])
 
     choose "My business does not have any non-domestic property"
+    click_button "Next step"
+    expect(page).to have_selector("h1", text: headings[:restricted_sector])
+
+    choose "No"
+    click_button "Next step"
+    expect(page).to have_selector("h1", text: headings[:closed_by_restrictions])
+
+    check "No"
     click_button "Next step"
     expect(page).to have_selector("h1", text: headings[:flow_title])
     expect(page).to have_selector("h2", text: headings[:results])
@@ -95,6 +104,14 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     expect(page).to have_selector("h1", text: headings[:rate_relief_march_2020])
 
     choose "Yes"
+    click_button "Next step"
+    expect(page).to have_selector("h1", text: headings[:restricted_sector])
+
+    choose "No"
+    click_button "Next step"
+    expect(page).to have_selector("h1", text: headings[:closed_by_restrictions])
+
+    check "No"
     click_button "Next step"
     expect(page).to have_selector("h1", text: headings[:flow_title])
     expect(page).to have_selector("h2", text: headings[:results])
