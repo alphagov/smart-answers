@@ -218,6 +218,80 @@
     $CTA
   <% end %>
 
+  <% if calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) %>
+    ## Grants available from your local council
+
+    You might be eligible for grants from your council. There are schemes for businesses that were closed by law and schemes for businesses that stayed open.
+
+    <% if calculator.show?(:lrsg_closed_addendum) %>
+      $CTA
+      ### Local Restrictions Support Grant (Closed addendum) 
+
+      You might be able to get a grant from your local council if your business has been closed by law since 5 November 2020 because of national coronavirus restrictions. The grant covers your business being shut between 5 November and 2 December 2020.
+
+      How much you can get depends on the rateable value of your property.
+
+      [Check if your closed business is eligible for a coronavirus grant because of national restrictions](https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses)
+      $CTA
+    <% end %>
+
+    <% if calculator.show?(:lrsg_closed) %>
+      $CTA
+      ### Local Restrictions Support Grant (Closed)
+
+      You might be able to get a grant from your local council if all or part of your business was closed by law sometime between 1 August and 5 November 2020. 
+
+      How much you can get depends on the rateable value of your property. 
+
+      You can claim for each 14 day period your business was closed for.
+
+      [Check if your business is eligible for a coronavirus grant for businesses closed by local restrictions](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses)
+      $CTA
+    <% end %>
+
+    <% if calculator.show?(:lrsg_open) %>
+      $CTA
+      ### Local Restrictions Support Grant (Open)
+
+      You might be able to get a grant from your local council if your business stayed open between 1 August and 5 November 2020 in a ‘high’ (tier 2) or ‘very high’ (tier 3) local alert level. Check with your council if you do not know what alert level your area was in. You’ll need to demonstrate to the council that your business was negatively affected by coronavirus.
+
+      How much you get is decided by your council and will be based on the rateable value of your property.
+
+      You can get a payment for each period of 28 days your business was in local restrictions for.
+
+      [Check if your open business is eligible for the coronavirus Local Restrictions Support Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses)
+      $CTA
+    <% end %>
+
+    <% if calculator.show?(:lrsg_sector) %>
+      $CTA
+      ### Local Restrictions Support Grant (Sector)
+
+      You might be able to get a grant from your local council if your night club, adult entertainment venue or dance hall has been closed by law since 16 March 2020 because of national coronavirus restrictions.
+
+      How much you can get depends on the rateable value of your property.
+
+      You can apply for each 14 day period your business has been closed for since 1 November 2020.
+
+      [Check if your business is eligible for a coronavirus grant because of national restrictions](https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions)
+      $CTA
+    <% end %>
+
+    <% if calculator.show?(:additional_restrictions_grant) %>
+      $CTA
+      ### Additional Restrictions Grant
+
+      You might be able to get this grant from your local council if your business has been negatively affected by coronavirus. Your local council will decide which businesses are eligible and how much they are entitled to. Examples of what makes a business eligible could include:
+
+      - you do not pay business rates and your business was closed by law
+      - you supply an industry that had to close because of coronavirus, for example the retail, hospitality or leisure sector
+      - your business is in the events sector
+      
+      [Find out more about the coronavirus Additional Restrictions Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant)
+      $CTA
+    <% end %>
+  <% end %>
+
   <% if calculator.business_based == "scotland" %>
     $CTA
     Find out [what support is available in Scotland](https://findbusinesssupport.gov.scot/coronavirus-advice).
