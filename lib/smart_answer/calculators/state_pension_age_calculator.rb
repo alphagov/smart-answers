@@ -70,7 +70,7 @@ module SmartAnswer::Calculators
     end
 
     def non_binary?
-      %i[non_binary prefer_not_to_say].include?(gender)
+      %i[prefer_not_to_say].include?(gender)
     end
 
   private

@@ -50,7 +50,6 @@ module SmartAnswer
       radio :gender? do
         option :male
         option :female
-        option :non_binary
         option :prefer_not_to_say
 
         next_node do |response|
