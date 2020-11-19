@@ -318,6 +318,7 @@ module SmartAnswer
       outcome :outcome_diplomatic_business
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
+      outcome :outcome_marriage_eea
       outcome :outcome_marriage_nvn_ukot
       outcome :outcome_marriage_taiwan
       outcome :outcome_marriage_visa_nat_datv
@@ -413,7 +414,9 @@ module SmartAnswer
         end
 
         if calculator.marriage_visit?
-          if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list? || calculator.passport_country_in_eea?
+          if calculator.passport_country_in_eea?
+            next outcome(:outcome_marriage_eea)
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_marriage_nvn_ukot)
           elsif calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_marriage_electronic_visa_waiver)
