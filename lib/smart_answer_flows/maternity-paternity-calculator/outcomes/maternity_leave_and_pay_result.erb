@@ -20,7 +20,7 @@
 
   <% end %>
 
-  <% if not_entitled_to_pay_reason.present? %>
+  <% if calculator.not_entitled_to_pay_reason.present? %>
     <% if calculator.earnings_for_pay_period %>
       ##Statutory Maternity Pay
 
@@ -33,13 +33,13 @@
       The employee is not entitled to Statutory Maternity Pay. To qualify:
 
     <% end %>
-    <% case not_entitled_to_pay_reason %>
+    <% case calculator.not_entitled_to_pay_reason %>
     <% when :must_earn_over_threshold %>
 
       + <%= render 'must_earn_over_threshold',
                    average_weekly_earnings: calculator.average_weekly_earnings,
                    relevant_period: relevant_period,
-                   lower_earning_limit: lower_earning_limit
+                   lower_earning_limit: calculator.lower_earning_limit
         %>
     <% when :not_worked_long_enough_and_not_on_payroll %>
 
@@ -73,7 +73,7 @@
     Date | SMP amount
     -|-
     <%= calculator.pay_dates_and_pay %>
-     | **Total SMP: <%= format_money(total_smp) %>**
+     | **Total SMP: <%= format_money(calculator.total_smp) %>**
 
   <% end %>
 

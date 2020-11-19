@@ -105,7 +105,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response "200"
           add_response "8"
           add_response "weekly_starting"
-          assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
+          assert_equal current_state.calculator.lower_earning_limit.round(2), 107
         end
         should "return lower_earning_limit of £102" do
           dd = Date.parse("1 January 2012")
@@ -118,7 +118,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response "200"
           add_response "9"
           add_response "weekly_starting"
-          assert_state_variable "lower_earning_limit", sprintf("%.2f", 102)
+          assert_equal current_state.calculator.lower_earning_limit.round(2), 102
         end
       end
 
@@ -230,10 +230,10 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                             assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
                             assert_state_variable "pay_start_date", leave_start
                             assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                            assert_state_variable "average_weekly_earnings", 135.4
-                            assert_state_variable "smp_a", "121.86"
-                            assert_state_variable "smp_b", "121.86"
-                            assert_state_variable "total_smp", "4752.55"
+                            assert_equal current_state.calculator.average_weekly_earnings, 135.4
+                            assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 121.86
+                            assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 121.86
+                            assert_equal current_state.calculator.total_smp.round(2), 4752.55
                           end
                         end
                       end
@@ -294,15 +294,15 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "last_day_of_the_month"
                       leave_start = Date.parse("21 November 2012")
                       start_of_week = leave_start - leave_start.wday
-                      assert_state_variable "average_weekly_earnings", 124.9846153
+                      assert_equal current_state.calculator.average_weekly_earnings, 124.9846153
                       assert_state_variable "leave_start_date", leave_start
                       assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
                       assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                       assert_state_variable "pay_start_date", leave_start
                       assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                      assert_state_variable "smp_a", "112.49"
-                      assert_state_variable "smp_b", "112.49"
-                      assert_state_variable "total_smp", "4387.02"
+                      assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 112.49
+                      assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 112.49
+                      assert_equal current_state.calculator.total_smp.round(2), 4387.02
                     end
 
                     context "specific date each month" do
@@ -359,9 +359,9 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           end
 
                           should "calculate the dates and payment amounts" do
-                            assert_state_variable "average_weekly_earnings", 124.9846153
-                            assert_state_variable "smp_a", "112.49"
-                            assert_state_variable "smp_b", "112.49" # Uses the statutory maternity rate
+                            assert_equal current_state.calculator.average_weekly_earnings, 124.9846153
+                            assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 112.49
+                            assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 112.49
                           end
                         end
                       end
@@ -387,7 +387,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
               end
 
               should "state that you are not entitled to pay" do
-                assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough_and_not_on_payroll
+                assert_equal current_state.calculator.not_entitled_to_pay_reason, :not_worked_long_enough_and_not_on_payroll
                 assert_current_node :maternity_leave_and_pay_result
               end
             end
@@ -398,7 +398,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
               end
 
               should "state that you are not entitled to pay" do
-                assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough_and_not_on_payroll
+                assert_equal current_state.calculator.not_entitled_to_pay_reason, :not_worked_long_enough_and_not_on_payroll
                 assert_current_node :maternity_leave_and_pay_result
               end
             end
@@ -471,7 +471,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
         should "have a notice request pay date 28 days before the start date" do
           assert_state_variable "pay_start_date", Date.parse("2013-01-25")
-          assert_state_variable "notice_request_pay", Date.parse("2012-12-28")
+          assert_equal current_state.calculator.notice_request_pay, Date.parse("2012-12-28")
         end
       end
     end # April 9th
@@ -491,7 +491,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 116" do
         assert_state_variable :to_saturday_formatted, "Saturday, 14 April 2018"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 116)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 116
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -511,7 +511,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 118" do
         assert_state_variable :to_saturday_formatted, "Saturday, 13 April 2019"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 118
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -531,7 +531,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 120" do
         assert_state_variable :to_saturday_formatted, "Saturday, 18 April 2020"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 120)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 120
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -551,7 +551,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 111" do
         assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 111)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 111
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -571,7 +571,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 109" do
         assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 109
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -591,7 +591,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 109" do
         assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 109
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -612,7 +612,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 109" do
         assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 109
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -633,7 +633,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 109" do
         assert_state_variable :to_saturday_formatted, "Saturday, 21 December 2013"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 109
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -653,7 +653,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
       should "have LEL of 107" do
         assert_state_variable :to_saturday_formatted, "Saturday, 30 March 2013"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
+        assert_equal current_state.calculator.lower_earning_limit.round(2), 107
         assert_current_node :maternity_leave_and_pay_result
       end
     end
@@ -696,7 +696,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         "30 April 2019" => "£242.43",
       )
 
-      assert_state_variable :total_smp, "5090.92"
+      assert_equal current_state.calculator.total_smp.round(2), 5090.92
     end
   end
 
@@ -736,7 +736,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         "28 June 2019" => "£318.60",
       )
 
-      assert_state_variable :total_smp, "6259.03"
+      assert_equal current_state.calculator.total_smp.round(2), 6259.03
     end
   end
 
@@ -776,7 +776,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         "29 March 2019" => "£394.06",
       )
 
-      assert_state_variable :total_smp, "6610.66"
+      assert_equal current_state.calculator.total_smp.round(2), 6610.66
     end
   end
 end
