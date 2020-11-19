@@ -7,13 +7,7 @@ module SmartAnswer::Calculators
                   :self_employed,
                   :non_domestic_property,
                   :sectors,
-                  :rate_relief_march_2020,
-                  :restricted_sector,
-                  :closed_by_restrictions
-
-    def initialize
-      @closed_by_restrictions = []
-    end
+                  :rate_relief_march_2020
 
     RULES = {
       job_retention_scheme: lambda { |calculator|
@@ -56,25 +50,6 @@ module SmartAnswer::Calculators
       },
       kickstart_scheme: lambda { |calculator|
         calculator.business_based != "northern_ireland"
-      },
-      lrsg_closed_addendum: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.closed_by_restrictions.include?("national")
-      },
-      lrsg_closed: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.closed_by_restrictions.include?("local")
-      },
-      lrsg_open: lambda { |calculator|
-        calculator.business_based == "england"
-      },
-      lrsg_sector: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.restricted_sector == "yes"
-      },
-      additional_restrictions_grant: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.closed_by_restrictions.empty?
       },
     }.freeze
 

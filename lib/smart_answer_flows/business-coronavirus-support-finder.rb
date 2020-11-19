@@ -4,7 +4,7 @@ module SmartAnswer
       start_page_content_id "89edffd2-3046-40bd-810c-cc1a13c05b6a"
       flow_content_id "1f589327-a6b3-4b5c-aea0-7a2752e2eddf"
       name "business-coronavirus-support-finder"
-      status :draft
+      status :published
 
       radio :business_based? do
         option :england
@@ -90,7 +90,7 @@ module SmartAnswer
           if calculator.non_domestic_property != "none"
             question :sectors?
           else
-            question :restricted_sector?
+            outcome :results
           end
         end
       end
@@ -115,44 +115,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.rate_relief_march_2020 = response
-        end
-
-        next_node do
-          outcome :restricted_sector?
-        end
-      end
-
-      radio :restricted_sector? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.restricted_sector = response
-        end
-
-        next_node do
-          if calculator.restricted_sector == "yes"
-            outcome :results
-          else
-            question :closed_by_restrictions?
-          end
-        end
-      end
-
-      radio :closed_by_restrictions? do
-        option :yes_national
-        option :yes_local
-        option :yes_local_and_national
-        option :no
-
-        on_response do |response|
-          if %w[yes_local yes_local_and_national].include?(response)
-            calculator.closed_by_restrictions << "local"
-          end
-
-          if %w[yes_national yes_local_and_national].include?(response)
-            calculator.closed_by_restrictions << "national"
-          end
         end
 
         next_node do
