@@ -153,6 +153,14 @@ module SmartAnswer::Calculators
       @travelling_visiting_partner_family_member_answer == "yes"
     end
 
+    def study_or_work
+      if study_visit?
+        "study"
+      elsif work_visit?
+        "work"
+      end
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory

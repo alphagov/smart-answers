@@ -15,9 +15,8 @@ module SmartAnswer
         on_response do |response|
           self.calculator = Calculators::UkVisaCalculator.new
           calculator.passport_country = response
+          self.purpose_of_visit_answer = nil
         end
-
-        calculate :purpose_of_visit_answer
 
         next_node do
           if calculator.passport_country_is_israel?
@@ -186,14 +185,6 @@ module SmartAnswer
       radio :staying_for_how_long? do
         option :six_months_or_less
         option :longer_than_six_months
-
-        precalculate :study_or_work do
-          if calculator.study_visit?
-            "study"
-          elsif calculator.work_visit?
-            "work"
-          end
-        end
 
         next_node do |response|
           case response
