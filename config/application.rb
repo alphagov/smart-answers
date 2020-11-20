@@ -14,6 +14,7 @@ module SmartAnswers
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.time_zone = "London"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -36,6 +37,7 @@ module SmartAnswers
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :"en-GB"
+    config.i18n.fallbacks = true
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
