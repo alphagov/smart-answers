@@ -45,6 +45,7 @@ end
 
 group :test do
   gem "ci_reporter"
+  gem "launchy"
   gem "minitest"
   gem "minitest-focus"
   gem "mocha", require: false
