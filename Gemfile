@@ -39,6 +39,7 @@ group :development, :test do
   gem "jasmine"
   gem "jasmine_selenium_runner"
   gem "pry"
+  gem "rspec-rails"
   gem "rubocop-govuk"
 end
 
