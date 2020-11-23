@@ -39,11 +39,13 @@ group :development, :test do
   gem "jasmine"
   gem "jasmine_selenium_runner"
   gem "pry"
+  gem "rspec-rails"
   gem "rubocop-govuk"
 end
 
 group :test do
   gem "ci_reporter"
+  gem "launchy"
   gem "minitest"
   gem "minitest-focus"
   gem "mocha", require: false
