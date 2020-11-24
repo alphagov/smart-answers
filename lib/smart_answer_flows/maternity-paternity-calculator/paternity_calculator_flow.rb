@@ -297,7 +297,6 @@ module SmartAnswer
 
           on_response do |response|
             calculator.pay_pattern = response
-            calculator.pay_method = calculator.pay_pattern
           end
 
           next_node do
@@ -335,11 +334,11 @@ module SmartAnswer
           option :usual_paydates
 
           on_response do |response|
-            self.spp_calculation_method = response
+            calculator.period_calculation_method = response
           end
 
           next_node do
-            if spp_calculation_method == "weekly_starting"
+            if calculator.period_calculation_method == "weekly_starting"
               outcome :paternity_leave_and_pay
             elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
@@ -374,6 +373,7 @@ module SmartAnswer
 
           on_response do |response|
             self.monthly_pay_method = response
+            calculator.monthly_pay_method = monthly_pay_method
           end
 
           next_node do
@@ -470,23 +470,7 @@ module SmartAnswer
         end
 
         # Paternity outcomes
-        outcome :paternity_leave_and_pay do
-          precalculate :pay_method do
-            calculator.pay_method = (
-              if monthly_pay_method
-                if monthly_pay_method == "specific_date_each_month" && calculator.pay_day_in_month > 28
-                  "last_day_of_the_month"
-                else
-                  monthly_pay_method
-                end
-              elsif spp_calculation_method == "weekly_starting"
-                spp_calculation_method
-              else
-                calculator.pay_pattern
-              end
-            )
-          end
-        end
+        outcome :paternity_leave_and_pay
         outcome :paternity_not_entitled_to_leave_or_pay
       end
     end

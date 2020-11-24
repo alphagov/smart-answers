@@ -51,7 +51,7 @@ module SmartAnswer
 
           on_response do |response|
             self.has_employment_contract_between_dates = response
-            self.not_entitled_to_pay_reason = response == "no" ? :not_worked_long_enough_and_not_on_payroll : nil
+            calculator.not_entitled_to_pay_reason = response == "no" ? :not_worked_long_enough_and_not_on_payroll : nil
             self.to_saturday = calculator.qualifying_week.last
             self.to_saturday_formatted = calculator.format_date_day(to_saturday)
           end
@@ -162,11 +162,11 @@ module SmartAnswer
           option :usual_paydates
 
           on_response do |response|
-            self.smp_calculation_method = response
+            calculator.period_calculation_method = response
           end
 
           next_node do
-            if smp_calculation_method != "usual_paydates"
+            if calculator.period_calculation_method != "usual_paydates"
               outcome :maternity_leave_and_pay_result
             elsif calculator.pay_pattern == "monthly"
               question :when_in_the_month_is_the_employee_paid?
@@ -197,11 +197,11 @@ module SmartAnswer
           option :a_certain_week_day_each_month
 
           on_response do |response|
-            self.monthly_pay_method = response
+            calculator.monthly_pay_method = response
           end
 
-          next_node do |response|
-            case response
+          next_node do
+            case calculator.monthly_pay_method
             when "first_day_of_the_month", "last_day_of_the_month"
               outcome :maternity_leave_and_pay_result
             when "specific_date_each_month"
@@ -277,68 +277,7 @@ module SmartAnswer
         end
 
         ## Maternity outcomes
-        outcome :maternity_leave_and_pay_result do
-          precalculate :pay_method do
-            calculator.pay_method = (
-              if monthly_pay_method
-                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
-                  "last_day_of_the_month"
-                else
-                  monthly_pay_method
-                end
-              elsif smp_calculation_method == "weekly_starting"
-                smp_calculation_method
-              elsif calculator.pay_pattern
-                calculator.pay_pattern
-              end
-            )
-          end
-          precalculate :smp_a do
-            sprintf("%.2f", calculator.statutory_maternity_rate_a)
-          end
-          precalculate :smp_b do
-            sprintf("%.2f", calculator.statutory_maternity_rate_b)
-          end
-          precalculate :lower_earning_limit do
-            sprintf("%.2f", calculator.lower_earning_limit)
-          end
-
-          precalculate :notice_request_pay do
-            calculator.notice_request_pay
-          end
-
-          precalculate :below_threshold do
-            calculator.earnings_for_pay_period &&
-              calculator.average_weekly_earnings_under_lower_earning_limit?
-          end
-
-          precalculate :not_entitled_to_pay_reason do
-            if below_threshold
-              :must_earn_over_threshold
-            else
-              not_entitled_to_pay_reason
-            end
-          end
-
-          precalculate :total_smp do
-            if not_entitled_to_pay_reason.blank?
-              sprintf("%.2f", calculator.total_statutory_pay)
-            end
-          end
-
-          precalculate :pay_dates_and_pay do
-            if not_entitled_to_pay_reason.blank?
-              lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
-              end
-              lines.join("\n")
-            end
-          end
-
-          precalculate :average_weekly_earnings do
-            calculator.average_weekly_earnings
-          end
-        end
+        outcome :maternity_leave_and_pay_result
       end
     end
   end

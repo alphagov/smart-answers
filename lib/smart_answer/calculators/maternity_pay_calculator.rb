@@ -17,12 +17,13 @@ module SmartAnswer::Calculators
     attr_accessor :employment_contract,
                   :leave_start_date,
                   :last_payday,
+                  :monthly_pay_method,
                   :pre_offset_payday,
                   :pay_date,
                   :pay_day_in_month,
                   :pay_day_in_week,
-                  :pay_method,
                   :pay_week_in_month,
+                  :period_calculation_method,
                   :work_days,
                   :date_of_birth,
                   :awe,
@@ -30,6 +31,8 @@ module SmartAnswer::Calculators
                   :payment_option,
                   :earnings_for_pay_period,
                   :on_payroll
+
+    attr_writer :pay_method, :not_entitled_to_pay_reason
 
     DAYS_OF_THE_WEEK = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
     PAYMENT_OPTIONS = {
@@ -352,6 +355,34 @@ module SmartAnswer::Calculators
 
     def total_spp
       total_statutory_pay if above_lower_earning_limit
+    end
+
+    def total_smp
+      total_statutory_pay if not_entitled_to_pay_reason.blank?
+    end
+
+    def pay_method
+      @pay_method ||= if monthly_pay_method
+                        if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
+                          "last_day_of_the_month"
+                        else
+                          monthly_pay_method
+                        end
+                      elsif period_calculation_method == "weekly_starting"
+                        period_calculation_method
+                      else
+                        pay_pattern
+                      end
+    end
+
+    def pay_below_threshold?
+      earnings_for_pay_period && average_weekly_earnings_under_lower_earning_limit?
+    end
+
+    def not_entitled_to_pay_reason
+      return :must_earn_over_threshold if pay_below_threshold?
+
+      @not_entitled_to_pay_reason
     end
 
   private

@@ -374,8 +374,9 @@ module SmartAnswer
 
     context "when answering how_do_you_want_the_sap_calculated?" do
       setup do
+        calculator = Calculators::AdoptionPayCalculator.new(Time.zone.now)
         @question = TestNode.new(@flow, :how_do_you_want_the_sap_calculated?)
-          .with_stubbed_calculator
+          .with(calculator: calculator)
       end
 
       should "respond to 'weekly_starting' with adoption_leave_and_pay" do
