@@ -16,7 +16,7 @@ module SmartAnswer
       status :published
       satisfies_need "463773ea-3629-4386-8511-06ec12351303"
 
-      exclude_countries = %w[congo holy-see british-antarctic-territory the-occupied-palestinian-territories]
+      exclude_countries = %w[holy-see british-antarctic-territory the-occupied-palestinian-territories]
 
       # Q1
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
