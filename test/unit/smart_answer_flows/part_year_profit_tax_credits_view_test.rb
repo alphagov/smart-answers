@@ -56,6 +56,11 @@ module SmartAnswer
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
         @state = SmartAnswer::State.new(question)
         @state.accounting_year_ends_on = Date.parse("2016-04-05")
+        calculator_options = {
+          accounting_year: stub(ends_on: Date.parse("2016-04-05")),
+        }
+        @calculator = stub("calculator", calculator_options)
+        @state.calculator = @calculator
         @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
       end
 
@@ -78,8 +83,11 @@ module SmartAnswer
       setup do
         question = @flow.node(:what_is_your_taxable_profit?)
         @state = SmartAnswer::State.new(question)
-        @state.basis_period_begins_on = Date.parse("2015-04-06")
-        @state.basis_period_ends_on = Date.parse("2016-04-05")
+        calculator_options = {
+          basis_period: stub(begins_on: Date.parse("2015-04-06"), ends_on: Date.parse("2016-04-05")),
+        }
+        @calculator = stub("calculator", calculator_options)
+        @state.calculator = @calculator
         @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
@@ -98,7 +106,11 @@ module SmartAnswer
       setup do
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
-        @state.accounting_year_begins_on = Date.parse("2015-04-06")
+        calculator_options = {
+          accounting_year: stub(begins_on: Date.parse("2015-04-06")),
+        }
+        @calculator = stub("calculator", calculator_options)
+        @state.calculator = @calculator
         @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
       end
 
@@ -121,8 +133,11 @@ module SmartAnswer
       setup do
         question = @flow.node(:when_did_you_stop_trading?)
         @state = SmartAnswer::State.new(question)
-        @state.tax_year_begins_on = Date.parse("2015-04-06")
-        @state.tax_year_ends_on = Date.parse("2016-04-05")
+        calculator_options = {
+          tax_year: stub(begins_on: Date.parse("2015-04-06"), ends_on: Date.parse("2016-04-05")),
+        }
+        @calculator = stub("calculator", calculator_options)
+        @state.calculator = @calculator
         @presenter = QuestionPresenter.new(question, nil, @state)
       end
 
@@ -147,7 +162,11 @@ module SmartAnswer
       setup do
         question = @flow.node(:when_did_you_start_trading?)
         @state = SmartAnswer::State.new(question)
-        @state.award_period_ends_on = Date.parse("2015-08-01")
+        calculator_options = {
+          award_period: stub(ends_on: Date.parse("2015-08-01")),
+        }
+        @calculator = stub("calculator", calculator_options)
+        @state.calculator = @calculator
         @presenter = QuestionPresenter.new(question, nil, @state)
       end
 

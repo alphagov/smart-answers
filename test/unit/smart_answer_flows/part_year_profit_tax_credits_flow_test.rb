@@ -120,10 +120,6 @@ module SmartAnswer
         )
       end
 
-      should "make accounting_year_begins_on available for interpolation in question title" do
-        assert_equal Date.parse("2015-04-06"), @precalculated_state.accounting_year_begins_on
-      end
-
       context "responding with yes" do
         setup do
           question = :did_you_start_trading_before_the_relevant_accounting_year?
@@ -179,10 +175,6 @@ module SmartAnswer
       should "set the to date of the date select to the constant defined in the calculator" do
         expected = Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE
         assert_equal expected, @question.range.end
-      end
-
-      should "make award_period_ends_on available" do
-        assert_equal Date.parse("2015-08-01"), @new_state.award_period_ends_on
       end
 
       should "store parsed response on calculator as started_trading_on" do
@@ -260,14 +252,6 @@ module SmartAnswer
         assert_equal expected, @question.range.end
       end
 
-      should "make tax_year_begins_on available for interpolation in question title" do
-        assert_equal Date.parse("2015-04-06"), @precalculated_state.tax_year_begins_on
-      end
-
-      should "make tax_year_ends_on available for interpolation in question title" do
-        assert_equal Date.parse("2016-04-05"), @precalculated_state.tax_year_ends_on
-      end
-
       should "store parsed response on calculator as stopped_trading_on" do
         assert_equal Date.parse("2015-06-01"), @calculator.stopped_trading_on
       end
@@ -340,14 +324,6 @@ module SmartAnswer
           responding_with: "15000",
           initial_state: { calculator: @calculator },
         )
-      end
-
-      should "make basis_period_begins_on available for interpolation in question title" do
-        assert_equal Date.parse("2015-04-06"), @precalculated_state.basis_period_begins_on
-      end
-
-      should "make basis_period_ends_on available for interpolation in question title" do
-        assert_equal Date.parse("2016-04-05"), @precalculated_state.basis_period_ends_on
       end
 
       should "store parsed response on calculator as taxable_profit" do

@@ -59,8 +59,6 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        precalculate(:accounting_year_begins_on) { calculator.accounting_year.begins_on }
-
         next_node do |response|
           if response == "yes"
             question :when_did_you_stop_trading?
@@ -73,9 +71,6 @@ module SmartAnswer
       date_question :when_did_you_stop_trading? do
         from { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
         to   { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
-
-        precalculate(:tax_year_begins_on) { calculator.tax_year.begins_on }
-        precalculate(:tax_year_ends_on)   { calculator.tax_year.ends_on }
 
         on_response do |response|
           calculator.stopped_trading_on = response
@@ -94,8 +89,6 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        precalculate(:accounting_year_ends_on) { calculator.accounting_year.ends_on }
-
         next_node do |response|
           if response == "yes"
             question :what_is_your_taxable_profit?
@@ -108,8 +101,6 @@ module SmartAnswer
       date_question :when_did_you_start_trading? do
         from { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
         to   { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
-
-        precalculate(:award_period_ends_on) { calculator.award_period.ends_on }
 
         on_response do |response|
           calculator.started_trading_on = response
@@ -129,9 +120,6 @@ module SmartAnswer
       end
 
       money_question :what_is_your_taxable_profit? do
-        precalculate(:basis_period_begins_on) { calculator.basis_period.begins_on }
-        precalculate(:basis_period_ends_on)   { calculator.basis_period.ends_on }
-
         on_response do |response|
           calculator.taxable_profit = response
         end

@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  Did you start trading before <%= format_date(accounting_year_begins_on) %>?
+  Did you start trading before <%= format_date(calculator.accounting_year.begins_on) %>?
 <% end %>
 
 <% options(
