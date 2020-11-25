@@ -8,7 +8,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow
-    @stubbed_calculator = SmartAnswer::Calculators::HolidayEntitlement.new
   end
 
   should "ask what the basis of the calculation is" do
@@ -34,35 +33,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement
-          .expects(:new)
-          .with(
-            working_days_per_week: 5,
-            start_date: nil,
-            leaving_date: nil,
-            leave_year_start_date: nil,
-          ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
-
         add_response "5"
         assert_current_node :days_per_week_done
-        assert_state_variable :holiday_entitlement_days, "formatted days"
+        assert_equal "28", current_state.calculator.formatted_full_time_part_time_days
       end
 
       should "calculate and be done when more than 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement
-          .expects(:new)
-          .with(
-            working_days_per_week: 6,
-            start_date: nil,
-            leaving_date: nil,
-            leave_year_start_date: nil,
-          ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
-
         add_response "6"
         assert_current_node :days_per_week_done
-        assert_state_variable :holiday_entitlement_days, "formatted days"
+        assert_equal "28", current_state.calculator.formatted_full_time_part_time_days
       end
     end # full year
 
@@ -97,20 +76,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             setup do
               add_response "5"
             end
-            should "calculate and be done part year when 5 days" do
-              SmartAnswer::Calculators::HolidayEntitlement
-                .expects(:new)
-                .with(
-                  working_days_per_week: 5,
-                  start_date: Date.parse("#{Time.zone.today.year}-03-14"),
-                  leaving_date: nil,
-                  leave_year_start_date: Date.parse("#{Time.zone.today.year}-03-02"),
-                ).returns(@stubbed_calculator)
-              @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
+            should "calculate and be done part year when 5 days" do
               assert_current_node :days_per_week_done
-              assert_state_variable :holiday_entitlement_days, "formatted days"
-              assert_state_variable :working_days_per_week, 5
+              assert_equal "28", current_state.calculator.formatted_full_time_part_time_days
+              assert_equal 5, current_state.calculator.working_days_per_week
             end
           end
 
@@ -118,20 +88,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             setup do
               add_response "7"
             end
-            should "calculate and be done part year when 6 or 7 days" do
-              SmartAnswer::Calculators::HolidayEntitlement
-                .expects(:new)
-                .with(
-                  working_days_per_week: 7,
-                  start_date: Date.parse("#{Time.zone.today.year}-03-14"),
-                  leaving_date: nil,
-                  leave_year_start_date: Date.parse("#{Time.zone.today.year}-03-02"),
-                ).returns(@stubbed_calculator)
-              @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
+            should "calculate and be done part year when 6 or 7 days" do
               assert_current_node :days_per_week_done
-              assert_state_variable :holiday_entitlement_days, "formatted days"
-              assert_state_variable :working_days_per_week, 7
+              assert_equal "28", current_state.calculator.formatted_full_time_part_time_days
+              assert_equal 7, current_state.calculator.working_days_per_week
             end
           end
         end # with a leave year start date
@@ -169,20 +130,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             setup do
               add_response "5"
             end
-            should "calculate and be done part year when 5 days" do
-              SmartAnswer::Calculators::HolidayEntitlement
-                .expects(:new)
-                .with(
-                  working_days_per_week: 5,
-                  start_date: nil,
-                  leaving_date: Date.parse("#{Time.zone.today.year}-07-14"),
-                  leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                ).returns(@stubbed_calculator)
-              @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
+            should "calculate and be done part year when 5 days" do
               assert_current_node :days_per_week_done
-              assert_state_variable :holiday_entitlement_days, "formatted days"
-              assert_state_variable :working_days_per_week, 5
+              assert_equal "15", current_state.calculator.formatted_full_time_part_time_days
+              assert_equal 5, current_state.calculator.working_days_per_week
             end
           end
 
@@ -190,20 +142,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             setup do
               add_response "6"
             end
-            should "calculate and be done part year when 6 days" do
-              SmartAnswer::Calculators::HolidayEntitlement
-                .expects(:new)
-                .with(
-                  working_days_per_week: 6,
-                  start_date: nil,
-                  leaving_date: Date.parse("#{Time.zone.today.year}-07-14"),
-                  leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                ).returns(@stubbed_calculator)
-              @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
+            should "calculate and be done part year when 6 days" do
               assert_current_node :days_per_week_done
-              assert_state_variable :holiday_entitlement_days, "formatted days"
-              assert_state_variable :working_days_per_week, 6
+              assert_equal "15", current_state.calculator.formatted_full_time_part_time_days
+              assert_equal 6, current_state.calculator.working_days_per_week
             end
           end
         end # with a leave year start date
@@ -214,13 +157,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting-and-leaving"
       end
+
       should "ask what was the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "add employment start date" do
         setup do
           add_response "#{Time.zone.today.year}-07-14"
         end
+
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -229,6 +175,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-10-14"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -238,24 +185,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-10-14"
           end
+
           should "ask you how many days worked per week" do
             assert_current_node :how_many_days_per_week?
           end
-          should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                working_days_per_week: 5,
-                start_date: Date.parse("#{Time.zone.today.year}-07-14"),
-                leaving_date: Date.parse("#{Time.zone.today.year}-10-14"),
-                leave_year_start_date: nil,
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
+          should "calculate and be done part year when 5 days" do
             add_response "5"
             assert_current_node :days_per_week_done
-            assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :working_days_per_week, 5
+            assert_equal "7.2", current_state.calculator.formatted_full_time_part_time_days
+            assert_equal 5, current_state.calculator.working_days_per_week
           end
         end
       end
@@ -266,95 +205,90 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     setup do
       add_response "hours-worked-per-week"
     end
+
     should "ask the time period for the calculation" do
       assert_current_node :calculation_period?
     end
+
     context "answer full leave year" do
       setup do
         add_response "full-year"
       end
+
       should "ask the number of hours worked per week" do
         assert_current_node :how_many_hours_per_week?
       end
+
       context "answer 40 hours" do
         setup do
           add_response "40"
         end
+
         should "ask the number of days worked per week" do
           assert_current_node :how_many_days_per_week_for_hours?
         end
+
         context "answer 5 days" do
           setup do
             add_response "5"
           end
-          should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                hours_per_week: 40.0,
-                working_days_per_week: 5.0,
-                start_date: nil,
-                leaving_date: nil,
-                leave_year_start_date: nil,
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_compressed_hours).returns(224.0)
 
+          should "calculate the holiday entitlement" do
             assert_current_node :hours_per_week_done
-            assert_state_variable "holiday_entitlement_hours", 224
+            assert_equal "224", current_state.calculator.formatted_full_time_part_time_compressed_hours
           end
         end
       end
     end
+
     context "answer starting part way through the leave year" do
       setup do
         add_response "starting"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 1st this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
-              should "calculate the holiday entitlement" do
-                SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    hours_per_week: 40.0,
-                    working_days_per_week: 5,
-                    start_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                    leaving_date: nil,
-                    leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                  )
-                  .returns(@stubbed_calculator)
-                @stubbed_calculator.expects(:formatted_full_time_part_time_compressed_hours).returns(132.0)
 
+              should "calculate the holiday entitlement" do
                 assert_current_node :hours_per_week_done
-                assert_state_variable "holiday_entitlement_hours", 132
+                assert_equal "132", current_state.calculator.formatted_full_time_part_time_compressed_hours
               end
             end
           end
+
           context "impossible working patterns" do
             should "be invalid if answer <= 0 hours entered" do
               add_response "0"
@@ -390,52 +324,50 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "leaving"
       end
+
       should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 1st this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
-              should "calculate the holiday entitlement" do
-                SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    hours_per_week: 40,
-                    working_days_per_week: 5,
-                    start_date: nil,
-                    leaving_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                    leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                  )
-                  .returns(@stubbed_calculator)
-                @stubbed_calculator.expects(:formatted_full_time_part_time_compressed_hours).returns(93.3)
 
+              should "calculate the holiday entitlement" do
                 assert_current_node :hours_per_week_done
-                assert_state_variable "holiday_entitlement_hours", 93.3
+                assert_equal "93.7", current_state.calculator.formatted_full_time_part_time_compressed_hours
               end
             end
           end
+
           # Dept Test 16
           context "impossible working patterns" do
             should "be invalid if 63 hours for 1 day entered (dept Test 16)" do
@@ -446,6 +378,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
         end
       end
+
       # Dept Test 18
       context "answer 31 September next year - day that does not exist" do
         setup do
@@ -462,13 +395,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting-and-leaving"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer 'Jan 20th this year'" do
         setup do
           add_response "#{Time.zone.today.year}-01-20"
         end
+
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -477,6 +413,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-10-14"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -486,34 +423,28 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-07-18"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
-              should "calculate the holiday entitlement" do
-                SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    hours_per_week: 40,
-                    working_days_per_week: 5,
-                    start_date: Date.parse("#{Time.zone.today.year}-01-20"),
-                    leaving_date: Date.parse("#{Time.zone.today.year}-07-18"),
-                    leave_year_start_date: nil,
-                  ).returns(@stubbed_calculator)
-                @stubbed_calculator.expects(:formatted_full_time_part_time_compressed_hours).returns(110.5)
 
+              should "calculate the holiday entitlement" do
                 assert_current_node :hours_per_week_done
-                assert_state_variable "holiday_entitlement_hours", 110.5
+                assert_equal "110.8", current_state.calculator.formatted_full_time_part_time_compressed_hours
               end
             end
           end
@@ -526,33 +457,40 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     setup do
       add_response "compressed-hours"
     end
+
     should "ask the time period for the calculation" do
       assert_current_node :calculation_period?
     end
+
     context "answer full leave year" do
       setup do
         add_response "full-year"
       end
+
       should "ask the number of hours worked per week" do
         assert_current_node :how_many_hours_per_week?
       end
+
       context "answer 40 hours" do
         setup do
           add_response "40"
         end
+
         should "ask the number of days worked per week" do
           assert_current_node :how_many_days_per_week_for_hours?
         end
+
         context "answer 5 days" do
           setup do
             add_response "5"
           end
+
           should "calculate the holiday entitlement" do
             assert_current_node :compressed_hours_done
-            assert_state_variable "holiday_entitlement_hours", 224
-            assert_state_variable "holiday_entitlement_minutes", 0
-            assert_state_variable "hours_daily", 8
-            assert_state_variable "minutes_daily", 0
+            assert_equal 224, current_state.calculator.holiday_entitlement_hours
+            assert_equal 0, current_state.calculator.holiday_entitlement_minutes
+            assert_equal 8, current_state.calculator.hours_daily
+            assert_equal 0, current_state.calculator.minutes_daily
           end
         end
       end
@@ -562,6 +500,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
@@ -571,6 +510,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "#{Time.zone.today.year + 1}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
@@ -579,6 +519,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-03-01"
           end
+
           should "be an invalid date" do
             assert_current_node :when_does_your_leave_year_start?, error: true
           end
@@ -589,6 +530,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-03-01"
           end
+
           should "be an invalid date" do
             assert_current_node :when_does_your_leave_year_start?, error: true
           end
@@ -599,6 +541,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
@@ -607,6 +550,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
@@ -627,19 +571,22 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
+
               should "calculate the holiday entitlement" do
                 assert_current_node :compressed_hours_done
-                assert_state_variable "holiday_entitlement_hours", 132
-                assert_state_variable "holiday_entitlement_minutes", 0
-                assert_state_variable "hours_daily", 8
-                assert_state_variable "minutes_daily", 0
+                assert_equal 132, current_state.calculator.holiday_entitlement_hours
+                assert_equal 0, current_state.calculator.holiday_entitlement_minutes
+                assert_equal 8, current_state.calculator.hours_daily
+                assert_equal 0, current_state.calculator.minutes_daily
               end
             end
           end
@@ -651,6 +598,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "leaving"
       end
+
       should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
@@ -659,6 +607,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "#{Time.zone.today.year + 1}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
@@ -668,6 +617,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-03-01"
           end
+
           should "be an invalid date" do
             assert_current_node :when_does_your_leave_year_start?, error: true
           end
@@ -678,6 +628,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-05-30"
           end
+
           should "be an invalid date" do
             assert_current_node :when_does_your_leave_year_start?, error: true
           end
@@ -688,6 +639,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "2017-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
@@ -696,26 +648,31 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "2017-01-01"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
+
               should "calculate the holiday entitlement" do
                 assert_current_node :compressed_hours_done
-                assert_state_variable "holiday_entitlement_hours", 93
-                assert_state_variable "holiday_entitlement_minutes", 18
-                assert_state_variable "hours_daily", 8
-                assert_state_variable "minutes_daily", 0
+                assert_equal 93, current_state.calculator.holiday_entitlement_hours
+                assert_equal 18, current_state.calculator.holiday_entitlement_minutes
+                assert_equal 8, current_state.calculator.hours_daily
+                assert_equal 0, current_state.calculator.minutes_daily
               end
             end
           end
@@ -745,6 +702,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting-and-leaving"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
@@ -754,6 +712,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "#{Time.zone.today.year}-03-01"
         end
+
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -762,6 +721,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year + 1}-06-01"
           end
+
           should "be an invalid date" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -772,6 +732,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         setup do
           add_response "2019-01-20"
         end
+
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -780,6 +741,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "2018-10-14"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -789,26 +751,31 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "2019-07-18"
           end
+
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
             end
+
             should "ask the number of days worked per week" do
               assert_current_node :how_many_days_per_week_for_hours?
             end
+
             context "answer 5 days" do
               setup do
                 add_response "5"
               end
+
               should "calculate the holiday entitlement" do
                 assert_current_node :compressed_hours_done
-                assert_state_variable "holiday_entitlement_hours", 110
-                assert_state_variable "holiday_entitlement_minutes", 30
-                assert_state_variable "hours_daily", 8
-                assert_state_variable "minutes_daily", 0
+                assert_equal 110, current_state.calculator.holiday_entitlement_hours
+                assert_equal 30, current_state.calculator.holiday_entitlement_minutes
+                assert_equal 8, current_state.calculator.hours_daily
+                assert_equal 0, current_state.calculator.minutes_daily
               end
             end
           end
@@ -821,6 +788,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     setup do
       add_response "irregular-hours"
     end
+
     should "ask the time period for the calculation" do
       assert_current_node :calculation_period?
     end
@@ -829,17 +797,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "full-year"
       end
-      should "calculate the holiday entitlement" do
-        SmartAnswer::Calculators::HolidayEntitlement
-          .expects(:new)
-          .with(
-            start_date: nil,
-            leaving_date: nil,
-            leave_year_start_date: nil,
-          ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
-        assert_state_variable "holiday_entitlement", "5.6"
+      should "calculate the holiday entitlement" do
+        assert_equal "5.6", current_state.calculator.formatted_full_time_part_time_weeks
         assert_current_node :irregular_and_annualised_done
       end
     end
@@ -848,32 +808,28 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 1st this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
-          should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                leaving_date: nil,
-                leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("3.27")
 
+          should "calculate the holiday entitlement" do
             assert_current_node :irregular_and_annualised_done
-            assert_state_variable "holiday_entitlement", "3.27"
+            assert_equal "3.27", current_state.calculator.formatted_full_time_part_time_weeks
           end
         end
       end
@@ -883,32 +839,27 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "leaving"
       end
+
       should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 01 this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
 
           should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: nil,
-                leaving_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.34")
-
-            assert_state_variable "holiday_entitlement", "2.34"
+            assert_equal "2.35", current_state.calculator.formatted_full_time_part_time_weeks
             assert_current_node :irregular_and_annualised_done
           end
         end
@@ -919,13 +870,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting-and-leaving"
       end
+
       should "ask what was the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer Jan 20th this year" do
         setup do
           add_response "#{Time.zone.today.year}-01-20"
         end
+
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -934,6 +888,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-10-14"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -943,17 +898,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-07-18"
           end
-          should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: Date.parse("#{Time.zone.today.year}-01-20"),
-                leaving_date: Date.parse("#{Time.zone.today.year}-07-18"),
-                leave_year_start_date: nil,
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.77")
 
-            assert_state_variable "holiday_entitlement", "2.77"
+          should "calculate the holiday entitlement" do
+            assert_equal "2.77", current_state.calculator.formatted_full_time_part_time_weeks
             assert_current_node :irregular_and_annualised_done
           end
         end
@@ -965,6 +912,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     setup do
       add_response "annualised-hours"
     end
+
     should "ask the time period for the calculation" do
       assert_current_node :calculation_period?
     end
@@ -973,17 +921,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "full-year"
       end
-      should "calculate the holiday entitlement" do
-        SmartAnswer::Calculators::HolidayEntitlement
-          .expects(:new)
-          .with(
-            start_date: nil,
-            leaving_date: nil,
-            leave_year_start_date: nil,
-          ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
-        assert_state_variable "holiday_entitlement", "5.6"
+      should "calculate the holiday entitlement" do
+        assert_equal "5.6", current_state.calculator.formatted_full_time_part_time_weeks
         assert_current_node :irregular_and_annualised_done
       end
     end
@@ -992,32 +932,28 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting"
       end
+
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 1st this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
-          should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                leaving_date: nil,
-                leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("3.27")
 
+          should "calculate the holiday entitlement" do
             assert_current_node :irregular_and_annualised_done
-            assert_state_variable "holiday_entitlement", "3.27"
+            assert_equal "3.27", current_state.calculator.formatted_full_time_part_time_weeks
           end
         end
       end
@@ -1027,32 +963,27 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "leaving"
       end
+
       should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
+
       context "answer June 1st this year" do
         setup do
           add_response "#{Time.zone.today.year}-06-01"
         end
+
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 01 this year" do
           setup do
             add_response "#{Time.zone.today.year}-01-01"
           end
 
           should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: nil,
-                leaving_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.34")
-
-            assert_state_variable "holiday_entitlement", "2.34"
+            assert_equal "2.35", current_state.calculator.formatted_full_time_part_time_weeks
             assert_current_node :irregular_and_annualised_done
           end
         end
@@ -1063,13 +994,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       setup do
         add_response "starting-and-leaving"
       end
+
       should "ask what was the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
       context "answer Jan 20th this year" do
         setup do
           add_response "#{Time.zone.today.year}-01-20"
         end
+
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
@@ -1078,6 +1012,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-01-20"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -1087,17 +1022,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year}-07-18"
           end
-          should "calculate the holiday entitlement" do
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: Date.parse("#{Time.zone.today.year}-01-20"),
-                leaving_date: Date.parse("#{Time.zone.today.year}-07-18"),
-                leave_year_start_date: nil,
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.77")
 
-            assert_state_variable "holiday_entitlement", "2.77"
+          should "calculate the holiday entitlement" do
+            assert_equal "2.77", current_state.calculator.formatted_full_time_part_time_weeks
             assert_current_node :irregular_and_annualised_done
           end
         end
@@ -1122,6 +1049,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask how many hours in each shift" do
         assert_current_node :shift_worker_hours_per_shift?
       end
+
       context "with invalid hours" do
         context "with 0 hours" do
           setup do
@@ -1132,6 +1060,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :shift_worker_hours_per_shift?, error: true
           end
         end
+
         context "with over 24 hours" do
           setup do
             add_response "25"
@@ -1142,42 +1071,37 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
         end
       end
+
       context "answer 6 hours" do
         setup do
           add_response "6"
         end
+
         should "ask how many shifts per shift pattern" do
           assert_current_node :shift_worker_shifts_per_shift_pattern?
         end
+
         context "answer 8 shifts" do
           setup do
             add_response "8"
           end
+
           should "ask how many days per shift pattern" do
             assert_current_node :shift_worker_days_per_shift_pattern?
           end
+
           context "answer 14 days" do
             setup do
               add_response "14"
             end
-            should "calculate the holiday entitlement" do
-              SmartAnswer::Calculators::HolidayEntitlement
-                .expects(:new)
-                .with(
-                  start_date: nil,
-                  leaving_date: nil,
-                  leave_year_start_date: nil,
-                  shifts_per_shift_pattern: 8,
-                  days_per_shift_pattern: 14,
-                ).returns(@stubbed_calculator)
-              @stubbed_calculator.expects(:shift_entitlement).returns(22.40)
 
+            should "calculate the holiday entitlement" do
               assert_current_node :shift_worker_done
 
-              assert_state_variable :hours_per_shift, 6
-              assert_state_variable :shifts_per_shift_pattern, 8
-              assert_state_variable :days_per_shift_pattern, 14
-              assert_state_variable :holiday_entitlement_shifts, 22.40
+              assert_equal 6, current_state.calculator.hours_per_shift
+              assert_equal 8, current_state.calculator.shifts_per_shift_pattern
+              assert_equal 14, current_state.calculator.days_per_shift_pattern
+              assert_equal "22.4", current_state.calculator.shift_entitlement
             end
           end
         end
@@ -1237,6 +1161,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             should "ask how many shifts per shift pattern" do
               assert_current_node :shift_worker_shifts_per_shift_pattern?
             end
+
             context "answer 8 shifts" do
               setup do
                 add_response "8"
@@ -1250,24 +1175,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 setup do
                   add_response "14"
                 end
-                should "calculate the holiday entitlement" do
-                  SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    start_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                    leaving_date: nil,
-                    leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                    shifts_per_shift_pattern: 8,
-                    days_per_shift_pattern: 14,
-                  ).returns(@stubbed_calculator)
-                  @stubbed_calculator.expects(:shift_entitlement).returns(13.5)
 
+                should "calculate the holiday entitlement" do
                   assert_current_node :shift_worker_done
 
-                  assert_state_variable :hours_per_shift, 6
-                  assert_state_variable :shifts_per_shift_pattern, 8
-                  assert_state_variable :days_per_shift_pattern, 14
-                  assert_state_variable :holiday_entitlement_shifts, 13.5
+                  assert_equal 6, current_state.calculator.hours_per_shift
+                  assert_equal 8, current_state.calculator.shifts_per_shift_pattern
+                  assert_equal 14, current_state.calculator.days_per_shift_pattern
+                  assert_equal "13.5", current_state.calculator.shift_entitlement
                 end
               end
             end
@@ -1327,23 +1242,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 end
 
                 should "calculate the holiday entitlement" do
-                  SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    start_date: nil,
-                    leaving_date: Date.parse("#{Time.zone.today.year}-06-01"),
-                    leave_year_start_date: Date.parse("#{Time.zone.today.year}-01-01"),
-                    shifts_per_shift_pattern: 8,
-                    days_per_shift_pattern: 14,
-                  ).returns(@stubbed_calculator)
-                  @stubbed_calculator.expects(:shift_entitlement).returns(9.33)
-
                   assert_current_node :shift_worker_done
 
-                  assert_state_variable :hours_per_shift, 6
-                  assert_state_variable :shifts_per_shift_pattern, 8
-                  assert_state_variable :days_per_shift_pattern, 14
-                  assert_state_variable :holiday_entitlement_shifts, 9.33
+                  assert_equal 6, current_state.calculator.hours_per_shift
+                  assert_equal 8, current_state.calculator.shifts_per_shift_pattern
+                  assert_equal 14, current_state.calculator.days_per_shift_pattern
+                  assert_equal "9.37", current_state.calculator.shift_entitlement
                 end
               end
             end
@@ -1374,6 +1278,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           setup do
             add_response "#{Time.zone.today.year - 1}-01-20"
           end
+
           should "raise an invalid response" do
             assert_current_node :what_is_your_leaving_date?, error: true
           end
@@ -1412,23 +1317,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 end
 
                 should "calculate the holiday entitlement" do
-                  SmartAnswer::Calculators::HolidayEntitlement
-                  .expects(:new)
-                  .with(
-                    start_date: Date.parse("#{Time.zone.today.year}-01-20"),
-                    leaving_date: Date.parse("#{Time.zone.today.year}-07-18"),
-                    leave_year_start_date: nil,
-                    shifts_per_shift_pattern: 8,
-                    days_per_shift_pattern: 14,
-                  ).returns(@stubbed_calculator)
-                  @stubbed_calculator.expects(:shift_entitlement).returns(11.05)
-
                   assert_current_node :shift_worker_done
 
-                  assert_state_variable :hours_per_shift, 6
-                  assert_state_variable :shifts_per_shift_pattern, 8
-                  assert_state_variable :days_per_shift_pattern, 14
-                  assert_state_variable :holiday_entitlement_shifts, 11.05
+                  assert_equal 6, current_state.calculator.hours_per_shift
+                  assert_equal 8, current_state.calculator.shifts_per_shift_pattern
+                  assert_equal 14, current_state.calculator.days_per_shift_pattern
+                  assert_equal "11.08", current_state.calculator.shift_entitlement
                 end
               end
             end
