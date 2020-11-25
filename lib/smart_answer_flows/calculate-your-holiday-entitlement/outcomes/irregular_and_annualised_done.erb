@@ -1,5 +1,5 @@
 <% govspeak_for :body do %>
-  The statutory holiday entitlement is <%= holiday_entitlement %> weeks holiday.
+  The statutory holiday entitlement is <%= calculator.formatted_full_time_part_time_weeks %> weeks holiday.
 
   There are no regulations on how to convert the entitlement into days or hours for workers with irregular hours.
 
@@ -7,7 +7,7 @@
 
   <%= render partial: 'your_employer_with_rounding' %>
 
-  <% if holiday_period == 'starting' %>
+  <% if calculator.holiday_period == 'starting' %>
     <%= render partial: 'irregular_and_annualised_user_awareness' %>
   <% else %>
     <%= render partial: 'entitlement_restriction' %>
