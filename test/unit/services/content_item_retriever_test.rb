@@ -59,5 +59,14 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
         assert_equal ContentItemRetriever.fetch(@slug), {}
       end
     end
+
+    context "when content store unavailable" do
+      should "return empty content item hash" do
+        response = { status: 500, body: {}.to_json }
+        stub_request(:get, @request_url).to_return(response)
+
+        assert_equal ContentItemRetriever.fetch(@slug), {}
+      end
+    end
   end
 end
