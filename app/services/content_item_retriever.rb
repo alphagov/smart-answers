@@ -5,7 +5,7 @@ class ContentItemRetriever
     end
 
     item_hash.with_indifferent_access
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone, GdsApi::HTTPInternalServerError
     {}
   end
 end
