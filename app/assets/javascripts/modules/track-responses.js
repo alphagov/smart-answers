@@ -13,7 +13,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return submittedForm.getAttribute('data-question-key');
     }
 
-    function getResponseLabelsForMultipleChoice(submittedForm) {
+    function getResponseLabelsForRadio(submittedForm) {
       var labels = []
       var checkedOptions = submittedForm.querySelectorAll('input:checked')
 
@@ -21,7 +21,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         checkedOptions.forEach(function (checkedOption) {
           var checkedOptionId = checkedOption.getAttribute('id')
           var checkedOptionLabel = submittedForm.querySelectorAll('label[for="' + checkedOptionId + '"]')
-          
+
           var eventLabel = checkedOptionLabel.length
             ? checkedOptionLabel[0].innerText.trim()
             : checkedOption.value
@@ -59,17 +59,17 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     function getResponseLabels(submittedForm) {
       var responseLabels = []
       var questionType = submittedForm.getAttribute('data-type')
-      
+
       switch (questionType) {
         case 'checkbox_question':
-        case 'multiple_choice_question':
-          responseLabels = getResponseLabelsForMultipleChoice(submittedForm)
+        case 'radio_question':
+          responseLabels = getResponseLabelsForRadio(submittedForm)
           break
-        
+
         case 'country_select_question':
           responseLabels = getResponseLabelsForSelectOption(submittedForm)
           break
-        
+
         default:
           break
       }

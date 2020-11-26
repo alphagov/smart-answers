@@ -17,7 +17,7 @@ describe('Track responses', function () {
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset');
-  
+
       var checkboxes = [
         {label: "Construction label", value: "construction"},
         {label: "Accommodation label", value: "accommodation"},
@@ -106,7 +106,7 @@ describe('Track responses', function () {
       var element = document.createElement('form');
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
-      element.setAttribute('data-type', 'multiple_choice_question')
+      element.setAttribute('data-type', 'radio_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
