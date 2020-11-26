@@ -1,5 +1,8 @@
+<% text_for :title do %>
+  Your part-year taxable profit is <%= format_money(calculator.award_period_taxable_profit) %>.
+<% end %>
+
 <% govspeak_for :body do %>
-  %Your part-year taxable profit is <%= format_money(calculator.award_period_taxable_profit) %>.%
 
   Use this figure to complete box 2.4 on your award review. Enter £0 if you’ve made or expect to make a loss (your part-year profit is less than £0).
 

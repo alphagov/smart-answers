@@ -5,7 +5,6 @@
 <% content_for :head do %>
   <meta name="robots" content="noindex">
 <% end %>
-
 <% content_for :escape_link do %>
   <% if @presenter.show_escape_link? %>
     <%= render "components/escape-link", {
@@ -13,7 +12,6 @@
     } %>
   <% end %>
 <% end %>
-
 <div class="govuk-grid-row">
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">
     <%= render 'smart_answers/shared/debug' %>
@@ -23,15 +21,18 @@
 
     <div class="govuk-!-margin-bottom-6 result-body">
       <% if outcome.title.present? %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: outcome.title,
-          margin_bottom: 6
-        } unless outcome.title_as_heading? %>
+        <%= render "govuk_publishing_components/components/title", {
+        context: outcome.heading_title,
+        title: outcome.title,
+        margin_bottom: 5
+      } %>
+      <% else %>
+        <%= render "govuk_publishing_components/components/title", {
+      title: outcome.heading_title
+      } %>
       <% end %>
-
       <%= outcome.body %>
     </div>
-
     <% if outcome.next_steps.present? %>
       <div class="govuk-!-margin-bottom-6">
         <%= render "govuk_publishing_components/components/heading", {
@@ -41,7 +42,6 @@
         <%= outcome.next_steps %>
       </div>
     <% end %>
-
     <script type="text/javascript">
       $(function() {
         var flowName = '<%= @name %>';
@@ -58,7 +58,6 @@
 
     <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: @presenter.hide_previous_answers_on_results_page? %>
   </div>
-
   <% if defined?(@presenter.finished?) and @presenter.finished? %>
     <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
       <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
