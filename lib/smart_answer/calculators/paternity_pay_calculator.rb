@@ -12,6 +12,11 @@ module SmartAnswer::Calculators
       paternity_leave_duration == "one_week" ? 1 : 2
     end
 
+    def paternity_deadline
+      start_date = [date_of_birth, due_date].max
+      (start_date + 55.days).strftime("%d-%m-%Y")
+    end
+
   private
 
     def rate_for(date)

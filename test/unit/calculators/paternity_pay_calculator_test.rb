@@ -56,6 +56,24 @@ module SmartAnswer::Calculators
           assert_equal (calculator.statutory_rate(date) * 2), calculator.paydates_and_pay.first[:pay]
         end
       end
+      context "for premature birth paternity dates" do
+        should "give paternity deadline based on due date" do
+          due_date = Date.parse("10 February 2021")
+          birth_date = Date.parse("8 February 2021")
+          calculator = PaternityPayCalculator.new(due_date)
+          calculator.date_of_birth = birth_date
+          assert_equal "06-04-2021", calculator.paternity_deadline
+        end
+      end
+      context "for paternity adoption leave dates" do
+        should "give paternity deadlne based on placement date" do
+          match_date = Date.parse("01 July 2020")
+          placement_date = Date.parse("01 August 2020")
+          calculator = PaternityAdoptionPayCalculator.new(match_date)
+          calculator.adoption_placement_date = placement_date
+          assert_equal "25-09-2020", calculator.paternity_deadline
+        end
+      end
     end
   end
 end
