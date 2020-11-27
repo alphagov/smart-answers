@@ -90,7 +90,7 @@ module SmartAnswer
           if calculator.non_domestic_property != "none"
             question :sectors?
           else
-            outcome :results
+            question :restricted_sector?
           end
         end
       end
@@ -115,6 +115,41 @@ module SmartAnswer
 
         on_response do |response|
           calculator.rate_relief_march_2020 = response
+        end
+
+        next_node do
+          outcome :restricted_sector?
+        end
+      end
+
+      radio :restricted_sector? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.restricted_sector = response
+        end
+
+        next_node do
+          if calculator.restricted_sector == "yes"
+            outcome :results
+          else
+            question :closed_by_restrictions?
+          end
+        end
+      end
+
+      checkbox_question :closed_by_restrictions? do
+        option :local_1
+        option :national
+        option :local_2
+        none_option
+
+        on_response do |response|
+          responses = response.split(",")
+
+          calculator.closed_by_restrictions << "local" if (%w[local_1 local_2] & responses).present?
+          calculator.closed_by_restrictions << "national" if responses.include?("national")
         end
 
         next_node do
