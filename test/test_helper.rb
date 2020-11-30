@@ -3,13 +3,11 @@ ENV["GOVUK_APP_DOMAIN"] = "test.gov.uk"
 
 require File.expand_path("../config/environment", __dir__)
 
-if ENV["TEST_COVERAGE"]
-  require "simplecov"
-  require "simplecov-rcov"
+require "simplecov"
+require "simplecov-rcov"
 
-  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-  SimpleCov.start "rails"
-end
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+SimpleCov.start "rails"
 
 require "rails/test_help"
 
