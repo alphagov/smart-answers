@@ -6,8 +6,12 @@ require File.expand_path("../config/environment", __dir__)
 require "simplecov"
 require "simplecov-rcov"
 
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  formatter SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::RcovFormatter,
+    SimpleCov::Formatter::HTMLFormatter,
+  ])
+end
 
 require "rails/test_help"
 
