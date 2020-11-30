@@ -318,6 +318,7 @@ module SmartAnswer
       outcome :outcome_diplomatic_business
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
+      outcome :outcome_marriage_eea
       outcome :outcome_marriage_nvn_ukot
       outcome :outcome_marriage_taiwan
       outcome :outcome_marriage_visa_nat_datv
@@ -346,6 +347,7 @@ module SmartAnswer
       outcome :outcome_transit_taiwan_through_border_control
       outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_transit_venezuela
+      outcome :outcome_tourism_n
       outcome :outcome_tourism_visa_partner
       outcome :outcome_visit_waiver
       outcome :outcome_visit_waiver_taiwan
@@ -405,14 +407,16 @@ module SmartAnswer
               calculator.passport_country_in_eea? ||
               calculator.passport_country_in_ukot_list?) &&
               !calculator.travel_document?
-            next outcome(:outcome_school_n) # outcome does not contain school specific content
+            next outcome(:outcome_tourism_n)
           else
             next question(:travelling_visiting_partner_family_member?)
           end
         end
 
         if calculator.marriage_visit?
-          if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list? || calculator.passport_country_in_eea?
+          if calculator.passport_country_in_eea?
+            next outcome(:outcome_marriage_eea)
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_marriage_nvn_ukot)
           elsif calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_marriage_electronic_visa_waiver)
