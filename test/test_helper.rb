@@ -11,6 +11,11 @@ SimpleCov.start "rails" do
     SimpleCov::Formatter::RcovFormatter,
     SimpleCov::Formatter::HTMLFormatter,
   ])
+
+  add_group "Presenters", "app/presenters"
+  add_group "Services", "app/services"
+  add_group "Smart Answer", "lib/smart_answer"
+  add_group "Smart Answer Flows", "lib/smart_answer_flows"
 end
 
 require "rails/test_help"
