@@ -43,29 +43,49 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
     end
 
     context "when content item can't be found" do
-      should "return empty content item hash" do
+      setup do
         response = { status: 404, body: {}.to_json }
         stub_request(:get, @request_url).to_return(response)
+      end
 
+      should "return empty content item hash" do
         assert_equal ContentItemRetriever.fetch(@slug), {}
+      end
+
+      should "notify Sentry" do
+        GovukError.expects(:notify)
+        ContentItemRetriever.fetch(@slug)
       end
     end
 
     context "when content item can't be found" do
-      should "return empty content item hash" do
+      setup do
         response = { status: 410, body: {}.to_json }
         stub_request(:get, @request_url).to_return(response)
+      end
 
+      should "return empty content item hash" do
         assert_equal ContentItemRetriever.fetch(@slug), {}
+      end
+
+      should "notifies Sentry" do
+        GovukError.expects(:notify)
+        ContentItemRetriever.fetch(@slug)
       end
     end
 
     context "when content store unavailable" do
-      should "return empty content item hash" do
-        response = { status: 500, body: {}.to_json }
-        stub_request(:get, @request_url).to_return(response)
+      setup do
+        stub_content_store_isnt_available
+      end
 
+      should "return empty content item hash" do
         assert_equal ContentItemRetriever.fetch(@slug), {}
+      end
+
+      should "notifies Sentry" do
+        GovukError.expects(:notify)
+        ContentItemRetriever.fetch(@slug)
       end
     end
   end
