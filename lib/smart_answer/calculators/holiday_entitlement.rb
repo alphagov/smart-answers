@@ -13,28 +13,62 @@ module SmartAnswer::Calculators
     DAYS_PER_LEAP_YEAR = 366.to_d
     STANDARD_WORKING_DAYS_PER_WEEK = 5.to_d
 
-    attr_reader :working_days_per_week,
-                :hours_per_week,
+    attr_accessor :calculation_basis,
+                  :holiday_period,
+                  :leave_year_start_date,
+                  :hours_per_shift
+
+    attr_reader :hours_per_week,
                 :start_date,
                 :leaving_date,
-                :leave_year_start_date,
+                :working_days_per_week,
                 :shifts_per_shift_pattern,
                 :days_per_shift_pattern
 
-    def initialize(working_days_per_week: 0,
-                   hours_per_week: 0,
-                   start_date: nil,
-                   leaving_date: nil,
-                   leave_year_start_date: nil,
-                   shifts_per_shift_pattern: 0,
-                   days_per_shift_pattern: 0)
-      @working_days_per_week = BigDecimal(working_days_per_week, 10)
-      @hours_per_week = BigDecimal(hours_per_week, 10)
-      @start_date = start_date
-      @leaving_date = leaving_date
-      @leave_year_start_date = leave_year_start_date || calculate_leave_year_start_date
-      @shifts_per_shift_pattern = BigDecimal(shifts_per_shift_pattern, 10)
-      @days_per_shift_pattern = BigDecimal(days_per_shift_pattern, 10)
+    def initialize
+      @leave_year_start_date = calculate_leave_year_start_date
+    end
+
+    def start_date=(date)
+      @start_date = date
+      @leave_year_start_date = calculate_leave_year_start_date
+    end
+
+    def leaving_date=(date)
+      @leaving_date = date
+      @leave_year_start_date = calculate_leave_year_start_date
+    end
+
+    def hours_per_week=(hours)
+      @hours_per_week = BigDecimal(hours, 10)
+    end
+
+    def working_days_per_week=(days)
+      @working_days_per_week = BigDecimal(days, 10)
+    end
+
+    def shifts_per_shift_pattern=(shifts)
+      @shifts_per_shift_pattern = BigDecimal(shifts, 10)
+    end
+
+    def days_per_shift_pattern=(days)
+      @days_per_shift_pattern = BigDecimal(days, 10)
+    end
+
+    def holiday_entitlement_hours
+      full_time_part_time_hours_and_minutes.first
+    end
+
+    def holiday_entitlement_minutes
+      full_time_part_time_hours_and_minutes.last
+    end
+
+    def hours_daily
+      compressed_hours_daily_average.first
+    end
+
+    def minutes_daily
+      compressed_hours_daily_average.last
     end
 
     def compressed_hours_daily_average
