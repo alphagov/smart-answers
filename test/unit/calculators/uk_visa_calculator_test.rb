@@ -17,6 +17,20 @@ module SmartAnswer
         end
       end
 
+      context "#travelling_before_2021?" do
+        should "return true if travelling before 2021" do
+          calculator = UkVisaCalculator.new
+          calculator.when_coming_to_uk_answer = "before_2021"
+          assert calculator.travelling_before_2021?
+        end
+
+        should "return false if travelling after 2021" do
+          calculator = UkVisaCalculator.new
+          calculator.when_coming_to_uk_answer = "from_2021"
+          assert_not calculator.travelling_before_2021?
+        end
+      end
+
       context "#passport_country_in_visa_national_list?" do
         should "return true if passport_country is in list of visa national countries" do
           calculator = UkVisaCalculator.new

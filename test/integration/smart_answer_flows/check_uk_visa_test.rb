@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
+    @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong ireland latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -186,13 +186,171 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
+  context "choose Ireland" do
+    setup do
+      add_response "ireland"
+    end
+
+    should "go to outcome no visa needed" do
+      assert_current_node :outcome_no_visa_needed_ireland
+    end
+  end
+
   context "choose an EEA country" do
     setup do
       add_response "austria"
     end
 
-    should "go to outcome no visa needed" do
-      assert_current_node :outcome_no_visa_needed
+    should "go ask what when are you coming to the UK" do
+      assert_current_node :when_are_you_coming_to_the_uk?
+    end
+
+    context "before 2021" do
+      setup { add_response "before_2021" }
+
+      should "take you to outcome no visa outcome_no_visa_needed" do
+        assert_current_node :outcome_no_visa_needed
+      end
+    end
+
+    context "after 2021" do
+      setup { add_response "from_2021" }
+
+      should "ask what are you coming to the UK to do" do
+        assert_current_node :purpose_of_visit?
+      end
+
+      context "coming to the UK for tourism" do
+        setup do
+          add_response "tourism"
+        end
+
+        should "take you to outcome no visa outcome_tourism_n" do
+          assert_current_node :outcome_tourism_n
+        end
+      end
+
+      context "coming to the UK to study" do
+        setup do
+          add_response "study"
+        end
+
+        should "take you to outcome no visa outcome_study_no_visa_needed if six months or less" do
+          add_response "six_months_or_less"
+          assert_current_node :outcome_study_no_visa_needed
+        end
+
+        should "take you to outcome no visa outcome_study_y if longer than six months" do
+          add_response "longer_than_six_months"
+          assert_current_node :outcome_study_y
+        end
+      end
+
+      context "coming to the UK to work" do
+        setup do
+          add_response "work"
+        end
+
+        should "take you to outcome outcome_work_n if six months or less" do
+          add_response "six_months_or_less"
+          assert_current_node :outcome_work_n
+        end
+
+        should "take you to outcome outcome_work_y if longer than six months" do
+          add_response "longer_than_six_months"
+          assert_current_node :outcome_work_y
+        end
+      end
+
+      context "coming to the UK for marriage" do
+        setup do
+          add_response "marriage"
+        end
+
+        should "take you to outcome outcome_marriage_nvn_ukot" do
+          assert_current_node :outcome_marriage_eea
+        end
+      end
+
+      context "coming to the UK for a long stay with family" do
+        setup do
+          add_response "family"
+        end
+
+        should "take you to outcome outcome_joining_family_nvn" do
+          assert_current_node :outcome_joining_family_nvn
+        end
+      end
+
+      context "coming to the UK to stay with child if they're at school" do
+        setup do
+          add_response "school"
+        end
+
+        should "take you to outcome outcome_school_n" do
+          assert_current_node :outcome_school_n
+        end
+      end
+
+      context "coming to the UK for private medical treatment" do
+        setup do
+          add_response "medical"
+        end
+
+        should "take you to outcome outcome_medical_n" do
+          assert_current_node :outcome_medical_n
+        end
+      end
+
+      context "coming to the UK on transit" do
+        setup do
+          add_response "transit"
+        end
+
+        should "take you to outcome 'Where are you travelling to?'" do
+          assert_current_node :travelling_to_cta?
+        end
+
+        context "to the Channel Islands or Isle of Man" do
+          setup do
+            add_response "channel_islands_or_isle_of_man"
+          end
+
+          should "ask you what you will be doing in Channel Islands or Isle of Man" do
+            assert_current_node :channel_islands_or_isle_of_man?
+          end
+        end
+
+        context "to the Republic of Ireland" do
+          setup do
+            add_response "republic_of_ireland"
+          end
+
+          should "take you to outcome no visa needed" do
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "to somewhere else" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "take you to outcome no visa needed" do
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
+
+      context "coming to the UK for official diplomatic/government business" do
+        setup do
+          add_response "diplomatic"
+        end
+
+        should "take you to outcome outcome_diplomatic_business" do
+          assert_current_node :outcome_diplomatic_business
+        end
+      end
     end
   end
 
@@ -208,8 +366,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "study"
         add_response "six_months_or_less"
       end
-      should "take you to outcome no visa outcome_no_visa_needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "take you to outcome no visa outcome_study_no_visa_needed" do
+        assert_current_node :outcome_study_no_visa_needed
       end
     end
     context "coming to the UK to work" do
@@ -225,8 +383,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response "tourism"
       end
-      should "take you to school_n outcome" do
-        assert_current_node :outcome_school_n
+      should "take you to outcome_tourism_n outcome" do
+        assert_current_node :outcome_tourism_n
       end
     end
     context "visiting child at school" do
@@ -300,8 +458,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response "tourism"
       end
-      should "take you to school_n outcome" do
-        assert_current_node :outcome_school_n
+      should "take you to outcome_tourism_n outcome" do
+        assert_current_node :outcome_tourism_n
       end
     end
     context "visiting child at school" do
@@ -764,10 +922,9 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       context "tourism, visiting friends or family" do
-        should "take you to the school_n" do
+        should "take you to the outcome_tourism_n" do
           add_response "tourism"
-          # The school outcome does not contain school-specific content
-          assert_current_node :outcome_school_n
+          assert_current_node :outcome_tourism_n
         end
       end
 
@@ -798,7 +955,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "6 months or less" do
           should "take you to no visa needed outcome" do
             add_response "six_months_or_less"
-            assert_current_node :outcome_no_visa_needed
+            assert_current_node :outcome_study_no_visa_needed
           end
         end
         context "more than 6 months" do
@@ -938,10 +1095,9 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       context "tourism, visiting friends or family" do
-        should "take you to the school_n" do
+        should "take you to the outcome_tourism_n" do
           add_response "tourism"
-          # The school outcome does not contain school-specific content
-          assert_current_node :outcome_school_n
+          assert_current_node :outcome_tourism_n
         end
       end
 
@@ -972,7 +1128,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "6 months or less" do
           should "take you to no visa needed outcome" do
             add_response "six_months_or_less"
-            assert_current_node :outcome_no_visa_needed
+            assert_current_node :outcome_study_no_visa_needed
           end
         end
         context "more than 6 months" do
@@ -1032,14 +1188,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :outcome_visit_waiver
     end
   end
-  context "testing croatia phrase list" do
-    setup do
-      add_response "croatia"
-    end
-    should "takes you to outcome_no_visa_needed" do
-      assert_current_node :outcome_no_visa_needed
-    end
-  end
 
   # testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
   context "testing canada" do
@@ -1071,8 +1219,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         setup do
           add_response "six_months_or_less"
         end
-        should "take you to outcome_no_visa_needed" do
-          assert_current_node :outcome_no_visa_needed
+        should "take you to outcome_study_no_visa_needed" do
+          assert_current_node :outcome_study_no_visa_needed
         end
       end
     end # end canada study reason

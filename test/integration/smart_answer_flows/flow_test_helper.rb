@@ -13,6 +13,7 @@ module FlowTestHelper
   end
 
   def current_state
+    @cached_responses ||= nil
     if @cached_responses && @cached_responses != @responses
       @cached_responses = nil
       @current_state = nil
