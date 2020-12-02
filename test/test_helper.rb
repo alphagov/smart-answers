@@ -16,6 +16,8 @@ SimpleCov.start "rails" do
   add_group "Services", "app/services"
   add_group "Smart Answer", "lib/smart_answer"
   add_group "Smart Answer Flows", "lib/smart_answer_flows"
+
+  SimpleCov.minimum_coverage 92
 end
 
 require "rails/test_help"
