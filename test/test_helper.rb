@@ -52,6 +52,14 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
   include ActionDispatch::Assertions
   parallelize workers: 6
+
+  parallelize_setup do |worker|
+    SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
+  end
+
+  parallelize_teardown do |_worker|
+    SimpleCov.result
+  end
 end
 
 require "slimmer/test"
