@@ -1,12 +1,12 @@
-<% govspeak_for :body do %>
-  $C
+<% text_for :title do %>
   <% if calculator.eligible_for_living_wage? %>
     Based on your answers, you appear to be not getting the National Living Wage.
   <% else %>
     Based on your answers, you appear to be not getting the National Minimum Wage.
   <% end %>
-  $C
+<% end %>
 
+<% govspeak_for :body do %>
   This is because you are not being paid the [minimum rate](/national-minimum-wage-rates) you are entitled to.
 
   <% if calculator.potential_underpayment? %>

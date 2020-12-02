@@ -1,6 +1,8 @@
-<% govspeak_for :body do %>
-  You might be able to increase the amount of [basic State Pension](/state-pension) to <%= format_money(calculator.lower_basic_state_pension_rate) %> per week if:
+<% text_for :title do %>
+  Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks).
+<% end %>
 
+<% govspeak_for :body do %>
   - your spouse or civil partner made enough National Insurance contributions before 6 April 2016
   - your spouse or civil partner was born on or after 6 April 1950 (this rule doesn’t apply to you if you’re a woman married to a man, or if you’re a woman married to a woman who legally changed their gender after the marriage)
 

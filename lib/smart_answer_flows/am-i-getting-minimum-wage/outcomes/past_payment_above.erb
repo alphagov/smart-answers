@@ -1,8 +1,8 @@
-<% govspeak_for :body do %>
-  $C
+<% text_for :title do %>
     Based on your answers, you appear to have been getting the National Minimum Wage.
-  $C
+<% end %>
 
+<% govspeak_for :body do %>
   <% if calculator.potential_underpayment? %>
     If you had money taken from your pay for things you need for your job or not been paid for any additional time you work outside of your shift you might have been underpaid. You can contact Acas or make a complaint to HMRC.
   <% else %>

@@ -1,6 +1,8 @@
-<% govspeak_for :body do %>
-  $!You must register the death according to the regulations in the country where the person died. You will be given a local death certificate.$!
+<% text_for :title do %>
+  You must register the death according to the regulations in the country where the person died. You will be given a local death certificate.
+<% end %>
 
+<% govspeak_for :body do %>
   This local death certificate will be accepted in the UK. It may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English.
 
   <% if calculator.died_in_eea_or_switzerland? || calculator.died_in_commonwealth? %>
