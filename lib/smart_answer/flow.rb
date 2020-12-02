@@ -179,7 +179,6 @@ module SmartAnswer
 
     def transistion_state(state, response)
       state = node(state.current_node).transition(state, response)
-      node(state.current_node).evaluate_precalculations(state)
     rescue BaseStateTransitionError => e
       if e.is_a?(LoggedError)
         GovukError.notify e

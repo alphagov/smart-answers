@@ -108,14 +108,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal "something", input_was
     end
 
-    should "make save_input_as method available to code in next_node block" do
-      @question.save_input_as :colour_preference
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :red, new_state.colour_preference
-    end
-
     should "save input sequence on new state" do
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
@@ -166,29 +158,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_raises(SmartAnswer::InvalidResponse) do
         @question.transition(initial_state, :red)
       end
-    end
-
-    should "execute calculate block with response and save result on new state" do
-      @question.calculate :complementary_colour do |response|
-        response == :red ? :green : :red
-      end
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :green, new_state.complementary_colour
-      assert new_state.frozen?
-    end
-
-    should "execute calculate block with saved input and save result on new state" do
-      @question.save_input_as :colour_preference
-      @question.calculate :complementary_colour do
-        colour_preference == :red ? :green : :red
-      end
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :green, new_state.complementary_colour
-      assert new_state.frozen?
     end
   end
 

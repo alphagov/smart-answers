@@ -5,7 +5,10 @@ module SmartAnswer
       status :draft
 
       value_question :what_is_your_name? do
-        save_input_as :your_name
+        on_response do |response|
+          self.your_name = response
+        end
+
         next_node do
           question :what_is_your_quest?
         end
@@ -26,7 +29,10 @@ module SmartAnswer
       end
 
       value_question :what_is_the_capital_of_assyria? do
-        save_input_as :capital_of_assyria
+        on_response do |response|
+          self.capital_of_assyria = response
+        end
+
         next_node do
           outcome :auuuuuuuugh
         end

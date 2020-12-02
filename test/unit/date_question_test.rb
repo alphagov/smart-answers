@@ -121,7 +121,10 @@ module SmartAnswer
 
     test "dates are parsed from Hash into Date before being saved" do
       q = Question::Date.new(nil, :example) do
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
       end
 
@@ -131,7 +134,10 @@ module SmartAnswer
 
     test "incomplete dates raise an error" do
       q = Question::Date.new(nil, :example) do
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
       end
 
@@ -161,7 +167,10 @@ module SmartAnswer
 
     test "define allowable range of dates" do
       q = Question::Date.new(nil, :example) do
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
         from { Date.parse("2011-01-01") }
         to { Date.parse("2011-01-03") }
@@ -193,7 +202,10 @@ module SmartAnswer
 
     test "do not complain when the input is within the allowed range when the dates are in descending order" do
       q = Question::Date.new(nil, :example) do
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
         from { Date.parse("2011-01-03") }
         to { Date.parse("2011-01-01") }
@@ -229,7 +241,10 @@ module SmartAnswer
         default_day { 11 }
         default_month { 2 }
         default_year { 2013 }
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
       end
 
@@ -240,7 +255,10 @@ module SmartAnswer
     test "default the day to the last in the month of an incomplete date" do
       q = Question::Date.new(nil, :example) do
         default_day { -1 }
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
       end
 
@@ -270,7 +288,10 @@ module SmartAnswer
 
     def date_question_2011
       Question::Date.new(nil, :example) do
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
         from { Date.parse("2011-01-01") }
         to { Date.parse("2011-12-31") }
@@ -281,7 +302,10 @@ module SmartAnswer
     def dob_question
       Question::Date.new(nil, :example) do
         date_of_birth_defaults
-        save_input_as :date
+        on_response do |response|
+          self.date = response
+        end
+
         next_node { outcome :done }
       end
     end

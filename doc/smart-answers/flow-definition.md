@@ -230,7 +230,7 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 
 #### In-question blocks
 
-All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `precalculate`, `on_response`, `validate`, `next_node` & `calculate`. The `save_input_as` method is used in a similar way, but does not accept a block.
+All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `on_response`, `validate` and `next_node`.
 
 The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
 
@@ -240,25 +240,11 @@ The order in which the blocks are defined only affects the order in which they a
 
 The block types are executed in the following order:
 
-* [`precalculate`](#precalculatevariable_name-block)
 * [`on_response`](#on_responseblock)
 * [`validate`](#validatemessage_key-block)
 * [`next_node`](#next_nodeblock)
-* [`save_input_as`](#save_input_asvariable_name)
-* [`calculate`](#calculatevariable_name-block)
 
 Each of these block types and the point at which they are executed is explained in more detail below:
-
-##### `precalculate(variable_name, &block)`
-
-* These blocks were intended to be used to store state variables that are needed to render a question or outcome node template.
-* These blocks are the first to execute for a given question/outcome. They execute before the relevant template is rendered, so that the state variables that they define are available in question/outcome templates.
-* These blocks also execute before the user response is parsed from the request path. Thus the parsed response is *not* passed to the block, because it is not available at this point.
-* The block return value is stored on the state object as a state variable named `variable_name`.
-
-> Note that due to an oversight in the implementation of `Flow#process`, it's not currently possible to use a `precalculate` block in the first question.
-
-> The use of these blocks is deprecated and should never be necessary. Define methods on a `calculator` object instead.
 
 ##### `on_response(&block)`
 
@@ -299,29 +285,11 @@ end
 
 * There must only be one of these blocks per question definition.
 * This block is intended to determine which node comes next based on the user responses so far.
-* These blocks are executed after all the `validate` blocks have been executed and before any `save_input_as` blocks are executed.
+* These blocks are executed after all the `validate` blocks have been executed.
 * The built-in state variables, `path`, `current_node` & `responses`, are updated if this block returns successfully.
 * The block return value must be the result of calling the `#question` or `#outcome` methods passing in the key of the next node - see the [next node documentation](next-node-rules.md) for more details.
 
 > The use of this block type is *required*. However, it should call methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
-
-##### `save_input_as(variable_name)`
-
-* Although you can call this method multiple times within a single question, only the last call will actually have any effect.
-* This method is intended to allow you to store the response to the current question for use in blocks in *subsequent* nodes.
-* The response is stored after the `next_node` block has been executed and before any `calculate` blocks are executed.
-* The response is stored on the state object as a state variable named `variable_name`.
-
-> The use of these blocks is deprecated and should never be necessary; `on_response` blocks should be used instead.
-
-##### `calculate(variable_name, &block)`
-
-* These blocks were intended to be used to store state variables that are needed in subsequent questions or outcomes.
-* These blocks are executed after `save_input_as` has executed and before any of the `precalculate` blocks on the *next* node are executed.
-* The parsed response is passed to the block as the only argument and by convention is named `response`.
-* The block return value is stored on the state object as a state variable named `variable_name`.
-
-> The use of these blocks is deprecated and should never be necessary. Define methods on a `calculator` object instead.
 
 #### Further information
 
@@ -333,15 +301,11 @@ See the [documentation for question templates](/doc/smart-answers/erb-templates/
 
 ### Outcome nodes
 
-These are very similar to question nodes. However, it only makes sense to use `precalculate` blocks, because there should never be a response associated with an outcome node. Having said that, the following methods are all _technically_ available within the node definition, because they are instance methods on `SmartAnswer::Outcome` (or its superclasses):
+These are very similar to question nodes. There should never be a response associated with an outcome node. Having said that, the following methods are all _technically_ available within the node definition, because they are instance methods on `SmartAnswer::Outcome` (or its superclasses):
 
-* [`precalculate`](#precalculatevariable_name-block)
 * [`on_response`](#on_responseblock)
-* [`calculate`](#calculatevariable_name-block)
 
 If any attempt is made to process a response when the current node is an outcome node (e.g. by hacking the URL path), an exception will be raised.
-
-> Even the use of `precalculate` blocks in an outcome node definition is deprecated and should never be necessary; it should always be possible to call methods on the `calculator` state variable from within the templates instead.
 
 #### Templates
 

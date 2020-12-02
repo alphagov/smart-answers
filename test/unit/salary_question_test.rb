@@ -9,7 +9,10 @@ module SmartAnswer
 
     test "Treats input as weekly Salary by default" do
       q = Question::Salary.new(nil, :example) do
-        save_input_as :my_cash
+        on_response do |response|
+          self.my_cash = response
+        end
+
         next_node { outcome :done }
       end
 
@@ -20,7 +23,10 @@ module SmartAnswer
 
     test "Records period if specified" do
       q = Question::Salary.new(nil, :example) do
-        save_input_as :my_cash
+        on_response do |response|
+          self.my_cash = response
+        end
+
         next_node { outcome :done }
       end
 

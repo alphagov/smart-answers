@@ -9,7 +9,10 @@ module SmartAnswer
 
     test "Value saved as a Money instance" do
       q = Question::Money.new(nil, :example) do
-        save_input_as :my_cash
+        on_response do |response|
+          self.my_cash = response
+        end
+
         next_node { outcome :done }
       end
 

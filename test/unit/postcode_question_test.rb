@@ -5,7 +5,10 @@ module SmartAnswer
     def setup
       @initial_state = State.new(:example)
       @question = Question::Postcode.new(nil, :example) do
-        save_input_as :my_postcode
+        on_response do |response|
+          self.my_postcode = response
+        end
+
         next_node { outcome :done }
       end
     end
