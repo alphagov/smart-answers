@@ -7,28 +7,13 @@ module SmartAnswer
           to { Calculators::RedundancyCalculator.last_selectable_date }
           validate_in_range
 
-          calculate :rates do |response|
-            Calculators::RedundancyCalculator.redundancy_rates(response)
-          end
-
-          calculate :ni_rates do |response|
-            Calculators::RedundancyCalculator.northern_ireland_redundancy_rates(response)
-          end
-
-          calculate :rate do
-            rates.rate
-          end
-
-          calculate :ni_rate do
-            ni_rates.rate
-          end
-
-          calculate :max_amount do
-            rates.max
-          end
-
-          calculate :ni_max_amount do
-            ni_rates.max
+          on_response do |response|
+            self.rates = Calculators::RedundancyCalculator.redundancy_rates(response)
+            self.ni_rates = Calculators::RedundancyCalculator.northern_ireland_redundancy_rates(response)
+            self.rate = rates.rate
+            self.ni_rate = ni_rates.rate
+            self.max_amount = rates.max
+            self.ni_max_amount = ni_rates.max
           end
 
           next_node do
@@ -37,28 +22,29 @@ module SmartAnswer
         end
 
         value_question :age_of_employee?, parse: :to_i do
-          calculate :employee_age do |response|
-            age = response
-            raise InvalidResponse if age < 16 || age > 100
+          on_response do |response|
+            self.employee_age = response
+            self.years_available = employee_age - 15
+          end
 
-            age
+          validate do
+            employee_age.between?(16, 100)
           end
-          calculate :years_available do
-            employee_age - 15
-          end
+
           next_node do
             question :years_employed?
           end
         end
 
         value_question :years_employed?, parse: Float do
-          save_input_as :years_employed
-          calculate :years_employed do |response|
-            ye = response.floor
-            raise InvalidResponse if ye.to_i > years_available
-
-            ye
+          on_response do |response|
+            self.years_employed = response.floor
           end
+
+          validate do
+            years_employed.to_i <= years_available
+          end
+
           next_node do |response|
             if response.floor < 2
               outcome :done_no_statutory
@@ -69,24 +55,12 @@ module SmartAnswer
         end
 
         money_question :weekly_pay_before_tax? do
-          calculate :calculator do |response|
-            Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, response)
-          end
-
-          calculate :ni_calculator do |response|
-            Calculators::RedundancyCalculator.new(ni_rate, employee_age, years_employed, response)
-          end
-
-          calculate :statutory_redundancy_pay do
-            calculator.format_money(calculator.pay.to_f)
-          end
-
-          calculate :statutory_redundancy_pay_ni do
-            calculator.format_money(ni_calculator.pay.to_f)
-          end
-
-          calculate :number_of_weeks_entitlement do
-            calculator.number_of_weeks_entitlement
+          on_response do |response|
+            self.calculator = Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, response)
+            self.ni_calculator = Calculators::RedundancyCalculator.new(ni_rate, employee_age, years_employed, response)
+            self.statutory_redundancy_pay = calculator.format_money(calculator.pay.to_f)
+            self.statutory_redundancy_pay_ni = calculator.format_money(ni_calculator.pay.to_f)
+            self.number_of_weeks_entitlement = calculator.number_of_weeks_entitlement
           end
 
           next_node do
