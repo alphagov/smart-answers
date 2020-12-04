@@ -45,7 +45,8 @@ class QuestionPresenter < NodePresenter
   end
 
   def suffix_label
-    @renderer.content_for(:suffix_label)
+    content = @renderer.content_for(:suffix_label)
+    content.presence
   end
 
   def has_labels?
