@@ -1,9 +1,12 @@
 <% govspeak_for :body do %>
-  You can claim Bereavement Allowance, Bereavement Payment or Widowed Parent's Allowance as appropriate.
+  <% if calculator.country == "bermuda" || calculator.country == "mauritius"%>
+    You might be able to get Widowed Parent’s Allowance. [Find out how to claim](/widowed-parents-allowance).
+  <% else %>
+    You might be able to get Bereavement Support Payment or Widowed Parent’s Allowance.
 
-  Find out how to claim:
+    Find out how to claim:
 
-  - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
-  - [Bereavement Payment](/bereavement-payment#how-to-claim)
-  - [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim)
+    - [Bereavement Support Payment](/bereavement-support-payment)
+    - [Widowed Parent’s Allowance](/widowed-parents-allowance)
+  <% end %>
 <% end %>
