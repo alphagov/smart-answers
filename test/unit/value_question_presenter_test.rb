@@ -18,12 +18,11 @@ module SmartAnswer
       assert_equal "hint-text", @presenter.hint_text
     end
 
-    test "#hint_text also returns body and suffix_label if present" do
+    test "#hint_text also returns body if present" do
       @renderer.stubs(:content_for).with(:body).returns("body")
       @renderer.stubs(:content_for).with(:hint).returns("hint-text")
-      @renderer.stubs(:content_for).with(:suffix_label).returns("suffix")
 
-      assert_equal "body, hint-text, suffix", @presenter.hint_text
+      assert_equal "body, hint-text", @presenter.hint_text
     end
 
     test "#caption returns the given caption when a caption is given" do
