@@ -1,6 +1,8 @@
 <% govspeak_for :body do %>
   <% if calculator.country == "bermuda" || calculator.country == "mauritius"%>
     You might be able to get Widowed Parent’s Allowance. [Find out how to claim](/widowed-parents-allowance).
+  <% elsif calculator.country == "canada" %>
+    You might be able to get [Bereavement Support Payment](https://www.gov.uk/bereavement-support-payment).
   <% else %>
     You might be able to get Bereavement Support Payment or Widowed Parent’s Allowance.
 
