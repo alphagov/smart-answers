@@ -7,7 +7,6 @@ module SmartAnswer::Calculators
                   :self_employed,
                   :non_domestic_property,
                   :sectors,
-                  :rate_relief_march_2020,
                   :restricted_sector,
                   :closed_by_restrictions
 
