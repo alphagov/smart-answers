@@ -26,8 +26,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "51k_and_over"
       assert_current_node :sectors?
       add_response "retail_hospitality_or_leisure"
-      assert_current_node :rate_relief_march_2020?
-      add_response "yes"
       assert_current_node :restricted_sector?
       add_response "no"
       assert_current_node :closed_by_restrictions?
@@ -52,8 +50,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       add_response "51k_and_over"
       assert_current_node :sectors?
       add_response "retail_hospitality_or_leisure"
-      assert_current_node :rate_relief_march_2020?
-      add_response "yes"
       assert_current_node :restricted_sector?
       add_response "yes"
       assert_current_node :results

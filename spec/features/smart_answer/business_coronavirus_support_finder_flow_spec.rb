@@ -10,7 +10,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       business_size: "How many employees does your business have?",
       non_domestic_property: "What is the rateable value of your business' non-domestic property?",
       paye_scheme: "Are you an employer with a PAYE scheme?",
-      rate_relief_march_2020: "Is your business in receipt of small business rate relief or rural rate relief as of 11 March 2020?",
       sectors: "Is your business in any of the following sectors:",
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
       self_employed: "Are you self-employed?",
@@ -100,10 +99,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     expect(page).to have_selector("h1", text: headings[:sectors])
 
     check "Nurseries"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:rate_relief_march_2020])
-
-    choose "Yes"
     click_button "Next step"
     expect(page).to have_selector("h1", text: headings[:restricted_sector])
 

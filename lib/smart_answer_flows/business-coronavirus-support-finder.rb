@@ -105,20 +105,7 @@ module SmartAnswer
         end
 
         next_node do
-          question :rate_relief_march_2020?
-        end
-      end
-
-      radio :rate_relief_march_2020? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.rate_relief_march_2020 = response
-        end
-
-        next_node do
-          outcome :restricted_sector?
+          question :restricted_sector?
         end
       end
 
