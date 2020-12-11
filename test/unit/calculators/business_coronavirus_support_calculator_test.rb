@@ -115,33 +115,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "discretionary_grant" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.business_size = "0_to_249"
-          @calculator.annual_turnover = "under_85k"
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:discretionary_grant)
-        end
-
-        should "return false when based in devolved administration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:discretionary_grant)
-        end
-
-        should "return false when business has over 249 employees" do
-          @calculator.business_size = "over_249"
-          assert_not @calculator.show?(:discretionary_grant)
-        end
-
-        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert_not @calculator.show?(:discretionary_grant)
-        end
-      end
-
       context "business_loan_scheme" do
         should "return true when annual turnover is £85,000 to 45m" do
           @calculator.annual_turnover = "85k_to_45m"
