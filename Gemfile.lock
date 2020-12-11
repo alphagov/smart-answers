@@ -95,7 +95,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.13.1)
-    gds-api-adapters (67.2.0)
+    gds-api-adapters (67.2.1)
       addressable
       link_header
       null_logger
