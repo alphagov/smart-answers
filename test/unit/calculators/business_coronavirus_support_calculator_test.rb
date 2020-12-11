@@ -61,6 +61,27 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "christmas_pub_payment" do
+        setup do
+          @calculator.business_based = "england"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
+        end
+
+        should "return true when criteria met" do
+          assert @calculator.show?(:retail_hospitality_leisure_business_rates)
+        end
+
+        should "return false when in a devolved admininstration" do
+          @calculator.business_based = "scotland"
+          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
+        end
+
+        should "return false when not supported business sectors" do
+          @calculator.sectors = %w[none]
+          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
+        end
+      end
+
       context "retail_hospitality_leisure_business_rates" do
         setup do
           @calculator.business_based = "england"
