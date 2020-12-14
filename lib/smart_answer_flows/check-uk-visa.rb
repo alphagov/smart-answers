@@ -235,7 +235,9 @@ module SmartAnswer
 
         next_node do |response|
           if response == "yes"
-            question :article_10_card?
+            outcome :outcome_tourism_visa_partner
+          elsif calculator.family_visit?
+            question :partner_family_british_citizen?
           else
             outcome :outcome_standard_visitor_visa
           end
@@ -243,22 +245,6 @@ module SmartAnswer
       end
 
       # Q6
-      radio :article_10_card? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            outcome :outcome_no_visa_needed
-          elsif calculator.family_visit?
-            question :partner_family_british_citizen?
-          else
-            outcome :outcome_tourism_visa_partner
-          end
-        end
-      end
-
-      # Q7
       radio :partner_family_british_citizen? do
         option :yes
         option :no
@@ -272,7 +258,7 @@ module SmartAnswer
         end
       end
 
-      # Q8
+      # Q7
       radio :partner_family_eea? do
         option :yes
         option :no
@@ -421,7 +407,7 @@ module SmartAnswer
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
             next outcome(:outcome_joining_family_nvn)
           else
-            next question(:article_10_card?)
+            next question(:partner_family_british_citizen?)
           end
         end
       end

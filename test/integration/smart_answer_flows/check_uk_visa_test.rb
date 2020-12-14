@@ -174,14 +174,14 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :outcome_medical_y
     end
 
-    context "choose to visit partner or family who have an article 10 card" do
+    context "choose to visit partner or family who have british citizenship" do
       setup do
         add_response "family"
         add_response "yes"
       end
 
-      should "show outcome no visa needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "show outcome family visa needed" do
+        assert_current_node :outcome_partner_family_british_citizen_y
       end
     end
   end
@@ -782,7 +782,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     context "coming to join family member, without an article 10 card, and they're a British citizen" do
       setup do
         add_response "family"
-        add_response "no"
         add_response "yes"
       end
 
@@ -814,14 +813,13 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "tourism"
         end
 
-        context "travelling with a a UK family member with an article 10 card" do
+        context "travelling with a a UK family member" do
           setup do
-            add_response "yes"
             add_response "yes"
           end
 
-          should "take you to no visa needed outcome" do
-            assert_current_node :outcome_no_visa_needed
+          should "take you to tourism visa partner outcome" do
+            assert_current_node :outcome_tourism_visa_partner
           end
         end
       end
