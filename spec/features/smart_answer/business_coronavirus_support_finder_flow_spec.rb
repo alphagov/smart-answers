@@ -24,50 +24,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     stub_content_store_has_item("/business-coronavirus-support-finder")
   end
 
-  # Only the non_domestic_property question causes a flow path change.
-  # For all other questions, any of the available answers would result in the same next page.
-  scenario "Answers for business that does not have non domestic property" do
-    visit "/business-coronavirus-support-finder"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
-
-    click_govuk_start_button
-    expect(page).to have_selector("h1", text: headings[:business_based])
-
-    choose "England"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:business_size])
-
-    choose "0 to 249 employees"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:annual_turnover])
-
-    choose "My business is a start-up and is pre-revenue"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:paye_scheme])
-
-    choose "Yes"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:self_employed])
-
-    choose "Yes"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:non_domestic_property])
-
-    choose "My business does not have any non-domestic property"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:restricted_sector])
-
-    choose "No"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:closed_by_restrictions])
-
-    check "No"
-    click_button "Next step"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
-    expect(page).to have_selector("h2", text: headings[:results])
-  end
-
-  scenario "Answers for business that has non domestic property" do
+  scenario "Answers all questions" do
     visit "/business-coronavirus-support-finder"
     expect(page).to have_selector("h1", text: headings[:flow_title])
 

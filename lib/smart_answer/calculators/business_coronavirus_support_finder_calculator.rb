@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
         calculator.business_size == "0_to_249" &&
           calculator.self_employed == "yes"
       },
+      christmas_pub_payment: lambda { |calculator|
+        calculator.business_based == "england" &&
+          calculator.sectors.include?("retail_hospitality_or_leisure")
+      },
       retail_hospitality_leisure_business_rates: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.non_domestic_property != "none" &&

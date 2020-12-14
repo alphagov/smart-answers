@@ -87,11 +87,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.non_domestic_property != "none"
-            question :sectors?
-          else
-            question :restricted_sector?
-          end
+          question :sectors?
         end
       end
 
