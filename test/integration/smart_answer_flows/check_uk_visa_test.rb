@@ -201,155 +201,139 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "austria"
     end
 
-    should "go ask what when are you coming to the UK" do
-      assert_current_node :when_are_you_coming_to_the_uk?
+    should "ask what are you coming to the UK to do" do
+      assert_current_node :purpose_of_visit?
     end
 
-    context "before 2021" do
-      setup { add_response "before_2021" }
+    context "coming to the UK for tourism" do
+      setup do
+        add_response "tourism"
+      end
 
-      should "take you to outcome no visa outcome_no_visa_needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "take you to outcome no visa outcome_tourism_n" do
+        assert_current_node :outcome_tourism_n
       end
     end
 
-    context "after 2021" do
-      setup { add_response "from_2021" }
-
-      should "ask what are you coming to the UK to do" do
-        assert_current_node :purpose_of_visit?
+    context "coming to the UK to study" do
+      setup do
+        add_response "study"
       end
 
-      context "coming to the UK for tourism" do
-        setup do
-          add_response "tourism"
-        end
-
-        should "take you to outcome no visa outcome_tourism_n" do
-          assert_current_node :outcome_tourism_n
-        end
+      should "take you to outcome no visa outcome_study_no_visa_needed if six months or less" do
+        add_response "six_months_or_less"
+        assert_current_node :outcome_study_no_visa_needed
       end
 
-      context "coming to the UK to study" do
-        setup do
-          add_response "study"
-        end
+      should "take you to outcome no visa outcome_study_y if longer than six months" do
+        add_response "longer_than_six_months"
+        assert_current_node :outcome_study_y
+      end
+    end
 
-        should "take you to outcome no visa outcome_study_no_visa_needed if six months or less" do
-          add_response "six_months_or_less"
-          assert_current_node :outcome_study_no_visa_needed
-        end
-
-        should "take you to outcome no visa outcome_study_y if longer than six months" do
-          add_response "longer_than_six_months"
-          assert_current_node :outcome_study_y
-        end
+    context "coming to the UK to work" do
+      setup do
+        add_response "work"
       end
 
-      context "coming to the UK to work" do
-        setup do
-          add_response "work"
-        end
-
-        should "take you to outcome outcome_work_n if six months or less" do
-          add_response "six_months_or_less"
-          assert_current_node :outcome_work_n
-        end
-
-        should "take you to outcome outcome_work_y if longer than six months" do
-          add_response "longer_than_six_months"
-          assert_current_node :outcome_work_y
-        end
+      should "take you to outcome outcome_work_n if six months or less" do
+        add_response "six_months_or_less"
+        assert_current_node :outcome_work_n
       end
 
-      context "coming to the UK for marriage" do
-        setup do
-          add_response "marriage"
-        end
+      should "take you to outcome outcome_work_y if longer than six months" do
+        add_response "longer_than_six_months"
+        assert_current_node :outcome_work_y
+      end
+    end
 
-        should "take you to outcome outcome_marriage_nvn_ukot" do
-          assert_current_node :outcome_marriage_eea
-        end
+    context "coming to the UK for marriage" do
+      setup do
+        add_response "marriage"
       end
 
-      context "coming to the UK for a long stay with family" do
-        setup do
-          add_response "family"
-        end
+      should "take you to outcome outcome_marriage_nvn_ukot" do
+        assert_current_node :outcome_marriage_eea
+      end
+    end
 
-        should "take you to outcome outcome_joining_family_nvn" do
-          assert_current_node :outcome_joining_family_nvn
-        end
+    context "coming to the UK for a long stay with family" do
+      setup do
+        add_response "family"
       end
 
-      context "coming to the UK to stay with child if they're at school" do
-        setup do
-          add_response "school"
-        end
+      should "take you to outcome outcome_joining_family_nvn" do
+        assert_current_node :outcome_joining_family_nvn
+      end
+    end
 
-        should "take you to outcome outcome_school_n" do
-          assert_current_node :outcome_school_n
-        end
+    context "coming to the UK to stay with child if they're at school" do
+      setup do
+        add_response "school"
       end
 
-      context "coming to the UK for private medical treatment" do
-        setup do
-          add_response "medical"
-        end
+      should "take you to outcome outcome_school_n" do
+        assert_current_node :outcome_school_n
+      end
+    end
 
-        should "take you to outcome outcome_medical_n" do
-          assert_current_node :outcome_medical_n
-        end
+    context "coming to the UK for private medical treatment" do
+      setup do
+        add_response "medical"
       end
 
-      context "coming to the UK on transit" do
+      should "take you to outcome outcome_medical_n" do
+        assert_current_node :outcome_medical_n
+      end
+    end
+
+    context "coming to the UK on transit" do
+      setup do
+        add_response "transit"
+      end
+
+      should "take you to outcome 'Where are you travelling to?'" do
+        assert_current_node :travelling_to_cta?
+      end
+
+      context "to the Channel Islands or Isle of Man" do
         setup do
-          add_response "transit"
+          add_response "channel_islands_or_isle_of_man"
         end
 
-        should "take you to outcome 'Where are you travelling to?'" do
-          assert_current_node :travelling_to_cta?
-        end
-
-        context "to the Channel Islands or Isle of Man" do
-          setup do
-            add_response "channel_islands_or_isle_of_man"
-          end
-
-          should "ask you what you will be doing in Channel Islands or Isle of Man" do
-            assert_current_node :channel_islands_or_isle_of_man?
-          end
-        end
-
-        context "to the Republic of Ireland" do
-          setup do
-            add_response "republic_of_ireland"
-          end
-
-          should "take you to outcome no visa needed" do
-            assert_current_node :outcome_no_visa_needed
-          end
-        end
-
-        context "to somewhere else" do
-          setup do
-            add_response "somewhere_else"
-          end
-
-          should "take you to outcome no visa needed" do
-            assert_current_node :outcome_no_visa_needed
-          end
+        should "ask you what you will be doing in Channel Islands or Isle of Man" do
+          assert_current_node :channel_islands_or_isle_of_man?
         end
       end
 
-      context "coming to the UK for official diplomatic/government business" do
+      context "to the Republic of Ireland" do
         setup do
-          add_response "diplomatic"
+          add_response "republic_of_ireland"
         end
 
-        should "take you to outcome outcome_diplomatic_business" do
-          assert_current_node :outcome_diplomatic_business
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
         end
+      end
+
+      context "to somewhere else" do
+        setup do
+          add_response "somewhere_else"
+        end
+
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
+        end
+      end
+    end
+
+    context "coming to the UK for official diplomatic/government business" do
+      setup do
+        add_response "diplomatic"
+      end
+
+      should "take you to outcome outcome_diplomatic_business" do
+        assert_current_node :outcome_diplomatic_business
       end
     end
   end
