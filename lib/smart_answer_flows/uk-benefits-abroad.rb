@@ -45,7 +45,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits].include?(response)
+          if %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits jsa].include?(response)
             question :which_country?
           elsif response == "iidb"
             question :iidb_already_claiming?
@@ -56,17 +56,13 @@ module SmartAnswer
           elsif response == "tax_credits"
             question :eligible_for_tax_credits?
           elsif calculator.going_abroad
-            if response == "jsa"
-              question :jsa_how_long_abroad? # Q3 going_abroad
-            elsif response == "pension"
+            if response == "pension"
               outcome :pension_going_abroad_outcome # A2 going_abroad
             elsif response == "income_support"
               question :is_how_long_abroad? # Q32 going_abroad
             end
           elsif calculator.already_abroad
-            if response == "jsa"
-              question :which_country?
-            elsif response == "pension"
+            if response == "pension"
               outcome :pension_already_abroad_outcome # A2 already_abroad
             elsif response == "income_support"
               outcome :is_already_abroad_outcome # A40 already_abroad
@@ -90,7 +86,7 @@ module SmartAnswer
             elsif calculator.already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
             elsif calculator.going_abroad && calculator.eea_country?
-              outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
+              question :worked_in_eea_or_switzerland? # A5 going_abroad
             elsif calculator.going_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
             else
@@ -601,6 +597,39 @@ module SmartAnswer
         end
       end
 
+      # Going abroad
+      radio :worked_in_eea_or_switzerland? do
+        option :before_jan_2021
+        option :after_jan_2021
+        option :no
+
+        next_node do |response|
+          case response
+          when "before_jan_2021"
+            outcome :jsa_eea_going_abroad_maybe_outcome
+          when "after_jan_2021", "no"
+            question :parents_lived_in_eea_or_switzerland?
+          end
+        end
+      end
+
+      radio :parents_lived_in_eea_or_switzerland? do
+        option :before_jan_2021
+        option :after_jan_2021
+        option :no
+
+        next_node do |response|
+          case response
+          when "before_jan_2021"
+            outcome :jsa_eea_going_abroad_maybe_outcome
+          when "after_jan_2021"
+            outcome :jsa_not_entitled_outcome
+          when "no"
+            outcome :jsa_not_entitled_outcome
+          end
+        end
+      end
+
       outcome :pension_going_abroad_outcome # A2 going_abroad
       outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
       outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
@@ -670,6 +699,8 @@ module SmartAnswer
       outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
       outcome :bb_already_abroad_other_outcome # A39 already_abroad
       outcome :is_already_abroad_outcome # A40 already_abroad
+
+      outcome :jsa_eea_going_abroad_maybe_outcome
     end
   end
 end

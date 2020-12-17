@@ -30,65 +30,96 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response "jsa"
       end
-      should "ask how long you're going abroad for" do
-        assert_current_node :jsa_how_long_abroad?
+      should "ask which country are you moving to?" do
+        assert_current_node :which_country?
       end
 
-      context "answer less than a year for medical treatment" do
+      context "answer EEA country" do
         setup do
-          add_response "less_than_a_year_medical"
+          add_response "austria"
         end
-        should "take you to the 'less than a year for medical reasons' outcome" do
-          assert_current_node :jsa_less_than_a_year_medical_outcome
-        end
-      end
-      context "answer less than a year for other reasons" do
-        setup do
-          add_response "less_than_a_year_other"
-        end
-        should "take you to the 'less than a year other' outcome" do
-          assert_current_node :jsa_less_than_a_year_other_outcome
-        end
-      end
-      context "answers more than a year" do
-        setup do
-          add_response "more_than_a_year"
-        end
-        should "ask you the channel islands question" do
-          assert_current_node :which_country?
+        should "ask have you ever worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+          assert_current_node :worked_in_eea_or_switzerland?
         end
 
-        context "answer Guernsey or Jersey" do
+        context "answer yes before 1 January 2021" do
           setup do
-            add_response "guernsey"
+            add_response "before_jan_2021"
           end
-          should "take you to JSA SS outcome" do
-            assert_current_node :jsa_social_security_going_abroad_outcome
+          should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/before_jan_2021
+            assert_current_node :jsa_eea_going_abroad_maybe_outcome
           end
         end
 
-        context "answer EEA country" do
+        context "answer yes after 1 January 2021" do
           setup do
-            add_response "austria"
+            add_response "after_jan_2021"
           end
-          should "go to the JSA EEA outcome" do
-            assert_current_node :jsa_eea_going_abroad_outcome
+          should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do # /going_abroad/jsa/austria/after_jan_2021
+            assert_current_node :parents_lived_in_eea_or_switzerland?
+          end
+
+          context "answer yes before 1 January 2021" do
+            setup do
+              add_response "before_jan_2021"
+            end
+            should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/after_jan_2021/before_jan_2021
+              assert_current_node :jsa_eea_going_abroad_maybe_outcome
+            end
+          end
+
+          context "answer yes after 1 January 2021" do
+            setup do
+              add_response "after_jan_2021"
+            end
+            should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/after_jan_2021/after_jan_2021
+              assert_current_node :jsa_not_entitled_outcome
+            end
+          end
+
+          context "no" do
+            setup do
+              add_response "no"
+            end
+            should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/after_jan_2021
+              assert_current_node :jsa_not_entitled_outcome
+            end
           end
         end
-        context "answer SS country" do
+
+        context "no" do
           setup do
-            add_response "kosovo"
+            add_response "no"
           end
-          should "go to the JSA SS outcome" do
-            assert_current_node :jsa_social_security_going_abroad_outcome
+          should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+            assert_current_node :parents_lived_in_eea_or_switzerland?
           end
-        end
-        context "answer 'other' country" do
-          setup do
-            add_response "albania"
+
+          context "answer yes before 1 January 2021" do
+            setup do
+              add_response "before_jan_2021"
+            end
+            should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/no/before_jan_2021
+              assert_current_node :jsa_eea_going_abroad_maybe_outcome
+            end
           end
-          should "take you to JSA not entitled outcome" do
-            assert_current_node :jsa_not_entitled_outcome
+
+          context "answer yes after 1 January 2021" do
+            setup do
+              add_response "after_jan_2021"
+            end
+            should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/after_jan_2021
+              assert_current_node :jsa_not_entitled_outcome
+            end
+          end
+
+          context "no" do
+            setup do
+              add_response "no"
+            end
+            should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/no
+              assert_current_node :jsa_not_entitled_outcome
+            end
           end
         end
       end
