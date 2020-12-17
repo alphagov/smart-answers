@@ -85,6 +85,8 @@ module SmartAnswer
               outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
             elsif calculator.already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
+            elsif calculator.going_abroad && calculator.country == "ireland"
+              question :is_british_or_irish?
             elsif calculator.going_abroad && calculator.eea_country?
               question :worked_in_eea_or_switzerland? # A5 going_abroad
             elsif calculator.going_abroad && calculator.social_security_countries_jsa?
@@ -630,6 +632,20 @@ module SmartAnswer
         end
       end
 
+      radio :is_british_or_irish? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :jsa_ireland_outcome
+          when "no"
+            question :worked_in_eea_or_switzerland?
+          end
+        end
+      end
+
       outcome :pension_going_abroad_outcome # A2 going_abroad
       outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
       outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
@@ -701,6 +717,7 @@ module SmartAnswer
       outcome :is_already_abroad_outcome # A40 already_abroad
 
       outcome :jsa_eea_going_abroad_maybe_outcome
+      outcome :jsa_ireland_outcome
     end
   end
 end

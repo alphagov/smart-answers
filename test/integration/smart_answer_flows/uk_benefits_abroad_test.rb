@@ -8,7 +8,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
-    stub_world_locations %w[albania austria canada jamaica kosovo]
+    stub_world_locations %w[albania austria canada ireland jamaica kosovo]
   end
 
   # Q1
@@ -119,6 +119,110 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/no
               assert_current_node :jsa_not_entitled_outcome
+            end
+          end
+        end
+      end
+
+      context "answer Ireland" do
+        setup do
+          add_response "ireland"
+        end
+        should "ask are you a British or Irish citizen?" do
+          assert_current_node :is_british_or_irish?
+        end
+
+        context "answer yes" do
+          setup do
+            add_response "yes"
+          end
+          should "go to JSA Ireland outcome" do
+            assert_current_node :jsa_ireland_outcome
+          end
+        end
+
+        context "answer no" do
+          setup do
+            add_response "no"
+          end
+          should "go to ask have you ever worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+            assert_current_node :worked_in_eea_or_switzerland?
+          end
+
+          context "answer before January 2021" do
+            setup do
+              add_response "before_jan_2021"
+            end
+            should "go to the JSA EEA maybe outcome" do
+              assert_current_node :jsa_eea_going_abroad_maybe_outcome
+            end
+          end
+
+          context "answer after January 2021" do
+            setup do
+              add_response "after_jan_2021"
+            end
+            should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer before January 2021" do
+              setup do
+                add_response "before_jan_2021"
+              end
+              should "go to the JSA EEA maybe outcome" do
+                assert_current_node :jsa_eea_going_abroad_maybe_outcome
+              end
+            end
+            context "answer after January 2021" do
+              setup do
+                add_response "after_jan_2021"
+              end
+              should "go to jsa not entitled outcome" do
+                assert_current_node :jsa_not_entitled_outcome
+              end
+            end
+            context "answer no" do
+              setup do
+                add_response "no"
+              end
+              should "got to jsa not entitled outcome" do
+                assert_current_node :jsa_not_entitled_outcome
+              end
+            end
+          end
+
+          context "answer no" do
+            setup do
+              add_response "no"
+            end
+            should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer before January 2021" do
+              setup do
+                add_response "before_jan_2021"
+              end
+              should "go to maybe jsa outcome" do
+                assert_current_node :jsa_eea_going_abroad_maybe_outcome
+              end
+            end
+
+            context "answer after January 2021" do
+              setup do
+                add_response "after_jan_2021"
+              end
+              should "go to jsa not entitled outcome" do
+                assert_current_node :jsa_not_entitled_outcome
+              end
+            end
+
+            context "answer no" do
+              setup do
+                add_response "no"
+              end
+              should "go to not entitled outcome" do
+                assert_current_node :jsa_not_entitled_outcome
+              end
             end
           end
         end
