@@ -8,7 +8,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
-    stub_world_locations %w[albania austria canada ireland jamaica kosovo]
+    stub_world_locations %w[albania austria canada ireland jamaica jersey kosovo]
   end
 
   # Q1
@@ -224,6 +224,33 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :jsa_not_entitled_outcome
               end
             end
+          end
+        end
+      end
+
+      context "answer Jersey or Guernsey" do
+        setup do
+          add_response "jersey"
+        end
+        should "ask you how long are you going abroad for?" do
+          assert_current_node :how_long_abroad?
+        end
+
+        context "answer less than one year" do
+          setup do
+            add_response "one_year_or_less"
+          end
+          should "go to Jersey Guernsey outcome" do
+            assert_current_node :jsa_jersey_guernsey_outcome
+          end
+        end
+
+        context "answer more than one year" do
+          setup do
+            add_response "more_than_one_year"
+          end
+          should "go to JSA SS going abroad outcome" do
+            assert_current_node :jsa_social_security_going_abroad_outcome
           end
         end
       end
