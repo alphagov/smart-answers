@@ -106,6 +106,11 @@ module SmartAnswer::Calculators
       (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
     end
 
+    def social_security_countries?
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA +
+      %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
+    end
+
     def jersey_guernsey?
       %w[jersey guernsey].include?(country)
     end
