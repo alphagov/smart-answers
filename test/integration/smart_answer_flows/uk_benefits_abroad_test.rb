@@ -1244,40 +1244,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       assert_current_node :which_benefit?
     end
     # JSA
-    context "answer JSA, Guernsey (SS)" do
+    context "answer JSA" do
       setup do
         add_response "jsa"
-        add_response "guernsey"
       end
-      should "take you to JSA SS outcome" do
-        assert_current_node :jsa_social_security_already_abroad_outcome
+      should "Ask which country you are living in" do
+        assert_current_node :which_country?
       end
-    end
-    context "answer JSA EEA country" do
-      setup do
-        add_response "jsa"
-        add_response "austria"
+      context "answer Austria" do # EEA country
+        setup do
+          add_response "austria"
+        end
+        should "go to JSA EEA already abroad outcome" do
+          assert_current_node :jsa_eea_already_abroad_outcome
+        end
       end
-      should "take you to JSA EEA outcome" do
-        assert_current_node :jsa_eea_already_abroad_outcome
-      end
-    end
-    context "answer JSA SS country" do
-      setup do
-        add_response "jsa"
-        add_response "kosovo"
-      end
-      should "take you to JSA SS outcome" do
-        assert_current_node :jsa_social_security_already_abroad_outcome
-      end
-    end
-    context "answer JSA other country" do
-      setup do
-        add_response "jsa"
-        add_response "albania"
-      end
-      should "take you to JSA other country outcome" do
-        assert_current_node :jsa_not_entitled_outcome
       end
     end
 

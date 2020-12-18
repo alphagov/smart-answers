@@ -86,7 +86,7 @@ module SmartAnswer
           case calculator.benefit
           when "jsa"
             if calculator.already_abroad && calculator.eea_country?
-              outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
+              outcome :jsa_eea_already_abroad_outcome
             elsif calculator.already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
             elsif calculator.going_abroad && calculator.country == "ireland"
