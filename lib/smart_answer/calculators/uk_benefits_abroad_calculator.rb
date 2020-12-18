@@ -106,6 +106,10 @@ module SmartAnswer::Calculators
       (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
     end
 
+    def channel_islands?
+      %w[jersey guernsey].include?(country)
+    end
+
     def state_benefits
       STATE_BENEFITS
     end
