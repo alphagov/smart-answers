@@ -103,7 +103,7 @@ module SmartAnswer
           when "winter_fuel_payment"
             if calculator.country_eligible_for_winter_fuel_payment?
               if calculator.going_abroad
-                outcome :wfp_going_abroad_outcome # A9 going_abroad
+                question :worked_in_eea_or_switzerland?
               else
                 outcome :wfp_eea_eligible_outcome # A7 already_abroad
               end
@@ -608,7 +608,11 @@ module SmartAnswer
         next_node do |response|
           case response
           when "before_jan_2021"
-            outcome :jsa_eea_going_abroad_maybe_outcome
+            if calculator.benefit == "jsa"
+              outcome :jsa_eea_going_abroad_maybe_outcome
+            elsif calculator.benefit == "winter_fuel_payment"
+              outcome :wfp_going_abroad_eea_maybe_outcome
+            end
           when "after_jan_2021", "no"
             question :parents_lived_in_eea_or_switzerland?
           end
@@ -623,11 +627,23 @@ module SmartAnswer
         next_node do |response|
           case response
           when "before_jan_2021"
-            outcome :jsa_eea_going_abroad_maybe_outcome
+            if calculator.benefit == "jsa"
+              outcome :jsa_eea_going_abroad_maybe_outcome
+            elsif calculator.benefit == "winter_fuel_payment"
+              outcome :wfp_going_abroad_eea_maybe_outcome
+            end
           when "after_jan_2021"
-            outcome :jsa_not_entitled_outcome
+            if calculator.benefit == "jsa"
+              outcome :jsa_not_entitled_outcome
+            elsif calculator.benefit == "winter_fuel_payment"
+              outcome :wfp_not_eligible_outcome
+            end
           when "no"
-            outcome :jsa_not_entitled_outcome
+            if calculator.benefit == "jsa"
+              outcome :jsa_not_entitled_outcome
+            elsif calculator.benefit == "winter_fuel_payment"
+              outcome :wfp_not_eligible_outcome
+            end
           end
         end
       end
@@ -737,6 +753,8 @@ module SmartAnswer
       outcome :jsa_eea_going_abroad_maybe_outcome
       outcome :jsa_ireland_outcome
       outcome :jsa_channel_islands_outcome
+
+      outcome :wfp_going_abroad_eea_maybe_outcome
     end
   end
 end
