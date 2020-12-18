@@ -280,6 +280,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "answer Albania" do
+        setup do
+          add_response "albania"
+        end
+        should "go to not entitled outcome" do
+          assert_current_node :jsa_not_entitled_outcome
+        end
+      end
     end
 
     # Winter Fuel Payment
