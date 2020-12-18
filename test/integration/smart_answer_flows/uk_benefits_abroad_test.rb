@@ -1259,6 +1259,13 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :jsa_eea_already_abroad_outcome
         end
       end
+      context "answer Ireland" do # Ireland
+        setup do
+          add_response "ireland"
+        end
+        should "go to JSA EEA already abroad outcome" do
+          assert_current_node :jsa_eea_already_abroad_outcome
+        end
       end
     end
 
