@@ -655,6 +655,8 @@ module SmartAnswer
           when "one_year_or_less"
             if calculator.channel_islands?
               outcome :jsa_channel_islands_outcome
+            else
+              outcome :jsa_social_security_going_abroad_outcome
             end
           when "more_than_one_year"
             outcome :jsa_social_security_going_abroad_outcome
