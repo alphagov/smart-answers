@@ -1267,6 +1267,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :jsa_eea_already_abroad_outcome
         end
       end
+      context "answer Kosovo" do # SS country
+        setup do
+          add_response "kosovo"
+        end
+        should "go to JSA SS social security already abroad outcome" do
+          assert_current_node :jsa_social_security_already_abroad_outcome
+        end
+      end
     end
 
     # State Pension
