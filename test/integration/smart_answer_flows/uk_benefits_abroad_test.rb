@@ -1275,6 +1275,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :jsa_social_security_already_abroad_outcome
         end
       end
+      context "answer Albania" do # not EEA or SS country
+        setup do
+          add_response "albania"
+        end
+        should "Go to JSA not entitled outcome" do
+          assert_current_node :jsa_not_entitled_outcome
+        end
+      end
     end
 
     # State Pension
