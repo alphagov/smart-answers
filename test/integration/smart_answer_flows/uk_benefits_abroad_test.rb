@@ -303,18 +303,90 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response "austria"
         end
-        should "take you to eligible outcome" do
-          assert_current_node :wfp_going_abroad_outcome
+        should "ask have you ever worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+          assert_current_node :worked_in_eea_or_switzerland?
+        end
+        context "answer before_jan_2021" do
+          setup do
+            add_response :before_jan_2021
+          end
+          should "go to outcome WFP EEA maybe" do
+            assert_current_node :wfp_going_abroad_eea_maybe_outcome
+          end
+        end
+        context "answer after_jan_2021" do
+          setup do
+            add_response :after_jan_2021
+          end
+          should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do # /going_abroad/jsa/austria/after_jan_2021
+            assert_current_node :parents_lived_in_eea_or_switzerland?
+          end
+          context "answer before_jan_2021" do
+            setup do
+              add_response :before_jan_2021
+            end
+            should "go to outcome WFP EEA maybe" do
+              assert_current_node :wfp_going_abroad_eea_maybe_outcome
+            end
+          end
+          context "answer after_jan_2021" do
+            setup do
+              add_response :after_jan_2021
+            end
+            should "go to outcome WFP not eligible" do
+              assert_current_node :wfp_not_eligible_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "go to outcome WFP not eligible" do
+              assert_current_node :wfp_not_eligible_outcome
+            end
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response :no
+          end
+          should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do # /going_abroad/jsa/austria/after_jan_2021
+            assert_current_node :parents_lived_in_eea_or_switzerland?
+          end
+          context "answer before_jan_2021" do
+            setup do
+              add_response :before_jan_2021
+            end
+            should "go to outcome WFP EEA maybe" do
+              assert_current_node :wfp_going_abroad_eea_maybe_outcome
+            end
+          end
+          context "answer after_jan_2021" do
+            setup do
+              add_response :after_jan_2021
+            end
+            should "go to outcome WFP not eligible" do
+              assert_current_node :wfp_not_eligible_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "go to outcome WFP not eligible" do
+              assert_current_node :wfp_not_eligible_outcome
+            end
+          end
         end
       end
-      context "answer other country" do
-        setup do
-          add_response "albania"
-        end
-        should "take you to not eligible outcome" do
-          assert_current_node :wfp_not_eligible_outcome
-        end
-      end
+      # context "answer other country" do
+      #   setup do
+      #     add_response "albania"
+      #   end
+      #   should "take you to not eligible outcome" do
+      #     assert_current_node :wfp_not_eligible_outcome
+      #   end
+      # end
     end
 
     # Maternity benefits
