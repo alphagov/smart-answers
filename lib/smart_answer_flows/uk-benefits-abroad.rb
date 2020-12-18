@@ -661,6 +661,8 @@ module SmartAnswer
           when "one_year_or_less"
             if calculator.jersey_guernsey?
               outcome :jsa_jersey_guernsey_outcome
+            else
+              outcome :jsa_social_security_going_abroad_outcome
             end
           when "more_than_one_year"
             outcome :jsa_social_security_going_abroad_outcome

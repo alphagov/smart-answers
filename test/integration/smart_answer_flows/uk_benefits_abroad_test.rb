@@ -254,6 +254,32 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "answer Kosovo" do
+        setup do
+          add_response "kosovo"
+        end
+        should "ask you how long are you going abroad for?" do
+          assert_current_node :how_long_abroad?
+        end
+        context "answer 1 year or less" do
+          setup do
+            add_response "one_year_or_less"
+          end
+          should "go to JSA SS going abroad outcome" do
+            assert_current_node :jsa_social_security_going_abroad_outcome
+          end
+        end
+
+        context "answer more than a year" do
+          setup do
+            add_response "more_than_one_year"
+          end
+          should "go to JSA SS going abroad outcome" do
+            assert_current_node :jsa_social_security_going_abroad_outcome
+          end
+        end
+      end
     end
 
     # Winter Fuel Payment
