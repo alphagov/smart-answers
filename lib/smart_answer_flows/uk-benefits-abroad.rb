@@ -96,7 +96,7 @@ module SmartAnswer
             elsif calculator.going_abroad && calculator.social_security_countries_jsa?
               question :how_long_abroad?
             else
-              outcome :jsa_not_entitled_outcome # A7 calculator.going_abroad and A5 already_abroad
+              outcome :jsa_not_entitled_outcome
             end
           when "maternity_benefits"
             if calculator.eea_country?
