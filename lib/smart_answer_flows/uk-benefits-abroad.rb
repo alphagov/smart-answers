@@ -171,7 +171,7 @@ module SmartAnswer
           when "esa"
             if calculator.going_abroad
               if calculator.eea_country?
-                outcome :esa_going_abroad_eea_outcome # A29 going_abroad
+                question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
               elsif %w[barbados guernsey israel jersey jamaica turkey usa].include?(response)
@@ -556,9 +556,9 @@ module SmartAnswer
 
         next_node do |response|
           if calculator.going_abroad && response == "esa_under_a_year_medical"
-            outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
+            outcome :esa_going_abroad_under_a_year_medical_outcome
           elsif calculator.going_abroad && response == "esa_under_a_year_other"
-            outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
+            outcome :esa_going_abroad_under_a_year_other_outcome
           elsif calculator.already_abroad && response == "esa_under_a_year_medical"
             outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
           elsif calculator.already_abroad && response == "esa_under_a_year_other"
@@ -616,13 +616,15 @@ module SmartAnswer
               outcome :jsa_eea_going_abroad_maybe_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "after_jan_2021"
-            if calculator.benefit == "jsa" || calculator.benefit == "winter_fuel_payment"
+            if calculator.benefit == "jsa" || calculator.benefit == "winter_fuel_payment" || calculator.benefit == "esa"
               question :parents_lived_in_eea_or_switzerland?
             end
           when "no"
-            if calculator.benefit == "jsa" || calculator.benefit == "winter_fuel_payment"
+            if calculator.benefit == "jsa" || calculator.benefit == "winter_fuel_payment" || calculator.benefit == "esa"
               question :parents_lived_in_eea_or_switzerland?
             end
           end
@@ -641,18 +643,24 @@ module SmartAnswer
               outcome :jsa_eea_going_abroad_maybe_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa"
               outcome :jsa_not_entitled_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_other_outcome
             end
           when "no"
             if calculator.benefit == "jsa"
               outcome :jsa_not_entitled_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_other_outcome
             end
           end
         end

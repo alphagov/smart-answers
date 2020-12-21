@@ -496,6 +496,137 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
+    # ESA
+    context "answer ESA" do
+      setup do
+        add_response "esa"
+      end
+      should "ask how long you're going abroad" do
+        assert_current_node :esa_how_long_abroad?
+      end
+      context "answer less than a year for medical treatment" do
+        setup do
+          add_response "esa_under_a_year_medical"
+        end
+        should "take you to medical treatment outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_medical_outcome
+        end
+      end
+      context "answer less than a year for different reason" do
+        setup do
+          add_response "esa_under_a_year_other"
+        end
+        should "take you to different reason outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_other_outcome
+        end
+      end
+      context "answers more than a year" do
+        setup do
+          add_response "esa_more_than_a_year"
+        end
+        should "ask which country are you moving to" do
+          assert_current_node :which_country?
+        end
+        context "answer austria" do # EEA country
+          setup do
+            add_response "austria"
+          end
+          should "take you to EEA outcome" do
+            assert_current_node :worked_in_eea_or_switzerland?
+          end
+          context "answer yes before January 2021" do # worked in EEA
+            setup do
+              add_response :before_jan_2021
+            end
+            should "go to esa going_abroad eea outcome outcome" do
+              assert_current_node :esa_going_abroad_eea_outcome
+            end
+          end
+          context "answer yes after January 2021" do
+            setup do
+              add_response :after_jan_2021
+            end
+            should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer yes before January 2021" do
+              setup do
+                add_response :before_jan_2021
+              end
+              should "go to esa going_abroad eea outcome" do
+                assert_current_node :esa_going_abroad_eea_outcome
+              end
+            end
+            context "answer yes after January 2021" do
+              setup do
+                add_response :after_jan_2021
+              end
+              should "go to esa going abroad other outcome" do
+                assert_current_node :esa_going_abroad_other_outcome
+              end
+            end
+            context "no" do
+              setup do
+                add_response :no
+              end
+              should "go to esa going abroad other outcome" do
+                assert_current_node :esa_going_abroad_other_outcome
+              end
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer yes before January 2021" do
+              setup do
+                add_response :before_jan_2021
+              end
+              should "go to esa going_abroad eea outcome outcome" do
+                assert_current_node :esa_going_abroad_eea_outcome
+              end
+            end
+            context "answer yes after January 2021" do
+              setup do
+                add_response :after_jan_2021
+              end
+              should "go to esa going_abroad other outcome" do
+                assert_current_node :esa_going_abroad_other_outcome
+              end
+            end
+            context "answer no" do
+              setup do
+                add_response :no
+              end
+              should "go to esa going_abroad other outcome" do
+                assert_current_node :esa_going_abroad_other_outcome
+              end
+            end
+          end
+        end
+        # context "answer albania" do
+        #   setup do
+        #     add_response "albania"
+        #   end
+        #   should "take you to other outcome" do
+        #     assert_current_node :esa_going_abroad_other_outcome
+        #   end
+        # end
+
+        # context "answer kosovo" do
+        #   setup do
+        #     add_response "kosovo"
+        #   end
+        #   should "take you to other outcome" do
+        #     assert_current_node :esa_going_abroad_eea_outcome
+        #   end
+        # end
+      end
+    end
+
     # Maternity benefits
     context "answer maternity benefits" do
       setup do
@@ -977,65 +1108,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :tax_credits_unlikely_outcome
               end
             end
-          end
-        end
-      end
-    end
-
-    # ESA
-    context "answer ESA" do
-      setup do
-        add_response "esa"
-      end
-      should "ask how long you're going abroad" do
-        assert_current_node :esa_how_long_abroad?
-      end
-      context "answer less than a year for medical treatment" do
-        setup do
-          add_response "esa_under_a_year_medical"
-        end
-        should "take you to medical treatment outcome" do
-          assert_current_node :esa_going_abroad_under_a_year_medical_outcome
-        end
-      end
-      context "answer less than a year for different reason" do
-        setup do
-          add_response "esa_under_a_year_other"
-        end
-        should "take you to different reason outcome" do
-          assert_current_node :esa_going_abroad_under_a_year_other_outcome
-        end
-      end
-      context "answers more than a year" do
-        setup do
-          add_response "esa_more_than_a_year"
-        end
-        should "ask which country are you moving to" do
-          assert_current_node :which_country?
-        end
-        context "answer EEA country" do
-          setup do
-            add_response "austria"
-          end
-          should "take you to EEA outcome" do
-            assert_current_node :esa_going_abroad_eea_outcome
-          end
-        end
-        context "answer albania" do
-          setup do
-            add_response "albania"
-          end
-          should "take you to other outcome" do
-            assert_current_node :esa_going_abroad_other_outcome
-          end
-        end
-
-        context "answer kosovo" do
-          setup do
-            add_response "kosovo"
-          end
-          should "take you to other outcome" do
-            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
       end
