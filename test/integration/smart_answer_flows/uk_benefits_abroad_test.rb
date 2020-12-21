@@ -485,14 +485,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :wfp_not_eligible_outcome
         end
       end
-      # context "answer other country" do
-      #   setup do
-      #     add_response "albania"
-      #   end
-      #   should "take you to not eligible outcome" do
-      #     assert_current_node :wfp_not_eligible_outcome
-      #   end
-      # end
+
+      context "answer other country" do
+        setup do
+          add_response "albania"
+        end
+        should "take you to not eligible outcome" do
+          assert_current_node :wfp_not_eligible_outcome
+        end
+      end
     end
 
     # Maternity benefits
