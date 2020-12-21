@@ -1550,6 +1550,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "answer Kosovo" do # SS country
+        setup do
+          add_response "kosovo"
+        end
+        should "go to WFP not eligible outcome" do
+          assert_current_node :wfp_not_eligible_outcome
+        end
+      end
     end
 
     # State Pension
