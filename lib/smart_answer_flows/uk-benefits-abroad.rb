@@ -170,7 +170,9 @@ module SmartAnswer
             end
           when "esa"
             if calculator.going_abroad
-              if calculator.eea_country?
+              if calculator.country == "ireland"
+                question :is_british_or_irish?
+              elsif calculator.eea_country?
                 question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
@@ -677,6 +679,8 @@ module SmartAnswer
               outcome :jsa_ireland_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_ireland_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "no"
             question :worked_in_eea_or_switzerland?
