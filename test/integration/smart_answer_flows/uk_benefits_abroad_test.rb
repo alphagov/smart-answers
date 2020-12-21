@@ -379,6 +379,103 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "answer Ireland" do
+        setup do
+          add_response :ireland
+        end
+        should "ask you if you are British or Irish?" do
+          assert_current_node :is_british_or_irish?
+        end
+        context "answer yes" do # Are you a British or Irish citizen
+          setup do
+            add_response :yes
+          end
+          should "go to WFP Ireland outcome" do
+            assert_current_node :wfp_ireland_outcome
+          end
+        end
+        context "answer no" do # Are you a British or Irish citizen
+          setup do
+            add_response :no
+          end
+          should "Ask have you ever worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+            assert_current_node :worked_in_eea_or_switzerland?
+          end
+          context "answer Yes before Jan 2021" do # Worked in EU?
+            setup do
+              add_response :before_jan_2021
+            end
+            should "go to outcome WFP EEA maybe" do
+              assert_current_node :wfp_going_abroad_eea_maybe_outcome
+            end
+          end
+          context "answer Yes after January 2021" do # Worked in EU?
+            setup do
+              add_response :after_jan_2021
+            end
+            should "ask has one of your parents ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer Yes before January 2021" do # parents EU?
+              setup do
+                add_response :before_jan_2021
+              end
+              should "go to outcome WFP EEA maybe" do
+                assert_current_node :wfp_going_abroad_eea_maybe_outcome
+              end
+            end
+            context "answer Yes after January 2021" do # parents EU?
+              setup do
+                add_response :after_jan_2021
+              end
+              should "go to outcome WFP EEA maybe" do
+                assert_current_node :wfp_not_eligible_outcome
+              end
+            end
+            context "answer no" do # parents EU?
+              setup do
+                add_response :no
+              end
+              should "go to outcome WFP EEA maybe" do
+                assert_current_node :wfp_not_eligible_outcome
+              end
+            end
+          end
+          context "answer no" do # worked in EU?
+            setup do
+              add_response :no
+            end
+            should "Ask have you ever worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :parents_lived_in_eea_or_switzerland?
+            end
+            context "answer yes before January 2021" do # parents EU?
+              setup do
+                add_response :before_jan_2021
+              end
+              should "go to outcome WFP EEA maybe" do
+                assert_current_node :wfp_going_abroad_eea_maybe_outcome
+              end
+            end
+            context "answer yes after January 2021" do # parents EU?
+              setup do
+                add_response :after_jan_2021
+              end
+              should "go to outcome WFP not eligible" do
+                assert_current_node :wfp_not_eligible_outcome
+              end
+            end
+            context "answer no" do # parents EU?
+              setup do
+                add_response :no
+              end
+              should "go to outcome WFP not eligible" do
+                assert_current_node :wfp_not_eligible_outcome
+              end
+            end
+          end
+        end
+      end
     end
 
     # Maternity benefits
@@ -1356,26 +1453,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to the pension already abroad outcome" do
         assert_current_node :pension_already_abroad_outcome
-      end
-    end
-
-    # Winter Fuel Payment
-    context "answer WFP EEA country" do
-      setup do
-        add_response "winter_fuel_payment"
-        add_response "austria"
-      end
-      should "take you to eligible outcome" do
-        assert_current_node :wfp_eea_eligible_outcome
-      end
-    end
-    context "answer WFP other country" do
-      setup do
-        add_response "winter_fuel_payment"
-        add_response "albania"
-      end
-      should "take you to not eligible outcome" do
-        assert_current_node :wfp_not_eligible_outcome
       end
     end
 

@@ -102,10 +102,10 @@ module SmartAnswer
             end
           when "winter_fuel_payment"
             if calculator.country_eligible_for_winter_fuel_payment?
-              if calculator.going_abroad
-                question :worked_in_eea_or_switzerland?
+              if calculator.going_abroad && calculator.country == "ireland"
+                question :is_british_or_irish?
               else
-                outcome :wfp_eea_eligible_outcome # A7 already_abroad
+                question :worked_in_eea_or_switzerland? # A7 already_abroad
               end
             else
               outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
@@ -655,7 +655,11 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            outcome :jsa_ireland_outcome
+            if calculator.benefit == "jsa"
+              outcome :jsa_ireland_outcome
+            elsif calculator.benefit == "winter_fuel_payment"
+              outcome :wfp_ireland_outcome
+            end
           when "no"
             question :worked_in_eea_or_switzerland?
           end
@@ -755,6 +759,7 @@ module SmartAnswer
       outcome :jsa_channel_islands_outcome
 
       outcome :wfp_going_abroad_eea_maybe_outcome
+      outcome :wfp_ireland_outcome
     end
   end
 end
