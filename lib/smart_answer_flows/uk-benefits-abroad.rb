@@ -606,17 +606,9 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
             elsif calculator.benefit == "esa"
-              if calculator.going_abroad
-                outcome :esa_going_abroad_eea_outcome
-              else
-                outcome :esa_already_abroad_eea_outcome
-              end
+              outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
             elsif calculator.benefit == "disability_benefits"
-              if calculator.going_abroad
-                outcome :db_going_abroad_eea_outcome
-              else
-                outcome :db_already_abroad_eea_outcome
-              end
+              outcome(calculator.going_abroad ? :db_going_abroad_eea_outcome : :db_already_abroad_eea_outcome)
             end
           when "after_jan_2021", "no"
             question :parents_lived_in_eea_or_switzerland?
@@ -637,53 +629,19 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
             elsif calculator.benefit == "esa"
-              if calculator.going_abroad
-                outcome :esa_going_abroad_eea_outcome
-              else
-                outcome :esa_already_abroad_eea_outcome
-              end
+              outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
             elsif calculator.benefit == "disability_benefits"
-              if calculator.going_abroad
-                outcome :db_going_abroad_eea_outcome
-              else
-                outcome :db_already_abroad_eea_outcome
-              end
+              outcome(calculator.going_abroad ? :db_going_abroad_eea_outcome : :db_already_abroad_eea_outcome)
             end
-          when "after_jan_2021"
+          when "after_jan_2021", "no"
             if calculator.benefit == "jsa"
               outcome :jsa_not_entitled_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
             elsif calculator.benefit == "esa"
-              if calculator.going_abroad
-                outcome :esa_going_abroad_other_outcome
-              else
-                outcome :esa_already_abroad_other_outcome
-              end
+              outcome(calculator.going_abroad ? :esa_going_abroad_other_outcome : :esa_already_abroad_other_outcome)
             elsif calculator.benefit == "disability_benefits"
-              if calculator.going_abroad
-                outcome :db_going_abroad_other_outcome
-              else
-                outcome :db_already_abroad_other_outcome
-              end
-            end
-          when "no"
-            if calculator.benefit == "jsa"
-              outcome :jsa_not_entitled_outcome
-            elsif calculator.benefit == "winter_fuel_payment"
-              outcome :wfp_not_eligible_outcome
-            elsif calculator.benefit == "esa"
-              if calculator.going_abroad
-                outcome :esa_going_abroad_other_outcome
-              else
-                outcome :esa_already_abroad_other_outcome
-              end
-            elsif calculator.benefit == "disability_benefits"
-              if calculator.going_abroad
-                outcome :db_going_abroad_other_outcome
-              else
-                outcome :db_already_abroad_other_outcome
-              end
+              outcome(calculator.going_abroad ? :db_going_abroad_other_outcome : :db_already_abroad_other_outcome)
             end
           end
         end
@@ -701,11 +659,7 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_ireland_outcome
             elsif calculator.benefit == "esa"
-              if calculator.going_abroad
-                outcome :esa_going_abroad_eea_outcome
-              else
-                outcome :esa_already_abroad_eea_outcome
-              end
+              outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
             elsif calculator.benefit == "disability_benefits"
               outcome :db_going_abroad_ireland_outcome
             end
@@ -720,14 +674,9 @@ module SmartAnswer
         option :more_than_one_year
 
         next_node do |response|
-          case response
-          when "one_year_or_less"
-            if calculator.channel_islands?
-              outcome :jsa_channel_islands_outcome
-            else
-              outcome :jsa_social_security_going_abroad_outcome
-            end
-          when "more_than_one_year"
+          if response == "one_year_or_less" && calculator.channel_islands?
+            outcome :jsa_channel_islands_outcome
+          else
             outcome :jsa_social_security_going_abroad_outcome
           end
         end
