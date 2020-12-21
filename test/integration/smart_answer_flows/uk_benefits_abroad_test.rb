@@ -43,10 +43,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
 
         context "answer yes before 1 January 2021" do
-          setup do
-            add_response "before_jan_2021"
-          end
           should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/before_jan_2021
+            add_response "before_jan_2021"
             assert_current_node :jsa_eea_going_abroad_maybe_outcome
           end
         end
@@ -60,28 +58,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
 
           context "answer yes before 1 January 2021" do
-            setup do
-              add_response "before_jan_2021"
-            end
             should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/after_jan_2021/before_jan_2021
+              add_response "before_jan_2021"
               assert_current_node :jsa_eea_going_abroad_maybe_outcome
             end
           end
 
           context "answer yes after 1 January 2021" do
-            setup do
-              add_response "after_jan_2021"
-            end
             should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/after_jan_2021/after_jan_2021
+              add_response "after_jan_2021"
               assert_current_node :jsa_not_entitled_outcome
             end
           end
 
           context "no" do
-            setup do
-              add_response "no"
-            end
             should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/after_jan_2021
+              add_response "no"
               assert_current_node :jsa_not_entitled_outcome
             end
           end
@@ -96,28 +88,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
 
           context "answer yes before 1 January 2021" do
-            setup do
-              add_response "before_jan_2021"
-            end
             should "go to the JSA EEA maybe outcome" do # /going_abroad/jsa/austria/no/before_jan_2021
+              add_response "before_jan_2021"
               assert_current_node :jsa_eea_going_abroad_maybe_outcome
             end
           end
 
           context "answer yes after 1 January 2021" do
-            setup do
-              add_response "after_jan_2021"
-            end
             should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/after_jan_2021
+              add_response "after_jan_2021"
               assert_current_node :jsa_not_entitled_outcome
             end
           end
 
           context "no" do
-            setup do
-              add_response "no"
-            end
             should "go to the JSA not entitled outcome" do # /going_abroad/jsa/austria/no/no
+              add_response "no"
               assert_current_node :jsa_not_entitled_outcome
             end
           end
@@ -133,10 +119,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
 
         context "answer yes" do
-          setup do
-            add_response "yes"
-          end
           should "go to JSA Ireland outcome" do
+            add_response "yes"
             assert_current_node :jsa_ireland_outcome
           end
         end
@@ -150,10 +134,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
 
           context "answer before January 2021" do
-            setup do
-              add_response "before_jan_2021"
-            end
             should "go to the JSA EEA maybe outcome" do
+              add_response "before_jan_2021"
               assert_current_node :jsa_eea_going_abroad_maybe_outcome
             end
           end
@@ -166,26 +148,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer before January 2021" do
-              setup do
-                add_response "before_jan_2021"
-              end
               should "go to the JSA EEA maybe outcome" do
+                add_response "before_jan_2021"
                 assert_current_node :jsa_eea_going_abroad_maybe_outcome
               end
             end
             context "answer after January 2021" do
-              setup do
-                add_response "after_jan_2021"
-              end
               should "go to jsa not entitled outcome" do
+                add_response "after_jan_2021"
                 assert_current_node :jsa_not_entitled_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response "no"
-              end
               should "got to jsa not entitled outcome" do
+                add_response "no"
                 assert_current_node :jsa_not_entitled_outcome
               end
             end
@@ -199,28 +175,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer before January 2021" do
-              setup do
-                add_response "before_jan_2021"
-              end
               should "go to maybe jsa outcome" do
+                add_response "before_jan_2021"
                 assert_current_node :jsa_eea_going_abroad_maybe_outcome
               end
             end
 
             context "answer after January 2021" do
-              setup do
-                add_response "after_jan_2021"
-              end
               should "go to jsa not entitled outcome" do
+                add_response "after_jan_2021"
                 assert_current_node :jsa_not_entitled_outcome
               end
             end
 
             context "answer no" do
-              setup do
-                add_response "no"
-              end
               should "go to not entitled outcome" do
+                add_response "no"
                 assert_current_node :jsa_not_entitled_outcome
               end
             end
@@ -237,19 +207,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
 
         context "answer less than one year" do
-          setup do
+          should "go to Channel Islands outcome" do
             add_response "one_year_or_less"
-          end
-          should "go to Jersey Guernsey outcome" do
             assert_current_node :jsa_channel_islands_outcome
           end
         end
 
         context "answer more than one year" do
-          setup do
-            add_response "more_than_one_year"
-          end
           should "go to JSA SS going abroad outcome" do
+            add_response "more_than_one_year"
             assert_current_node :jsa_social_security_going_abroad_outcome
           end
         end
@@ -263,29 +229,23 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :how_long_abroad?
         end
         context "answer 1 year or less" do
-          setup do
-            add_response "one_year_or_less"
-          end
           should "go to JSA SS going abroad outcome" do
+            add_response "one_year_or_less"
             assert_current_node :jsa_social_security_going_abroad_outcome
           end
         end
 
         context "answer more than a year" do
-          setup do
-            add_response "more_than_one_year"
-          end
           should "go to JSA SS going abroad outcome" do
+            add_response "more_than_one_year"
             assert_current_node :jsa_social_security_going_abroad_outcome
           end
         end
       end
 
       context "answer Albania" do
-        setup do
-          add_response "albania"
-        end
         should "go to not entitled outcome" do
+          add_response "albania"
           assert_current_node :jsa_not_entitled_outcome
         end
       end
@@ -307,10 +267,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :worked_in_eea_or_switzerland?
         end
         context "answer before_jan_2021" do
-          setup do
-            add_response :before_jan_2021
-          end
           should "go to outcome WFP EEA maybe" do
+            add_response :before_jan_2021
             assert_current_node :wfp_going_abroad_eea_maybe_outcome
           end
         end
@@ -322,26 +280,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :parents_lived_in_eea_or_switzerland?
           end
           context "answer before_jan_2021" do
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to outcome WFP EEA maybe" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
           context "answer after_jan_2021" do
-            setup do
-              add_response :after_jan_2021
-            end
             should "go to outcome WFP not eligible" do
+              add_response :after_jan_2021
               assert_current_node :wfp_not_eligible_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to outcome WFP not eligible" do
+              add_response :no
               assert_current_node :wfp_not_eligible_outcome
             end
           end
@@ -354,26 +306,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :parents_lived_in_eea_or_switzerland?
           end
           context "answer before_jan_2021" do
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to outcome WFP EEA maybe" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
           context "answer after_jan_2021" do
-            setup do
-              add_response :after_jan_2021
-            end
             should "go to outcome WFP not eligible" do
+              add_response :after_jan_2021
               assert_current_node :wfp_not_eligible_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to outcome WFP not eligible" do
+              add_response :no
               assert_current_node :wfp_not_eligible_outcome
             end
           end
@@ -388,10 +334,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :is_british_or_irish?
         end
         context "answer yes" do # Are you a British or Irish citizen
-          setup do
-            add_response :yes
-          end
           should "go to WFP Ireland outcome" do
+            add_response :yes
             assert_current_node :wfp_ireland_outcome
           end
         end
@@ -403,10 +347,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :worked_in_eea_or_switzerland?
           end
           context "answer Yes before Jan 2021" do # Worked in EU?
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to outcome WFP EEA maybe" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
@@ -418,26 +360,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer Yes before January 2021" do # parents EU?
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to outcome WFP EEA maybe" do
+                add_response :before_jan_2021
                 assert_current_node :wfp_going_abroad_eea_maybe_outcome
               end
             end
             context "answer Yes after January 2021" do # parents EU?
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to outcome WFP EEA maybe" do
+                add_response :after_jan_2021
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
             context "answer no" do # parents EU?
-              setup do
-                add_response :no
-              end
               should "go to outcome WFP EEA maybe" do
+                add_response :no
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
@@ -450,26 +386,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do # parents EU?
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to outcome WFP EEA maybe" do
+                add_response :before_jan_2021
                 assert_current_node :wfp_going_abroad_eea_maybe_outcome
               end
             end
             context "answer yes after January 2021" do # parents EU?
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to outcome WFP not eligible" do
+                add_response :after_jan_2021
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
             context "answer no" do # parents EU?
-              setup do
-                add_response :no
-              end
               should "go to outcome WFP not eligible" do
+                add_response :no
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
@@ -477,19 +407,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
       context "answer Kosovo" do # SS country
-        setup do
-          add_response :kosovo
-        end
         should "go to outcome WFP not eligible" do
+          add_response :kosovo
           assert_current_node :wfp_not_eligible_outcome
         end
       end
 
       context "answer other country" do
-        setup do
-          add_response "albania"
-        end
         should "take you to not eligible outcome" do
+          add_response "albania"
           assert_current_node :wfp_not_eligible_outcome
         end
       end
@@ -504,18 +430,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :esa_how_long_abroad?
       end
       context "answer less than a year for medical treatment" do
-        setup do
-          add_response "esa_under_a_year_medical"
-        end
         should "take you to medical treatment outcome" do
+          add_response "esa_under_a_year_medical"
           assert_current_node :esa_going_abroad_under_a_year_medical_outcome
         end
       end
       context "answer less than a year for different reason" do
-        setup do
-          add_response "esa_under_a_year_other"
-        end
         should "take you to different reason outcome" do
+          add_response "esa_under_a_year_other"
           assert_current_node :esa_going_abroad_under_a_year_other_outcome
         end
       end
@@ -534,10 +456,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :worked_in_eea_or_switzerland?
           end
           context "answer yes before January 2021" do # worked in EEA
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to esa going_abroad eea outcome outcome" do
+              add_response :before_jan_2021
               assert_current_node :esa_going_abroad_eea_outcome
             end
           end
@@ -549,26 +469,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to esa going_abroad eea outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_going_abroad_eea_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to esa going abroad other outcome" do
+                add_response :after_jan_2021
                 assert_current_node :esa_going_abroad_other_outcome
               end
             end
             context "no" do
-              setup do
-                add_response :no
-              end
               should "go to esa going abroad other outcome" do
+                add_response :no
                 assert_current_node :esa_going_abroad_other_outcome
               end
             end
@@ -581,26 +495,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to esa going_abroad eea outcome outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_going_abroad_eea_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to esa going_abroad other outcome" do
+                add_response :after_jan_2021
                 assert_current_node :esa_going_abroad_other_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response :no
-              end
               should "go to esa going_abroad other outcome" do
+                add_response :no
                 assert_current_node :esa_going_abroad_other_outcome
               end
             end
@@ -614,10 +522,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :is_british_or_irish?
           end
           context "answer yes" do
-            setup do
-              add_response :yes
-            end
             should "go to ESA going abroad EEA outcome" do
+              add_response :yes
               assert_current_node :esa_going_abroad_eea_outcome
             end
           end
@@ -629,10 +535,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :worked_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to ESA going abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_going_abroad_eea_outcome
               end
             end
@@ -645,25 +549,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               end
               context "answer yes before January 2021" do
                 setup do
-                  add_response :before_jan_2021
                 end
                 should "go to ESA going abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :esa_going_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to outcome ESA going abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :esa_going_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to outcome ESA going abroad other outcome" do
+                  add_response :no
                   assert_current_node :esa_going_abroad_other_outcome
                 end
               end
@@ -676,26 +576,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before Jan 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to ESA going abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :esa_going_abroad_eea_outcome
                 end
               end
               context "answer yes after Jan 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to outcome ESA going abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :esa_going_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to outcome ESA going abroad other outcome" do
+                  add_response :no
                   assert_current_node :esa_going_abroad_other_outcome
                 end
               end
@@ -703,18 +597,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
         context "answer kosovo" do # SS country
-          setup do
-            add_response "kosovo"
-          end
           should "go to ESA going abroad maybe outcome" do
+            add_response "kosovo"
             assert_current_node :esa_going_abroad_eea_outcome
           end
         end
         context "answer albania" do
-          setup do
-            add_response "albania"
-          end
           should "take you to other outcome" do
+            add_response "albania"
             assert_current_node :esa_going_abroad_other_outcome
           end
         end
@@ -746,27 +636,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
-            setup do
-              add_response "yes"
-            end
             should "take you to SS eligible outcome" do
+              add_response "yes"
               assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response "no"
-            end
             should "take you to can't get SMP but may get MA outcome" do
+              add_response "no"
               assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to can't get SMP but may get MA outcome" do
+            add_response "no"
             assert_current_node :maternity_benefits_social_security_going_abroad_outcome
           end
         end
@@ -787,27 +671,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
-            setup do
-              add_response "yes"
-            end
             should "take you to EEA eligible outcome" do
+              add_response "yes"
               assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response "no"
-            end
             should "take you to can't get SMP but may get MA outcome" do
+              add_response "no"
               assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to the can't get SMP but may get MA outcome" do
+            add_response "no"
             assert_current_node :maternity_benefits_maternity_allowance_outcome
           end
         end
@@ -828,27 +706,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
-            setup do
-              add_response "yes"
-            end
             should "take you to EEA entitled outcome" do
+              add_response "yes"
               assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response "no"
-            end
             should "take you to can't get SMP but may get MA outcome" do
+              add_response "no"
               assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to SS going abroad outcome" do
+            add_response "no"
             assert_current_node :maternity_benefits_social_security_going_abroad_outcome
           end
         end
@@ -869,27 +741,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
-            setup do
-              add_response "yes"
-            end
             should "take you to SS entitled outcome" do
+              add_response "yes"
               assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response "no"
-            end
             should "take you to not entitled outcome" do
+              add_response "no"
               assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to not entitled outcome" do
+            add_response "no"
             assert_current_node :maternity_benefits_not_entitled_outcome
           end
         end
@@ -1014,18 +880,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :working_for_uk_employer_ssp?
         end
         context "answer yes" do
-          setup do
-            add_response "yes"
-          end
           should "take you to the entitled outcome" do
+            add_response "yes"
             assert_current_node :ssp_going_abroad_entitled_outcome
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to not entitled outcome" do
+            add_response "no"
             assert_current_node :ssp_going_abroad_not_entitled_outcome
           end
         end
@@ -1039,18 +901,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :employer_paying_ni?
         end
         context "answer yes" do
-          setup do
-            add_response "yes"
-          end
           should "take you to the entitled outcome" do
+            add_response "yes"
             assert_current_node :ssp_going_abroad_entitled_outcome
           end
         end
         context "answer no" do
-          setup do
-            add_response "no"
-          end
           should "take you to not entitled outcome" do
+            add_response "no"
             assert_current_node :ssp_going_abroad_not_entitled_outcome
           end
         end
@@ -1217,10 +1075,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
 
       context "answer no" do
-        setup do
-          add_response "no"
-        end
         should "take you to maybe outcome" do
+          add_response "no"
           assert_current_node :iidb_maybe_outcome
         end
       end
@@ -1232,42 +1088,32 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :which_country?
         end
         context "answer Ireland" do
-          setup do
-            add_response :ireland
-          end
           should "take you to EEA outcome" do
+            add_response :ireland
             assert_current_node :iidb_going_abroad_eea_outcome
           end
         end
         context "answer Guernsey" do
-          setup do
-            add_response "guernsey"
-          end
           should "take you to SS outcome" do
+            add_response "guernsey"
             assert_current_node :iidb_going_abroad_ss_outcome
           end
         end
         context "answer EEA country" do
-          setup do
-            add_response "austria"
-          end
           should "take you to EEA outcome" do
+            add_response "austria"
             assert_current_node :iidb_going_abroad_eea_outcome
           end
         end
         context "answer SS country" do
-          setup do
-            add_response "kosovo"
-          end
           should "take you to SS outcome" do
+            add_response "kosovo"
             assert_current_node :iidb_going_abroad_ss_outcome
           end
         end
         context "answer other country" do
-          setup do
-            add_response "albania"
-          end
           should "take you to other country outcome" do
+            add_response "albania"
             assert_current_node :iidb_going_abroad_eea_outcome
           end
         end
@@ -1284,10 +1130,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_equal current_state.calculator.how_long_question_titles, "How long will you be abroad for?"
       end
       context "answer temporarily" do
-        setup do
-          add_response "temporary"
-        end
         should "take you to temporary outcome" do
+          add_response "temporary"
           assert_current_node :db_going_abroad_temporary_outcome
         end
       end
@@ -1299,10 +1143,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :which_country?
         end
         context "answer other country" do
-          setup do
-            add_response "albania"
-          end
           should "take you to other country outcome" do
+            add_response "albania"
             assert_current_node :db_going_abroad_other_outcome
           end
         end
@@ -1321,10 +1163,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :worked_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to disability benefits going abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :db_going_abroad_eea_outcome
               end
             end
@@ -1336,26 +1176,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB going abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_going_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to BB going abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :db_going_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to BB going abroad other outcome" do
+                  add_response :no
                   assert_current_node :db_going_abroad_other_outcome
                 end
               end
@@ -1368,36 +1202,28 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB going abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_going_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to DB going abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :db_going_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to DB going abroad other outcome" do
+                  add_response :no
                   assert_current_node :db_going_abroad_other_outcome
                 end
               end
             end
           end
           context "answer no" do
-            setup do
-              add_response "no"
-            end
             should "take you to other outcome" do
+              add_response "no"
               assert_current_node :db_going_abroad_other_outcome
             end
           end
@@ -1417,10 +1243,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :is_british_or_irish?
             end
             context "answer yes" do
-              setup do
-                add_response :yes
-              end
               should "go to DB going abroad Ireland outcome" do
+                add_response :yes
                 assert_current_node :db_going_abroad_ireland_outcome
               end
             end
@@ -1432,10 +1256,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :worked_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB going abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_going_abroad_eea_outcome
                 end
               end
@@ -1447,26 +1269,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                   assert_current_node :parents_lived_in_eea_or_switzerland?
                 end
                 context "answer yes before January 2021" do
-                  setup do
-                    add_response :before_jan_2021
-                  end
                   should "go to DB going abroad EEA outcome" do
+                    add_response :before_jan_2021
                     assert_current_node :db_going_abroad_eea_outcome
                   end
                 end
                 context "answer yes after January 2021" do
-                  setup do
-                    add_response :after_jan_2021
-                  end
                   should "go to DB going abroad other outcome" do
+                    add_response :after_jan_2021
                     assert_current_node :db_going_abroad_other_outcome
                   end
                 end
                 context "answer no" do
-                  setup do
-                    add_response :no
-                  end
                   should "go to DB going abroad other outcome" do
+                    add_response :no
                     assert_current_node :db_going_abroad_other_outcome
                   end
                 end
@@ -1479,26 +1295,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                   assert_current_node :parents_lived_in_eea_or_switzerland?
                 end
                 context "answer yes before January 2021" do
-                  setup do
-                    add_response :before_jan_2021
-                  end
                   should "go to DB going abroad EEA outcome" do
+                    add_response :before_jan_2021
                     assert_current_node :db_going_abroad_eea_outcome
                   end
                 end
                 context "answer yes after January 2021" do
-                  setup do
-                    add_response :after_jan_2021
-                  end
                   should "go to DB goig abroad other outcome" do
+                    add_response :after_jan_2021
                     assert_current_node :db_going_abroad_other_outcome
                   end
                 end
                 context "answer no" do
-                  setup do
-                    add_response :no
-                  end
                   should "go to DB goig abroad other outcome" do
+                    add_response :no
                     assert_current_node :db_going_abroad_other_outcome
                   end
                 end
@@ -1506,19 +1316,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to DB going abroad other outcome" do
+              add_response :no
               assert_current_node :db_going_abroad_other_outcome
             end
           end
         end
         context "answer SS country" do
-          setup do
-            add_response :kosovo
-          end
           should "go to DB going abroad other outcome" do
+            add_response :kosovo
             assert_current_node :db_going_abroad_other_outcome
           end
         end
@@ -1534,34 +1340,26 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country?
       end
       context "answer Guernsey" do
-        setup do
-          add_response "guernsey"
-        end
         should "take you to the SS outcome" do
+          add_response "guernsey"
           assert_current_node :bb_going_abroad_ss_outcome
         end
       end
       context "answer EEA country" do
-        setup do
-          add_response "austria"
-        end
         should "take you to EEA outcome" do
+          add_response "austria"
           assert_current_node :bb_going_abroad_eea_outcome
         end
       end
       context "answer SS country" do
-        setup do
-          add_response "kosovo"
-        end
         should "take you to SS outcome" do
+          add_response "kosovo"
           assert_current_node :bb_going_abroad_ss_outcome
         end
       end
       context "answer other country" do
-        setup do
-          add_response "albania"
-        end
         should "take you to other country outcome" do
+          add_response "albania"
           assert_current_node :bb_going_abroad_other_outcome
         end
       end
@@ -1576,18 +1374,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :is_how_long_abroad?
       end
       context "answer longer than a year" do
-        setup do
-          add_response "is_more_than_a_year"
-        end
         should "take you to more than a year outcome" do
+          add_response "is_more_than_a_year"
           assert_current_node :is_more_than_a_year_outcome
         end
       end
       context "answer less than a year for medical reasons" do
-        setup do
-          add_response "is_under_a_year_medical"
-        end
         should "take you to under a year medical reasons outcome" do
+          add_response "is_under_a_year_medical"
           assert_current_node :is_under_a_year_medical_outcome
         end
       end
@@ -1601,21 +1395,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
 
         context "selects more than one partner premium" do
-          setup do
-            add_response "pension_premium,higher_pensioner"
-          end
-
           should "take you to the carry on claiming 4 weeks outcome" do
+            add_response "pension_premium,higher_pensioner"
             assert_current_node :is_claiming_benefits_outcome
           end
         end
 
         context "selects only one partner premium" do
-          setup do
-            add_response "higher_pensioner"
-          end
-
           should "take you to the carry on claiming 4 weeks outcome" do
+            add_response "higher_pensioner"
             assert_current_node :is_claiming_benefits_outcome
           end
         end
@@ -1647,10 +1435,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :is_abroad_for_treatment?
             end
             context "answer yes" do
-              setup do
-                add_response "yes"
-              end
               should "take you to carry on claiming for 4 weeks outcome" do
+                add_response "yes"
                 assert_current_node :is_abroad_for_treatment_outcome
               end
             end
@@ -1663,31 +1449,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               end
 
               context "selects more than one impairment period" do
-                setup do
-                  add_response "364_days,196_days"
-                end
-
                 should "take you to carry on claiming for 4 weeks outcome" do
+                  add_response "364_days,196_days"
                   assert_current_node :is_abroad_for_treatment_outcome
                 end
               end
 
               context "selects at least one impairment period" do
-                setup do
-                  add_response "364_days"
-                end
-
                 should "take you to carry on claiming for 4 weeks outcome" do
+                  add_response "364_days"
                   assert_current_node :is_abroad_for_treatment_outcome
                 end
               end
 
               context "does not select any impairment period" do
-                setup do
-                  add_response "none"
-                end
-
                 should "take you to not eligible outcome" do
+                  add_response "none"
                   assert_current_node :is_not_eligible_outcome
                 end
               end
@@ -1734,31 +1511,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
 
             context "selects more than one criterion" do
-              setup do
-                add_response "trades_dispute,appealing_against_decision"
-              end
-
               should "take you to not eligible outcome" do
+                add_response "trades_dispute,appealing_against_decision"
                 assert_current_node :is_not_eligible_outcome
               end
             end
 
             context "selects only one criterion" do
-              setup do
-                add_response "trades_dispute"
-              end
-
               should "take you to not eligible outcome" do
+                add_response "trades_dispute"
                 assert_current_node :is_not_eligible_outcome
               end
             end
 
             context "does not select any criteria" do
-              setup do
-                add_response "none"
-              end
-
               should "take you to carry on claiming for 4 weeks outcome" do
+                add_response "none"
                 assert_current_node :is_abroad_for_treatment_outcome
               end
             end
@@ -1797,34 +1565,26 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country?
       end
       context "answer Austria" do # EEA country
-        setup do
-          add_response "austria"
-        end
         should "go to JSA EEA already abroad outcome" do
+          add_response "austria"
           assert_current_node :jsa_eea_already_abroad_outcome
         end
       end
       context "answer Ireland" do # Ireland
-        setup do
-          add_response "ireland"
-        end
         should "go to JSA EEA already abroad outcome" do
+          add_response "ireland"
           assert_current_node :jsa_eea_already_abroad_outcome
         end
       end
       context "answer Kosovo" do # SS country
-        setup do
-          add_response "kosovo"
-        end
         should "go to JSA SS social security already abroad outcome" do
+          add_response "kosovo"
           assert_current_node :jsa_social_security_already_abroad_outcome
         end
       end
       context "answer Albania" do # not EEA or SS country
-        setup do
-          add_response "albania"
-        end
         should "Go to JSA not entitled outcome" do
+          add_response "albania"
           assert_current_node :jsa_not_entitled_outcome
         end
       end
@@ -1845,10 +1605,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :worked_in_eea_or_switzerland?
         end
         context "answer before Jan 2021" do
-          setup do
-            add_response :before_jan_2021
-          end
           should "go to outcome WFP EEA maybe" do
+            add_response :before_jan_2021
             assert_current_node :wfp_going_abroad_eea_maybe_outcome
           end
         end
@@ -1860,26 +1618,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :parents_lived_in_eea_or_switzerland?
           end
           context "answer before Jan 2021" do
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to outcome WFP EEA maybe" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
           context "answer after Jan 2021" do
-            setup do
-              add_response :after_jan_2021
-            end
             should "go to outcome WFP not eligible" do
+              add_response :after_jan_2021
               assert_current_node :wfp_not_eligible_outcome
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to outcome WFP not eligible" do
+              add_response :no
               assert_current_node :wfp_not_eligible_outcome
             end
           end
@@ -1892,26 +1644,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :parents_lived_in_eea_or_switzerland?
           end
           context "answer yes before Janaury 2021" do # parents EU?
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to outcome WFP EEA maybe" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
           context "answer yes after January 2021" do # parents EU?
-            setup do
-              add_response :after_jan_2021
-            end
             should "go to WFP not eligible" do
+              add_response :after_jan_2021
               assert_current_node :wfp_not_eligible_outcome
             end
           end
           context "no" do # parents EU?
-            setup do
-              add_response :no
-            end
             should "go to WFP not eligible" do
+              add_response :no
               assert_current_node :wfp_not_eligible_outcome
             end
           end
@@ -1925,10 +1671,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :is_british_or_irish?
         end
         context "answer yes" do
-          setup do
-            add_response :yes
-          end
           should "go to WFP Ireland outcome" do
+            add_response :yes
             assert_current_node :wfp_ireland_outcome
           end
         end
@@ -1940,10 +1684,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :worked_in_eea_or_switzerland?
           end
           context "answer yes before January 2021" do
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to WFP EEA maybe outcome" do
+              add_response :before_jan_2021
               assert_current_node :wfp_going_abroad_eea_maybe_outcome
             end
           end
@@ -1955,26 +1697,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to WFP EEA maybe outcome" do
+                add_response :before_jan_2021
                 assert_current_node :wfp_going_abroad_eea_maybe_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to WFP not eligible outcome" do
+                add_response :after_jan_2021
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response :no
-              end
               should "go to WFP not eligible outcome" do
+                add_response :no
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
@@ -1987,26 +1723,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to WFP EEA maybe outcome" do
+                add_response :before_jan_2021
                 assert_current_node :wfp_going_abroad_eea_maybe_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to WFP not eligible outcome" do
+                add_response :after_jan_2021
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response :no
-              end
               should "go to WFP not eligible outcome" do
+                add_response :no
                 assert_current_node :wfp_not_eligible_outcome
               end
             end
@@ -2015,19 +1745,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
 
       context "answer Kosovo" do # SS country
-        setup do
-          add_response "kosovo"
-        end
         should "go to WFP not eligible outcome" do
+          add_response "kosovo"
           assert_current_node :wfp_not_eligible_outcome
         end
       end
 
       context "answer Albania" do # other country
-        setup do
-          add_response "albania"
-        end
         should "go to WFP not eligible outcome" do
+          add_response "albania"
           assert_current_node :wfp_not_eligible_outcome
         end
       end
@@ -2035,10 +1761,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
     # State Pension
     context "answer State Pension" do
-      setup do
-        add_response "pension"
-      end
       should "take you to the pension already abroad outcome" do
+        add_response "pension"
         assert_current_node :pension_already_abroad_outcome
       end
     end
@@ -2384,18 +2108,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :esa_how_long_abroad?
       end
       context "answer less than 1 year to get medical treatment" do
-        setup do
-          add_response :esa_under_a_year_medical
-        end
         should "go to ESA already abroad under a year medical outcome" do
+          add_response :esa_under_a_year_medical
           assert_current_node :esa_already_abroad_under_a_year_medical_outcome
         end
       end
       context "answer less than 1 year for a different reason" do
-        setup do
-          add_response :esa_under_a_year_other
-        end
         should "go to ESA already abroad under a year other outcome" do
+          add_response :esa_under_a_year_other
           assert_current_node :esa_already_abroad_under_a_year_other_outcome
         end
       end
@@ -2415,10 +2135,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :worked_in_eea_or_switzerland?
           end
           context "answer yes before January 2021" do
-            setup do
-              add_response :before_jan_2021
-            end
             should "go to ESA already abroad EEA outcome" do
+              add_response :before_jan_2021
               assert_current_node :esa_already_abroad_eea_outcome
             end
           end
@@ -2430,26 +2148,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to ESA already abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_already_abroad_eea_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to ESA already abroad other outcome" do
+                add_response :after_jan_2021
                 assert_current_node :esa_already_abroad_other_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response :no
-              end
               should "go to ESA already abroad other outcome" do
+                add_response :no
                 assert_current_node :esa_already_abroad_other_outcome
               end
             end
@@ -2462,26 +2174,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :parents_lived_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to ESA already abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_already_abroad_eea_outcome
               end
             end
             context "answer yes after January 2021" do
-              setup do
-                add_response :after_jan_2021
-              end
               should "go to ESA already abroad other outcome" do
+                add_response :after_jan_2021
                 assert_current_node :esa_already_abroad_other_outcome
               end
             end
             context "answer no" do
-              setup do
-                add_response :no
-              end
               should "go to ESA already abroad other outcome" do
+                add_response :no
                 assert_current_node :esa_already_abroad_other_outcome
               end
             end
@@ -2496,10 +2202,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :is_british_or_irish?
           end
           context "answer yes" do
-            setup do
-              add_response :yes
-            end
             should "go to ESA already abroad EEA outcome" do
+              add_response :yes
               assert_current_node :esa_already_abroad_eea_outcome
             end
           end
@@ -2511,10 +2215,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :worked_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to ESA already abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :esa_already_abroad_eea_outcome
               end
             end
@@ -2526,26 +2228,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to ESA already abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :esa_already_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to ESA already abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :esa_already_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to ESA already abroad other outcome" do
+                  add_response :no
                   assert_current_node :esa_already_abroad_other_outcome
                 end
               end
@@ -2558,26 +2254,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to ESA already abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :esa_already_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to ESA already abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :esa_already_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to ESA already abroad other outcome" do
+                  add_response :no
                   assert_current_node :esa_already_abroad_other_outcome
                 end
               end
@@ -2586,19 +2276,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
         # SS country
         context "answer Kosovo" do
-          setup do
-            add_response :kosovo
-          end
           should "go to ESA already abroad SS outcome" do
+            add_response :kosovo
             assert_current_node :esa_already_abroad_ss_outcome
           end
         end
         # other country
         context "answer other country" do
-          setup do
-            add_response :albania
-          end
           should "go to ESA already abroad other outcome" do
+            add_response :albania
             assert_current_node :esa_already_abroad_other_outcome
           end
         end
@@ -2653,43 +2339,33 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :which_country?
         end
         context "answer EEA country" do
-          setup do
-            add_response :austria
-          end
           should "go to IIDB already abroad EEA outcome" do
+            add_response :austria
             assert_current_node :iidb_already_abroad_eea_outcome
           end
         end
         context "answer Ireland" do
-          setup do
-            add_response :ireland
-          end
           should "go to IIDB already abroad EEA outcome" do
+            add_response :ireland
             assert_current_node :iidb_already_abroad_eea_outcome
           end
         end
         context "answer SS country" do
-          setup do
-            add_response :kosovo
-          end
           should "go to IIDB already abroad SS outcome" do
+            add_response :kosovo
             assert_current_node :iidb_already_abroad_ss_outcome
           end
         end
         context "answer other country" do
-          setup do
-            add_response :albania
-          end
           should "go to IIDB already abroad EEA outcome" do
+            add_response :albania
             assert_current_node :iidb_already_abroad_eea_outcome
           end
         end
       end
       context "answer no" do
-        setup do
-          add_response :no
-        end
         should "go to IIDB maybe outcome" do
+          add_response :no
           assert_current_node :iidb_maybe_outcome
         end
       end
@@ -2704,10 +2380,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :db_how_long_abroad?
       end
       context "answer temporary" do
-        setup do
-          add_response :temporary
-        end
         should "go to DB already abroad temporary outcome" do
+          add_response :temporary
           assert_current_node :db_already_abroad_temporary_outcome
         end
       end
@@ -2733,10 +2407,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :is_british_or_irish?
             end
             context "answer yes" do
-              setup do
-                add_response :yes
-              end
               should "go to DB going abroad Ireland outcome" do
+                add_response :yes
                 assert_current_node :db_going_abroad_ireland_outcome
               end
             end
@@ -2748,10 +2420,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :worked_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB already abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_already_abroad_eea_outcome
                 end
               end
@@ -2763,26 +2433,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                   assert_current_node :parents_lived_in_eea_or_switzerland?
                 end
                 context "answer yes before January 2021" do
-                  setup do
-                    add_response :before_jan_2021
-                  end
                   should "go to DB already abroad EEA outcome" do
+                    add_response :before_jan_2021
                     assert_current_node :db_already_abroad_eea_outcome
                   end
                 end
                 context "answer yes after January 2021" do
-                  setup do
-                    add_response :after_jan_2021
-                  end
                   should "go to DB already abroad other outcome" do
+                    add_response :after_jan_2021
                     assert_current_node :db_already_abroad_other_outcome
                   end
                 end
                 context "answer no" do
-                  setup do
-                    add_response :no
-                  end
                   should "go to DB already abroad other outcome" do
+                    add_response :no
                     assert_current_node :db_already_abroad_other_outcome
                   end
                 end
@@ -2795,26 +2459,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                   assert_current_node :parents_lived_in_eea_or_switzerland?
                 end
                 context "answer yes before January 2021" do
-                  setup do
-                    add_response :before_jan_2021
-                  end
                   should "go to DB already abroad EEA outcome" do
+                    add_response :before_jan_2021
                     assert_current_node :db_already_abroad_eea_outcome
                   end
                 end
                 context "answer yes after January 2021" do
-                  setup do
-                    add_response :after_jan_2021
-                  end
                   should "go to DB already abroad other outcome" do
+                    add_response :after_jan_2021
                     assert_current_node :db_already_abroad_other_outcome
                   end
                 end
                 context "answer no" do
-                  setup do
-                    add_response :no
-                  end
                   should "go to DB already abroad other outcome" do
+                    add_response :no
                     assert_current_node :db_already_abroad_other_outcome
                   end
                 end
@@ -2822,10 +2480,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to DB already abroad other outcome" do
+              add_response :no
               assert_current_node :db_already_abroad_other_outcome
             end
           end
@@ -2845,10 +2501,8 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               assert_current_node :worked_in_eea_or_switzerland?
             end
             context "answer yes before January 2021" do
-              setup do
-                add_response :before_jan_2021
-              end
               should "go to DB already abroad EEA outcome" do
+                add_response :before_jan_2021
                 assert_current_node :db_already_abroad_eea_outcome
               end
             end
@@ -2860,26 +2514,20 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB already abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_already_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to DB already abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :db_already_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to DB already abroad other outcome" do
+                  add_response :no
                   assert_current_node :db_already_abroad_other_outcome
                 end
               end
@@ -2892,53 +2540,41 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 :parents_lived_in_eea_or_switzerland?
               end
               context "answer yes before January 2021" do
-                setup do
-                  add_response :before_jan_2021
-                end
                 should "go to DB already abroad EEA outcome" do
+                  add_response :before_jan_2021
                   assert_current_node :db_already_abroad_eea_outcome
                 end
               end
               context "answer yes after January 2021" do
-                setup do
-                  add_response :after_jan_2021
-                end
                 should "go to DB already abroad other outcome" do
+                  add_response :after_jan_2021
                   assert_current_node :db_already_abroad_other_outcome
                 end
               end
               context "answer no" do
-                setup do
-                  add_response :no
-                end
                 should "go to DB already abroad other outcome" do
+                  add_response :no
                   assert_current_node :db_already_abroad_other_outcome
                 end
               end
             end
           end
           context "answer no" do
-            setup do
-              add_response :no
-            end
             should "go to DB already abroad other outcome" do
+              add_response :no
               assert_current_node :db_already_abroad_other_outcome
             end
           end
         end
         context "SS country" do
-          setup do
-            add_response :kosovo
-          end
           should "go to DB already abroad other outcome" do
+            add_response :kosovo
             assert_current_node :db_already_abroad_other_outcome
           end
         end
         context "other country" do
-          setup do
-            add_response :albania
-          end
           should "go to DB already abroad other outcome" do
+            add_response :albania
             assert_current_node :db_already_abroad_other_outcome
           end
         end
