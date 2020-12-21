@@ -166,8 +166,10 @@ module SmartAnswer
             end
           when "esa"
             if calculator.going_abroad
-              if calculator.eea_country?
-                outcome :esa_going_abroad_eea_outcome # A29 going_abroad
+              if calculator.country == "ireland"
+                question :is_british_or_irish?
+              elsif calculator.eea_country?
+                question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
               elsif %w[barbados guernsey israel jersey jamaica turkey usa].include?(response)
@@ -612,6 +614,8 @@ module SmartAnswer
               outcome :jsa_eea_going_abroad_maybe_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "after_jan_2021", "no"
             question :parents_lived_in_eea_or_switzerland?
@@ -631,18 +635,24 @@ module SmartAnswer
               outcome :jsa_eea_going_abroad_maybe_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa"
               outcome :jsa_not_entitled_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_other_outcome
             end
           when "no"
             if calculator.benefit == "jsa"
               outcome :jsa_not_entitled_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_other_outcome
             end
           end
         end
@@ -659,6 +669,8 @@ module SmartAnswer
               outcome :jsa_ireland_outcome
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_ireland_outcome
+            elsif calculator.benefit == "esa"
+              outcome :esa_going_abroad_eea_outcome
             end
           when "no"
             question :worked_in_eea_or_switzerland?
