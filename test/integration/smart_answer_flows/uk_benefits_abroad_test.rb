@@ -2385,6 +2385,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
         end
+        # SS country
+        context "answer Kosovo" do
+          setup do
+            add_response :kosovo
+          end
+          should "go to ESA already abroad SS outcome" do
+            assert_current_node :esa_already_abroad_ss_outcome
+          end
+        end
       end
     end
 
