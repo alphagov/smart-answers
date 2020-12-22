@@ -703,23 +703,22 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
         end
-        # context "answer albania" do
-        #   setup do
-        #     add_response "albania"
-        #   end
-        #   should "take you to other outcome" do
-        #     assert_current_node :esa_going_abroad_other_outcome
-        #   end
-        # end
-
-        # context "answer kosovo" do
-        #   setup do
-        #     add_response "kosovo"
-        #   end
-        #   should "take you to other outcome" do
-        #     assert_current_node :esa_going_abroad_eea_outcome
-        #   end
-        # end
+        context "answer kosovo" do # SS country
+          setup do
+            add_response "kosovo"
+          end
+          should "go to ESA going abroad maybe outcome" do
+            assert_current_node :esa_going_abroad_eea_outcome
+          end
+        end
+        context "answer albania" do
+          setup do
+            add_response "albania"
+          end
+          should "take you to other outcome" do
+            assert_current_node :esa_going_abroad_other_outcome
+          end
+        end
       end
     end
 
