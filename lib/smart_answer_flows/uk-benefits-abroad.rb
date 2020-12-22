@@ -128,12 +128,10 @@ module SmartAnswer
             end
           when "iidb"
             if calculator.going_abroad
-              if calculator.eea_country?
+              if calculator.eea_country? || !calculator.social_security_countries_iidb?
                 outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
-              elsif calculator.social_security_countries_iidb?
-                outcome :iidb_going_abroad_ss_outcome # A33 going_abroad
               else
-                outcome :iidb_going_abroad_other_outcome # A34 going_abroad
+                outcome :iidb_going_abroad_ss_outcome # A34 going_abroad
               end
             elsif calculator.already_abroad
               if calculator.eea_country?

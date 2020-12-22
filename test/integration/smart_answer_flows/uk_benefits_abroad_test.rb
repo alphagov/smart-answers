@@ -1207,7 +1207,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # IIDB
+    # Industrial Injuries Disablement Benefit IIDB
     context "answer IIDB" do
       setup do
         add_response "iidb"
@@ -1230,6 +1230,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
         should "take you to country question" do
           assert_current_node :which_country?
+        end
+        context "answer Ireland" do
+          setup do
+            add_response :ireland
+          end
+          should "take you to EEA outcome" do
+            assert_current_node :iidb_going_abroad_eea_outcome
+          end
         end
         context "answer Guernsey" do
           setup do
@@ -1260,7 +1268,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response "albania"
           end
           should "take you to other country outcome" do
-            assert_current_node :iidb_going_abroad_other_outcome
+            assert_current_node :iidb_going_abroad_eea_outcome
           end
         end
       end
@@ -2441,10 +2449,18 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer not claiming IIDB" do
       setup do
         add_response "iidb"
-        add_response "no"
       end
-      should "take you to maybe outcome" do
-        assert_current_node :iidb_maybe_outcome
+      should "ask are you already claiming IIDB" do
+        assert_current_node :iidb_already_claiming?
+      end
+
+      context "answer no" do
+        setup do
+          add_response "no"
+        end
+        should "take you to maybe outcome" do
+          assert_current_node :iidb_maybe_outcome
+        end
       end
     end
     context "answer already claiming, Guernsey" do
