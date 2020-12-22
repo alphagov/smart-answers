@@ -102,7 +102,7 @@ module SmartAnswer
             end
           when "winter_fuel_payment"
             if calculator.country_eligible_for_winter_fuel_payment?
-              if calculator.going_abroad && calculator.country == "ireland"
+              if calculator.country == "ireland"
                 question :is_british_or_irish?
               else
                 question :worked_in_eea_or_switzerland? # A7 already_abroad
