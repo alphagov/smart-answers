@@ -2206,6 +2206,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         should "go ask which country?" do
           assert_current_node :which_country?
         end
+        # EEA country
         context "answer EEA country" do
           setup do
             add_response :austria
@@ -2282,6 +2283,103 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               end
               should "go to ESA already abroad other outcome" do
                 assert_current_node :esa_already_abroad_other_outcome
+              end
+            end
+          end
+        end
+        # Ireland
+        context "answer Ireland" do
+          setup do
+            add_response :ireland
+          end
+          should "ask are you British or Irish" do
+            assert_current_node :is_british_or_irish?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            should "go to ESA already abroad EEA outcome" do
+              assert_current_node :esa_already_abroad_eea_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "ask have you ever lived or worked in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+              assert_current_node :worked_in_eea_or_switzerland?
+            end
+            context "answer yes before January 2021" do
+              setup do
+                add_response :before_jan_2021
+              end
+              should "go to ESA already abroad EEA outcome" do
+                assert_current_node :esa_already_abroad_eea_outcome
+              end
+            end
+            context "answer yes after January 2021" do
+              setup do
+                add_response :after_jan_2021
+              end
+              should "ask Has one of your parents, a spouse, civil partner or partner ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+                assert_current_node :parents_lived_in_eea_or_switzerland?
+              end
+              context "answer yes before January 2021" do
+                setup do
+                  add_response :before_jan_2021
+                end
+                should "go to ESA already abroad EEA outcome" do
+                  assert_current_node :esa_already_abroad_eea_outcome
+                end
+              end
+              context "answer yes after January 2021" do
+                setup do
+                  add_response :after_jan_2021
+                end
+                should "go to ESA already abroad other outcome" do
+                  assert_current_node :esa_already_abroad_other_outcome
+                end
+              end
+              context "answer no" do
+                setup do
+                  add_response :no
+                end
+                should "go to ESA already abroad other outcome" do
+                  assert_current_node :esa_already_abroad_other_outcome
+                end
+              end
+            end
+            context "answer no" do
+              setup do
+                add_response :no
+              end
+              should "ask Has one of your parents, a spouse, civil partner or partner ever lived in an EU country, Norway, Iceland, Liechtenstein or Switzerland?" do
+                assert_current_node :parents_lived_in_eea_or_switzerland?
+              end
+              context "answer yes before January 2021" do
+                setup do
+                  add_response :before_jan_2021
+                end
+                should "go to ESA already abroad EEA outcome" do
+                  assert_current_node :esa_already_abroad_eea_outcome
+                end
+              end
+              context "answer yes after January 2021" do
+                setup do
+                  add_response :after_jan_2021
+                end
+                should "go to ESA already abroad other outcome" do
+                  assert_current_node :esa_already_abroad_other_outcome
+                end
+              end
+              context "answer no" do
+                setup do
+                  add_response :no
+                end
+                should "go to ESA already abroad other outcome" do
+                  assert_current_node :esa_already_abroad_other_outcome
+                end
               end
             end
           end
