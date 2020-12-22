@@ -2447,61 +2447,60 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # IIDB
-    context "answer not claiming IIDB" do
+    context "answer IIDB" do
       setup do
         add_response "iidb"
       end
-      should "ask are you already claiming IIDB" do
+      should "Ask are you currently receiving Industrial Injuries Disablement Benefit?" do
         assert_current_node :iidb_already_claiming?
       end
-
+      context "answer yes" do
+        setup do
+          add_response :yes
+        end
+        should "ask which country?" do
+          assert_current_node :which_country?
+        end
+        context "answer EEA country" do
+          setup do
+            add_response :austria
+          end
+          should "go to IIDB already abroad EEA outcome" do
+            assert_current_node :iidb_already_abroad_eea_outcome
+          end
+        end
+        context "answer Ireland" do
+          setup do
+            add_response :ireland
+          end
+          should "go to IIDB already abroad EEA outcome" do
+            assert_current_node :iidb_already_abroad_eea_outcome
+          end
+        end
+        context "answer SS country" do
+          setup do
+            add_response :kosovo
+          end
+          should "go to IIDB already abroad SS outcome" do
+            assert_current_node :iidb_already_abroad_ss_outcome
+          end
+        end
+        context "answer other country" do
+          setup do
+            add_response :albania
+          end
+          should "go to IIDB already abroad SS outcome" do
+            assert_current_node :iidb_already_abroad_ss_outcome
+          end
+        end
+      end
       context "answer no" do
         setup do
-          add_response "no"
+          add_response :no
         end
-        should "take you to maybe outcome" do
+        should "go to IIDB maybe outcome" do
           assert_current_node :iidb_maybe_outcome
         end
-      end
-    end
-    context "answer already claiming, Guernsey" do
-      setup do
-        add_response "iidb"
-        add_response "yes"
-        add_response "jersey"
-      end
-      should "take you to SS outcome" do
-        assert_current_node :iidb_already_abroad_ss_outcome
-      end
-    end
-    context "answer already claiming, Austria" do
-      setup do
-        add_response "iidb"
-        add_response "yes"
-        add_response "austria"
-      end
-      should "take you to EEA outcome" do
-        assert_current_node :iidb_already_abroad_eea_outcome
-      end
-    end
-    context "answer already claiming, Kosovo" do
-      setup do
-        add_response "iidb"
-        add_response "yes"
-        add_response "kosovo"
-      end
-      should "take you to SS outcome" do
-        assert_current_node :iidb_already_abroad_ss_outcome
-      end
-    end
-    context "answer already claiming, Albania" do
-      setup do
-        add_response "iidb"
-        add_response "yes"
-        add_response "albania"
-      end
-      should "take you to other outcome" do
-        assert_current_node :iidb_already_abroad_other_outcome
       end
     end
 
