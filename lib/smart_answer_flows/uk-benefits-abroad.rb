@@ -183,7 +183,7 @@ module SmartAnswer
               end
             elsif calculator.already_abroad
               if calculator.eea_country?
-                outcome :esa_already_abroad_eea_outcome # A27 already_abroad
+                question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_already_abroad_ss_outcome # A28 already_abroad
               elsif %w[barbados jersey guernsey jamaica turkey usa].include?(response)
@@ -619,7 +619,11 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
             elsif calculator.benefit == "esa"
-              outcome :esa_going_abroad_eea_outcome
+              if calculator.going_abroad
+                outcome :esa_going_abroad_eea_outcome
+              else
+                outcome :esa_already_abroad_eea_outcome
+              end
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa" || calculator.benefit == "winter_fuel_payment" || calculator.benefit == "esa"
@@ -646,7 +650,11 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
             elsif calculator.benefit == "esa"
-              outcome :esa_going_abroad_eea_outcome
+              if calculator.going_abroad
+                outcome :esa_going_abroad_eea_outcome
+              else
+                outcome :esa_already_abroad_eea_outcome
+              end
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa"
@@ -654,7 +662,11 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
             elsif calculator.benefit == "esa"
-              outcome :esa_going_abroad_other_outcome
+              if calculator.going_abroad
+                outcome :esa_going_abroad_other_outcome
+              else
+                outcome :esa_already_abroad_other_outcome
+              end
             end
           when "no"
             if calculator.benefit == "jsa"
@@ -662,7 +674,11 @@ module SmartAnswer
             elsif calculator.benefit == "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
             elsif calculator.benefit == "esa"
-              outcome :esa_going_abroad_other_outcome
+              if calculator.going_abroad
+                outcome :esa_going_abroad_other_outcome
+              else
+                outcome :esa_already_abroad_other_outcome
+              end
             end
           end
         end
