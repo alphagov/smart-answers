@@ -91,7 +91,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    faraday (1.1.0)
+    faraday (1.2.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.13.1)
@@ -124,7 +124,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.8)
-    govuk_publishing_components (23.10.1)
+    govuk_publishing_components (23.10.2)
       govuk_app_config
       kramdown
       plek
@@ -248,7 +248,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     raindrops (0.19.1)
-    rake (13.0.1)
+    rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
