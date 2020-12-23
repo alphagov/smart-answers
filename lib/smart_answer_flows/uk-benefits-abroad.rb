@@ -406,7 +406,7 @@ module SmartAnswer
         next_node do |response|
           if calculator.going_abroad
             if response == "yes"
-              outcome :db_going_abroad_eea_outcome # A37 going_abroad
+              question :worked_in_eea_or_switzerland? # A37 going_abroad
             else
               outcome :db_going_abroad_other_outcome # A36 going_abroad
             end
@@ -618,6 +618,8 @@ module SmartAnswer
               else
                 outcome :esa_already_abroad_eea_outcome
               end
+            elsif calculator.benefit == "disability_benefits"
+              outcome :db_going_abroad_eea_outcome
             end
           when "after_jan_2021", "no"
             question :parents_lived_in_eea_or_switzerland?
@@ -643,6 +645,8 @@ module SmartAnswer
               else
                 outcome :esa_already_abroad_eea_outcome
               end
+            elsif calculator.benefit == "disability_benefits"
+              outcome :db_going_abroad_eea_outcome
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa"
@@ -655,6 +659,8 @@ module SmartAnswer
               else
                 outcome :esa_already_abroad_other_outcome
               end
+            elsif calculator.benefit == "disability_benefits"
+              outcome :db_going_abroad_other_outcome
             end
           when "no"
             if calculator.benefit == "jsa"
@@ -667,6 +673,8 @@ module SmartAnswer
               else
                 outcome :esa_already_abroad_other_outcome
               end
+            elsif calculator.benefit == "disability_benefits"
+              outcome :db_going_abroad_other_outcome
             end
           end
         end
