@@ -416,7 +416,13 @@ module SmartAnswer
             end
           elsif calculator.already_abroad
             if response == "yes"
-              outcome :db_already_abroad_eea_outcome # A36 already_abroad
+              if calculator.country == "ireland"
+                question :is_british_or_irish?
+              elsif calculator.eea_country?
+                question :worked_in_eea_or_switzerland? # A37 going_abroad
+              else
+                outcome :db_already_abroad_eea_outcome # A36 already_abroad
+              end
             else
               outcome :db_already_abroad_other_outcome # A35 already_abroad
             end
@@ -623,7 +629,11 @@ module SmartAnswer
                 outcome :esa_already_abroad_eea_outcome
               end
             elsif calculator.benefit == "disability_benefits"
-              outcome :db_going_abroad_eea_outcome
+              if calculator.going_abroad
+                outcome :db_going_abroad_eea_outcome
+              else
+                outcome :db_already_abroad_eea_outcome
+              end
             end
           when "after_jan_2021", "no"
             question :parents_lived_in_eea_or_switzerland?
@@ -650,7 +660,11 @@ module SmartAnswer
                 outcome :esa_already_abroad_eea_outcome
               end
             elsif calculator.benefit == "disability_benefits"
-              outcome :db_going_abroad_eea_outcome
+              if calculator.going_abroad
+                outcome :db_going_abroad_eea_outcome
+              else
+                outcome :db_already_abroad_eea_outcome
+              end
             end
           when "after_jan_2021"
             if calculator.benefit == "jsa"
@@ -664,7 +678,11 @@ module SmartAnswer
                 outcome :esa_already_abroad_other_outcome
               end
             elsif calculator.benefit == "disability_benefits"
-              outcome :db_going_abroad_other_outcome
+              if calculator.going_abroad
+                outcome :db_going_abroad_other_outcome
+              else
+                outcome :db_already_abroad_other_outcome
+              end
             end
           when "no"
             if calculator.benefit == "jsa"
@@ -678,7 +696,11 @@ module SmartAnswer
                 outcome :esa_already_abroad_other_outcome
               end
             elsif calculator.benefit == "disability_benefits"
-              outcome :db_going_abroad_other_outcome
+              if calculator.going_abroad
+                outcome :db_going_abroad_other_outcome
+              else
+                outcome :db_already_abroad_other_outcome
+              end
             end
           end
         end
