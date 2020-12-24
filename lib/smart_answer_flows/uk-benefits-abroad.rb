@@ -31,13 +31,13 @@ module SmartAnswer
         option :pension
         option :winter_fuel_payment
         option :maternity_benefits
-        option :child_benefit
+        # option :child_benefit
         option :iidb
         option :ssp
         option :esa
         option :disability_benefits
         option :bereavement_benefits
-        option :tax_credits
+        # option :tax_credits
         option :income_support
 
         on_response do |response|
