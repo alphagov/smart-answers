@@ -522,23 +522,6 @@ module SmartAnswer
       end
 
       # Going abroad questions
-      # Going abroad Q3 going_abroad
-      radio :jsa_how_long_abroad? do
-        option :less_than_a_year_medical
-        option :less_than_a_year_other
-        option :more_than_a_year
-
-        next_node do |response|
-          case response
-          when "less_than_a_year_medical"
-            outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
-          when "less_than_a_year_other"
-            outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
-          when "more_than_a_year"
-            question :which_country?
-          end
-        end
-      end
       # Going abroad Q18 (tax credits) and Q17 already_abroad
       radio :tax_credits_how_long_abroad? do
         option :tax_credits_up_to_a_year
