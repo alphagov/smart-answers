@@ -751,13 +751,9 @@ module SmartAnswer
       end
 
       outcome :pension_going_abroad_outcome # A2 going_abroad
-      outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
-      outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
-      outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
       outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
       outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
       outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
-      outcome :wfp_going_abroad_outcome # A9 going_abroad
       outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
       outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
       outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
@@ -771,7 +767,6 @@ module SmartAnswer
       outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
       outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
       outcome :pension_already_abroad_outcome # A2 already_abroad
-      outcome :wfp_eea_eligible_outcome # A7 already_abroad
       outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
       outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
       outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
@@ -789,7 +784,6 @@ module SmartAnswer
       outcome :esa_going_abroad_other_outcome # A30 going_abroad
       outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
       outcome :iidb_going_abroad_ss_outcome # A33 going_abroad
-      outcome :iidb_going_abroad_other_outcome # A34 going_abroad
       outcome :db_going_abroad_temporary_outcome # A35 going_abroad
       outcome :db_going_abroad_other_outcome # A36 going_abroad
       outcome :db_going_abroad_eea_outcome # A37 going_abroad
