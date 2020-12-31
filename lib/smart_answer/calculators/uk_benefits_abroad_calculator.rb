@@ -89,7 +89,12 @@ module SmartAnswer::Calculators
     end
 
     def social_security_countries_jsa?
-      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[guernsey jersey new-zealand]).include?(country)
+      if going_abroad
+        (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[guernsey jersey new-zealand]).include?(country)
+      else
+        (COUNTRIES_OF_FORMER_YUGOSLAVIA +
+        %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
+      end
     end
 
     def social_security_countries_iidb?
@@ -104,6 +109,10 @@ module SmartAnswer::Calculators
 
     def employer_paying_ni_not_ssp_country_entitled?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[barbados guernsey jersey israel turkey]).include?(country)
+    end
+
+    def channel_islands?
+      %w[jersey guernsey].include?(country)
     end
 
     def state_benefits
