@@ -31,8 +31,6 @@ module SmartAnswer
             question :what_sort_of_travel_document?
           elsif calculator.passport_country_is_ireland?
             outcome :outcome_no_visa_needed_ireland
-          elsif calculator.passport_country_in_eea?
-            question :when_are_you_coming_to_the_uk?
           else
             question :purpose_of_visit?
           end
@@ -84,24 +82,6 @@ module SmartAnswer
 
         next_node do |_|
           question :purpose_of_visit?
-        end
-      end
-
-      # Q1g / Q1h
-      radio :when_are_you_coming_to_the_uk? do
-        option :before_2021
-        option :from_2021
-
-        on_response do |response|
-          calculator.when_coming_to_uk_answer = response
-        end
-
-        next_node do |response|
-          if response == "before_2021"
-            outcome :outcome_no_visa_needed
-          else
-            question :purpose_of_visit?
-          end
         end
       end
 
@@ -255,7 +235,9 @@ module SmartAnswer
 
         next_node do |response|
           if response == "yes"
-            question :article_10_card?
+            outcome :outcome_tourism_visa_partner
+          elsif calculator.family_visit?
+            question :partner_family_british_citizen?
           else
             outcome :outcome_standard_visitor_visa
           end
@@ -263,22 +245,6 @@ module SmartAnswer
       end
 
       # Q6
-      radio :article_10_card? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            outcome :outcome_no_visa_needed
-          elsif calculator.family_visit?
-            question :partner_family_british_citizen?
-          else
-            outcome :outcome_tourism_visa_partner
-          end
-        end
-      end
-
-      # Q7
       radio :partner_family_british_citizen? do
         option :yes
         option :no
@@ -292,7 +258,7 @@ module SmartAnswer
         end
       end
 
-      # Q8
+      # Q7
       radio :partner_family_eea? do
         option :yes
         option :no
@@ -441,7 +407,7 @@ module SmartAnswer
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
             next outcome(:outcome_joining_family_nvn)
           else
-            next question(:article_10_card?)
+            next question(:partner_family_british_citizen?)
           end
         end
       end

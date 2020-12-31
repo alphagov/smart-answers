@@ -5,12 +5,6 @@
 <% govspeak_for :body do %>
   The visa you apply for depends on your circumstances.
 
-  <% if calculator.passport_country_is_turkey? %>
-    ###Turkish nationals
-
-    You can apply for a [Turkish business person visa](/turkish-business-person) if you want to come and set up a business in the UK.
-  <% end %>
-
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   ###Skilled workers
