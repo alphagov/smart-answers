@@ -7,7 +7,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
+    travel_to Time.zone.local(2020)
     setup_for_testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow
+  end
+
+  teardown do
+    travel_back
   end
 
   should "ask what the basis of the calculation is" do
