@@ -124,8 +124,8 @@ module SmartAnswer
 
       checkbox_question :closed_by_restrictions? do
         option :local_1
-        option :national
         option :local_2
+        option :national
         none_option
 
         on_response do |response|
