@@ -126,7 +126,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.8)
-    govuk_publishing_components (23.11.0)
+    govuk_publishing_components (23.11.1)
       govuk_app_config
       kramdown
       plek
@@ -145,7 +145,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.8.5)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     inflection (1.0.0)
     jasmine (3.6.0)
