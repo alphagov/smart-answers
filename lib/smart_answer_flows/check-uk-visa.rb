@@ -57,17 +57,14 @@ module SmartAnswer
         option :alien
 
         next_node do |response|
-          case response
-          when "citizen"
-            outcome :outcome_no_visa_needed
-          when "alien"
+          if response == "alien"
             if calculator.passport_country_is_estonia?
               calculator.passport_country = "estonia-alien-passport"
             elsif calculator.passport_country_is_latvia?
               calculator.passport_country = "latvia-alien-passport"
             end
-            question :purpose_of_visit?
           end
+          question :purpose_of_visit?
         end
       end
 
@@ -385,9 +382,7 @@ module SmartAnswer
         end
 
         if calculator.transit_visit?
-          if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia?
-            next outcome(:outcome_no_visa_needed)
-          elsif calculator.passport_country_in_datv_list? ||
+          if calculator.passport_country_in_datv_list? ||
               calculator.passport_country_in_visa_national_list? ||
               calculator.passport_country_is_taiwan? ||
               calculator.passport_country_is_venezuela? ||
