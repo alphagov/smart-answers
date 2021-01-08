@@ -22,11 +22,6 @@ $govuk-compatibility-govuktemplate: true;
 @import "govuk_publishing_components/components/step-by-step-nav-related";
 @import "govuk_publishing_components/components/title";
 
-.warning {
-  border-left: 6px solid red;
-  padding: 0.5em 2em;
-}
-
 .paper {
   min-height: 600px;
   margin: 2em auto;

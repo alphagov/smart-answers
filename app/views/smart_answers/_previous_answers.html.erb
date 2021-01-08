@@ -9,7 +9,12 @@
           margin_bottom: 6
         } %>
       <% else %>
-        <h2 class="govuk-heading-m">Your answers</h2>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Your answers",
+          heading_level: 2,
+          font_size: "m",
+          margin_bottom: 4
+        } %>
       <% end %>
 
       <p class="govuk-body">
