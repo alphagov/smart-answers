@@ -25,3 +25,17 @@ updates:
         dependency-type: direct
       - dependency-name: sassc-rails
         dependency-type: direct
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    allow:
+      # Internal packages
+      - dependency-name: stylelint-config-gds
+        dependency-type: direct
+      # Framework packages
+      - dependency-name: standardx
+        dependency-type: direct
+      - dependency-name: stylelint
+        dependency-type: direct

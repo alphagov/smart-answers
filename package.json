@@ -1,0 +1,35 @@
+{
+  "name": "smart-answers",
+  "description": "Frontend application for GOV.UK",
+  "private": true,
+  "author": "Government Digital Service",
+  "license": "MIT",
+  "scripts": {
+    "lint": "yarn run lint:js && yarn run lint:scss",
+    "lint:js": "standardx 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
+    "lint:scss": "stylelint app/assets/stylesheets/"
+  },
+  "standardx": {
+    "env": {
+      "browser": true,
+      "jquery": true,
+      "jasmine": true
+    },
+    "globals": [
+      "GOVUK"
+    ]
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-var": 0
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-gds/scss"
+  },
+  "devDependencies": {
+    "standardx": "^7.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-gds": "^0.1.0"
+  }
+}
