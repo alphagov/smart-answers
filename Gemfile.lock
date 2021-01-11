@@ -314,8 +314,6 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
       nokogumbo (~> 2.0)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -431,7 +429,7 @@ DEPENDENCIES
   railties
   rspec-rails
   rubocop-govuk
-  sass-rails
+  sassc-rails
   shoulda
   simplecov
   simplecov-rcov
