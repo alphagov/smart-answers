@@ -42,7 +42,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "ci_reporter"
   gem "launchy"
   gem "minitest"
   gem "minitest-focus"
