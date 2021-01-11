@@ -11,6 +11,6 @@
 //= require modules/track-responses
 
 window.addEventListener('DOMContentLoaded', function () {
-  var error = document.getElementById('current-error');
+  var error = document.getElementById('current-error')
   if (error) { error.focus() }
 })

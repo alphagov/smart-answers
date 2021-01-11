@@ -5,26 +5,26 @@ describe('Track responses', function () {
   GOVUK.analytics = GOVUK.analytics || {}
   GOVUK.analytics.trackEvent = function () {}
 
-  describe('checkbox question', function() {
+  describe('checkbox question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'checkbox_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var fieldset = document.createElement('fieldset');
+      var fieldset = document.createElement('fieldset')
 
       var checkboxes = [
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {value: "furniture"}
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { value: 'furniture' }
       ]
 
-      checkboxes.forEach(function(checkbox, index){
+      checkboxes.forEach(function (checkbox, index) {
         var id = 'checkbox-' + index
         var checkbox_wrapper = document.createElement('div')
         var input = document.createElement('input')
@@ -99,26 +99,26 @@ describe('Track responses', function () {
     })
   })
 
-  describe('radio question', function() {
+  describe('radio question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'radio_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var fieldset = document.createElement('fieldset');
+      var fieldset = document.createElement('fieldset')
 
       var radios = [
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {label: "Furniture label", value: "furniture"}
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { label: 'Furniture label', value: 'furniture' }
       ]
 
-      radios.forEach(function(radio, index){
+      radios.forEach(function (radio, index) {
         var id = 'radio-' + index
         var radio_wrapper = document.createElement('div')
         var input = document.createElement('input')
@@ -180,28 +180,28 @@ describe('Track responses', function () {
     })
   })
 
-  describe('select question', function() {
+  describe('select question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'country_select_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var select = document.createElement('select');
+      var select = document.createElement('select')
       select.name = 'select_question'
 
       var selectOptions = [
-        {label: "Select option", value: ""},
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {label: "Furniture label", value: "furniture"}
+        { label: 'Select option', value: '' },
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { label: 'Furniture label', value: 'furniture' }
       ]
 
-      selectOptions.forEach(function(opt, index){
+      selectOptions.forEach(function (opt, index) {
         var option = document.createElement('option')
         option.value = opt.value
         option.innerText = opt.label
@@ -233,7 +233,7 @@ describe('Track responses', function () {
     })
 
     it('tracks selected option when clicking submit', function () {
-      form.querySelector('select[name="select_question"]').value = "accommodation"
+      form.querySelector('select[name="select_question"]').value = 'accommodation'
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
