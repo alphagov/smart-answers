@@ -26,23 +26,23 @@ describe('Track responses', function () {
 
       checkboxes.forEach(function (checkbox, index) {
         var id = 'checkbox-' + index
-        var checkbox_wrapper = document.createElement('div')
+        var checkboxWrapper = document.createElement('div')
         var input = document.createElement('input')
         input.type = 'checkbox'
         input.id = id
         input.name = 'checkbox_question[]'
         input.value = checkbox.value
 
-        checkbox_wrapper.appendChild(input)
+        checkboxWrapper.appendChild(input)
 
         if (checkbox.label) {
           var label = document.createElement('label')
           label.setAttribute('for', id)
           label.innerText = checkbox.label
-          checkbox_wrapper.appendChild(label)
+          checkboxWrapper.appendChild(label)
         }
 
-        fieldset.appendChild(checkbox_wrapper)
+        fieldset.appendChild(checkboxWrapper)
       })
 
       element.appendChild(fieldset)
@@ -120,23 +120,23 @@ describe('Track responses', function () {
 
       radios.forEach(function (radio, index) {
         var id = 'radio-' + index
-        var radio_wrapper = document.createElement('div')
+        var radioWrapper = document.createElement('div')
         var input = document.createElement('input')
         input.type = 'radio'
         input.id = id
         input.name = 'radio_question'
         input.value = radio.value
 
-        radio_wrapper.appendChild(input)
+        radioWrapper.appendChild(input)
 
         if (radio.label) {
           var label = document.createElement('label')
           label.setAttribute('for', id)
           label.innerText = radio.label
-          radio_wrapper.appendChild(label)
+          radioWrapper.appendChild(label)
         }
 
-        fieldset.appendChild(radio_wrapper)
+        fieldset.appendChild(radioWrapper)
       })
 
       element.appendChild(fieldset)

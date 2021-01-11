@@ -1,3 +1,5 @@
+/* global _, joint, V, adjacencyList */
+
 (function () {
   'use strict'
 
@@ -16,7 +18,7 @@
     _.each(adjacencyList, function (edges, parentElementId) {
       var parentElementLabel = labels[parentElementId] || ''
 
-      elements.push(makeElement(parentElementId, parentElementLabel, edges.length == 0))
+      elements.push(makeElement(parentElementId, parentElementLabel, edges.length === 0))
 
       _.each(edges, function (childElementRecord) {
         links.push(makeLink(parentElementId, childElementRecord[0], childElementRecord[1]))
@@ -109,7 +111,7 @@
     var rankDir = 'TB'
 
     function toggleRankdir () {
-      rankDir = rankDir == 'LR' ? 'TB' : 'LR'
+      rankDir = rankDir === 'LR' ? 'TB' : 'LR'
       layout()
     }
 
@@ -121,7 +123,7 @@
         rankDir: rankDir,
         rankSep: 100
       })
-      if (rankDir == 'LR') {
+      if (rankDir === 'LR') {
         toggleButton.text('Show in portrait')
       } else {
         toggleButton.text('Show in landscape')

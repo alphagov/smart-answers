@@ -1,9 +1,10 @@
-var SmartAnswer = SmartAnswer || {}
+var SmartAnswer = window.SmartAnswer || {}
+
 SmartAnswer.isStartPage = function (slug) { // Used mostly during A/B testing
-  return window.location.pathname.split('/').join('') == slug
+  return window.location.pathname.split('/').join('') === slug
 }
 
-function trackInternalLinks (rootSelector) {
+function trackInternalLinks (rootSelector) { // eslint-disable-line no-unused-vars
   rootSelector = rootSelector || 'body'
   var currentHost = document.location.protocol + '//' + document.location.hostname
   var internalLinkSelector = 'a[href^="' + currentHost + '"], a[href^="/"]'
