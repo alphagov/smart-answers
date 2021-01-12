@@ -15,3 +15,8 @@ tmp/
 coverage
 
 .byebug_history
+public/assets
+
+# Yarn
+node_modules
+yarn-error.log

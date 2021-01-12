@@ -9,11 +9,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       track(element[0])
     }
 
-    function getQuestionKey(submittedForm) {
-      return submittedForm.getAttribute('data-question-key');
+    function getQuestionKey (submittedForm) {
+      return submittedForm.getAttribute('data-question-key')
     }
 
-    function getResponseLabelsForRadio(submittedForm) {
+    function getResponseLabelsForRadio (submittedForm) {
       var labels = []
       var checkedOptions = submittedForm.querySelectorAll('input:checked')
 
@@ -29,13 +29,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           labels.push(eventLabel)
         })
       } else {
-        labels.push("no response")
+        labels.push('no response')
       }
 
       return labels
     }
 
-    function getResponseLabelsForSelectOption(submittedForm) {
+    function getResponseLabelsForSelectOption (submittedForm) {
       var labels = []
       var selectInputs = submittedForm.querySelectorAll('select')
 
@@ -48,7 +48,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             var eventLabel = label.length ? label : value
             labels.push(eventLabel)
           } else {
-            labels.push("no response")
+            labels.push('no response')
           }
         })
       }
@@ -56,7 +56,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return labels
     }
 
-    function getResponseLabels(submittedForm) {
+    function getResponseLabels (submittedForm) {
       var responseLabels = []
       var questionType = submittedForm.getAttribute('data-type')
 
@@ -83,7 +83,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         var questionKey = getQuestionKey(submittedForm)
         var responseLabels = getResponseLabels(submittedForm)
 
-        responseLabels.forEach(function(label){
+        responseLabels.forEach(function (label) {
           var options = { transport: 'beacon', label: label }
           GOVUK.analytics.trackEvent('question_answer', questionKey, options)
         })

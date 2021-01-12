@@ -5,44 +5,44 @@ describe('Track responses', function () {
   GOVUK.analytics = GOVUK.analytics || {}
   GOVUK.analytics.trackEvent = function () {}
 
-  describe('checkbox question', function() {
+  describe('checkbox question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'checkbox_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var fieldset = document.createElement('fieldset');
+      var fieldset = document.createElement('fieldset')
 
       var checkboxes = [
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {value: "furniture"}
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { value: 'furniture' }
       ]
 
-      checkboxes.forEach(function(checkbox, index){
+      checkboxes.forEach(function (checkbox, index) {
         var id = 'checkbox-' + index
-        var checkbox_wrapper = document.createElement('div')
+        var checkboxWrapper = document.createElement('div')
         var input = document.createElement('input')
         input.type = 'checkbox'
         input.id = id
         input.name = 'checkbox_question[]'
         input.value = checkbox.value
 
-        checkbox_wrapper.appendChild(input)
+        checkboxWrapper.appendChild(input)
 
         if (checkbox.label) {
           var label = document.createElement('label')
           label.setAttribute('for', id)
           label.innerText = checkbox.label
-          checkbox_wrapper.appendChild(label)
+          checkboxWrapper.appendChild(label)
         }
 
-        fieldset.appendChild(checkbox_wrapper)
+        fieldset.appendChild(checkboxWrapper)
       })
 
       element.appendChild(fieldset)
@@ -99,44 +99,44 @@ describe('Track responses', function () {
     })
   })
 
-  describe('radio question', function() {
+  describe('radio question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'radio_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var fieldset = document.createElement('fieldset');
+      var fieldset = document.createElement('fieldset')
 
       var radios = [
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {label: "Furniture label", value: "furniture"}
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { label: 'Furniture label', value: 'furniture' }
       ]
 
-      radios.forEach(function(radio, index){
+      radios.forEach(function (radio, index) {
         var id = 'radio-' + index
-        var radio_wrapper = document.createElement('div')
+        var radioWrapper = document.createElement('div')
         var input = document.createElement('input')
         input.type = 'radio'
         input.id = id
         input.name = 'radio_question'
         input.value = radio.value
 
-        radio_wrapper.appendChild(input)
+        radioWrapper.appendChild(input)
 
         if (radio.label) {
           var label = document.createElement('label')
           label.setAttribute('for', id)
           label.innerText = radio.label
-          radio_wrapper.appendChild(label)
+          radioWrapper.appendChild(label)
         }
 
-        fieldset.appendChild(radio_wrapper)
+        fieldset.appendChild(radioWrapper)
       })
 
       element.appendChild(fieldset)
@@ -180,28 +180,28 @@ describe('Track responses', function () {
     })
   })
 
-  describe('select question', function() {
+  describe('select question', function () {
     var tracker, form
 
-    var createForm = function() {
-      var element = document.createElement('form');
+    var createForm = function () {
+      var element = document.createElement('form')
       element.setAttribute('onsubmit', 'event.preventDefault()')
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'country_select_question')
       element.setAttribute('data-question-key', 'question-key')
       element.setAttribute('method', 'post')
 
-      var select = document.createElement('select');
+      var select = document.createElement('select')
       select.name = 'select_question'
 
       var selectOptions = [
-        {label: "Select option", value: ""},
-        {label: "Construction label", value: "construction"},
-        {label: "Accommodation label", value: "accommodation"},
-        {label: "Furniture label", value: "furniture"}
+        { label: 'Select option', value: '' },
+        { label: 'Construction label', value: 'construction' },
+        { label: 'Accommodation label', value: 'accommodation' },
+        { label: 'Furniture label', value: 'furniture' }
       ]
 
-      selectOptions.forEach(function(opt, index){
+      selectOptions.forEach(function (opt, index) {
         var option = document.createElement('option')
         option.value = opt.value
         option.innerText = opt.label
@@ -233,7 +233,7 @@ describe('Track responses', function () {
     })
 
     it('tracks selected option when clicking submit', function () {
-      form.querySelector('select[name="select_question"]').value = "accommodation"
+      form.querySelector('select[name="select_question"]').value = 'accommodation'
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(

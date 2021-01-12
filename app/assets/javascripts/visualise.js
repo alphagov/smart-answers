@@ -1,36 +1,37 @@
-(function() {
-  "use strict";
+/* global _, joint, V, adjacencyList */
 
-  var linkBackground = '#fff',
-    outcomeBackground = '#d5e8f3',
-    questionBackground = '#fff',
-    strokeColour = '#333';
+(function () {
+  'use strict'
+
+  var linkBackground = '#fff'
+  var outcomeBackground = '#d5e8f3'
+  var questionBackground = '#fff'
+  var strokeColour = '#333'
 
   // Helpers.
   // --------
 
-  function buildGraphFromAdjacencyList(labels, adjacencyList) {
+  function buildGraphFromAdjacencyList (labels, adjacencyList) {
+    var elements = []
+    var links = []
 
-      var elements = [];
-      var links = [];
+    _.each(adjacencyList, function (edges, parentElementId) {
+      var parentElementLabel = labels[parentElementId] || ''
 
-      _.each(adjacencyList, function(edges, parentElementId) {
-          var parentElementLabel = labels[parentElementId] || "";
+      elements.push(makeElement(parentElementId, parentElementLabel, edges.length === 0))
 
-          elements.push(makeElement(parentElementId, parentElementLabel, edges.length==0));
+      _.each(edges, function (childElementRecord) {
+        links.push(makeLink(parentElementId, childElementRecord[0], childElementRecord[1]))
+      })
+    })
 
-          _.each(edges, function(childElementRecord) {
-              links.push(makeLink(parentElementId, childElementRecord[0], childElementRecord[1]));
-          });
-      });
-
-      // Links must be added after all the elements. This is because when the links
-      // are added to the graph, link source/target
-      // elements must be in the graph already.
-      return elements.concat(links);
+    // Links must be added after all the elements. This is because when the links
+    // are added to the graph, link source/target
+    // elements must be in the graph already.
+    return elements.concat(links)
   }
 
-  function makeLink(parentElementId, childElementId, edgeLabel) {
+  function makeLink (parentElementId, childElementId, edgeLabel) {
     return new joint.dia.Link({
       source: { id: parentElementId },
       target: { id: childElementId },
@@ -47,17 +48,17 @@
         }
       ],
       smooth: true
-    });
+    })
   }
 
-  function makeElement(id, label, isOutcome) {
-    var maxLineLength = _.max(label.split('\n'), function(l) { return l.length; }).length;
+  function makeElement (id, label, isOutcome) {
+    var maxLineLength = _.max(label.split('\n'), function (l) { return l.length }).length
 
     // Compute approx width/height of the rectangle based on the number
     // of lines in the label and the letter size.
-    var letterSize = 16;
-    var width = 2 * (letterSize * (0.26 * maxLineLength + 1));
-    var height = 2 * ((label.split('\n').length + 1) * letterSize * 0.5);
+    var letterSize = 16
+    var width = 2 * (letterSize * (0.26 * maxLineLength + 1))
+    var height = 2 * ((label.split('\n').length + 1) * letterSize * 0.5)
 
     var rectProperties = {
       width: width,
@@ -66,16 +67,16 @@
       ry: 5,
       stroke: strokeColour,
       'stroke-width': 1
-    };
+    }
 
     if (isOutcome) {
       rectProperties = $.extend(rectProperties, {
         fill: outcomeBackground
-      });
+      })
     } else {
       rectProperties = $.extend(rectProperties, {
         fill: questionBackground
-      });
+      })
     }
 
     var properties = {
@@ -85,54 +86,54 @@
         text: { text: label, 'font-size': letterSize },
         rect: rectProperties
       }
-    };
-    return new joint.shapes.basic.Rect(properties);
+    }
+    return new joint.shapes.basic.Rect(properties)
   }
 
   // Main.
   // -----
 
-  $(document).ready(function() {
-      var graph = new joint.dia.Graph;
+  $(document).ready(function () {
+    var graph = new joint.dia.Graph()
 
-      var paper = new joint.dia.Paper({
-          el: $('#paper'),
-          gridSize: 2,
-          model: graph
-      });
+    var paper = new joint.dia.Paper({
+      el: $('#paper'),
+      gridSize: 2,
+      model: graph
+    })
 
-      // Just give the viewport a little padding.
-      V(paper.viewport).translate(20, 20);
+    // Just give the viewport a little padding.
+    V(paper.viewport).translate(20, 20)
 
-      var toggleButton = $('[data-click-action=visualise]');
-      toggleButton.on('click', toggleRankdir);
+    var toggleButton = $('[data-click-action=visualise]')
+    toggleButton.on('click', toggleRankdir)
 
-      var rankDir = 'TB';
+    var rankDir = 'TB'
 
-      function toggleRankdir() {
-        rankDir = rankDir == 'LR' ? 'TB' : 'LR';
-        layout();
+    function toggleRankdir () {
+      rankDir = rankDir === 'LR' ? 'TB' : 'LR'
+      layout()
+    }
+
+    function layout () {
+      var cells = buildGraphFromAdjacencyList(adjacencyList.labels, adjacencyList.adjacencyList)
+      graph.resetCells(cells)
+      joint.layout.DirectedGraph.layout(graph, {
+        setLinkVertices: false,
+        rankDir: rankDir,
+        rankSep: 100
+      })
+      if (rankDir === 'LR') {
+        toggleButton.text('Show in portrait')
+      } else {
+        toggleButton.text('Show in landscape')
       }
-
-      function layout() {
-        var cells = buildGraphFromAdjacencyList(adjacencyList['labels'], adjacencyList['adjacencyList']);
-        graph.resetCells(cells);
-        joint.layout.DirectedGraph.layout(graph, {
-          setLinkVertices: false,
-          rankDir: rankDir,
-          rankSep: 100
-        });
-        if (rankDir == 'LR') {
-          toggleButton.text('Show in portrait');
-        } else {
-          toggleButton.text('Show in landscape');
-        }
-        var padding = 400;
-        paper.fitToContent(10, 10, padding);
-        var bbox = V(paper.viewport).bbox()
-        $('#paper').width(bbox.width + padding);
-        $('#paper').height(bbox.height + padding);
-      }
-      layout();
-  });
-})();
+      var padding = 400
+      paper.fitToContent(10, 10, padding)
+      var bbox = V(paper.viewport).bbox()
+      $('#paper').width(bbox.width + padding)
+      $('#paper').height(bbox.height + padding)
+    }
+    layout()
+  })
+})()

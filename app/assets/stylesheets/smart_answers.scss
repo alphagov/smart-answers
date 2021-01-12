@@ -12,6 +12,7 @@ $is-ie: false !default;
     min-height: 0; //overrides a much higher min height from static
   }
 
+  // stylelint-disable scss/at-extend-no-missing-placeholder
   .govspeak-wrapper {
     h2 {
       @extend %govuk-heading-l;
@@ -55,31 +56,31 @@ $is-ie: false !default;
       @extend %govuk-heading-s;
     }
   }
+  // stylelint-enable scss/at-extend-no-missing-placeholder
 }
 
 .smart-answers-list .govuk-table {
   font-size: 15px;
 }
 
-
 //Heroku alert
 .heroku-alert {
-    margin: 0 15px 15px 15px;
-    border: 1px solid #B01117;
-    background-color: govuk-colour('red');
+  margin: 0 15px 15px;
+  border: 1px solid #b01117;
+  background-color: govuk-colour('red');
+  color: govuk-colour('white');
+  padding: 1em;
+  font-weight: bold;
+
+  a {
+    cursor: pointer;
     color: govuk-colour('white');
-    padding: 1em;
-    font-weight: bold;
+    text-decoration: underline;
 
-    a {
-      cursor: pointer;
-      color: govuk-colour('white');
-      text-decoration: underline;
-
-      &:focus {
-        @include govuk-focused-text;
-      }
+    &:focus {
+      @include govuk-focused-text;
     }
+  }
 }
 
 .app-c-meta-data {

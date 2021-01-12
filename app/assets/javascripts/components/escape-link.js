@@ -1,5 +1,3 @@
-/* global ga:readonly */
-
 function EscapeLink ($module) {
   this.$module = $module
 }
@@ -18,7 +16,6 @@ EscapeLink.prototype.handleClick = function (event) {
 
   var url = event.target.getAttribute('href')
   var rel = event.target.getAttribute('rel')
-  var trackLabel = event.target.getAttribute('data-track-label')
 
   this.openNewPage(url, rel)
   this.replaceCurrentPage(url)
