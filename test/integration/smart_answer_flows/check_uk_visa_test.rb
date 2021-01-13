@@ -1448,9 +1448,21 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :what_sort_of_passport?
     end
 
-    should "go to outcome_no_visa_needed if user has an Estonian passport" do
-      add_response "citizen" # Q1c
-      assert_current_node :outcome_no_visa_needed
+    context "answer Estonian passport" do
+      setup do
+        add_response "citizen" # Q1c
+      end
+
+      should "ask for the purpose of the visit" do # /estonia/citizen
+        assert_current_node :purpose_of_visit?
+      end
+
+      context "coming to the UK for tourism" do # /estonia/citizen/tourism
+        should "take you to outcome no visa outcome_tourism_n" do
+          add_response "tourism"
+          assert_current_node :outcome_tourism_n
+        end
+      end
     end
 
     should "go to question 2 if user has an Alien passport" do
@@ -1464,8 +1476,46 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "transit"
       end
 
-      should "go to outcome no visa needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "ask where travelling to" do # /estonia/alien/transit
+        assert_current_node :travelling_to_cta?
+      end
+
+      context "travelling to Channel Islands or Isle of Man" do
+        should "ask for the reason for travel" do # /estonia/alien/transit/channel_islands_or_isle_of_man
+          add_response :channel_islands_or_isle_of_man
+          assert_current_node :channel_islands_or_isle_of_man?
+        end
+      end
+
+      context "travelling to Republic of Ireland" do
+        should "go to transit to Ireland outcome" do # /estonia/alien/transit/republic_of_ireland
+          add_response :republic_of_ireland
+          assert_current_node :outcome_transit_to_the_republic_of_ireland
+        end
+      end
+
+      context "travelling somewhere else" do
+        setup do
+          add_response "somewhere_else"
+        end
+
+        should "ask if passing through boarder control" do # /estonia/alien/transit/somewhere_else
+          assert_current_node :passing_through_uk_border_control?
+        end
+
+        context "answer yes" do
+          should "go to outcome transit leaving airport" do # /estonia/alien/transit/somewhere_else/yes
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport_datv
+          end
+        end
+
+        context "answer no" do
+          should "go to outcome transit not leaving airport" do # /estonia/alien/transit/somewhere_else/no
+            add_response "no"
+            assert_current_node :outcome_transit_not_leaving_airport
+          end
+        end
       end
     end
   end
@@ -1479,9 +1529,21 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :what_sort_of_passport?
     end
 
-    should "go to outcome_no_visa_needed if user has an Latvian passport" do
-      add_response "citizen" # Q1d
-      assert_current_node :outcome_no_visa_needed
+    context "answer Latvian passport" do
+      setup do
+        add_response "citizen" # Q1d
+      end
+
+      should "ask for the purpose of the visit" do # /latvia/citizen/
+        assert_current_node :purpose_of_visit?
+      end
+
+      context "coming to the UK for tourism" do
+        should "take you to no visa tourism outcome" do # /latvia/citizen/tourism
+          add_response "tourism"
+          assert_current_node :outcome_tourism_n
+        end
+      end
     end
 
     should "go to question 2 if user has an Alien passport" do
@@ -1495,8 +1557,46 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "transit"
       end
 
-      should "go to outcome no visa needed" do
-        assert_current_node :outcome_no_visa_needed
+      should "Ask where travelling to" do # /latvia/alien/transit
+        assert_current_node :travelling_to_cta?
+      end
+
+      context "travelling to Channel Islands or Isle of Man" do
+        should "ask for the reason for travel" do # /latvia/alien/transit/channel_islands_or_isle_of_man
+          add_response :channel_islands_or_isle_of_man
+          assert_current_node :channel_islands_or_isle_of_man?
+        end
+      end
+
+      context "travelling to Republic of Ireland" do
+        should "go to transit to Ireland outcome" do # /latvia/alien/transit/republic_of_ireland
+          add_response :republic_of_ireland
+          assert_current_node :outcome_transit_to_the_republic_of_ireland
+        end
+      end
+
+      context "travelling somewhere else" do
+        setup do
+          add_response "somewhere_else"
+        end
+
+        should "ask if passing through boarder control" do # /latvia/alien/transit/somewhere_else
+          assert_current_node :passing_through_uk_border_control?
+        end
+
+        context "answer yes" do
+          should "go to outcome transit leaving airport" do # /latvia/alien/transit/somewhere_else/yes
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport_datv
+          end
+        end
+
+        context "answer no" do # /latvia/alien/transit/somewhere_else/no
+          should "go to outcome transit not leaving airport" do
+            add_response "no"
+            assert_current_node :outcome_transit_not_leaving_airport
+          end
+        end
       end
     end
   end
