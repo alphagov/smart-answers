@@ -127,7 +127,7 @@ class FlowTest < ActiveSupport::TestCase
   test "Uses default when not set button text" do
     smart_answer = SmartAnswer::Flow.new
 
-    assert_equal "Next step", smart_answer.button_text
+    assert_equal "Continue", smart_answer.button_text
   end
 
   test "Can set the start page content_id" do

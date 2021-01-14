@@ -20,7 +20,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
 
       fill_in "response[amount]", with: "5000"
       select "month", from: "response[period]"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/5000.0-month"
 
@@ -44,7 +44,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       end
 
       fill_in "response", with: "1000000"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
 
