@@ -81,21 +81,19 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "going_to_work" do
+      context "self_isolating" do
         should "return true when criteria is met" do
-          @calculator.need_help_with = "going_to_work"
-          @calculator.worried_about_work = "yes"
-          @calculator.are_you_off_work_ill = "yes"
+          @calculator.need_help_with = "self_isolating"
+          @calculator.worried_about_self_isolating = "yes"
 
-          assert @calculator.show_group?(:going_to_work)
+          assert @calculator.show_group?(:self_isolating)
         end
 
         should "return false when criteria is not met" do
-          @calculator.need_help_with = "going_to_work"
-          @calculator.worried_about_work = "no"
-          @calculator.are_you_off_work_ill = "no"
+          @calculator.need_help_with = "self_isolating"
+          @calculator.worried_about_self_isolating = "no"
 
-          assert_not @calculator.show_group?(:going_to_work)
+          assert_not @calculator.show_group?(:self_isolating)
         end
       end
 
@@ -316,19 +314,19 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "are_you_off_work_ill" do
-        should "return true when off work ill" do
-          @calculator.need_help_with = "going_to_work"
-          @calculator.are_you_off_work_ill = "yes"
+      context "worried_about_self_isolating" do
+        should "return true when worried about self-isolating" do
+          @calculator.need_help_with = "self_isolating"
+          @calculator.worried_about_self_isolating = "yes"
 
-          assert @calculator.show_section?(:are_you_off_work_ill)
+          assert @calculator.show_section?(:worried_about_self_isolating)
         end
 
-        should "return false when not off work ill" do
-          @calculator.need_help_with = "going_to_work"
-          @calculator.are_you_off_work_ill = "no"
+        should "return false when not worried about self-isolating" do
+          @calculator.need_help_with = "self_isolating"
+          @calculator.worried_about_self_isolating = "no"
 
-          assert_not @calculator.show_section?(:are_you_off_work_ill)
+          assert_not @calculator.show_section?(:worried_about_self_isolating)
         end
       end
 
@@ -525,6 +523,11 @@ module SmartAnswer::Calculators
           assert_equal @calculator.next_question(:need_help_with), :worried_about_work
         end
 
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:need_help_with), :worried_about_self_isolating
+        end
+
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
           assert_equal @calculator.next_question(:need_help_with), :have_somewhere_to_live
@@ -555,6 +558,11 @@ module SmartAnswer::Calculators
         should "return worried_about_work when going_to_work has been chosen" do
           @calculator.need_help_with = "going_to_work"
           assert_equal @calculator.next_question(:feel_unsafe), :worried_about_work
+        end
+
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:feel_unsafe), :worried_about_self_isolating
         end
 
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
@@ -589,6 +597,11 @@ module SmartAnswer::Calculators
           assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :worried_about_work
         end
 
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :worried_about_self_isolating
+        end
+
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
           assert_equal @calculator.next_question(:afford_rent_mortgage_bills), :have_somewhere_to_live
@@ -616,6 +629,11 @@ module SmartAnswer::Calculators
           assert_equal @calculator.next_question(:get_food), :worried_about_work
         end
 
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:get_food), :worried_about_self_isolating
+        end
+
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
           assert_equal @calculator.next_question(:get_food), :have_somewhere_to_live
@@ -638,6 +656,11 @@ module SmartAnswer::Calculators
           assert_equal @calculator.next_question(:have_you_been_made_unemployed), :worried_about_work
         end
 
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:have_you_been_made_unemployed), :worried_about_self_isolating
+        end
+
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
           assert_equal @calculator.next_question(:have_you_been_made_unemployed), :have_somewhere_to_live
@@ -654,20 +677,42 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "user is on the are_you_off_work_ill node" do
+      context "user is on the worried_about_work node" do
+        should "return worried_about_self_isolating when self_isolating has been chosen" do
+          @calculator.need_help_with = "self_isolating"
+          assert_equal @calculator.next_question(:worried_about_work), :worried_about_self_isolating
+        end
+
         should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
           @calculator.need_help_with = "somewhere_to_live"
-          assert_equal @calculator.next_question(:are_you_off_work_ill), :have_somewhere_to_live
+          assert_equal @calculator.next_question(:worried_about_work), :have_somewhere_to_live
         end
 
         should "return mental_health_worries when mental_health has been chosen" do
           @calculator.need_help_with = "mental_health"
-          assert_equal @calculator.next_question(:are_you_off_work_ill), :mental_health_worries
+          assert_equal @calculator.next_question(:worried_about_work), :mental_health_worries
         end
 
         should "return nation when there are no other selected options" do
           @calculator.need_help_with = ""
-          assert_equal @calculator.next_question(:are_you_off_work_ill), :nation
+          assert_equal @calculator.next_question(:worried_about_work), :nation
+        end
+      end
+
+      context "user is on the worried_about_self_isolating node" do
+        should "return have_somewhere_to_live when somewhere_to_live has been chosen" do
+          @calculator.need_help_with = "somewhere_to_live"
+          assert_equal @calculator.next_question(:worried_about_self_isolating), :have_somewhere_to_live
+        end
+
+        should "return mental_health_worries when mental_health has been chosen" do
+          @calculator.need_help_with = "mental_health"
+          assert_equal @calculator.next_question(:worried_about_self_isolating), :mental_health_worries
+        end
+
+        should "return nation when there are no other selected options" do
+          @calculator.need_help_with = ""
+          assert_equal @calculator.next_question(:worried_about_self_isolating), :nation
         end
       end
 
