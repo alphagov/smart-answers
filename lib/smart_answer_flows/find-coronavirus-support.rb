@@ -8,7 +8,6 @@ module SmartAnswer
       use_session true
       use_escape_button true
       hide_previous_answers_on_results_page true
-      button_text "Continue"
 
       # ======================================================================
       # What do you need help with because of coronavirus?

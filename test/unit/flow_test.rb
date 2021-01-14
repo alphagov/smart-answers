@@ -115,21 +115,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.hide_previous_answers_on_results_page?
   end
 
-  test "Can set button text" do
-    text = "continue"
-    smart_answer = SmartAnswer::Flow.new do
-      button_text text
-    end
-
-    assert_equal text, smart_answer.button_text
-  end
-
-  test "Uses default when not set button text" do
-    smart_answer = SmartAnswer::Flow.new
-
-    assert_equal "Continue", smart_answer.button_text
-  end
-
   test "Can set the start page content_id" do
     s = SmartAnswer::Flow.new do
       start_page_content_id "587920ff-b854-4adb-9334-451b45652467"

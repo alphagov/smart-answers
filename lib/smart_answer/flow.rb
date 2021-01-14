@@ -72,10 +72,6 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
     end
 
-    def button_text(text = "Continue")
-      @button_text ||= text
-    end
-
     def satisfies_need(need_content_id)
       self.need_content_id = need_content_id
     end
