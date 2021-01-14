@@ -109,7 +109,7 @@ $ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.erb
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a text field and a "Next step" button.
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a text field and a "Continue" button.
 
 Open the new question page template in your editor and copy/paste the following content:
 
@@ -127,7 +127,7 @@ Refresh the Smart Answer in your browser to see this new content.
 
 Read more about [question page templates](/doc/smart-answers/erb-templates/question-templates.md).
 
-Enter any value in the text field and click "Next step". You should see an error message indicating that we're now missing an ERB template for the outcome.
+Enter any value in the text field and click "Continue". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
 ### 4. Create an ERB outcome page template
 

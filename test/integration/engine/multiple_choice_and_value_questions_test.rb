@@ -45,7 +45,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       fill_in "response", with: "Lancelot"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Lancelot"
 
@@ -75,7 +75,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       choose("To seek the Holy Grail", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
@@ -111,7 +111,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       choose("Blue", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
@@ -151,10 +151,10 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     visit "/bridge-of-death/y"
 
     fill_in "response", with: "Robin"
-    click_on "Next step"
+    click_on "Continue"
 
     choose("To seek the Holy Grail", visible: false)
-    click_on "Next step"
+    click_on "Continue"
 
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
 
@@ -185,7 +185,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     end
 
     fill_in "response", with: "I don't know THAT"
-    click_on "Next step"
+    click_on "Continue"
 
     within "#result-info" do
       within(".result-body h2.gem-c-heading") { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }

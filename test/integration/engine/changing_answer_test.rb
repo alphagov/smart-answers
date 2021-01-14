@@ -9,13 +9,13 @@ class ChangingAnswerTest < EngineIntegrationTest
       visit "/country-and-date-sample/y"
 
       select "Belarus", from: "response"
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What date did you move there?" }
       fill_in "response[day]", with: "5"
       fill_in "response[month]", with: "5"
       fill_in "response[year]", with: "1975"
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "Which country were you born in?" }
 
@@ -27,14 +27,14 @@ class ChangingAnswerTest < EngineIntegrationTest
       end
 
       select "Argentina", from: "response"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/country-and-date-sample/y/argentina"
 
       fill_in "response[day]", with: "10"
       fill_in "response[month]", with: "6"
       fill_in "response[year]", with: "1985"
-      click_on "Next step"
+      click_on "Continue"
 
       within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
@@ -47,7 +47,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response[day]", with: "15"
       fill_in "response[month]", with: "4"
       fill_in "response[year]", with: "2000"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/country-and-date-sample/y/argentina/2000-04-15"
     end
@@ -59,11 +59,11 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       fill_in "response[amount]", with: "5000"
       select "month", from: "response[period]"
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What size bonus do you want?" }
       fill_in "response", with: "1000000"
-      click_on "Next step"
+      click_on "Continue"
 
       within("#result-info") { assert_page_has_content "OK, here you go." }
       within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
@@ -75,19 +75,19 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       fill_in "response[amount]", with: "2000"
       select "week", from: "response[period]"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/2000.0-week"
 
       fill_in "response", with: "2000000"
-      click_on "Next step"
+      click_on "Continue"
 
       within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
       within("#current-question") { assert page.has_field? "response", with: "2000000.0" }
 
       fill_in "response", with: "3000000"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/2000.0-week/3000000.0"
     end
@@ -98,15 +98,15 @@ class ChangingAnswerTest < EngineIntegrationTest
       visit "/bridge-of-death/y"
 
       fill_in "response", with: "Lancelot"
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your quest?" }
       choose("To seek the Holy Grail", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
       choose("Blue", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
       within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
@@ -114,17 +114,17 @@ class ChangingAnswerTest < EngineIntegrationTest
       within("#current-question") { assert page.has_field? "response", with: "Lancelot" }
 
       fill_in "response", with: "Bors"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Bors"
 
       within("#current-question") { assert_page_has_content "What...is your quest?" }
       choose("To seek the Holy Grail", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
       choose("Blue", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
       within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
@@ -136,12 +136,12 @@ class ChangingAnswerTest < EngineIntegrationTest
       end
 
       choose("To rescue the princess", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
 
       choose("Blue", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
       within("tbody tr.govuk-table__row:nth-child(3)") { click_on "Change" }
@@ -153,7 +153,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       end
 
       choose("Red", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/red"
     end
@@ -165,7 +165,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       check("Peppers", visible: false)
       check("Pepperoni", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
 
@@ -179,7 +179,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       end
 
       check("Ham", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"
     end
@@ -190,7 +190,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       visit "/postcode-sample/y"
 
       fill_in "response", with: "B1 1PW"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/postcode-sample/y/B1%201PW"
 

@@ -8,7 +8,7 @@ class InputValidationTest < EngineIntegrationTest
       visit "/money-and-salary-sample/y"
 
       fill_in "response[amount]", with: "-123"
-      click_on "Next step"
+      click_on "Continue"
 
       within "#current-question" do
         assert_page_has_content "How much do you earn?"
@@ -18,12 +18,12 @@ class InputValidationTest < EngineIntegrationTest
 
       fill_in "response[amount]", with: "4000"
       select "month", from: "response[period]"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/4000.0-month"
 
       fill_in "response", with: "asdfasdf"
-      click_on "Next step"
+      click_on "Continue"
 
       within "#current-question" do
         assert_page_has_content "What size bonus do you want?"
@@ -32,7 +32,7 @@ class InputValidationTest < EngineIntegrationTest
       end
 
       fill_in "response", with: "50000"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/4000.0-month/50000.0"
     end
@@ -43,7 +43,7 @@ class InputValidationTest < EngineIntegrationTest
       visit "/money-and-salary-sample/y/4000.0-month"
 
       fill_in "response", with: "3000"
-      click_on "Next step"
+      click_on "Continue"
 
       within "#current-question" do
         assert_page_has_content "What size bonus do you want?"
@@ -52,7 +52,7 @@ class InputValidationTest < EngineIntegrationTest
       end
 
       fill_in "response", with: "50000"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/money-and-salary-sample/y/4000.0-month/50000.0"
 
@@ -68,7 +68,7 @@ class InputValidationTest < EngineIntegrationTest
       visit "/custom-errors-sample/y"
 
       fill_in "response", with: "asdfasdf"
-      click_on "Next step"
+      click_on "Continue"
 
       within "#current-question" do
         assert_page_has_content "How many things do you own?"

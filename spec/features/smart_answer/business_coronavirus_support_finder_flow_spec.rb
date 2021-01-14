@@ -32,39 +32,39 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     expect(page).to have_selector("h1", text: headings[:business_based])
 
     choose "England"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:business_size])
 
     choose "0 to 249 employees"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:annual_turnover])
 
     choose "My business is a start-up and is pre-revenue"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:paye_scheme])
 
     choose "Yes"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:self_employed])
 
     choose "Yes"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:non_domestic_property])
 
     choose "Under £51,000"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:sectors])
 
     check "Nurseries"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:restricted_sector])
 
     choose "No"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:closed_by_restrictions])
 
     check "No"
-    click_button "Next step"
+    click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:flow_title])
     expect(page).to have_selector("h2", text: headings[:results])
   end

@@ -26,7 +26,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       check("Ham", visible: false)
       check("Pepperoni", visible: false)
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
@@ -52,7 +52,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "allow selecting no options from a checkbox question" do
       visit "/checkbox-sample/y"
 
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/none"
 
@@ -71,7 +71,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       check("Definitely no toppings", visible: false)
 
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/none/none"
 
@@ -85,7 +85,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_page_has_content "Are you sure you don't want any toppings?"
 
-      click_on "Next step"
+      click_on "Continue"
 
       assert_equal current_path, "/checkbox-sample/y/none"
 
@@ -105,7 +105,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       check("Definitely no toppings", visible: false)
       assert_not page.has_checked_field?("Hmm I'm not sure, ask me again please")
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/none/none"
     end
@@ -116,7 +116,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
     check("Ham", visible: false)
     check("Ice Cream!!!", visible: false)
-    click_on("Next step", visible: false)
+    click_on("Continue", visible: false)
 
     assert_current_url "/checkbox-sample/y/ham,ice_cream"
     within ".outcome:nth-child(1)" do

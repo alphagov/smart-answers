@@ -52,7 +52,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       select "Belarus", from: "response"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/country-and-date-sample/y/belarus"
 
@@ -81,7 +81,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       fill_in "Day", with: "5"
       fill_in "Month", with: "5"
       fill_in "Year", with: "1975"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
@@ -115,7 +115,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       select "Venezuela", from: "response"
-      click_on "Next step"
+      click_on "Continue"
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/venezuela"
 

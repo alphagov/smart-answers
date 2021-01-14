@@ -12,7 +12,7 @@ class HtmlEscapingUserInputTest < EngineIntegrationTest
       @javascript = "doSomethingNaughty();"
       unsafe_html = "<script id='naughty'>#{@javascript}"
       fill_in "User input", with: unsafe_html
-      click_on "Next step"
+      click_on "Continue"
     end
 
     should "escape user input interpolated into outcome ERB template" do

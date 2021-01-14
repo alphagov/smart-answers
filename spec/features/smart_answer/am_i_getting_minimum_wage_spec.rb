@@ -47,39 +47,39 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
 
       choose "Not an apprentice"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
 
       fill_in "response", with: older_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
 
       fill_in "response", with: pay_above_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -91,47 +91,47 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
 
       choose "Not an apprentice"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
 
       fill_in "response", with: older_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
 
       fill_in "response", with: pay_below_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
 
       choose "Yes, the accommodation is charged for"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_charge))
 
       fill_in "response", with: accommodation_charge
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_usage))
 
       fill_in "response", with: days_per_week_in_accommodation
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -143,43 +143,43 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
 
       choose "Apprentice under 19"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
 
       fill_in "response", with: pay_below_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
 
       choose "Yes, the accommodation is charged for"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_charge))
 
       fill_in "response", with: accommodation_charge
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_usage))
 
       fill_in "response", with: days_per_week_in_accommodation
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -191,15 +191,15 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
 
       choose "Not an apprentice"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
 
       fill_in "response", with: under_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
   end
@@ -228,39 +228,39 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
 
       fill_in "response", with: older_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
 
       fill_in "response", with: pay_above_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -272,47 +272,47 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
 
       fill_in "response", with: older_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
 
       fill_in "response", with: pay_below_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
 
       choose "Yes, the accommodation was charged for"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_charge))
 
       fill_in "response", with: accommodation_charge
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_usage))
 
       fill_in "response", with: days_per_week_in_accommodation
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -324,43 +324,43 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
 
       choose "Apprentice under 19"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
 
       fill_in "response", with: pay_frequency
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
 
       fill_in "response", with: hours_worked
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
 
       fill_in "response", with: pay_below_minimum_wage
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
 
       choose "Yes, the accommodation was charged for"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_charge))
 
       fill_in "response", with: accommodation_charge
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_usage))
 
       fill_in "response", with: days_per_week_in_accommodation
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
 
@@ -372,15 +372,15 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
 
       choose "No"
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
 
       fill_in "response", with: under_age
-      click_button "Next step"
+      click_button "Continue"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
     end
   end

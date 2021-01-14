@@ -72,7 +72,7 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
     end
 
-    def button_text(text = "Next step")
+    def button_text(text = "Continue")
       @button_text ||= text
     end
 
