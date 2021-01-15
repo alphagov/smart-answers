@@ -317,7 +317,8 @@ module SmartAnswer::Calculators
         { min: uprating_date(2017), max: uprating_date(2018), amount: 140.98 },
         { min: uprating_date(2018), max: uprating_date(2019), amount: 145.18 },
         { min: uprating_date(2019), max: uprating_date(2020), amount: 148.68 },
-        { min: uprating_date(2020), max: uprating_date(2100), amount: 151.20 },
+        { min: uprating_date(2020), max: uprating_date(2021), amount: 151.20 },
+        { min: uprating_date(2021), max: uprating_date(2200), amount: 151.97 },
         ### Change year in future
       ]
       rate = rates.find { |r| r[:min] <= date && date < r[:max] } || rates.last
