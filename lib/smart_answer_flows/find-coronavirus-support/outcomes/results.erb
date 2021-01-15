@@ -16,6 +16,7 @@
     <%= render("getting_food", calculator: calculator) if calculator.show_group?(:getting_food) %>
     <%= render("being_unemployed", calculator: calculator) if calculator.show_group?(:being_unemployed) %>
     <%= render("going_to_work", calculator: calculator) if calculator.show_group?(:going_to_work) %>
+    <%= render("self_isolating", calculator: calculator) if calculator.show_group?(:self_isolating) %>
     <%= render("somewhere_to_live", calculator: calculator) if calculator.show_group?(:somewhere_to_live) %>
     <%= render("mental_health", calculator: calculator) if calculator.show_group?(:mental_health) %>
 

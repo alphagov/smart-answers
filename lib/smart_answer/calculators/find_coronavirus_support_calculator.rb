@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
                   :worried_about_work,
                   :have_somewhere_to_live,
                   :have_you_been_evicted,
-                  :are_you_off_work_ill,
+                  :worried_about_self_isolating,
                   :have_you_been_made_unemployed,
                   :mental_health_worries
 
@@ -19,7 +19,8 @@ module SmartAnswer::Calculators
       paying_bills: [:afford_rent_mortgage_bills],
       getting_food: %i[afford_food get_food],
       being_unemployed: %i[have_you_been_made_unemployed self_employed],
-      going_to_work: %i[worried_about_work are_you_off_work_ill],
+      going_to_work: %i[worried_about_work],
+      self_isolating: %i[worried_about_self_isolating],
       somewhere_to_live: %i[have_somewhere_to_live have_you_been_evicted],
       mental_health: [:mental_health_worries],
     }.freeze
@@ -48,8 +49,8 @@ module SmartAnswer::Calculators
       worried_about_work: lambda { |calculator|
         calculator.needs_help_with?("going_to_work") && calculator.worried_about_work != "no"
       },
-      are_you_off_work_ill: lambda { |calculator|
-        calculator.needs_help_with?("going_to_work") && calculator.are_you_off_work_ill == "yes"
+      worried_about_self_isolating: lambda { |calculator|
+        calculator.needs_help_with?("self_isolating") && calculator.worried_about_self_isolating == "yes"
       },
       have_somewhere_to_live: lambda { |calculator|
         calculator.needs_help_with?("somewhere_to_live") && calculator.have_somewhere_to_live != "yes"
@@ -91,7 +92,8 @@ module SmartAnswer::Calculators
         afford_rent_mortgage_bills
         get_food
         have_you_been_made_unemployed
-        are_you_off_work_ill
+        worried_about_work
+        worried_about_self_isolating
         have_you_been_evicted
       ]
 
@@ -105,9 +107,11 @@ module SmartAnswer::Calculators
         :self_employed
       elsif nodes.slice(0..4).include?(current_node) && needs_help_with?("going_to_work")
         :worried_about_work
-      elsif nodes.slice(0..5).include?(current_node) && needs_help_with?("somewhere_to_live")
+      elsif nodes.slice(0..5).include?(current_node) && needs_help_with?("self_isolating")
+        :worried_about_self_isolating
+      elsif nodes.slice(0..6).include?(current_node) && needs_help_with?("somewhere_to_live")
         :have_somewhere_to_live
-      elsif nodes.slice(0..6).include?(current_node) && needs_help_with?("mental_health")
+      elsif nodes.slice(0..7).include?(current_node) && needs_help_with?("mental_health")
         :mental_health_worries
       else
         :nation

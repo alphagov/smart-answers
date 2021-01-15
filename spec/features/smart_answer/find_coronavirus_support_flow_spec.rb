@@ -29,7 +29,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
       self_employed: "Are you self-employed, a freelancer, or a sole trader?",
       have_you_been_made_unemployed: "Have you been made redundant or told to stop working?",
       worried_about_work: "Are you worried about going in to work?",
-      are_you_off_work_ill: "Are you off work because you’re ill or self-isolating?",
+      worried_about_self_isolating: "Are you self-isolating?",
       have_somewhere_to_live: "Do you have somewhere to live?",
       have_you_been_evicted: "Have you been evicted?",
       mental_health_worries: "Are you worried about your mental health, or another adult or child’s mental health?",
@@ -44,7 +44,8 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
       paying_bills: "Paying your rent, mortgage, or bills",
       getting_food: "Getting food",
       being_unemployed: "Being made redundant or unemployed, or not having any work",
-      going_to_work: "Being worried about working, or off work because you’re self-isolating",
+      going_to_work: "Being worried about working",
+      self_isolating: "Self-isolating",
       somewhere_to_live: "Having somewhere to live",
       mental_health: "Mental health and wellbeing",
     }
@@ -56,7 +57,8 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
       paying_bills: "Paying your rent, mortgage, or bills",
       getting_food: "Getting food",
       being_unemployed: "Being made redundant or unemployed, or not having any work",
-      going_to_work: "Being worried about working, or off work because you’re self-isolating",
+      going_to_work: "Being worried about working",
+      self_isolating: "Self-isolating",
       somewhere_to_live: "Having somewhere to live",
       mental_health: "Mental health and wellbeing, including information for children",
       none: "None of these",
@@ -143,12 +145,20 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     expect(page).to have_selector("h1", text: headings[:worried_about_work])
 
     choose "Yes"
+    continue_to_results
+    expect(page).to have_selector("h2", text: result_subheadings[:going_to_work])
+  end
+
+  scenario "self isolating" do
+    start_flow_to_need_help_with
+
+    check need_help_with[:self_isolating]
     click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:are_you_off_work_ill])
+    expect(page).to have_selector("h1", text: headings[:worried_about_self_isolating])
 
     choose "Yes"
     continue_to_results
-    expect(page).to have_selector("h2", text: result_subheadings[:going_to_work])
+    expect(page).to have_selector("h2", text: result_subheadings[:self_isolating])
   end
 
   scenario "somewhere to live" do
@@ -192,6 +202,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     check need_help_with[:mental_health]
     check need_help_with[:somewhere_to_live]
     check need_help_with[:going_to_work]
+    check need_help_with[:self_isolating]
     check need_help_with[:being_unemployed]
     check need_help_with[:getting_food]
     check need_help_with[:paying_bills]
@@ -222,7 +233,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
 
     choose "Yes"
     click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:are_you_off_work_ill])
+    expect(page).to have_selector("h1", text: headings[:worried_about_self_isolating])
 
     choose "Yes"
     click_button "Continue"
@@ -241,6 +252,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     expect(page).to have_selector("h2", text: result_subheadings[:mental_health])
     expect(page).to have_selector("h2", text: result_subheadings[:somewhere_to_live])
     expect(page).to have_selector("h2", text: result_subheadings[:going_to_work])
+    expect(page).to have_selector("h2", text: result_subheadings[:self_isolating])
     expect(page).to have_selector("h2", text: result_subheadings[:being_unemployed])
     expect(page).to have_selector("h2", text: result_subheadings[:getting_food])
     expect(page).to have_selector("h2", text: result_subheadings[:paying_bills])

@@ -19,6 +19,7 @@ module SmartAnswer
         option :getting_food
         option :being_unemployed
         option :going_to_work
+        option :self_isolating
         option :somewhere_to_live
         option :mental_health
         none_option
@@ -154,23 +155,23 @@ module SmartAnswer
         end
 
         next_node do
-          question :are_you_off_work_ill
+          question calculator.next_question(:worried_about_work)
         end
       end
 
       # ======================================================================
-      # Are you off work because you're ill or self-isolating?
+      # Are you worried about self-isolating?
       # ======================================================================
-      radio :are_you_off_work_ill do
+      radio :worried_about_self_isolating do
         option :yes
         option :no
 
         on_response do |response|
-          calculator.are_you_off_work_ill = response
+          calculator.worried_about_self_isolating = response
         end
 
         next_node do
-          question calculator.next_question(:are_you_off_work_ill)
+          question calculator.next_question(:worried_about_self_isolating)
         end
       end
 
