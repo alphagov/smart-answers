@@ -124,7 +124,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (23.12.3)
+    govuk_publishing_components (23.13.1)
       govuk_app_config
       kramdown
       plek
@@ -303,7 +303,7 @@ GEM
     rubocop-rspec (1.42.0)
       rubocop (>= 0.87.0)
     ruby-progressbar (1.10.1)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
     sanitize (5.2.1)
