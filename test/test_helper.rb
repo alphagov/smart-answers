@@ -6,20 +6,6 @@ require File.expand_path("../config/environment", __dir__)
 require "simplecov"
 require "simplecov-rcov"
 
-SimpleCov.start "rails" do
-  formatter SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::RcovFormatter,
-    SimpleCov::Formatter::HTMLFormatter,
-  ])
-
-  add_group "Presenters", "app/presenters"
-  add_group "Services", "app/services"
-  add_group "Smart Answer", "lib/smart_answer"
-  add_group "Smart Answer Flows", "lib/smart_answer_flows"
-
-  SimpleCov.minimum_coverage 92
-end
-
 require "rails/test_help"
 
 require "mocha/minitest"
@@ -54,14 +40,6 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
   include ActionDispatch::Assertions
   parallelize workers: 6
-
-  parallelize_setup do |worker|
-    SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
-  end
-
-  parallelize_teardown do |_worker|
-    SimpleCov.result
-  end
 end
 
 require "slimmer/test"
