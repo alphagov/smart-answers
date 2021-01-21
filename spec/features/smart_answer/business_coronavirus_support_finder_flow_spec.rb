@@ -10,7 +10,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       business_size: "How many employees does your business have?",
       non_domestic_property: "What is the rateable value of your business' non-domestic property?",
       paye_scheme: "Are you an employer with a PAYE scheme?",
-      sectors: "Is your business in any of the following sectors:",
+      sectors: "Select your type of business",
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
       self_employed: "Are you self-employed?",
       what_size_was_your_buisness: "What size was your business as of 28 February?",

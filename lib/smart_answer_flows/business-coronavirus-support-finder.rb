@@ -92,8 +92,8 @@ module SmartAnswer
       end
 
       checkbox_question :sectors? do
-        option :retail_hospitality_or_leisure
         option :nurseries
+        option :retail_hospitality_or_leisure
         option :nightclubs_or_adult_entertainment
         none_option
 

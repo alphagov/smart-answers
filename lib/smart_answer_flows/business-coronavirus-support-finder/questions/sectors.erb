@@ -1,10 +1,14 @@
 <% text_for :title do %>
-  Is your business in any of the following sectors:
+  Select your type of business
+<% end %>
+
+<% text_for :hint do %>
+  Select all that apply
 <% end %>
 
 <% options(
-  "retail_hospitality_or_leisure": "Retail, Hospitality or Leisure (including pubs)",
   "nurseries": "Nurseries",
+  "retail_hospitality_or_leisure": "Retail, Hospitality or Leisure (including pubs)",
   "nightclubs_or_adult_entertainment": "Nightclub, dancehall, or adult entertainment venue",
   "none": "None of the above",
 ) %>
