@@ -9,8 +9,8 @@ module SmartAnswer
 
       # Q1
       radio :when_does_your_course_start? do
-        option :"2019-2020"
         option :"2020-2021"
+        option :"2021-2022"
 
         on_response do |response|
           self.calculator = Calculators::StudentFinanceCalculator.new
