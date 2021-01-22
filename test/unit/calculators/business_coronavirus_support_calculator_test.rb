@@ -254,19 +254,19 @@ module SmartAnswer::Calculators
       context "lrsg_open" do
         should "return true when business not closed by sector restrictions and based in england" do
           @calculator.business_based = "england"
-          @calculator.restricted_sector = "no"
+          @calculator.sectors = []
           assert @calculator.show?(:lrsg_open)
         end
 
         should "return false when business not based in england" do
           @calculator.business_based = "scotland"
-          @calculator.restricted_sector = "no"
+          @calculator.sectors = []
           assert_not @calculator.show?(:lrsg_open)
         end
 
         should "return false when business is closed by local restrictions" do
           @calculator.business_based = "england"
-          @calculator.restricted_sector = "yes"
+          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
           assert_not @calculator.show?(:lrsg_open)
         end
       end
@@ -274,19 +274,19 @@ module SmartAnswer::Calculators
       context "lrsg_sector" do
         should "return true when business closed by sector restrictions and based in england" do
           @calculator.business_based = "england"
-          @calculator.restricted_sector = "yes"
+          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
           assert @calculator.show?(:lrsg_sector)
         end
 
         should "return false when business not based in england" do
           @calculator.business_based = "scotland"
-          @calculator.restricted_sector = "yes"
+          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
           assert_not @calculator.show?(:lrsg_sector)
         end
 
         should "return false when business not closed by local restrictions" do
           @calculator.business_based = "england"
-          @calculator.restricted_sector = "no"
+          @calculator.sectors = []
           assert_not @calculator.show?(:lrsg_sector)
         end
       end

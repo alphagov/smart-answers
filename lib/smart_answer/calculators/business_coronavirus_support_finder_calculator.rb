@@ -7,7 +7,6 @@ module SmartAnswer::Calculators
                   :self_employed,
                   :non_domestic_property,
                   :sectors,
-                  :restricted_sector,
                   :closed_by_restrictions
 
     def initialize
@@ -65,11 +64,11 @@ module SmartAnswer::Calculators
       },
       lrsg_open: lambda { |calculator|
         calculator.business_based == "england" &&
-          calculator.restricted_sector == "no"
+          calculator.sectors.exclude?("nightclubs_or_adult_entertainment")
       },
       lrsg_sector: lambda { |calculator|
         calculator.business_based == "england" &&
-          calculator.restricted_sector == "yes"
+          calculator.sectors.include?("nightclubs_or_adult_entertainment")
       },
       additional_restrictions_grant: lambda { |calculator|
         calculator.business_based == "england"

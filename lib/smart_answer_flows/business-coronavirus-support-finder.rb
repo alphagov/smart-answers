@@ -92,8 +92,9 @@ module SmartAnswer
       end
 
       checkbox_question :sectors? do
-        option :retail_hospitality_or_leisure
         option :nurseries
+        option :retail_hospitality_or_leisure
+        option :nightclubs_or_adult_entertainment
         none_option
 
         on_response do |response|
@@ -101,20 +102,7 @@ module SmartAnswer
         end
 
         next_node do
-          question :restricted_sector?
-        end
-      end
-
-      radio :restricted_sector? do
-        option :yes
-        option :no
-
-        on_response do |response|
-          calculator.restricted_sector = response
-        end
-
-        next_node do
-          if calculator.restricted_sector == "yes"
+          if calculator.sectors == %w[nightclubs_or_adult_entertainment]
             outcome :results
           else
             question :closed_by_restrictions?
