@@ -11,7 +11,6 @@ class FlowPresenter
            :start_page_content_id,
            :flow_content_id,
            :need_it,
-           :button_text,
            :use_session?,
            :questions,
            :use_escape_button?,
