@@ -136,7 +136,42 @@ module SmartAnswer
         end
 
         next_node do
-          outcome :mother_earned_at_least_390
+          if %w[employee self-employed].include?(calculator.employment_status_of_mother) && calculator.mother_worked_at_least_26_weeks == "no"
+            if calculator.two_carers?
+              if %w[employee worker].include?(calculator.employment_status_of_partner)
+                question :partner_started_working_before_continuity_start_date
+              elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
+                if calculator.employment_status_of_mother == "employee"
+                  if calculator.mother_continuity?
+                    if calculator.mother_lower_earnings?
+                      outcome :outcome_mat_leave_mat_pay
+                    else
+                      outcome :outcome_mat_leave
+                    end
+                  elsif calculator.mother_still_working_on_continuity_end_date == "yes"
+                    outcome :outcome_mat_leave
+                  elsif calculator.mother_still_working_on_continuity_end_date == "no"
+                    outcome :outcome_birth_nothing
+                  end
+                elsif calculator.employment_status_of_mother == "self-employed" || calculator.employment_status_of_partner == "unemployed"
+                  outcome :outcome_birth_nothing
+                elsif calculator.employment_status_of_partner == "self-employed"
+                  outcome :outcome_mat_allowance_14_weeks
+                end
+              end
+            elsif calculator.employment_status_of_mother == "employee"
+              case calculator.mother_still_working_on_continuity_end_date
+              when "yes"
+                outcome :outcome_mat_leave
+              when "no"
+                outcome :outcome_single_birth_nothing
+              end
+            elsif calculator.employment_status_of_mother == "self-employed"
+              outcome :outcome_single_birth_nothing
+            end
+          else
+            outcome :mother_earned_at_least_390
+          end
         end
       end
 
