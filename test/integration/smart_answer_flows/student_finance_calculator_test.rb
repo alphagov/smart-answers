@@ -22,7 +22,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       assert_current_node :what_type_of_student_are_you?
     end
 
-    context "full-time uk student between 2018 and 2019" do
+    context "full-time uk student between 2020 and 2021" do
       setup do
         add_response "uk-full-time"
       end
@@ -99,7 +99,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-    context "part-time uk student between 2018 and 2019" do
+    context "part-time uk student between 2020 and 2021" do
       should "ask how much your tuition fees are per year" do
         add_response "uk-part-time"
         assert_current_node :how_much_are_your_tuition_fees_per_year?
@@ -194,15 +194,15 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
   end
 
-  context "course starting between 2019 and 2020" do
+  context "course starting between 2020 and 2021" do
     setup do
-      add_response "2019-2020"
+      add_response "2020-2021"
     end
     should "ask what sort of a student you are" do
       assert_current_node :what_type_of_student_are_you?
     end
 
-    context "full-time uk student between 2019 and 2020" do
+    context "full-time uk student between 2020 and 2021" do
       setup do
         add_response "uk-full-time"
       end
@@ -279,7 +279,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-    context "part-time uk student between 2019 and 2020" do
+    context "part-time uk student between 2020 and 2021" do
       should "ask how much your tuition fees are per year" do
         add_response "uk-part-time"
         assert_current_node :how_much_are_your_tuition_fees_per_year?
