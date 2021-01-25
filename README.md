@@ -60,7 +60,6 @@ This is a Ruby on Rails application that contains:
 
 * [Development principles](doc/smart-answer-flow-development/development-principles.md)
 * [Deploying changes for fact-check](doc/smart-answer-flow-development/fact-check.md)
-* [Flattening outcomes](doc/smart-answer-flow-development/flattening-outcomes.md)
 * [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
 * [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
 * [Publishing a Smart Answer](doc/smart-answer-flow-development/publishing.md)
