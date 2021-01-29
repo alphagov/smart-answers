@@ -85,6 +85,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_payment_date?
+      return true if tax_year == "2019-20"
+
       filing_date <= payment_date
     end
 
