@@ -126,7 +126,7 @@ module SmartAnswer::Calculators
       end
 
       should "be invalid if filing date is before start of next tax year" do
-        @calculator.filing_date = @calculator.start_of_next_tax_year - 1
+        @calculator.filing_date = @calculator.start_of_next_tax_year - 1.day
         assert_not @calculator.valid_filing_date?
       end
     end
@@ -134,7 +134,7 @@ module SmartAnswer::Calculators
     context "valid_payment_date?" do
       should "be valid if payment date is before filing date for tax year 2019-20" do
         @calculator.tax_year = "2019-20"
-        @calculator.payment_date = @calculator.filing_date - 1
+        @calculator.payment_date = @calculator.filing_date - 1.day
         assert @calculator.valid_payment_date?
       end
 
@@ -144,7 +144,7 @@ module SmartAnswer::Calculators
       end
 
       should "be invalid if filing date is before filing date" do
-        @calculator.payment_date = @calculator.filing_date - 1
+        @calculator.payment_date = @calculator.filing_date - 1.day
         assert_not @calculator.valid_payment_date?
       end
     end
