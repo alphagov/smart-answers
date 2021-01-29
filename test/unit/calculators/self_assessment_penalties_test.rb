@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
           "2016-17": Date.new(2018, 1, 31),
           "2017-18": Date.new(2019, 1, 31),
           "2018-19": Date.new(2020, 1, 31),
-          "2019-20": Date.new(2021, 1, 31),
+          "2019-20": Date.new(2021, 2, 28),
         },
         offline_filing_deadline: {
           "2013-14": Date.new(2014, 10, 31),
@@ -145,12 +145,18 @@ module SmartAnswer::Calculators
 
     context "online submission" do
       context "filed and paid on time" do
-        setup do
+        should "confirm payment was made on time" do
           @calculator.filing_date = Date.parse("2015-01-10")
           @calculator.payment_date = Date.parse("2015-01-10")
+
+          assert @calculator.paid_on_time?
         end
 
-        should "confirm payment was made on time" do
+        should "confirm payment was made on time for tax year 2019-20" do
+          @calculator.tax_year = "2019-20"
+          @calculator.filing_date = Date.parse("2020-02-28")
+          @calculator.payment_date = Date.parse("2020-01-31")
+
           assert @calculator.paid_on_time?
         end
       end # on time
@@ -158,6 +164,44 @@ module SmartAnswer::Calculators
       context "filed or paid late" do
         should "confirm payment was made late" do
           assert_not @calculator.paid_on_time?
+        end
+
+        should "calculate late filing penalty for tax year 2019-20" do
+          @calculator.tax_year = "2019-20"
+          # band one
+          @calculator.filing_date = Date.parse("2021-03-01")
+          assert_equal 100, @calculator.late_filing_penalty
+          # band two
+          @calculator.filing_date = Date.parse("2021-05-29")
+          assert_equal 110, @calculator.late_filing_penalty
+          # band three
+          @calculator.filing_date = Date.parse("2021-05-30")
+          assert_equal 120, @calculator.late_filing_penalty
+          @calculator.filing_date = Date.parse("2021-07-04")
+          assert_equal 470, @calculator.late_filing_penalty
+          @calculator.filing_date = Date.parse("2021-08-26")
+          assert_equal 1000, @calculator.late_filing_penalty
+          # band four
+          @calculator.filing_date = Date.parse("2021-10-06")
+          assert_equal 1300, @calculator.late_filing_penalty
+          # band four (1000 + 5% of estimated bill larger than £300)
+          @calculator.estimated_bill = SmartAnswer::Money.new(11_000)
+          assert_equal 1550, @calculator.late_filing_penalty
+          # band five
+          @calculator.estimated_bill = SmartAnswer::Money.new(0)
+          @calculator.filing_date = Date.parse("2022-03-02")
+          assert_equal 1600, @calculator.late_filing_penalty
+          # band five (1000 + 5% estimated bill larger than £600)
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          assert_equal 2000, @calculator.late_filing_penalty
+          # from 6 to 12 months, tax <=6002
+          @calculator.filing_date = Date.parse("2021-11-30")
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          assert_equal 1500, @calculator.late_filing_penalty
+          # from 6 to 12 months, tax >6002
+          @calculator.filing_date = Date.parse("2021-11-30")
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          assert_equal 1500, @calculator.late_filing_penalty
         end
 
         should "calculate late filing penalty" do

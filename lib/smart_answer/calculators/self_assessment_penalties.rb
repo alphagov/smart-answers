@@ -3,6 +3,7 @@ require "ostruct"
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
     ONLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
+    ONLINE_FILING_DEADLINE_YEAR_FEB = SmartAnswer::YearRange.resetting_on("28 February").freeze
     OFFLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 October").freeze
     PAYMENT_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
     PENALTY_YEAR = SmartAnswer::YearRange.resetting_on("1 February").freeze
@@ -15,7 +16,7 @@ module SmartAnswer::Calculators
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
-        "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
+        "2019-20": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
       },
       offline_filing_deadline: {
         "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
