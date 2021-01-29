@@ -5,7 +5,13 @@
 <% govspeak_for :body do %>
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
-  If you want to live in the UK permanently, you must apply for a [family visa](/join-family-in-uk) if your partner:
+  <% if calculator.passport_country_in_british_national_overseas_list? %>
+    If you want to live in the UK permanently, you can apply for a [British National Overseas (BNO) visa](/guidance/hong-kong-british-national-overseas-visa-applications/).
+
+    You can also apply for a family visa, but the application fee is higher. You’re eligible for a family visa if your partner:
+  <% else %>
+    If you want to live in the UK permanently, you must apply for a [family visa](/join-family-in-uk) if your partner:
+  <% end %>
 
   + is a British citizen
   + is settled in the UK (called having ‘indefinite leave to remain’)

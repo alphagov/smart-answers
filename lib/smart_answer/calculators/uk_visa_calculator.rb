@@ -42,6 +42,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
     end
 
+    def passport_country_in_british_national_overseas_list?
+      COUNTRY_GROUP_BRITISH_NATIONAL_OVERSEAS.include?(@passport_country)
+    end
+
     def passport_country_in_b1_b2_visa_exception_list?
       @passport_country == "syria"
     end
@@ -451,6 +455,11 @@ module SmartAnswer::Calculators
       singapore
       south-korea
       usa
+    ].freeze
+
+    COUNTRY_GROUP_BRITISH_NATIONAL_OVERSEAS = %w[
+      british-national-overseas
+      hong-kong-(british-national-overseas)
     ].freeze
   end
 end

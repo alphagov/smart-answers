@@ -255,6 +255,20 @@ module SmartAnswer
         end
       end
 
+      context "#passport_country_in_british_national_overseas_list?" do
+        should "return true if passport_country is in list of countries that are British nationals overseas" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "british-national-overseas"
+          assert calculator.passport_country_in_british_national_overseas_list?
+        end
+
+        should "return false if passport_country is not in list of countries that are British nationals overseas" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "usa"
+          assert_not calculator.passport_country_in_british_national_overseas_list?
+        end
+      end
+
       context "#passport_country_in_b1_b2_visa_exception_list?" do
         should "return true if passport_country is in list of countries to which the b1/b2 visa exception applies" do
           calculator = UkVisaCalculator.new
