@@ -3,6 +3,7 @@ require "ostruct"
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
     ONLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
+    ONLINE_FILING_DEADLINE_YEAR_FEB = SmartAnswer::YearRange.resetting_on("28 February").freeze
     OFFLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 October").freeze
     PAYMENT_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
     PENALTY_YEAR = SmartAnswer::YearRange.resetting_on("1 February").freeze
@@ -15,7 +16,7 @@ module SmartAnswer::Calculators
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
-        "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
+        "2019-20": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
       },
       offline_filing_deadline: {
         "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
@@ -84,6 +85,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_payment_date?
+      return true if tax_year == "2019-20"
+
       filing_date <= payment_date
     end
 
@@ -138,12 +141,16 @@ module SmartAnswer::Calculators
     def interest
       return 0 if overdue_payment_days <= 0
 
-      days_with_penalty_interest = payment_deadline..(payment_date - 2)
+      days_with_penalty_interest = payment_deadline..interest_accrual_start_date_for_year
       interest_charges_per_day = days_with_penalty_interest.map do |date|
         calculate_interest_for_date(date)
       end
 
       SmartAnswer::Money.new(interest_charges_per_day.sum.round(2))
+    end
+
+    def interest_accrual_start_date_for_year
+      tax_year == "2019-20" ? payment_date - 1.day : payment_date - 2.days
     end
 
     def total_owed
