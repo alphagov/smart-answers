@@ -296,6 +296,14 @@ module SmartAnswer::Calculators
             @calculator.estimated_bill = SmartAnswer::Money.new(1000)
           end
 
+          should "start interest payments on the 1st of Feb for tax year 2019-20" do
+            @calculator.tax_year = "2019-20"
+            @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+            @calculator.payment_date = Date.parse("2021-02-01")
+
+            assert_equal 0.71, @calculator.interest
+          end
+
           context "deadline and payment dates are before rate change date" do
             should "have values with rate at 3%" do
               @calculator.payment_deadline = Date.parse("2016-01-31")
