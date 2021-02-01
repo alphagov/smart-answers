@@ -36,7 +36,6 @@ module SmartAnswer
       end
 
       radio :annual_turnover? do
-        option :pre_revenue
         option :under_85k
         option :"85k_to_45m"
         option :"45m_to_500m"

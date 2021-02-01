@@ -38,7 +38,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:annual_turnover])
 
-    choose "My business is a start-up and is pre-revenue"
+    choose "Under £85,000"
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:paye_scheme])
 
@@ -79,7 +79,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:annual_turnover])
 
-    choose "My business is a start-up and is pre-revenue"
+    choose "Under £85,000"
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:paye_scheme])
 

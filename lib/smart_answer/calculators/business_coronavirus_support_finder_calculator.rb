@@ -48,9 +48,6 @@ module SmartAnswer::Calculators
       bounce_back_loan: lambda { |calculator|
         %w[under_85k 85k_to_45m].include?(calculator.annual_turnover)
       },
-      future_fund: lambda { |calculator|
-        calculator.annual_turnover == "pre_revenue"
-      },
       kickstart_scheme: lambda { |calculator|
         calculator.business_based != "northern_ireland"
       },
