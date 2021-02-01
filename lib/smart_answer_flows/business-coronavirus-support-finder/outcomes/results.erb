@@ -12,7 +12,7 @@
 
     If you've had to ask your employees to stop working or work less because of coronavirus (put them on 'furlough') you can get support to pay their wages for the hours they do not work.
 
-    The government will pay 80% of employees’ usual wages for hours they do not work, up to a maximum of £2,500 per month. 
+    The government will pay 80% of employees’ usual wages for hours they do not work, up to a maximum of £2,500 per month.
 
     The scheme is open until 30 April 2021.
 
@@ -58,7 +58,7 @@
   <% if calculator.show?(:self_employed_income_scheme) %>
     $CTA
     ### Self-Employment Income Support Scheme Grant Extension
-    
+
     You can get 2 one off taxable payments. The first payment will cover 1 November 2020 to 31 January 2021. You’ll get 80% of your average monthly trading profits or £7,500 (whichever is lower).
 
     The second payment will cover 1 February 2021 to 30 April 2021. The amount has not been announced yet.
@@ -79,28 +79,6 @@
 
     Find out more about the [Self-Employment Income Support Scheme Grant Extension](/guidance/claim-a-grant-through-the-coronavirus-covid-19-self-employment-income-support-scheme)
 
-    $CTA
-  <% end %>
-
-  <% if calculator.show?(:christmas_pub_payment) %>
-    $CTA
-    ### Christmas support payments for pubs
-
-    If your pub is in tier 2 or tier 3 between 2 December 2020 and 29 December 2020 you may be eligible for a payment of £1000.
-
-    This is additional funding to any other funding you may be eligible for.
-
-    You are eligible if your pub:
-
-    - is in England
-    - is in tier 2 or tier 3 at any point between 2 December 2020 and 29 December 2020
-    - has less than 50% in revenue from food sales (you may be asked to provide accounting evidence)
-
-    You must apply through your local authority before 31 January 2021.
-
-    One business can apply for multiple eligible pubs.
-
-    [Check if you are eligible](/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs)
     $CTA
   <% end %>
 
@@ -250,10 +228,32 @@
     $CTA
   <% end %>
 
-  <% if calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) %>
+  <% if calculator.show?(:christmas_pub_payment) || calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) %>
     ## Grants available from your local council
 
     You might be eligible for grants from your council. There are schemes for businesses that were closed by law and schemes for businesses that stayed open.
+
+    <% if calculator.show?(:christmas_pub_payment) %>
+      $CTA
+      ### Christmas support payments for pubs
+
+      If your pub is in tier 2 or tier 3 between 2 December 2020 and 29 December 2020 you may be eligible for a payment of £1000.
+
+      This is additional funding to any other funding you may be eligible for.
+
+      You are eligible if your pub:
+
+      - is in England
+      - is in tier 2 or tier 3 at any point between 2 December 2020 and 29 December 2020
+      - has less than 50% in revenue from food sales (you may be asked to provide accounting evidence)
+
+      You must apply through your local authority before 31 January 2021.
+
+      One business can apply for multiple eligible pubs.
+
+      [Check if you are eligible](/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs)
+      $CTA
+    <% end %>
 
     <% if calculator.show?(:lrsg_closed_addendum) %>
       $CTA
@@ -344,7 +344,7 @@
       - you do not pay business rates and your business was closed by law
       - you supply an industry that had to close because of coronavirus, for example the retail, hospitality or leisure sector
       - your business is in the events sector
-      
+
       [Find out more about the coronavirus Additional Restrictions Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant)
       $CTA
     <% end %>
@@ -370,10 +370,10 @@
     You can be eligible for both Northern Ireland and UK-wide schemes.
     $CTA
   <% end %>
-  
+
    ##Additional support available
 
-  You might be eligible for other support, even if you're not eligible for these schemes. 
+  You might be eligible for other support, even if you're not eligible for these schemes.
 
   [What to do if you’re self-employed and getting less work or no work](/guidance/coronavirus-covid-19-what-to-do-if-youre-self-employed-and-getting-less-work-or-no-work).
 
