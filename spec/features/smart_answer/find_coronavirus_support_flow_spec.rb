@@ -25,7 +25,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
       feel_unsafe: "Do you feel unsafe where you live?",
       afford_rent_mortgage_bills: "Are you finding it hard to pay your rent, mortgage or bills?",
       afford_food: "Are you finding it hard to afford food?",
-      get_food: "Are you able to get food?",
+      get_food: "Are you able to get food or medicine?",
       self_employed: "Are you self-employed, a freelancer, or a sole trader?",
       have_you_been_made_unemployed: "Have you been made redundant or told to stop working?",
       worried_about_work: "Are you worried about going in to work?",
@@ -42,7 +42,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     {
       feeling_unsafe: "Feeling unsafe",
       paying_bills: "Paying your rent, mortgage, or bills",
-      getting_food: "Getting food",
+      getting_food: "Getting food or medicine",
       being_unemployed: "Being made redundant or unemployed, or not having any work",
       going_to_work: "Being worried about working",
       self_isolating: "Self-isolating",
@@ -55,8 +55,8 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     {
       feeling_unsafe: "Feeling unsafe where you live, or what to do if you’re worried about the safety of another adult or child",
       paying_bills: "Paying your rent, mortgage, or bills",
-      getting_food: "Getting food",
-      being_unemployed: "Being made redundant or unemployed, or not having any work",
+      getting_food: "Getting food or medicine",
+      being_unemployed: "Being made redundant or unemployed, or not having any work if you're self-employed",
       going_to_work: "Being worried about working",
       self_isolating: "Self-isolating",
       somewhere_to_live: "Having somewhere to live",
