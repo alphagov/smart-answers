@@ -15,7 +15,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       self_employed: "Are you self-employed?",
       what_size_was_your_buisness: "What size was your business as of 28 February?",
       closed_by_restrictions: "Has your business closed by law because of coronavirus?",
-      results: "Support you may be entitled to",
+      results: "Financial support your business might be entitled to",
     }
   end
 
@@ -60,8 +60,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
 
     check "No"
     click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
-    expect(page).to have_selector("h2", text: headings[:results])
+    expect(page).to have_selector("h1", text: headings[:results])
   end
 
   scenario "Skip last question if business type nightclubs" do
@@ -97,7 +96,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
 
     check "Nightclub, dancehall, or adult entertainment venue"
     click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
-    expect(page).to have_selector("h2", text: headings[:results])
+    expect(page).to have_selector("h1", text: headings[:results])
   end
 end
