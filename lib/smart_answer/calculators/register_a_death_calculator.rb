@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       %w[england_wales scotland northern_ireland].include?(location_of_death)
     end
 
+    def died_in_eea_or_switzerland?
+      @reg_data_query.eea_country_or_switzerland?(country_of_death)
+    end
+
     def died_at_home_or_in_hospital?
       death_location_type == "at_home_hospital"
     end

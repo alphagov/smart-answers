@@ -413,5 +413,13 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_equal "/government/publications/democratic-republic-of-congo-list-of-lawyers", current_state.calculator.translator_link_url
       end
     end
+
+    context "death in EEA" do
+      should "includes a link to Tell Us Once" do
+        add_response "france"
+        add_response "in_the_uk"
+        assert_match("Tell Us Once", outcome_body)
+      end
+    end
   end # Overseas
 end
