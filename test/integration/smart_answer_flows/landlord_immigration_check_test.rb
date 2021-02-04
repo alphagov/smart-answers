@@ -325,6 +325,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "no"
         add_response "no"
         add_response "no"
+        add_response "no"
 
         assert_current_node :outcome_can_not_continue_renting
       end

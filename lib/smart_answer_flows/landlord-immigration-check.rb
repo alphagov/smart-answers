@@ -187,12 +187,28 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            if calculator.nationality == "non-eea" ||
-                calculator.from_somewhere_else?
+            if calculator.nationality == "non-eea"
               question :waiting_for_documents?
+            elsif calculator.from_somewhere_else?
+              question :from_aus_canada?
             else
               outcome :outcome_can_not_rent
             end
+          end
+        end
+      end
+
+      # new Q15
+      radio :from_aus_canada? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent_check_arrived_last_six_months
+          when "no"
+            question :waiting_for_documents?
           end
         end
       end
