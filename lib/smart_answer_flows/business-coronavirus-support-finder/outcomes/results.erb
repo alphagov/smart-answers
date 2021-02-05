@@ -58,67 +58,6 @@
     $CTA
   <% end %>
 
-  <% if calculator.show?(:self_employed_income_scheme) %>
-    $CTA
-    ### Self-Employment Income Support Scheme Grant Extension
-
-    You can get 2 one off taxable payments. The first payment will cover 1 November 2020 to 31 January 2021. You’ll get 80% of your average monthly trading profits or £7,500 (whichever is lower).
-
-    The second payment will cover 1 February 2021 to 30 April 2021. The amount has not been announced yet.
-
-    You can claim if:
-
-    - you’re self-employed - including a member of a partnership
-    - you traded in both 2018 to 2019, and 2019 to 2020 tax years
-
-    You must also plan to continue working and either:
-
-    - you’re currently actively trading and coronavirus has reduced demand for your business
-    - you were previously trading but temporarily cannot trade because of coronavirus
-
-    You cannot claim the grant if you trade through a limited company or a trust.
-
-    If you claim Maternity Allowance this will not affect your eligibility for the grant.
-
-    Find out more about the [Self-Employment Income Support Scheme Grant Extension](/guidance/claim-a-grant-through-the-coronavirus-covid-19-self-employment-income-support-scheme)
-
-    $CTA
-  <% end %>
-
-  <% if calculator.show?(:retail_hospitality_leisure_business_rates) %>
-    $CTA
-    ### Business rates holiday for retail, hospitality and leisure
-
-    You will not have to pay business rates for the 2020 to 2021 tax year if your business is in retail, hospitality or leisure.
-
-    You do not need to do anything. If you are eligible, your local council will apply the discount automatically.
-
-    You’re eligible if your property is a:
-
-    - shop
-    - restaurant, café, bar or pub
-    - cinema or live music venue
-    - leisure or assembly property - for example, a sports club, a gym or a spa
-    - hospitality property - for example, a hotel, a guest house or self-catering accommodation
-
-    [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received the business rates discount.
-    $CTA
-  <% end %>
-
-  <% if calculator.show?(:nursery_support) %>
-    $CTA
-    ### Support for nursery businesses that pay business rates
-
-    Nurseries in England do not have to pay business rates for the 2020 to 2021 tax year. Your council will do this automatically.
-
-    You’re eligible if your business is on Ofsted’s Early Years Register and provides care and education for children up to 5 years old (early years foundation stage).
-
-    Local authority-run nurseries are not eligible.
-
-    [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received business rates relief.
-    $CTA
-  <% end %>
-
   <% if calculator.show?(:business_loan_scheme) %>
     $CTA
     ### Coronavirus Business Interruption Loan Scheme
@@ -135,7 +74,7 @@
     - would be considered viable by a lender, if not for the current pandemic
     - has been negatively affected by coronavirus
 
-    The scheme is open until 31 January 2021.
+    The scheme is open until 31 March 2021.
 
     [Find out how to apply for the Coronavirus Business Interruption Loan Scheme](/guidance/apply-for-the-coronavirus-business-interruption-loan-scheme)
     $CTA
@@ -155,7 +94,7 @@
      - was established before 1 March 2020
      - has been negatively affected by coronavirus
 
-    The scheme is open until 31 January 2021.
+    The scheme is open until 31 March 2021.
 
     [Find out how to apply for a Coronavirus Bounce Back loan](/guidance/apply-for-a-coronavirus-bounce-back-loan)
     $CTA
@@ -186,7 +125,7 @@
     - has an annual turnover of at least £45 million
     - has not received support under the Bank of England’s coronavirus corporate financing facility
 
-    The scheme is open until 31 January 2021.
+    The scheme is open until 31 March 2021.
 
     [Apply for the Coronavirus Large Business Interruption Loan Scheme](/guidance/apply-for-the-coronavirus-large-business-interruption-loan-scheme)
     $CTA
@@ -205,13 +144,11 @@
     - minimum automatic pension enrolment contributions
     - £1,500 per job placement for setup costs, support and training
 
-    Each application is for a minimum of 30 job placements. You can partner with other organisations if you have fewer than 30.
-
     [Check if you can apply for a Kickstart Grant](/guidance/check-if-you-can-apply-for-a-grant-through-the-kickstart-scheme)
     $CTA
   <% end %>
 
-  <% if calculator.show?(:christmas_pub_payment) || calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) %>
+  <% if calculator.show?(:christmas_pub_payment) || calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) || if calculator.show?(:retail_hospitality_leisure_business_rates) || if calculator.show?(:nursery_support) %>
     ## Additional grants from your local council
 
     You might be eligible for grants from your council. There are schemes for businesses that were closed by law and schemes for businesses that stayed open.
@@ -230,7 +167,7 @@
       - is in tier 2 or tier 3 at any point between 2 December 2020 and 29 December 2020
       - has less than 50% in revenue from food sales (you may be asked to provide accounting evidence)
 
-      You must apply through your local authority before 31 January 2021.
+      You must apply through your local authority before 28 February 2021.
 
       One business can apply for multiple eligible pubs.
 
@@ -329,6 +266,40 @@
       - your business is in the events sector
 
       [Find out more about the coronavirus Additional Restrictions Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant)
+      $CTA
+    <% end %>
+
+    <% if calculator.show?(:retail_hospitality_leisure_business_rates) %>
+       $CTA
+       ### Business rates holiday for retail, hospitality and leisure
+
+       You will not have to pay business rates for the 2020 to 2021 tax year if your business is in retail, hospitality or leisure.
+
+       You do not need to do anything. If you are eligible, your local council will apply the discount automatically.
+
+       You’re eligible if your property is a:
+
+       - shop
+       - restaurant, café, bar or pub
+       - cinema or live music venue
+       - leisure or assembly property - for example, a sports club, a gym or a spa
+       - hospitality property - for example, a hotel, a guest house or self-catering accommodation
+
+       [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received the business rates discount.
+       $CTA
+    <% end %>
+
+    <% if calculator.show?(:nursery_support) %>
+      $CTA
+      ### Support for nursery businesses that pay business rates
+
+      Nurseries in England do not have to pay business rates for the 2020 to 2021 tax year. Your council will do this automatically.
+
+      You’re eligible if your business is on Ofsted’s Early Years Register and provides care and education for children up to 5 years old (early years foundation stage).
+
+      Local authority-run nurseries are not eligible.
+
+      [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received business rates relief.
       $CTA
     <% end %>
   <% end %>
