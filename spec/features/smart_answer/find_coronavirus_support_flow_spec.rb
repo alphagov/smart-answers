@@ -5,7 +5,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     visit "/find-coronavirus-support"
     expect(page).to have_selector("h1", text: headings[:flow_title])
 
-    click_govuk_start_button
+    click_link "Start now"
     expect(page).to have_selector("h1", text: headings[:need_help_with])
   end
 

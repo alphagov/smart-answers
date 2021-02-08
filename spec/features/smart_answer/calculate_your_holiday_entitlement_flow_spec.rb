@@ -42,7 +42,7 @@ RSpec.feature "CalculateYourHolidayEntitlementFlow", type: :feature do
   def start_the_flow
     visit "/calculate-your-holiday-entitlement"
     expect(page).to have_selector("h1", text: headings[:flow_title])
-    click_govuk_start_button
+    click_link "Start now"
   end
 
   def basis_of_calculation(response)

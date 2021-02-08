@@ -23,7 +23,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   require "gds_api/test_helpers/content_store"
   include GdsApi::TestHelpers::ContentStore
-  include ClickGovukStartButton
+  include SmartAnswerFlowHelpers
 
   config.use_active_record = false # Remove this line to enable support for ActiveRecord
   config.infer_spec_type_from_file_location!
