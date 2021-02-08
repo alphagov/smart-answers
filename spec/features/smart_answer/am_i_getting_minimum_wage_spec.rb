@@ -43,7 +43,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
@@ -87,7 +87,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
@@ -139,7 +139,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
@@ -187,7 +187,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If you're getting the National Minimum Wage or the National Living Wage"
@@ -224,7 +224,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
@@ -268,7 +268,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
@@ -320,7 +320,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"
@@ -368,7 +368,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       visit "/am-i-getting-minimum-wage"
       expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
 
-      click_govuk_start_button
+      click_link "Start now"
       expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
 
       choose "If an employer owes you payments from last year (April 2019 to March 2020)"

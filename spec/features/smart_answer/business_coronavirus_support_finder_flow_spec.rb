@@ -27,7 +27,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     visit "/business-coronavirus-support-finder"
     expect(page).to have_selector("h1", text: headings[:flow_title])
 
-    click_govuk_start_button
+    click_link "Start now"
     expect(page).to have_selector("h1", text: headings[:business_based])
 
     choose "England"
@@ -67,7 +67,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     visit "/business-coronavirus-support-finder"
     expect(page).to have_selector("h1", text: headings[:flow_title])
 
-    click_govuk_start_button
+    click_link "Start now"
     expect(page).to have_selector("h1", text: headings[:business_based])
 
     choose "England"
