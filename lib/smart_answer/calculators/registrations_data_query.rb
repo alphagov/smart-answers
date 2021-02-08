@@ -20,6 +20,39 @@ module SmartAnswer::Calculators
       turks-and-caicos-islands
     ].freeze
 
+    EEA_COUNTRIES = %w[
+      austria
+      belgium
+      bulgaria
+      croatia
+      cyprus
+      czech-republic
+      denmark
+      estonia
+      finland
+      france
+      germany
+      greece
+      hungary
+      iceland
+      ireland
+      italy
+      latvia
+      liechtenstein
+      lithuania
+      luxembourg
+      malta
+      netherlands
+      norway
+      poland
+      portugal
+      romania
+      slovakia
+      slovenia
+      spain
+      sweden
+    ].freeze
+
     COUNTRIES_WITH_CONSULATES = %w[
       china
       colombia
@@ -166,6 +199,14 @@ module SmartAnswer::Calculators
 
     def commonwealth_country?(country_slug)
       COMMONWEALTH_COUNTRIES.include?(country_slug)
+    end
+
+    def eea_country?(country_slug)
+      EEA_COUNTRIES.include?(country_slug)
+    end
+
+    def eea_country_or_switzerland?(country_slug)
+      eea_country?(country_slug) || country_slug == "switzerland"
     end
 
     def has_consulate?(country_slug)
