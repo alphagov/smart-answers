@@ -277,6 +277,7 @@ module SmartAnswer
       outcome :outcome_can_not_continue_renting
       outcome :outcome_can_rent
       outcome :outcome_can_rent_but_check_will_be_needed_again
+      outcome :outcome_can_rent_check_arrived_last_six_months
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed

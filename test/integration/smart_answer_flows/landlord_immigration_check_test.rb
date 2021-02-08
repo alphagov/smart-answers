@@ -282,7 +282,42 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
 
     context "when tenant is from somewhere else or you don't know" do
       setup do
-        add_response "somewhere-else"
+        add_response "somewhere-else" # what_nationality?
+      end
+
+      should "show from_aus_canada question" do
+        add_response "no" # has_uk_passport?
+        add_response "no" # has_eu_documents?
+        add_response "no" # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        assert_current_node :from_aus_canada?
+      end
+
+      should "go to outcome_can_rent_check_arrived_last_six_months" do
+        add_response "no" # has_uk_passport?
+        add_response "no" # has_eu_documents?
+        add_response "no" # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        add_response "yes" # from_aus_canada?
+        assert_current_node :outcome_can_rent_check_arrived_last_six_months
+      end
+
+      should "go to wating_for_documents" do
+        add_response "no" # has_uk_passport?
+        add_response "no" # has_eu_documents?
+        add_response "no" # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        add_response "no" # from_aus_canada?
+        assert_current_node :waiting_for_documents?
       end
 
       should "go to has_uk_passport" do
