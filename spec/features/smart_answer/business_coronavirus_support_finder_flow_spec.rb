@@ -18,75 +18,44 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     }
   end
 
+  let(:answers) do
+    {
+      england: "England",
+      yes: "Yes",
+      no: "No",
+      employees: "0 to 249 employees",
+      turnover: "Under £85,000",
+      property: "Under £51,000",
+      non_adult: "Nurseries",
+      adult: "Nightclub, dancehall, or adult entertainment venue",
+    }
+  end
+
   before do
     stub_content_store_has_item("/business-coronavirus-support-finder")
+    start(the_flow: headings[:flow_title], at: "business-coronavirus-support-finder")
   end
 
   scenario "Answers all questions" do
-    visit "/business-coronavirus-support-finder"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
+    answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
+    answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
+    answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:turnover])
+    answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
+    answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
+    answer(question: headings[:sectors], of_type: :checkbox, with: answers[:non_adult])
+    answer(question: headings[:closed_by_restrictions], of_type: :checkbox, with: answers[:no])
 
-    click_link "Start now"
-    expect(page).to have_selector("h1", text: headings[:business_based])
-
-    choose "England"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:business_size])
-
-    choose "0 to 249 employees"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:annual_turnover])
-
-    choose "Under £85,000"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:paye_scheme])
-
-    choose "Yes"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:non_domestic_property])
-
-    choose "Under £51,000"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:sectors])
-
-    check "Nurseries"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:closed_by_restrictions])
-
-    check "No"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:results])
+    ensure_page_has(header: headings[:results])
   end
 
   scenario "Skip last question if business type nightclubs" do
-    visit "/business-coronavirus-support-finder"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
+    answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
+    answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
+    answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:turnover])
+    answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
+    answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
+    answer(question: headings[:sectors], of_type: :checkbox, with: answers[:adult])
 
-    click_link "Start now"
-    expect(page).to have_selector("h1", text: headings[:business_based])
-
-    choose "England"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:business_size])
-
-    choose "0 to 249 employees"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:annual_turnover])
-
-    choose "Under £85,000"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:paye_scheme])
-
-    choose "Yes"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:non_domestic_property])
-
-    choose "Under £51,000"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:sectors])
-
-    check "Nightclub, dancehall, or adult entertainment venue"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:results])
+    ensure_page_has(header: headings[:results])
   end
 end

@@ -1,16 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
-  let(:older_age) { 45 }
-  let(:pay_frequency) { 20 }
-  let(:working_hours_in_day) { 8 }
-  let(:hours_worked) { pay_frequency * working_hours_in_day }
-  let(:pay_above_minimum_wage) { 10_000 }
-  let(:pay_below_minimum_wage) { 10 }
-  let(:accommodation_charge) { 5 }
-  let(:days_per_week_in_accommodation) { 5 }
-  let(:under_age) { 14 }
-
   let(:shared_headings) do
     # <question name>: <text_for :title from erb>
     {
@@ -19,8 +9,30 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
     }
   end
 
+  let(:answers) do
+    {
+      older_age: 45,
+      pay_frequency: 20,
+      working_hours_in_day: 8,
+      hours_worked: 20 * 8,
+      pay_above_minimum_wage: 10_000,
+      pay_below_minimum_wage: 10,
+      accommodation_charge: 5,
+      days_per_week_in_accommodation: 5,
+      under_age: 14,
+      apprentice: "Apprentice under 19",
+      not_apprentice: "Not an apprentice",
+      no: "No",
+      yes_is_charged: "Yes, the accommodation is charged for",
+      yes_was_charged: "Yes, the accommodation was charged for",
+      wage: "If you're getting the National Minimum Wage or the National Living Wage",
+      owed: "If an employer owes you payments from last year (April 2019 to March 2020)",
+    }
+  end
+
   before do
     stub_content_store_has_item("/am-i-getting-minimum-wage")
+    start(the_flow: headings[:flow_title], at: "am-i-getting-minimum-wage")
   end
 
   context "Current payment" do
@@ -39,168 +51,58 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       }.merge(shared_headings)
     end
 
-    scenario "Not apprentice, above minimum wage, no accommodation" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
-
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
-
-      choose "Not an apprentice"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
-
-      fill_in "response", with: older_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_above_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+    before do
+      answer(question: headings[:what_would_you_like_to_check], of_type: :radio, with: answers[:wage])
     end
 
-    scenario "Not apprentice, below minimum wage, with accommodation" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+    context "Not an apprentice" do
+      before do
+        answer(question: headings[:are_you_an_apprentice], of_type: :radio, with: answers[:not_apprentice])
+        answer(question: headings[:how_old_are_you], of_type: :value, with: answers[:older_age])
+        answer(question: headings[:how_often_do_you_get_paid], of_type: :value, with: answers[:pay_frequency])
+        answer(question: headings[:how_many_hours_do_you_work], of_type: :value, with: answers[:hours_worked])
+      end
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
+      scenario "above minimum wage, no accommodation" do
+        answer(question: headings[:how_much_are_you_paid_during_pay_period], of_type: :value, with: answers[:pay_above_minimum_wage])
+        answer(question: headings[:is_provided_with_accommodation], of_type: :radio, with: answers[:no])
+        answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+        answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
+        ensure_page_has(header: headings[:flow_title])
+      end
 
-      choose "Not an apprentice"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
+      scenario "below minimum wage, with accommodation" do
+        answer(question: headings[:how_much_are_you_paid_during_pay_period], of_type: :value, with: answers[:pay_below_minimum_wage])
+        answer(question: headings[:is_provided_with_accommodation], of_type: :radio, with: answers[:yes_is_charged])
+        answer(question: headings[:current_accommodation_charge], of_type: :value, with: answers[:accommodation_charge])
+        answer(question: headings[:current_accommodation_usage], of_type: :value, with: answers[:days_per_week_in_accommodation])
+        answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+        answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      fill_in "response", with: older_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_below_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
-
-      choose "Yes, the accommodation is charged for"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_charge))
-
-      fill_in "response", with: accommodation_charge
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_usage))
-
-      fill_in "response", with: days_per_week_in_accommodation
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+        ensure_page_has(header: headings[:flow_title])
+      end
     end
 
     scenario "Apprentice, above minimum wage" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      answer(question: headings[:are_you_an_apprentice], of_type: :radio, with: answers[:apprentice])
+      answer(question: headings[:how_often_do_you_get_paid], of_type: :value, with: answers[:pay_frequency])
+      answer(question: headings[:how_many_hours_do_you_work], of_type: :value, with: answers[:hours_worked])
+      answer(question: headings[:how_much_are_you_paid_during_pay_period], of_type: :value, with: answers[:pay_below_minimum_wage])
+      answer(question: headings[:is_provided_with_accommodation], of_type: :radio, with: answers[:yes_is_charged])
+      answer(question: headings[:current_accommodation_charge], of_type: :value, with: answers[:accommodation_charge])
+      answer(question: headings[:current_accommodation_usage], of_type: :value, with: answers[:days_per_week_in_accommodation])
+      answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+      answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
-
-      choose "Apprentice under 19"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_do_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_do_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_are_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_below_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:is_provided_with_accommodation))
-
-      choose "Yes, the accommodation is charged for"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_charge))
-
-      fill_in "response", with: accommodation_charge
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_accommodation_usage))
-
-      fill_in "response", with: days_per_week_in_accommodation
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:does_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:current_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      ensure_page_has(header: headings[:flow_title])
     end
 
     scenario "Under age" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      answer(question: headings[:are_you_an_apprentice], of_type: :radio, with: answers[:not_apprentice])
+      answer(question: headings[:how_old_are_you], of_type: :value, with: answers[:under_age])
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If you're getting the National Minimum Wage or the National Living Wage"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:are_you_an_apprentice))
-
-      choose "Not an apprentice"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_are_you))
-
-      fill_in "response", with: under_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      ensure_page_has(header: headings[:flow_title])
     end
   end
 
@@ -220,168 +122,58 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
       }.merge(shared_headings)
     end
 
-    scenario "Not apprentice, above minimum wage, no accommodation" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
-
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
-
-      fill_in "response", with: older_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_above_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+    before do
+      answer(question: headings[:what_would_you_like_to_check], of_type: :radio, with: answers[:owed])
     end
 
-    scenario "Not apprentice, below minimum wage, with accommodation" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+    context "Not an apprentice" do
+      before do
+        answer(question: headings[:were_you_an_apprentice], of_type: :radio, with: answers[:no])
+        answer(question: headings[:how_old_were_you], of_type: :value, with: answers[:older_age])
+        answer(question: headings[:how_often_did_you_get_paid], of_type: :value, with: answers[:pay_frequency])
+        answer(question: headings[:how_many_hours_did_you_work], of_type: :value, with: answers[:hours_worked])
+      end
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
+      scenario "above minimum wage, no accommodation" do
+        answer(question: headings[:how_much_were_you_paid_during_pay_period], of_type: :value, with: answers[:pay_above_minimum_wage])
+        answer(question: headings[:was_provided_with_accommodation], of_type: :radio, with: answers[:no])
+        answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+        answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
+        ensure_page_has(header: headings[:flow_title])
+      end
 
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
+      scenario "below minimum wage, with accommodation" do
+        answer(question: headings[:how_much_were_you_paid_during_pay_period], of_type: :value, with: answers[:pay_below_minimum_wage])
+        answer(question: headings[:was_provided_with_accommodation], of_type: :radio, with: answers[:yes_was_charged])
+        answer(question: headings[:past_accommodation_charge], of_type: :value, with: answers[:accommodation_charge])
+        answer(question: headings[:past_accommodation_usage], of_type: :value, with: answers[:days_per_week_in_accommodation])
+        answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+        answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      fill_in "response", with: older_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_below_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
-
-      choose "Yes, the accommodation was charged for"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_charge))
-
-      fill_in "response", with: accommodation_charge
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_usage))
-
-      fill_in "response", with: days_per_week_in_accommodation
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+        ensure_page_has(header: headings[:flow_title])
+      end
     end
 
     scenario "Apprentice, above minimum wage" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      answer(question: headings[:were_you_an_apprentice], of_type: :radio, with: answers[:apprentice])
+      answer(question: headings[:how_often_did_you_get_paid], of_type: :value, with: answers[:pay_frequency])
+      answer(question: headings[:how_many_hours_did_you_work], of_type: :value, with: answers[:hours_worked])
+      answer(question: headings[:how_much_were_you_paid_during_pay_period], of_type: :value, with: answers[:pay_below_minimum_wage])
+      answer(question: headings[:was_provided_with_accommodation], of_type: :radio, with: answers[:yes_was_charged])
+      answer(question: headings[:past_accommodation_charge], of_type: :value, with: answers[:accommodation_charge])
+      answer(question: headings[:past_accommodation_usage], of_type: :value, with: answers[:days_per_week_in_accommodation])
+      answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
+      answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
-
-      choose "Apprentice under 19"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_often_did_you_get_paid))
-
-      fill_in "response", with: pay_frequency
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_many_hours_did_you_work))
-
-      fill_in "response", with: hours_worked
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_much_were_you_paid_during_pay_period))
-
-      fill_in "response", with: pay_below_minimum_wage
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:was_provided_with_accommodation))
-
-      choose "Yes, the accommodation was charged for"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_charge))
-
-      fill_in "response", with: accommodation_charge
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_accommodation_usage))
-
-      fill_in "response", with: days_per_week_in_accommodation
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:did_employer_charge_for_job_requirements))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:past_additional_work_outside_shift))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      ensure_page_has(header: headings.fetch(:flow_title))
     end
 
     scenario "Under age" do
-      visit "/am-i-getting-minimum-wage"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      answer(question: headings[:were_you_an_apprentice], of_type: :radio, with: answers[:no])
+      answer(question: headings[:how_old_were_you], of_type: :value, with: answers[:under_age])
 
-      click_link "Start now"
-      expect(page).to have_selector("h1", text: headings.fetch(:what_would_you_like_to_check))
-
-      choose "If an employer owes you payments from last year (April 2019 to March 2020)"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:were_you_an_apprentice))
-
-      choose "No"
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:how_old_were_you))
-
-      fill_in "response", with: under_age
-      click_button "Continue"
-      expect(page).to have_selector("h1", text: headings.fetch(:flow_title))
+      ensure_page_has(header: headings[:flow_title])
     end
   end
 end
