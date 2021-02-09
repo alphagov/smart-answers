@@ -12,7 +12,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       paye_scheme: "Are you an employer with a PAYE scheme?",
       sectors: "Select your type of business",
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
-      self_employed: "Are you self-employed?",
       what_size_was_your_buisness: "What size was your business as of 28 February?",
       closed_by_restrictions: "Has your business closed by law because of coronavirus?",
       results: "Financial support your business might be entitled to",
@@ -41,10 +40,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     choose "Under £85,000"
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:paye_scheme])
-
-    choose "Yes"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:self_employed])
 
     choose "Yes"
     click_button "Continue"
@@ -81,10 +76,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
     choose "Under £85,000"
     click_button "Continue"
     expect(page).to have_selector("h1", text: headings[:paye_scheme])
-
-    choose "Yes"
-    click_button "Continue"
-    expect(page).to have_selector("h1", text: headings[:self_employed])
 
     choose "Yes"
     click_button "Continue"
