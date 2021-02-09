@@ -40,27 +40,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "self_employed_income_scheme" do
-        setup do
-          @calculator.business_size = "0_to_249"
-          @calculator.self_employed = "yes"
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:self_employed_income_scheme)
-        end
-
-        should "return false when business size is over 249 employees" do
-          @calculator.business_size = "over_249"
-          assert_not @calculator.show?(:self_employed_income_scheme)
-        end
-
-        should "return false when not self employed" do
-          @calculator.self_employed = "no"
-          assert_not @calculator.show?(:self_employed_income_scheme)
-        end
-      end
-
       context "christmas_pub_payment" do
         setup do
           @calculator.business_based = "england"
