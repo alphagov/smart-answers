@@ -6,7 +6,7 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 ## Screenshots
 
-![Student Finance Forms screenshot](./doc/assets/govuk-student-finance-forms.png)
+![Student Finance Forms screenshot](./docs/assets/govuk-student-finance-forms.png)
 
 ## Live examples
 
@@ -46,37 +46,37 @@ This is a Ruby on Rails application that contains:
 
 ### Smart Answers
 
-* [File structure](doc/smart-answers/file-structure.md)
-* [Flow definition](doc/smart-answers/flow-definition.md)
-* [Question types](doc/smart-answers/question-types.md)
-* [Next node rules](doc/smart-answers/next-node-rules.md)
-* [Storing data](doc/smart-answers/storing-data.md)
-* [ERB templates](doc/smart-answers/erb-templates.md)
-  * [Landing page template](doc/smart-answers/erb-templates/landing-page-template.md)
-  * [Question templates](doc/smart-answers/erb-templates/question-templates.md)
-  * [Outcome templates](doc/smart-answers/erb-templates/outcome-templates.md)
+* [File structure](docs/smart-answers/file-structure.md)
+* [Flow definition](docs/smart-answers/flow-definition.md)
+* [Question types](docs/smart-answers/question-types.md)
+* [Next node rules](docs/smart-answers/next-node-rules.md)
+* [Storing data](docs/smart-answers/storing-data.md)
+* [ERB templates](docs/smart-answers/erb-templates.md)
+  * [Landing page template](docs/smart-answers/erb-templates/landing-page-template.md)
+  * [Question templates](docs/smart-answers/erb-templates/question-templates.md)
+  * [Outcome templates](docs/smart-answers/erb-templates/outcome-templates.md)
 
 ### Smart Answer flow development
 
-* [Development principles](doc/smart-answer-flow-development/development-principles.md)
-* [Deploying changes for fact-check](doc/smart-answer-flow-development/fact-check.md)
-* [Flattening outcomes](doc/smart-answer-flow-development/flattening-outcomes.md)
-* [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
-* [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
-* [Publishing a Smart Answer](doc/smart-answer-flow-development/publishing.md)
-* [Retiring a Smart Answer](doc/smart-answer-flow-development/retiring-a-smart-answer.md)
-* [Updating worldwide fixture data](doc/smart-answer-flow-development/updating-worldwide-fixture-data.md)
+* [Development principles](docs/smart-answer-flow-development/development-principles.md)
+* [Deploying changes for fact-check](docs/smart-answer-flow-development/fact-check.md)
+* [Flattening outcomes](docs/smart-answer-flow-development/flattening-outcomes.md)
+* [Refactoring existing Smart Answers](docs/smart-answer-flow-development/refactoring.md)
+* [Creating a new Smart Answer](docs/smart-answer-flow-development/creating-a-new-smart-answer.md)
+* [Publishing a Smart Answer](docs/smart-answer-flow-development/publishing.md)
+* [Retiring a Smart Answer](docs/smart-answer-flow-development/retiring-a-smart-answer.md)
+* [Updating worldwide fixture data](docs/smart-answer-flow-development/updating-worldwide-fixture-data.md)
 
 ### Smart Answers app development
 
-* [Testing](doc/smart-answers-app-development/testing.md)
+* [Testing](docs/smart-answers-app-development/testing.md)
 
 ### Debugging
 
-* [Custom Google Analytics accounts and Tracking IDs](doc/debugging/custom-google-analytics-tracking-id.md)
-* [Viewing landing pages and outcomes as Govspeak](doc/debugging/viewing-templates-as-govspeak.md)
-* [Viewing state of a Smart Answer](doc/debugging/viewing-state.md)
-* [Visualising flows](doc/debugging/visualising-flows.md)
+* [Custom Google Analytics accounts and Tracking IDs](docs/debugging/custom-google-analytics-tracking-id.md)
+* [Viewing landing pages and outcomes as Govspeak](docs/debugging/viewing-templates-as-govspeak.md)
+* [Viewing state of a Smart Answer](docs/debugging/viewing-state.md)
+* [Visualising flows](docs/debugging/visualising-flows.md)
 
 ### Registering on GOV.UK
 

@@ -94,7 +94,7 @@ Open the new landing page template your editor and copy/paste the following cont
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [landing page templates](/doc/smart-answers/erb-templates/landing-page-template.md).
+Read more about [landing page templates](/docs/smart-answers/erb-templates/landing-page-template.md).
 
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 
@@ -125,7 +125,7 @@ Open the new question page template in your editor and copy/paste the following 
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [question page templates](/doc/smart-answers/erb-templates/question-templates.md).
+Read more about [question page templates](/docs/smart-answers/erb-templates/question-templates.md).
 
 Enter any value in the text field and click "Continue". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
@@ -156,7 +156,7 @@ Open the new outcome page template in your editor and copy/paste the following c
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [outcome page templates](/doc/smart-answers/erb-templates/outcome-templates.md).
+Read more about [outcome page templates](/docs/smart-answers/erb-templates/outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
 
