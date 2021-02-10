@@ -1,8 +1,8 @@
 module SmartAnswer
-  class PayLeaveForParentsFlow < Flow
+  class MaternityPaternityPayLeaveFlow < Flow
     def define
       content_id "1f6b4ecc-ce2c-488a-b9c7-b78b3bba5598"
-      name "pay-leave-for-parents"
+      name "maternity-paternity-pay-leave"
       status :published
 
       radio :two_carers do
@@ -10,7 +10,7 @@ module SmartAnswer
         option "no"
 
         on_response do |response|
-          self.calculator = Calculators::PayLeaveForParentsCalculator.new
+          self.calculator = Calculators::MaternityPaternityPayLeaveCalculator.new
           calculator.two_carers = response
         end
 
