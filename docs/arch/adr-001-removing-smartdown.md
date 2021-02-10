@@ -6,7 +6,7 @@
 
 [Smartdown][smartdown-github] was developed in an attempt to reduce the overhead of Smart Answers development. [Smartdown was added to the Smart Answers project on 6 Aug 2014][smartdown-in-smart-answers].
 
-Smartdown made it easier for content designers to edit questions and outcome content, but was quite restrictive when it came to defining the rules of the Smart Answer (see the rules in [pay-leave-for-parents/partner_earned_more_than_lower_earnings_limit][spl-complicated-next-node-rules], for example).
+Smartdown made it easier for content designers to edit questions and outcome content, but was quite restrictive when it came to defining the rules of the Smart Answer (see the rules in [maternity-paternity-pay-leave/partner_earned_more_than_lower_earnings_limit][spl-complicated-next-node-rules], for example).
 
 Smartdown didn't match Ruby Smart Answers in terms of features. Adding support for these features to Smartdown would have required extensions to the grammar and hence the parser. The cost of this would've been relatively high, especially considering that Ruby Smart Answers already had all the functionality we needed (apart from multiple questions-per-page).
 

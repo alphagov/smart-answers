@@ -2,10 +2,10 @@ require_relative "../../test_helper"
 
 module SmartAnswer
   module Calculators
-    class PayLeaveForParentsCalculatorTest < ActiveSupport::TestCase
+    class MaternityPaternityPayLeaveCalculatorTest < ActiveSupport::TestCase
       setup do
         @due_date = Date.parse("2015-1-1")
-        @calculator = PayLeaveForParentsCalculator.new
+        @calculator = MaternityPaternityPayLeaveCalculator.new
         @calculator.due_date = @due_date
       end
 
@@ -66,7 +66,7 @@ module SmartAnswer
       context "due date in 2013-2014 range" do
         setup do
           @date = Date.parse("2014-1-1")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -78,7 +78,7 @@ module SmartAnswer
       context "due date in 2014-2015 range" do
         setup do
           @date = Date.parse("2015-1-1")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -90,7 +90,7 @@ module SmartAnswer
       context "due date in 2015-2016 range" do
         setup do
           @date = Date.parse("2016-1-1")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -102,7 +102,7 @@ module SmartAnswer
       context "due date in 2016-2017 range" do
         setup do
           @date = Date.parse("2017-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -114,7 +114,7 @@ module SmartAnswer
       context "due date in 2017-2018 range" do
         setup do
           @date = Date.parse("2018-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -126,7 +126,7 @@ module SmartAnswer
       context "due date in 2018-2019 range" do
         setup do
           @date = Date.parse("2019-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -138,7 +138,7 @@ module SmartAnswer
       context "due date in 2019-2020 range" do
         setup do
           @date = Date.parse("2020-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -150,7 +150,7 @@ module SmartAnswer
       context "due date in 2020-2021 range" do
         setup do
           @date = Date.parse("2021-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -162,7 +162,7 @@ module SmartAnswer
       context "due date outside all ranges" do
         setup do
           @date = Date.parse("2022-01-01")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
@@ -174,7 +174,7 @@ module SmartAnswer
       context "an LEL period which straddles an LEL uprating" do
         setup do
           @date = Date.parse("2018-09-08")
-          @calculator = PayLeaveForParentsCalculator.new
+          @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 

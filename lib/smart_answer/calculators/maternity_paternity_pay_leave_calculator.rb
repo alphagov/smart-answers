@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class PayLeaveForParentsCalculator
+  class MaternityPaternityPayLeaveCalculator
     include ActiveModel::Model
 
     attr_accessor :two_carers,
