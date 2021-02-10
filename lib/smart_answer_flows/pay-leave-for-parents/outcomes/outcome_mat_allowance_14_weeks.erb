@@ -1,9 +1,9 @@
 <% govspeak_for :body do %>
   <%= render partial: 'mat_allowance_14_weeks', locals: { calculator: calculator } %>
 
-  <%= render partial: 'extra_help' %>
-
   <% if calculator.two_carers? %>
     <%= render partial: 'paternity_unavailable' %>
   <% end %>
+
+  <%= render partial: 'extra_help' %>
 <% end %>
