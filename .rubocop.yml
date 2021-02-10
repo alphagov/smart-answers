@@ -7,7 +7,6 @@ inherit_mode:
   merge:
     - Exclude
 
-# It is a convention of this app that the files
 # that define a smart answer have a name that matches
 # its (hyphenated) URL.
 Naming/FileName:
