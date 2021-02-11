@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  Did the mother work (or will she have worked) for at least 26 weeks in this job between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
+  <% if calculator.employment_status_of_mother == "self-employed" %>
+    Was the mother registered as self-employed with HM Revenue and Customs (HMRC) (or will she be registered) for at least 26 weeks between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
+  <% else%>
+    Did the mother work (or will she have worked) for at least 26 weeks between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
+  <% end %>
 <% end %>
 
 <% options(
@@ -8,5 +12,8 @@
 ) %>
 
 <% govspeak_for :post_body do %>
-  The 26 weeks don’t need to be in a row. They can be full or part weeks.
+  The 26 weeks do not need to be in a row. They can be full or part weeks.
+  <% if calculator.employment_status_of_mother == "self-employed" %>
+    You can read more about [registering as self-employed](/register-for-self-assessment/self-employed).
+  <% end %>
 <% end %>
