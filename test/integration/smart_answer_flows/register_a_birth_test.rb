@@ -136,7 +136,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             add_response "in_the_uk"
             assert_equal "spain", current_state.calculator.registration_country
             assert_current_node :oru_result
-            assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
+            assert_equal "/government/publications/spain-list-of-translators-and-interpreters", current_state.calculator.translator_link_url
           end
         end
       end # married

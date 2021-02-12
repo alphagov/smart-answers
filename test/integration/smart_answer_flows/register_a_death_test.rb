@@ -132,7 +132,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :oru_result
-          assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
+          assert_equal "/government/publications/spain-list-of-translators-and-interpreters", current_state.calculator.translator_link_url
           assert current_state.calculator.document_return_fees.present?
         end
       end # Answer embassy
@@ -142,7 +142,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
+          assert_equal "/government/publications/spain-list-of-translators-and-interpreters", current_state.calculator.translator_link_url
         end
       end # Answer ORU
     end # Answer Spain
