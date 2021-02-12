@@ -21,11 +21,11 @@ jobs:
         uses: ruby/setup-ruby@v1
 
       - name: Retrieve cached Gems
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
-          key: bundle-${{ hashFiles('**/Gemfile.lock') }}-v2
-          restore-keys: bundle
+          key: bundle-v2-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle-v2
 
       - name: Install Ruby dependencies
         run: bundle install --jobs 4 --retry 3 --deployment
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v1
 
       - name: Retrieve cached node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: yarn-${{ hashFiles('**/yarn.lock') }}
