@@ -39,7 +39,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_still_working_on_continuity_end_date
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "no" # mother_worked_at_least_26_weeks
-      add_response "no" # mother_earned_at_least_390
       assert_current_node :outcome_single_birth_nothing
     end
 
