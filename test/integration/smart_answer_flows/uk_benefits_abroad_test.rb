@@ -763,105 +763,105 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # Child benefits
-    # context "answer child benefits" do
-    #   setup do
-    #     add_response "child_benefit"
-    #   end
-    #   should "ask you the country question" do
-    #     assert_current_node :which_country?
-    #   end
-    #
-    #   context "answer Guernsey or Jersey" do
-    #     setup do
-    #       add_response "jersey"
-    #     end
-    #     should "take you to SS outcome" do
-    #       assert_current_node :child_benefit_ss_outcome
-    #     end
-    #   end
-    #
-    #   context "answer EEA country" do
-    #     setup do
-    #       add_response "austria"
-    #     end
-    #
-    #     should "ask you do any of the following apply" do
-    #       assert_current_node :do_either_of_the_following_apply?
-    #     end
-    #
-    #     context "selects more than one benefit" do
-    #       setup do
-    #         add_response "incapacity_benefit,state_pension"
-    #       end
-    #
-    #       should "take you to the entitled outcome" do
-    #         assert_current_node :child_benefit_entitled_outcome
-    #       end
-    #     end
-    #
-    #     context "selects only one benefit" do
-    #       setup do
-    #         add_response "incapacity_benefit"
-    #       end
-    #
-    #       should "take you to the entitled outcome" do
-    #         assert_current_node :child_benefit_entitled_outcome
-    #       end
-    #     end
-    #
-    #     context "selects at least one invalid benefit" do
-    #       setup do
-    #         add_response "invalid_benefit,state_pension"
-    #       end
-    #
-    #       should "get illegal option invalid_benefit error" do
-    #         assert_current_node_is_error "Illegal option invalid_benefit for do_either_of_the_following_apply?"
-    #       end
-    #     end
-    #
-    #     context "does not select any benefits" do
-    #       setup do
-    #         add_response "none"
-    #       end
-    #
-    #       should "take you to not entitled outcome" do
-    #         assert_current_node :child_benefit_not_entitled_outcome
-    #       end
-    #     end
-    #   end
-    #   context "answer FY country" do
-    #     setup do
-    #       add_response "kosovo"
-    #     end
-    #     should "take you to FY going abroad outcome" do
-    #       assert_current_node :child_benefit_fy_going_abroad_outcome
-    #     end
-    #   end
-    #   context "answer SS country" do
-    #     setup do
-    #       add_response "canada"
-    #     end
-    #     should "take you to SS outcome" do
-    #       assert_current_node :child_benefit_ss_outcome
-    #     end
-    #   end
-    #   context "answer JTU country" do
-    #     setup do
-    #       add_response "jamaica"
-    #     end
-    #     should "take you to JTU outcome" do
-    #       assert_current_node :child_benefit_jtu_outcome
-    #     end
-    #   end
-    #   context "answer other country" do
-    #     setup do
-    #       add_response "albania"
-    #     end
-    #     should "take you to not entitled outcome" do
-    #       assert_current_node :child_benefit_not_entitled_outcome
-    #     end
-    #   end
-    # end
+    context "answer child benefits" do
+      setup do
+        add_response "child_benefit"
+      end
+      should "ask you the country question" do
+        assert_current_node :which_country?
+      end
+
+      context "answer Guernsey or Jersey" do
+        setup do
+          add_response "jersey"
+        end
+        should "take you to SS outcome" do
+          assert_current_node :child_benefit_ss_outcome
+        end
+      end
+
+      context "answer EEA country" do
+        setup do
+          add_response "austria"
+        end
+
+        should "ask you do any of the following apply" do
+          assert_current_node :do_either_of_the_following_apply?
+        end
+
+        context "selects more than one benefit" do
+          setup do
+            add_response "incapacity_benefit,state_pension"
+          end
+
+          should "take you to the entitled outcome" do
+            assert_current_node :child_benefit_entitled_outcome
+          end
+        end
+
+        context "selects only one benefit" do
+          setup do
+            add_response "incapacity_benefit"
+          end
+
+          should "take you to the entitled outcome" do
+            assert_current_node :child_benefit_entitled_outcome
+          end
+        end
+
+        context "selects at least one invalid benefit" do
+          setup do
+            add_response "invalid_benefit,state_pension"
+          end
+
+          should "get illegal option invalid_benefit error" do
+            assert_current_node_is_error "Illegal option invalid_benefit for do_either_of_the_following_apply?"
+          end
+        end
+
+        context "does not select any benefits" do
+          setup do
+            add_response "none"
+          end
+
+          should "take you to not entitled outcome" do
+            assert_current_node :child_benefit_not_entitled_outcome
+          end
+        end
+      end
+      context "answer FY country" do
+        setup do
+          add_response "kosovo"
+        end
+        should "take you to FY going abroad outcome" do
+          assert_current_node :child_benefit_fy_going_abroad_outcome
+        end
+      end
+      context "answer SS country" do
+        setup do
+          add_response "canada"
+        end
+        should "take you to SS outcome" do
+          assert_current_node :child_benefit_ss_outcome
+        end
+      end
+      context "answer JTU country" do
+        setup do
+          add_response "jamaica"
+        end
+        should "take you to JTU outcome" do
+          assert_current_node :child_benefit_jtu_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response "albania"
+        end
+        should "take you to not entitled outcome" do
+          assert_current_node :child_benefit_not_entitled_outcome
+        end
+      end
+    end
 
     # SSP
     context "answer statutory sick pay (SSP)" do
@@ -915,155 +915,155 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # Tax Credits
-    # context "answer tax credits" do
-    #   setup do
-    #     add_response "tax_credits"
-    #   end
-    #   should "ask if you or partner is a crown servant or cross-border worker" do
-    #     assert_current_node :eligible_for_tax_credits?
-    #   end
-    #   context "answer crown servant" do
-    #     setup do
-    #       add_response "crown_servant"
-    #     end
-    #     should "take you to crown servant outcome" do
-    #       assert_current_node :tax_credits_crown_servant_outcome
-    #     end
-    #   end
-    #   context "answer cross-border worker" do
-    #     setup do
-    #       add_response "cross_border_worker"
-    #     end
-    #     should "take you to cross-border worker outcome" do
-    #       assert_current_node :tax_credits_cross_border_worker_outcome
-    #     end
-    #   end
-    #   context "answer none of the above" do
-    #     setup do
-    #       add_response "none_of_the_above"
-    #     end
-    #     should "ask how long you're going abroad for" do
-    #       assert_current_node :tax_credits_how_long_abroad?
-    #     end
-    #
-    #     context "answer less than a year" do
-    #       setup do
-    #         add_response :tax_credits_up_to_a_year
-    #       end
-    #       should "ask why are you going abroad" do
-    #         assert_current_node :tax_credits_why_going_abroad?
-    #         assert_equal current_state.calculator.why_abroad_question_title, "Why are you going abroad?"
-    #       end
-    #       context "answer holiday" do
-    #         setup do
-    #           add_response "tax_credits_holiday"
-    #         end
-    #         should "take you to the holiday outcome" do
-    #           assert_current_node :tax_credits_holiday_outcome
-    #         end
-    #       end
-    #       context "answer medical treatment" do
-    #         setup do
-    #           add_response "tax_credits_medical_treatment"
-    #         end
-    #         should "take you to medical treatment outcome" do
-    #           assert_current_node :tax_credits_medical_death_outcome
-    #         end
-    #       end
-    #       context "answer family bereavement" do
-    #         setup do
-    #           add_response "tax_credits_death"
-    #         end
-    #         should "take you to family bereavement outcome" do
-    #           assert_current_node :tax_credits_medical_death_outcome
-    #         end
-    #       end
-    #     end
-    #     context "answer more than a year" do
-    #       setup do
-    #         add_response "tax_credits_more_than_a_year"
-    #       end
-    #       should "ask if you have children" do
-    #         assert_current_node :tax_credits_children?
-    #       end
-    #       context "answer no" do
-    #         setup do
-    #           add_response "no"
-    #         end
-    #         should "take you to unlikely outcome" do
-    #           assert_current_node :tax_credits_unlikely_outcome
-    #         end
-    #       end
-    #       context "answer yes" do
-    #         setup do
-    #           add_response "yes"
-    #         end
-    #         should "ask you what country you're moving to" do
-    #           assert_current_node :which_country?
-    #           assert_equal current_state.calculator.country_question_title, "Which country are you moving to?"
-    #         end
-    #         context "answer EEA country" do
-    #           setup do
-    #             add_response "austria"
-    #           end
-    #           should "ask are you claiming any of these benefits" do
-    #             assert_current_node :tax_credits_currently_claiming?
-    #           end
-    #
-    #           context "selects at least one tax credit" do
-    #             setup do
-    #               add_response "widows_benefit"
-    #             end
-    #
-    #             should "take you to EEA may qualify outcome" do
-    #               assert_current_node :tax_credits_eea_entitled_outcome
-    #             end
-    #           end
-    #
-    #           context "selects more than one tax credit" do
-    #             setup do
-    #               add_response "widows_benefit,contribution_based_employment_support_allowance"
-    #             end
-    #
-    #             should "take you to EEA may qualify outcome" do
-    #               assert_current_node :tax_credits_eea_entitled_outcome
-    #             end
-    #           end
-    #
-    #           context "selects at least one invalid tax credit benefit" do
-    #             setup do
-    #               add_response "invalid_tax_credit_benefit,widows_benefit"
-    #             end
-    #
-    #             should "get illegal options error" do
-    #               assert_current_node_is_error "Illegal option invalid_tax_credit_benefit for tax_credits_currently_claiming?"
-    #             end
-    #           end
-    #
-    #           context "does not selects any tax credit" do
-    #             setup do
-    #               add_response "none"
-    #             end
-    #
-    #             should "take you to not entitled outcome" do
-    #               assert_current_node :tax_credits_unlikely_outcome
-    #             end
-    #           end
-    #         end
-    #
-    #         context "answer other country" do
-    #           setup do
-    #             add_response "albania"
-    #           end
-    #           should "take you to not entitled outcome" do
-    #             assert_current_node :tax_credits_unlikely_outcome
-    #           end
-    #         end
-    #       end
-    #     end
-    #   end
-    # end
+    # Tax Credis
+    context "answer tax credits" do
+      setup do
+        add_response "tax_credits"
+      end
+      should "ask if you or partner is a crown servant or cross-border worker" do
+        assert_current_node :eligible_for_tax_credits?
+      end
+      context "answer crown servant" do
+        setup do
+          add_response "crown_servant"
+        end
+        should "take you to crown servant outcome" do
+          assert_current_node :tax_credits_crown_servant_outcome
+        end
+      end
+      context "answer cross-border worker" do
+        setup do
+          add_response "cross_border_worker"
+        end
+        should "take you to cross-border worker outcome" do
+          assert_current_node :tax_credits_cross_border_worker_outcome
+        end
+      end
+      context "answer none of the above" do
+        setup do
+          add_response "none_of_the_above"
+        end
+        should "ask how long you're going abroad for" do
+          assert_current_node :tax_credits_how_long_abroad?
+        end
+
+        context "answer less than a year" do
+          setup do
+            add_response :tax_credits_up_to_a_year
+          end
+          should "ask why are you going abroad" do
+            assert_current_node :tax_credits_why_going_abroad?
+            assert_equal current_state.calculator.why_abroad_question_title, "Why are you going abroad?"
+          end
+          context "answer holiday" do
+            setup do
+              add_response "tax_credits_holiday"
+            end
+            should "take you to the holiday outcome" do
+              assert_current_node :tax_credits_holiday_outcome
+            end
+          end
+          context "answer medical treatment" do
+            setup do
+              add_response "tax_credits_medical_treatment"
+            end
+            should "take you to medical treatment outcome" do
+              assert_current_node :tax_credits_medical_death_outcome
+            end
+          end
+          context "answer family bereavement" do
+            setup do
+              add_response "tax_credits_death"
+            end
+            should "take you to family bereavement outcome" do
+              assert_current_node :tax_credits_medical_death_outcome
+            end
+          end
+        end
+        context "answer more than a year" do
+          setup do
+            add_response "tax_credits_more_than_a_year"
+          end
+          should "ask if you have children" do
+            assert_current_node :tax_credits_children?
+          end
+          context "answer no" do
+            setup do
+              add_response "no"
+            end
+            should "take you to unlikely outcome" do
+              assert_current_node :tax_credits_unlikely_outcome
+            end
+          end
+          context "answer yes" do
+            setup do
+              add_response "yes"
+            end
+            should "ask you what country you're moving to" do
+              assert_current_node :which_country?
+              assert_equal current_state.calculator.country_question_title, "Which country are you moving to?"
+            end
+            context "answer EEA country" do
+              setup do
+                add_response "austria"
+              end
+              should "ask are you claiming any of these benefits" do
+                assert_current_node :tax_credits_currently_claiming?
+              end
+
+              context "selects at least one tax credit" do
+                setup do
+                  add_response "widows_benefit"
+                end
+
+                should "take you to EEA may qualify outcome" do
+                  assert_current_node :tax_credits_eea_entitled_outcome
+                end
+              end
+
+              context "selects more than one tax credit" do
+                setup do
+                  add_response "widows_benefit,contribution_based_employment_support_allowance"
+                end
+
+                should "take you to EEA may qualify outcome" do
+                  assert_current_node :tax_credits_eea_entitled_outcome
+                end
+              end
+
+              context "selects at least one invalid tax credit benefit" do
+                setup do
+                  add_response "invalid_tax_credit_benefit,widows_benefit"
+                end
+
+                should "get illegal options error" do
+                  assert_current_node_is_error "Illegal option invalid_tax_credit_benefit for tax_credits_currently_claiming?"
+                end
+              end
+
+              context "does not selects any tax credit" do
+                setup do
+                  add_response "none"
+                end
+
+                should "take you to not entitled outcome" do
+                  assert_current_node :tax_credits_unlikely_outcome
+                end
+              end
+            end
+
+            context "answer other country" do
+              setup do
+                add_response "albania"
+              end
+              should "take you to not entitled outcome" do
+                assert_current_node :tax_credits_unlikely_outcome
+              end
+            end
+          end
+        end
+      end
+    end
 
     # Industrial Injuries Disablement Benefit IIDB
     context "answer IIDB" do
@@ -1898,62 +1898,62 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # Child benefits
-    # context "answer Guernsey/Jersey and child benefits" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "jersey"
-    #   end
-    #   should "take you to which country question" do
-    #     assert_current_node :child_benefit_ss_outcome
-    #   end
-    # end
-    # context "answer EEA country, paying NI in the UK" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "austria"
-    #     add_response "state_pension"
-    #   end
-    #   should "take you to entitled outcome" do
-    #     assert_current_node :child_benefit_entitled_outcome
-    #   end
-    # end
-    # context "answer EEA country, not paying NI in the UK, not receiving benefits" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "austria"
-    #     add_response "none"
-    #   end
-    #   should "take you to not entitled outcome" do
-    #     assert_current_node :child_benefit_not_entitled_outcome
-    #   end
-    # end
-    # context "answer FY country" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "kosovo"
-    #   end
-    #   should "take you to FY already abroad outcome" do
-    #     assert_current_node :child_benefit_fy_already_abroad_outcome
-    #   end
-    # end
-    # context "answer SS country" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "canada"
-    #   end
-    #   should "take you to SS outcome" do
-    #     assert_current_node :child_benefit_ss_outcome
-    #   end
-    # end
-    # context "answer JTU country" do
-    #   setup do
-    #     add_response "child_benefit"
-    #     add_response "jamaica"
-    #   end
-    #   should "take you to JTU outcome" do
-    #     assert_current_node :child_benefit_jtu_outcome
-    #   end
-    # end
+    context "answer Guernsey/Jersey and child benefits" do
+      setup do
+        add_response "child_benefit"
+        add_response "jersey"
+      end
+      should "take you to which country question" do
+        assert_current_node :child_benefit_ss_outcome
+      end
+    end
+    context "answer EEA country, paying NI in the UK" do
+      setup do
+        add_response "child_benefit"
+        add_response "austria"
+        add_response "state_pension"
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :child_benefit_entitled_outcome
+      end
+    end
+    context "answer EEA country, not paying NI in the UK, not receiving benefits" do
+      setup do
+        add_response "child_benefit"
+        add_response "austria"
+        add_response "none"
+      end
+      should "take you to not entitled outcome" do
+        assert_current_node :child_benefit_not_entitled_outcome
+      end
+    end
+    context "answer FY country" do
+      setup do
+        add_response "child_benefit"
+        add_response "kosovo"
+      end
+      should "take you to FY already abroad outcome" do
+        assert_current_node :child_benefit_fy_already_abroad_outcome
+      end
+    end
+    context "answer SS country" do
+      setup do
+        add_response "child_benefit"
+        add_response "canada"
+      end
+      should "take you to SS outcome" do
+        assert_current_node :child_benefit_ss_outcome
+      end
+    end
+    context "answer JTU country" do
+      setup do
+        add_response "child_benefit"
+        add_response "jamaica"
+      end
+      should "take you to JTU outcome" do
+        assert_current_node :child_benefit_jtu_outcome
+      end
+    end
 
     # Statutory Sick Pay (SSP)
     context "answer EEA country, working for a UK employer" do
@@ -1998,106 +1998,106 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # Tax Credits
-    # context "answer crown servant" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "crown_servant"
-    #   end
-    #   should "take you to crown servant outcome" do
-    #     assert_current_node :tax_credits_crown_servant_outcome
-    #   end
-    # end
-    # context "answer cross-border worker" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "cross_border_worker"
-    #   end
-    #   should "take you to cross-border worker outcome" do
-    #     assert_current_node :tax_credits_cross_border_worker_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad less than a year, holiday" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_up_to_a_year"
-    #     add_response "tax_credits_holiday"
-    #   end
-    #   should "take you to the holiday outcome" do
-    #     assert_current_node :tax_credits_holiday_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad less than a year, medical treatment" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_up_to_a_year"
-    #     add_response "tax_credits_medical_treatment"
-    #   end
-    #   should "take you to the medical treatment outcome" do
-    #     assert_current_node :tax_credits_medical_death_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad less than a year, family bereavement" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_up_to_a_year"
-    #     add_response "tax_credits_death"
-    #   end
-    #   should "take you to the family bereavment outcome" do
-    #     assert_current_node :tax_credits_medical_death_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad more than a year, no children" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_more_than_a_year"
-    #     add_response "no"
-    #   end
-    #   should "take you to unlikely outcome" do
-    #     assert_current_node :tax_credits_unlikely_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad more than a year, children, EEA country, benefits" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_more_than_a_year"
-    #     add_response "yes"
-    #     add_response "austria"
-    #     add_response "widows_benefit"
-    #   end
-    #   should "take you to entitled outcome" do
-    #     assert_current_node :tax_credits_eea_entitled_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad more than a year, children, EEA country, no benefits" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_more_than_a_year"
-    #     add_response "yes"
-    #     add_response "austria"
-    #     add_response "none"
-    #   end
-    #   should "take you to unlikely outcome" do
-    #     assert_current_node :tax_credits_unlikely_outcome
-    #   end
-    # end
-    # context "not crown or cross, abroad more than a year, children, other country" do
-    #   setup do
-    #     add_response "tax_credits"
-    #     add_response "none_of_the_above"
-    #     add_response "tax_credits_more_than_a_year"
-    #     add_response "yes"
-    #     add_response "albania"
-    #   end
-    #   should "take you to unlikely outcome" do
-    #     assert_current_node :tax_credits_unlikely_outcome
-    #   end
-    # end
+    context "answer crown servant" do
+      setup do
+        add_response "tax_credits"
+        add_response "crown_servant"
+      end
+      should "take you to crown servant outcome" do
+        assert_current_node :tax_credits_crown_servant_outcome
+      end
+    end
+    context "answer cross-border worker" do
+      setup do
+        add_response "tax_credits"
+        add_response "cross_border_worker"
+      end
+      should "take you to cross-border worker outcome" do
+        assert_current_node :tax_credits_cross_border_worker_outcome
+      end
+    end
+    context "not crown or cross, abroad less than a year, holiday" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_up_to_a_year"
+        add_response "tax_credits_holiday"
+      end
+      should "take you to the holiday outcome" do
+        assert_current_node :tax_credits_holiday_outcome
+      end
+    end
+    context "not crown or cross, abroad less than a year, medical treatment" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_up_to_a_year"
+        add_response "tax_credits_medical_treatment"
+      end
+      should "take you to the medical treatment outcome" do
+        assert_current_node :tax_credits_medical_death_outcome
+      end
+    end
+    context "not crown or cross, abroad less than a year, family bereavement" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_up_to_a_year"
+        add_response "tax_credits_death"
+      end
+      should "take you to the family bereavment outcome" do
+        assert_current_node :tax_credits_medical_death_outcome
+      end
+    end
+    context "not crown or cross, abroad more than a year, no children" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_more_than_a_year"
+        add_response "no"
+      end
+      should "take you to unlikely outcome" do
+        assert_current_node :tax_credits_unlikely_outcome
+      end
+    end
+    context "not crown or cross, abroad more than a year, children, EEA country, benefits" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_more_than_a_year"
+        add_response "yes"
+        add_response "austria"
+        add_response "widows_benefit"
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :tax_credits_eea_entitled_outcome
+      end
+    end
+    context "not crown or cross, abroad more than a year, children, EEA country, no benefits" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_more_than_a_year"
+        add_response "yes"
+        add_response "austria"
+        add_response "none"
+      end
+      should "take you to unlikely outcome" do
+        assert_current_node :tax_credits_unlikely_outcome
+      end
+    end
+    context "not crown or cross, abroad more than a year, children, other country" do
+      setup do
+        add_response "tax_credits"
+        add_response "none_of_the_above"
+        add_response "tax_credits_more_than_a_year"
+        add_response "yes"
+        add_response "albania"
+      end
+      should "take you to unlikely outcome" do
+        assert_current_node :tax_credits_unlikely_outcome
+      end
+    end
 
     # ESA
     context "answer ESA" do
