@@ -44,3 +44,8 @@
   end_date: 2021-04-05
   first_child: 21.05
   additional_child: 13.95
+"2021":
+  start_date: 2021-04-06
+  end_date: 2022-04-05
+  first_child: 21.15
+  additional_child: 14.00

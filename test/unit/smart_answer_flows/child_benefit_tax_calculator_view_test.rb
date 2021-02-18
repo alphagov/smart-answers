@@ -49,7 +49,8 @@ module SmartAnswer
                        "2017" => "2017 to 2018",
                        "2018" => "2018 to 2019",
                        "2019" => "2019 to 2020",
-                       "2020" => "2020 to 2021" }, values_vs_labels(@presenter.options))
+                       "2020" => "2020 to 2021",
+                       "2021" => "2021 to 2022" }, values_vs_labels(@presenter.options))
       end
 
       should "display hint text" do
