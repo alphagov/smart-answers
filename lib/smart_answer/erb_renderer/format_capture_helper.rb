@@ -3,7 +3,6 @@ module SmartAnswer
     TEXT_CONTENT = [
       :title,
       :meta_description,
-      :hint,
       :label,
       :suffix_label,
       /^error_/,
