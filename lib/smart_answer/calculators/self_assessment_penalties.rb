@@ -153,6 +153,10 @@ module SmartAnswer::Calculators
       tax_year == "2019-20" ? payment_date - 1.day : payment_date - 2.days
     end
 
+    def first_late_payment_days
+      tax_year == "2019-20" ? 60 : 30
+    end
+
     def total_owed
       SmartAnswer::Money.new((estimated_bill.value + interest.to_f + late_payment_penalty.to_f).floor)
     end
@@ -162,7 +166,7 @@ module SmartAnswer::Calculators
     end
 
     def late_payment_penalty
-      if overdue_payment_days <= 30
+      if overdue_payment_days <= first_late_payment_days
         0
       elsif overdue_payment_days <= 181
         SmartAnswer::Money.new(late_payment_penalty_part.round(2))

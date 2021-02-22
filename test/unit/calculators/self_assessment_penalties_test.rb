@@ -297,17 +297,42 @@ module SmartAnswer::Calculators
           end
         end
 
+        context "HMRC Covid-19 Extension to 1 April for 2019-20" do
+          setup do
+            @calculator.tax_year = "2019-20"
+            @calculator.submission_method = "online"
+            @calculator.filing_date = Date.parse("2021-01-31")
+            @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          end
+
+          context "the user has to pay interest on their debt if they pay between 31st Jan and 1st April - but no penalty" do
+            should "be no interest incurred prior to 31st Jan" do
+              @calculator.payment_date = Date.parse("2021-01-31")
+              assert_equal 0, @calculator.late_payment_penalty
+              assert_equal 0.0, @calculator.interest.to_f
+            end
+
+            should "incur interest payments between 31st Jan and 1st April" do
+              @calculator.payment_date = Date.parse("2021-02-01")
+              assert_equal 0, @calculator.late_payment_penalty
+              assert_equal 0.71, @calculator.interest.to_f
+
+              @calculator.payment_date = Date.parse("2021-04-01")
+              assert_equal 0, @calculator.late_payment_penalty
+              assert_equal 42.74, @calculator.interest.to_f
+            end
+          end
+
+          should "the user should have a late payment penalty as they are beyond the new deadline of 2nd April" do
+            @calculator.payment_date = Date.parse("2021-04-02")
+            assert_equal 500, @calculator.late_payment_penalty
+            assert_equal 43.45, @calculator.interest.to_f
+          end
+        end
+
         context "pay penalty after rate change on 23 Aug 2016" do
           setup do
             @calculator.estimated_bill = SmartAnswer::Money.new(1000)
-          end
-
-          should "start interest payments on the 1st of Feb for tax year 2019-20" do
-            @calculator.tax_year = "2019-20"
-            @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
-            @calculator.payment_date = Date.parse("2021-02-01")
-
-            assert_equal 0.71, @calculator.interest
           end
 
           context "deadline and payment dates are before rate change date" do
