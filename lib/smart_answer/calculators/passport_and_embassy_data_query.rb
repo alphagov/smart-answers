@@ -9,7 +9,18 @@ module SmartAnswer::Calculators
 
     CASH_ONLY_COUNTRIES = %w[cuba sudan].freeze
 
-    RENEWING_COUNTRIES = %w[belarus cuba lebanon libya myanmar russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe].freeze
+    RENEWING_COUNTRIES = %w[belarus
+                            cuba
+                            lebanon
+                            libya
+                            myanmar
+                            russia
+                            sudan
+                            tajikistan
+                            tunisia
+                            turkmenistan
+                            uzbekistan
+                            zimbabwe].freeze
 
     attr_reader :passport_data, :passport_fees
 

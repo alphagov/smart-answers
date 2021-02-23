@@ -4,7 +4,12 @@ module SmartAnswer::Calculators
 
     EXCLUDE_COUNTRIES = %w[holy-see british-antarctic-territory].freeze
 
-    attr_accessor :country_of_birth, :british_national_parent, :married_couple_or_civil_partnership, :childs_date_of_birth, :current_location, :current_country
+    attr_accessor :country_of_birth,
+                  :british_national_parent,
+                  :married_couple_or_civil_partnership,
+                  :childs_date_of_birth,
+                  :current_location,
+                  :current_country
 
     def initialize
       @reg_data_query = RegistrationsDataQuery.new

@@ -5,7 +5,18 @@ module SmartAnswer::Calculators
 
     PRISONER_PACKS = YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml")).freeze
     COUNTRIES_WITH_REGIONS = %w[cyprus].freeze
-    COUNTRIES_WITHOUT_TRANFSERS_BACK = %w[austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia].freeze
+    COUNTRIES_WITHOUT_TRANFSERS_BACK = %w[austria
+                                          belgium
+                                          croatia
+                                          denmark
+                                          finland
+                                          hungary
+                                          italy
+                                          latvia
+                                          luxembourg
+                                          malta
+                                          netherlands
+                                          slovakia].freeze
 
     def initialize(country)
       @country = country
