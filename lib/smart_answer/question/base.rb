@@ -56,8 +56,7 @@ module SmartAnswer
           block.evaluate(state, input)
         end
         next_node = next_node_for(new_state, input)
-        new_state = new_state.transition_to(next_node, input)
-        new_state
+        new_state.transition_to(next_node, input)
       end
 
       def parse_input(raw_input)

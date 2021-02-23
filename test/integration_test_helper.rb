@@ -54,19 +54,13 @@ class ActionDispatch::IntegrationTest
     end
   end
 
-  def self.without_javascript
-    context "without javascript" do
-      yield
-    end
+  def self.without_javascript(&block)
+    context "without javascript", &block
   end
 
-  def self.with_and_without_javascript
-    without_javascript do
-      yield
-    end
+  def self.with_and_without_javascript(&block)
+    without_javascript(&block)
 
-    with_javascript do
-      yield
-    end
+    with_javascript(&block)
   end
 end

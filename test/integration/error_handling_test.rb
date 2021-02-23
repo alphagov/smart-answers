@@ -3,8 +3,7 @@ require_relative "../integration_test_helper"
 class ErrorHandlingTest < ActionDispatch::IntegrationTest
   class ExampleController < ApplicationController
     class << self
-      attr_accessor :exception_to_raise_before_render
-      attr_accessor :exception_to_raise_after_render
+      attr_accessor :exception_to_raise_before_render, :exception_to_raise_after_render
     end
 
     def test

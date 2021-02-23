@@ -49,9 +49,10 @@ module SmartAnswer
           when "leaving"
             question :what_is_your_leaving_date?
           when "full-year"
-            if calculator.calculation_basis == "irregular-hours" || calculator.calculation_basis == "annualised-hours"
+            case calculator.calculation_basis
+            when "irregular-hours", "annualised-hours"
               outcome :irregular_and_annualised_done
-            elsif calculator.calculation_basis == "days-worked-per-week"
+            when "days-worked-per-week"
               question :how_many_days_per_week?
             else
               question :how_many_hours_per_week?

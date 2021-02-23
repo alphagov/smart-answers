@@ -1,10 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
-    attr_accessor :ceremony_country
-    attr_writer :resident_of
-    attr_writer :partner_nationality
-    attr_writer :sex_of_your_partner
-    attr_accessor :marriage_or_pacs
+    attr_accessor :ceremony_country, :marriage_or_pacs
+    attr_writer :resident_of, :partner_nationality, :sex_of_your_partner
 
     def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new

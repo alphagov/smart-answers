@@ -1,13 +1,6 @@
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
-    attr_accessor :born_on_or_before_6_april_1935
-    attr_accessor :marriage_or_civil_partnership_before_5_december_2005
-    attr_accessor :birth_date
-    attr_accessor :income
-    attr_accessor :paying_into_a_pension
-    attr_accessor :gross_pension_contributions
-    attr_accessor :net_pension_contributions
-    attr_accessor :gift_aided_donations
+    attr_accessor :born_on_or_before_6_april_1935, :marriage_or_civil_partnership_before_5_december_2005, :birth_date, :income, :paying_into_a_pension, :gross_pension_contributions, :net_pension_contributions, :gift_aided_donations
 
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new

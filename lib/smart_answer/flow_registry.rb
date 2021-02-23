@@ -16,6 +16,7 @@ module SmartAnswer
       preload_flows! if !Rails.env.development? || options[:preload_flows]
     end
     attr_reader :load_path
+
     def find(name)
       raise NotFound, "'#{name}' not found" unless available?(name)
 

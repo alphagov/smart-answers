@@ -24,19 +24,7 @@ module SmartAnswer
 
       include ActiveModel::Model
 
-      attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
-      attr_accessor :other_pay_types_received, :enough_notice_of_absence
-      attr_accessor :coronavirus_related, :coronavirus_gp_letter, :has_coronavirus, :cohabitant_has_coronavirus
-      attr_accessor :has_linked_sickness
-      attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
-      attr_accessor :relevant_period_to, :relevant_period_from
-      attr_accessor :eight_weeks_earnings
-      attr_accessor :pay_pattern
-      attr_accessor :relevant_contractual_pay
-      attr_accessor :total_earnings_before_sick_period
-      attr_accessor :total_employee_earnings
-      attr_accessor :contractual_days_covered_by_earnings
-      attr_accessor :days_covered_by_earnings
+      attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked, :other_pay_types_received, :enough_notice_of_absence, :coronavirus_related, :coronavirus_gp_letter, :has_coronavirus, :cohabitant_has_coronavirus, :has_linked_sickness, :linked_sickness_start_date, :linked_sickness_end_date, :relevant_period_to, :relevant_period_from, :eight_weeks_earnings, :pay_pattern, :relevant_contractual_pay, :total_earnings_before_sick_period, :total_employee_earnings, :contractual_days_covered_by_earnings, :days_covered_by_earnings
 
       def current_piw
         PeriodOfIncapacityForWork.new(

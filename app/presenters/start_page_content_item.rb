@@ -44,6 +44,6 @@ class StartPageContentItem
 private
 
   def base_path
-    "/" + flow_presenter.name
+    "/#{flow_presenter.name}"
   end
 end

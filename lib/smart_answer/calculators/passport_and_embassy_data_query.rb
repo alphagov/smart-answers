@@ -11,8 +11,7 @@ module SmartAnswer::Calculators
 
     RENEWING_COUNTRIES = %w[belarus cuba lebanon libya myanmar russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe].freeze
 
-    attr_reader :passport_data
-    attr_reader :passport_fees
+    attr_reader :passport_data, :passport_fees
 
     def initialize
       @passport_data = self.class.passport_data

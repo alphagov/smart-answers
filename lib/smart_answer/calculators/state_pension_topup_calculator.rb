@@ -9,9 +9,7 @@ module SmartAnswer::Calculators
     FEMALE_RETIREMENT_AGE = 62
     MALE_RETIREMENT_AGE = 65
 
-    attr_accessor :date_of_birth
-    attr_accessor :gender
-    attr_accessor :weekly_amount
+    attr_accessor :date_of_birth, :gender, :weekly_amount
 
     def initialize(attributes = {})
       super
@@ -38,8 +36,8 @@ module SmartAnswer::Calculators
         rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
         age += 1
       end
-      if (TOPUP_END_DATE.year == Time.zone.today.year) && (dob.month < 5) && (birthday(dob) > Time.zone.today) && !birthday_after_topup_end?(dob, age)
-        rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
+      if (TOPUP_END_DATE.year == Time.zone.today.year) && (dob.month < 5) && (birthday(dob) > Time.zone.today) && !birthday_after_topup_end?(dob, age) && (age >= retirement_age(gender))
+        rows << { amount: lump_sum_amount(age, weekly_amount), age: age }
       end
       rows
     end
@@ -64,9 +62,10 @@ module SmartAnswer::Calculators
   private
 
     def retirement_age(gender)
-      if gender == "female"
+      case gender
+      when "female"
         FEMALE_RETIREMENT_AGE
-      elsif gender == "male"
+      when "male"
         MALE_RETIREMENT_AGE
       end
     end

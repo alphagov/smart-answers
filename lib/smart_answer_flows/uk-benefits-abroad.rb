@@ -56,15 +56,17 @@ module SmartAnswer
           elsif response == "tax_credits"
             question :eligible_for_tax_credits?
           elsif calculator.going_abroad
-            if response == "pension"
+            case response
+            when "pension"
               outcome :pension_going_abroad_outcome # A2 going_abroad
-            elsif response == "income_support"
+            when "income_support"
               question :is_how_long_abroad? # Q32 going_abroad
             end
           elsif calculator.already_abroad
-            if response == "pension"
+            case response
+            when "pension"
               outcome :pension_already_abroad_outcome # A2 already_abroad
-            elsif response == "income_support"
+            when "income_support"
               outcome :is_already_abroad_outcome # A40 already_abroad
             end
           end
@@ -601,13 +603,14 @@ module SmartAnswer
         next_node do |response|
           case response
           when "before_jan_2021"
-            if calculator.benefit == "jsa"
+            case calculator.benefit
+            when "jsa"
               outcome :jsa_eea_going_abroad_maybe_outcome
-            elsif calculator.benefit == "winter_fuel_payment"
+            when "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
-            elsif calculator.benefit == "esa"
+            when "esa"
               outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
-            elsif calculator.benefit == "disability_benefits"
+            when "disability_benefits"
               outcome(calculator.going_abroad ? :db_going_abroad_eea_outcome : :db_already_abroad_eea_outcome)
             end
           when "after_jan_2021", "no"
@@ -624,23 +627,25 @@ module SmartAnswer
         next_node do |response|
           case response
           when "before_jan_2021"
-            if calculator.benefit == "jsa"
+            case calculator.benefit
+            when "jsa"
               outcome :jsa_eea_going_abroad_maybe_outcome
-            elsif calculator.benefit == "winter_fuel_payment"
+            when "winter_fuel_payment"
               outcome :wfp_going_abroad_eea_maybe_outcome
-            elsif calculator.benefit == "esa"
+            when "esa"
               outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
-            elsif calculator.benefit == "disability_benefits"
+            when "disability_benefits"
               outcome(calculator.going_abroad ? :db_going_abroad_eea_outcome : :db_already_abroad_eea_outcome)
             end
           when "after_jan_2021", "no"
-            if calculator.benefit == "jsa"
+            case calculator.benefit
+            when "jsa"
               outcome :jsa_not_entitled_outcome
-            elsif calculator.benefit == "winter_fuel_payment"
+            when "winter_fuel_payment"
               outcome :wfp_not_eligible_outcome
-            elsif calculator.benefit == "esa"
+            when "esa"
               outcome(calculator.going_abroad ? :esa_going_abroad_other_outcome : :esa_already_abroad_other_outcome)
-            elsif calculator.benefit == "disability_benefits"
+            when "disability_benefits"
               outcome(calculator.going_abroad ? :db_going_abroad_other_outcome : :db_already_abroad_other_outcome)
             end
           end
@@ -654,13 +659,14 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            if calculator.benefit == "jsa"
+            case calculator.benefit
+            when "jsa"
               outcome :jsa_ireland_outcome
-            elsif calculator.benefit == "winter_fuel_payment"
+            when "winter_fuel_payment"
               outcome :wfp_ireland_outcome
-            elsif calculator.benefit == "esa"
+            when "esa"
               outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
-            elsif calculator.benefit == "disability_benefits"
+            when "disability_benefits"
               outcome :db_going_abroad_ireland_outcome
             end
           when "no"

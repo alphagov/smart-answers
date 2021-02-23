@@ -2,13 +2,7 @@ module SmartAnswer::Calculators
   class UkVisaCalculator
     include ActiveModel::Model
 
-    attr_writer :when_coming_to_uk_answer
-    attr_writer :passport_country
-    attr_writer :purpose_of_visit_answer
-    attr_writer :travelling_to_cta_answer
-    attr_writer :passing_through_uk_border_control_answer
-    attr_writer :travel_document_type
-    attr_writer :travelling_visiting_partner_family_member_answer
+    attr_writer :when_coming_to_uk_answer, :passport_country, :purpose_of_visit_answer, :travelling_to_cta_answer, :passing_through_uk_border_control_answer, :travel_document_type, :travelling_visiting_partner_family_member_answer
 
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)

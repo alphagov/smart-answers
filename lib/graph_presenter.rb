@@ -47,7 +47,7 @@ class GraphPresenter
 private
 
   def graph_label_text(node)
-    text = node.class.to_s.split("::").last + "\n-\n"
+    text = "#{node.class.to_s.split('::').last}\n-\n"
     case node
     when SmartAnswer::Question::Radio
       text << word_wrap(node_title(node))
@@ -75,12 +75,10 @@ private
   end
 
   module MethodMissingHelper
-    # rubocop:disable Style/MethodMissingSuper
     # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method, *_args, &_block)
       MethodMissingObject.new(method)
     end
-    # rubocop:enable Style/MethodMissingSuper
     # rubocop:enable Style/MissingRespondToMissing
   end
 

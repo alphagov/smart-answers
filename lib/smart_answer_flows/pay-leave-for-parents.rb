@@ -119,9 +119,10 @@ module SmartAnswer
                 if calculator.due_date >= Date.parse("2015-04-05")
                   question :partner_worked_at_least_26_weeks
                 elsif calculator.due_date < Date.parse("2015-04-05")
-                  if calculator.employment_status_of_mother == "employee"
+                  case calculator.employment_status_of_mother
+                  when "employee"
                     outcome :outcome_mat_leave_mat_pay
-                  elsif calculator.employment_status_of_mother == "worker"
+                  when "worker"
                     outcome :outcome_mat_pay
                   end
                 end
@@ -189,13 +190,14 @@ module SmartAnswer
               end
             end
           elsif calculator.employment_status_of_mother == "employee"
-            if calculator.mother_still_working_on_continuity_end_date == "yes"
+            case calculator.mother_still_working_on_continuity_end_date
+            when "yes"
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance_mat_leave
               else
                 outcome :outcome_mat_leave
               end
-            elsif calculator.mother_still_working_on_continuity_end_date == "no"
+            when "no"
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
               else
@@ -247,7 +249,8 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.employment_status_of_partner == "employee"
+          case calculator.employment_status_of_partner
+          when "employee"
             if calculator.partner_continuity? && calculator.partner_lower_earnings?
               if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
@@ -406,7 +409,8 @@ module SmartAnswer
               end
             elsif !calculator.partner_continuity?
               if calculator.employment_status_of_mother == "employee"
-                if calculator.mother_still_working_on_continuity_end_date == "yes"
+                case calculator.mother_still_working_on_continuity_end_date
+                when "yes"
                   if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_continuity?
                       question :partner_worked_at_least_26_weeks
@@ -426,7 +430,7 @@ module SmartAnswer
                       end
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == "no"
+                when "no"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance
                   elsif !calculator.mother_earnings_employment?
@@ -455,7 +459,7 @@ module SmartAnswer
                 end
               end
             end
-          elsif calculator.employment_status_of_partner == "worker"
+          when "worker"
             if calculator.partner_continuity? && calculator.partner_lower_earnings?
               if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
@@ -586,7 +590,8 @@ module SmartAnswer
               end
             elsif !calculator.partner_continuity?
               if calculator.employment_status_of_mother == "employee"
-                if calculator.mother_still_working_on_continuity_end_date == "yes"
+                case calculator.mother_still_working_on_continuity_end_date
+                when "yes"
                   if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_continuity?
                       question :partner_worked_at_least_26_weeks
@@ -608,7 +613,7 @@ module SmartAnswer
                       end
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == "no"
+                when "no"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance
                   elsif !calculator.mother_earnings_employment?
@@ -668,7 +673,8 @@ module SmartAnswer
             calculator.partner_worked_at_least_26_weeks,
           )
 
-          if calculator.employment_status_of_mother == "employee"
+          case calculator.employment_status_of_mother
+          when "employee"
             if calculator.mother_continuity? && calculator.mother_lower_earnings?
               if calculator.employment_status_of_partner == "employee"
                 if calculator.partner_continuity?
@@ -730,7 +736,7 @@ module SmartAnswer
                 end
               end
             end
-          elsif calculator.employment_status_of_mother == "worker"
+          when "worker"
             if calculator.employment_status_of_partner == "employee"
               if calculator.partner_continuity?
                 if partner_earned_at_least_390_and_worked_at_least_26_weeks

@@ -164,7 +164,7 @@ module SmartAnswer::Calculators
     end
 
     def truncate(float, decimal_places: 7, round_up: false)
-      offset = ("1" + ("0" * decimal_places)).to_f # decimal_places: 7 -> 10_000_000.0
+      offset = "1#{'0' * decimal_places}".to_f # decimal_places: 7 -> 10_000_000.0
 
       if round_up
         (float * offset).ceil / offset

@@ -64,10 +64,10 @@ Rails.application.configure do
 
   if ENV["RUNNING_ON_HEROKU"]
     # flush output to the underlying OS without buffering
-    STDOUT.sync = true
+    $stdout.sync = true
 
     # enable STDOUT logging for Heroku
-    config.logger = Logger.new(STDOUT)
+    config.logger = Logger.new($stdout)
     config.logger.level = Logger.const_get(ENV["LOG_LEVEL"] ? ENV["LOG_LEVEL"].upcase : "INFO")
   end
 
@@ -79,7 +79,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end

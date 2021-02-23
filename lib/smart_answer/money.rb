@@ -24,9 +24,10 @@ module SmartAnswer
     end
 
     def <=>(other)
-      if other.is_a?(Money)
+      case other
+      when Money
         @value <=> other.value
-      elsif other.is_a?(Numeric)
+      when Numeric
         @value <=> other
       end
     end

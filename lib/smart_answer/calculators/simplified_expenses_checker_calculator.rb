@@ -1,20 +1,6 @@
 module SmartAnswer::Calculators
   class SimplifiedExpensesCheckerCalculator
-    attr_accessor :home_costs
-    attr_accessor :vehicle_costs
-    attr_accessor :vehicle_price
-    attr_accessor :type_of_vehicle
-    attr_accessor :vehicle_emission
-    attr_accessor :hours_worked_home
-    attr_accessor :selected_allowance
-    attr_accessor :new_or_used_vehicle
-    attr_accessor :business_use_percent
-    attr_accessor :business_miles_car_van
-    attr_accessor :business_premises_cost
-    attr_accessor :car_status_before_usage
-    attr_accessor :business_premises_expense
-    attr_accessor :business_miles_motorcycle
-    attr_accessor :hours_lived_on_business_premises
+    attr_accessor :home_costs, :vehicle_costs, :vehicle_price, :type_of_vehicle, :vehicle_emission, :hours_worked_home, :selected_allowance, :new_or_used_vehicle, :business_use_percent, :business_miles_car_van, :business_premises_cost, :car_status_before_usage, :business_premises_expense, :business_miles_motorcycle, :hours_lived_on_business_premises
 
     def list_of_expenses
       [type_of_vehicle, business_premises_expense] & selectable_expenses
