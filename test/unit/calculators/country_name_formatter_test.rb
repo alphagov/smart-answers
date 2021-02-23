@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
       should 'return the country name prepended by "The"' do
         stub_world_location("bahamas")
-        assert_equal "The Bahamas", @formatter.definitive_article("bahamas", true)
+        assert_equal "The Bahamas", @formatter.definitive_article("bahamas", capitalised: true)
       end
 
       should "return the country name when definite article is not required" do

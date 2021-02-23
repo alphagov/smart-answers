@@ -117,7 +117,7 @@ module SmartAnswer::Calculators
     end
 
     def country_name_uppercase_prefix
-      @country_name_formatter.definitive_article(ceremony_country, true)
+      @country_name_formatter.definitive_article(ceremony_country, capitalised: true)
     end
 
     def country_name_partner_residence

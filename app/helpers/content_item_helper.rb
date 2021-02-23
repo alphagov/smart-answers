@@ -9,7 +9,7 @@ module ContentItemHelper
 
     # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method, *_args, &_block)
-      object = MethodMissingObject.new(method, nil, true, OVERRIDES)
+      object = MethodMissingObject.new(method, blank_to_s: true, overrides: OVERRIDES)
       OVERRIDES.fetch(object.description) { object }
     end
     # rubocop:enable Style/MissingRespondToMissing

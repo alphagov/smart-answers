@@ -25,10 +25,10 @@ module SmartAnswer::Calculators
       "usa" => "the USA",
     }.freeze
 
-    def definitive_article(country, capitalized = false)
+    def definitive_article(country, capitalised: false)
       result = country_name(country)
       if requires_definite_article?(country)
-        result = capitalized ? "The #{result}" : "the #{result}"
+        result = capitalised ? "The #{result}" : "the #{result}"
       end
       result
     end
