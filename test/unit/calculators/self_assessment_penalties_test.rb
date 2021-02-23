@@ -3,42 +3,11 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class SelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     def setup
-      test_calculator_dates = {
-        online_filing_deadline: {
-          "2013-14": Date.new(2015, 1, 31),
-          "2014-15": Date.new(2016, 1, 31),
-          "2015-16": Date.new(2017, 1, 31),
-          "2016-17": Date.new(2018, 1, 31),
-          "2017-18": Date.new(2019, 1, 31),
-          "2018-19": Date.new(2020, 1, 31),
-          "2019-20": Date.new(2021, 2, 28),
-        },
-        offline_filing_deadline: {
-          "2013-14": Date.new(2014, 10, 31),
-          "2014-15": Date.new(2015, 10, 31),
-          "2015-16": Date.new(2016, 10, 31),
-          "2016-17": Date.new(2017, 10, 31),
-          "2017-18": Date.new(2018, 10, 31),
-          "2018-19": Date.new(2019, 10, 31),
-          "2019-20": Date.new(2020, 10, 31),
-        },
-        payment_deadline: {
-          "2013-14": Date.new(2015, 1, 31),
-          "2014-15": Date.new(2016, 1, 31),
-          "2015-16": Date.new(2017, 1, 31),
-          "2016-17": Date.new(2018, 1, 31),
-          "2017-18": Date.new(2019, 1, 31),
-          "2018-19": Date.new(2020, 1, 31),
-          "2019-20": Date.new(2021, 1, 31),
-        },
-      }
-
       @calculator = SelfAssessmentPenalties.new(
         submission_method: "online",
         filing_date: Date.parse("2015-01-10"),
         payment_date: Date.parse("2015-03-10"),
         estimated_bill: SmartAnswer::Money.new(5000),
-        dates: test_calculator_dates,
         tax_year: "2013-14",
       )
     end
