@@ -6,6 +6,7 @@ module SmartAnswer
       attr_reader :invocations
 
       def initialize(methods)
+        super()
         @methods = methods
         @invocations = []
       end
