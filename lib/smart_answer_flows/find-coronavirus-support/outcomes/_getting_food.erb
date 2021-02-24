@@ -1,7 +1,5 @@
-## Getting food or medicine
-
 <% if calculator.show_section?(:afford_food) %>
-  ### If you’re finding it hard to afford food
+  ## If you’re finding it hard to afford food
 
   [Find out if you’re eligible for Universal Credit](https://www.gov.uk/universal-credit/eligibility)
 
@@ -41,7 +39,7 @@
 <% end %>
 
 <% if calculator.show_section?(:get_food) %>
-  ### If you’re unable to get food or medicine
+  ## If you’re unable to get food or medicine
 
   <% if calculator.needs_help_in?("scotland") %>
     [Find out if you can get help from the Scottish Government](https://www.gov.scot/publications/coronavirus-covid-19-help-for-vulnerable-people)
@@ -63,7 +61,7 @@
 <% end %>
 
 $CTA
-  <h3 class="app-c-callout-title">Was this information on getting food helpful?</h3>
+  <h2 class="app-c-callout-title">Was this information on getting food helpful?</h3>
 
   [Give feedback on this service](/done/find-coronavirus-support)
 $CTA
