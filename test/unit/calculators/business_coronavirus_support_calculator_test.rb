@@ -64,7 +64,7 @@ module SmartAnswer::Calculators
       context "retail_hospitality_leisure_business_rates" do
         setup do
           @calculator.business_based = "england"
-          @calculator.non_domestic_property = "51k_and_over"
+          @calculator.non_domestic_property = "yes"
           @calculator.sectors = %w[retail_hospitality_or_leisure]
         end
 
@@ -78,7 +78,7 @@ module SmartAnswer::Calculators
         end
 
         should "return false when no non-domestic property" do
-          @calculator.non_domestic_property = "none"
+          @calculator.non_domestic_property = "no"
           assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
         end
 
@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
       context "nursery_support" do
         setup do
           @calculator.business_based = "england"
-          @calculator.non_domestic_property = "under_51k"
+          @calculator.non_domestic_property = "yes"
           @calculator.sectors = %w[nurseries]
         end
 
@@ -104,8 +104,8 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:nursery_support)
         end
 
-        should "return false when no non-domestic property" do
-          @calculator.non_domestic_property = "none"
+        should "return false when not a non-domestic property" do
+          @calculator.non_domestic_property = "no"
           assert_not @calculator.show?(:nursery_support)
         end
 
