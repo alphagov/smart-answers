@@ -64,9 +64,9 @@ module SmartAnswer
       end
 
       radio :non_domestic_property? do
-        option :none
-        option :under_51k
-        option :"51k_and_over"
+        option :yes
+        option :no
+        option :not_sure
 
         on_response do |response|
           calculator.non_domestic_property = response
