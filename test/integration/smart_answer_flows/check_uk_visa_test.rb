@@ -773,8 +773,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           setup do
             add_response "no"
           end
-          should "lead to outcome_transit_venezuela" do
-            assert_current_node :outcome_transit_venezuela
+          should "lead to outcome_no_visa_needed" do
+            assert_current_node :outcome_no_visa_needed
           end
         end
       end

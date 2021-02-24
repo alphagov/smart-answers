@@ -169,7 +169,7 @@ module SmartAnswer
           elsif calculator.passport_country_is_taiwan?
             outcome :outcome_transit_taiwan
           elsif calculator.passport_country_is_venezuela?
-            outcome :outcome_transit_venezuela
+            outcome :outcome_no_visa_needed
           elsif calculator.applicant_is_stateless_or_a_refugee?
             outcome :outcome_transit_refugee_not_leaving_airport
           elsif calculator.passport_country_in_datv_list?
