@@ -150,9 +150,8 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
       add_response "england"
       assert_current_node :results
 
-      assert_match(/Getting food/, outcome_body)
       assert_match(/If you’re finding it hard to afford food/, outcome_body)
-      assert_no_match(/If you’re unable to get food/, outcome_body)
+      assert_no_match(/If you’re unable to get food or medicine/, outcome_body)
     end
   end
 end

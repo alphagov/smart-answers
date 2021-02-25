@@ -23,14 +23,17 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
 
   let(:results) do
     {
-      feeling_unsafe: "Feeling unsafe",
-      paying_bills: "Paying your rent, mortgage, or bills",
-      getting_food: "Getting food or medicine",
-      being_unemployed: "Being made redundant or unemployed, or not having any work",
-      going_to_work: "Being worried about working",
-      self_isolating: "Self-isolating",
-      somewhere_to_live: "Having somewhere to live",
-      mental_health: "Mental health and wellbeing",
+      feeling_unsafe: "If you feel unsafe where you live or you’re worried about someone else",
+      paying_bills: "If you’re finding it hard to pay your rent, mortgage or bills",
+      afford_food: "If you’re finding it hard to afford food",
+      get_food: "If you’re unable to get food or medicine",
+      unemployed_furlough: "If you’ve been made redundant or unemployed, or put on temporary leave (on furlough)",
+      unemployed_self_employed: "If you’re self employed, a freelancer, or a sole trader",
+      going_to_work: "If you’re worried about going in to work",
+      self_isolating: "If you’re self-isolating",
+      somewhere_to_live: "If you do not have somewhere to live or might become homeless",
+      evicted: "If you’ve been evicted or might be soon",
+      mental_health: "If you’re worried about your mental health or someone else’s mental health",
       no_results: "Based on your answers, there’s no specific information for you in this service at the moment",
     }
   end
@@ -80,13 +83,13 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     ensure_page_has(header: questions[:results], subheaders: results[:paying_bills])
   end
 
-  scenario "getting food" do
+  scenario "affording and getting food" do
     answer(question: questions[:need_help_with], of_type: :checkbox, with: need_help_with[:getting_food])
     answer(question: questions[:afford_food], of_type: :radio, with: answers[:yes])
-    answer(question: questions[:get_food], of_type: :radio, with: answers[:yes])
+    answer(question: questions[:get_food], of_type: :radio, with: answers[:no])
     answer(question: questions[:nation], of_type: :radio, with: answers[:england])
 
-    ensure_page_has(header: questions[:results], subheaders: results[:getting_food])
+    ensure_page_has(header: questions[:results], subheaders: [results[:afford_food], results[:get_food]])
   end
 
   scenario "being unemployed" do
@@ -95,7 +98,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     answer(question: questions[:have_you_been_made_unemployed], of_type: :radio, with: answers[:yes_redundant])
     answer(question: questions[:nation], of_type: :radio, with: answers[:england])
 
-    ensure_page_has(header: questions[:results], subheaders: results[:being_unemployed])
+    ensure_page_has(header: questions[:results], subheaders: results[:unemployed_furlough])
   end
 
   scenario "being unemployed - self-employed" do
@@ -103,7 +106,7 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     answer(question: questions[:self_employed], of_type: :radio, with: answers[:yes])
     answer(question: questions[:nation], of_type: :radio, with: answers[:england])
 
-    ensure_page_has(header: questions[:results], subheaders: results[:being_unemployed])
+    ensure_page_has(header: questions[:results], subheaders: results[:unemployed_self_employed])
   end
 
   scenario "going to work" do
@@ -124,11 +127,11 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
 
   scenario "somewhere to live" do
     answer(question: questions[:need_help_with], of_type: :checkbox, with: need_help_with[:somewhere_to_live])
-    answer(question: questions[:have_somewhere_to_live], of_type: :radio, with: answers[:yes])
+    answer(question: questions[:have_somewhere_to_live], of_type: :radio, with: answers[:no])
     answer(question: questions[:have_you_been_evicted], of_type: :radio, with: answers[:yes])
     answer(question: questions[:nation], of_type: :radio, with: answers[:england])
 
-    ensure_page_has(header: questions[:results], subheaders: results[:somewhere_to_live])
+    ensure_page_has(header: questions[:results], subheaders: [results[:somewhere_to_live], results[:evicted]])
   end
 
   scenario "mental health" do
@@ -177,14 +180,14 @@ RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
     ensure_page_has(
       header: questions[:results],
       subheaders: [
-        results[:mental_health],
-        results[:somewhere_to_live],
+        results[:feeling_unsafe],
+        results[:paying_bills],
+        results[:afford_food],
+        results[:unemployed_self_employed],
         results[:going_to_work],
         results[:self_isolating],
-        results[:being_unemployed],
-        results[:getting_food],
-        results[:paying_bills],
-        results[:feeling_unsafe],
+        results[:evicted],
+        results[:mental_health],
       ],
     )
   end

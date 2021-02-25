@@ -1,7 +1,5 @@
-## Having somewhere to live
-
 <% if calculator.show_section?(:have_somewhere_to_live) %>
-  ### If you do not have somewhere to live or might become homeless
+  ## If you do not have somewhere to live or might become homeless
 
   <% if calculator.needs_help_in?("england") %>
     [Get help if you’re homeless, including advice for EU nationals, refugees and asylum seekers, and disabled people (Shelter)](https://england.shelter.org.uk/housing_advice/homelessness)
@@ -35,7 +33,7 @@
 <% end %>
 
 <% if calculator.show_section?(:have_you_been_evicted) %>
-  ### If you’ve been evicted or might be soon
+  ## If you’ve been evicted or might be soon
 
   <% if calculator.needs_help_in?("england") %>
     [Get coronavirus housing advice (Shelter)](https://england.shelter.org.uk/housing_advice/coronavirus)
@@ -93,7 +91,7 @@
 <% end %>
 
 $CTA
-  <h3 class="app-c-callout-title">Was this information on having somewhere to live helpful?</h3>
+  <h2 class="app-c-callout-title">Was this information on having somewhere to live helpful?</h2>
 
   [Give feedback on this service](/done/find-coronavirus-support)
 $CTA
