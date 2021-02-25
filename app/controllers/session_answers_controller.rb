@@ -10,15 +10,15 @@ class SessionAnswersController < ApplicationController
     @title = presenter.title
     @content_item = ContentItemRetriever.fetch(name) if presenter.finished?
 
-    if requested_node_matches_node_determined_from_session_data?
+    if params[:node_slug] == presenter.node_slug
       render "smart_answers/#{page_type}", formats: [:html]
     else
-      redirect_to current_path_determined_from_session_data
+      redirect_to session_flow_path(id: params[:id], node_slug: presenter.node_slug)
     end
   end
 
   def update
-    add_new_response_to_session
+    session_store.add_response(params[:response])
     redirect_to session_flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
@@ -33,14 +33,6 @@ class SessionAnswersController < ApplicationController
   end
 
 private
-
-  def requested_node_matches_node_determined_from_session_data?
-    params[:node_slug] == presenter.node_slug
-  end
-
-  def current_path_determined_from_session_data
-    session_flow_path(id: params[:id], node_slug: presenter.node_slug)
-  end
 
   def set_cache_headers
     response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
@@ -71,10 +63,6 @@ private
 
   def node_name
     @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
-  end
-
-  def add_new_response_to_session
-    session_store.add_response(params[:response])
   end
 
   def page_type
