@@ -26,12 +26,12 @@ module SmartAnswer::Calculators
       },
       retail_hospitality_leisure_business_rates: lambda { |calculator|
         calculator.business_based == "england" &&
-          calculator.non_domestic_property != "none" &&
+          calculator.non_domestic_property != "no" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
       nursery_support: lambda { |calculator|
         calculator.business_based == "england" &&
-          calculator.non_domestic_property != "none" &&
+          calculator.non_domestic_property != "no" &&
           calculator.sectors.include?("nurseries")
       },
       business_loan_scheme: lambda { |calculator|

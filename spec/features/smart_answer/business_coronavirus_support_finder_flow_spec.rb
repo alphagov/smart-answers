@@ -8,7 +8,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       annual_turnover: "What is your annual turnover?",
       business_based: "Where is your business based?",
       business_size: "How many employees does your business have?",
-      non_domestic_property: "What is the rateable value of your business' non-domestic property?",
+      non_domestic_property: "Does your business have any rateable non-domestic property?",
       paye_scheme: "Are you an employer with a PAYE scheme?",
       sectors: "Select your type of business",
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
@@ -25,7 +25,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
       no: "No",
       employees: "0 to 249 employees",
       turnover: "Under £85,000",
-      property: "Under £51,000",
+      property: "Yes",
       non_adult: "Nurseries",
       adult: "Nightclub, dancehall, or adult entertainment venue",
     }
