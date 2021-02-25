@@ -20,7 +20,7 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
         start_page_content_id: start_page_content_id,
         flow_content_id: flow_content_id,
         external_related_links: nil,
-        use_session?: false,
+        response_store: nil,
         nodes: [],
       )
     end

@@ -9,39 +9,22 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "sweet-or-savoury", s.name
   end
 
-  test "can set to use session" do
+  test "can set response store type" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session true
+      response_store(:session)
     end
 
-    assert smart_answer.use_session?
+    assert_equal smart_answer.response_store, :session
   end
 
-  test "can set to use session with string" do
-    smart_answer = SmartAnswer::Flow.new do
-      use_session "yes"
-    end
-
-    assert smart_answer.use_session?
-  end
-
-  test "can set not to use session" do
-    smart_answer = SmartAnswer::Flow.new do
-      use_session "false"
-    end
-
-    assert_not smart_answer.use_session?
-  end
-
-  test "defaults to not use session" do
+  test "defaults to no response store" do
     smart_answer = SmartAnswer::Flow.new
 
-    assert_not smart_answer.use_session?
+    assert_equal smart_answer.response_store, nil
   end
 
-  test "cannot set a flag to use the escape button if the use session flag is not also set" do
+  test "cannot use the escape button if the response store isn't session" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session false
       use_escape_button true
     end
 
@@ -50,9 +33,9 @@ class FlowTest < ActiveSupport::TestCase
     end
   end
 
-  test "can set a flag to use the escape button when the use session flag is also set" do
+  test "can use the escape button when response store is session" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session true
+      response_store :session
       use_escape_button true
     end
 
@@ -61,7 +44,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "can set a flag to use the escape button with a string" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session true
+      response_store :session
       use_escape_button "yes"
     end
 
@@ -70,7 +53,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "can set a flag not to use the escape button with a string" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session true
+      response_store :session
       use_escape_button "false"
     end
 
@@ -79,7 +62,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "defaults to not use the escape button" do
     smart_answer = SmartAnswer::Flow.new do
-      use_session true
+      response_store :session
     end
 
     assert_not smart_answer.use_escape_button?

@@ -36,7 +36,7 @@ class FlowController < ApplicationController
 private
 
   def redirect_path_based_flows
-    redirect_to smart_answer_path(params[:id], started: "y") unless flow.use_session?
+    redirect_to smart_answer_path(params[:id], started: "y") if flow.response_store.nil?
   end
 
   def set_cache_headers

@@ -11,7 +11,7 @@ class FlowPresenter
            :start_page_content_id,
            :flow_content_id,
            :need_it,
-           :use_session?,
+           :response_store,
            :questions,
            :use_escape_button?,
            :show_escape_link?,
@@ -41,7 +41,7 @@ class FlowPresenter
   end
 
   def current_state
-    @current_state ||= if use_session?
+    @current_state ||= if response_store == :session
                          requested_node = params[:node_name] unless params[:next]
                          @flow.resolve_state(params[:responses], requested_node)
                        else
@@ -95,7 +95,7 @@ class FlowPresenter
   end
 
   def change_collapsed_question_link(question_number, question)
-    if use_session?
+    if response_store == :session
       flow_path(params[:id], node_slug: question.node_slug)
     else
       smart_answer_path(
@@ -139,7 +139,7 @@ class FlowPresenter
   end
 
   def start_page_link
-    if use_session?
+    if response_store == :session
       start_flow_path(name)
     else
       smart_answer_path(name, started: "y")

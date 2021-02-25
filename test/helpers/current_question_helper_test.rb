@@ -44,7 +44,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
 
   def session_presenter
     @session_presenter ||= OpenStruct.new(
-      "use_session?" => true,
+      response_store: :session,
       current_state: current_state,
       questions: [first_question],
       name: flow_name,
