@@ -2,10 +2,10 @@ module SmartAnswer::Calculators
   class StatePensionThroughPartnerCalculator
     include ActiveModel::Model
 
-    attr_accessor :marital_status
-    attr_accessor :when_will_you_reach_pension_age
-    attr_accessor :when_will_your_partner_reach_pension_age
-    attr_accessor :gender
+    attr_accessor :marital_status,
+                  :when_will_you_reach_pension_age,
+                  :when_will_your_partner_reach_pension_age,
+                  :gender
 
     def lower_basic_state_pension_rate
       rates.lower_weekly_rate

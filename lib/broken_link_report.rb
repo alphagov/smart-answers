@@ -4,6 +4,7 @@ class BrokenLinkReport
   end
 
   attr_reader :flows_root_path
+
   def initialize(flows_root_path)
     @flows_root_path = flows_root_path
   end
@@ -42,6 +43,7 @@ class BrokenLinkReport
 
   class Folder
     attr_reader :path
+
     def initialize(path)
       @path = path
     end

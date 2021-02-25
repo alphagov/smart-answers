@@ -4,10 +4,7 @@ module SmartAnswer::Calculators
 
     attr_reader :matrix_data, :commodity_code_matrix
 
-    attr_accessor :starch_glucose_weight
-    attr_accessor :sucrose_weight
-    attr_accessor :milk_fat_weight
-    attr_accessor :milk_protein_weight
+    attr_accessor :starch_glucose_weight, :sucrose_weight, :milk_fat_weight, :milk_protein_weight
 
     def initialize(attributes = {})
       super

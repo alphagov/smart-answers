@@ -21,9 +21,10 @@ module SmartAnswer
 
         next_node do
           if calculator.died_in_uk?
-            if calculator.location_of_death == "scotland"
+            case calculator.location_of_death
+            when "scotland"
               outcome :scotland_result
-            elsif calculator.location_of_death == "northern_ireland"
+            when "northern_ireland"
               outcome :northern_ireland_result
             else
               question :did_the_person_die_at_home_hospital?

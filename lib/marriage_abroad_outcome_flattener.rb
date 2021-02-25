@@ -6,7 +6,7 @@ class MarriageAbroadOutcomeFlattener
 
   include Rails::ConsoleMethods
 
-  def initialize(country, logger: Logger.new(STDOUT))
+  def initialize(country, logger: Logger.new($stdout))
     @country = country
     @logger = logger
   end
@@ -48,7 +48,7 @@ private
       titles[responses.last] = lines.shift
       lines.shift
 
-      File.write(template_path, insert_payment_partials(lines.join("\n")) + "\n")
+      File.write(template_path, "#{insert_payment_partials(lines.join("\n"))}\n")
     end
 
     File.write("#{country_partials_dir}/_title.erb", title_contents(titles))
@@ -155,13 +155,13 @@ private
 
   # Disabling the linter here because this is already quite bad current_node
   # but it was copied from elsewhere and I'm not messing with it now.
-  # rubocop:disable Style/MethodMissingSuper, Style/MissingRespondToMissing
+  # rubocop:disable Style/MissingRespondToMissing
   module MethodMissingHelper
     def method_missing(method, *_args, &_block)
       MethodMissingObject.new(method)
     end
   end
-  # rubocop:enable Style/MethodMissingSuper, Style/MissingRespondToMissing
+  # rubocop:enable Style/MissingRespondToMissing
 
   class UnknownResponse < StandardError; end
 end

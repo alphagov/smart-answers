@@ -158,7 +158,7 @@ module SmartAnswer::Calculators
       elsif left_before_year_end?
         BigDecimal(leaving_date - leave_year_range.begins_on + 1, 10) / days_in_year
       else
-        MONTHS_PER_YEAR / MONTHS_PER_YEAR
+        1
       end
     end
 

@@ -85,7 +85,7 @@ module SmartAnswer::Calculators
           assert_equal 346.15, calculator.average_weekly_earnings.round(2)
           assert_equal expected_pay_dates, actual_pay_dates
           assert_equal [(346.15385 * 0.9).round(2)], calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
-          assert_equal [139.58], calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
+          assert_equal [139.58], calculator.paydates_and_pay[6..].map { |p| p[:pay] }.uniq
         end
       end
 

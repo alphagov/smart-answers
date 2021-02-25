@@ -20,13 +20,13 @@ module SmartAnswer::Calculators
       matched_week
     end
 
-    def leave_earliest_start_date(adoption_is_from_overseas = false)
+    def leave_earliest_start_date(adoption_is_from_overseas: false)
       return adoption_placement_date if adoption_is_from_overseas
 
       14.days.ago(adoption_placement_date)
     end
 
-    def leave_latest_start_date(adoption_is_from_overseas = false)
+    def leave_latest_start_date(adoption_is_from_overseas: false)
       days_after = adoption_is_from_overseas ? 27 : 1
       days_after.days.from_now(adoption_placement_date)
     end

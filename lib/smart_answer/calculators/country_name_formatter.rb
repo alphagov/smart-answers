@@ -1,6 +1,21 @@
 module SmartAnswer::Calculators
   class CountryNameFormatter
-    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w[bahamas british-virgin-islands cayman-islands czech-republic democratic-republic-of-the-congo dominican-republic falkland-islands maldives marshall-islands netherlands philippines seychelles solomon-islands south-georgia-and-the-south-sandwich-islands turks-and-caicos-islands united-arab-emirates].freeze
+    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w[bahamas
+                                            british-virgin-islands
+                                            cayman-islands
+                                            czech-republic
+                                            democratic-republic-of-the-congo
+                                            dominican-republic
+                                            falkland-islands
+                                            maldives
+                                            marshall-islands
+                                            netherlands
+                                            philippines
+                                            seychelles
+                                            solomon-islands
+                                            south-georgia-and-the-south-sandwich-islands
+                                            turks-and-caicos-islands
+                                            united-arab-emirates].freeze
 
     FRIENDLY_COUNTRY_NAME = {
       "cote-d-ivoire" => "Cote d'Ivoire",
@@ -10,10 +25,10 @@ module SmartAnswer::Calculators
       "usa" => "the USA",
     }.freeze
 
-    def definitive_article(country, capitalized = false)
+    def definitive_article(country, capitalised: false)
       result = country_name(country)
       if requires_definite_article?(country)
-        result = capitalized ? "The #{result}" : "the #{result}"
+        result = capitalised ? "The #{result}" : "the #{result}"
       end
       result
     end

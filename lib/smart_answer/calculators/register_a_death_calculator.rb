@@ -4,12 +4,12 @@ module SmartAnswer::Calculators
 
     EXCLUDE_COUNTRIES = %w[holy-see british-antarctic-territory].freeze
 
-    attr_accessor :location_of_death
-    attr_accessor :death_location_type
-    attr_accessor :death_expected
-    attr_accessor :country_of_death
-    attr_accessor :current_location
-    attr_accessor :current_country
+    attr_accessor :location_of_death,
+                  :death_location_type,
+                  :death_expected,
+                  :country_of_death,
+                  :current_location,
+                  :current_country
 
     def initialize(attributes = {})
       super

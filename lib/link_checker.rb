@@ -27,7 +27,7 @@ private
   end
 
   def remove_unmatched_closing_bracket_from_end(text)
-    text.gsub!(/\)[^\)\w]?$/, "") if unmatched_closing_bracket?(text)
+    text.gsub!(/\)[^)\w]?$/, "") if unmatched_closing_bracket?(text)
     text
   end
 

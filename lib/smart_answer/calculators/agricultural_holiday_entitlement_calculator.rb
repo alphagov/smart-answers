@@ -5,10 +5,10 @@ module SmartAnswer::Calculators
     # created for the agricultural holiday entitlement calculator
     include ActiveModel::Model
 
-    attr_accessor :days_worked_per_week
-    attr_accessor :holiday_starts_on
-    attr_accessor :total_days_worked
-    attr_accessor :weeks_at_current_employer
+    attr_accessor :days_worked_per_week,
+                  :holiday_starts_on,
+                  :total_days_worked,
+                  :weeks_at_current_employer
 
     def holiday_entitlement_days
       # This is calculated as a flat number based on the days you work

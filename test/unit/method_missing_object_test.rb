@@ -41,7 +41,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
 
   context "when object has blank to_s" do
     setup do
-      @object = MethodMissingObject.new(:method_one, nil, true)
+      @object = MethodMissingObject.new(:method_one, blank_to_s: true)
     end
 
     should "return empty string from to_s" do
@@ -69,7 +69,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
         "method_one.method_two" => 222,
         "method_one.method_three" => 333,
       }
-      @object = MethodMissingObject.new(:method_one, nil, false, overrides)
+      @object = MethodMissingObject.new(:method_one, overrides: overrides)
     end
 
     should "return relevant overridden values when description matches" do

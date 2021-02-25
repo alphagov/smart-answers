@@ -538,7 +538,9 @@ module SmartAnswer
         end
 
         should "return the ceremony country with upper case definite article" do
-          @country_name_formatter.stubs(:definitive_article).with("country-slug", true).returns("The-country-name")
+          @country_name_formatter.stubs(:definitive_article)
+                                 .with("country-slug", capitalised: true)
+                                 .returns("The-country-name")
 
           assert_equal "The-country-name", @calculator.country_name_uppercase_prefix
         end

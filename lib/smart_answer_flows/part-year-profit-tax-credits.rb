@@ -39,9 +39,10 @@ module SmartAnswer
         option "no"
 
         on_response do |response|
-          if response == "yes"
+          case response
+          when "yes"
             calculator.stopped_trading = true
-          elsif response == "no"
+          when "no"
             calculator.stopped_trading = false
           end
         end
@@ -60,9 +61,10 @@ module SmartAnswer
         option "no"
 
         next_node do |response|
-          if response == "yes"
+          case response
+          when "yes"
             question :when_did_you_stop_trading?
-          elsif response == "no"
+          when "no"
             question :when_did_you_start_trading?
           end
         end

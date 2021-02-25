@@ -2,9 +2,16 @@ module SmartAnswer::Calculators
   class UkBenefitsAbroadCalculator
     include ActiveModel::Model
 
-    attr_accessor :country, :country_name, :benefits, :dispute_criteria, :partner_premiums
-    attr_accessor :possible_impairments, :impairment_periods, :tax_credits
-    attr_accessor :going_abroad, :benefit
+    attr_accessor :country,
+                  :country_name,
+                  :benefits,
+                  :dispute_criteria,
+                  :partner_premiums,
+                  :possible_impairments,
+                  :impairment_periods,
+                  :tax_credits,
+                  :going_abroad,
+                  :benefit
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w[bosnia-and-herzegovina kosovo montenegro north-macedonia serbia].freeze
     STATE_BENEFITS = {

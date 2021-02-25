@@ -7,13 +7,11 @@ module ContentItemHelper
       "calculator.ceremony_country" => "italy",
     }.freeze
 
-    # rubocop:disable Style/MethodMissingSuper
     # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method, *_args, &_block)
-      object = MethodMissingObject.new(method, nil, true, OVERRIDES)
+      object = MethodMissingObject.new(method, blank_to_s: true, overrides: OVERRIDES)
       OVERRIDES.fetch(object.description) { object }
     end
-    # rubocop:enable Style/MethodMissingSuper
     # rubocop:enable Style/MissingRespondToMissing
   end
 
