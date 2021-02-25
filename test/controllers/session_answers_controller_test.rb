@@ -97,7 +97,7 @@ class SessionAnswersControllerTest < ActionDispatch::IntegrationTest
 
     should "redirect to external sitewhen the ext_r option is present and true" do
       get destroy_session_flow_path(id: flow_name, ext_r: "true")
-      assert_redirected_to "https://bbc.co.uk/news"
+      assert_redirected_to "https://www.bbc.co.uk/weather"
     end
 
     should "remove the session data for the flow when escaping" do
