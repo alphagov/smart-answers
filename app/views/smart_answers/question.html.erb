@@ -6,13 +6,13 @@
 
 <% content_for :escape_link do %>
   <% if @presenter.show_escape_link? %>
-    <%= render "smart_answers/escape-link" %>
+    <%= render "smart_answers/shared/escape-link" %>
   <% end %>
 <% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'smart_answers/debug' %>
+    <%= render 'smart_answers/shared/debug' %>
     <%= form_tag(current_question_path(@presenter),
         :method => :get,
         :data => {
@@ -47,6 +47,6 @@
       </div>
     <% end %>
 
-    <%= render 'smart_answers/previous_answers' %>
+    <%= render 'smart_answers/shared/previous_answers' %>
   </div>
 </div>
