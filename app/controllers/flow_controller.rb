@@ -3,7 +3,7 @@ class FlowController < ApplicationController
   before_action :redirect_path_based_flows
 
   def start
-    session_store.clear
+    response_store.clear
     redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
@@ -19,12 +19,12 @@ class FlowController < ApplicationController
   end
 
   def update
-    session_store.add_response(params[:response])
+    response_store.add(node_name, params[:response])
     redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
   def destroy
-    session_store.clear
+    response_store.clear
 
     if params[:ext_r] == "true"
       redirect_to "https://www.bbc.co.uk/weather"
@@ -45,7 +45,7 @@ private
 
   def presenter
     @presenter ||= begin
-      params.merge!(responses: session_store.hash, node_name: node_name)
+      params.merge!(responses: response_store.all, node_name: node_name)
       FlowPresenter.new(params, flow)
     end
   end
@@ -58,10 +58,9 @@ private
     @flow ||= SmartAnswer::FlowRegistry.instance.find(name.to_s)
   end
 
-  def session_store
-    @session_store ||= SessionStore.new(
+  def response_store
+    @response_store ||= SessionResponseStore.new(
       flow_name: name,
-      current_node: node_name,
       session: session,
     )
   end
