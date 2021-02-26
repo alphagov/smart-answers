@@ -212,6 +212,13 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
 
+      context "answer Gibraltar" do
+        should "go to JSA EEA going abroad outcome" do
+          add_response "gibraltar"
+          assert_current_node :jsa_eea_going_abroad_maybe_outcome
+        end
+      end
+
       context "answer Kosovo" do
         should "go to JSA SS going abroad outcome" do
           add_response "kosovo"
@@ -570,6 +577,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 end
               end
             end
+          end
+        end
+        context "answer gibraltar" do # SS country
+          should "go to ESA going abroad maybe outcome" do
+            add_response "gibraltar"
+            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
         context "answer kosovo" do # SS country
