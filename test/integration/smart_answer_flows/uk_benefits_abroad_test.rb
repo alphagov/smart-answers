@@ -198,26 +198,17 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer Jersey or Guernsey" do
-        setup do
+      context "answer Jersey" do
+        should "go to not entitled outcome" do
           add_response "jersey"
+          assert_current_node :jsa_not_entitled_outcome
         end
-        should "ask you how long are you going abroad for?" do
-          assert_current_node :how_long_abroad?
-        end
+      end
 
-        context "answer less than one year" do
-          should "go to Channel Islands outcome" do
-            add_response "one_year_or_less"
-            assert_current_node :jsa_channel_islands_outcome
-          end
-        end
-
-        context "answer more than one year" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "more_than_one_year"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
+      context "answer Guernsey" do
+        should "go to JSA SS going abroad outcome" do
+          add_response "guernsey"
+          assert_current_node :jsa_social_security_going_abroad_outcome
         end
       end
 

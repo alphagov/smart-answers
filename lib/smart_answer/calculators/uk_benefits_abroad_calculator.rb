@@ -97,7 +97,7 @@ module SmartAnswer::Calculators
 
     def social_security_countries_jsa?
       if going_abroad
-        (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[guernsey jersey new-zealand]).include?(country)
+        (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w[guernsey new-zealand]).include?(country)
       else
         (COUNTRIES_OF_FORMER_YUGOSLAVIA +
         %w[barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa]).include?(country)
