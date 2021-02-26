@@ -8,7 +8,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
-    stub_world_locations %w[albania austria canada ireland jamaica jersey kosovo]
+    stub_world_locations %w[albania austria canada gibraltar ireland jamaica jersey kosovo]
   end
 
   # Q1
@@ -209,6 +209,13 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         should "go to JSA SS going abroad outcome" do
           add_response "guernsey"
           assert_current_node :jsa_social_security_going_abroad_outcome
+        end
+      end
+
+      context "answer Gibraltar" do
+        should "go to JSA EEA going abroad outcome" do
+          add_response "gibraltar"
+          assert_current_node :jsa_eea_going_abroad_maybe_outcome
         end
       end
 
@@ -570,6 +577,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 end
               end
             end
+          end
+        end
+        context "answer gibraltar" do # SS country
+          should "go to ESA going abroad maybe outcome" do
+            add_response "gibraltar"
+            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
         context "answer kosovo" do # SS country
@@ -2080,7 +2093,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response :esa
       end
-      should "ask ow long will you be living abroad for?" do
+      should "ask how long will you be living abroad for?" do
         assert_current_node :esa_how_long_abroad?
       end
       context "answer less than 1 year to get medical treatment" do
@@ -2248,6 +2261,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 end
               end
             end
+          end
+        end
+        context "answer Gibraltar" do
+          should "go to ESA already abroad EEA outcome" do
+            add_response :gibraltar
+            assert_current_node :esa_already_abroad_eea_outcome
           end
         end
         # SS country

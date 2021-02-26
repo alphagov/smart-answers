@@ -6,7 +6,10 @@ module SmartAnswer
       status :published
 
       exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
-      additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
+      additional_countries = [
+        OpenStruct.new(slug: "jersey", name: "Jersey"),
+        OpenStruct.new(slug: "guernsey", name: "Guernsey"),
+      ]
 
       # Q1
       radio :going_or_already_abroad? do
@@ -87,6 +90,8 @@ module SmartAnswer
               outcome :jsa_social_security_already_abroad_outcome
             elsif calculator.going_abroad && calculator.country == "ireland"
               question :is_british_or_irish?
+            elsif calculator.going_abroad && calculator.country == "gibraltar"
+              outcome :jsa_eea_going_abroad_maybe_outcome
             elsif calculator.going_abroad && calculator.eea_country?
               question :worked_in_eea_or_switzerland? # A5 going_abroad
             elsif calculator.going_abroad && calculator.social_security_countries_jsa?
@@ -164,11 +169,11 @@ module SmartAnswer
             if calculator.going_abroad
               if calculator.country == "ireland"
                 question :is_british_or_irish?
-              elsif calculator.eea_country?
+              elsif calculator.eea_country? && calculator.country != "gibraltar"
                 question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
-              elsif %w[barbados guernsey israel jersey jamaica turkey usa].include?(response)
+              elsif %w[barbados guernsey gibraltar israel jersey jamaica turkey usa].include?(response)
                 outcome :esa_going_abroad_eea_outcome
               else
                 outcome :esa_going_abroad_other_outcome # A30 going_abroad
@@ -176,6 +181,8 @@ module SmartAnswer
             elsif calculator.already_abroad
               if calculator.country == "ireland"
                 question :is_british_or_irish?
+              elsif calculator.country == "gibraltar"
+                outcome :esa_already_abroad_eea_outcome
               elsif calculator.eea_country?
                 question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
