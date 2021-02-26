@@ -213,24 +213,9 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
 
       context "answer Kosovo" do
-        setup do
+        should "go to JSA SS going abroad outcome" do
           add_response "kosovo"
-        end
-        should "ask you how long are you going abroad for?" do
-          assert_current_node :how_long_abroad?
-        end
-        context "answer 1 year or less" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "one_year_or_less"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
-        end
-
-        context "answer more than a year" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "more_than_one_year"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
+          assert_current_node :jsa_social_security_going_abroad_outcome
         end
       end
 

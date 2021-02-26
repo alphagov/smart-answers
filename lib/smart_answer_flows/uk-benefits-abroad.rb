@@ -90,7 +90,7 @@ module SmartAnswer
             elsif calculator.going_abroad && calculator.eea_country?
               question :worked_in_eea_or_switzerland? # A5 going_abroad
             elsif calculator.going_abroad && calculator.social_security_countries_jsa?
-              question :how_long_abroad? # A6 going_abroad
+              outcome :jsa_social_security_going_abroad_outcome
             else
               outcome :jsa_not_entitled_outcome # A7 calculator.going_abroad and A5 already_abroad
             end
@@ -673,19 +673,6 @@ module SmartAnswer
         end
       end
 
-      radio :how_long_abroad? do
-        option :one_year_or_less
-        option :more_than_one_year
-
-        next_node do |response|
-          if response == "one_year_or_less" && calculator.channel_islands?
-            outcome :jsa_channel_islands_outcome
-          else
-            outcome :jsa_social_security_going_abroad_outcome
-          end
-        end
-      end
-
       outcome :pension_going_abroad_outcome # A2 going_abroad
       outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
       outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
@@ -752,7 +739,6 @@ module SmartAnswer
 
       outcome :jsa_eea_going_abroad_maybe_outcome
       outcome :jsa_ireland_outcome
-      outcome :jsa_channel_islands_outcome
 
       outcome :wfp_going_abroad_eea_maybe_outcome
       outcome :wfp_ireland_outcome
