@@ -1,28 +1,15 @@
-class SessionResponseStore
+class SessionResponseStore < ResponseStore
   def initialize(flow_name:, session:)
     @flow_name = flow_name
-    @session = session
+    super(responses: session)
   end
 
   def all
-    response_hash
-  end
-
-  def add(key, value)
-    response_hash[key] = value
-  end
-
-  def get(key)
-    response_hash[key]
+    @store[@flow_name] = {} if @store[@flow_name].nil?
+    @store[@flow_name]
   end
 
   def clear
-    @session.delete(@flow_name)
-  end
-
-private
-
-  def response_hash
-    @session[@flow_name] ||= {}
+    @store.delete(@flow_name)
   end
 end
