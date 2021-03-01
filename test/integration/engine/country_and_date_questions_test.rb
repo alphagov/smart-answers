@@ -57,13 +57,16 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/country-and-date-sample")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
         end
+      end
+
+      within ".govuk-body" do
+        assert page.has_link?("Start again", href: "/country-and-date-sample")
       end
 
       within "#current-question" do
@@ -85,7 +88,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/country-and-date-sample")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
@@ -117,7 +119,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/venezuela"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/country-and-date-sample")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"

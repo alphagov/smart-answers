@@ -1,34 +1,20 @@
 <% if @presenter.current_question_number > 1 %>
   <table class="govuk-table previous-answers-table">
-    <caption class="govuk-table__caption">
-      <% if local_assigns[:hide_previous_answers] %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Change your answers",
-          heading_level: 2,
-          font_size: "l",
-          margin_bottom: 6
-        } %>
-      <% else %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Your answers",
-          heading_level: 2,
-          font_size: "m",
-          margin_bottom: 4
-        } %>
-      <% end %>
-
-      <p class="govuk-body">
-      <%= link_to "Start again",
-        restart_flow_path(@presenter),
-        :class => "govuk-link",
-        :data => {
-          module: "gem-track-click",
-          "track-action": "Start again",
-          "track-category": "StartAgain",
-          "track-label": @presenter.current_node.title
-        } %>
-      </p>
-    </caption>
+    <% if local_assigns[:hide_previous_answers] %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Change your answers",
+        heading_level: 2,
+        font_size: "l",
+        margin_bottom: 6
+      } %>
+    <% else %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Your answers",
+        heading_level: 2,
+        font_size: "m",
+        margin_bottom: 4
+      } %>
+    <% end %>
 
     <% unless local_assigns[:hide_previous_answers] %>
       <thead class="govuk-table__head">
@@ -49,4 +35,16 @@
       </tbody>
     <% end %>
   </table>
+
+  <p class="govuk-body">
+    <%= link_to "Start again",
+    restart_flow_path(@presenter),
+    class: "govuk-link",
+    data: {
+      module: "gem-track-click",
+      "track-action": "Start again",
+      "track-category": "StartAgain",
+      "track-label": @presenter.current_node.title
+    } %>
+  </p>
 <% end %>

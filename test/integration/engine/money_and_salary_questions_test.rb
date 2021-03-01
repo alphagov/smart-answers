@@ -25,13 +25,16 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       assert_current_url "/money-and-salary-sample/y/5000.0-month"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/money-and-salary-sample")
         within "tbody tr.govuk-table__row" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "How much do you earn?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£5,000 per month" }
         end
+      end
+
+      within ".govuk-body" do
+        assert page.has_link?("Start again", href: "/money-and-salary-sample")
       end
 
       within "#current-question" do
@@ -48,7 +51,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/money-and-salary-sample")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "How much do you earn?"
