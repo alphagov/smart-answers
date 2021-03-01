@@ -172,12 +172,12 @@ module SmartAnswer
             if calculator.going_abroad
               if calculator.country == "ireland"
                 question :is_british_or_irish?
-              elsif calculator.eea_country? && calculator.country != "gibraltar"
-                question :worked_in_eea_or_switzerland?
               elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
               elsif %w[barbados guernsey gibraltar israel jersey jamaica turkey usa].include?(response)
                 outcome :esa_going_abroad_eea_outcome
+              elsif calculator.eea_country?
+                question :worked_in_eea_or_switzerland?
               else
                 outcome :esa_going_abroad_other_outcome # A30 going_abroad
               end
