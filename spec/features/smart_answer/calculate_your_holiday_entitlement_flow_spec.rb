@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.feature "CalculateYourHolidayEntitlementFlow", type: :feature do
   let(:headings) do
     {

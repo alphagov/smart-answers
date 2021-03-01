@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
   let(:questions) do
     {

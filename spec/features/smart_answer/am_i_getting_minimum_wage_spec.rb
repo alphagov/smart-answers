@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
   let(:shared_headings) do
     # <question name>: <text_for :title from erb>
