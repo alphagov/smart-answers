@@ -173,12 +173,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       should "show the next question" do
         assert_select "#current-question", /Do you like jam\?/
       end
-
-      should "link back to change the response" do
-        assert_select ".govuk-table a", /Change/ do |link_nodes|
-          assert_equal "/smart-answers-controller-sample/y?previous_response=no", link_nodes.first["href"]
-        end
-      end
     end
 
     context "debugging" do

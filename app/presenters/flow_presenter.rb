@@ -94,19 +94,6 @@ class FlowPresenter
     @start_node ||= StartNodePresenter.new(node)
   end
 
-  def change_collapsed_question_link(question_number, question)
-    if response_store == :session
-      flow_path(params[:id], node_slug: question.node_slug)
-    else
-      smart_answer_path(
-        id: @params[:id],
-        started: "y",
-        responses: accepted_responses[0...question_number - 1],
-        previous_response: accepted_responses[question_number - 1],
-      )
-    end
-  end
-
   def normalize_responses_param
     case params[:responses]
     when NilClass

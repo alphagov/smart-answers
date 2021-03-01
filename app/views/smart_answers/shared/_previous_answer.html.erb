@@ -1,5 +1,5 @@
 <tr class="govuk-table__row">
-  <td scope="row" class="govuk-table__cell govuk-!-width-one-half"><%= question.title %></td>
+  <td scope="row" class="govuk-table__cell"><%= question.title %></td>
   <td class="govuk-table__cell">
     <% if question.multiple_responses? %>
       <ul class="govuk-list">
@@ -9,18 +9,6 @@
       </ul>
     <% else %>
       <%= question.response_label(accepted_response) %>
-    <% end %>
-  </td>
-  <td class="govuk-table__cell">
-    <%= link_to question_link,
-      class: "govuk-link",
-      data: {
-        "module": "gem-track-click",
-        "track-category": "Smart Answer Change Link",
-        "track-action":  "Link clicked",
-        "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
-    } do %>
-      Change<span class="govuk-visually-hidden"> answer to "<%= question.title %>"</span>
     <% end %>
   </td>
 </tr>

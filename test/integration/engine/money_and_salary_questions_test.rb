@@ -31,7 +31,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
             assert_page_has_content "How much do you earn?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£5,000 per month" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
       end
 
@@ -55,14 +54,12 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
             assert_page_has_content "How much do you earn?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£5,000 per month" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
         within "tbody tr.govuk-table__row:nth-child(2)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What size bonus do you want?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£1,000,000" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
         end
       end
 
