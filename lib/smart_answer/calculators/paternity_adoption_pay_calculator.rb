@@ -19,6 +19,10 @@ module SmartAnswer::Calculators
       @matched_week = @expected_week
     end
 
+    def paternity_deadline
+      (adoption_placement_date + 55.days).strftime("%d-%m-%Y")
+    end
+
     def relevant_week
       @matched_week
     end
