@@ -125,7 +125,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
       flow_presenter = FlowPresenter.new(params, flow)
       question = OpenStruct.new(node_slug: "foo")
       assert_equal(
-        flow_presenter.session_flow_path(name, question.node_slug),
+        flow_presenter.flow_path(name, question.node_slug),
         flow_presenter.change_collapsed_question_link(1, question),
       )
     end

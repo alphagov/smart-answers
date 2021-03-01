@@ -1,9 +1,9 @@
-class SessionAnswersController < ApplicationController
+class FlowController < ApplicationController
   before_action :set_cache_headers
 
   def start
     session_store.clear
-    redirect_to session_flow_path(id: params[:id], node_slug: next_node_slug)
+    redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
   def show
@@ -13,13 +13,13 @@ class SessionAnswersController < ApplicationController
     if params[:node_slug] == presenter.node_slug
       render "smart_answers/#{page_type}", formats: [:html]
     else
-      redirect_to session_flow_path(id: params[:id], node_slug: presenter.node_slug)
+      redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug)
     end
   end
 
   def update
     session_store.add_response(params[:response])
-    redirect_to session_flow_path(id: params[:id], node_slug: next_node_slug)
+    redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
   end
 
   def destroy
