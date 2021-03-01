@@ -35,7 +35,6 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Question</th>
           <th scope="col" class="govuk-table__header">Answer</th>
-          <th scope="col" class="govuk-table__header">Change answer</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -44,7 +43,6 @@
               'smart_answers/shared/previous_answer',
               question: question,
               accepted_response: @presenter.accepted_responses[number_questions_so_far],
-              question_link: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
             )
           %>
         <% end %>

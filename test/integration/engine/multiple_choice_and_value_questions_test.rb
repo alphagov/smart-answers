@@ -56,7 +56,6 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
       end
 
@@ -86,14 +85,12 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
         within "tbody tr.govuk-table__row:nth-child(2)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your quest?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
       end
 
@@ -122,21 +119,18 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
         within "tbody tr.govuk-table__row:nth-child(2)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your quest?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
         within "tbody tr.govuk-table__row:nth-child(3)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your favorite colour?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Blue" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
         end
       end
 
@@ -165,14 +159,12 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Robin" }
-        within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Robin") }
       end
       within "tbody tr.govuk-table__row:nth-child(2)" do
         within ".govuk-table__cell:nth-child(1)" do
           assert_page_has_content "What...is your quest?"
         end
         within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-        within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
       end
     end
 

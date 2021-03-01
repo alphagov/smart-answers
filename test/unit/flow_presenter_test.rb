@@ -98,39 +98,6 @@ class FlowPresenterTest < ActiveSupport::TestCase
     assert_equal @flow_presenter.name, @flow.name
   end
 
-  context "#change_collapsed_question_link" do
-    should "with smart answer" do
-      flow = flow_registry.find("calculate-your-holiday-entitlement")
-      params = { responses: "days-worked-per-week/starting", id: "calculate-your-holiday-entitlement" }
-      flow_presenter = FlowPresenter.new(params, flow)
-      questions = flow_presenter.collapsed_questions
-      assert_equal(
-        "/calculate-your-holiday-entitlement/y?previous_response=days-worked-per-week",
-        flow_presenter.change_collapsed_question_link(1, questions.first),
-      )
-      assert_equal(
-        "/calculate-your-holiday-entitlement/y/days-worked-per-week?previous_response=starting",
-        flow_presenter.change_collapsed_question_link(2, questions.first),
-      )
-      assert_equal(
-        "/calculate-your-holiday-entitlement/y/days-worked-per-week?previous_response=starting",
-        flow_presenter.change_collapsed_question_link(2, questions.last),
-      )
-    end
-
-    should "with session answer" do
-      name = "find-coronavirus-support"
-      flow = flow_registry.find(name)
-      params = { id: name }
-      flow_presenter = FlowPresenter.new(params, flow)
-      question = OpenStruct.new(node_slug: "foo")
-      assert_equal(
-        flow_presenter.flow_path(name, question.node_slug),
-        flow_presenter.change_collapsed_question_link(1, question),
-      )
-    end
-  end
-
   context "#normalize_responses_param" do
     should "return empty array when no responses in params" do
       params = {}
