@@ -31,7 +31,6 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/checkbox-sample")
         within "tbody tr.govuk-table__row" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What do you want on your pizza?"
@@ -41,6 +40,8 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           end
         end
       end
+
+      assert page.has_link?("Start again", href: "/checkbox-sample")
 
       within ".outcome:nth-child(1)" do
         assert_page_has_content "Ok, your pizza is on its way"
@@ -56,7 +57,6 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/none"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/checkbox-sample")
         within "tbody tr.govuk-table__row" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What do you want on your pizza?"
