@@ -38,12 +38,29 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
         "content-id",
         body: { type: "redirect",
                 redirects: [{ path: "/base-path",
+                              segments_mode: "ignore",
                               type: "prefix",
                               destination: "/new-destination" }] },
       )
 
       Rake::Task["publishing_api:unpublish_redirect"]
         .invoke("content-id", "/base-path", "/new-destination")
+      assert_requested unpublish_request
+    end
+
+    should "allow specifying the redirect type as a parameter" do
+      WebMock.reset!
+      unpublish_request = stub_publishing_api_unpublish(
+        "content-id",
+        body: { type: "redirect",
+                redirects: [{ path: "/base-path",
+                              segments_mode: "ignore",
+                              type: "exact",
+                              destination: "/new-destination" }] },
+      )
+
+      Rake::Task["publishing_api:unpublish_redirect"]
+        .invoke("content-id", "/base-path", "/new-destination", "exact")
       assert_requested unpublish_request
     end
   end
