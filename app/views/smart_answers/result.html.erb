@@ -1,4 +1,11 @@
 <% outcome = @presenter.current_node %>
+
+<% content_for :back_link do %>
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: '/'
+  } %>
+<% end %>
+
 <% content_for :outcome_title do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>
