@@ -26,7 +26,7 @@ class SessionAnswersController < ApplicationController
     session_store.clear
 
     if params[:ext_r] == "true"
-      redirect_to "https://bbc.co.uk/news"
+      redirect_to "https://www.bbc.co.uk/weather"
     else
       redirect_to "/#{params[:id]}"
     end
