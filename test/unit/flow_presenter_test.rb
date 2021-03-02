@@ -164,4 +164,35 @@ class FlowPresenterTest < ActiveSupport::TestCase
       assert_equal "/flow-name/s", flow_presenter.start_page_link
     end
   end
+
+  context "#back_link" do
+    should "return the start page on first question in smart flow" do
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_equal("/flow-name", flow_presenter.back_link(0))
+    end
+
+    should "return the start page on first question in session flow" do
+      @flow.response_store(:session)
+      params = { id: @flow.name, node_name: "node-name", responses: { "hello" => "there" } }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_equal("/flow-name", flow_presenter.back_link(0))
+    end
+
+    should "return the previous page for another question in smart flow" do
+      name = "calculate-your-holiday-entitlement"
+      flow = flow_registry.find(name)
+      params = { responses: "days-worked-per-week/starting", id: name }
+      flow_presenter = FlowPresenter.new(params, flow)
+      assert_equal("/#{name}/y/days-worked-per-week/starting", flow_presenter.back_link(3))
+    end
+
+    should "return the previous page for another question in session flow" do
+      name = "find-coronavirus-support"
+      flow = flow_registry.find(name)
+      params = { id: name, node_name: "feeling_unsafe", responses: { "need_help_with" => %w[feeling_unsafe] } }
+      flow_presenter = FlowPresenter.new(params, flow)
+
+      assert_equal("/#{name}/s/need-help-with", flow_presenter.back_link(2))
+    end
+  end
 end

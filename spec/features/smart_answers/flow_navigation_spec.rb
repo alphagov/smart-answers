@@ -17,7 +17,7 @@ RSpec.feature "Flow navigation", flow_dir: :fixture do
     choose "Response 1"
     click_button "Continue"
 
-    click_on "Change"
+    click_on "Back"
 
     expect(page).to have_text("Question 1 title")
   end

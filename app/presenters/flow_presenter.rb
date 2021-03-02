@@ -94,6 +94,27 @@ class FlowPresenter
     @start_node ||= StartNodePresenter.new(node)
   end
 
+  def previous_state
+    unless current_state.path.empty?
+      presenter_for(@flow.node(current_state.path.last))
+    end
+  end
+
+  def back_link(question_number)
+    if previous_state.nil?
+      smart_answer_path(name)
+    elsif response_store == :session
+      flow_path(params[:id], node_slug: previous_state.node_slug)
+    else
+      smart_answer_path(
+        id: @params[:id],
+        started: "y",
+        responses: accepted_responses[0...question_number - 1],
+        previous_response: accepted_responses[question_number - 1],
+      )
+    end
+  end
+
   def normalize_responses_param
     case params[:responses]
     when NilClass

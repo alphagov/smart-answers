@@ -1,7 +1,9 @@
 <% question = @presenter.current_node %>
+<% question_number = @presenter.collapsed_questions.count %>
+
 <% content_for :back_link do %>
   <%= render "govuk_publishing_components/components/back_link", {
-    href: '/'
+    href: @presenter.back_link(question_number)
   } %>
 <% end %>
 <% content_for :question_title do %><% if question.error.present? %>Error - <% end %><%= question.title %><% end %>
