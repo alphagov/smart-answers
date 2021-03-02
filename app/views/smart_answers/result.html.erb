@@ -1,4 +1,13 @@
 <% outcome = @presenter.current_node %>
+
+<% question_number = @presenter.collapsed_questions.count %>
+
+<% content_for :back_link do %>
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: @presenter.back_link(question_number)
+  } %>
+<% end %>
+
 <% content_for :outcome_title do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>

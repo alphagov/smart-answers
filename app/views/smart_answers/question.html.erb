@@ -1,4 +1,9 @@
 <% question = @presenter.current_node %>
+<% content_for :back_link do %>
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: '/'
+  } %>
+<% end %>
 <% content_for :question_title do %><% if question.error.present? %>Error - <% end %><%= question.title %><% end %>
 <% content_for :head do %>
   <meta name="robots" content="noindex">
