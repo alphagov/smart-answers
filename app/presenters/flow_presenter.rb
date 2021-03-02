@@ -94,15 +94,23 @@ class FlowPresenter
     @start_node ||= StartNodePresenter.new(node)
   end
 
-  def change_collapsed_question_link(question_number, question)
-    if response_store
-      flow_path(params[:id], node_slug: question.node_slug)
+  def previous_state
+    return if current_state.path.empty?
+
+    presenter_for(@flow.node(current_state.path.last))
+  end
+
+  def back_link
+    if previous_state.nil?
+      smart_answer_path(name)
+    elsif response_store
+      flow_path(params[:id], node_slug: previous_state.node_slug)
     else
       smart_answer_path(
         id: @params[:id],
         started: "y",
-        responses: accepted_responses[0...question_number - 1],
-        previous_response: accepted_responses[question_number - 1],
+        responses: accepted_responses[0...current_question_number - 2],
+        previous_response: accepted_responses[current_question_number - 2],
       )
     end
   end

@@ -8,7 +8,13 @@ class FlowPresenterTest < ActiveSupport::TestCase
   setup do
     @flow = SmartAnswer::Flow.new do
       name "flow-name"
-      value_question :first_question_key
+      value_question :first_question_key do
+        next_node { question :second_question_key }
+      end
+      value_question :second_question_key do
+        next_node { question :third_question_key }
+      end
+      value_question :third_question_key
     end
     params = {}
     @flow_presenter = FlowPresenter.new(params, @flow)
@@ -162,6 +168,27 @@ class FlowPresenterTest < ActiveSupport::TestCase
       @flow.response_store(:session)
       flow_presenter = FlowPresenter.new({}, @flow)
       assert_equal "/flow-name/s", flow_presenter.start_page_link
+    end
+  end
+
+  context "#back_link" do
+    should "link to the start page when used on the first question" do
+      flow_presenter = FlowPresenter.new({}, @flow)
+      assert_equal("/flow-name", flow_presenter.back_link)
+    end
+
+    should "link to the previous question with the previous response when in a non-session flow" do
+      params = { id: @flow.name, responses: "question-1-answer/question-2-answer" }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_equal("/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer", flow_presenter.back_link)
+    end
+
+    should "link to the previous question when in a session flow" do
+      @flow.response_store(:session)
+      params = { id: @flow.name, node_name: "third_question_key", responses: { "first_question_key" => "question-1-answer", "second_question_key" => "question-2-answer" } }
+      flow_presenter = FlowPresenter.new(params, @flow)
+
+      assert_equal("/#{@flow.name}/s/second-question-key", flow_presenter.back_link)
     end
   end
 end
