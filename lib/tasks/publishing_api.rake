@@ -16,12 +16,19 @@ namespace :publishing_api do
   end
 
   desc "Unpublish a content item with a redirect"
-  task :unpublish_redirect, %i[content_id base_path destination] => :environment do |_, args|
+  task :unpublish_redirect, %i[content_id base_path destination type] => :environment do |_, args|
     raise "Missing content_id parameter" if args.content_id.blank?
     raise "Missing base_path parameter" if args.base_path.blank?
     raise "Missing destination parameter" if args.destination.blank?
 
-    redirect = { path: args.base_path, type: "prefix", destination: args.destination }
+    type = args.type || "prefix"
+
+    redirect = {
+      path: args.base_path,
+      segments_mode: "ignore",
+      type: type,
+      destination: args.destination,
+    }
     GdsApi.publishing_api.unpublish(
       args.content_id,
       type: "redirect",
