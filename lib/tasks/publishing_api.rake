@@ -33,6 +33,7 @@ namespace :publishing_api do
       args.content_id,
       type: "redirect",
       redirects: [redirect],
+      discard_drafts: true,
     )
   end
 
@@ -40,14 +41,14 @@ namespace :publishing_api do
   task :unpublish_gone, [:content_id] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id
 
-    GdsApi.publishing_api.unpublish(args.content_id, type: "gone")
+    GdsApi.publishing_api.unpublish(args.content_id, type: "gone", discard_drafts: true)
   end
 
   desc "Unpublish a content item with a type of vanish"
   task :unpublish_vanish, [:content_id] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id
 
-    GdsApi.publishing_api.unpublish(args.content_id, type: "vanish")
+    GdsApi.publishing_api.unpublish(args.content_id, type: "vanish", discard_drafts: true)
   end
 
   desc "Change publishing application"
