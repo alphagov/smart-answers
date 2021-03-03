@@ -38,14 +38,37 @@ Additionally, the implementation of storing user responses in a session required
 
 Add the ability to store user responses using the URL query string. This will become the default method for storing responses and replace use of the URL path. The ability to store responses in a session cookie will remain and require flow to explicitly enable it within configuration (current behaviour).
 
+### URL structure
+
+The new structure of URL will be:
+
+`/<flow-name>/s/<node-id>?<node_id>=<user_response>`
+
+The start page route will remain the same. The node ID `node-id` represent the pre-existing ids in the flow definition:
+
+```ruby
+checkbox_question :<node_id> do
+  on_response do |response|
+  ...
+```
+
+Example of routes using query parameters:
+
+- `check-uk-visa/y` => `check-uk-visa/s/nationality`
+- `check-uk-visa/y/australia` => `check-uk-visa/s/purpose?nationality=australia`
+- `check-uk-visa/y/australia/tourism` => `check-uk-visa/s/result?purpose=tourism&nationality=australia`
+
+
+### Remove invalid query parameters
+As users navigate throught the flow the only persisted query parameters will be those that are valid for a question in the flow. Any extra query parameters that don't match a question ID will be stripped out.
+
+For example user makes a request to `/check-uk-visa/s/nationality?random=blah`, which has an extra query parameter of `random=blah`. When they continue to next question Smart Answers redirects them to the following URL `/check-uk-visa/s/purpose?nationality=australia` with the extra parameter removed.
+
+However, query parameters for valid questions would persist. For example, `/check-uk-visa/s/nationality?length_of_stay=6_months` -> `/check-uk-visa/s/purpose?nationality=australia&length_of_stay=6_months`.
+
+### Suggested steps for implementation
+
 To implement this change, we could leverage the existing code (controller, node resolution and flow updates) written for storing responses in a session. This is because the underlying data structure storing the responses is the same i.e. a hash keyed by node name. The only additional logic required is to retrieve and update the parameters in the query string instead from the session.
-
-Example:
-- `flow-name/y` => `flow-name/s/question1`
-- `flow-name/y/response1` => `flow-name/s/question2?question1=response1`
-- `flow-name/y/response1/response2` => `flow-name/s/results?question1=response1&question2=question2`
-
-Suggested steps for implementation:
 
 1. Rename `SessionAnswersController` to `FlowController` (as will be used to handle all flows)
 1. Change `use_session` configuration option in flow definition to specify different response store types. e.g. `response_store :session`
