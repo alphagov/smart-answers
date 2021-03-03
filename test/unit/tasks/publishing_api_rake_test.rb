@@ -37,6 +37,7 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
       unpublish_request = stub_publishing_api_unpublish(
         "content-id",
         body: { type: "redirect",
+                discard_drafts: true,
                 redirects: [{ path: "/base-path",
                               segments_mode: "ignore",
                               type: "prefix",
@@ -53,6 +54,7 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
       unpublish_request = stub_publishing_api_unpublish(
         "content-id",
         body: { type: "redirect",
+                discard_drafts: true,
                 redirects: [{ path: "/base-path",
                               segments_mode: "ignore",
                               type: "exact",
@@ -81,7 +83,7 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
     should "send an unpublishing of type gone to the Publishing API" do
       unpublish_request = stub_publishing_api_unpublish(
         "content-id",
-        body: { type: "gone" },
+        body: { type: "gone", discard_drafts: true },
       )
 
       Rake::Task["publishing_api:unpublish_gone"].invoke("content-id")
@@ -105,7 +107,7 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
     should "send an unpublishing of type vanish to the Publishing API" do
       unpublish_request = stub_publishing_api_unpublish(
         "content-id",
-        body: { type: "vanish" },
+        body: { type: "vanish", discard_drafts: true },
       )
 
       Rake::Task["publishing_api:unpublish_vanish"].invoke("content-id")
