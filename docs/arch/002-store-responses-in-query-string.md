@@ -4,7 +4,7 @@
 
 At the time of writing Smart Answer's has two methods of storing user responses: appending to the URL path or saving to the user's session cookie.
 
-The original and most used method is appending responses to the URL path, for example `gov.uk/flow-name/y/response1/response2/response3`. This generates an array of responses that Smart Answers uses to resolve which question or outcome needs to be displayed.
+The original and most used method is appending responses to the URL path, for example `gov.uk/flow-name/y/response1/response2/response3`. This generates an array of responses that Smart Answers uses to resolves which question or outcome needs to be displayed next. It does so by "replaying" the flow, assuming the responses are in order of which question were previously displayed. No explicit information is stored in the URL about which question each response relates to.
 
 The other method is storing user's responses in session cookies. This functionality was added when we added the `find-coronavirus-support` flow. This flow handled sensitive information that needed to be hidden from the URL. The use of sessions was also required to support the `Leave this site` component, which allowed users to quick erase their responses and prevent them from being recovered. The user responses are stored as a hash keyed by the name of the node (question) which provided the response, for example:
 
