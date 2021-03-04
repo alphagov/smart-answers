@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :feature do
   let(:headings) do
     # <question name>: <text_for :title from erb>
