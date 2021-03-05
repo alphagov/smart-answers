@@ -18,11 +18,16 @@ Used as the h1 heading and can only be text. Example:
 
 ### `:hint`
 
-Used as a "hint" paragraph and can only be text. Example:
+Used as a "hint" paragraph and can be text. For money and radio questions you can
+also use govspeak or HTML. Example:
 
 ```erb
-<% text_for :hint do %>
-  The values represent % by weight
+<% govspeak_for :hint do %>
+  Examples of some fruit:
+
+  - apple
+  - orange
+  - banana
 <% end %>
 ```
 
