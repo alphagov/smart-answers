@@ -42,7 +42,7 @@ Add the ability to store user responses using the URL query string. This will be
 
 The new structure of URL will be:
 
-`/<flow-name>/s/<node-id>?<node_id>=<user_response>`
+`/<flow-name>/flow/<node-id>?<node_id>=<user_response>`
 
 The start page route will remain the same. The node ID `node-id` represent the pre-existing ids in the flow definition:
 
@@ -52,33 +52,47 @@ checkbox_question :<node_id> do
   ...
 ```
 
+Node ids will need to be unique to each node in an individual flow.
+
 Example of routes using query parameters:
 
-- `check-uk-visa/y` => `check-uk-visa/s/nationality`
-- `check-uk-visa/y/australia` => `check-uk-visa/s/purpose?nationality=australia`
-- `check-uk-visa/y/australia/tourism` => `check-uk-visa/s/result?purpose=tourism&nationality=australia`
+- `check-uk-visa/y` => `check-uk-visa/flow/nationality`
+- `check-uk-visa/y/australia` => `check-uk-visa/flow/purpose?nationality=australia`
+- `check-uk-visa/y/australia/tourism` => `check-uk-visa/flow/result?purpose=tourism&nationality=australia`
 
+### Rename `/s/` prefix to `/flow/`
+
+Whilst not necessary for storing responses in the query string, this is a good oppurtunity to rename the `/s/` prefix slug. This slug was introduced as part of the work to implement session based flows and is thought to stand for "session". This slug will be changed to `/flow/` as routes will be used for query string, not just session based flows. The prefix slug is required due to constraints in the Publishing API that prevent multiple content items (start page and smart answer) having the same base path.
 
 ### Remove invalid query parameters
 As users navigate throught the flow the only persisted query parameters will be those that are valid for a question in the flow. Any extra query parameters that don't match a question ID will be stripped out.
 
-For example user makes a request to `/check-uk-visa/s/nationality?random=blah`, which has an extra query parameter of `random=blah`. When they continue to next question Smart Answers redirects them to the following URL `/check-uk-visa/s/purpose?nationality=australia` with the extra parameter removed.
+For example user makes a request to `/check-uk-visa/flow/nationality?random=blah`, which has an extra query parameter of `random=blah`. When they continue to next question Smart Answers redirects them to the following URL `/check-uk-visa/flow/purpose?nationality=australia` with the extra parameter removed.
 
-However, query parameters for valid questions would persist. For example, `/check-uk-visa/s/nationality?length_of_stay=6_months` -> `/check-uk-visa/s/purpose?nationality=australia&length_of_stay=6_months`.
+However, query parameters for valid questions would persist. For example, `/check-uk-visa/flow/nationality?length_of_stay=6_months` -> `/check-uk-visa/flow/purpose?nationality=australia&length_of_stay=6_months`.
 
 ### Suggested steps for implementation
 
 To implement this change, we could leverage the existing code (controller, node resolution and flow updates) written for storing responses in a session. This is because the underlying data structure storing the responses is the same i.e. a hash keyed by node name. The only additional logic required is to retrieve and update the parameters in the query string instead from the session.
 
+1. Rename `/s/` route prefix to `/flow/`
+    1. Add ability to support `/flow/` prefixed routes for session based flows.
+    1. Update start page for session based flows to use `/flow/` prefix routes. 
+    1. Add redirects for existing flows with `/s/` routes to their start page.
 1. Rename `SessionAnswersController` to `FlowController` (as will be used to handle all flows)
-1. Change `use_session` configuration option in flow definition to specify different response store types. e.g. `response_store :session`
-1. Add functionality to store responses in query string
-1. Migrate existing flows incrementally to use query string by specifying config option e.g. `response_store :query_string`
-1. Make query string default response store for all flows
-1. Remove deprecated code for storing responses in URL paths
+1. Support storing responses in query string and migrate existing flows
+    1. Change `use_session` configuration option in flow definition to specify different response store types. e.g. `response_store :session`
+    1. Register prefix routes for both `/flow/` and `/y/` for flows that use the URL path to store responses. Note at this point, flows will still store reponses using the URL path and start pages will link to the existing `/y/` routes.
+    1. Add functionality to store responses in query string
+    1. Add ability to specify config option for query string response store e.g. `response_store :query_string`
+    1. Migrate existing flows incrementally to use query string. Update the start page with the link to `/flow/` prefixed routes. Existing links to the `/y/` prefixed routes will continue to work and will store responses using the URL path.
+    1. Make query string the default response store for all new flows.
+    1. Replace prefix routes for existing flows with `/y/` routes registered with redirects to their start page.
+1. Remove deprecated code for storing responses in URL paths.
+1. Remove redirects routes if unused.
 
 ## Consequences
 
-Our caching effectiveness could be reduced due to different ordering of query parameters. For example, `flow-name/s/results?q1=r1&q2=r2` and `flow-name/s/results?q2=r2&q1=r1` would render the same page, however both hit origin. This is somewhat mitigated by sorting the parameters when generating URLs in Smart Answers, so that users are using the same ordering.
+Our caching effectiveness could be reduced due to different ordering of query parameters. For example, `flow-name/flow/results?q1=r1&q2=r2` and `flow-name/flow/results?q2=r2&q1=r1` would render the same page, however both hit origin. This is somewhat mitigated by sorting the parameters when generating URLs in Smart Answers, so that users are using the same ordering.
 
 Smart Answer responses will have longer URLs, as we'll now encode the node name of each question in the URL. Given that the length limit of a URL is about 2000 characters (varies between browsers, CDN providers, search engines etc), and the average node name and response is 12 characters, we can store around 80 responses in the URL using the query string. This is more than enough for our existing flows, the largest needs to accomodate around 21 responses.
