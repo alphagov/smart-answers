@@ -88,4 +88,8 @@ class QuestionPresenter < NodePresenter
   def default_error_message
     "Please answer this question"
   end
+
+  def view_template_path
+    "smart_answers/question"
+  end
 end

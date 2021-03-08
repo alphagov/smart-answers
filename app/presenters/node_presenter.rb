@@ -14,4 +14,8 @@ class NodePresenter
   def node_slug
     node_name.to_s.dasherize
   end
+
+  def view_template_path
+    @node.view_template_path
+  end
 end

@@ -3,7 +3,7 @@ require "active_support/inflector"
 module SmartAnswer
   class Node
     attr_accessor :flow
-    attr_reader :name
+    attr_reader :name, :view_template_path
 
     def initialize(flow, name, &block)
       @flow = flow
@@ -39,6 +39,10 @@ module SmartAnswer
 
     def flow_name
       @flow.name
+    end
+
+    def view_template(path)
+      @view_template_path = path
     end
   end
 end

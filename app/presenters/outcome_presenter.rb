@@ -34,4 +34,8 @@ class OutcomePresenter < NodePresenter
   def next_steps
     @renderer.content_for(:next_steps)
   end
+
+  def view_template_path
+    @node.view_template_path || "smart_answers/result"
+  end
 end

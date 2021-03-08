@@ -132,5 +132,9 @@ module SmartAnswer
 
       assert_equal "caption-text", @presenter.caption
     end
+
+    test "#view_template_path returns the question view template name" do
+      assert_equal "smart_answers/question", @presenter.view_template_path
+    end
   end
 end
