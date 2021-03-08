@@ -5,16 +5,12 @@
 %>
 
 <% text_for :title do %>
-  What are your favourite colours?
+  Do you want to employ someone?
 <% end %>
 
 <% options(
-  "blue": "Blue",
-  "green": "Green",
-  "red": "Red",
-  "yellow": "Yellow",
+  "will_employ": "Yes",
+  "already_employ": "I already employ someone",
+  "no_employ": "I won’t be employing anyone",
+  "maybe_employ": "Maybe in the future",
 ) %>
-
-<% text_for :error_message do %>
-  Please select at least one color
-<% end %>

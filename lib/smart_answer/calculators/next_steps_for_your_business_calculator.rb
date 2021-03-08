@@ -5,16 +5,11 @@
 
 module SmartAnswer::Calculators
   class NextStepsForYourBusinessCalculator
-    attr_accessor :question
-
-    def validate?
-      return false if question.blank?
-
-      question != "none"
-    end
-
-    def question_count
-      validate? ? question.split(",").size : 0
-    end
+    attr_accessor :crn,
+                  :annual_turnover,
+                  :employ_someone,
+                  :business_intent,
+                  :business_support,
+                  :business_premises
   end
 end

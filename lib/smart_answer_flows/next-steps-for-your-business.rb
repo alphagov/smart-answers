@@ -23,21 +23,100 @@ module SmartAnswer
       # - Value (text)
 
       # ======================================================================
-      # Question
+      # What is your company registration number?
       # ======================================================================
-      checkbox_question :question? do
-        option :blue
-        option :green
-        option :red
-        option :yellow
-
+      value_question :crn? do
         on_response do |response|
           self.calculator = Calculators::NextStepsForYourBusinessCalculator.new
-          calculator.question = response
+          calculator.crn = response
         end
 
-        validate do
-          calculator.validate?
+        next_node do
+          question :annual_turnover?
+        end
+      end
+
+      # ======================================================================
+      # Will your business take more than £85,000 in a 12 month period?
+      # ======================================================================
+      radio :annual_turnover? do
+        option :more_than_85k
+        option :less_than_85k
+        option :maybe_85k
+
+        on_response do |response|
+          calculator.annual_turnover = response
+        end
+
+        next_node do
+          question :employ_someone?
+        end
+      end
+
+      # ======================================================================
+      # Do you want to employ someone?
+      # ======================================================================
+      radio :employ_someone? do
+        option :will_employ
+        option :already_employ
+        option :no_employ
+        option :maybe_employ
+
+        on_response do |response|
+          calculator.employ_someone = response
+        end
+
+        next_node do
+          question :business_intent?
+        end
+      end
+
+      # ======================================================================
+      # Does your business do any of the following?
+      # ======================================================================
+      checkbox_question :business_intent? do
+        option :buy_abroad
+        option :sell_abroad
+        option :sell_online
+        none_option
+
+        on_response do |response|
+          calculator.business_intent = response.split(",")
+        end
+
+        next_node do
+          question :business_support?
+        end
+      end
+
+      # ======================================================================
+      # Are you looking for financial support for:
+      # ======================================================================
+      checkbox_question :business_support? do
+        option :started_finance
+        option :growing_finance
+        option :covid_finance
+        none_option
+
+        on_response do |response|
+          calculator.business_support = response.split(",")
+        end
+
+        next_node do
+          question :business_premises?
+        end
+      end
+
+      # ======================================================================
+      # Where are you running your business?
+      # ======================================================================
+      radio :business_premises? do
+        option :location_home
+        option :location_renting
+        option :location_elsewhere
+
+        on_response do |response|
+          calculator.business_premises = response
         end
 
         next_node do

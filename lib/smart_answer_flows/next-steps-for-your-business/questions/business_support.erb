@@ -1,0 +1,20 @@
+<%#
+  ======================================================================
+  A single question in the flow.
+  ======================================================================
+%>
+
+<% text_for :title do %>
+  Are you looking for financial support for:
+<% end %>
+
+<% text_for :hint do %>
+  Select all that apply
+<% end %>
+
+<% options(
+  "started_finance": "Getting started",
+  "growing_finance": "Growing your business",
+  "covid_finance": "Coronavirus",
+  "none": "None of the above",
+) %>

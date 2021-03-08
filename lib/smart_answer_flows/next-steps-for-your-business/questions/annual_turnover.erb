@@ -1,0 +1,15 @@
+<%#
+  ======================================================================
+  A single question in the flow.
+  ======================================================================
+%>
+
+<% text_for :title do %>
+  Will your business take more than £85,000 in a 12 month period?
+<% end %>
+
+<% options(
+  "more_than_85k": "Yes",
+  "less_than_85k": "No",
+  "maybe_85k": "Maybe in the future",
+) %>
