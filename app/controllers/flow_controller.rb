@@ -11,7 +11,7 @@ class FlowController < ApplicationController
     @content_item = ContentItemRetriever.fetch(name) if presenter.finished?
 
     if params[:node_slug] == presenter.node_slug
-      render page_type, formats: [:html]
+      render presenter.current_node.view_template_path, formats: [:html]
     else
       redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug)
     end
@@ -64,13 +64,6 @@ private
   def node_name
     @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
   end
-
-  def page_type
-    return "smart_answers/landing" if node_name.blank?
-
-    presenter.current_node.view_template_path
-  end
-  helper_method :page_type
 
   def next_node_slug
     presenter.current_state.current_node.to_s.dasherize
