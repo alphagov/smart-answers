@@ -1,7 +1,7 @@
 module CurrentQuestionHelper
   def current_question_path(presenter)
     if presenter.use_session?
-      session_answers_question_path(presenter)
+      flow_question_path(presenter)
     else
       smart_answers_question_path(presenter)
     end
@@ -13,14 +13,14 @@ module CurrentQuestionHelper
     smart_answer_path(attrs)
   end
 
-  def session_answers_question_path(presenter)
+  def flow_question_path(presenter)
     node_name = presenter.current_state.current_node.to_s
-    update_session_flow_path(id: params[:id], node_slug: node_name.dasherize)
+    update_flow_path(id: params[:id], node_slug: node_name.dasherize)
   end
 
   def restart_flow_path(presenter)
     if presenter.use_session?
-      destroy_session_flow_path(presenter.name)
+      destroy_flow_path(presenter.name)
     else
       smart_answer_path(presenter.name)
     end

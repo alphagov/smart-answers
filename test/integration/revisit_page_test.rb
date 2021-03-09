@@ -1,7 +1,7 @@
 require "test_helper"
 GovukTest.configure
 
-class SessionAnswersTest < ActionDispatch::SystemTestCase
+class RevisitPageTest < ActionDispatch::SystemTestCase
   setup do
     Capybara.current_driver = :headless_chrome
   end
