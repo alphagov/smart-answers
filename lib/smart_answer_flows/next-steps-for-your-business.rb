@@ -10,21 +10,21 @@ module SmartAnswer
       # ======================================================================
       # What is your company registration number?
       # ======================================================================
-      value_question :crn? do
+      value_question :crn do
         on_response do |response|
           self.calculator = Calculators::NextStepsForYourBusinessCalculator.new
           calculator.crn = response
         end
 
         next_node do
-          question :annual_turnover?
+          question :annual_turnover
         end
       end
 
       # ======================================================================
       # Will your business take more than £85,000 in a 12 month period?
       # ======================================================================
-      radio :annual_turnover? do
+      radio :annual_turnover do
         option :more_than_85k
         option :less_than_85k
         option :maybe_85k
@@ -34,14 +34,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :employ_someone?
+          question :employ_someone
         end
       end
 
       # ======================================================================
       # Do you want to employ someone?
       # ======================================================================
-      radio :employ_someone? do
+      radio :employ_someone do
         option :will_employ
         option :already_employ
         option :no_employ
@@ -52,14 +52,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_intent?
+          question :business_intent
         end
       end
 
       # ======================================================================
       # Does your business do any of the following?
       # ======================================================================
-      checkbox_question :business_intent? do
+      checkbox_question :business_intent do
         option :buy_abroad
         option :sell_abroad
         option :sell_online
@@ -70,14 +70,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_support?
+          question :business_support
         end
       end
 
       # ======================================================================
       # Are you looking for financial support for:
       # ======================================================================
-      checkbox_question :business_support? do
+      checkbox_question :business_support do
         option :started_finance
         option :growing_finance
         option :covid_finance
@@ -88,14 +88,14 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_premises?
+          question :business_premises
         end
       end
 
       # ======================================================================
       # Where are you running your business?
       # ======================================================================
-      radio :business_premises? do
+      radio :business_premises do
         option :location_home
         option :location_renting
         option :location_elsewhere
