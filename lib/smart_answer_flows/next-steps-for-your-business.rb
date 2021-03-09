@@ -27,7 +27,7 @@ module SmartAnswer
       radio :annual_turnover do
         option :more_than_85k
         option :less_than_85k
-        option :maybe_85k
+        option :not_sure
 
         on_response do |response|
           calculator.annual_turnover = response
@@ -42,10 +42,10 @@ module SmartAnswer
       # Do you want to employ someone?
       # ======================================================================
       radio :employ_someone do
-        option :will_employ
+        option :yes
         option :already_employ
-        option :no_employ
-        option :maybe_employ
+        option :no
+        option :not_sure
 
         on_response do |response|
           calculator.employ_someone = response
@@ -96,9 +96,9 @@ module SmartAnswer
       # Where are you running your business?
       # ======================================================================
       radio :business_premises do
-        option :location_home
-        option :location_renting
-        option :location_elsewhere
+        option :home
+        option :renting
+        option :elsewhere
 
         on_response do |response|
           calculator.business_premises = response
