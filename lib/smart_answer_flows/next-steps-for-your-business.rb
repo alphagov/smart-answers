@@ -1,7 +1,3 @@
-# ======================================================================
-# The flow logic.
-# ======================================================================
-
 module SmartAnswer
   class NextStepsForYourBusinessFlow < Flow
     def define
@@ -10,17 +6,6 @@ module SmartAnswer
       flow_content_id "981e0708-9fa5-42fb-baf5-ee5630a9b722"
       status :draft
       use_session true
-      # ======================================================================
-      # Available input types:
-      # ======================================================================
-      # - Checkbox
-      # - Country select
-      # - Date
-      # - Money
-      # - Radio
-      # - Postcode
-      # - Salary
-      # - Value (text)
 
       # ======================================================================
       # What is your company registration number?
