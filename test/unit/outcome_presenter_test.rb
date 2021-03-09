@@ -84,5 +84,19 @@ module SmartAnswer
 
       assert_equal "next-steps-html", @presenter.next_steps
     end
+
+    test "#view_template_path returns default when not set on node" do
+      node = stub(view_template_path: nil)
+      presenter = OutcomePresenter.new(node, nil, nil, renderer: @renderer)
+
+      assert_equal "smart_answers/result", presenter.view_template_path
+    end
+
+    test "#view_template_path returns view template set on node" do
+      node = stub(view_template_path: :alt_view)
+      presenter = OutcomePresenter.new(node, nil, nil, renderer: @renderer)
+
+      assert_equal :alt_view, presenter.view_template_path
+    end
   end
 end

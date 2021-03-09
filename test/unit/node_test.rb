@@ -29,5 +29,15 @@ module SmartAnswer
       question = Question::Base.new(@flow, :how_much?)
       assert_equal "how_much", question.filesystem_friendly_name
     end
+
+    test "#view_template sets the view template name" do
+      node = Node.new(@flow, "node-name") { view_template "view-name" }
+      assert_equal "view-name", node.view_template_path
+    end
+
+    test "#view_template_path return nil is not set" do
+      node = Node.new(@flow, "node-name")
+      assert_nil node.view_template_path
+    end
   end
 end
