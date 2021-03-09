@@ -1,0 +1,20 @@
+<%#
+  ======================================================================
+  A single question in the flow.
+  ======================================================================
+%>
+
+<% text_for :title do %>
+  Does your business do any of the following?
+<% end %>
+
+<% text_for :hint do %>
+  Select all that apply
+<% end %>
+
+<% options(
+  "buy_abroad": "Buy goods from abroad",
+  "sell_abroad": "Sell goods abroad",
+  "sell_online": "Sell goods online",
+  "none": "None of the above",
+) %>
