@@ -1,3 +1,10 @@
+<%= selected_value = nil %>
+
+<% if use_session %>
+  <% question_name = params[:node_slug]&.gsub("-", "_") %>
+  <% selected_value = session.dig(params[:id], question_name) %>
+<% end %>
+
 <%= render "govuk_publishing_components/components/radio", {
   name: "response",
   heading: question.title,
@@ -8,5 +15,5 @@
   id_prefix: "response",
   description: question.body,
   error_message: question.error,
-  items: question.radio_buttons
+  items: question.radio_buttons(selected_value)
 } %>

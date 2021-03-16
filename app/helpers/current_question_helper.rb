@@ -26,8 +26,10 @@ module CurrentQuestionHelper
     end
   end
 
-  def prefill_value_is?(value)
-    if params[:previous_response]
+  def prefill_value_is?(value, selected_value)
+    if selected_value.present?
+      selected_value == value
+    elsif params[:previous_response]
       params[:previous_response] == value
     elsif params[:response]
       params[:response] == value

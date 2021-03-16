@@ -21,6 +21,28 @@ class CurrentQuestionHelperTest < ActionView::TestCase
     end
   end
 
+  context "#prefill_value_is?" do
+    value = "Yes"
+    selected_value = nil
+
+    should "return true if selected_value exists" do
+      selected_value = "Yes"
+
+      assert_equal true, prefill_value_is?(value, selected_value)
+    end
+
+    should "return true if previous_response matches radio button value" do
+      params[:previous_response] = "Yes"
+
+      assert_equal true, prefill_value_is?(value, selected_value)
+    end
+
+    should "return true if response matches radio button value" do
+      params[:response] = "Yes"
+
+      assert_equal true, prefill_value_is?(value, selected_value)
+    end
+  end
   def flow_name
     "find-coronavirus-support"
   end
