@@ -95,7 +95,7 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.1)
     ffi (1.13.1)
-    gds-api-adapters (69.3.0)
+    gds-api-adapters (70.0.0)
       addressable
       link_header
       null_logger
@@ -180,7 +180,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0212)
+    mime-types-data (3.2021.0225)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
