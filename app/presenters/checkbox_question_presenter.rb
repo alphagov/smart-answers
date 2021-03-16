@@ -19,7 +19,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     hint
   end
 
-  def checkboxes
+  def checkboxes(selected_values = nil)
     options.each_with_object([]) do |option, items|
       if option[:value] == "none"
         items << :or
@@ -29,7 +29,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
         label: option[:label],
         value: option[:value],
         hint: option[:hint_text],
-        checked: prefill_value_includes?(self, option[:value]),
+        checked: prefill_value_includes?(self, option[:value], selected_values),
         exclusive: option[:value] == "none" || nil,
       }
     end

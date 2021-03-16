@@ -1,3 +1,10 @@
+<%= selected_values = nil %>
+
+<% if use_session %>
+  <% question_name = params[:node_slug]&.gsub("-", "_") %>
+  <% selected_values = session.dig(params[:id], question_name) %>
+<% end %>
+
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "response[]",
   heading: question.title,
@@ -8,5 +15,5 @@
   id: "response",
   error: question.error,
   hint_text: question.hint_text,
-  items: question.checkboxes
+  items: question.checkboxes(selected_values)
 } %>

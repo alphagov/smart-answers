@@ -43,6 +43,36 @@ class CurrentQuestionHelperTest < ActionView::TestCase
       assert_equal true, prefill_value_is?(value, selected_value)
     end
   end
+
+  context "#prefill_value_includes?" do
+    setup do
+      @selected_values = nil
+      @value = "Yes"
+      flow = SmartAnswer::Flow.new do
+        name "question-flow"
+      end
+      @question = SmartAnswer::Question::Checkbox.new(flow, flow.name)
+      @question.stubs(:to_response).returns(%w[Yes])
+    end
+
+    should "return true if selected_values includes the value" do
+      @selected_values = %w[Yes No]
+      assert_equal true, prefill_value_includes?(@question, @value, @selected_values)
+    end
+
+    should "return true is previous_response includes the value" do
+      params[:previous_response] = "Yes"
+
+      assert_equal true, prefill_value_includes?(@question, @value, @selected_values)
+    end
+
+    should "return true if response includes the value" do
+      params[:response] = "Yes"
+
+      assert_equal true, prefill_value_includes?(@question, @value, @selected_values)
+    end
+  end
+
   def flow_name
     "find-coronavirus-support"
   end
