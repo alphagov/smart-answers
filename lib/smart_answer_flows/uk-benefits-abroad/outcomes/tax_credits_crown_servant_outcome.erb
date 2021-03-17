@@ -1,8 +1,9 @@
+<% text_for :title do %>
+You might be able to get tax credits while you're abroad
+<% end %>
+
 <% govspeak_for :body do %>
-  You may be able to get tax credits while you're abroad.
-
-  Contact the Tax Credits Helpline to claim.
-
+To claim tax credits, contact the ]Tax Credits Helpline](/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries).
   <% if calculator.already_abroad %>
     <%= render partial: 'tax_credits_already_abroad_helpline' %>
   <% else %>
