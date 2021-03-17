@@ -1,4 +1,18 @@
+<% text_for :title do %>
+  <% if calculator.employee_has_contract_adoption == 'no' %>
+    The employee is not entitled to Statutory Adoption Leave
+  <% else %>
+    The employee is entitled to up to 52 weeks Statutory Adoption Leave
+  <% end %>
+  <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings_under_lower_earning_limit? %>
+    The employee is not entitled to Statutory Adoption Pay
+  <% else %>
+    The employee is entitled to up to 39 weeks Statutory Adoption Pay
+  <% end %>
+<% end %>
+
 <% govspeak_for :body do %>
+
   <% if calculator.employee_has_contract_adoption == 'no' %>
     ##Statutory Adoption Leave
 
