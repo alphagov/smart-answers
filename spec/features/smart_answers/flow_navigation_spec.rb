@@ -1,12 +1,4 @@
-RSpec.feature "Flow navigation", type: :feature do
-  before do
-    SmartAnswer::FlowRegistry.reset_instance(
-      preload_flows: false,
-      smart_answer_load_path: Rails.root.join("spec/fixtures/flows"),
-    )
-    stub_content_store_has_item("/test")
-  end
-
+RSpec.feature "Flow navigation", type: :feature, flow_dir: :fixture do
   scenario "User completes a flow" do
     visit "/test/s"
 

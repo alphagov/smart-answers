@@ -1,12 +1,5 @@
-RSpec.describe "Flow navigation" do
+RSpec.describe "Flow navigation", flow_dir: :fixture do
   let(:no_cache_header) { "max-age=0, private, must-revalidate, no-store" }
-
-  before do
-    SmartAnswer::FlowRegistry.reset_instance(
-      preload_flows: false,
-      smart_answer_load_path: Rails.root.join("spec/fixtures/flows"),
-    )
-  end
 
   it "redirects to first node" do
     get "/test/s"
