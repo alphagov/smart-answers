@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
 
+  if ENV["BASIC_AUTH_USERNAME"] && ENV["BASIC_AUTH_PASSWORD"]
+    http_basic_authenticate_with(
+      name: ENV.fetch("BASIC_AUTH_USERNAME"),
+      password: ENV.fetch("BASIC_AUTH_PASSWORD"),
+    )
+  end
+
   slimmer_template "core_layout"
 
 protected
