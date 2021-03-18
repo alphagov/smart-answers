@@ -1,4 +1,4 @@
-RSpec.feature "FindCoronavirusSupportFlow", type: :feature do
+RSpec.feature "FindCoronavirusSupportFlow" do
   let(:questions) do
     {
       flow_title: "Find out what support you can get if you’re affected by coronavirus",

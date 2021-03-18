@@ -1,4 +1,4 @@
-RSpec.feature "CalculateYourHolidayEntitlementFlow", type: :feature do
+RSpec.feature "CalculateYourHolidayEntitlementFlow" do
   let(:headings) do
     {
       flow_title: "Calculate holiday entitlement",

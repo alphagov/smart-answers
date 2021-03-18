@@ -1,4 +1,4 @@
-RSpec.feature "Flow navigation", type: :feature, flow_dir: :fixture do
+RSpec.feature "Flow navigation", flow_dir: :fixture do
   scenario "User completes a flow" do
     visit "/test/s"
 
