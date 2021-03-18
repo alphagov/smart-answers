@@ -61,4 +61,22 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = :random
   Kernel.srand config.seed
+
+  # This following hooks enable using the fixture folder to define flows for testing
+  # the core functionality of Smart Answers, rather than using existing flows to prevent
+  # fragile dependencies.
+  config.before(:example, flow_dir: :fixture) do
+    stub_content_store_has_item("/test")
+  end
+
+  config.before(:context, flow_dir: :fixture) do
+    SmartAnswer::FlowRegistry.reset_instance(
+      preload_flows: false,
+      smart_answer_load_path: Rails.root.join("spec/fixtures/flows"),
+    )
+  end
+
+  config.after(:context, flow_dir: :fixture) do
+    SmartAnswer::FlowRegistry.reset_instance
+  end
 end

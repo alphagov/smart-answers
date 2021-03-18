@@ -1,4 +1,4 @@
-RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow", type: :feature do
+RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
   let(:shared_headings) do
     # <question name>: <text_for :title from erb>
     {

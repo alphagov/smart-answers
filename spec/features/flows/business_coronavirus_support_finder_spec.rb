@@ -1,4 +1,4 @@
-RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :feature do
+RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
   let(:headings) do
     # <question name>: <text_for :title from erb>
     {
