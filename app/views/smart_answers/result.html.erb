@@ -4,7 +4,13 @@
 
 <% content_for :back_link do %>
   <%= render "govuk_publishing_components/components/back_link", {
-    href: @presenter.back_link(question_number)
+    href: @presenter.back_link(question_number),
+    data_attributes: {
+      "module": "gem-track-click",
+      "track-category": "Smart Answer Back Link",
+      "track-action": "Link clicked",
+      "track-label": outcome.title,
+    }
   } %>
 <% end %>
 
