@@ -69,26 +69,6 @@ $is-ie: false !default;
   font-size: 15px;
 }
 
-//Heroku alert
-.heroku-alert {
-  margin: 0 15px 15px;
-  border: 1px solid #b01117;
-  background-color: govuk-colour('red');
-  color: govuk-colour('white');
-  padding: 1em;
-  font-weight: bold;
-
-  a {
-    cursor: pointer;
-    color: govuk-colour('white');
-    text-decoration: underline;
-
-    &:focus {
-      @include govuk-focused-text;
-    }
-  }
-}
-
 .app-c-meta-data {
   @include govuk-font($size: 16);
   color: $govuk-secondary-text-colour;
