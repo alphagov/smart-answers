@@ -14,6 +14,7 @@ Naming/FileName:
   Exclude:
     - lib/smart_answer_flows/*.rb
     - test/fixtures/smart_answer_flows/*.rb
+    - spec/fixtures/flows/*.rb
 
 # Long conditionals are inherent in smart answers, due
 # to the complexity of the problem they represent. It is
