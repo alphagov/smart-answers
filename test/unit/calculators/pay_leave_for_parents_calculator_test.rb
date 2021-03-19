@@ -101,7 +101,7 @@ module SmartAnswer
 
       context "due date in 2013-2014 range" do
         setup do
-          @date = Date.parse("2014-1-1")
+          @date = Date.parse("2014-4-4")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -113,7 +113,7 @@ module SmartAnswer
 
       context "due date in 2014-2015 range" do
         setup do
-          @date = Date.parse("2015-1-1")
+          @date = Date.parse("2015-4-3")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -125,7 +125,7 @@ module SmartAnswer
 
       context "due date in 2015-2016 range" do
         setup do
-          @date = Date.parse("2016-1-1")
+          @date = Date.parse("2016-4-2")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -137,7 +137,7 @@ module SmartAnswer
 
       context "due date in 2016-2017 range" do
         setup do
-          @date = Date.parse("2017-01-01")
+          @date = Date.parse("2017-03-31")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -149,7 +149,7 @@ module SmartAnswer
 
       context "due date in 2017-2018 range" do
         setup do
-          @date = Date.parse("2018-01-01")
+          @date = Date.parse("2018-03-30")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -161,7 +161,7 @@ module SmartAnswer
 
       context "due date in 2018-2019 range" do
         setup do
-          @date = Date.parse("2019-01-01")
+          @date = Date.parse("2019-04-05")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -173,7 +173,7 @@ module SmartAnswer
 
       context "due date in 2019-2020 range" do
         setup do
-          @date = Date.parse("2020-01-01")
+          @date = Date.parse("2020-04-03")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
@@ -185,7 +185,7 @@ module SmartAnswer
 
       context "due date in 2020-2021 range" do
         setup do
-          @date = Date.parse("2021-01-01")
+          @date = Date.parse("2021-04-01")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end

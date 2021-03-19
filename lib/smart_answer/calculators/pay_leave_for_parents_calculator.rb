@@ -126,8 +126,8 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def paid_leave_is_in_tax_year?(year)
-      (paid_leave_period & SmartAnswer::YearRange.tax_year.starting_in(year)).number_of_days.positive?
+    def paid_leave_is_in_year?(year)
+      (paid_leave_period & SmartAnswer::YearRange.new(begins_on: first_day_in_year(year))).number_of_days.positive?
     end
 
     def paid_leave_period
