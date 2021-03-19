@@ -28,6 +28,14 @@ module SmartAnswer::Calculators
       first_day_in_year(year + 1) - 1
     end
 
+    def formatted_first_day_in_year(year)
+      first_day_in_year(year).strftime("%e %B %Y")
+    end
+
+    def formatted_last_day_in_year(year)
+      last_day_in_year(year).strftime("%e %B %Y")
+    end
+
     def two_carers?
       two_carers == "yes"
     end
