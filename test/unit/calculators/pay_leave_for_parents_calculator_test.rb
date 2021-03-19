@@ -9,6 +9,42 @@ module SmartAnswer
         @calculator.due_date = @due_date
       end
 
+      test "calculates start of year to be first Sunday in April" do
+        expectations = {
+          "2013" => Date.parse("2013-04-07"),
+          "2014" => Date.parse("2014-04-06"),
+          "2015" => Date.parse("2015-04-05"),
+          "2016" => Date.parse("2016-04-03"),
+          "2017" => Date.parse("2017-04-02"),
+          "2018" => Date.parse("2018-04-01"),
+          "2019" => Date.parse("2019-04-07"),
+          "2020" => Date.parse("2020-04-05"),
+          "2021" => Date.parse("2021-04-04"),
+        }
+
+        expectations.each do |year, start_date|
+          assert_equal start_date, @calculator.first_day_in_year(year.to_i)
+        end
+      end
+
+      test "calculates end of year to be the day before the first Sunday in next April" do
+        expectations = {
+          "2013" => Date.parse("2014-04-05"),
+          "2014" => Date.parse("2015-04-04"),
+          "2015" => Date.parse("2016-04-02"),
+          "2016" => Date.parse("2017-04-01"),
+          "2017" => Date.parse("2018-03-31"),
+          "2018" => Date.parse("2019-04-06"),
+          "2019" => Date.parse("2020-04-04"),
+          "2020" => Date.parse("2021-04-03"),
+          "2021" => Date.parse("2022-04-02"),
+        }
+
+        expectations.each do |year, start_date|
+          assert_equal start_date, @calculator.last_day_in_year(year.to_i)
+        end
+      end
+
       test "continuity_start_date" do
         expected = Date.parse("2014-3-29")
         assert_equal expected, @calculator.continuity_start_date

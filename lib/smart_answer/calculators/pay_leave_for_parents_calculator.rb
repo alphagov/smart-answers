@@ -17,6 +17,17 @@ module SmartAnswer::Calculators
                   :partner_worked_at_least_26_weeks,
                   :partner_earned_at_least_390
 
+    def first_day_in_year(year)
+      date = Date.new(year, 4, 1)
+      offset = (7 - date.wday) % 7
+
+      date + offset
+    end
+
+    def last_day_in_year(year)
+      first_day_in_year(year + 1) - 1
+    end
+
     def two_carers?
       two_carers == "yes"
     end
