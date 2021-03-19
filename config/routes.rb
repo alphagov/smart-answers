@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get "/:id/s", to: "flow#start", as: :start_flow
   get "/:id/s/:node_slug", to: "flow#show", as: :flow
   get "/:id/s/:node_slug/next", to: "flow#update", as: :update_flow
+
+  get "/:id/flow/destroy_session", to: "flow#destroy"
+  get "/:id/flow", to: "flow#start"
+  get "/:id/flow/:node_slug", to: "flow#show"
+  get "/:id/flow/:node_slug/next", to: "flow#update"
 end
