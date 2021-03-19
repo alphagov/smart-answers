@@ -1,3 +1,7 @@
+<% text_for :title do %>
+The employee is not entitled to Statutory Paternity Leave or Pay
+<% end %>
+
 <% govspeak_for :body do %>
   <% if (has_contract == 'yes' || has_contract == 'no') &&
     (calculator.on_payroll == 'no' || employed_dob == 'no') %>
