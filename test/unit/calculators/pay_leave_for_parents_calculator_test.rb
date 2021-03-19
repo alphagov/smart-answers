@@ -4,7 +4,7 @@ module SmartAnswer
   module Calculators
     class PayLeaveForParentsCalculatorTest < ActiveSupport::TestCase
       setup do
-        @due_date = Date.parse("2015-1-1")
+        @due_date = Date.parse("2015-01-01")
         @calculator = PayLeaveForParentsCalculator.new
         @calculator.due_date = @due_date
       end
@@ -46,27 +46,27 @@ module SmartAnswer
       end
 
       test "continuity_start_date" do
-        expected = Date.parse("2014-3-29")
+        expected = Date.parse("2014-03-29")
         assert_equal expected, @calculator.continuity_start_date
       end
 
       test "continuity_end_date" do
-        expected = Date.parse("2014-9-14")
+        expected = Date.parse("2014-09-14")
         assert_equal expected, @calculator.continuity_end_date
       end
 
       test "lower_earnings_start_date" do
-        expected = Date.parse("2014-7-26")
+        expected = Date.parse("2014-07-26")
         assert_equal expected, @calculator.lower_earnings_start_date
       end
 
       test "lower_earnings_end_date" do
-        expected = Date.parse("2014-9-20")
+        expected = Date.parse("2014-09-20")
         assert_equal expected, @calculator.lower_earnings_end_date
       end
 
       test "earnings_employment_start_date" do
-        expected = Date.parse("2013-9-22")
+        expected = Date.parse("2013-09-22")
         assert_equal expected, @calculator.earnings_employment_start_date
       end
 
@@ -89,48 +89,48 @@ module SmartAnswer
 
       test "maternity_leave_notice_date" do
         @calculator.due_date = @due_date
-        expected = Date.parse("2014-9-20")
+        expected = Date.parse("2014-09-20")
         assert_equal expected, @calculator.maternity_leave_notice_date
       end
 
       test "paternity_leave_notice_date" do
         @calculator.due_date = @due_date
-        expected = Date.parse("2014-9-20")
+        expected = Date.parse("2014-09-20")
         assert_equal expected, @calculator.paternity_leave_notice_date
       end
 
       context "due date in 2013-2014 range" do
         setup do
-          @date = Date.parse("2014-4-4")
+          @date = Date.parse("2014-04-04")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
 
-        should "return £ 109 for lower_earnings_amount" do
+        should "return £109 for lower_earnings_amount" do
           assert_equal 109, @calculator.lower_earnings_amount
         end
       end
 
       context "due date in 2014-2015 range" do
         setup do
-          @date = Date.parse("2015-4-3")
+          @date = Date.parse("2015-04-03")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
 
-        should "return £ 111 for lower_earnings_amount" do
+        should "return £111 for lower_earnings_amount" do
           assert_equal 111, @calculator.lower_earnings_amount
         end
       end
 
       context "due date in 2015-2016 range" do
         setup do
-          @date = Date.parse("2016-4-2")
+          @date = Date.parse("2016-04-02")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
 
-        should "return £ 112 for lower_earnings_amount" do
+        should "return £112 for lower_earnings_amount" do
           assert_equal 112, @calculator.lower_earnings_amount
         end
       end
