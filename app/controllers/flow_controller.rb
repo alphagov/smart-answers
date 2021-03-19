@@ -1,5 +1,6 @@
 class FlowController < ApplicationController
   before_action :set_cache_headers
+  before_action :redirect_path_based_flows
 
   def start
     session_store.clear
@@ -33,6 +34,10 @@ class FlowController < ApplicationController
   end
 
 private
+
+  def redirect_path_based_flows
+    redirect_to smart_answer_path(params[:id], started: "y") unless flow.use_session?
+  end
 
   def set_cache_headers
     response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
