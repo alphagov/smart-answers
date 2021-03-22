@@ -17,6 +17,25 @@ module SmartAnswer::Calculators
                   :partner_worked_at_least_26_weeks,
                   :partner_earned_at_least_390
 
+    def first_day_in_year(year)
+      date = Date.new(year, 4, 1)
+      offset = (7 - date.wday) % 7
+
+      date + offset
+    end
+
+    def last_day_in_year(year)
+      first_day_in_year(year + 1) - 1
+    end
+
+    def formatted_first_day_in_year(year)
+      first_day_in_year(year).strftime("%e %B %Y")
+    end
+
+    def formatted_last_day_in_year(year)
+      last_day_in_year(year).strftime("%e %B %Y")
+    end
+
     def two_carers?
       two_carers == "yes"
     end
@@ -107,8 +126,8 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def paid_leave_is_in_tax_year?(year)
-      (paid_leave_period & SmartAnswer::YearRange.tax_year.starting_in(year)).number_of_days.positive?
+    def paid_leave_is_in_year?(year)
+      (paid_leave_period & SmartAnswer::YearRange.new(begins_on: first_day_in_year(year))).number_of_days.positive?
     end
 
     def paid_leave_period
