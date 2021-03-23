@@ -73,7 +73,3 @@ $is-ie: false !default;
   @include govuk-font($size: 16);
   color: $govuk-secondary-text-colour;
 }
-
-.gem-c-feedback {
-  clear: both;
-}
