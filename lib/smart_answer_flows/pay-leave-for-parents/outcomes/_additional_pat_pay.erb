@@ -51,3 +51,9 @@ Weekly rate (between <%= calculator.formatted_first_day_in_year(2019) %> and <%=
 Weekly rate (between <%= calculator.formatted_first_day_in_year(2020) %> and <%= calculator.formatted_last_day_in_year(2020) %>) | £151.20, or 90% of their average weekly earnings (whichever is lower).
 
 <% end %>
+
+<% if calculator.paid_leave_is_in_year?(2021) %>
+
+Weekly rate (between <%= calculator.formatted_first_day_in_year(2021) %> and <%= calculator.formatted_last_day_in_year(2021) %>) | £151.97, or 90% of their average weekly earnings (whichever is lower).
+
+<% end %>
