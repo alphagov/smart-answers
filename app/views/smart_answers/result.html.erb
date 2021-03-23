@@ -8,7 +8,9 @@
 
 <% content_for :escape_link do %>
   <% if @presenter.show_escape_link? %>
-    <%= render "smart_answers/shared/escape-link" %>
+    <%= render "components/escape-link", {
+      link_url: destroy_flow_path(ext_r: "true")
+    } %>
   <% end %>
 <% end %>
 
