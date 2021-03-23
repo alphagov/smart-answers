@@ -22,11 +22,9 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/select";
 @import "govuk_publishing_components/components/step-by-step-nav";
 @import "govuk_publishing_components/components/step-by-step-nav-related";
+@import "govuk_publishing_components/components/table";
 @import "govuk_publishing_components/components/title";
 @import "govuk_publishing_components/components/warning-text";
-
-// not in suggested sass from component gem but still needed
-@import "govuk_publishing_components/components/table";
 
 @import "smart_answers";
 @import "components/escape-link";
