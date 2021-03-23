@@ -174,7 +174,7 @@ module SmartAnswer
           elsif !calculator.two_carers? && calculator.mother_worked_at_least_26_weeks == "no"
             outcome :outcome_single_birth_nothing
           else
-            outcome :mother_earned_at_least_390
+            question :mother_earned_at_least_390
           end
         end
       end
