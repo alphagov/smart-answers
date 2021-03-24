@@ -50,11 +50,14 @@ module SmartAnswer
       radio :gender? do
         option :male
         option :female
+        option :prefer_not_to_say
 
         next_node do |response|
           calculator.gender = response.to_sym
 
-          if calculator.before_state_pension_date?
+          if calculator.non_binary?
+            outcome :has_reached_sp_age_non_binary
+          elsif calculator.before_state_pension_date?
             outcome :not_yet_reached_sp_age
           else
             outcome :has_reached_sp_age
@@ -67,6 +70,8 @@ module SmartAnswer
       outcome :not_yet_reached_sp_age
 
       outcome :has_reached_sp_age
+
+      outcome :has_reached_sp_age_non_binary
     end
   end
 end

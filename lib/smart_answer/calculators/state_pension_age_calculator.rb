@@ -10,30 +10,23 @@ module SmartAnswer::Calculators
       @gender = answers[:gender] ? answers[:gender].to_sym : nil
     end
 
-    def state_pension_date
-      StatePensionDateQuery.state_pension_date(dob, gender)
+    def state_pension_date(gender_for_calculation = gender)
+      StatePensionDateQuery.state_pension_date(dob, gender_for_calculation)
     end
 
     def can_apply?
       Time.zone.today >= earliest_application_date
     end
 
-    def pension_on_feb_29?
-      state_pension_date.month == 2 && state_pension_date.day == 29
+    def pension_on_feb_29?(gender_for_calculation = gender)
+      pension_date = state_pension_date(gender_for_calculation)
+      pension_date.month == 2 && pension_date.day == 29
     end
 
-    def state_pension_age
-      if birthday_on_feb_29? && !pension_on_feb_29?
-        SmartAnswer::DateRange.new(
-          begins_on: dob,
-          ends_on: state_pension_date - 1.day,
-        ).friendly_time_diff
-      else
-        SmartAnswer::DateRange.new(
-          begins_on: dob,
-          ends_on: state_pension_date,
-        ).friendly_time_diff
-      end
+    def state_pension_age(gender_for_calculation = gender)
+      pension_date = state_pension_date(gender_for_calculation)
+      pension_date -= 1 if birthday_on_feb_29? && !pension_on_feb_29?(gender_for_calculation)
+      SmartAnswer::DateRange.new(begins_on: dob, ends_on: pension_date).friendly_time_diff
     end
 
     def birthday_on_feb_29?
@@ -74,6 +67,10 @@ module SmartAnswer::Calculators
 
     def pension_age_based_on_gender?
       dob < Date.parse("6 December 1953")
+    end
+
+    def non_binary?
+      %i[prefer_not_to_say].include?(gender)
     end
 
   private
