@@ -795,7 +795,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 add_response :no # no additional work
               end
               should "show above min. wage results" do
-                # assert_current_node :past_payment_above
                 assert_current_node :past_payment_below
               end
             end # Basic pay
@@ -803,83 +802,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end # Pay frequency
       end # Age
     end # Apprentice
-
-    context "answer 2015-10-01, not an apprentice, 25 years old, paid daily for 8 hour days" do
-      setup do
-        add_response :no
-        add_response 25
-        add_response 1 # paid on a daily basis
-        add_response 8 # hour of work per period
-        Timecop.travel("07 January 2016")
-      end
-      context "when they are paid over the minimum/living wage" do
-        setup do
-          add_response 350 # how much it is paid per period
-          add_response :no # accommodation
-          add_response :no # no job requirement charge
-          add_response :no # no additional work
-        end
-        should "reach the above national minimum wage result outcome" do
-          assert_current_node :past_payment_above
-          assert_match(/you appear to have been getting the National Minimum Wage/, outcome_body)
-        end
-      end
-      context "when they are paid below the minimum/living wage" do
-        setup do
-          add_response 40 # how much it is paid per period
-          add_response :no # accommodation
-          add_response :no # no job requirement charge
-          add_response :no # no additional work
-        end
-        should "reach the below national minimum wage result outcome" do
-          assert_current_node :past_payment_below
-          assert_match(/you appear to have not been getting the National Minimum Wage/, outcome_body)
-        end
-      end
-    end
-  end # Past pay
-
-  context "when underpayed by employer" do
-    setup do
-      Timecop.travel("2018-07-01")
-    end
-
-    should "adjust underpayment based on the current rate" do
-      assert_current_node :what_would_you_like_to_check?
-      add_response "past_payment"
-
-      assert_current_node :were_you_an_apprentice?
-      add_response "no"
-
-      assert_current_node :how_old_were_you?
-      add_response "24"
-
-      assert_current_node :how_often_did_you_get_paid?
-      add_response "7"
-
-      assert_current_node :how_many_hours_did_you_work?
-      add_response "40"
-
-      assert_current_node :how_much_were_you_paid_during_pay_period?
-      add_response "200"
-
-      assert_current_node :was_provided_with_accommodation?
-      add_response "no"
-
-      assert_current_node :did_employer_charge_for_job_requirements?
-      add_response "no"
-
-      assert_current_node :past_additional_work_outside_shift?
-      add_response "no"
-
-      assert_current_node :past_payment_below
-      assert_equal 7.7, current_state.calculator.minimum_hourly_rate # rate on '2018-07-01'
-
-      expected_underpayment = 103.51
-      # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
-      # (40h * £7.38 - £200.0) / 7.38 * 7.38 = 49.98
-      assert_equal expected_underpayment, current_state.calculator.historical_adjustment
-    end
   end
 
   context "2020 scenarios" do

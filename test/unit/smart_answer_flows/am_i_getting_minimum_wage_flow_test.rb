@@ -162,7 +162,6 @@ module SmartAnswer
               "calculator",
               accommodation_adjustment: nil,
               minimum_wage_or_above?: nil,
-              historically_receiving_minimum_wage?: nil,
             )
             @state.calculator = @calculator
           end

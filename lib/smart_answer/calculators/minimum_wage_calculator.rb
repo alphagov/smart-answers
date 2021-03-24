@@ -109,10 +109,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    def historical_adjustment
-      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Time.zone.today)).round(2)
-    end
-
     def minimum_wage_or_above?
       minimum_entitlement <= total_pay
     end
@@ -164,10 +160,6 @@ module SmartAnswer::Calculators
 
     def under_school_leaving_age?
       age < 16
-    end
-
-    def historically_receiving_minimum_wage?
-      historical_adjustment <= 0
     end
 
     def potential_underpayment?
