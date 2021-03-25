@@ -115,10 +115,8 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      old_route = { type: "prefix", path: "/flow-name/y" }
-      new_route = { type: "prefix", path: "/flow-name/flow" }
-      assert content_item.payload[:routes].include?(old_route)
-      assert content_item.payload[:routes].include?(new_route)
+      expected_route = { type: "prefix", path: "/flow-name/y" }
+      assert content_item.payload[:routes].include?(expected_route)
     end
   end
 end
