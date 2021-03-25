@@ -1,54 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQuery
-    COMMONWEALTH_COUNTRIES = %w[
-      antigua-and-barbuda
-      bahamas
-      bangladesh
-      barbados
-      belize
-      botswana
-      brunei
-      cameroon
-      canada
-      cyprus
-      dominica
-      eswatini
-      fiji
-      ghana
-      grenada
-      guyana
-      india
-      jamaica
-      kiribati
-      lesotho
-      malawi
-      malaysia
-      malta
-      mauritius
-      namibia
-      nauru
-      new-zealand
-      nigeria
-      pakistan
-      papua-new-guinea
-      samoa
-      seychelles
-      sierra-leone
-      singapore
-      solomon-islands
-      sri-lanka
-      st-kitts-and-nevis
-      st-lucia
-      st-vincent-and-the-grenadines
-      tonga
-      trinidad-and-tobago
-      tuvalu
-      uganda
-      vanuatu
-      zambia
-    ].freeze
-
-    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w[brunei].freeze) + %w[
+    MARRIAGE_ABROAD_COMMONWEALTH_COUNTRIES = SmartAnswer::Calculators::COMMONWEALTH_COUNTRIES - %w[australia kenya maldives mozambique rwanda south-africa tanzania the-gambia].freeze
+    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (MARRIAGE_ABROAD_COMMONWEALTH_COUNTRIES - %w[brunei].freeze) + %w[
       ireland
       rwanda
       st-lucia
@@ -472,7 +425,7 @@ module SmartAnswer::Calculators
     end
 
     def commonwealth_country?(country_slug)
-      COMMONWEALTH_COUNTRIES.include?(country_slug)
+      MARRIAGE_ABROAD_COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
 
     def british_overseas_territories?(country_slug)
