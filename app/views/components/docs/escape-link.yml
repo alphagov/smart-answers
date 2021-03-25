@@ -1,0 +1,14 @@
+name: Escape link
+description: Gives users a quick exit from a website
+body: |
+  When JavaScript is disabled the link will open in a new tab so the perpetrator won’t be able to press back.
+  When JavaScript is enabled, in addition to the above we try to prevent the perpetrator from discovering the initial tab by changing the location of the original page.
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      link_label: Leave this site
+      link_url: 'https://www.gov.uk/'
+      data_attributes:
+        tracking: GT-1234

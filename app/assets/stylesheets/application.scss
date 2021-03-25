@@ -15,18 +15,15 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/hint";
 @import "govuk_publishing_components/components/input";
 @import "govuk_publishing_components/components/label";
-@import "govuk_publishing_components/components/phase-banner";
-@import "govuk_publishing_components/components/print-link";
 @import "govuk_publishing_components/components/radio";
 @import "govuk_publishing_components/components/related-navigation";
 @import "govuk_publishing_components/components/select";
 @import "govuk_publishing_components/components/step-by-step-nav";
 @import "govuk_publishing_components/components/step-by-step-nav-related";
+@import "govuk_publishing_components/components/table";
 @import "govuk_publishing_components/components/title";
 @import "govuk_publishing_components/components/warning-text";
 
-// not in suggested sass from component gem but still needed
-@import "govuk_publishing_components/components/table";
-
-@import "smart_answers";
+@import "components/email-link";
 @import "components/escape-link";
+@import "smart_answers";

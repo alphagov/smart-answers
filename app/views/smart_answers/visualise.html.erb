@@ -14,30 +14,26 @@
   var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
 </script>
 
-<main id="content" role="main" class="visualisation-">
-  <div class="container">
-    <%= render 'govuk_publishing_components/components/phase_banner', phase: "alpha" %>
-    <%= render "govuk_publishing_components/components/title", {
-      context: "Flow visualisation for",
-      title: @presenter.title
-    } %>
+<%= render "govuk_publishing_components/components/title", {
+  context: "Flow visualisation for",
+  title: @presenter.title
+} %>
 
-    <p>This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
-    <% if ! @graph_presenter.visualisable? %>
-      <%= render "govuk_publishing_components/components/warning_text", {
-        text: "This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly."
-      } %>
-    <% end %>
+<p class="govuk-body">This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
+<% if ! @graph_presenter.visualisable? %>
+  <%= render "govuk_publishing_components/components/warning_text", {
+    text: "This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly."
+  } %>
+<% end %>
 
-    <p>Having problems reading the visualisation? Changing the orientation may help.</p>
-    <%= render "govuk_publishing_components/components/button", {
-      text: "Show in landscape",
-      data_attributes: {
-        click_action: "visualise"
-      }
-    } %>
-  </div>
-</main>
+<p class="govuk-body">Having problems reading the visualisation? Changing the orientation may help.</p>
+<%= render "govuk_publishing_components/components/button", {
+  text: "Show in landscape",
+  margin_bottom: true,
+  data_attributes: {
+    click_action: "visualise"
+  }
+} %>
 
 <div class="visualisation">
   <div id="paper" class="paper"></div>
