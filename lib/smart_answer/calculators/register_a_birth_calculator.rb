@@ -29,8 +29,8 @@ module SmartAnswer::Calculators
       %w[libya syria yemen somalia].include?(country_of_birth)
     end
 
-    def responded_with_commonwealth_country?
-      RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(country_of_birth)
+    def responded_with_nonregistrable_country?
+      RegistrationsDataQuery::COUNTRIES_WITHOUT_UK_REGISTRATION.include?(country_of_birth)
     end
 
     def paternity_declaration?

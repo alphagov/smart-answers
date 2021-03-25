@@ -113,11 +113,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       setup do
         add_response "australia"
       end
-      should "give the commonwealth result" do
+      should "give the nonregistrable-country result" do
         assert_equal "Australia", current_state.calculator.registration_country_name_lowercase_prefix
-        assert_current_node :commonwealth_result
+        assert_current_node :nonregistrable_result
       end
-    end # Australia (commonwealth country)
+    end # Australia (nonregistrable country)
     context "answer Spain" do
       setup do
         add_response "spain"

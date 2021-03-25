@@ -43,12 +43,12 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end # mother
   end # Turkey
 
-  context "answer with a commonwealth country" do
-    should "give the commonwealth result" do
+  context "answer with a nonregistrable country" do
+    should "give the nonregistrable-country result" do
       add_response "australia"
-      assert_current_node :commonwealth_result
+      assert_current_node :nonregistrable_result
     end
-  end # commonweath result
+  end # nonregistrable country result
 
   context "answer Andorra" do
     should "store the correct registration country" do

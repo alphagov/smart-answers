@@ -12,10 +12,10 @@ module SmartAnswer::Calculators
           assert_equal Hash, @query.data.class
         end
       end
-      context "commonwealth_country? method" do
-        should "indicate whether a country slug refers to a commonwealth country" do
-          assert @query.commonwealth_country?("australia")
-          assert_not @query.commonwealth_country?("spain")
+      context "nonregistrable_country? method" do
+        should "indicate whether a country slug refers to a nonregistrable country" do
+          assert @query.nonregistrable_country?("australia")
+          assert_not @query.nonregistrable_country?("spain")
         end
       end
       context "has_consulate?" do
