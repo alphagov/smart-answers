@@ -64,7 +64,8 @@ module SmartAnswer::Calculators
 
       should "vary the max amount per year" do
         assert_equal "16,410", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2019, 4, 6)).max
-        assert_equal "16,800", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(Time.zone.today.year, 12, 31)).max
+        assert_equal "16,800", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2020, 4, 6)).max
+        assert_equal "16,980", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(Time.zone.today.year, 12, 31)).max
       end
     end
 
