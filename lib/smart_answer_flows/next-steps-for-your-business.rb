@@ -112,7 +112,9 @@ module SmartAnswer
       # ======================================================================
       # Outcome
       # ======================================================================
-      outcome :results
+      outcome :results do
+        view_template "smart_answers/custom_result"
+      end
     end
   end
 end

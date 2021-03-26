@@ -19,6 +19,10 @@ class OutcomePresenter < NodePresenter
     @renderer.content_for(:title)
   end
 
+  def description
+    @renderer.content_for(:description)
+  end
+
   def heading_title
     title_as_heading? ? title : @flow_presenter.title
   end
