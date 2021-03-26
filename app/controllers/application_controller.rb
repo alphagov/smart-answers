@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  slimmer_template "core_layout"
+  slimmer_template "header_footer_only"
 
 protected
 
