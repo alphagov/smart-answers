@@ -1,6 +1,6 @@
 module CurrentQuestionHelper
   def current_question_path(presenter)
-    if presenter.use_session?
+    if presenter.response_store == :session
       flow_question_path(presenter)
     else
       smart_answers_question_path(presenter)
@@ -19,7 +19,7 @@ module CurrentQuestionHelper
   end
 
   def restart_flow_path(presenter)
-    if presenter.use_session?
+    if presenter.response_store == :session
       destroy_flow_path(presenter.name)
     else
       smart_answer_path(presenter.name)

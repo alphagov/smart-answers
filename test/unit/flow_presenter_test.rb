@@ -192,7 +192,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
 
     should "return path to first page in session flow using sessions" do
-      @flow.use_session(true)
+      @flow.response_store(:session)
       flow_presenter = FlowPresenter.new({}, @flow)
       assert_equal "/flow-name/s", flow_presenter.start_page_link
     end
