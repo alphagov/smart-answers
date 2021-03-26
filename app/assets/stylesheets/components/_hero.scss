@@ -1,0 +1,17 @@
+.app-c-hero {
+  @include govuk-font($size: 19);
+  @include govuk-responsive-margin(6, 'bottom');
+
+  background-color: govuk-colour('blue');
+  padding: govuk-spacing(9) 0 govuk-spacing(6);
+
+  *,
+  a:link,
+  a:visited {
+    color: govuk-colour('white');
+  }
+
+  a:focus {
+    color: $govuk-focus-text-colour;
+  }
+}
