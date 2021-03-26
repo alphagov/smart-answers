@@ -42,6 +42,7 @@ countries_with_18_outcomes:
   - central-african-republic
   - chad
   - chile
+  - china
   - colombia
   - comoros
   - costa-rica
@@ -191,7 +192,6 @@ countries_with_18_outcomes:
   - zambia
 countries_with_2_outcomes:
   - australia
-  - china
   - croatia
   - cyprus
   - egypt
