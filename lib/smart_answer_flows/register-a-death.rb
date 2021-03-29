@@ -70,8 +70,8 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.responded_with_commonwealth_country?
-            outcome :commonwealth_result
+          if calculator.responded_with_nonregistrable_country?
+            outcome :nonregistrable_result
           elsif calculator.country_has_no_embassy?
             outcome :no_embassy_result
           else
@@ -116,7 +116,7 @@ module SmartAnswer
         end
       end
 
-      outcome :commonwealth_result
+      outcome :nonregistrable_result
       outcome :no_embassy_result
       outcome :uk_result
       outcome :oru_result

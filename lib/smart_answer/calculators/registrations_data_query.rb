@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class RegistrationsDataQuery
-    COMMONWEALTH_COUNTRIES = %w[
+    COUNTRIES_WITHOUT_UK_REGISTRATION = %w[
       anguilla
       australia
       bermuda
@@ -197,8 +197,8 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.include?(country_slug)
     end
 
-    def commonwealth_country?(country_slug)
-      COMMONWEALTH_COUNTRIES.include?(country_slug)
+    def nonregistrable_country?(country_slug)
+      COUNTRIES_WITHOUT_UK_REGISTRATION.include?(country_slug)
     end
 
     def eea_country?(country_slug)

@@ -50,8 +50,8 @@ module SmartAnswer::Calculators
       %w[libya syria yemen somalia].include?(country_of_death)
     end
 
-    def responded_with_commonwealth_country?
-      RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(country_of_death)
+    def responded_with_nonregistrable_country?
+      RegistrationsDataQuery::COUNTRIES_WITHOUT_UK_REGISTRATION.include?(country_of_death)
     end
 
     def in_the_uk?
