@@ -187,7 +187,7 @@ module SmartAnswer::Calculators
 
       should "return true for someone yet to reach their state pension date" do
         Timecop.freeze do
-          @calculator.stubs(:state_pension_date).returns(Time.zone.today + 1.minute)
+          @calculator.stubs(:state_pension_date).returns(Time.zone.today + 1.day)
           assert @calculator.before_state_pension_date?
         end
       end
@@ -201,7 +201,7 @@ module SmartAnswer::Calculators
 
       should "return false for someone who has just passed their state pension date" do
         Timecop.freeze do
-          @calculator.stubs(:state_pension_date).returns(Time.zone.today - 1.minute)
+          @calculator.stubs(:state_pension_date).returns(Time.zone.today - 1.day)
           assert_not @calculator.before_state_pension_date?
         end
       end
@@ -241,7 +241,7 @@ module SmartAnswer::Calculators
 
       should "return true for someone yet to reach their pension credit date" do
         Timecop.freeze do
-          @calculator.stubs(:pension_credit_date).returns(Time.zone.today + 1.minute)
+          @calculator.stubs(:pension_credit_date).returns(Time.zone.today + 1.day)
           assert @calculator.before_pension_credit_date?
         end
       end
@@ -255,7 +255,7 @@ module SmartAnswer::Calculators
 
       should "return false for someone who has just passed their pension credit date" do
         Timecop.freeze do
-          @calculator.stubs(:pension_credit_date).returns(Time.zone.today - 1.minute)
+          @calculator.stubs(:pension_credit_date).returns(Time.zone.today - 1.day)
           assert_not @calculator.before_pension_credit_date?
         end
       end
