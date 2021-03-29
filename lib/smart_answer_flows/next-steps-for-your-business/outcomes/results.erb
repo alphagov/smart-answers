@@ -12,3 +12,13 @@
 <% text_for :description do %>
   You’ve registered your company – here’s a list of some of the things you need to do to get your business up and running.
 <% end %>
+
+<% text_for :body do %>
+  <% calculator.grouped_results.each do |section_name, results| %>
+    <%= render "components/result-section", {
+      title: section_name,
+      results: results,
+      highlighted: true
+    } %>
+  <% end %>
+<% end %>
