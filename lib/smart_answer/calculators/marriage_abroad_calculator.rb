@@ -230,10 +230,6 @@ module SmartAnswer::Calculators
       MarriageAbroadDataQuery::CEREMONY_COUNTRIES_OFFERING_PACS.include?(ceremony_country)
     end
 
-    def requires_7_day_notice?
-      @data_query.requires_7_day_notice?(ceremony_country)
-    end
-
     def same_sex_alt_fees_table_country?
       @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end

@@ -1,12 +1,5 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQuery
-    MARRIAGE_ABROAD_COMMONWEALTH_COUNTRIES = SmartAnswer::Calculators::COMMONWEALTH_COUNTRIES - %w[australia kenya maldives mozambique rwanda south-africa tanzania the-gambia].freeze
-    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (MARRIAGE_ABROAD_COMMONWEALTH_COUNTRIES - %w[brunei].freeze) + %w[
-      ireland
-      rwanda
-      st-lucia
-    ].freeze
-
     BRITISH_OVERSEAS_TERRITORIES = %w[
       anguilla
       bermuda
@@ -474,10 +467,6 @@ module SmartAnswer::Calculators
 
     def os_marriage_via_local_authorities?(country_slug)
       OS_MARRIAGE_VIA_LOCAL_AUTHORITIES.include?(country_slug)
-    end
-
-    def requires_7_day_notice?(ceremony_country_slug)
-      REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES.include?(ceremony_country_slug)
     end
 
     def ss_unknown_no_embassies?(country_slug)
