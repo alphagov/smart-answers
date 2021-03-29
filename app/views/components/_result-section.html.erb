@@ -1,0 +1,19 @@
+<%
+  highlighted ||= false
+%>
+<section class="app-c-result-section">
+  <% results.each_with_index do |result, index| %>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <% if index == 0 %>
+        <h3 class="govuk-heading-m"><%= title %></h3>
+        <% else %>
+           &nbsp;
+        <% end %>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "components/result-item", {highlighted: highlighted}.merge(result.symbolize_keys) %>
+      </div>
+    </div>
+  <% end %>
+</section>
