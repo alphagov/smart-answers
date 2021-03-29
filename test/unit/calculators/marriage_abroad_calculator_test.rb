@@ -845,17 +845,6 @@ module SmartAnswer
         end
       end
 
-      context "requires_7_day_notice?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:requires_7_day_notice?).with("ceremony-country").returns("requires-7-day-notice")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "requires-7-day-notice", calculator.requires_7_day_notice?
-        end
-      end
-
       context "same_sex_alt_fees_table_country?" do
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
