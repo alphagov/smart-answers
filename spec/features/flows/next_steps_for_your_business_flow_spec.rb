@@ -37,6 +37,6 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
     answer(question: headings[:business_support], of_type: :checkbox, with: answers[:business_support])
     answer(question: headings[:business_premises], of_type: :radio, with: answers[:business_premises])
 
-    ensure_page_has(header: headings[:results])
+    ensure_page_has_question(header: headings[:flow_title], text: headings[:results])
   end
 end

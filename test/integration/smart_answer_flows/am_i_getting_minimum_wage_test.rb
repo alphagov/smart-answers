@@ -821,7 +821,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "reach the above national minimum wage result outcome" do
           assert_current_node :past_payment_above
-          assert_match(/you appear to have been getting the National Minimum Wage/, outcome_body)
+          assert_match(/You appear to have been getting the National Minimum Wage/, outcome_title)
         end
       end
       context "when they are paid below the minimum/living wage" do
@@ -833,7 +833,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "reach the below national minimum wage result outcome" do
           assert_current_node :past_payment_below
-          assert_match(/you appear to have not been getting the National Minimum Wage/, outcome_body)
+          assert_match(/You appear to have not been getting the National Minimum Wage/, outcome_title)
         end
       end
     end

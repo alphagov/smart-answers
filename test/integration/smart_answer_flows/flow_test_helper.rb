@@ -38,6 +38,13 @@ module FlowTestHelper
     end
   end
 
+  def outcome_title
+    @outcome_title ||= begin
+      presenter = OutcomePresenter.new(@flow.node(current_state.current_node), nil, current_state)
+      @outcome_title = presenter.title
+    end
+  end
+
   def assert_current_node(node_name, opts = {})
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."

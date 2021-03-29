@@ -200,13 +200,13 @@ module SmartAnswer
       context "common output" do
         setup do
           presenter = OutcomePresenter.new(@outcome, nil, @state)
+          @title = presenter.title
           @body = presenter.body
         end
 
         should "display award_period_taxable_profit" do
-          assert_match "Your part-year taxable profit is £13,154", @body
+          assert_match "Your part-year taxable profit is £13,154", @title
         end
-
         should "display tax_credits_award_ends_on" do
           assert_match "Your tax credits award ended on: 20 February 2016", @body
         end

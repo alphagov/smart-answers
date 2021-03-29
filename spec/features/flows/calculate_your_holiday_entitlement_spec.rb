@@ -102,7 +102,7 @@ RSpec.feature "CalculateYourHolidayEntitlementFlow" do
   end
 
   def statutory_entitlement_compressed(hours, minutes)
-    "The statutory holiday entitlement is #{hours} hours and #{minutes} minutes holiday for the year. Rather than taking a day’s holiday it’s 8 hours and 0 minutes holiday for each day otherwise worked."
+    "The statutory holiday entitlement is #{hours} hours and #{minutes} minutes holiday for the year."
   end
 
   before do

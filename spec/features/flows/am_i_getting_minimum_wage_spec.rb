@@ -67,7 +67,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
         answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
         answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-        ensure_page_has(header: headings[:flow_title])
+        ensure_page_has_question(header: headings[:flow_title])
       end
 
       scenario "below minimum wage, with accommodation" do
@@ -78,7 +78,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
         answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
         answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-        ensure_page_has(header: headings[:flow_title])
+        ensure_page_has_question(header: headings[:flow_title])
       end
     end
 
@@ -93,14 +93,14 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
       answer(question: headings[:does_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
       answer(question: headings[:current_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      ensure_page_has(header: headings[:flow_title])
+      ensure_page_has_question(header: headings[:flow_title])
     end
 
     scenario "Under age" do
       answer(question: headings[:are_you_an_apprentice], of_type: :radio, with: answers[:not_apprentice])
       answer(question: headings[:how_old_are_you], of_type: :value, with: answers[:under_age])
 
-      ensure_page_has(header: headings[:flow_title])
+      ensure_page_has_question(header: headings[:flow_title])
     end
   end
 
@@ -138,7 +138,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
         answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
         answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-        ensure_page_has(header: headings[:flow_title])
+        ensure_page_has_question(header: headings[:flow_title])
       end
 
       scenario "below minimum wage, with accommodation" do
@@ -149,7 +149,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
         answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
         answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-        ensure_page_has(header: headings[:flow_title])
+        ensure_page_has_question(header: headings[:flow_title])
       end
     end
 
@@ -164,14 +164,14 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
       answer(question: headings[:did_employer_charge_for_job_requirements], of_type: :radio, with: answers[:no])
       answer(question: headings[:past_additional_work_outside_shift], of_type: :radio, with: answers[:no])
 
-      ensure_page_has(header: headings.fetch(:flow_title))
+      ensure_page_has_question(header: headings.fetch(:flow_title))
     end
 
     scenario "Under age" do
       answer(question: headings[:were_you_an_apprentice], of_type: :radio, with: answers[:no])
       answer(question: headings[:how_old_were_you], of_type: :value, with: answers[:under_age])
 
-      ensure_page_has(header: headings[:flow_title])
+      ensure_page_has_question(header: headings[:flow_title])
     end
   end
 end

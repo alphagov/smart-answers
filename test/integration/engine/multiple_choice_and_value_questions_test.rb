@@ -141,7 +141,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within "#result-info" do
-        within(".result-body h2.gem-c-heading") { assert_page_has_content "Right, off you go." }
+        within("h1.gem-c-title__text") { assert_page_has_content "Right, off you go." }
         assert_page_has_content "Oh! Well, thank you. Thank you very much."
       end
     end
@@ -188,7 +188,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     click_on "Continue"
 
     within "#result-info" do
-      within(".result-body h2.gem-c-heading") { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
+      within("h1.gem-c-title__text") { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
       within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }
     end
   end

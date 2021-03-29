@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  The statutory holiday entitlement is <%= "#{holiday_entitlement_days} #{'day'.pluralize(holiday_entitlement_days)}" %> holiday.
+  The statutory holiday entitlement is <%= "#{calculator.formatted_full_time_part_time_days} #{'day'.pluralize(calculator.formatted_full_time_part_time_days)}" %> holiday.
 <% end %>
 
 <% govspeak_for :body do %>

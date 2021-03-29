@@ -45,4 +45,10 @@ module SmartAnswerFlowHelpers
 
     expect(page).to have_text(text) unless text.nil?
   end
+
+  def ensure_page_has_question(header: nil, text: nil)
+    expect(page).to have_selector("span.govuk-caption-xl.gem-c-title__context", text: header) unless header.nil?
+
+    expect(page).to have_text(text) unless text.nil?
+  end
 end

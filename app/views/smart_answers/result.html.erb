@@ -18,16 +18,14 @@
     <div class="govuk-!-margin-bottom-6 result-body">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/title", {
-        context: outcome.heading_title,
-        title: outcome.title,
-        margin_bottom: 5
-      } %>
+          context: outcome.heading_title,
+          title: outcome.title
+        } %>
       <% else %>
         <%= render "govuk_publishing_components/components/title", {
-      title: outcome.heading_title
-      } %>
+          title: outcome.heading_title
+        } %>
       <% end %>
-
       <%= outcome.body %>
     </div>
     <% if outcome.next_steps.present? %>
@@ -52,7 +50,6 @@
         trackInternalLinks('.result-body');
       });
     </script>
-
     <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: @presenter.hide_previous_answers_on_results_page? %>
   </div>
   <% if defined?(@presenter.finished?) and @presenter.finished? %>
