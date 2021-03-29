@@ -197,6 +197,10 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.include?(country_slug)
     end
 
+    def commonwealth_country?(country_slug)
+      SmartAnswer::Calculators::COMMONWEALTH_COUNTRIES.include?(country_slug)
+    end
+
     def nonregistrable_country?(country_slug)
       COUNTRIES_WITHOUT_UK_REGISTRATION.include?(country_slug)
     end

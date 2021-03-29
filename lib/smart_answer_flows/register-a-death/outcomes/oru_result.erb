@@ -3,7 +3,7 @@
 
   This local death certificate will be accepted in the UK. It may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English.
 
-  <% if calculator.died_in_eea_or_switzerland? %>
+  <% if calculator.died_in_eea_or_switzerland? || calculator.died_in_commonwealth? %>
     You can [report the death to most UK government organisations](/after-a-death/death-abroad) in one go using the Tell Us Once service.
   <% end %>
 

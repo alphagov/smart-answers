@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
       @reg_data_query.eea_country_or_switzerland?(country_of_death)
     end
 
+    def died_in_commonwealth?
+      @reg_data_query.commonwealth_country?(country_of_death)
+    end
+
     def died_at_home_or_in_hospital?
       death_location_type == "at_home_hospital"
     end
