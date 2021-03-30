@@ -124,7 +124,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (24.7.1)
+    govuk_publishing_components (24.8.0)
       govuk_app_config
       kramdown
       plek
@@ -181,9 +181,10 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.3.7)
-      nokogiri (~> 1.11.2)
-    mini_mime (1.0.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
+    mini_mime (1.0.3)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     minitest-focus (1.2.1)
@@ -326,7 +327,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sentry-raven (3.1.1)
+    sentry-raven (3.1.2)
       faraday (>= 1.0)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
