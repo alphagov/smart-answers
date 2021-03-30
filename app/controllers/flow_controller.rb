@@ -14,13 +14,13 @@ class FlowController < ApplicationController
     if params[:node_slug] == presenter.node_slug
       render presenter.current_node.view_template_path, formats: [:html]
     else
-      redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug)
+      redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug, params: forwarding_responses)
     end
   end
 
   def update
     response_store.add(node_name, params[:response])
-    redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
+    redirect_to flow_path(id: params[:id], node_slug: next_node_slug, params: forwarding_responses)
   end
 
   def destroy
@@ -43,6 +43,11 @@ private
     response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
   end
 
+  def forwarding_responses
+    flow.response_store == :session ? {} : response_store.all
+  end
+  helper_method :forwarding_responses
+
   def presenter
     @presenter ||= begin
       params.merge!(responses: response_store.all, node_name: node_name)
@@ -59,10 +64,15 @@ private
   end
 
   def response_store
-    @response_store ||= SessionResponseStore.new(
-      flow_name: name,
-      session: session,
-    )
+    @response_store ||= begin
+      if flow.response_store == :session
+        SessionResponseStore.new(flow_name: name, session: session)
+      else
+        allowable_keys = flow.nodes.map(&:name)
+        query_parameters = request.query_parameters.slice(*allowable_keys)
+        ResponseStore.new(responses: query_parameters)
+      end
+    end
   end
 
   def node_name

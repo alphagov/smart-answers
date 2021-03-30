@@ -67,6 +67,7 @@ RSpec.configure do |config|
   # fragile dependencies.
   config.before(:example, flow_dir: :fixture) do
     stub_content_store_has_item("/session-based")
+    stub_content_store_has_item("/query-parameters-based")
   end
 
   config.before(:context, flow_dir: :fixture) do

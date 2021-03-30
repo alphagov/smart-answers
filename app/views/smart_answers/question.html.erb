@@ -41,6 +41,16 @@
 
         <%= content_tag(:div, question.post_body, class: "govuk-!-margin-bottom-4") if question.post_body.present? %>
 
+        <% controller_name == 'flow' && forwarding_responses.each do |name, value| %>
+          <% if value.kind_of?(Array) %>
+            <% value.each do |item| %>
+              <input type="hidden" name="<%= name %>[]" value="<%= item %>" />
+            <% end %>
+          <% else %>
+            <input type="hidden" name="<%= name %>" value="<%= value %>" />
+          <% end %>
+        <% end %>
+
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
           text: "Continue",
