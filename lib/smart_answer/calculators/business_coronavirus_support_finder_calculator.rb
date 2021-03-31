@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
 
     def initialize
       @closed_by_restrictions = []
+      @sectors = []
     end
 
     RULES = {
@@ -19,10 +20,6 @@ module SmartAnswer::Calculators
       statutory_sick_rebate: lambda { |calculator|
         calculator.business_size == "0_to_249" &&
           calculator.paye_scheme == "yes"
-      },
-      christmas_pub_payment: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.sectors.include?("retail_hospitality_or_leisure")
       },
       retail_hospitality_leisure_business_rates: lambda { |calculator|
         calculator.business_based == "england" &&
@@ -46,6 +43,9 @@ module SmartAnswer::Calculators
       kickstart_scheme: lambda { |calculator|
         calculator.business_based != "northern_ireland"
       },
+      vat_reduction: lambda { |calculator|
+        calculator.sectors.include?("retail_hospitality_or_leisure")
+      },
       lrsg_closed_addendum: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.closed_by_restrictions.include?("national")
@@ -64,6 +64,22 @@ module SmartAnswer::Calculators
       },
       additional_restrictions_grant: lambda { |calculator|
         calculator.business_based == "england"
+      },
+      restart_grant: lambda { |calculator|
+        calculator.business_based == "england" &&
+          calculator.sectors.intersection(%w[retail_hospitality_or_leisure personal_care]).any?
+      },
+      council_grants: lambda { |calculator|
+        council_grant_questions = %i[lrsg_closed_addendum
+                                     lrsg_closed
+                                     lrsg_open
+                                     lrsg_sector
+                                     additional_restrictions_grant
+                                     retail_hospitality_leisure_business_rates
+                                     nursery_support
+                                     restart_grant]
+
+        council_grant_questions.any? { |q| calculator.show?(q) }
       },
     }.freeze
 
