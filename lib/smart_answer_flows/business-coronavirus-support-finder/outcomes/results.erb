@@ -1,11 +1,11 @@
 <% use_title_as_h1 true %>
 
 <% text_for :title do %>
-    Financial support your business might be entitled to
+  Financial support your business might be entitled to
 <% end %>
 
 <% govspeak_for :body do %>
- ## Coronavirus schemes, grants and loans
+  ## Coronavirus schemes, grants and loans
 
   You may be eligible for more than one scheme, whether your business is open or closed.
 
@@ -170,141 +170,261 @@
     $CTA
   <% end %>
 
-  <% if calculator.show?(:christmas_pub_payment) || calculator.show?(:lrsg_closed_addendum) || calculator.show?(:lrsg_closed) || calculator.show?(:lrsg_open) || calculator.show?(:lrsg_sector) || calculator.show?(:additional_restrictions_grant) || calculator.show?(:retail_hospitality_leisure_business_rates) || calculator.show?(:nursery_support) %>
+  <% if calculator.show?(:vat_reduction) %>
+    $CTA
+    ### VAT reduction for hospitality, accommodation and attractions
+
+    You may be eligible for a 5% reduced rate of VAT until 30 September 2021 if your business is in the hospitality, hotel or holiday accommodation sector.
+
+    From 1 October 2021 to 31 March 2022, the reduced rate of 12.5% will apply.
+
+    [Find out if your business is eligible for VAT reduction](https://www.gov.uk/guidance/vat-reduced-rate-for-hospitality-holiday-accommodation-and-attractions). You’ll need to apply through your local council.
+    $CTA
+  <% end %>
+
+  <% if calculator.show?(:council_grants) %>
     ## Additional schemes and grants from your local council
 
     You might be eligible for grants from your council. There are schemes for businesses that were closed by law and schemes for businesses that stayed open.
+  <% end %>
 
-    <% if calculator.show?(:lrsg_closed_addendum) %>
-      $CTA
-      ### Closed Businesses Lockdown Payment (CBLP)
+  <% if calculator.show?(:lrsg_closed_addendum) %>
+    $CTA
+    ### Closed Businesses Lockdown Payment (CBLP)
 
-      You might be able to get a grant from your local council if all or part of your business was closed by law from 5 January 2021
+    You might be able to get a grant from your local council if all or part of your business was closed by law from 5 January 2021
 
-      The grant is a one-off payment of up to £9,000 from your local council.
+    The grant is a one-off payment of up to £9,000 from your local council.
 
-      You may be eligible if your business:
+    You may be eligible if your business:
 
-      - is based in England
-      - pays business rates on the property it occupies (and is the ratepayer)
-      - has been required to close because of the national restrictions from 5 January 2021 onwards
-      - has been unable to provide its usual in-person customer service from its premises
+    - is based in England
+    - pays business rates on the property it occupies (and is the ratepayer)
+    - has been required to close because of the national restrictions from 5 January 2021 onwards
+    - has been unable to provide its usual in-person customer service from its premises
 
-      You may also be eligible if you have had to change the way you work, from being mainly an in-person venue to doing takeaway-only service.
+    You may also be eligible if you have had to change the way you work, from being mainly an in-person venue to doing takeaway-only service.
 
-      This grant will end on 31 March 2021.
+    This grant will end on 31 March 2021.
 
-      [Check if your business is eligible for a coronavirus grant for Closed Businesses Lockdown Payment](https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment). You’ll need to apply through your local council.
-      $CTA
-    <% end %>
+    [Check if your business is eligible for a coronavirus grant for Closed Businesses Lockdown Payment](https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment). You’ll need to apply through your local council.
+    $CTA
+  <% end %>
 
-    <% if calculator.show?(:lrsg_closed) %>
-      $CTA
-      ### Local Restrictions Support Grant (Closed)
+  <% if calculator.show?(:lrsg_closed_addendum) %>
+    $CTA
+    ### Local Restrictions Support Grants (Closed Addendum)
 
-      You might be able to get a grant from your local council if all or part of your business was closed by law at any time either:
+    You might be able to get a grant from your local council if your business was required to close due to national lockdowns:
 
-      - between 1 August and 5 November 2020
-      - after 2 December 2020
+    - from 5 January 2021 onwards
+    - between 5 November and 2 December 2020
 
-      Your business must have been in Tier 2, Tier 3 or Tier 4. Ask your local council if you do not know what tier your business was in.
+    The deadlines to apply for the national lockdown (Closed Addendum) schemes are:
 
-      How much you can get depends on the rateable value of your property.
+    - 5 November 2020 national lockdown - end date 31 March 2021
+    - 5 January 2021 national lockdown: first payment cycle, 5 January to 15 February - end date 31 March 2021
+    - 5 January 2021 national lockdown: second payment cycle, 16 February to 31 March - end date 31 May 2021
 
-      You can claim for each 14 day period your business was closed for.
+    You may be eligible if your business is:
 
-      This grant will end on 31 March 2021.
+    - is based in England
+    - occupies property on which it pays business rates (and is the ratepayer)
+    - has been unable to provide its usual in-person customer service from its premises
 
-      [Check if your business is eligible for a coronavirus grant for businesses closed by local restrictions](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses). You’ll need to apply through your local council.
-      $CTA
+    You cannot get funding if:
 
-    <% end %>
+    - you can continue to operate during the lockdown period because you do not depend on providing direct in-person services from your premises (for example accountants)
+    - you have chosen to close, but have not been required to close as part of national restrictions
+    - your business is in administration, insolvent or has been struck off the Companies House register
+    - you have exceeded the permitted subsidy limit
 
-    <% if calculator.show?(:lrsg_open) %>
-      $CTA
-      ### Local Restrictions Support Grant (Open)
+    You must notify your local council if your situation changes and you no longer meet the eligibility criteria.
 
-      You might be able to get a grant if your business stayed open between 1 August and 5 November 2020 and was in a ‘high’ (Tier 2) or ‘very high’ (Tier 3) area. Check with your local council if you do not know what alert level your area was in.
+    The grant will be based on the rateable value of the property on the first full day of lockdown.
 
-      You’ll need to show to the council that your business was negatively affected by coronavirus.
+    Grants for the period 5 January to 31 March 2021 will be based on the rateable value of the property on 5 January 2021.
 
-      How much you get is decided by your council and will be based on the rateable value of your property.
+    The first payment cycle covers 5 January to 15 February 2021:
 
-      This grant will end on 31 March 2021.
+    - if your business has a property with a rateable value of £15,000 or less, you may be eligible for a cash grant of £2,001 for this 42-day qualifying restrictions period
+    - if your business has a property with a rateable value over £15,000 and less than £51,000, you may be eligible for a cash grant of £3,000 for this 42-day qualifying restrictions period
+    - if your business has a property with a rateable value of £51,000 or above, you may be eligible for a cash grant of £4,500 for this 42-day qualifying restrictions period
 
-      [Check if your open business is eligible for the coronavirus Local Restrictions Support Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses)
-      $CTA
-    <% end %>
+    The second payment cycle covers 16 February to 31 March 2021:
 
-    <% if calculator.show?(:lrsg_sector) %>
-      $CTA
-      ### Local Restrictions Support Grant (Sector)
+    - if your business has a property with a rateable value of £15,000 or less, you may be eligible for a cash grant of £2,096 for this 44-day qualifying restrictions period
+    - if your business has a property with a rateable value over £15,000 and less than £51,000, you may be eligible for a cash grant of £3,143 for this 44-day qualifying restrictions period
+    - if your business has a property with a rateable value of £51,000 or above, you may be eligible for a cash grant of £4,714 for this 44-day qualifying restrictions period
 
-      You might be able to get a grant if your night club, adult entertainment venue or dance hall has been closed by law since 16 March 2020 because of national coronavirus restrictions.
+    Grants for the period 5 November to 2 December 2020 will be based on the rateable value of the property on 5 November 2020
 
-      How much you can get depends on the rateable value of your property.
+    If your business has a property with a rateable value of:
 
-      You can apply for each 14 day period your business has been closed for since 1 November 2020.
+    - £15,000 or less, you may be eligible for a cash grant of £1,334 for the 28-day qualifying restrictions period
+    - more than £15,000 and less than £51,000, you may be eligible for a cash grant of £2,000 for the 28-day qualifying restrictions period
+    - £51,000 or above, you may be eligible for a cash grant of £3,000 for the 28-day qualifying restrictions period
 
-      This grant will end on 31 March 2021.
+    [Check if your business is eligible for a coronavirus grant because of national lockdowns](https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses). You’ll need to apply through your local council.
+    $CTA
+  <% end %>
 
-      [Check if your business is eligible for a coronavirus grant because of national restrictions](https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions). You’ll need to apply through your local council.
-      $CTA
-    <% end %>
+  <% if calculator.show?(:lrsg_closed) %>
+    $CTA
+    ### Local Restrictions Support Grant (Closed)
 
-    <% if calculator.show?(:additional_restrictions_grant) %>
-      $CTA
-      ### Additional Restrictions Grant
+    You might be able to get a grant from your local council if all or part of your business was closed by law at any time either:
 
-      You might be able to get this grant if your business has been negatively affected by coronavirus.
+    - between 1 August and 5 November 2020
+    - after 2 December 2020
 
-      Your local council will decide if you are eligible and how much you can get. Examples of what makes your business eligible could include:
+    Your business must have been in Tier 2, Tier 3 or Tier 4. Ask your local council if you do not know what tier your business was in.
 
-      - you do not pay business rates and your business was closed by law
-      - you supply an industry that had to close because of coronavirus, for example the retail, hospitality or leisure sector
-      - your business is in the events sector
+    How much you can get depends on the rateable value of your property.
 
-      [Find out more about the coronavirus Additional Restrictions Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant). You’ll need to apply through your local council.
-      $CTA
-    <% end %>
+    You can claim for each 14 day period your business was closed for.
 
-    <% if calculator.show?(:retail_hospitality_leisure_business_rates) %>
-      $CTA
-      ### Business rates holiday for retail, hospitality and leisure
+    This grant will end on 31 March 2021.
 
-      You will not have to pay business rates until 30 June 2021 if your business is in retail, hospitality or leisure.
-      The same eligible businesses will also receive 66% relief on business rates from 1 July 2021 until 31 March 2022.
+    [Check if your business is eligible for a coronavirus grant for businesses closed by local restrictions](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses). You’ll need to apply through your local council.
+    $CTA
 
-      You do not need to do anything. If you are eligible, your local council will apply the discount automatically. You will receive:
+  <% end %>
 
-      - up to £2m if your business was required to close on 5 January 2020
-      - up too £105,000 if your business was permitted to open on 5 January 2020
+  <% if calculator.show?(:lrsg_open) %>
+    $CTA
+    ### Local Restrictions Support Grant (Open)
 
-      You’re eligible if your property is a:
+    You might be able to get a grant if your business stayed open between 1 August and 5 November 2020 and was in a ‘high’ (Tier 2) or ‘very high’ (Tier 3) area. Check with your local council if you do not know what alert level your area was in.
 
-      - shop
-      - restaurant, café, bar or pub
-      - cinema or live music venue
-      - leisure or assembly property - for example, a sports club, a gym or a spa
-      - hospitality property - for example, a hotel, a guest house or self-catering accommodation
+    You’ll need to show to the council that your business was negatively affected by coronavirus.
 
-      [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received the business rates discount.
-      $CTA
-    <% end %>
+    How much you get is decided by your council and will be based on the rateable value of your property.
 
-    <% if calculator.show?(:nursery_support) %>
-      $CTA
-      ### Support for nursery businesses that pay business rates
+    This grant will end on 31 March 2021.
 
-      Nurseries in England do not have to pay business rates for the 2020 to 2021 tax year. Your council will do this automatically.
+    [Check if your open business is eligible for the coronavirus Local Restrictions Support Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses)
+    $CTA
+  <% end %>
 
-      You’re eligible if your business is on Ofsted’s Early Years Register and provides care and education for children up to 5 years old (early years foundation stage).
+  <% if calculator.show?(:lrsg_sector) %>
+    $CTA
+    ### Local Restrictions Support Grant (Sector)
 
-      Local authority-run nurseries are not eligible.
+    You might be able to get a grant if your night club, adult entertainment venue or dance hall has been closed by law since 16 March 2020 because of national coronavirus restrictions.
 
-      [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received business rates relief.
-      $CTA
-    <% end %>
+    How much you can get depends on the rateable value of your property.
+
+    You can apply for each 14 day period your business has been closed for since 1 November 2020.
+
+    This grant will end on 31 March 2021.
+
+    [Check if your business is eligible for a coronavirus grant because of national restrictions](https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions). You’ll need to apply through your local council.
+    $CTA
+  <% end %>
+
+
+  <% if calculator.show?(:additional_restrictions_grant) %>
+    $CTA
+    ### Additional Restrictions Grant
+
+    You might be able to get this grant if your business has been negatively affected by coronavirus.
+
+    Your local council will decide if you are eligible and how much you can get. Examples of what makes your business eligible could include:
+
+    - you do not pay business rates and your business was closed by law
+    - you supply an industry that had to close because of coronavirus, for example the retail, hospitality or leisure sector
+    - your business is in the events sector
+
+    [Find out more about the coronavirus Additional Restrictions Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant). You’ll need to apply through your local council.
+    $CTA
+  <% end %>
+
+  <% if calculator.show?(:retail_hospitality_leisure_business_rates) %>
+    $CTA
+    ### Business rates holiday for retail, hospitality and leisure
+
+    If you’re eligible, you:
+
+    - do not need to pay any business rate for the 2020 to 2021 tax year (1 April 2020 to 31 March 2021)
+    - do not need to pay any business rate for the first 3 months of the 2021 to 2022 tax year (1 April 2021 to 30 June 2021)
+    - 66% off your business rates bills for the rest of the 2021 to 2022 tax year (1 July 2021 to 31 March 2022) - up to a total value of £2 million
+
+    You do not need to do anything. If you are eligible, your local council will apply the discount automatically. You will receive:
+
+    - up to £2m if your business was required to close on 5 January 2020
+    - up too £105,000 if your business was permitted to open on 5 January 2020
+
+    You’re eligible if your property is a:
+
+    - shop
+    - restaurant, café, bar or pub
+    - cinema or live music venue
+    - leisure or assembly property - for example, a sports club, a gym or a spa
+    - hospitality property - for example, a hotel, a guest house or self-catering accommodation
+
+    [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received the business rates discount.
+    $CTA
+  <% end %>
+
+  <% if calculator.show?(:nursery_support) %>
+    $CTA
+    ### Support for nursery businesses that pay business rates
+
+    Nurseries in England do not have to pay business rates for the 2020 to 2021 tax year. You'll also get a partial business rate relief for 2021 to 2022 tax year. Your council will do this automatically.
+
+    If you’re eligible, you:
+
+    - do not need to pay business rates for the 2020 to 2021 tax year (1 April 2020 to 31 March 2021)
+    - do not need to pay business rates bills for the first 3 months of the 2021 to 2022 tax year (1 April 2021 to 30 June 2021)
+    - 66% off your business rates bills for the rest of the 2021 to 2022 tax year (1 July 2021 to 31 March 2022) - up to a total value of £105,000
+
+    You’re eligible if your business is on Ofsted’s Early Years Register and provides care and education for children up to 5 years old (early years foundation stage).
+
+    Local authority-run nurseries are not eligible.
+
+    You do not need to do anything. If you are eligible, your local council will apply the discount automatically. You will receive:
+
+    [Contact your local council](/coronavirus-local-help) if you think you’re eligible and you have not received business rates relief.
+    $CTA
+  <% end %>
+
+  <% if calculator.show?(:restart_grant) %>
+    $CTA
+    ### Restart Grant
+
+    The Restart Grant is available from 1 April 2021.
+
+    You may be eligible for a Restart Grant scheme if your business is:
+
+    - based in England
+    - rate-paying
+    - in the non-essential retail, hospitality, accommodation, leisure, gym or personal care sectors
+    - trading on 1 April 2021
+
+    If you are eligible, you may receive:
+
+    - up to £6,000 from your local council if your business is in the non-essential retail sector
+    - up to £18,000 from your local council if your business is in the hospitality, accommodation, leisure or personal care sector
+
+    Local councils will decide whether your business meets the eligibility criteria.
+
+    You must notify your local council if your situation changes and you no longer meet the eligibility criteria.
+
+    If your business is in the hospitality, accommodation, leisure, gym or personal care sector with a rateable value:
+
+    - of £15,000 or under, you may receive £8,000
+    - between £15,000 and £51,000, you may receive £12,000
+    - of £51,000 or over, you may receive £18,000
+
+    If your business is in the non-essential retail sector and have a property with a rateable value:
+
+    - of £15,000 or under, you may receive £2,667
+    - between £15,000 and £51,000, you may receive £4,000
+    - of £51,000 or over, you may receive £6,000
+
+    [Find out more about the Restart Grant](https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-additional-restrictions-grant). You’ll need to apply through your local council.
+    $CTA
   <% end %>
 
   <% if calculator.business_based == "scotland" %>
@@ -328,7 +448,7 @@
     $CTA
   <% end %>
 
-   ##Additional support available
+  ##Additional support available
 
   You might be eligible for other support, even if you're not eligible for these schemes.
 

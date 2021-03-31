@@ -81,6 +81,7 @@ module SmartAnswer
         option :nurseries
         option :retail_hospitality_or_leisure
         option :nightclubs_or_adult_entertainment
+        option :personal_care
         none_option
 
         on_response do |response|

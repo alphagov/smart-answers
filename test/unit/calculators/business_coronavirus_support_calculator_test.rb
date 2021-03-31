@@ -40,27 +40,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "christmas_pub_payment" do
-        setup do
-          @calculator.business_based = "england"
-          @calculator.sectors = %w[retail_hospitality_or_leisure]
-        end
-
-        should "return true when criteria met" do
-          assert @calculator.show?(:retail_hospitality_leisure_business_rates)
-        end
-
-        should "return false when in a devolved admininstration" do
-          @calculator.business_based = "scotland"
-          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
-        end
-
-        should "return false when not supported business sectors" do
-          @calculator.sectors = %w[none]
-          assert_not @calculator.show?(:retail_hospitality_leisure_business_rates)
-        end
-      end
-
       context "retail_hospitality_leisure_business_rates" do
         setup do
           @calculator.business_based = "england"
@@ -178,6 +157,17 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "vat_reduction" do
+        should "return true when business is in the retail sector" do
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
+          assert @calculator.show?(:vat_reduction)
+        end
+
+        should "return false when business is not in the retail sector" do
+          assert_not @calculator.show?(:vat_reduction)
+        end
+      end
+
       context "lrsg_closed_addendum" do
         should "return true when business closed by national restrictions and based in england" do
           @calculator.business_based = "england"
@@ -267,6 +257,43 @@ module SmartAnswer::Calculators
         should "return false when business not based in england" do
           @calculator.business_based = "scotland"
           assert_not @calculator.show?(:additional_restrictions_grant)
+        end
+      end
+
+      context "restart_grant" do
+        should "return true when business is based in England and in the retail sector" do
+          @calculator.business_based = "england"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
+          assert @calculator.show?(:restart_grant)
+        end
+
+        should "return true when business is based in England and in the personal care sector" do
+          @calculator.business_based = "england"
+          @calculator.sectors = %w[personal_care]
+          assert @calculator.show?(:restart_grant)
+        end
+
+        should "return false when business not based in England" do
+          @calculator.business_based = "scotland"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
+          assert_not @calculator.show?(:restart_grant)
+        end
+
+        should "return false when business is based in England but not in a qualifying sector" do
+          @calculator.business_based = "england"
+          assert_not @calculator.show?(:restart_grant)
+        end
+      end
+
+      context "council_grants" do
+        should "return true for one of the council grant rules" do
+          # meeting criteria for additional_restrictions_grant
+          @calculator.business_based = "england"
+          assert @calculator.show?(:council_grants)
+        end
+
+        should "return false for other rules" do
+          assert_not @calculator.show?(:council_grants)
         end
       end
     end
