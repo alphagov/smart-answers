@@ -6,6 +6,8 @@ class FlowPresenter
 
   attr_reader :params, :flow
 
+  attr_accessor :forced_node
+
   delegate :name,
            :need_content_id,
            :start_page_content_id,
@@ -78,7 +80,7 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    @node_presenters[node.name] ||= presenter_class.new(node, self, current_state, {}, params)
+    @node_presenters[node.name] ||= presenter_class.new(node, self, current_state, { helpers: [ContentItemHelper::MethodMissingHelper] }, params)
   end
 
   def current_question_number
@@ -86,7 +88,7 @@ class FlowPresenter
   end
 
   def current_node
-    presenter_for(@flow.node(current_state.current_node))
+    presenter_for(@flow.node(forced_node))
   end
 
   def start_node

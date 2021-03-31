@@ -23,6 +23,17 @@ class SmartAnswersController < ApplicationController
     @content_item = {}
   end
 
+  def all_outcomes
+    @title = "Smart Answers all outcomes"
+    @outcome_pages = @smart_answer.nodes.select { |n| n.is_a?(SmartAnswer::Outcome) }.map(&:name)
+  end
+
+  def outcome
+    @presenter.forced_node = params[:node_name]
+
+    render :result, formats: [:html]
+  end
+
   def show
     @title = @presenter.title
 

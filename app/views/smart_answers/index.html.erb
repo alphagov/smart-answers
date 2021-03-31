@@ -20,7 +20,7 @@
             { text: title_and_url(flow.name, presenter.start_node.title) },
             { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
             { text: flow.questions.count },
-            { text: flow.outcomes.count },
+            { text: link_to(flow.outcomes.count, all_outcomes_path(id: flow.name)) },
             { text: code_links(flow.name) },
             { text: link_to('Visualise', visualise_path(flow.name)) },
           ]

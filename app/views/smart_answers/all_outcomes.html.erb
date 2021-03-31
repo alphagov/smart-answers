@@ -1,0 +1,14 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render "govuk_publishing_components/components/title", {
+      title: "#{@presenter.start_node.title} - outcome pages"
+    } %>
+
+    <div class="smart-answers-list">
+      <% @outcome_pages.each do |name| %>
+        <li><a href=<%= "/#{@name}/outcomes/#{name}" %>><%= name %></a>
+      <% end %>
+    </div>
+
+  </div>
+</div>

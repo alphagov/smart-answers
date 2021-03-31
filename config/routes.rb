@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   constraints id: /[a-z0-9-]+/i, started: /y/ do
     get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
+    get "/:id/outcomes", to: "smart_answers#all_outcomes", as: :all_outcomes
+    get "/:id/outcomes/:node_name", to: "smart_answers#outcome", as: :outcome
 
     get "/:id(/:started(/*responses))",
         to: "smart_answers#show",
