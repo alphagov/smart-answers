@@ -40,7 +40,11 @@ private
   end
 
   def set_cache_headers
-    response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
+    if flow.response_store == :session
+      response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
+    elsif Rails.configuration.set_http_cache_control_expiry_time
+      expires_in(30.minutes, public: true)
+    end
   end
 
   def forwarding_responses
