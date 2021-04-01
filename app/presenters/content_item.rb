@@ -1,4 +1,4 @@
-class StartPageContentItem
+class ContentItem
   attr_reader :flow_presenter
 
   def initialize(flow_presenter)
