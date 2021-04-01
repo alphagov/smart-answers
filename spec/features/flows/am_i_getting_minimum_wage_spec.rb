@@ -24,7 +24,7 @@ RSpec.feature "SmartAnswer::AmIGettingMinimumWageFlow" do
       yes_is_charged: "Yes, the accommodation is charged for",
       yes_was_charged: "Yes, the accommodation was charged for",
       wage: "If you're getting the National Minimum Wage or the National Living Wage",
-      owed: "If an employer owes you payments from last year (April 2019 to March 2020)",
+      owed: "If an employer owes you payments from last year (April 2020 to March 2021)",
     }
   end
 

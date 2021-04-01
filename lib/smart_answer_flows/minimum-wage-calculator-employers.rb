@@ -16,7 +16,7 @@ module SmartAnswer
 
         on_response do |response|
           self.calculator = Calculators::MinimumWageCalculator.new
-          calculator.date = Date.parse("2019-04-01") if response == "past_payment"
+          calculator.date = Date.parse("2020-04-01") if response == "past_payment"
           self.accommodation_charge = nil
         end
 
