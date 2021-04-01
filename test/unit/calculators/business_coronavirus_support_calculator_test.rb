@@ -94,57 +94,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "business_loan_scheme" do
-        should "return true when annual turnover is £85,000 to 45m" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert @calculator.show?(:business_loan_scheme)
-        end
-
-        should "return true when annual turnover under £85,000" do
-          @calculator.annual_turnover = "under_85k"
-          assert @calculator.show?(:business_loan_scheme)
-        end
-
-        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert_not @calculator.show?(:business_loan_scheme)
-        end
-      end
-
-      context "large_business_loan_scheme" do
-        should "return true when annual turnover is £45m to 500m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert @calculator.show?(:large_business_loan_scheme)
-        end
-
-        should "return true when annual turnover is £500m and over" do
-          @calculator.annual_turnover = "500m_and_over"
-          assert @calculator.show?(:large_business_loan_scheme)
-        end
-
-        should "return false when annual turnover is not £45m and over" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert_not @calculator.show?(:large_business_loan_scheme)
-        end
-      end
-
-      context "bounce_back_loan" do
-        should "return true when annual turnover is £85,000 to 45m" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert @calculator.show?(:bounce_back_loan)
-        end
-
-        should "return true when annual turnover under £85,000" do
-          @calculator.annual_turnover = "under_85k"
-          assert @calculator.show?(:bounce_back_loan)
-        end
-
-        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert_not @calculator.show?(:bounce_back_loan)
-        end
-      end
-
       context "kickstart_scheme" do
         should "return true when business based not in Northern Ireland" do
           @calculator.business_based = "scotland"
@@ -185,66 +134,6 @@ module SmartAnswer::Calculators
           @calculator.business_based = "england"
           @calculator.closed_by_restrictions = []
           assert_not @calculator.show?(:lrsg_closed_addendum)
-        end
-      end
-
-      context "lrsg_closed" do
-        should "return true when business closed by local restrictions and based in england" do
-          @calculator.business_based = "england"
-          @calculator.closed_by_restrictions << "local"
-          assert @calculator.show?(:lrsg_closed)
-        end
-
-        should "return false when business not based in england" do
-          @calculator.business_based = "scotland"
-          @calculator.closed_by_restrictions << "local"
-          assert_not @calculator.show?(:lrsg_closed)
-        end
-
-        should "return false when business not closed by local restrictions" do
-          @calculator.business_based = "england"
-          @calculator.closed_by_restrictions = []
-          assert_not @calculator.show?(:lrsg_closed)
-        end
-      end
-
-      context "lrsg_open" do
-        should "return true when business not closed by sector restrictions and based in england" do
-          @calculator.business_based = "england"
-          @calculator.sectors = []
-          assert @calculator.show?(:lrsg_open)
-        end
-
-        should "return false when business not based in england" do
-          @calculator.business_based = "scotland"
-          @calculator.sectors = []
-          assert_not @calculator.show?(:lrsg_open)
-        end
-
-        should "return false when business is closed by local restrictions" do
-          @calculator.business_based = "england"
-          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
-          assert_not @calculator.show?(:lrsg_open)
-        end
-      end
-
-      context "lrsg_sector" do
-        should "return true when business closed by sector restrictions and based in england" do
-          @calculator.business_based = "england"
-          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
-          assert @calculator.show?(:lrsg_sector)
-        end
-
-        should "return false when business not based in england" do
-          @calculator.business_based = "scotland"
-          @calculator.sectors = %w[nightclubs_or_adult_entertainment]
-          assert_not @calculator.show?(:lrsg_sector)
-        end
-
-        should "return false when business not closed by local restrictions" do
-          @calculator.business_based = "england"
-          @calculator.sectors = []
-          assert_not @calculator.show?(:lrsg_sector)
         end
       end
 
