@@ -94,57 +94,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "business_loan_scheme" do
-        should "return true when annual turnover is £85,000 to 45m" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert @calculator.show?(:business_loan_scheme)
-        end
-
-        should "return true when annual turnover under £85,000" do
-          @calculator.annual_turnover = "under_85k"
-          assert @calculator.show?(:business_loan_scheme)
-        end
-
-        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert_not @calculator.show?(:business_loan_scheme)
-        end
-      end
-
-      context "large_business_loan_scheme" do
-        should "return true when annual turnover is £45m to 500m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert @calculator.show?(:large_business_loan_scheme)
-        end
-
-        should "return true when annual turnover is £500m and over" do
-          @calculator.annual_turnover = "500m_and_over"
-          assert @calculator.show?(:large_business_loan_scheme)
-        end
-
-        should "return false when annual turnover is not £45m and over" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert_not @calculator.show?(:large_business_loan_scheme)
-        end
-      end
-
-      context "bounce_back_loan" do
-        should "return true when annual turnover is £85,000 to 45m" do
-          @calculator.annual_turnover = "85k_to_45m"
-          assert @calculator.show?(:bounce_back_loan)
-        end
-
-        should "return true when annual turnover under £85,000" do
-          @calculator.annual_turnover = "under_85k"
-          assert @calculator.show?(:bounce_back_loan)
-        end
-
-        should "return false when annual turnover not under £85,000 or £85,000 to £45m" do
-          @calculator.annual_turnover = "45m_to_500m"
-          assert_not @calculator.show?(:bounce_back_loan)
-        end
-      end
-
       context "kickstart_scheme" do
         should "return true when business based not in Northern Ireland" do
           @calculator.business_based = "scotland"
