@@ -37,7 +37,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_valid_against_schema(content_item.payload, "transaction")
+      assert_valid_against_schema(content_item.payload, "smart_answer")
     end
 
     test "#base_path is the name of the presenter with a prepended slash" do
@@ -61,48 +61,18 @@ module SmartAnswer
       assert_equal "flow-description", content_item.payload[:description]
     end
 
-    test "#payload details hash includes includes the introductory paragraph as govspeak" do
+    test "#payload schema_name is smart_answer" do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_equal "start-page-body", content_item.payload[:details][:introductory_paragraph][0][:content]
-      assert_equal "text/govspeak", content_item.payload[:details][:introductory_paragraph][0][:content_type]
+      assert_equal "smart_answer", content_item.payload[:schema_name]
     end
 
-    test "#payload details hash includes more information as govspeak" do
+    test "#payload document_type is smart_answer" do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_equal "start-page-post-body", content_item.payload[:details][:more_information][0][:content]
-      assert_equal "text/govspeak", content_item.payload[:details][:more_information][0][:content_type]
-    end
-
-    test "#payload details hash includes the link to the flow" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_equal "/flow-name/y", content_item.payload[:details][:transaction_start_link]
-    end
-
-    test "#payload details hash includes the text to be used for the start button" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_equal "start-button-text", content_item.payload[:details][:start_button_text]
-    end
-
-    test "#payload schema_name is generic_with_external_related_links" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_equal "transaction", content_item.payload[:schema_name]
-    end
-
-    test "#payload document_type is transaction" do
-      presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_equal "transaction", content_item.payload[:document_type]
+      assert_equal "smart_answer", content_item.payload[:document_type]
     end
 
     test "#payload publishing_app is smartanswers" do
@@ -116,7 +86,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      assert_equal "frontend", content_item.payload[:rendering_app]
+      assert_equal "smartanswers", content_item.payload[:rendering_app]
     end
 
     test "#payload locale is en" do
@@ -136,11 +106,11 @@ module SmartAnswer
       assert_equal now.iso8601, content_item.payload[:public_updated_at]
     end
 
-    test "#payload registers an exact route using the name of the smart answer" do
+    test "#payload registers an prefix route for the flow" do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      expected_route = { type: "exact", path: "/flow-name" }
+      expected_route = { type: "prefix", path: "/flow-name" }
       assert content_item.payload[:routes].include?(expected_route)
     end
   end
