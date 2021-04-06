@@ -4,7 +4,6 @@ module SmartAnswer
   class AmIGettingMinimumWageFlow < Flow
     def define
       content_id "111e006d-2b22-4b1f-989a-56bb61355d68"
-      flow_content_id "43cc9c0c-4210-4643-b045-53a388bbc36f"
       name "am-i-getting-minimum-wage"
       status :published
 

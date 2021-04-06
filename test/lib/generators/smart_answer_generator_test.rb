@@ -14,7 +14,6 @@ class SmartAnswerGeneratorTest < Rails::Generators::TestCase
         assert_match(/ExampleSmartAnswerFlow/, content)
         assert_match(/name "example-smart-answer"/, content)
         assert_match(/content_id/, content)
-        assert_match(/flow_content_id/, content)
         assert_match(/status :draft/, content)
       end
 

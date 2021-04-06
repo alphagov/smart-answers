@@ -2,7 +2,6 @@ module SmartAnswer
   class TowingRulesFlow < Flow
     def define
       content_id "7bab842c-a9aa-4369-b162-4e3e2a475245"
-      flow_content_id "94eb2af7-beb4-4657-b8b9-885dd86cbe3f"
       name "towing-rules"
       status :published
 

@@ -14,7 +14,6 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
       @flow = stub(
         "flow",
         name: "bridge-of-death",
-        flow_content_id: flow_content_id,
         content_id: content_id,
         response_store: nil,
         nodes: [],

@@ -3,7 +3,6 @@ module SmartAnswer
     def define
       name "find-coronavirus-support"
       content_id "d67f2c92-d0f0-438b-9c81-c0059dd71baf"
-      flow_content_id "31d81949-aa15-48cf-a7f1-f0d0a670e8db"
       status :published
       response_store :session
       use_escape_button true

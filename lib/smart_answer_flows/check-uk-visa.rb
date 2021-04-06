@@ -3,7 +3,6 @@ module SmartAnswer
     def define
       flow = self
       content_id "dc1a1744-4089-43b3-b2e3-4e397b6b15b1"
-      flow_content_id "34b852ce-9045-4431-9a16-6609d307cdb7"
       name "check-uk-visa"
       status :published
 

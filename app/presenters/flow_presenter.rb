@@ -8,7 +8,6 @@ class FlowPresenter
 
   delegate :name,
            :content_id,
-           :flow_content_id,
            :response_store,
            :questions,
            :use_escape_button?,

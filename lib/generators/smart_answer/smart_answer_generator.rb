@@ -11,7 +11,6 @@ class SmartAnswerGenerator < Rails::Generators::NamedBase
       <<-RUBY
       name "#{name.dasherize}"
       content_id "#{SecureRandom.uuid}"
-      flow_content_id "#{SecureRandom.uuid}"
       status :draft
       RUBY
     end
