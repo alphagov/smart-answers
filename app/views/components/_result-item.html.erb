@@ -1,0 +1,16 @@
+<%
+  title ||= nil
+  url ||= nil
+  description ||= nil
+  highlighted ||= false
+  css_classes = %w(app-c-result-item)
+  css_classes << "app-c-result-item--highlighted" if highlighted
+%>
+<%= tag.div class: css_classes do %>
+  <h4 class="govuk-heading-s">
+    <a class="govuk-link" href="<%= url %>"><%= title %></a>
+  </h4>
+  <p class="govuk-body">
+    <%= description %>
+  </p>
+<% end %>

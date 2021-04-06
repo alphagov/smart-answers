@@ -1,0 +1,16 @@
+name: Result item
+description: Presents a link with label and description
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      title: "Dealing with personal information"
+      url: "/data-protection-your-business"
+      description: "If your business stores anyone’s personal information, you need to know how to look after it."
+  highlighted:
+    data:
+      title: "Dealing with personal information"
+      url: "/data-protection-your-business"
+      description: "If your business stores anyone’s personal information, you need to know how to look after it."
+      highlighted: true

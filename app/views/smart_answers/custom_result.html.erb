@@ -1,0 +1,24 @@
+<% # this custom result template is currently tested on the next-steps-for-your-business flow %>
+<% outcome = @presenter.current_node %>
+<% content_for :outcome_title do %>
+  <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
+<% end %>
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<% content_for :hero do %>
+  <%= render "components/hero", {
+    title: outcome.title,
+    description: outcome.description,
+    parent_label: "Business and self-employed",
+    parent_url: "/browse/business"
+  } %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= outcome.body %>
+    <%= render 'smart_answers/shared/debug' %>
+  </div>
+</div>
