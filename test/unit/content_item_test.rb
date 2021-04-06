@@ -14,7 +14,6 @@ module SmartAnswer
         "flow-registration-presenter",
         name: "flow-name",
         title: "flow-title",
-        content_id: "content-id",
         flows_content: ["question title"],
         meta_description: "flow-description",
         start_node: stub(
@@ -24,13 +23,6 @@ module SmartAnswer
         ),
         start_page_link: "/flow-name/y",
       )
-    end
-
-    test "#content_id is the content_id of the presenter" do
-      presenter = stub_flow_registration_presenter
-      content_item = ContentItem.new(presenter)
-
-      assert_equal "content-id", content_item.content_id
     end
 
     test "#payload returns a valid content-item" do

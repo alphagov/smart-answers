@@ -26,10 +26,6 @@ class ContentItem
     }
   end
 
-  def content_id
-    flow_presenter.content_id
-  end
-
 private
 
   def base_path
