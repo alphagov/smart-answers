@@ -39,7 +39,7 @@ To send visitors to the Smart Answer to a new page you can run the
 to a new destination, `/random`, you'd run the following rake tasks:
 
 ```
-bundle exec rake "publishing_api:unpublish_redirect[<start_page_content_id>,<start_page_path>,/random,exact]"
+bundle exec rake "publishing_api:unpublish_redirect[<content_id>,<start_page_path>,/random,prefix]"
 bundle exec rake "publishing_api:unpublish_redirect[<flow_page_content_id>,<flow_page_path>,/random]"
 ```
 
@@ -47,7 +47,7 @@ Applying this to the [Marriage Abroad](../../lib/smart_answer_flows/marriage-abr
 Smart Answer you'd run the following commands:
 
 ```
-bundle exec rake "publishing_api:unpublish_redirect[d0a95767-f6ab-432a-aebc-096e37fb3039,/marriage-abroad,/random,exact]"
+bundle exec rake "publishing_api:unpublish_redirect[d0a95767-f6ab-432a-aebc-096e37fb3039,/marriage-abroad,/random,prefix]"
 bundle exec rake "publishing_api:unpublish_redirect[92c0a193-3b3b-4378-ba43-279e7274b7e7,/marriage-abroad/y,/random]"
 ```
 
@@ -58,7 +58,7 @@ serve a page that indicates there used to be content but isn't anymore (a 410
 gone HTTP response). An example of how to perform this on both pages is:
 
 ```
-bundle exec rake publishing_api:unpublish_gone[<start_page_content_id>]
+bundle exec rake publishing_api:unpublish_gone[<content_id>]
 bundle exec rake publishing_api:unpublish_gone[<flow_page_content_id>]
 ```
 

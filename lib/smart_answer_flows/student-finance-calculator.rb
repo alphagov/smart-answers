@@ -1,7 +1,7 @@
 module SmartAnswer
   class StudentFinanceCalculatorFlow < Flow
     def define
-      start_page_content_id "434b6eb5-33c8-4300-aba3-f5ead58600b8"
+      content_id "434b6eb5-33c8-4300-aba3-f5ead58600b8"
       flow_content_id "92631e38-206a-4785-82b2-4f544db16040"
       name "student-finance-calculator"
       status :published

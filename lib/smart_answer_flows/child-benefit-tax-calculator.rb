@@ -2,7 +2,7 @@ module SmartAnswer
   class ChildBenefitTaxCalculatorFlow < Flow
     def define
       name "child-benefit-tax-calculator"
-      start_page_content_id "0e1de8f1-9909-4e45-a6a3-bffe95470275"
+      content_id "0e1de8f1-9909-4e45-a6a3-bffe95470275"
       flow_content_id "26f5df1d-2d73-4abc-85f7-c09c73332693"
       status :published
 

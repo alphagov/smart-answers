@@ -1,7 +1,7 @@
 module SmartAnswer
   class EstimateSelfAssessmentPenaltiesFlow < Flow
     def define
-      start_page_content_id "32b54f44-fca1-4480-b13b-ddeb0b0238e1"
+      content_id "32b54f44-fca1-4480-b13b-ddeb0b0238e1"
       flow_content_id "14244ee4-6d7d-4e05-90a7-aaf1a776d312"
       name "estimate-self-assessment-penalties"
       status :published

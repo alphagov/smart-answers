@@ -2,7 +2,7 @@ module SmartAnswer
   class QueryParametersBasedFlow < Flow
     def define
       name "query-parameters-based"
-      start_page_content_id "f26e566e-2557-4921-b944-9373c32255f1"
+      content_id "f26e566e-2557-4921-b944-9373c32255f1"
       response_store :query_parameters
 
       radio :question1 do

@@ -1,7 +1,7 @@
 module SmartAnswer
   class StatePensionAgeFlow < Flow
     def define
-      start_page_content_id "5491c439-1c83-4044-80d3-32cc3613b739"
+      content_id "5491c439-1c83-4044-80d3-32cc3613b739"
       flow_content_id "cdca2cab-da55-4184-abb3-af27764dd756"
       name "state-pension-age"
       status :published

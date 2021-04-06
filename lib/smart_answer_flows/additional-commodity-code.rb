@@ -1,7 +1,7 @@
 module SmartAnswer
   class AdditionalCommodityCodeFlow < Flow
     def define
-      start_page_content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207"
+      content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207"
       flow_content_id "6f35466b-5dc1-4635-950e-6c5a90eaf09c"
       name "additional-commodity-code"
 

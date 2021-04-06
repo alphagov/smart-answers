@@ -14,7 +14,7 @@ module SmartAnswer
         "flow-registration-presenter",
         name: "flow-name",
         title: "flow-title",
-        start_page_content_id: "content-id",
+        content_id: "content-id",
         flows_content: ["question title"],
         meta_description: "flow-description",
         start_node: stub(

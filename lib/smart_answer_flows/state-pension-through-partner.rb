@@ -1,7 +1,7 @@
 module SmartAnswer
   class StatePensionThroughPartnerFlow < Flow
     def define
-      start_page_content_id "42a41808-b338-4e4b-a703-47195982f4c8"
+      content_id "42a41808-b338-4e4b-a703-47195982f4c8"
       flow_content_id "8e80445f-b987-4f71-bc86-282b2779a4de"
       name "state-pension-through-partner"
       status :published

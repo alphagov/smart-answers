@@ -2,7 +2,7 @@ module SmartAnswer
   class NextStepsForYourBusinessFlow < Flow
     def define
       name "next-steps-for-your-business"
-      start_page_content_id "4d7751b5-d860-4812-aa36-5b8c57253ff2"
+      content_id "4d7751b5-d860-4812-aa36-5b8c57253ff2"
       flow_content_id "981e0708-9fa5-42fb-baf5-ee5630a9b722"
       status :draft
       response_store :query_parameters

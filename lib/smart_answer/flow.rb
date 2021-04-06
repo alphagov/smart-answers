@@ -26,9 +26,9 @@ module SmartAnswer
       end
     end
 
-    def start_page_content_id(cid = nil)
-      @start_page_content_id = cid unless cid.nil?
-      @start_page_content_id
+    def content_id(id = nil)
+      @content_id = id unless id.nil?
+      @content_id
     end
 
     def flow_content_id(cid = nil)

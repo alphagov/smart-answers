@@ -1,7 +1,7 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
     def define
-      start_page_content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
+      content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       flow_content_id "c3ecdaf0-5d37-45d0-bded-d9f1095b60d1"
       name "calculate-statutory-sick-pay"
 

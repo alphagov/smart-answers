@@ -1,7 +1,7 @@
 module SmartAnswer
   class HelpIfYouAreArrestedAbroadFlow < Flow
     def define
-      start_page_content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
+      content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
       flow_content_id "d5074786-f3cc-410e-bc3d-d52008f0a692"
       name "help-if-you-are-arrested-abroad"
       status :published

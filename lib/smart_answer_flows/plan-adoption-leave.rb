@@ -1,7 +1,7 @@
 module SmartAnswer
   class PlanAdoptionLeaveFlow < Flow
     def define
-      start_page_content_id "b0e80c8b-d19f-4a50-82f4-71ab08f88207"
+      content_id "b0e80c8b-d19f-4a50-82f4-71ab08f88207"
       flow_content_id "a2ae6c66-ce83-4da1-b758-f7f12acc4c39"
       name "plan-adoption-leave"
       status :published

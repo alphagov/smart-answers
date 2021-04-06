@@ -1,7 +1,7 @@
 module SmartAnswer
   class PayLeaveForParentsFlow < Flow
     def define
-      start_page_content_id "1f6b4ecc-ce2c-488a-b9c7-b78b3bba5598"
+      content_id "1f6b4ecc-ce2c-488a-b9c7-b78b3bba5598"
       flow_content_id "177cde4d-e52f-4629-bbbe-ec85a18ed944"
       name "pay-leave-for-parents"
       status :published

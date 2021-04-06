@@ -1,7 +1,7 @@
 module SmartAnswer
   class ChildcareCostsForTaxCreditsFlow < Flow
     def define
-      start_page_content_id "f8c575b7-d7a2-41a4-9911-069a06f1a2cc"
+      content_id "f8c575b7-d7a2-41a4-9911-069a06f1a2cc"
       flow_content_id "5f606f33-a3e9-47ff-bc1d-2a6444e7b54c"
       name "childcare-costs-for-tax-credits"
       status :published

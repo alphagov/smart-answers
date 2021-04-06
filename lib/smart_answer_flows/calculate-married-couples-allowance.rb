@@ -1,7 +1,7 @@
 module SmartAnswer
   class CalculateMarriedCouplesAllowanceFlow < Flow
     def define
-      start_page_content_id "e04dc5fe-9a31-4229-9de9-884dd0c0a8ce"
+      content_id "e04dc5fe-9a31-4229-9de9-884dd0c0a8ce"
       flow_content_id "cb4649de-e0b7-42e3-a43a-b98e4415555a"
       name "calculate-married-couples-allowance"
       status :published

@@ -1,7 +1,7 @@
 module SmartAnswer
   class BusinessCoronavirusSupportFinderFlow < Flow
     def define
-      start_page_content_id "89edffd2-3046-40bd-810c-cc1a13c05b6a"
+      content_id "89edffd2-3046-40bd-810c-cc1a13c05b6a"
       flow_content_id "1f589327-a6b3-4b5c-aea0-7a2752e2eddf"
       name "business-coronavirus-support-finder"
       status :published

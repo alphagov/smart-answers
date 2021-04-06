@@ -98,12 +98,12 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.hide_previous_answers_on_results_page?
   end
 
-  test "Can set the start page content_id" do
+  test "Can set the content_id" do
     s = SmartAnswer::Flow.new do
-      start_page_content_id "587920ff-b854-4adb-9334-451b45652467"
+      content_id "587920ff-b854-4adb-9334-451b45652467"
     end
 
-    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.start_page_content_id
+    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.content_id
   end
 
   test "Can set the flow content_id" do

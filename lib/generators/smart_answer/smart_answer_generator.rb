@@ -10,7 +10,7 @@ class SmartAnswerGenerator < Rails::Generators::NamedBase
     inject_into_file filename, after: "def define\n" do
       <<-RUBY
       name "#{name.dasherize}"
-      start_page_content_id "#{SecureRandom.uuid}"
+      content_id "#{SecureRandom.uuid}"
       flow_content_id "#{SecureRandom.uuid}"
       status :draft
       RUBY

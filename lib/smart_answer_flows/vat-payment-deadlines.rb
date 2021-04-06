@@ -1,7 +1,7 @@
 module SmartAnswer
   class VatPaymentDeadlinesFlow < Flow
     def define
-      start_page_content_id "dfa9a5c3-d52e-479c-8505-855f475dc338"
+      content_id "dfa9a5c3-d52e-479c-8505-855f475dc338"
       flow_content_id "f0868a94-5b24-4141-a1c2-73b53b842b44"
       name "vat-payment-deadlines"
       status :published

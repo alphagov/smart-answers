@@ -13,7 +13,7 @@ class SmartAnswerGeneratorTest < Rails::Generators::TestCase
       assert_file "lib/smart_answer_flows/example-smart-answer.rb" do |content|
         assert_match(/ExampleSmartAnswerFlow/, content)
         assert_match(/name "example-smart-answer"/, content)
-        assert_match(/start_page_content_id/, content)
+        assert_match(/content_id/, content)
         assert_match(/flow_content_id/, content)
         assert_match(/status :draft/, content)
       end

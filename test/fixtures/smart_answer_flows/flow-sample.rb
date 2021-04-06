@@ -2,7 +2,7 @@ module SmartAnswer
   class FlowSampleFlow < Flow
     def define
       name "flow-sample"
-      start_page_content_id "f26e566e-2557-4921-b944-9373c32255f1"
+      content_id "f26e566e-2557-4921-b944-9373c32255f1"
 
       radio :hotter_or_colder? do
         option :hotter

@@ -1,7 +1,7 @@
 module SmartAnswer
   class BenefitCapCalculatorFlow < Flow
     def define
-      start_page_content_id "ffe22070-123b-4390-8cc4-51f9d5b5cc74"
+      content_id "ffe22070-123b-4390-8cc4-51f9d5b5cc74"
       flow_content_id "d2593a1a-441b-4751-8bf7-ed04a8fd8689"
       name "benefit-cap-calculator"
       status :published

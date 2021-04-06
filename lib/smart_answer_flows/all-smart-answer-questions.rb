@@ -2,7 +2,7 @@
 module SmartAnswer
   class AllSmartAnswerQuestionsFlow < Flow
     def define
-      start_page_content_id "92661afb-63ce-4ded-b06e-cf6288c0d629"
+      content_id "92661afb-63ce-4ded-b06e-cf6288c0d629"
       flow_content_id "81374601-4936-42c7-a26c-7d169177cdb0"
       name "all-smart-answer-questions"
       status :draft
