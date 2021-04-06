@@ -66,7 +66,8 @@ RSpec.configure do |config|
   # the core functionality of Smart Answers, rather than using existing flows to prevent
   # fragile dependencies.
   config.before(:example, flow_dir: :fixture) do
-    stub_content_store_has_item("/test")
+    stub_content_store_has_item("/session-based")
+    stub_content_store_has_item("/query-parameters-based")
   end
 
   config.before(:context, flow_dir: :fixture) do
