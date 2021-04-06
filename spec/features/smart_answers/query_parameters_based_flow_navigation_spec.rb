@@ -11,13 +11,13 @@ RSpec.feature "Query parameters based flow navigation", flow_dir: :fixture do
     expect(page).to have_text("Results title")
   end
 
-  scenario "User changes their answer to previous question" do
+  scenario "User returns to the previous question" do
     visit "/query-parameters-based/s"
 
     choose "Response 1"
     click_button "Continue"
 
-    click_on "Change"
+    click_on "Back"
 
     expect(page).to have_text("Question 1 title")
   end
