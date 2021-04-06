@@ -48,7 +48,6 @@ module SmartAnswer
     def define
       name 'example-smart-answer'
       content_id "<SecureRandom.uuid>"
-      flow_content_id "<SecureRandom.uuid>"
       status :draft
 
       value_question :question_1? do
