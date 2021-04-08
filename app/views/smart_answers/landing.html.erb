@@ -11,7 +11,11 @@
     <%= render "govuk_publishing_components/components/title", {
       title: start_node.title
     } %>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <article role="article">
       <section class="govuk-!-margin-bottom-6">
         <%= start_node.body %>
@@ -37,5 +41,10 @@
         </section>
       <% end %>
     </article>
+
+    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: @content_item %>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
   </div>
 </div>
