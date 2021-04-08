@@ -1,9 +1,18 @@
 <% start_node = @presenter.start_node %>
 
-<% if start_node.meta_description.present? %>
-  <% content_for :head do %>
+<% content_for :head do %>
+  <% if start_node.meta_description.present? %>
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
+  <% if @content_item.present? %>
+    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+      schema: :article,
+      content_item: @content_item %>
+    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+      schema: :government_service,
+      content_item: @content_item %>
+  <% end %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 <% end %>
 
 <% content_for :breadcrumbs do %>
