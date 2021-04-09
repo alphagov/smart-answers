@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "92631e38-206a-4785-82b2-4f544db16040"
       name "student-finance-calculator"
       status :published
-      satisfies_need "7389628a-b288-45c4-a8c3-f4d9de7f8873"
 
       # Q1
       radio :when_does_your_course_start? do

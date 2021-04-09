@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "68e9c4da-2edb-4859-8793-17ebc92fc01b"
       name "register-a-birth"
       status :published
-      satisfies_need "7b4cffa5-c82b-41be-9092-e61bf3a19f5b"
 
       # Q1
       country_select :country_of_birth?, exclude_countries: Calculators::RegisterABirthCalculator::EXCLUDE_COUNTRIES do

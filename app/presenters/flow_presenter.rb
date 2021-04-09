@@ -7,10 +7,8 @@ class FlowPresenter
   attr_reader :params, :flow
 
   delegate :name,
-           :need_content_id,
            :start_page_content_id,
            :flow_content_id,
-           :need_it,
            :response_store,
            :questions,
            :use_escape_button?,

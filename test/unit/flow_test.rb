@@ -268,14 +268,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_instance_of SmartAnswer::Question::Postcode, question
   end
 
-  test "should have a need content ID" do
-    s = SmartAnswer::Flow.new do
-      satisfies_need "dccab509-bd3b-4f92-9af6-30f88485ac41"
-    end
-
-    assert_equal "dccab509-bd3b-4f92-9af6-30f88485ac41", s.need_content_id
-  end
-
   test "should default to a draft status" do
     s = SmartAnswer::Flow.new {}
 

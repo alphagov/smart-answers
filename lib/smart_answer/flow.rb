@@ -5,7 +5,6 @@ module SmartAnswer
     class NonSessionBasedFlow < StandardError; end
 
     attr_reader :nodes
-    attr_accessor :need_content_id
     attr_writer :status
 
     def self.build
@@ -67,10 +66,6 @@ module SmartAnswer
 
     def hide_previous_answers_on_results_page?
       ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
-    end
-
-    def satisfies_need(need_content_id)
-      self.need_content_id = need_content_id
     end
 
     def external_related_links(external_related_links = nil)

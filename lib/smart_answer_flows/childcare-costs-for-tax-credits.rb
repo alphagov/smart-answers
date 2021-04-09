@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "5f606f33-a3e9-47ff-bc1d-2a6444e7b54c"
       name "childcare-costs-for-tax-credits"
       status :published
-      satisfies_need "e2826e36-a66a-4970-955c-3767674ae82e"
 
       # Q1
       radio :currently_claiming? do

@@ -7,7 +7,6 @@ module SmartAnswer
       flow_content_id "fe2a4b16-bd8c-42c7-bd89-8c5f825673e2"
       name "minimum-wage-calculator-employers"
       status :published
-      satisfies_need "6f764f56-01af-415f-8bfb-60bda489c015"
 
       # Q1
       radio :what_would_you_like_to_check? do

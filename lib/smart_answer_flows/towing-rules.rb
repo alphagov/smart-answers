@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "94eb2af7-beb4-4657-b8b9-885dd86cbe3f"
       name "towing-rules"
       status :published
-      satisfies_need "965810bf-bbe7-4945-bbe5-f37af459d2fe"
 
       ## Cars and light vehicles
       ##

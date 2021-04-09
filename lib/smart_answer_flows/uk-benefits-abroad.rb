@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "99f0e249-aaf2-43da-8e5e-7a8de934fc64"
       name "uk-benefits-abroad"
       status :published
-      satisfies_need "5327577e-9a37-42c6-b43a-105772d11dbd"
 
       exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]

@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "ebc97e28-85be-4f9f-8637-b2d43be9f0a6"
       name "calculate-your-holiday-entitlement"
       status :published
-      satisfies_need "a22c3cfa-0590-4a00-9846-f67df3df0071"
 
       # Q1
       radio :basis_of_calculation? do

@@ -7,7 +7,6 @@ module SmartAnswer
       flow_content_id "43cc9c0c-4210-4643-b045-53a388bbc36f"
       name "am-i-getting-minimum-wage"
       status :published
-      satisfies_need "6f764f56-01af-415f-8bfb-60bda489c015"
 
       # Q1
       radio :what_would_you_like_to_check? do

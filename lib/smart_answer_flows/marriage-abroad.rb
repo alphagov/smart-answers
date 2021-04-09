@@ -14,7 +14,6 @@ module SmartAnswer
       flow_content_id "92c0a193-3b3b-4378-ba43-279e7274b7e7"
       name "marriage-abroad"
       status :published
-      satisfies_need "463773ea-3629-4386-8511-06ec12351303"
 
       exclude_countries = %w[samoa mali holy-see british-antarctic-territory the-occupied-palestinian-territories]
 

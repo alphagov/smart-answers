@@ -8,7 +8,6 @@ module SmartAnswer
       name "calculate-your-redundancy-pay"
 
       status :published
-      satisfies_need "0165fbcc-e7a1-4c42-b6fa-a459384086f1"
 
       append(Shared::RedundancyPayFlow.build)
     end

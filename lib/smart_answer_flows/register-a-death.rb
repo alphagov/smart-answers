@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "16230cbd-9c81-44ae-9d24-7d8bbabddf88"
       name "register-a-death"
       status :published
-      satisfies_need "d2c1fda5-92d4-4368-a8d0-307290989887"
 
       # Q1
       radio :where_did_the_death_happen? do
