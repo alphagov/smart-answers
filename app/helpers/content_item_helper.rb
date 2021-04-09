@@ -15,8 +15,10 @@ module ContentItemHelper
     # rubocop:enable Style/MissingRespondToMissing
   end
 
-  def extract_flow_content(flow)
-    content = flow.nodes.flat_map do |node|
+  def extract_flow_content(flow, start_node)
+    content = [start_node.body, start_node.post_body]
+
+    content += flow.nodes.flat_map do |node|
       case node
       when SmartAnswer::Question::Base
         pres = QuestionPresenter.new(node, nil, nil, helpers: [MethodMissingHelper])
