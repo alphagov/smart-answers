@@ -14,7 +14,6 @@ module SmartAnswer
         "flow-registration-presenter",
         name: "flow-name",
         title: "flow-title",
-        external_related_links: [],
         start_page_link: "/flow-name/y",
       )
     end
@@ -31,17 +30,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      assert_valid_against_schema(content_item.payload, "generic_with_external_related_links")
-    end
-
-    test "#payload returns a valid content-item with external related links" do
-      presenter = stub_flow_registration_presenter
-      presenter.stubs(:external_related_links).returns(
-        [{ title: "hmrc", url: "https://hmrc.gov.uk" }],
-      )
-      content_item = FlowContentItem.new(presenter)
-
-      assert_valid_against_schema(content_item.payload, "generic_with_external_related_links")
+      assert_valid_against_schema(content_item.payload, "generic")
     end
 
     test "#base_path is the path to the first question" do
@@ -56,21 +45,6 @@ module SmartAnswer
       content_item = FlowContentItem.new(presenter)
 
       assert_equal "flow-title", content_item.payload[:title]
-    end
-
-    test "#payload details hash includes external_related_links" do
-      presenter = stub_flow_registration_presenter
-      presenter.stubs(:external_related_links).returns(%w[link-1])
-      content_item = FlowContentItem.new(presenter)
-
-      assert_equal "link-1", content_item.payload[:details][:external_related_links][0]
-    end
-
-    test "#payload schema_name is generic_with_external_related_links" do
-      presenter = stub_flow_registration_presenter
-      content_item = FlowContentItem.new(presenter)
-
-      assert_equal "generic_with_external_related_links", content_item.payload[:schema_name]
     end
 
     test "#payload document_type is smart_answer" do

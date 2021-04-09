@@ -159,19 +159,6 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "#external_related_links" do
-    should "return the external_related_links" do
-      @flow.external_related_links([title: "a-title", url: "a-description"])
-
-      flow_presenter = FlowPresenter.new({}, @flow)
-      assert_equal [title: "a-title", url: "a-description"], flow_presenter.external_related_links
-    end
-
-    should "return empty list if no external links" do
-      assert_equal [], @flow_presenter.external_related_links
-    end
-  end
-
   context "publish?" do
     should "return true for a published flow" do
       @flow.status(:published)
