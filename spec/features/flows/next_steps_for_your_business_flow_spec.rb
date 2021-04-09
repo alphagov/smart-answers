@@ -29,6 +29,11 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
     start(the_flow: headings[:flow_title], at: "next-steps-for-your-business")
     stub_request(:get, "https://api.companieshouse.gov.uk/company/123456789")
       .to_return(status: 200, body: { "company_name" => "BUSINESS NAME LTD" }.to_json)
+
+    stub_request(:get, "https://api.companieshouse.gov.uk/company/987654321")
+      .to_return(status: 404, body: { "errors" => [
+        { "type" => "ch:service", "error" => "company-profile-not-found" },
+      ] }.to_json)
   end
 
   around do |example|
@@ -46,5 +51,14 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
     answer(question: headings[:business_premises], of_type: :radio, with: answers[:business_premises])
 
     ensure_page_has(header: headings[:results])
+  end
+
+  scenario "Enters a invalid company registration number" do
+    answer(question: headings[:crn], of_type: :value, with: "987654321")
+
+    ensure_page_has(
+      header: headings[:crn],
+      text: "Company not found. Enter a valid company registration number.",
+    )
   end
 end

@@ -24,6 +24,12 @@ module SmartAnswer::Calculators
       RESULT_DATA.group_by { |result| result["section_name"] }
     end
 
+    def company_exists?
+      self.class.companies_house_client.company(crn).present?
+    rescue CompaniesHouse::NotFoundError
+      false
+    end
+
     def company_name
       profile = self.class.companies_house_client.company(crn)
       profile["company_name"]

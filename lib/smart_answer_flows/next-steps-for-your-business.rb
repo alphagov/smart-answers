@@ -16,6 +16,10 @@ module SmartAnswer
           calculator.crn = response
         end
 
+        validate :error_company_not_found do
+          calculator.company_exists?
+        end
+
         next_node do
           question :annual_turnover
         end

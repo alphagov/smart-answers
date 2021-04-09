@@ -6,6 +6,31 @@ module SmartAnswer::Calculators
       @calculator = NextStepsForYourBusinessCalculator.new
     end
 
+    context "#company_exists?" do
+      setup do
+        @client = mock
+        CompaniesHouse::Client.stubs(:new).returns(@client)
+      end
+
+      should "return true if company profile is present" do
+        @client.stubs(:company)
+          .with("123456789")
+          .returns({ "company_name" => "BUSINESS NAME LTD" })
+
+        @calculator.crn = "123456789"
+        assert @calculator.company_exists?
+      end
+
+      should "return false if company profile not found" do
+        @client.stubs(:company)
+          .with("123456789")
+          .raises(CompaniesHouse::NotFoundError, "Not found")
+
+        @calculator.crn = "123456789"
+        assert_not @calculator.company_exists?
+      end
+    end
+
     context "#company_name" do
       setup do
         @client = mock
