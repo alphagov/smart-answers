@@ -51,16 +51,12 @@ module SmartAnswer
       name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
       content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
       status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
-      external_related_links { title: "Child Maintenance Options - How much should be paid",
-                               url: "http://www.cmoptions.org/en/maintenance/how-much.asp" } # External links associated to the Smart-Answer
 
       # question & outcome definitions specified here
     end
   end
 end
 ```
-
-* `external_related_links` will be stored in [content-tagger](https://github.com/alphagov/content-tagger) with the objective of retrieving them from there. This is a temporary fix, we want to be able to set external related links via a publishing tool like `content-tagger` rather than hardcoding them.
 
 ### Arbitrary Ruby code
 

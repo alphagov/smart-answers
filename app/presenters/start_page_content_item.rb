@@ -12,7 +12,6 @@ class StartPageContentItem
       description: flow_presenter.meta_description,
       update_type: "minor",
       details: {
-        external_related_links: flow_presenter.external_related_links,
         introductory_paragraph: [
           {
             content: flow_presenter.start_node.body,

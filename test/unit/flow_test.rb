@@ -114,24 +114,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "587920ff-b854-4adb-9334-451b45652467", s.flow_content_id
   end
 
-  test "Defaults the external_related_links to nil" do
-    s = SmartAnswer::Flow.new
-
-    assert_nil s.external_related_links
-  end
-
-  test "Can set the external_related_links" do
-    links = [
-      { title: "Book appointment", url: "https://www.booking-an-appointment.gov.uk" },
-      { title: "Buy stamps", url: "https://www.stamps.uk" },
-    ]
-    s = SmartAnswer::Flow.new do
-      external_related_links links
-    end
-
-    assert_equal links, s.external_related_links
-  end
-
   test "Can build outcome nodes" do
     s = SmartAnswer::Flow.new do
       outcome :you_dont_have_a_sweet_tooth

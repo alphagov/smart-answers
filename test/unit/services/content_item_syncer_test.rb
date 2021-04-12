@@ -19,7 +19,6 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
         name: "bridge-of-death",
         start_page_content_id: start_page_content_id,
         flow_content_id: flow_content_id,
-        external_related_links: nil,
         response_store: nil,
         nodes: [],
       )

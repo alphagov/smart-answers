@@ -68,11 +68,6 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
     end
 
-    def external_related_links(external_related_links = nil)
-      @external_related_links = external_related_links unless external_related_links.nil?
-      @external_related_links
-    end
-
     def status(potential_status = nil)
       if potential_status
         raise Flow::InvalidStatus unless %i[published draft].include? potential_status

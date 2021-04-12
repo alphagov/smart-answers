@@ -22,7 +22,6 @@ module SmartAnswer
           post_body: "start-page-post-body",
           start_button_text: "start-button-text",
         ),
-        external_related_links: [],
         start_page_link: "/flow-name/y",
       )
     end
@@ -36,16 +35,6 @@ module SmartAnswer
 
     test "#payload returns a valid content-item" do
       presenter = stub_flow_registration_presenter
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_valid_against_schema(content_item.payload, "transaction")
-    end
-
-    test "#payload returns a valid content-item with external related links" do
-      presenter = stub_flow_registration_presenter
-      presenter.stubs(:external_related_links).returns(
-        [{ title: "hmrc", url: "https://hmrc.gov.uk" }],
-      )
       content_item = StartPageContentItem.new(presenter)
 
       assert_valid_against_schema(content_item.payload, "transaction")
@@ -70,14 +59,6 @@ module SmartAnswer
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "flow-description", content_item.payload[:description]
-    end
-
-    test "#payload details hash includes external_related_links" do
-      presenter = stub_flow_registration_presenter
-      presenter.stubs(:external_related_links).returns(%w[link-1])
-      content_item = StartPageContentItem.new(presenter)
-
-      assert_equal "link-1", content_item.payload[:details][:external_related_links][0]
     end
 
     test "#payload details hash includes includes the introductory paragraph as govspeak" do
