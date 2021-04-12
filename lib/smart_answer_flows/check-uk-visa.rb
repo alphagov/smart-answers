@@ -299,7 +299,6 @@ module SmartAnswer
       outcome :outcome_transit_taiwan
       outcome :outcome_transit_taiwan_through_border_control
       outcome :outcome_transit_to_the_republic_of_ireland
-      outcome :outcome_transit_venezuela
       outcome :outcome_tourism_n
       outcome :outcome_tourism_visa_partner
       outcome :outcome_visit_waiver
