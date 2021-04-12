@@ -1,9 +1,22 @@
 <% start_node = @presenter.start_node %>
 
-<% if start_node.meta_description.present? %>
-  <% content_for :head do %>
+<% content_for :head do %>
+  <% if start_node.meta_description.present? %>
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
+  <% if @content_item.present? %>
+    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+      schema: :article,
+      content_item: @content_item %>
+    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+      schema: :government_service,
+      content_item: @content_item %>
+  <% end %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+  <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
 <% end %>
 
 <div class="govuk-grid-row">
@@ -11,6 +24,18 @@
     <%= render "govuk_publishing_components/components/title", {
       title: start_node.title
     } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%# Temporary experiment to test if applicability banner increases devolved administration usage %>
+    <% if request.path == "/business-coronavirus-support-finder" && Date.today < Date.new(2021, 4, 20) %>
+      <dl class="country-notice">
+        <dt class="country-notice__pretext">Applies to:</dt>
+        <dd class="country-notice__text">England, Scotland, Wales and Northern&nbsp;Ireland</dd>
+      </dl>
+    <% end %>
 
     <article role="article">
       <section class="govuk-!-margin-bottom-6">
@@ -37,5 +62,10 @@
         </section>
       <% end %>
     </article>
+
+    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: @content_item %>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
   </div>
 </div>

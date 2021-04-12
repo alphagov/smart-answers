@@ -27,11 +27,15 @@
         strip_dates_pii: true,
         strip_postcode_pii: true %>
     <% end %>
+    <% if @meta_section %>
+      <meta name="govuk:section" content="<%= @meta_section %>">
+    <% end %>
   </head>
   <body class="govuk-template__body">
     <div id="wrapper">
       <%= yield :hero %>
       <div class="govuk-width-container smart_answer">
+        <%= yield :breadcrumbs %>
         <main id="content" role="main">
           <%= yield %>
         </main>
