@@ -63,3 +63,28 @@
 .smart-answers-list .govuk-table {
   font-size: 15px;
 }
+
+// Part of a temporary experiment to test if applicability banner increases devolved administration usage
+.country-notice {
+  @include govuk-font(16);
+  @include responsive-bottom-margin;
+
+  background-color: $govuk-brand-colour;
+  color: govuk-colour('white');
+  margin-top: 0;
+  padding: govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    overflow: auto;
+    padding: govuk-spacing(4) govuk-spacing(6);
+  }
+}
+
+.country-notice__pretext {
+  float: left;
+  padding-right: govuk-spacing(1);
+}
+
+.country-notice__text {
+  @include govuk-font(16, $weight: bold);
+}
