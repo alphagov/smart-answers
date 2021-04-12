@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "61334174-53a3-4112-b6ea-1608d875ced8"
       name "landlord-immigration-check"
       status :published
-      satisfies_need "02c8d20b-6742-4494-8e17-e2c34bc8c21f"
 
       # Q0
       postcode_question :property? do

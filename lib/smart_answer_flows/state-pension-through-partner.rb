@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "8e80445f-b987-4f71-bc86-282b2779a4de"
       name "state-pension-through-partner"
       status :published
-      satisfies_need "50721588-6952-4280-be7b-30d5402e715d"
 
       # Q1
       radio :what_is_your_marital_status? do

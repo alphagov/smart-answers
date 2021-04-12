@@ -6,7 +6,6 @@ module SmartAnswer
       name "calculate-statutory-sick-pay"
 
       status :published
-      satisfies_need "4784e91e-359c-4f88-aa9e-316392945c85"
 
       # Question 1
       checkbox_question :is_your_employee_getting? do

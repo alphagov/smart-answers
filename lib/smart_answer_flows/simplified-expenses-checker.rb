@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "09f5f2b6-dc09-4594-8c2a-d907fed427d5"
       name "simplified-expenses-checker"
       status :published
-      satisfies_need "f59b3c90-a1a8-4fa9-a593-2b218b25c0fd"
 
       # Q1 - vehicle expense
       radio :vehicle_expense? do

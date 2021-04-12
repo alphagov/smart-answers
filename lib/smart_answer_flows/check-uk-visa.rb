@@ -6,7 +6,6 @@ module SmartAnswer
       flow_content_id "34b852ce-9045-4431-9a16-6609d307cdb7"
       name "check-uk-visa"
       status :published
-      satisfies_need "5f714149-da26-46f9-9a87-d1bf75dd778a"
 
       additional_countries = UkbaCountry.all
 

@@ -5,7 +5,6 @@ module SmartAnswer
       flow_content_id "d2593a1a-441b-4751-8bf7-ed04a8fd8689"
       name "benefit-cap-calculator"
       status :published
-      satisfies_need "8474ef2f-6bc2-44be-8883-8a795d728c51"
 
       config = Calculators::BenefitCapCalculatorConfiguration
 
