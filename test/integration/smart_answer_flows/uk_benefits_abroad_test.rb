@@ -1217,6 +1217,30 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
         end
+        context "answer Gibraltar" do
+          setup do
+            add_response :gibraltar
+          end
+          should "ask you if you or family are getting benefits" do
+            assert_current_node :db_claiming_benefits?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            should "go to DB going abroad other outcome" do
+              assert_current_node :db_going_abroad_gibraltar_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "go to DB going abroad other outcome" do
+              assert_current_node :db_going_abroad_other_outcome
+            end
+          end
+        end
         context "answer Ireland" do
           setup do
             add_response :ireland
@@ -2583,6 +2607,32 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to other country outcome" do
         assert_current_node :db_already_abroad_other_outcome
+      end
+    end
+    context "answer going abroad permanently, Gibraltar" do
+      setup do
+        add_response "disability_benefits"
+        add_response "permanent"
+        add_response "gibraltar"
+      end
+      should "ask are you or family geting benefits" do
+        assert_current_node :db_claiming_benefits?
+      end
+      context "answer yes" do
+        setup do
+          add_response :yes
+        end
+        should "go to DB already abroad Gibraltar outcome" do
+          assert_current_node :db_already_abroad_gibraltar_outcome
+        end
+      end
+      context "answer no" do
+        setup do
+          add_response :no
+        end
+        should "go to DB already abroad other outcome" do
+          assert_current_node :db_already_abroad_other_outcome
+        end
       end
     end
 

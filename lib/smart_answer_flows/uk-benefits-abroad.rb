@@ -413,9 +413,12 @@ module SmartAnswer
         next_node do |response|
           if calculator.going_abroad
             if response == "yes"
-              if calculator.country == "ireland"
+              case calculator.country
+              when "ireland"
                 question :is_british_or_irish?
-              elsif calculator.eea_country?
+              when "gibraltar"
+                outcome :db_going_abroad_gibraltar_outcome
+              else
                 question :worked_in_eea_or_switzerland? # A37 going_abroad
               end
             else
@@ -425,6 +428,8 @@ module SmartAnswer
             if response == "yes"
               if calculator.country == "ireland"
                 question :is_british_or_irish?
+              elsif calculator.country == "gibraltar"
+                outcome :db_already_abroad_gibraltar_outcome
               elsif calculator.eea_country?
                 question :worked_in_eea_or_switzerland? # A37 going_abroad
               else
@@ -739,6 +744,8 @@ module SmartAnswer
       outcome :db_already_abroad_temporary_outcome # A34 already_abroad
       outcome :db_already_abroad_other_outcome # A35 already_abroad
       outcome :db_already_abroad_eea_outcome # A36 already_abroad
+      outcome :db_already_abroad_gibraltar_outcome
+      outcome :db_going_abroad_gibraltar_outcome
       outcome :bb_already_abroad_eea_outcome # A37 already_abroad
       outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
       outcome :bb_already_abroad_other_outcome # A39 already_abroad
