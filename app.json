@@ -14,6 +14,9 @@
     },
     "BASIC_AUTH_PASSWORD": {
       "required": true
+    },
+    "COMPANIES_HOUSE_API_KEY": {
+      "required": true
     }
   },
   "image": "heroku/ruby",
