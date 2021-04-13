@@ -8,17 +8,13 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
 
   context "#sync" do
     setup do
-      start_page_content_id = SecureRandom.uuid
-      flow_content_id = SecureRandom.uuid
-      @start_page_draft_request = stub_publishing_api_put_content(start_page_content_id, {})
-      @start_page_publishing_request = stub_publishing_api_publish(start_page_content_id, {})
-      @flow_draft_request = stub_publishing_api_put_content(flow_content_id, {})
-      @flow_publishing_request = stub_publishing_api_publish(flow_content_id, {})
+      content_id = SecureRandom.uuid
+      @draft_request = stub_publishing_api_put_content(content_id, {})
+      @publishing_request = stub_publishing_api_publish(content_id, {})
       @flow = stub(
         "flow",
         name: "bridge-of-death",
-        start_page_content_id: start_page_content_id,
-        flow_content_id: flow_content_id,
+        content_id: content_id,
         response_store: nil,
         nodes: [],
       )
@@ -29,10 +25,8 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
       presenter = FlowPresenter.new({}, @flow)
       ContentItemSyncer.new.sync([presenter])
 
-      assert_requested @start_page_draft_request
-      assert_not_requested @start_page_publishing_request
-      assert_requested @flow_draft_request
-      assert_not_requested @flow_publishing_request
+      assert_requested @draft_request
+      assert_not_requested @publishing_request
     end
 
     should "publish a published smart answer" do
@@ -40,10 +34,8 @@ class ContentItemSyncerTest < ActiveSupport::TestCase
       presenter = FlowPresenter.new({}, @flow)
       ContentItemSyncer.new.sync([presenter])
 
-      assert_requested @start_page_draft_request
-      assert_requested @start_page_publishing_request
-      assert_requested @flow_draft_request
-      assert_requested @flow_publishing_request
+      assert_requested @draft_request
+      assert_requested @publishing_request
     end
   end
 end

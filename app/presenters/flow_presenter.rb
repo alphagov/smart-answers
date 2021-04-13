@@ -7,8 +7,7 @@ class FlowPresenter
   attr_reader :params, :flow
 
   delegate :name,
-           :start_page_content_id,
-           :flow_content_id,
+           :content_id,
            :response_store,
            :questions,
            :use_escape_button?,
@@ -129,7 +128,7 @@ class FlowPresenter
   end
 
   def flows_content
-    extract_flow_content(@flow)
+    extract_flow_content(@flow, start_node)
   end
 
   def start_page_link

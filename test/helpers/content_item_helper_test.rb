@@ -6,6 +6,9 @@ class ContentItemHelperTest < ActionView::TestCase
   def setup
     setup_fixture_flows
     @flow = SmartAnswer::FlowSampleFlow.build
+
+    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
+    @start_node = StartNodePresenter.new(node)
   end
 
   def teardown
@@ -15,6 +18,7 @@ class ContentItemHelperTest < ActionView::TestCase
   context "extract_flow_content" do
     should "include all flow content" do
       expected_content = [
+        "FLOW_BODY",
         "QUESTION_1_TITLE",
         "QUESTION_1_BODY",
         "QUESTION_1_HINT",
@@ -28,7 +32,7 @@ class ContentItemHelperTest < ActionView::TestCase
         "OUTCOME_3_TITLE",
         "OUTCOME_3_BODY",
       ]
-      assert_equal expected_content, extract_flow_content(@flow)
+      assert_equal expected_content, extract_flow_content(@flow, @start_node)
     end
   end
 end

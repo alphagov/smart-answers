@@ -1,8 +1,7 @@
 module SmartAnswer
   class RegisterADeathFlow < Flow
     def define
-      start_page_content_id "9e3af3d4-f044-4ac5-830e-d604d701695b"
-      flow_content_id "16230cbd-9c81-44ae-9d24-7d8bbabddf88"
+      content_id "9e3af3d4-f044-4ac5-830e-d604d701695b"
       name "register-a-death"
       status :published
 
