@@ -8,7 +8,15 @@ class FlowPresenterTest < ActiveSupport::TestCase
   setup do
     @flow = SmartAnswer::Flow.new do
       name "flow-name"
-      value_question :first_question_key
+      value_question :first_question_key do
+        next_node { question :second_question_key }
+      end
+      value_question :second_question_key do
+        next_node { question :third_question_key }
+      end
+      value_question :third_question_key do
+        next_node { outcome :outcome_key }
+      end
     end
     params = {}
     @flow_presenter = FlowPresenter.new(params, @flow)
@@ -119,13 +127,12 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
 
     should "with session answer" do
-      name = "find-coronavirus-support"
-      flow = flow_registry.find(name)
-      params = { id: name }
-      flow_presenter = FlowPresenter.new(params, flow)
+      @flow.response_store(:session)
+      params = { id: @flow.name, node_name: "third_question_key", responses: { "first_question_key" => "question-1-answer", "second_question_key" => "question-2-answer" } }
+      flow_presenter = FlowPresenter.new(params, @flow)
       question = OpenStruct.new(node_slug: "foo")
       assert_equal(
-        flow_presenter.flow_path(name, question.node_slug),
+        flow_presenter.flow_path(@flow.name, question.node_slug),
         flow_presenter.change_collapsed_question_link(1, question),
       )
     end
