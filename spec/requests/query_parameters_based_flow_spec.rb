@@ -1,6 +1,12 @@
 RSpec.describe "Query parameter based flow navigation", flow_dir: :fixture do
   let(:cache_header) { "max-age=1800, public" }
 
+  it "renders the landing page" do
+    get "/query-parameters-based"
+    expect(response).to render_template("smart_answers/landing")
+    expect(response.headers["Cache-Control"]).to eq(cache_header)
+  end
+
   it "redirects to first node" do
     get "/query-parameters-based/s"
     expect(response).to redirect_to("/query-parameters-based/s/question1")

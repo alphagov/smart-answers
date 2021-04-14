@@ -1,5 +1,12 @@
 RSpec.describe "Session based flow navigation", flow_dir: :fixture do
   let(:no_cache_header) { "max-age=0, private, must-revalidate, no-store" }
+  let(:cache_header) { "max-age=1800, public" }
+
+  it "renders the landing page" do
+    get "/session-based"
+    expect(response).to render_template("smart_answers/landing")
+    expect(response.headers["Cache-Control"]).to eq(cache_header)
+  end
 
   it "redirects to first node" do
     get "/session-based/s"
@@ -42,7 +49,13 @@ RSpec.describe "Session based flow navigation", flow_dir: :fixture do
     expect(response).to redirect_to("https://www.bbc.co.uk/weather")
   end
 
-  context "urls have /s/ prefix, but are path based flows" do
+  context "path based flows" do
+    it "renders the landing page" do
+      get "/session-based"
+      expect(response).to render_template("smart_answers/landing")
+      expect(response.headers["Cache-Control"]).to eq(cache_header)
+    end
+
     it "redirects requests to old route" do
       get "/path-based/s"
       expect(response).to redirect_to("/path-based/y")

@@ -1,6 +1,7 @@
 RSpec.feature "Query parameters based flow navigation", flow_dir: :fixture do
   scenario "User completes a flow" do
-    visit "/query-parameters-based/s"
+    visit "/query-parameters-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"
@@ -12,7 +13,8 @@ RSpec.feature "Query parameters based flow navigation", flow_dir: :fixture do
   end
 
   scenario "User changes their answer to previous question" do
-    visit "/query-parameters-based/s"
+    visit "/query-parameters-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"
@@ -23,7 +25,8 @@ RSpec.feature "Query parameters based flow navigation", flow_dir: :fixture do
   end
 
   scenario "User start the flow again" do
-    visit "/query-parameters-based/s"
+    visit "/query-parameters-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"

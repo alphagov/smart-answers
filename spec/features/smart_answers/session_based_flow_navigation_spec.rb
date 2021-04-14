@@ -1,6 +1,7 @@
 RSpec.feature "Session based flow navigation", flow_dir: :fixture do
   scenario "User completes a flow" do
-    visit "/session-based/s"
+    visit "/session-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"
@@ -12,7 +13,8 @@ RSpec.feature "Session based flow navigation", flow_dir: :fixture do
   end
 
   scenario "User changes their answer to previous question" do
-    visit "/session-based/s"
+    visit "/session-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"
@@ -23,7 +25,8 @@ RSpec.feature "Session based flow navigation", flow_dir: :fixture do
   end
 
   scenario "User start the flow again" do
-    visit "/session-based/s"
+    visit "/session-based"
+    click_on "Start now"
 
     choose "Response 1"
     click_button "Continue"

@@ -1,6 +1,14 @@
 class FlowController < ApplicationController
-  before_action :set_cache_headers
-  before_action :redirect_path_based_flows
+  before_action :set_cache_headers, except: %w[landing]
+  before_action :redirect_path_based_flows, except: %w[landing]
+
+  def landing
+    @title = presenter.title
+    @content_item = ContentItemRetriever.fetch(name)
+
+    render "smart_answers/landing", formats: [:html]
+    expires_in(30.minutes, public: true)
+  end
 
   def start
     response_store.clear
