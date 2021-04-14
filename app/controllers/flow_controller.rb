@@ -9,7 +9,7 @@ class FlowController < ApplicationController
 
   def show
     @title = presenter.title
-    @content_item = ContentItemRetriever.fetch(name) if presenter.finished?
+    @content_item = ContentItemRetriever.fetch(flow.name) if presenter.finished?
 
     if params[:node_slug] == presenter.node_slug
       render presenter.current_node.view_template_path, formats: [:html]
@@ -59,18 +59,14 @@ private
     end
   end
 
-  def name
-    @name ||= params[:id].gsub(/_/, "-").to_sym
-  end
-
   def flow
-    @flow ||= SmartAnswer::FlowRegistry.instance.find(name.to_s)
+    @flow ||= SmartAnswer::FlowRegistry.instance.find(params[:id])
   end
 
   def response_store
     @response_store ||= begin
       if flow.response_store == :session
-        SessionResponseStore.new(flow_name: name, session: session)
+        SessionResponseStore.new(flow_name: params[:id], session: session)
       else
         allowable_keys = flow.nodes.map(&:name)
         query_parameters = request.query_parameters.slice(*allowable_keys)
