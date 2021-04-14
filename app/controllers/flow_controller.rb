@@ -11,7 +11,6 @@ class FlowController < ApplicationController
 
   def show
     @title = presenter.title
-    @content_item = ContentItemRetriever.fetch(flow.name) if presenter.finished?
 
     if params[:node_slug] == presenter.node_slug
       render presenter.current_node.view_template_path, formats: [:html]

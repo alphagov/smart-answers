@@ -87,4 +87,17 @@ RSpec.describe FlowHelper do
       end
     end
   end
+
+  describe "#content_item" do
+    it "returns a content item for the flow" do
+      flow = SmartAnswer::Flow.new { name "flow-name" }
+      allow(helper).to receive(:flow).and_return(flow)
+
+      content_item = { "content_item": "value" }
+      allow(ContentItemRetriever).to receive(:fetch).with("flow-name")
+        .and_return(content_item)
+
+      expect(helper.content_item).to be(content_item)
+    end
+  end
 end

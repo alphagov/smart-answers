@@ -26,6 +26,10 @@ module FlowHelper
     end
   end
 
+  def content_item
+    @content_item ||= ContentItemRetriever.fetch(flow.name)
+  end
+
 private
 
   def node_name
