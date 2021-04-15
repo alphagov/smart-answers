@@ -1,23 +1,38 @@
 .app-c-escape-link {
-  @include govuk-font($size: 19, $weight: bold);
+  width: 100%;
+  position: -webkit-sticky; /* Safari */ // scss-lint:disable DuplicateProperty
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid govuk-colour("mid-grey");
+  background-color: govuk-colour('white');
+  z-index: 10000;
+  padding: govuk-spacing(3) 0 govuk-spacing(1);
+}
 
-  bottom: 0;
-  float: right;
-  padding: govuk-spacing(4) govuk-spacing(3);
-  position: fixed;
-  position: sticky; // scss-lint:disable DuplicateProperty
-  right: 0;
 
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    background-color: govuk-colour('black');
-    color: govuk-colour('white');
+.app-c-quick-escape__link {
+  vertical-align: top;
+
+  .gem-c-button {
+    @include govuk-font($size: 16, $weight: bold);
   }
 
-  &:focus {
-    background-color: $govuk-focus-colour;
-    color: $govuk-focus-text-colour;
+  @include govuk-media-query($from: tablet) {
+    margin-right: govuk-spacing(2);
+    display: inline-block;
+  }
+}
+
+.app-c-quick-escape__info {
+  padding-top: govuk-spacing(2);
+
+  @include govuk-media-query($from: tablet) {
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 400px;
+  }
+
+  @include govuk-media-query($from: desktop) {
+    max-width: 575px;
   }
 }

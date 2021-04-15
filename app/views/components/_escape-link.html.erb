@@ -3,14 +3,31 @@
   aria_label ||= "Hide this page. Quick exit button, it opens BBC Weather in a new tab"
   data_attributes ||= {}
   data_attributes[:module] = 'app-escape-link'
+
+  onboarding_title ||= "What the ‘hide this page’ button does"
+  onboarding_information ||= "Click this button if you need to quickly hide this page, for example if you do not want someone seeing you're using it. The button takes you to BBC Weather in a new tab or window. This tab or window will stay open and also go to BBC Weather, but when you go back in your browser you will go to the start page of this service. Your answers will not be stored."
 %>
-<%= link_to(link_label,
-  link_url,
-  class: "app-c-escape-link govuk-link",
-  rel: "nofollow noreferrer noopener",
-  target: "_blank",
-  data: data_attributes,
-  aria: {
-    label: aria_label
-  }
-) %>
+<div class="app-c-escape-link">
+  <div class="govuk-width-container">
+    <div class="app-c-quick-escape__link">
+      <%= render "govuk_publishing_components/components/button", {
+        text: link_label,
+        href: link_url,
+        target: "_blank",
+        rel: "nofollow noreferrer noopener",
+        data_attributes: data_attributes,
+        aria: {
+          label: aria_label
+        },
+        destructive: true,
+      } %>
+    </div>
+    <div class="app-c-quick-escape__info">
+      <%= render "govuk_publishing_components/components/details", {
+        title: onboarding_title
+      } do %>
+        <%= onboarding_information %>
+      <% end %>
+    </div>
+  </div>
+</div>
