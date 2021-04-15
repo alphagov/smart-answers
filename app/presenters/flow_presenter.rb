@@ -78,6 +78,15 @@ class FlowPresenter
     @node_presenters[node.name] ||= presenter_class.new(node, self, current_state, {}, params)
   end
 
+  def response_for_current_question
+    if response_store
+      # TODO
+    else
+      question_number = current_state.path.size
+      normalize_responses_param[question_number - 1]
+    end
+  end
+
   def current_question_number
     current_state.path.size + 1
   end

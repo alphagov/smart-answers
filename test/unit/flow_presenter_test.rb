@@ -106,6 +106,14 @@ class FlowPresenterTest < ActiveSupport::TestCase
     assert_equal @flow_presenter.name, @flow.name
   end
 
+  context "#response_for_current_question" do
+    should "get the response for the current page for url-based smart-answers" do
+      params = { id: @flow.name, responses: "question-1-answer/question-2-answer" }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_equal("question-2-answer", flow_presenter.response_for_current_question)
+    end
+  end
+
   context "#change_collapsed_question_link" do
     should "with smart answer" do
       flow = flow_registry.find("calculate-your-holiday-entitlement")
