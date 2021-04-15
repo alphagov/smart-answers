@@ -30,5 +30,5 @@ EscapeLink.prototype.replaceCurrentPage = function (url) {
   window.location.replace(url)
 }
 
-var $escapeLink = document.querySelector('[data-module="app-escape-link"]')
+var $escapeLink = document.querySelector('[data-module="app-quick-escape"]')
 new EscapeLink($escapeLink).init()
