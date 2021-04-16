@@ -11,15 +11,8 @@
 
 
 .app-c-quick-escape__link {
-  vertical-align: top;
-
   .gem-c-button {
     @include govuk-font($size: 16, $weight: bold);
-  }
-
-  @include govuk-media-query($from: tablet) {
-    margin-right: govuk-spacing(2);
-    display: inline-block;
   }
 }
 
@@ -27,12 +20,7 @@
   padding-top: govuk-spacing(2);
 
   @include govuk-media-query($from: tablet) {
-    vertical-align: middle;
-    display: inline-block;
-    max-width: 400px;
-  }
-
-  @include govuk-media-query($from: desktop) {
-    max-width: 575px;
+    padding-top: govuk-spacing(1) + 2;
+    padding-left: 0;
   }
 }
