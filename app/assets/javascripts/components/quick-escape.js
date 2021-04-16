@@ -9,6 +9,7 @@ QuickEscape.prototype.init = function () {
     return
   }
   $module.addEventListener('click', this.handleClick.bind(this))
+  this.stickyEnhancement()
 }
 
 QuickEscape.prototype.handleClick = function (event) {
@@ -28,6 +29,21 @@ QuickEscape.prototype.openNewPage = function (url, rel) {
 
 QuickEscape.prototype.replaceCurrentPage = function (url) {
   window.location.replace(url)
+}
+
+QuickEscape.prototype.stickyEnhancement = function() {
+  var $wrapper = document.querySelector('.app-c-quick-escape')
+  var isIE = (navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true)
+  if (!isIE) return
+
+  var offset = $wrapper.getBoundingClientRect();
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > offset.top) {
+      $wrapper.style.position = 'fixed';
+    } else {
+      $wrapper.style.position = 'relative';
+    }
+  });
 }
 
 var $quickEscape = document.querySelector('[data-module="app-quick-escape"]')
