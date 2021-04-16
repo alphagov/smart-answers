@@ -83,7 +83,7 @@ class FlowPresenter
       # TODO
     else
       question_number = current_state.path.size
-      normalize_responses_param[question_number - 1]
+      all_responses[question_number - 1]
     end
   end
 
