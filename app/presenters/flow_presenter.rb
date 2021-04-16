@@ -117,7 +117,7 @@ class FlowPresenter
     case params[:responses]
     when NilClass
       []
-    when Array
+    when Array, Hash
       params[:responses]
     when ActionController::Parameters
       current_state.responses
