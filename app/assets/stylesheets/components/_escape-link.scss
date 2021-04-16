@@ -12,11 +12,9 @@
 .app-c-quick-escape__wrapper {
   width: 100%;
 
-  @include govuk-media-query($from: desktop) {
+  @include govuk-media-query($from: 929px) {
     width: 66.66%;
   }
-
-  
 }
 
 .app-c-quick-escape__link {
