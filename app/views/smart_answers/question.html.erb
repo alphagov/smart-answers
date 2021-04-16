@@ -4,8 +4,8 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% content_for :escape_link do %>
-  <% if @presenter.show_escape_link? %>
+<% content_for :quick_escape do %>
+  <% if @presenter.show_quick_escape? %>
     <%= render "components/quick-escape", {
       link_url: destroy_flow_path(ext_r: "true")
     } %>

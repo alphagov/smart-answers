@@ -51,7 +51,7 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@use_escape_button)
     end
 
-    def show_escape_link?
+    def show_quick_escape?
       response_store == :session && use_escape_button?
     end
 

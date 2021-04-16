@@ -11,7 +11,7 @@ class FlowPresenter
            :response_store,
            :questions,
            :use_escape_button?,
-           :show_escape_link?,
+           :show_quick_escape?,
            :hide_previous_answers_on_results_page?,
            to: :flow
 
