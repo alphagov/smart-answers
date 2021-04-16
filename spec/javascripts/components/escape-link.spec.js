@@ -10,7 +10,7 @@ describe('Escape link component', function () {
 
   beforeEach(function () {
     container = document.createElement('div')
-    container.innerHTML = '<a class="app-c-escape-link govuk-link" rel="nofollow noreferrer noopener" target="_blank" data-module="app-quick-escape" data-track-label="need-help-with" href="https://www.gov.uk/">Leave this site</a>'
+    container.innerHTML = '<a class="app-c-quick-escape govuk-link" rel="nofollow noreferrer noopener" target="_blank" data-module="app-quick-escape" data-track-label="need-help-with" href="https://www.gov.uk/">Leave this site</a>'
     document.body.appendChild(container)
     escapeLinkElement = document.querySelector('[data-module="app-quick-escape"]')
     escapeLinkModule = new EscapeLink(escapeLinkElement)
