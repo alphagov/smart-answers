@@ -80,7 +80,7 @@ class FlowPresenter
 
   def response_for_current_question
     if response_store
-      # TODO
+      all_responses[current_state.current_node.to_s]
     else
       question_number = current_state.path.size
       all_responses[question_number - 1]

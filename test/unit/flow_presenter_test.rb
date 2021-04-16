@@ -112,6 +112,13 @@ class FlowPresenterTest < ActiveSupport::TestCase
       flow_presenter = FlowPresenter.new(params, @flow)
       assert_equal("question-2-answer", flow_presenter.response_for_current_question)
     end
+
+    should "get the response for the current page for session-based smart-answers" do
+      @flow.response_store(:session)
+      params = { id: @flow.name, node_name: "first_question_key", responses: { "first_question_key" => "question-1-answer", "second_question_key" => "question-2-answer" } }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_equal("question-1-answer", flow_presenter.response_for_current_question)
+    end
   end
 
   context "#change_collapsed_question_link" do
