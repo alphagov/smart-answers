@@ -34,13 +34,6 @@ module CurrentQuestionHelper
     end
   end
 
-  def default_for_date(value)
-    integer = Integer(value)
-    integer.to_s == value.to_s ? integer : nil
-  rescue StandardError
-    nil
-  end
-
   def prefill_value_for(question, attribute = nil)
     if params[:previous_response]
       response = question.to_response(params[:previous_response])
