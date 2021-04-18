@@ -37,10 +37,6 @@ module SmartAnswer
       Pathname.new(load_path).join(String(@flow.name))
     end
 
-    def flow_name
-      @flow.name
-    end
-
     def view_template(path)
       @view_template_path = path
     end

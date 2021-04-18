@@ -19,12 +19,6 @@ module SmartAnswer
       assert_equal expected_directory, @node.template_directory
     end
 
-    test "#flow_name returns the name of the flow" do
-      @flow.name "flow-name"
-
-      assert_equal @node.flow_name, @flow.name
-    end
-
     test "#filesystem_friendly_name returns name without trailing question mark" do
       question = Question::Base.new(@flow, :how_much?)
       assert_equal "how_much", question.filesystem_friendly_name
