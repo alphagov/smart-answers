@@ -125,22 +125,6 @@ module SmartAnswer
         end
       end
 
-      context "#partner_not_british?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "be true if partner is not british" do
-          @calculator.partner_nationality = "not-partner_british"
-          assert @calculator.partner_not_british?
-        end
-
-        should "be false if partner is british" do
-          @calculator.partner_nationality = "partner_british"
-          assert_not @calculator.partner_not_british?
-        end
-      end
-
       context "#partner_is_national_of_ceremony_country?" do
         setup do
           @calculator = MarriageAbroadCalculator.new
@@ -154,38 +138,6 @@ module SmartAnswer
         should "be false if partner is not a national of the ceremony country" do
           @calculator.partner_nationality = "not-partner_local"
           assert_not @calculator.partner_is_national_of_ceremony_country?
-        end
-      end
-
-      context "#partner_is_not_national_of_ceremony_country?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "be true if partner is not a national of the ceremony country" do
-          @calculator.partner_nationality = "not-partner_local"
-          assert @calculator.partner_is_not_national_of_ceremony_country?
-        end
-
-        should "be false if partner is a national of the ceremony country" do
-          @calculator.partner_nationality = "partner_local"
-          assert_not @calculator.partner_is_not_national_of_ceremony_country?
-        end
-      end
-
-      context "#partner_is_neither_british_nor_a_national_of_ceremony_country?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "be true if partner is a national of a country other than britain or the ceremony country" do
-          @calculator.partner_nationality = "partner_other"
-          assert @calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
-        end
-
-        should "be false if partner is not a national of a country other than britain or the ceremony country" do
-          @calculator.partner_nationality = "not-partner_other"
-          assert_not @calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
         end
       end
 
@@ -205,39 +157,6 @@ module SmartAnswer
         end
       end
 
-      context "#diplomatic_mission" do
-        # TODO: expand test and implementation to properly cover members and none members of the commonwealth
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "return High Commission for Australia" do
-          @calculator.ceremony_country = "australia"
-          assert_equal "High Commission", @calculator.diplomatic_mission
-        end
-
-        should "return embassy for other countries" do
-          @calculator.ceremony_country = "brazil"
-          assert_equal "embassy", @calculator.diplomatic_mission
-        end
-      end
-
-      context "#resident_outside_of_uk?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "be true if not resident of uk" do
-          @calculator.resident_of = "not-uk"
-          assert @calculator.resident_outside_of_uk?
-        end
-
-        should "be false if resident of uk" do
-          @calculator.resident_of = "uk"
-          assert_not @calculator.resident_outside_of_uk?
-        end
-      end
-
       context "#resident_of_ceremony_country?" do
         setup do
           @calculator = MarriageAbroadCalculator.new
@@ -251,22 +170,6 @@ module SmartAnswer
         should "be false if not resident of ceremony country" do
           @calculator.resident_of = "not-ceremony_country"
           assert_not @calculator.resident_of_ceremony_country?
-        end
-      end
-
-      context "#resident_outside_of_ceremony_country?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "be true if not resident of ceremony country" do
-          @calculator.resident_of = "not-ceremony_country"
-          assert @calculator.resident_outside_of_ceremony_country?
-        end
-
-        should "be false if resident of ceremony country" do
-          @calculator.resident_of = "ceremony_country"
-          assert_not @calculator.resident_outside_of_ceremony_country?
         end
       end
 
@@ -424,26 +327,6 @@ module SmartAnswer
           @calculator.stubs(fco_organisation: nil)
 
           assert_equal [], @calculator.overseas_passports_embassies
-        end
-      end
-
-      context "#italian_marriage_and_partnership_phrase" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "return marriage for opposite sex enquiries" do
-          @calculator.sex_of_your_partner = "opposite_sex"
-
-          assert_equal "marriage", @calculator.italian_marriage_and_partnership_phrase
-          assert_not_equal "civil partnership", @calculator.italian_marriage_and_partnership_phrase
-        end
-
-        should "return civil partnership for same sex enquiries" do
-          @calculator.sex_of_your_partner = "same_sex"
-
-          assert_equal "civil partnership", @calculator.italian_marriage_and_partnership_phrase
-          assert_not_equal "marriage", @calculator.italian_marriage_and_partnership_phrase
         end
       end
 
@@ -636,61 +519,6 @@ module SmartAnswer
         end
       end
 
-      context "#opposite_sex_consular_cni_country" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_consular_cni_countries?).with("ceremony-country").returns("opposite-sex-consular-cni-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-consular-cni-country", calculator.opposite_sex_consular_cni_country?
-        end
-      end
-
-      context "#opposite_sex_consular_cni_in_nearby_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_consular_cni_in_nearby_country?).with("ceremony-country").returns("opposite-sex-consular-cni-in-nearby-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-consular-cni-in-nearby-country", calculator.opposite_sex_consular_cni_in_nearby_country?
-        end
-      end
-
-      context "#opposite_sex_no_marriage_related_consular_services_in_ceremony_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_no_marriage_related_consular_services?).with("ceremony-country").returns("opposite-sex-no-marriage-related-consular-servies")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-no-marriage-related-consular-servies", calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
-        end
-      end
-
-      context "#opposite_sex_affirmation_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_affirmation_countries?).with("ceremony-country").returns("opposite-sex-affirmation-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-affirmation-country", calculator.opposite_sex_affirmation_country?
-        end
-      end
-
-      context "#ceremony_country_in_the_commonwealth" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:commonwealth_country?).with("ceremony-country").returns("commonwealth-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "commonwealth-country", calculator.ceremony_country_in_the_commonwealth?
-        end
-      end
-
       context "#ceremony_country_is_british_overseas_territory?" do
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
@@ -699,50 +527,6 @@ module SmartAnswer
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "british-overseas-territory", calculator.ceremony_country_is_british_overseas_territory?
-        end
-      end
-
-      context "#opposite_sex_no_consular_cni_country" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_no_consular_cni_countries?).with("ceremony-country").returns("opposite-sex-no-consular-cni-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-no-consular-cni-country", calculator.opposite_sex_no_consular_cni_country?
-        end
-      end
-
-      context "#opposite_sex_marriage_via_local_authorities?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_marriage_via_local_authorities?).with("ceremony-country").returns("opposite-sex-marriage-via-local-authorities")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "opposite-sex-marriage-via-local-authorities", calculator.opposite_sex_marriage_via_local_authorities?
-        end
-      end
-
-      context "#same_sex_ceremony_country_unknown_or_has_no_embassies?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:ss_unknown_no_embassies?).with("ceremony-country").returns("unknown-or-no-embassies")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "unknown-or-no-embassies", calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
-        end
-      end
-
-      context "#same_sex_marriage_not_possible?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          data_query.stubs(:ss_marriage_not_possible?).with("ceremony-country", calculator).returns("same-sex-marriage-not-possible")
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "same-sex-marriage-not-possible", calculator.same_sex_marriage_not_possible?
         end
       end
 
@@ -779,39 +563,6 @@ module SmartAnswer
         end
       end
 
-      context "civil_partnership_equivalent_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:cp_equivalent_countries?).with("ceremony-country").returns("civil-partnership-equivalent-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "civil-partnership-equivalent-country", calculator.civil_partnership_equivalent_country?
-        end
-      end
-
-      context "civil_partnership_cni_not_required_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:cp_cni_not_required_countries?).with("ceremony-country").returns("civil-partnership-cni-not-required-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "civil-partnership-cni-not-required-country", calculator.civil_partnership_cni_not_required_country?
-        end
-      end
-
-      context "civil_partnership_consular_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:cp_consular_countries?).with("ceremony-country").returns("civil-partnership-consular-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "civil-partnership-consular-country", calculator.civil_partnership_consular_country?
-        end
-      end
-
       context "country_without_consular_facilities?" do
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
@@ -823,17 +574,6 @@ module SmartAnswer
         end
       end
 
-      context "opposite_sex_21_days_residency_required?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_21_days_residency_required_countries?).with("ceremony-country").returns("21-days-residency-required")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "21-days-residency-required", calculator.opposite_sex_21_days_residency_required?
-        end
-      end
-
       context "ceremony_country_is_dutch_caribbean_island?" do
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
@@ -842,121 +582,6 @@ module SmartAnswer
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "dutch-caribbean-island", calculator.ceremony_country_is_dutch_caribbean_island?
-        end
-      end
-
-      context "same_sex_alt_fees_table_country?" do
-        should "delegate to the data query" do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          data_query.stubs(:ss_alt_fees_table_country?).with("ceremony-country", calculator).returns("same-sex-alt-fees-table")
-          calculator.ceremony_country = "ceremony-country"
-
-          assert_equal "same-sex-alt-fees-table", calculator.same_sex_alt_fees_table_country?
-        end
-      end
-
-      context "#outcome_path_when_resident_in_uk" do
-        should "build the path" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "ceremony-country"
-          calculator.partner_nationality = "partner-nationality"
-          calculator.sex_of_your_partner = "sex-of-your-partner"
-
-          expected_path = "/marriage-abroad/y/ceremony-country/uk/partner-nationality/sex-of-your-partner"
-          assert_equal expected_path, calculator.outcome_path_when_resident_in_uk
-        end
-      end
-
-      context "#outcome_path_when_resident_in_ceremony_country" do
-        should "build the path" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "ceremony-country"
-          calculator.partner_nationality = "partner-nationality"
-          calculator.sex_of_your_partner = "sex-of-your-partner"
-
-          expected_path = "/marriage-abroad/y/ceremony-country/ceremony_country/partner-nationality/sex-of-your-partner"
-          assert_equal expected_path, calculator.outcome_path_when_resident_in_ceremony_country
-        end
-      end
-
-      context "#three_day_residency_requirement_applies?" do
-        should "return true if ceremony country requires 3 day residency" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "albania"
-
-          assert calculator.three_day_residency_requirement_applies?
-        end
-
-        should "return false if ceremony country does not require 3 days residency" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "country-not-requiring-three-day-residency"
-
-          assert_not calculator.three_day_residency_requirement_applies?
-        end
-      end
-
-      context "#cni_posted_after_14_days?" do
-        should "return true if ceremony country will post notice after 14 days" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "qatar"
-
-          assert calculator.cni_posted_after_14_days?
-        end
-
-        should "return false if ceremony country will not post notice after 14 days" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "ceremony-country-not-posting-notice-after-14-days"
-
-          assert_not calculator.cni_posted_after_14_days?
-        end
-      end
-
-      context "#birth_certificate_required_as_supporting_document?" do
-        should "return true when a birth certificate is required" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "ceremony-country-requiring-birth-certificate"
-
-          assert calculator.birth_certificate_required_as_supporting_document?
-        end
-
-        should "return false when no birth certificate is required" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "albania"
-
-          assert_not calculator.birth_certificate_required_as_supporting_document?
-        end
-      end
-
-      context "#notary_public_ceremony_country?" do
-        should "return true if country has a notary public" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "albania"
-
-          assert calculator.notary_public_ceremony_country?
-        end
-
-        should "return false if country has no notary public" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "country-without-notary-public"
-
-          assert_not calculator.notary_public_ceremony_country?
-        end
-      end
-
-      context "#document_download_link_if_opposite_sex_resident_of_uk_countries?" do
-        should "return true if you can download forms" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "country-allowing-you-to-download-forms"
-
-          assert calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
-        end
-
-        should "return false if you can't download forms" do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = "albania"
-
-          assert_not calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
         end
       end
 
@@ -1062,24 +687,6 @@ module SmartAnswer
         should "return false if a PACS is not available in the ceremony country" do
           @calculator.ceremony_country = "country-without-pacs"
           assert_not @calculator.ceremony_country_offers_pacs?
-        end
-      end
-
-      context "#french_overseas_territory_offering_pacs?" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-        end
-
-        should "return true if a PACS is available in the ceremony country and the country is a French overseas territory" do
-          @calculator.ceremony_country = "new-caledonia"
-          assert @calculator.ceremony_country_offers_pacs?
-          assert @calculator.french_overseas_territory_offering_pacs?
-        end
-
-        should "return false if PACS is available in the ceremony country but it's not a French overseas territory" do
-          @calculator.ceremony_country = "monaco"
-          assert @calculator.ceremony_country_offers_pacs?
-          assert_not @calculator.french_overseas_territory_offering_pacs?
         end
       end
 

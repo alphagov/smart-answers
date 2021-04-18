@@ -16,36 +16,16 @@ module SmartAnswer::Calculators
       @partner_nationality == "partner_british"
     end
 
-    def partner_not_british?
-      !partner_british?
-    end
-
     def partner_is_national_of_ceremony_country?
       @partner_nationality == "partner_local"
-    end
-
-    def partner_is_not_national_of_ceremony_country?
-      !partner_is_national_of_ceremony_country?
-    end
-
-    def partner_is_neither_british_nor_a_national_of_ceremony_country?
-      @partner_nationality == "partner_other"
     end
 
     def resident_of_uk?
       @resident_of == "uk"
     end
 
-    def resident_outside_of_uk?
-      !resident_of_uk?
-    end
-
     def resident_of_ceremony_country?
       @resident_of == "ceremony_country"
-    end
-
-    def resident_outside_of_ceremony_country?
-      !resident_of_ceremony_country?
     end
 
     def resident_of_third_country?
@@ -98,14 +78,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    def italian_marriage_and_partnership_phrase
-      if partner_is_same_sex?
-        "civil partnership"
-      else
-        "marriage"
-      end
-    end
-
     def country_name_lowercase_prefix
       if @country_name_formatter.requires_definite_article?(ceremony_country)
         @country_name_formatter.definitive_article(ceremony_country)
@@ -146,48 +118,8 @@ module SmartAnswer::Calculators
       @data_query.french_overseas_territories?(ceremony_country)
     end
 
-    def french_overseas_territory_offering_pacs?
-      MarriageAbroadDataQuery::FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS.include?(ceremony_country)
-    end
-
-    def opposite_sex_consular_cni_country?
-      @data_query.os_consular_cni_countries?(ceremony_country)
-    end
-
-    def opposite_sex_consular_cni_in_nearby_country?
-      @data_query.os_consular_cni_in_nearby_country?(ceremony_country)
-    end
-
-    def opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
-      @data_query.os_no_marriage_related_consular_services?(ceremony_country)
-    end
-
-    def opposite_sex_affirmation_country?
-      @data_query.os_affirmation_countries?(ceremony_country)
-    end
-
-    def ceremony_country_in_the_commonwealth?
-      @data_query.commonwealth_country?(ceremony_country)
-    end
-
     def ceremony_country_is_british_overseas_territory?
       @data_query.british_overseas_territories?(ceremony_country)
-    end
-
-    def opposite_sex_no_consular_cni_country?
-      @data_query.os_no_consular_cni_countries?(ceremony_country)
-    end
-
-    def opposite_sex_marriage_via_local_authorities?
-      @data_query.os_marriage_via_local_authorities?(ceremony_country)
-    end
-
-    def same_sex_ceremony_country_unknown_or_has_no_embassies?
-      @data_query.ss_unknown_no_embassies?(ceremony_country)
-    end
-
-    def same_sex_marriage_not_possible?
-      @data_query.ss_marriage_not_possible?(ceremony_country, self)
     end
 
     def same_sex_marriage_country?
@@ -202,24 +134,8 @@ module SmartAnswer::Calculators
       @data_query.ss_marriage_and_partnership?(ceremony_country)
     end
 
-    def civil_partnership_equivalent_country?
-      @data_query.cp_equivalent_countries?(ceremony_country)
-    end
-
-    def civil_partnership_cni_not_required_country?
-      @data_query.cp_cni_not_required_countries?(ceremony_country)
-    end
-
-    def civil_partnership_consular_country?
-      @data_query.cp_consular_countries?(ceremony_country)
-    end
-
     def country_without_consular_facilities?
       @data_query.countries_without_consular_facilities?(ceremony_country)
-    end
-
-    def opposite_sex_21_days_residency_required?
-      @data_query.os_21_days_residency_required_countries?(ceremony_country)
     end
 
     def ceremony_country_is_dutch_caribbean_island?
@@ -228,46 +144,6 @@ module SmartAnswer::Calculators
 
     def ceremony_country_offers_pacs?
       MarriageAbroadDataQuery::CEREMONY_COUNTRIES_OFFERING_PACS.include?(ceremony_country)
-    end
-
-    def same_sex_alt_fees_table_country?
-      @data_query.ss_alt_fees_table_country?(ceremony_country, self)
-    end
-
-    def outcome_path_when_resident_in_uk
-      outcome_path_when_resident_in("uk")
-    end
-
-    def outcome_path_when_resident_in_ceremony_country
-      outcome_path_when_resident_in("ceremony_country")
-    end
-
-    def three_day_residency_requirement_applies?
-      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.include?(ceremony_country)
-    end
-
-    def cni_posted_after_14_days?
-      MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES.include?(ceremony_country)
-    end
-
-    def birth_certificate_required_as_supporting_document?
-      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.exclude?(ceremony_country)
-    end
-
-    def notary_public_ceremony_country?
-      MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(ceremony_country)
-    end
-
-    def document_download_link_if_opposite_sex_resident_of_uk_countries?
-      MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES.exclude?(ceremony_country)
-    end
-
-    def diplomatic_mission
-      if ceremony_country == "australia"
-        "High Commission"
-      else
-        "embassy"
-      end
     end
 
     def consular_fee(service)
