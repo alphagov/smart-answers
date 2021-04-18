@@ -232,7 +232,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                             assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                             assert_equal current_state.calculator.average_weekly_earnings, 135.4
                             assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 121.86
-                            assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 121.86
                             assert_equal current_state.calculator.total_smp.round(2), 4752.55
                           end
                         end
@@ -301,7 +300,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       assert_state_variable "pay_start_date", leave_start
                       assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                       assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 112.49
-                      assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 112.49
                       assert_equal current_state.calculator.total_smp.round(2), 4387.02
                     end
 
@@ -361,7 +359,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           should "calculate the dates and payment amounts" do
                             assert_equal current_state.calculator.average_weekly_earnings, 124.9846153
                             assert_equal current_state.calculator.statutory_maternity_rate_a.round(2), 112.49
-                            assert_equal current_state.calculator.statutory_maternity_rate_b.round(2), 112.49
                           end
                         end
                       end

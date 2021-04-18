@@ -177,10 +177,6 @@ module SmartAnswer::Calculators
       statutory_maternity_rate
     end
 
-    def statutory_maternity_rate_b
-      [current_statutory_rate, statutory_maternity_rate].min
-    end
-
     def lower_earning_limit
       RatesQuery.from_file("maternity_paternity_birth").rates(relevant_week.last).lower_earning_limit_rate
     end

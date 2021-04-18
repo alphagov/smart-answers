@@ -93,15 +93,6 @@ module SmartAnswer::Calculators
           should "calculate the maternity pay at rate A" do
             assert_equal((193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2))
           end
-
-          should "calculate the maternity pay at rate B using the base rate" do
-            assert_equal 135.45, @calculator.statutory_maternity_rate_b
-          end
-
-          should "calculate the maternity pay at rate B using the percentage of weekly income" do
-            @calculator.stubs(:average_weekly_earnings).returns(135.40)
-            assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
-          end
         end
       end
 
