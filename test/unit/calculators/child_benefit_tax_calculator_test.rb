@@ -522,42 +522,6 @@ module SmartAnswer::Calculators
         end
       end # calculating percentage tax charge"
 
-      context "calculating the correct amount owed" do
-        context "below the income threshold" do
-          should "be true for incomes under the threshold" do
-            calculator = ChildBenefitTaxCalculator.new(
-              income_details: 49_999,
-              tax_year: "2019",
-              children_count: 1,
-              part_year_children_count: 1,
-            )
-
-            calculator.part_year_claim_dates = {
-              "0" => {
-                start_date: Date.parse("2018-01-01"),
-              },
-            }
-            assert calculator.nothing_owed?
-          end
-
-          should "be true for incomes over the threshold" do
-            calculator = ChildBenefitTaxCalculator.new(
-              income_details: 50_100,
-              tax_year: "2019",
-              children_count: 1,
-              part_year_children_count: 1,
-            )
-
-            calculator.part_year_claim_dates = {
-              "0" => {
-                start_date: Date.parse("2018-01-01"),
-              },
-            }
-            assert_not calculator.nothing_owed?
-          end
-        end
-      end # calculating the correct amount owed"
-
       context "starting and stopping children" do
         context "for the tax year 2012-2013" do
           should "calculate correctly with starting children" do
