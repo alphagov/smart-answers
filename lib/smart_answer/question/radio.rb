@@ -20,10 +20,6 @@ module SmartAnswer
         options.include?(option.to_s)
       end
 
-      def remove_options
-        @permitted_options.clear
-      end
-
       def parse_input(raw_input)
         raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
 
