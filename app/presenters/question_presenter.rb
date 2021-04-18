@@ -49,10 +49,6 @@ class QuestionPresenter < NodePresenter
     content.presence
   end
 
-  def has_labels?
-    label.present? || suffix_label.present?
-  end
-
   def pretext
     @renderer.content_for(:pretext)
   end
