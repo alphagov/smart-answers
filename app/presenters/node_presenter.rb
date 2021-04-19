@@ -1,5 +1,6 @@
 class NodePresenter
   delegate :outcome?, to: :@node
+  delegate :response_for_current_question, to: :@flow_presenter
 
   def initialize(node, flow_presenter, state = nil, _options = {}, _params = {})
     @node = node

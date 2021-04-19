@@ -1,8 +1,6 @@
 class QuestionPresenter < NodePresenter
   attr_reader :params
 
-  delegate :response_for_current_question, to: :flow_presenter
-
   def initialize(node, flow_presenter, state = nil, options = {}, params = {})
     super(node, flow_presenter, state)
     @params = params
