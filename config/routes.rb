@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get "healthcheck", to: proc { [200, {}, [""]] }
 
+  get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
+  get "/healthcheck/ready", to: GovukHealthcheck.rack_response
+
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
   constraints id: /[a-z0-9-]+/i, started: /y/ do
