@@ -2,7 +2,6 @@ module SmartAnswer::Calculators
   class BusinessCoronavirusSupportFinderCalculator
     attr_accessor :business_based,
                   :business_size,
-                  :annual_turnover,
                   :paye_scheme,
                   :non_domestic_property,
                   :sectors,
