@@ -53,5 +53,17 @@ module SmartAnswer
 
       assert_equal "caption-text", @presenter.caption
     end
+
+    context "#checked?" do
+      should "return true if value appears in string" do
+        @presenter.stubs(:response_for_current_question).returns("option1,option2")
+        assert @presenter.checked?("option2")
+      end
+
+      should "return true if value appears in array" do
+        @presenter.stubs(:response_for_current_question).returns(%w[option1 option2])
+        assert @presenter.checked?("option2")
+      end
+    end
   end
 end

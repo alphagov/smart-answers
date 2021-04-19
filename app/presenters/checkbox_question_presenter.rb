@@ -34,4 +34,24 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
       }
     end
   end
+
+  def checked?(value)
+    response = response_for_current_question
+
+    if response_for_current_question.is_a?(String)
+      response = to_response(response_for_current_question)
+    end
+
+    response.include?(value)
+
+    # If the response is an array
+    # response_for_current_question.include?(value)
+
+    # if the response is a string
+    # >> response_for_current_question
+    # => "nightclubs_or_adult_entertainment,nurseries,retail_hospitality_or_leisure"
+
+    # >> to_response(response_for_current_question)
+    # => ["nightclubs_or_adult_entertainment", "nurseries", "retail_hospitality_or_leisure"]
+  end
 end
