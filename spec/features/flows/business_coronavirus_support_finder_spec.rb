@@ -3,7 +3,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
     # <question name>: <text_for :title from erb>
     {
       flow_title: "Find coronavirus financial support for your business",
-      annual_turnover: "What is your annual turnover?",
       business_based: "Where is your business based?",
       business_size: "How many employees does your business have?",
       non_domestic_property: "Does your business have any rateable non-domestic property?",
@@ -22,7 +21,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
       yes: "Yes",
       no: "No",
       employees: "0 to 249 employees",
-      turnover: "Under £85,000",
       property: "Yes",
       non_adult: "Nurseries",
       adult: "Nightclub, dancehall, or adult entertainment venue",
@@ -37,7 +35,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
   scenario "Answers all questions" do
     answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
     answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
-    answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:turnover])
     answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
     answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
     answer(question: headings[:sectors], of_type: :checkbox, with: answers[:non_adult])
@@ -49,7 +46,6 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
   scenario "Skip last question if business type nightclubs" do
     answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
     answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
-    answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:turnover])
     answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
     answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
     answer(question: headings[:sectors], of_type: :checkbox, with: answers[:adult])
