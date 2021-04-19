@@ -119,8 +119,10 @@ class FlowPresenter
     case params[:responses]
     when NilClass
       []
-    when Array, Hash, ActionController::Parameters
+    when Array, Hash
       params[:responses]
+    when ActionController::Parameters
+      params[:responses].values.flatten
     else
       params[:responses].to_s.split("/")
     end
