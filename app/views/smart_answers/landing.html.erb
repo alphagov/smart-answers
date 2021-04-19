@@ -4,19 +4,23 @@
   <% if start_node.meta_description.present? %>
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
-  <% if @content_item.present? %>
+  <% if content_item.present? %>
+    <%= render "govuk_publishing_components/components/meta_tags",
+      content_item: content_item,
+      strip_dates_pii: true,
+      strip_postcode_pii: true %>
     <%= render 'govuk_publishing_components/components/machine_readable_metadata',
       schema: :article,
-      content_item: @content_item %>
+      content_item: content_item %>
     <%= render 'govuk_publishing_components/components/machine_readable_metadata',
       schema: :government_service,
-      content_item: @content_item %>
+      content_item: content_item %>
   <% end %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 <% end %>
 
 <% content_for :breadcrumbs do %>
-  <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
+  <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item %>
 <% end %>
 
 <div class="govuk-grid-row">
@@ -63,9 +67,9 @@
       <% end %>
     </article>
 
-    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: @content_item %>
+    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: content_item %>
   </div>
   <div class="govuk-grid-column-one-third">
-    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item %>
   </div>
 </div>
