@@ -11,10 +11,6 @@ class StartNodePresenter < NodePresenter
     @renderer.content_for(:title)
   end
 
-  def ab_title
-    @renderer.content_for(:ab_title)
-  end
-
   def meta_description
     @renderer.content_for(:meta_description)
   end
@@ -23,16 +19,8 @@ class StartNodePresenter < NodePresenter
     @renderer.content_for(:body)
   end
 
-  def ab_body
-    @renderer.content_for(:ab_body)
-  end
-
   def post_body
     @renderer.content_for(:post_body)
-  end
-
-  def ab_post_body
-    @renderer.content_for(:ab_post_body)
   end
 
   def start_button_text

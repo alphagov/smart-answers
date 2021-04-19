@@ -60,10 +60,6 @@ module SmartAnswer::Calculators
       basic_rate * @basic_hours
     end
 
-    def basic_hourly_rate
-      basic_rate.round(2)
-    end
-
     def minimum_hourly_rate
       if @is_apprentice
         apprentice_rate
@@ -80,33 +76,12 @@ module SmartAnswer::Calculators
       (basic_total + @accommodation_cost).round(2)
     end
 
-    def total_hourly_rate
-      if total_hours < 1
-        0.00
-      else
-        (total_pay / total_hours).round(2)
-      end
-    end
-
     def total_entitlement
       minimum_hourly_rate * total_hours
     end
 
-    def total_underpayment
-      underpayment = total_entitlement - total_pay
-      underpayment > 0 ? underpayment.round(2) : 0.0 # rubocop:disable Style/NumericPredicate
-    end
-
     def historical_entitlement
       (minimum_hourly_rate * total_hours).round(2)
-    end
-
-    def underpayment
-      if total_pay >= historical_entitlement
-        0
-      else
-        (historical_entitlement - total_pay).round(2)
-      end
     end
 
     def minimum_wage_or_above?
@@ -148,10 +123,6 @@ module SmartAnswer::Calculators
 
     def apprentice_rate
       @minimum_wage_data.apprentice_rate
-    end
-
-    def national_living_wage_rate
-      minimum_hourly_rate
     end
 
     def eligible_for_living_wage?

@@ -1,21 +1,13 @@
 module CurrentQuestionHelper
   def current_question_path(presenter)
     if presenter.response_store
-      flow_question_path(presenter)
+      node_name = presenter.current_state.current_node.to_s
+      update_flow_path(id: params[:id], node_slug: node_name.dasherize)
     else
-      smart_answers_question_path(presenter)
+      attrs = params.permit(:id, :started).to_h.symbolize_keys
+      attrs[:responses] = presenter.accepted_responses if presenter.accepted_responses.any?
+      smart_answer_path(attrs)
     end
-  end
-
-  def smart_answers_question_path(presenter)
-    attrs = params.permit(:id, :started).to_h.symbolize_keys
-    attrs[:responses] = presenter.accepted_responses if presenter.accepted_responses.any?
-    smart_answer_path(attrs)
-  end
-
-  def flow_question_path(presenter)
-    node_name = presenter.current_state.current_node.to_s
-    update_flow_path(id: params[:id], node_slug: node_name.dasherize)
   end
 
   def restart_flow_path(presenter)
@@ -40,13 +32,6 @@ module CurrentQuestionHelper
     elsif params[:response]
       params[:response].include?(value)
     end
-  end
-
-  def default_for_date(value)
-    integer = Integer(value)
-    integer.to_s == value.to_s ? integer : nil
-  rescue StandardError
-    nil
   end
 
   def prefill_value_for(question, attribute = nil)

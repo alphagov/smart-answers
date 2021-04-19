@@ -172,10 +172,6 @@ module SmartAnswer
       process(responses).path
     end
 
-    def normalize_responses(responses)
-      process(responses).responses
-    end
-
     class InvalidStatus < StandardError; end
 
   private

@@ -101,17 +101,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "#national_living_wage" do
-      setup do
-        @calculator = MinimumWageCalculator.new
-      end
-
-      should "return the national living wage" do
-        @calculator.stubs(:minimum_hourly_rate).returns(99)
-        assert_equal 99, @calculator.national_living_wage_rate
-      end
-    end
-
     context "#eligible_for_living_wage?" do
       setup do
         @calculator = MinimumWageCalculator.new
@@ -173,12 +162,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "basic hourly rate" do
-        should "be basic pay divided by basic hours" do
-          assert_equal 4.81, @calculator.basic_hourly_rate
-        end
-      end
-
       context "minimum hourly rate" do
         should "be the minimum wage per hour for the age and year" do
           assert_equal 4.92, @calculator.minimum_hourly_rate
@@ -194,16 +177,6 @@ module SmartAnswer::Calculators
       context "total hours" do
         should "be basic" do
           assert_equal 39, @calculator.total_hours
-        end
-      end
-
-      context "total hourly rate" do
-        should "calculate the total pay divided by total hours" do
-          assert_equal 4.81, @calculator.total_hourly_rate
-        end
-        should "be zero if 0 or less hours are entered" do
-          @calculator = MinimumWageCalculator.new age: @age, date: Date.parse("2010-10-01"), basic_pay: @basic_pay, basic_hours: 0
-          assert_equal 0, @calculator.total_hourly_rate
         end
       end
 
@@ -247,15 +220,6 @@ module SmartAnswer::Calculators
         should "be minimum wage for the year multiplied by total hours" do
           assert_equal @historical_entitlement, @calculator.historical_entitlement
         end
-
-        context "underpayment" do
-          setup do
-            @underpayment = (191.88 - @calculator.basic_total).round(2)
-          end
-          should "be the total pay minus the historical entitlement" do
-            assert_equal @underpayment, @calculator.underpayment
-          end
-        end
       end
 
       # Test cases from the Minimum National Wage docs.
@@ -277,8 +241,6 @@ module SmartAnswer::Calculators
 
         should "have a total hourly rate of 4.20" do
           assert_equal 6.08, @calculator.minimum_hourly_rate
-          assert_equal 4.2, @calculator.basic_hourly_rate
-          assert_equal 4.2, @calculator.total_hourly_rate
         end
       end
 
@@ -296,7 +258,6 @@ module SmartAnswer::Calculators
 
         should "calculate total hourly rate" do
           assert_equal 6.19, @calculator.minimum_hourly_rate
-          assert_equal 6, @calculator.total_hourly_rate
         end
       end
 
@@ -314,29 +275,24 @@ module SmartAnswer::Calculators
 
         should "calculate total hourly rate" do
           assert_equal 6.08, @calculator.minimum_hourly_rate
-          assert_equal 2.5, @calculator.basic_hourly_rate
-          assert_equal 2.5, @calculator.total_hourly_rate
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for free accommodation" do
           @calculator.accommodation_adjustment(0, 5)
           assert_equal 23.65, @calculator.accommodation_cost
-          assert_equal 3.09, @calculator.total_hourly_rate
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(6, 5)
           assert_equal(-6.35, @calculator.accommodation_cost)
-          assert_equal 2.34, @calculator.total_hourly_rate
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged below the threshold" do
           @calculator.accommodation_adjustment(4, 5)
           assert_equal 0, @calculator.accommodation_cost
-          assert_equal 2.50, @calculator.total_hourly_rate
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
       end
@@ -356,7 +312,6 @@ module SmartAnswer::Calculators
           is_apprentice: true,
         )
         assert_equal 2.50, @calculator.minimum_hourly_rate
-        assert_equal 2.23, @calculator.total_hourly_rate
       end
     end
 
@@ -622,20 +577,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "basic_rate tests" do
-      setup do
-        @calculator = MinimumWageCalculator.new(
-          age: 25,
-          pay_frequency: 5,
-          basic_pay: 312,
-          basic_hours: 39,
-        )
-      end
-      should "basic_rate = 8" do
-        assert_equal 8, @calculator.basic_hourly_rate
-      end
-    end
-
     context "non-historical minimum wage" do
       should "return today's minimum wage rate for 25 year old" do
         @calculator = MinimumWageCalculator.new(
@@ -684,7 +625,6 @@ module SmartAnswer::Calculators
       end
       should "return total_underpayment" do
         assert_equal 100.0, @calculator.total_pay
-        assert_equal 137.12, @calculator.total_underpayment
       end
       should "return total_underpayment as 0.0" do
         @calculator = MinimumWageCalculator.new(
@@ -695,7 +635,6 @@ module SmartAnswer::Calculators
           date: Date.parse("5 Aug 2012"),
         )
         assert_equal 300.0, @calculator.total_pay
-        assert_equal 0.0, @calculator.total_underpayment
       end
     end
 
@@ -723,10 +662,7 @@ module SmartAnswer::Calculators
         )
         # underpayment
         assert_not @calculator.minimum_wage_or_above?
-        assert_equal 32, @calculator.underpayment
-        assert_equal 5.52, (@calculator.underpayment / @calculator.per_hour_minimum_wage).round(2)
         assert_equal 6.19, @calculator.per_hour_minimum_wage(Time.zone.today)
-        # assert_equal 43.20, @calculator.total_underpayment
       end
     end
   end

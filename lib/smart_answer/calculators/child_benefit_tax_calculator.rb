@@ -77,10 +77,6 @@ module SmartAnswer::Calculators
       total_benefit_amount.to_f
     end
 
-    def nothing_owed?
-      calculate_adjusted_net_income < NET_INCOME_THRESHOLD || tax_estimate.abs.zero?
-    end
-
     def tax_estimate
       (benefits_claimed_amount * (percent_tax_charge / 100.0)).floor
     end

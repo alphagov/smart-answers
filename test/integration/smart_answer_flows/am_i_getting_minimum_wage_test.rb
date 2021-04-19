@@ -497,7 +497,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       should "make outcome calculations" do
                         assert_equal 42, current_state.calculator.total_hours
                         assert_equal 4.15, current_state.calculator.minimum_hourly_rate
-                        assert_equal 3.77, current_state.calculator.total_hourly_rate
                         assert_equal false, current_state.calculator.minimum_wage_or_above?
                       end
                     end
@@ -775,7 +774,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         should "make outcome calculations" do
                           assert_equal 42, current_state.calculator.total_hours
                           assert_equal 6.45, current_state.calculator.minimum_hourly_rate
-                          assert_equal 3.77, current_state.calculator.total_hourly_rate
                           assert_equal false, current_state.calculator.minimum_wage_or_above?
                         end
                       end
@@ -843,7 +841,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "yes"
 
         assert_current_node :current_payment_below
-        assert_equal 3.90, current_state.calculator.total_hourly_rate
         assert_equal 8.20, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -878,7 +875,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 5.26, current_state.calculator.total_hourly_rate
         assert_equal 6.45, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -919,7 +915,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 8.24, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
         # 7.80 accomodation * 21 days = £163.80
         # £7.55 (offset rate used when accommodation is free) * 21 = £158.55
@@ -964,7 +959,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "yes"
 
         assert_current_node :current_payment_above
-        assert_equal 8.91, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
         # £210/30 = £7 an hour
         # £7.55 (offset rate used when accommodation is free) * 7 = £52.85
@@ -1009,7 +1003,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 7.80, current_state.calculator.total_hourly_rate
         assert_equal 8.20, current_state.calculator.minimum_hourly_rate
         # £320/41 = £7.80 an hour
         # £3.50 accomodation chage below £7.55 offset
@@ -1046,7 +1039,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "yes"
 
         assert_current_node :current_payment_below
-        assert_equal 3.90, current_state.calculator.total_hourly_rate
         assert_equal 4.15, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1077,7 +1069,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_above
-        assert_equal 10.25, current_state.calculator.total_hourly_rate
         assert_equal 4.15, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1120,7 +1111,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "yes"
 
         assert_current_node :current_payment_below
-        assert_equal 2.80, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1163,7 +1153,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "yes"
 
         assert_current_node :current_payment_above
-        assert_equal 20.5, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1203,7 +1192,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 8.24, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1244,7 +1232,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :past_additional_work_outside_shift?
         add_response "no"
 
-        assert_equal 8.78, current_state.calculator.total_hourly_rate
         assert_equal 8.72, current_state.calculator.minimum_hourly_rate
         assert_current_node :past_payment_above
       end
@@ -1278,7 +1265,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
         assert_current_node :current_payment_below
         # hourly rate is the same due to rounding but overall pay is below
-        assert_equal 4.30, current_state.calculator.total_hourly_rate
         assert_equal 4.30, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1313,7 +1299,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 4.28, current_state.calculator.total_hourly_rate
         assert_equal 4.30, current_state.calculator.minimum_hourly_rate
         # £8.36 (offset rate used when accommodation is free) * 1 = £8.36
         # £34.46 (total pay) + £8.36 / 10 = £4.282
@@ -1347,7 +1332,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_above
-        assert_equal 4.30, current_state.calculator.total_hourly_rate
         assert_equal 4.30, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1383,7 +1367,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
         assert_current_node :current_payment_below
         # hourly rate is the same due to rounding but overall pay is below
-        assert_equal 4.62, current_state.calculator.total_hourly_rate
         assert_equal 4.62, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1421,7 +1404,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_above
-        assert_equal 4.62, current_state.calculator.total_hourly_rate
         assert_equal 4.62, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1464,7 +1446,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :current_payment_above
         # hourly rate is the same due to rounding but overall pay is below
         # £8.0 accommodation charge is below £8.36 offset
-        assert_equal 4.62, current_state.calculator.total_hourly_rate
         assert_equal 4.62, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1507,7 +1488,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :current_payment_below
         # hourly rate is the same due to rounding but overall pay is below
         # £46.20 (total pay) - £9.0 (accommodation charge) + £8.36 (offset) / 10 (days worked) = £4.556
-        assert_equal 4.56, current_state.calculator.total_hourly_rate
         assert_equal 4.62, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1542,7 +1522,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_above
-        assert_equal 6.57, current_state.calculator.total_hourly_rate
         assert_equal 6.56, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1583,7 +1562,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         # hourly rate is the same due to rounding but overall pay is below
         # £8.36 (offset rate used when accommodation is free) * 1 = £8.36
         # £75.23 (total pay) + £8.36 / 10 = £8.359
-        assert_equal 8.36, current_state.calculator.total_hourly_rate
         assert_equal 8.36, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1625,7 +1603,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
         assert_current_node :current_payment_above
         # £7.80 accommodation charge is below £8.36 offset
-        assert_equal 8.91, current_state.calculator.total_hourly_rate
         assert_equal 8.91, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1658,7 +1635,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
         assert_current_node :current_payment_below
         # hourly rate is the same due to rounding but overall pay is below
-        assert_equal 4.30, current_state.calculator.total_hourly_rate
         assert_equal 4.30, current_state.calculator.minimum_hourly_rate
       end
     end
@@ -1693,7 +1669,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response "no"
 
         assert_current_node :current_payment_below
-        assert_equal 7.91, current_state.calculator.total_hourly_rate
         assert_equal 8.91, current_state.calculator.minimum_hourly_rate
       end
     end
