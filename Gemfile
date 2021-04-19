@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "6.0.3.2"
+gem "rails", "6.0.3.6"
 
 gem "ast"
 gem "companies-house-rest"
@@ -32,6 +32,7 @@ group :development do
   gem "binding_of_caller"
   gem "listen"
   gem "nokogiri"
+  gem "web-console"
 end
 
 group :development, :test do
@@ -41,7 +42,7 @@ group :development, :test do
   gem "jasmine_selenium_runner"
   gem "pry"
   gem "rspec-rails"
-  gem "rubocop-govuk", "4.0.0.pre.1", require: false # Trialling pre-release
+  gem "rubocop-govuk", "4.0.0.pre.1", require: false # Trialling pre-releas
 end
 
 group :test do
