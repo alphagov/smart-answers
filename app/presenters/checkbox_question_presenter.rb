@@ -29,13 +29,15 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
         label: option[:label],
         value: option[:value],
         hint: option[:hint_text],
-        checked: prefill_value_includes?(self, option[:value]),
+        checked: checked?(option[:value]),
         exclusive: option[:value] == "none" || nil,
       }
     end
   end
 
   def checked?(value)
+    return if response_for_current_question.blank?
+
     response = response_for_current_question
 
     if response_for_current_question.is_a?(String)
@@ -43,15 +45,5 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     end
 
     response.include?(value)
-
-    # If the response is an array
-    # response_for_current_question.include?(value)
-
-    # if the response is a string
-    # >> response_for_current_question
-    # => "nightclubs_or_adult_entertainment,nurseries,retail_hospitality_or_leisure"
-
-    # >> to_response(response_for_current_question)
-    # => ["nightclubs_or_adult_entertainment", "nurseries", "retail_hospitality_or_leisure"]
   end
 end
