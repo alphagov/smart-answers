@@ -80,7 +80,8 @@ class FlowPresenter
 
   def response_for_current_question
     if response_store
-      all_responses[current_state.current_node.to_s]
+      responses = params[:responses]
+      responses[current_state.current_node.to_s]
     else
       return params[:previous_response] if params[:previous_response].present?
 
@@ -119,7 +120,7 @@ class FlowPresenter
     case params[:responses]
     when NilClass
       []
-    when Array, Hash
+    when Array
       params[:responses]
     when ActionController::Parameters
       params[:responses].values.flatten
