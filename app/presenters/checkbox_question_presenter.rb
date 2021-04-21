@@ -1,6 +1,4 @@
 class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
-  include CurrentQuestionHelper
-
   def response_labels(values)
     values.split(",").map do |value|
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION
