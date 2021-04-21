@@ -107,10 +107,16 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   context "#response_for_current_question" do
-    should "get the response for the current page for url-based smart-answers" do
-      params = { id: @flow.name, responses: "question-1-answer/question-2-answer" }
+    should "get the response for the current page for url-based smart-answers when previous_response" do
+      params = { id: @flow.name, responses: "question-1-answer", previous_response: "question-2-answer" }
       flow_presenter = FlowPresenter.new(params, @flow)
       assert_equal("question-2-answer", flow_presenter.response_for_current_question)
+    end
+
+    should "leave response for the current page blank for url-based smart-answers when no previous_response" do
+      params = { id: @flow.name, responses: "question-1-answer/question-2-answer" }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_nil(flow_presenter.response_for_current_question)
     end
 
     should "get the response for the current page for session-based smart-answers" do
