@@ -1,16 +1,22 @@
 <%
-  link_label ||= "Hide this page"
+  link_label = "Hide this page"
   aria_label ||= "Hide this page. Quick exit button, it opens BBC Weather in a new tab"
-  data_attributes ||= {}
-  data_attributes[:module] = 'app-hide-this-page-banner'
 %>
-<%= link_to(link_label,
-  link_url,
-  class: "app-c-hide-this-page-banner govuk-link",
-  rel: "nofollow noreferrer noopener",
-  target: "_blank",
-  data: data_attributes,
-  aria: {
-    label: aria_label
-  }
-) %>
+<div class="app-c-hide-this-page-banner" data-module="app-hide-this-page-banner">
+  <div class="govuk-width-container">
+    <div class="app-c-hide-this-page-banner__columns">
+      <div class="app-c-hide-this-page-banner__link-wrapper">
+        <%= render "govuk_publishing_components/components/button", {
+          text: "<strong>#{link_label}</strong>".html_safe,
+          href: link_url,
+          target: "_blank",
+          rel: "nofollow noreferrer noopener",
+          aria: {
+            label: aria_label
+          },
+          destructive: true,
+        } %>
+      </div>
+    </div>
+  </div>
+</div>

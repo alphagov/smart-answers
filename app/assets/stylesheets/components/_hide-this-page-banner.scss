@@ -1,23 +1,8 @@
 .app-c-hide-this-page-banner {
-  @include govuk-font($size: 19, $weight: bold);
-
-  bottom: 0;
-  float: right;
-  padding: govuk-spacing(4) govuk-spacing(3);
-  position: fixed;
-  position: sticky; // scss-lint:disable DuplicateProperty
-  right: 0;
-
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    background-color: govuk-colour('black');
-    color: govuk-colour('white');
-  }
-
-  &:focus {
-    background-color: $govuk-focus-colour;
-    color: $govuk-focus-text-colour;
-  }
+  top: 0;
+  z-index: 1;
+  position: sticky;
+  background-color: govuk-colour("white");
+  padding: govuk-spacing(3) 0 govuk-spacing(3);
+  border-bottom: 1px solid govuk-colour("mid-grey");
 }

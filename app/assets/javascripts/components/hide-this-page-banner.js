@@ -5,10 +5,11 @@ function HideThisPageBanner ($module) {
 HideThisPageBanner.prototype.init = function () {
   var $module = this.$module
 
-  if (!$module) {
-    return
-  }
-  $module.addEventListener('click', this.handleClick.bind(this))
+  if (!$module) return
+
+  $module
+    .querySelector('.gem-c-button')
+    .addEventListener('click', this.handleClick.bind(this))
 }
 
 HideThisPageBanner.prototype.handleClick = function (event) {
