@@ -123,7 +123,7 @@ class FlowPresenter
     when Array
       params[:responses]
     when ActionController::Parameters
-      params[:responses].values.flatten
+      current_state.responses
     else
       params[:responses].to_s.split("/")
     end
