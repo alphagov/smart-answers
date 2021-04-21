@@ -30,21 +30,6 @@ module SmartAnswer
         end
 
         next_node do
-          question :annual_turnover?
-        end
-      end
-
-      radio :annual_turnover? do
-        option :under_85k
-        option :"85k_to_45m"
-        option :"45m_to_500m"
-        option :"500m_and_over"
-
-        on_response do |response|
-          calculator.annual_turnover = response
-        end
-
-        next_node do
           question :paye_scheme?
         end
       end
@@ -57,6 +42,18 @@ module SmartAnswer
           calculator.paye_scheme = response
         end
 
+        next_node do
+          question :self_employed?
+        end
+      end
+
+      radio :self_employed? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.self_employed = response
+        end
         next_node do
           question :non_domestic_property?
         end

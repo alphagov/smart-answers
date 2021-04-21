@@ -2,8 +2,8 @@ module SmartAnswer::Calculators
   class BusinessCoronavirusSupportFinderCalculator
     attr_accessor :business_based,
                   :business_size,
-                  :annual_turnover,
                   :paye_scheme,
+                  :self_employed,
                   :non_domestic_property,
                   :sectors,
                   :closed_by_restrictions
@@ -20,6 +20,9 @@ module SmartAnswer::Calculators
       statutory_sick_rebate: lambda { |calculator|
         calculator.business_size == "0_to_249" &&
           calculator.paye_scheme == "yes"
+      },
+      self_employed_income_scheme: lambda { |calculator|
+        calculator.self_employed == "yes"
       },
       retail_hospitality_leisure_business_rates: lambda { |calculator|
         calculator.business_based == "england" &&
