@@ -41,18 +41,18 @@ module SmartAnswer
       @response_store
     end
 
-    def use_escape_button(use_escape_button) # rubocop:disable Style/TrivialAccessors
-      @use_escape_button = use_escape_button
+    def use_hide_this_page_button(use_hide_this_page_button) # rubocop:disable Style/TrivialAccessors
+      @use_hide_this_page_button = use_hide_this_page_button
     end
 
-    def use_escape_button?
+    def use_hide_this_page_button?
       raise NonSessionBasedFlow, "This flow is not session-based" unless response_store == :session
 
-      ActiveModel::Type::Boolean.new.cast(@use_escape_button)
+      ActiveModel::Type::Boolean.new.cast(@use_hide_this_page_button)
     end
 
-    def show_escape_link?
-      response_store == :session && use_escape_button?
+    def show_hide_this_page_banner?
+      response_store == :session && use_hide_this_page_button?
     end
 
     def hide_previous_answers_on_results_page(hide_previous_answers_on_results_page) # rubocop:disable Style/TrivialAccessors

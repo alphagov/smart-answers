@@ -1,8 +1,8 @@
-function EscapeLink ($module) {
+function HideThisPageBanner ($module) {
   this.$module = $module
 }
 
-EscapeLink.prototype.init = function () {
+HideThisPageBanner.prototype.init = function () {
   var $module = this.$module
 
   if (!$module) {
@@ -11,7 +11,7 @@ EscapeLink.prototype.init = function () {
   $module.addEventListener('click', this.handleClick.bind(this))
 }
 
-EscapeLink.prototype.handleClick = function (event) {
+HideThisPageBanner.prototype.handleClick = function (event) {
   event.preventDefault()
 
   var url = event.target.getAttribute('href')
@@ -21,14 +21,14 @@ EscapeLink.prototype.handleClick = function (event) {
   this.replaceCurrentPage(url)
 }
 
-EscapeLink.prototype.openNewPage = function (url, rel) {
+HideThisPageBanner.prototype.openNewPage = function (url, rel) {
   var newWindow = window.open(url, rel)
   newWindow.opener = null
 }
 
-EscapeLink.prototype.replaceCurrentPage = function (url) {
+HideThisPageBanner.prototype.replaceCurrentPage = function (url) {
   window.location.replace(url)
 }
 
-var $escapeLink = document.querySelector('[data-module="app-escape-link"]')
-new EscapeLink($escapeLink).init()
+var $hideThisPageBanner = document.querySelector('[data-module="app-hide-this-page-banner"]')
+new HideThisPageBanner($hideThisPageBanner).init()

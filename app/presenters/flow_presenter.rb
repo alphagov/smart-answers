@@ -10,8 +10,8 @@ class FlowPresenter
            :content_id,
            :response_store,
            :questions,
-           :use_escape_button?,
-           :show_escape_link?,
+           :use_hide_this_page_button?,
+           :show_hide_this_page_banner?,
            :hide_previous_answers_on_results_page?,
            to: :flow
 

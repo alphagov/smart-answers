@@ -25,39 +25,39 @@ class FlowTest < ActiveSupport::TestCase
 
   test "cannot use the escape button if the response store isn't session" do
     smart_answer = SmartAnswer::Flow.new do
-      use_escape_button true
+      use_hide_this_page_button true
     end
 
     assert_raises SmartAnswer::Flow::NonSessionBasedFlow do
-      smart_answer.use_escape_button?
+      smart_answer.use_hide_this_page_button?
     end
   end
 
   test "can use the escape button when response store is session" do
     smart_answer = SmartAnswer::Flow.new do
       response_store :session
-      use_escape_button true
+      use_hide_this_page_button true
     end
 
-    assert smart_answer.use_escape_button?
+    assert smart_answer.use_hide_this_page_button?
   end
 
   test "can set a flag to use the escape button with a string" do
     smart_answer = SmartAnswer::Flow.new do
       response_store :session
-      use_escape_button "yes"
+      use_hide_this_page_button "yes"
     end
 
-    assert smart_answer.use_escape_button?
+    assert smart_answer.use_hide_this_page_button?
   end
 
   test "can set a flag not to use the escape button with a string" do
     smart_answer = SmartAnswer::Flow.new do
       response_store :session
-      use_escape_button "false"
+      use_hide_this_page_button "false"
     end
 
-    assert_not smart_answer.use_escape_button?
+    assert_not smart_answer.use_hide_this_page_button?
   end
 
   test "defaults to not use the escape button" do
@@ -65,7 +65,7 @@ class FlowTest < ActiveSupport::TestCase
       response_store :session
     end
 
-    assert_not smart_answer.use_escape_button?
+    assert_not smart_answer.use_hide_this_page_button?
   end
 
   test "can set flag to hide previous answers on results page" do

@@ -6,9 +6,9 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% content_for :escape_link do %>
-  <% if @presenter.show_escape_link? %>
-    <%= render "components/escape-link", {
+<% content_for :hide_this_page_banner do %>
+  <% if @presenter.show_hide_this_page_banner? %>
+    <%= render "components/hide-this-page-banner", {
       link_url: destroy_flow_path(ext_r: "true")
     } %>
   <% end %>

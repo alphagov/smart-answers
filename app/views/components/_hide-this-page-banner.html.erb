@@ -2,11 +2,11 @@
   link_label ||= "Hide this page"
   aria_label ||= "Hide this page. Quick exit button, it opens BBC Weather in a new tab"
   data_attributes ||= {}
-  data_attributes[:module] = 'app-escape-link'
+  data_attributes[:module] = 'app-hide-this-page-banner'
 %>
 <%= link_to(link_label,
   link_url,
-  class: "app-c-escape-link govuk-link",
+  class: "app-c-hide-this-page-banner govuk-link",
   rel: "nofollow noreferrer noopener",
   target: "_blank",
   data: data_attributes,

@@ -7,7 +7,7 @@
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require helpers
-//= require components/escape-link
+//= require components/hide-this-page-banner
 //= require modules/track-responses
 
 window.addEventListener('DOMContentLoaded', function () {

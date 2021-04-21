@@ -1,4 +1,4 @@
-name: Escape link
+name: Hide this page banner
 description: Gives users a quick exit from a website
 body: |
   When JavaScript is disabled the link will open in a new tab so the perpetrator won’t be able to press back.
