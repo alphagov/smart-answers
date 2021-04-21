@@ -40,6 +40,18 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "self_employed_income_scheme" do
+        should "return true when self_employed is yes" do
+          @calculator.self_employed = "yes"
+          assert @calculator.show?(:self_employed_income_scheme)
+        end
+
+        should "return false when self_employed is no" do
+          @calculator.self_employed = "no"
+          assert_not @calculator.show?(:self_employed_income_scheme)
+        end
+      end
+
       context "retail_hospitality_leisure_business_rates" do
         setup do
           @calculator.business_based = "england"

@@ -8,6 +8,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
       non_domestic_property: "Does your business have any rateable non-domestic property?",
       paye_scheme: "Are you an employer with a PAYE scheme?",
       sectors: "Select your type of business",
+      self_employed: "Are you self-employed?",
       self_assessment_july_2020: "Are you due to pay a Self Assessment payment on account by 31 July 2020?",
       what_size_was_your_buisness: "What size was your business as of 28 February?",
       closed_by_restrictions: "Has your business closed by law because of coronavirus?",
@@ -36,6 +37,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
     answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
     answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
     answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
+    answer(question: headings[:self_employed], of_type: :radio, with: answers[:yes])
     answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
     answer(question: headings[:sectors], of_type: :checkbox, with: answers[:non_adult])
     answer(question: headings[:closed_by_restrictions], of_type: :checkbox, with: answers[:no])
@@ -47,6 +49,7 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
     answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
     answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
     answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
+    answer(question: headings[:self_employed], of_type: :radio, with: answers[:yes])
     answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
     answer(question: headings[:sectors], of_type: :checkbox, with: answers[:adult])
 

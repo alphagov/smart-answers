@@ -43,6 +43,18 @@ module SmartAnswer
         end
 
         next_node do
+          question :self_employed?
+        end
+      end
+
+      radio :self_employed? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.self_employed = response
+        end
+        next_node do
           question :non_domestic_property?
         end
       end
