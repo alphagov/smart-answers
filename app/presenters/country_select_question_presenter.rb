@@ -1,12 +1,10 @@
 class CountrySelectQuestionPresenter < QuestionPresenter
-  include CurrentQuestionHelper
-
   def select_options
     @node.options.map do |option|
       {
         text: option.name,
         value: option.slug,
-        selected: option.slug == prefill_value_for(self),
+        selected: option.slug == response_for_current_question,
       }
     end
   end
