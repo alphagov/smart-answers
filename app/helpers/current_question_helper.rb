@@ -18,14 +18,6 @@ module CurrentQuestionHelper
     end
   end
 
-  def prefill_value_is?(value)
-    if params[:previous_response]
-      params[:previous_response] == value
-    elsif params[:response]
-      params[:response] == value
-    end
-  end
-
   def prefill_value_for(question, attribute = nil)
     if params[:previous_response]
       response = question.to_response(params[:previous_response])
