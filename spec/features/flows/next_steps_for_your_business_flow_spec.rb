@@ -3,7 +3,6 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
     # <question name>: <text_for :title from erb>
     {
       flow_title: "Next steps for your business",
-      crn: "What is your company registration number?",
       annual_turnover: "Will your business take more than £85,000 in a 12 month period?",
       employ_someone: "Do you want to employ someone?",
       business_intent: "Does your business do any of the following?",
@@ -15,7 +14,6 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
 
   let(:answers) do
     {
-      crn: "08161564",
       annual_turnover: "Maybe in the future",
       employ_someone: "Maybe in the future",
       business_intent: "Sell goods online",
@@ -30,7 +28,6 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
   end
 
   scenario "Answers all questions" do
-    answer(question: headings[:crn], of_type: :value, with: answers[:crn])
     answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:annual_turnover])
     answer(question: headings[:employ_someone], of_type: :radio, with: answers[:employ_someone])
     answer(question: headings[:business_intent], of_type: :checkbox, with: answers[:business_intent])

@@ -7,20 +7,6 @@ module SmartAnswer
       response_store :query_parameters
 
       # ======================================================================
-      # What is your company registration number?
-      # ======================================================================
-      value_question :crn do
-        on_response do |response|
-          self.calculator = Calculators::NextStepsForYourBusinessCalculator.new
-          calculator.crn = response
-        end
-
-        next_node do
-          question :annual_turnover
-        end
-      end
-
-      # ======================================================================
       # Will your business take more than £85,000 in a 12 month period?
       # ======================================================================
       radio :annual_turnover do
@@ -29,6 +15,7 @@ module SmartAnswer
         option :not_sure
 
         on_response do |response|
+          self.calculator = Calculators::NextStepsForYourBusinessCalculator.new
           calculator.annual_turnover = response
         end
 
