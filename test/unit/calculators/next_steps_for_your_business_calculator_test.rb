@@ -9,7 +9,8 @@ module SmartAnswer::Calculators
     context "#company_exists?" do
       setup do
         @client = mock
-        CompaniesHouse::Client.stubs(:new).returns(@client)
+        NextStepsForYourBusinessCalculator.stubs(:companies_house_client)
+                                          .returns(@client)
       end
 
       should "return true if company profile is present" do
@@ -34,7 +35,8 @@ module SmartAnswer::Calculators
     context "#company_name" do
       setup do
         @client = mock
-        CompaniesHouse::Client.stubs(:new).returns(@client)
+        NextStepsForYourBusinessCalculator.stubs(:companies_house_client)
+                                          .returns(@client)
       end
 
       should "return the company name" do
