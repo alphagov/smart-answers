@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
                   :part_year_claim_dates,
                   :child_index
 
+    attr_reader :child_benefit_data
+
     NET_INCOME_THRESHOLD = 50_000
     TAX_COMMENCEMENT_DATE = Date.parse("7 Jan 2013") # special case for 2012-13, only weeks from 7th Jan 2013 are taxable
 
@@ -26,9 +28,9 @@ module SmartAnswer::Calculators
       @allowable_deductions = allowable_deductions
       @other_allowable_deductions = other_allowable_deductions
 
-      @child_benefit_data = self.class.child_benefit_data
       @part_year_claim_dates = HashWithIndifferentAccess.new
       @child_index = 0
+      @child_benefit_data = self.class.child_benefit_data
     end
 
     def self.tax_years
@@ -37,8 +39,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def self.child_benefit_data
+      @child_benefit_data ||= YAML.load_file(
+        Rails.root.join("config/smart_answers/rates/child_benefit_rates.yml"),
+      ).with_indifferent_access
+    end
+
     def benefits_claimed_amount
-      no_of_full_year_children = @children_count - @part_year_children_count
+      no_of_full_year_children = children_count - part_year_children_count
       first_child_calculated = false
       total_benefit_amount = 0
 
@@ -49,11 +57,11 @@ module SmartAnswer::Calculators
         first_child_calculated = true
       end
 
-      if @part_year_claim_dates.count.positive?
+      if part_year_claim_dates.count.positive?
         first_child = 0
 
-        @part_year_claim_dates.values.each_with_index do |child, index|
-          start_date = if (child[:start_date] < child_benefit_start_date) || ((@tax_year == 2012) && (child[:start_date] < TAX_COMMENCEMENT_DATE))
+        part_year_claim_dates.values.each_with_index do |child, index|
+          start_date = if (child[:start_date] < child_benefit_start_date) || ((tax_year == 2012) && (child[:start_date] < TAX_COMMENCEMENT_DATE))
                          child_benefit_start_date
                        else
                          child[:start_date]
@@ -92,7 +100,7 @@ module SmartAnswer::Calculators
     end
 
     def calculate_adjusted_net_income
-      (@income_details.to_f - (@allowable_deductions.to_f * 1.25) - @other_allowable_deductions.to_f)
+      (income_details.to_f - (allowable_deductions.to_f * 1.25) - other_allowable_deductions.to_f)
     end
 
     def first_child_rate_total(no_of_weeks)
@@ -108,7 +116,7 @@ module SmartAnswer::Calculators
     end
 
     def child_benefit_start_date
-      @tax_year.to_i == 2012 ? TAX_COMMENCEMENT_DATE : selected_tax_year["start_date"]
+      tax_year.to_i == 2012 ? TAX_COMMENCEMENT_DATE : selected_tax_year["start_date"]
     end
 
     def child_benefit_end_date
@@ -116,51 +124,48 @@ module SmartAnswer::Calculators
     end
 
     def selected_tax_year
-      @child_benefit_data[@tax_year]
-    end
-
-    def self.child_benefit_data
-      @child_benefit_data ||= YAML.load_file(Rails.root.join("config/smart_answers/rates/child_benefit_rates.yml")).with_indifferent_access
+      child_benefit_data[tax_year]
     end
 
     # Methods only used in calculator flow
     def store_date(date_type, response)
-      @part_year_claim_dates[child_index] = if @part_year_claim_dates[child_index].nil?
-                                              { date_type => response }
-                                            else
-                                              @part_year_claim_dates[child_index].merge!({ date_type => response })
-                                            end
+      part_year_claim_dates[child_index] = if part_year_claim_dates[child_index].nil?
+                                             { date_type => response }
+                                           else
+                                             part_year_claim_dates[child_index].merge!({ date_type => response })
+                                           end
     end
 
     def valid_number_of_children?
-      @children_count.positive? && @children_count <= 30
+      children_count.positive? && children_count <= 30
     end
 
     def valid_number_of_part_year_children?
-      @part_year_children_count.positive? && @part_year_children_count <= @children_count
+      part_year_children_count.positive? && part_year_children_count <= children_count
     end
 
     def valid_within_tax_year?(date_type)
-      @part_year_claim_dates[@child_index][date_type] >= selected_tax_year["start_date"] && @part_year_claim_dates[@child_index][date_type] <= child_benefit_end_date
+      part_year_claim_dates[child_index][date_type] >= selected_tax_year["start_date"] &&
+        part_year_claim_dates[child_index][date_type] <= child_benefit_end_date
     end
 
     def valid_end_date?
-      @part_year_claim_dates[@child_index][:end_date] > @part_year_claim_dates[@child_index][:start_date]
+      part_year_claim_dates[child_index][:end_date] > part_year_claim_dates[child_index][:start_date]
     end
 
     # Methods only used in results view
     def tax_year_label
-      end_date = @child_benefit_data[@tax_year][:end_date]
+      end_date = child_benefit_data[tax_year][:end_date]
       "#{tax_year} to #{end_date.year}"
     end
 
     def sa_register_deadline
-      end_date = @child_benefit_data[@tax_year][:end_date]
+      end_date = child_benefit_data[tax_year][:end_date]
       "5 October #{end_date.year}"
     end
 
     def tax_year_incomplete?
-      end_date = @child_benefit_data[@tax_year][:end_date]
+      end_date = child_benefit_data[tax_year][:end_date]
       end_date >= Time.zone.today
     end
   end
