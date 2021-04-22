@@ -10,7 +10,7 @@
   width: 10,
   hint: "in £",
   error_message: question.error,
-  value: prefill_value_for(question, :amount)
+  value: question.amount
 } %>
 <%= render "govuk_publishing_components/components/select", {
   id: "response_month",
