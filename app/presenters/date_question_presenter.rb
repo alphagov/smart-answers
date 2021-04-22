@@ -16,21 +16,21 @@ class DateQuestionPresenter < QuestionPresenter
     return if response_for_current_question.blank?
 
     response = to_response(response_for_current_question)
-    response[:day]
+    response[:day] if response.present?
   end
 
   def selected_month
     return if response_for_current_question.blank?
 
     response = to_response(response_for_current_question)
-    response[:month]
+    response[:month] if response.present?
   end
 
   def selected_year
     return if response_for_current_question.blank?
 
     response = to_response(response_for_current_question)
-    response[:year]
+    response[:year] if response.present?
   end
 
 private
