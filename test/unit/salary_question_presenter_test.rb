@@ -10,7 +10,6 @@ module SmartAnswer
       @presenter.stubs(:response_for_current_question).returns("4000.0-month")
     end
 
-
     context "#amount" do
       should "return the amount" do
         assert_equal "4000.0", @presenter.amount.to_s
@@ -20,6 +19,10 @@ module SmartAnswer
         @presenter.stubs(:response_for_current_question).returns(amount: "-123", period: "week")
         assert_equal "-123", @presenter.amount
       end
+    end
+
+    test "#period returns the period the salary is paid" do
+      assert_equal "month", @presenter.period
     end
   end
 end
