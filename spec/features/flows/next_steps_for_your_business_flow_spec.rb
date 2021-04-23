@@ -2,7 +2,7 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
   let(:headings) do
     # <question name>: <text_for :title from erb>
     {
-      flow_title: "Next steps for your business",
+      flow_title: "Check the next steps for your limited company",
       annual_turnover_over_85k: "Do you think your business will take more than £85,000 in a 12 month period?",
       employ_someone: "Do you want to employ someone?",
       activities: "Does your business do any of the following?",
