@@ -56,21 +56,19 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_support
+          question :financial_support
         end
       end
 
       # ======================================================================
       # Are you looking for financial support for:
       # ======================================================================
-      checkbox_question :business_support do
-        option :started_finance
-        option :growing_finance
-        option :covid_finance
-        none_option
+      radio :financial_support do
+        option :yes
+        option :no
 
         on_response do |response|
-          calculator.business_support = response.split(",")
+          calculator.financial_support = response
         end
 
         next_node do
