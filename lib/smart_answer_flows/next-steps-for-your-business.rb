@@ -38,16 +38,16 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_intent
+          question :activities
         end
       end
 
       # ======================================================================
       # Does your business do any of the following?
       # ======================================================================
-      checkbox_question :business_intent do
-        option :buy_abroad
-        option :sell_abroad
+      checkbox_question :activities do
+        option :import
+        option :export
         option :sell_online
         none_option
 
