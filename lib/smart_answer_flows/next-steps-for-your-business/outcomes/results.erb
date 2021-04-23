@@ -14,6 +14,12 @@
 <% end %>
 
 <% text_for :body do %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Things you need to do next",
+    font_size: "l",
+    border_top: 2,
+    margin_bottom: 4
+  } %>
   <% calculator.grouped_results.each do |section_name, results| %>
     <%= render "components/result-section", {
       title: section_name,
