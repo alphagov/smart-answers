@@ -114,10 +114,6 @@ module SmartAnswer::Calculators
       selected_tax_year["additional_child"] * no_of_weeks
     end
 
-    def total_number_of_mondays(child_benefit_start_date, child_benefit_end_date)
-      (child_benefit_start_date..child_benefit_end_date).count(&:monday?)
-    end
-
     def child_benefit_start_date
       tax_year.to_i == 2012 ? TAX_COMMENCEMENT_DATE : selected_tax_year["start_date"]
     end
