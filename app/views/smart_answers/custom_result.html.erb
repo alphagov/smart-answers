@@ -7,14 +7,15 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% content_for :hero do %>
-  <%= render "components/hero", {
-    title: outcome.title,
-    description: outcome.description,
-    parent_label: "Business and self-employed",
-    parent_url: "/browse/business"
-  } %>
-<% end %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/title", {
+      title: outcome.title
+    } %>
+
+    <%= tag.p outcome.description, class: "govuk-body govuk-!-margin-bottom-9" %>
+  </div>
+</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
