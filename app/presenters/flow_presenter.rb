@@ -78,6 +78,11 @@ class FlowPresenter
     @node_presenters[node.name] ||= presenter_class.new(node, self, current_state, {}, params)
   end
 
+  def response_for_current_question
+    responses = params[:responses]
+    responses[current_state.current_node.to_s]
+  end
+
   def current_question_number
     current_state.path.size + 1
   end

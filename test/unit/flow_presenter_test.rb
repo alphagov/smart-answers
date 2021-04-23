@@ -134,6 +134,15 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
   end
 
+  context "#response_for_current_question" do
+    should "get the response for the current page for session-based smart-answers" do
+      @flow.response_store(:session)
+      params = { id: @flow.name, node_name: "first_question_key", responses: { "first_question_key" => "question-1-answer", "second_question_key" => "question-2-answer" } }
+      flow_presenter = FlowPresenter.new(params, @flow)
+      assert_equal("question-1-answer", flow_presenter.response_for_current_question)
+    end
+  end
+
   context "#normalize_responses_param" do
     should "return empty array when no responses in params" do
       params = {}
