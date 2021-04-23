@@ -2,11 +2,11 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
   let(:headings) do
     # <question name>: <text_for :title from erb>
     {
-      flow_title: "Next steps for your business",
-      annual_turnover: "Will your business take more than £85,000 in a 12 month period?",
+      flow_title: "Check the next steps for your limited company",
+      annual_turnover_over_85k: "Do you think your business will take more than £85,000 in a 12 month period?",
       employ_someone: "Do you want to employ someone?",
-      business_intent: "Does your business do any of the following?",
-      business_support: "Are you looking for financial support for:",
+      activities: "Does your business do any of the following?",
+      financial_support: "Are you looking for financial support for?",
       business_premises: "Where are you running your business?",
       results: "Next steps for your business",
     }
@@ -14,10 +14,10 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
 
   let(:answers) do
     {
-      annual_turnover: "Maybe in the future",
+      annual_turnover_over_85k: "Yes",
       employ_someone: "Maybe in the future",
-      business_intent: "Sell goods online",
-      business_support: "Growing your business",
+      activities: "Sell items or services online",
+      financial_support: "Yes",
       business_premises: "From home",
     }
   end
@@ -28,11 +28,11 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
   end
 
   scenario "Answers all questions" do
-    answer(question: headings[:annual_turnover], of_type: :radio, with: answers[:annual_turnover])
+    answer(question: headings[:annual_turnover_over_85k], of_type: :radio, with: answers[:annual_turnover_over_85k])
     answer(question: headings[:employ_someone], of_type: :radio, with: answers[:employ_someone])
-    answer(question: headings[:business_intent], of_type: :checkbox, with: answers[:business_intent])
-    answer(question: headings[:business_support], of_type: :checkbox, with: answers[:business_support])
-    answer(question: headings[:business_premises], of_type: :radio, with: answers[:business_premises])
+    answer(question: headings[:activities], of_type: :checkbox, with: answers[:activities])
+    answer(question: headings[:financial_support], of_type: :radio, with: answers[:financial_support])
+    answer(question: headings[:business_premises], of_type: :checkbox, with: answers[:business_premises])
 
     ensure_page_has(header: headings[:results])
   end

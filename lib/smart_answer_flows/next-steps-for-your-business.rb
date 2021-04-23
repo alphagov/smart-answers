@@ -9,9 +9,9 @@ module SmartAnswer
       # ======================================================================
       # Will your business take more than £85,000 in a 12 month period?
       # ======================================================================
-      radio :annual_turnover do
-        option :more_than_85k
-        option :less_than_85k
+      radio :annual_turnover_over_85k do
+        option :yes
+        option :no
         option :not_sure
 
         on_response do |response|
@@ -38,16 +38,16 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_intent
+          question :activities
         end
       end
 
       # ======================================================================
       # Does your business do any of the following?
       # ======================================================================
-      checkbox_question :business_intent do
-        option :buy_abroad
-        option :sell_abroad
+      checkbox_question :activities do
+        option :import
+        option :export
         option :sell_online
         none_option
 
@@ -56,21 +56,19 @@ module SmartAnswer
         end
 
         next_node do
-          question :business_support
+          question :financial_support
         end
       end
 
       # ======================================================================
       # Are you looking for financial support for:
       # ======================================================================
-      checkbox_question :business_support do
-        option :started_finance
-        option :growing_finance
-        option :covid_finance
-        none_option
+      radio :financial_support do
+        option :yes
+        option :no
 
         on_response do |response|
-          calculator.business_support = response.split(",")
+          calculator.financial_support = response
         end
 
         next_node do
@@ -81,13 +79,14 @@ module SmartAnswer
       # ======================================================================
       # Where are you running your business?
       # ======================================================================
-      radio :business_premises do
+      checkbox_question :business_premises do
         option :home
-        option :renting
-        option :elsewhere
+        option :rented
+        option :owned
+        none_option
 
         on_response do |response|
-          calculator.business_premises = response
+          calculator.business_premises = response.split(",")
         end
 
         next_node do

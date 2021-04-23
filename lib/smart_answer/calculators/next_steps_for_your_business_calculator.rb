@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
                   :annual_turnover,
                   :employ_someone,
                   :business_intent,
-                  :business_support,
+                  :financial_support,
                   :business_premises
 
     def grouped_results

@@ -5,16 +5,15 @@
 %>
 
 <% text_for :title do %>
-  Are you looking for financial support for:
+  Do you think your business will take more than £85,000 in a 12 month period?
 <% end %>
 
 <% text_for :hint do %>
-  Select all that apply
+  Your answer will not be shared with anyone.
 <% end %>
 
 <% options(
-  "started_finance": "Getting started",
-  "growing_finance": "Growing your business",
-  "covid_finance": "Coronavirus",
-  "none": "None of the above",
+  "yes": "Yes",
+  "no": "No",
+  "not_sure": "Not sure",
 ) %>
