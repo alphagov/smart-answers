@@ -5,11 +5,15 @@
 %>
 
 <% text_for :title do %>
-  Will your business take more than £85,000 in a 12 month period?
+  Do you think your business will take more than £85,000 in a 12 month period?
+<% end %>
+
+<% text_for :hint do %>
+  Your answer will not be shared with anyone.
 <% end %>
 
 <% options(
-  "more_than_85k": "Yes",
-  "less_than_85k": "No",
-  "not_sure": "Maybe in the future",
+  "yes": "Yes",
+  "no": "No",
+  "not_sure": "Not sure",
 ) %>

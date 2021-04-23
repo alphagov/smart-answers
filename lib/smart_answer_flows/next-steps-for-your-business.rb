@@ -9,9 +9,9 @@ module SmartAnswer
       # ======================================================================
       # Will your business take more than £85,000 in a 12 month period?
       # ======================================================================
-      radio :annual_turnover do
-        option :more_than_85k
-        option :less_than_85k
+      radio :annual_turnover_over_85k do
+        option :yes
+        option :no
         option :not_sure
 
         on_response do |response|
