@@ -32,7 +32,7 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
     answer(question: headings[:employ_someone], of_type: :radio, with: answers[:employ_someone])
     answer(question: headings[:activities], of_type: :checkbox, with: answers[:activities])
     answer(question: headings[:financial_support], of_type: :radio, with: answers[:financial_support])
-    answer(question: headings[:business_premises], of_type: :radio, with: answers[:business_premises])
+    answer(question: headings[:business_premises], of_type: :checkbox, with: answers[:business_premises])
 
     ensure_page_has(header: headings[:results])
   end

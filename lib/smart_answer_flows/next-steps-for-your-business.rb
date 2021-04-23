@@ -79,13 +79,14 @@ module SmartAnswer
       # ======================================================================
       # Where are you running your business?
       # ======================================================================
-      radio :business_premises do
+      checkbox_question :business_premises do
         option :home
-        option :renting
-        option :elsewhere
+        option :rented
+        option :owned
+        none_option
 
         on_response do |response|
-          calculator.business_premises = response
+          calculator.business_premises = response.split(",")
         end
 
         next_node do
