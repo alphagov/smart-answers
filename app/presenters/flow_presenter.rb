@@ -79,8 +79,15 @@ class FlowPresenter
   end
 
   def response_for_current_question
-    responses = params[:responses]
-    responses[current_state.current_node.to_s]
+    if response_store
+      responses = params[:responses]
+      responses[current_state.current_node.to_s]
+    elsif params[:previous_response].present?
+      params[:previous_response]
+    else
+      question_number = current_state.path.size
+      all_responses[question_number]
+    end
   end
 
   def current_question_number
