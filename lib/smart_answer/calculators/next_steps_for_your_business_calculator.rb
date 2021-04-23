@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
                   :business_premises
 
     def grouped_results
-      RESULT_DATA.group_by { |result| result["section_name"] }
+      RESULT_DATA.group_by { |result| result["topic"] }
     end
   end
 end
