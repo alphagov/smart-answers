@@ -269,6 +269,58 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "calculating for partial children benefit years" do
+        should "give the total amount for a partial tax year for two children" do
+          calculator = ChildBenefitTaxCalculator.new(
+            income_details: 70_000,
+            tax_year: "2017",
+            children_count: 2,
+            part_year_children_count: 2,
+          )
+
+          calculator.part_year_claim_dates = {
+            "0" => { # 2 weeks/Mondays
+              start_date: Date.parse("2017-04-06"),
+              end_date: Date.parse("2017-04-23"),
+            },
+            "1" => { # 48 weeks/mondays
+              start_date: Date.parse("2017-04-06"),
+              end_date: Date.parse("2018-03-05"),
+            },
+          }
+          assert_equal 1021.0, calculator.benefits_claimed_amount.round(2)
+        end
+
+        should "gives the total amount for a partial tax year for more than two children" do
+          calculator = ChildBenefitTaxCalculator.new(
+            income_details: 70_000,
+            tax_year: "2017",
+            children_count: 2,
+            part_year_children_count: 2,
+          )
+
+          calculator.part_year_claim_dates = {
+            "0" => { # 2 weeks/Mondays #
+              start_date: Date.parse("2017-04-06"),
+              end_date: Date.parse("2017-04-23"),
+            },
+            "1" => { # 48 weeks/Mondays
+              start_date: Date.parse("2017-04-06"),
+              end_date: Date.parse("2018-03-05"),
+            },
+            "2" => { # 10 weeks/Mondays
+              start_date: Date.parse("2017-04-06"),
+              end_date: Date.parse("2017-06-15"),
+            },
+            "3" => { # 12 weeks/Mondays
+              start_date: Date.parse("2017-08-15"),
+              end_date: Date.parse("2017-11-07"),
+            },
+          }
+          assert_equal 1322.4, calculator.benefits_claimed_amount.round(2)
+        end
+      end
+
       context "calculating child benefits received" do
         context "for the tax year 2012" do
           should "give the total amount of benefits received for a full tax year 2012" do

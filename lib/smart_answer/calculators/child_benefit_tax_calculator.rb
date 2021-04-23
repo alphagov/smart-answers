@@ -47,42 +47,45 @@ module SmartAnswer::Calculators
 
     def benefits_claimed_amount
       no_of_full_year_children = children_count - part_year_children_count
-      first_child_calculated = false
       total_benefit_amount = 0
 
       if no_of_full_year_children.positive?
-        no_of_weeks = total_number_of_mondays(child_benefit_start_date, child_benefit_end_date)
+        child_benefit_days = (child_benefit_start_date..child_benefit_end_date).to_a
+        no_of_weeks = child_benefit_days.select(&:monday?).count
         no_of_additional_children = no_of_full_year_children - 1
-        total_benefit_amount = first_child_rate_total(no_of_weeks) + additional_child_rate_total(no_of_weeks, no_of_additional_children)
-        first_child_calculated = true
+        additional_children_rate = additional_children_rate_total(no_of_weeks * no_of_additional_children)
+        total_benefit_amount += (only_child_rate_total(no_of_weeks) + additional_children_rate)
+        only_child_calculated = true
       end
 
       if part_year_claim_dates.count.positive?
-        first_child = 0
+        part_year_claim_dates.each_value do |child|
+          child[:end_date] = child[:end_date] || child_benefit_end_date
 
-        part_year_claim_dates.values.each_with_index do |child, index|
-          start_date = if (child[:start_date] < child_benefit_start_date) || ((tax_year == 2012) && (child[:start_date] < TAX_COMMENCEMENT_DATE))
-                         child_benefit_start_date
-                       else
-                         child[:start_date]
-                       end
-
-          end_date = if child[:end_date].nil?
-                       child_benefit_end_date
-                     else
-                       child[:end_date]
-                     end
-
-          no_of_weeks = total_number_of_mondays(start_date, end_date)
-
-          total_benefit_amount = if index.equal?(first_child) && (first_child_calculated == false)
-                                   total_benefit_amount + first_child_rate_total(no_of_weeks)
-                                 else
-                                   total_benefit_amount + additional_child_rate_total(no_of_weeks, 1)
-                                 end
+          if (tax_year == "2012") && (child[:start_date] < TAX_COMMENCEMENT_DATE)
+            child[:start_date] = child_benefit_start_date
+          end
         end
+
+        total_benefit_amount += partial_child_benefit(only_child_calculated)
       end
+
       total_benefit_amount.to_f
+    end
+
+    def partial_child_benefit(only_child_calculated)
+      benefit_mondays = part_year_claim_dates.values.flat_map do |dates|
+        (dates[:start_date]..dates[:end_date]).select(&:monday?)
+      end
+
+      if only_child_calculated
+        additional_children_rate_total(benefit_mondays.count)
+      else
+        only_child_weeks = benefit_mondays.uniq.count
+        additional_children_weeks = benefit_mondays.count - only_child_weeks
+
+        only_child_rate_total(only_child_weeks) + additional_children_rate_total(additional_children_weeks)
+      end
     end
 
     def tax_estimate
@@ -103,12 +106,12 @@ module SmartAnswer::Calculators
       (income_details.to_f - (allowable_deductions.to_f * 1.25) - other_allowable_deductions.to_f)
     end
 
-    def first_child_rate_total(no_of_weeks)
-      selected_tax_year["first_child"] * no_of_weeks
+    def only_child_rate_total(no_of_weeks)
+      selected_tax_year["only_child"] * no_of_weeks
     end
 
-    def additional_child_rate_total(no_of_weeks, no_of_children)
-      selected_tax_year["additional_child"] * no_of_children * no_of_weeks
+    def additional_children_rate_total(no_of_weeks)
+      selected_tax_year["additional_child"] * no_of_weeks
     end
 
     def total_number_of_mondays(child_benefit_start_date, child_benefit_end_date)
