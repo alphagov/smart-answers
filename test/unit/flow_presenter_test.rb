@@ -8,7 +8,12 @@ class FlowPresenterTest < ActiveSupport::TestCase
   setup do
     @flow = SmartAnswer::Flow.new do
       name "flow-name"
-      value_question :first_question_key
+      value_question :first_question_key do
+        next_node { question :second_question_key }
+      end
+      value_question :second_question_key do
+        next_node { outcome :outcome_key }
+      end
     end
     params = {}
     @flow_presenter = FlowPresenter.new(params, @flow)
@@ -100,32 +105,30 @@ class FlowPresenterTest < ActiveSupport::TestCase
 
   context "#change_collapsed_question_link" do
     should "with smart answer" do
-      flow = flow_registry.find("calculate-your-holiday-entitlement")
-      params = { responses: "days-worked-per-week/starting", id: "calculate-your-holiday-entitlement" }
-      flow_presenter = FlowPresenter.new(params, flow)
+      params = { responses: "question-1-answer/question-2-answer", id: @flow.name }
+      flow_presenter = FlowPresenter.new(params, @flow)
       questions = flow_presenter.collapsed_questions
       assert_equal(
-        "/calculate-your-holiday-entitlement/y?previous_response=days-worked-per-week",
+        "/#{@flow.name}/y?previous_response=question-1-answer",
         flow_presenter.change_collapsed_question_link(1, questions.first),
       )
       assert_equal(
-        "/calculate-your-holiday-entitlement/y/days-worked-per-week?previous_response=starting",
+        "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
         flow_presenter.change_collapsed_question_link(2, questions.first),
       )
       assert_equal(
-        "/calculate-your-holiday-entitlement/y/days-worked-per-week?previous_response=starting",
+        "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
         flow_presenter.change_collapsed_question_link(2, questions.last),
       )
     end
 
     should "with session answer" do
-      name = "find-coronavirus-support"
-      flow = flow_registry.find(name)
-      params = { id: name }
-      flow_presenter = FlowPresenter.new(params, flow)
+      @flow.response_store(:session)
+      params = { id: @flow.name }
+      flow_presenter = FlowPresenter.new(params, @flow)
       question = OpenStruct.new(node_slug: "foo")
       assert_equal(
-        flow_presenter.flow_path(name, question.node_slug),
+        flow_presenter.flow_path(@flow.name, question.node_slug),
         flow_presenter.change_collapsed_question_link(1, question),
       )
     end
