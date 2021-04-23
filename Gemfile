@@ -5,7 +5,6 @@ ruby File.read(".ruby-version").chomp
 gem "rails", "6.0.3.2"
 
 gem "ast"
-gem "companies-house-rest"
 gem "gds-api-adapters"
 gem "gds_zendesk"
 gem "govspeak"
