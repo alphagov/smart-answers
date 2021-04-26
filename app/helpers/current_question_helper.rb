@@ -17,21 +17,4 @@ module CurrentQuestionHelper
       smart_answer_path(presenter.name)
     end
   end
-
-  def prefill_value_for(question, attribute = nil)
-    if params[:previous_response]
-      response = question.to_response(params[:previous_response])
-    elsif params[:response]
-      response = params[:response]
-    end
-    if response.present? && attribute
-      begin
-        response[attribute]
-      rescue TypeError
-        response
-      end
-    else
-      response
-    end
-  end
 end
