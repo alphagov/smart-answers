@@ -59,15 +59,10 @@ private
   end
 
   def page_type
-    if @presenter.started?
-      if @presenter.finished?
-        :result
-      else
-        :question
-      end
-    else
-      :landing
-    end
+    return :landing unless params[:started]
+    return :result if @presenter.finished?
+
+    :question
   end
   helper_method :page_type
 

@@ -25,10 +25,6 @@ class FlowPresenter
     @node_presenters = {}
   end
 
-  def started?
-    params.key?(:started)
-  end
-
   def finished?
     current_node.outcome?
   end
