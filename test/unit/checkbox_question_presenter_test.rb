@@ -29,7 +29,7 @@ module SmartAnswer
       assert_equal(%w[option1 option2 option3], @presenter.checkboxes.map { |c| c[:value] })
       assert_equal(["Option 1", "Option 2", "Option 3"], @presenter.checkboxes.map { |c| c[:label] })
       assert_equal([nil, "Hint 2", nil], @presenter.checkboxes.map { |c| c[:hint] })
-      assert_equal([nil, nil, nil], @presenter.checkboxes.map { |c| c[:checked] })
+      assert_equal([false, false, false], @presenter.checkboxes.map { |c| c[:checked] })
     end
 
     test "#checkboxes return array including an or divider for none options" do
@@ -37,11 +37,11 @@ module SmartAnswer
       @renderer.stubs(:option).with(:none).returns({ label: "None" })
 
       expected_value = [
-        { label: "Option 1", value: "option1", hint: nil, checked: nil, exclusive: nil },
-        { label: "Option 2", value: "option2", hint: "Hint 2", checked: nil, exclusive: nil },
-        { label: "Option 3", value: "option3", hint: nil, checked: nil, exclusive: nil },
+        { label: "Option 1", value: "option1", hint: nil, checked: false, exclusive: nil },
+        { label: "Option 2", value: "option2", hint: "Hint 2", checked: false, exclusive: nil },
+        { label: "Option 3", value: "option3", hint: nil, checked: false, exclusive: nil },
         :or,
-        { label: "None", value: "none", hint: nil, checked: nil, exclusive: true },
+        { label: "None", value: "none", hint: nil, checked: false, exclusive: true },
       ]
 
       assert_equal expected_value, @presenter.checkboxes
@@ -52,6 +52,21 @@ module SmartAnswer
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
       assert_equal "caption-text", @presenter.caption
+    end
+
+    context "#checked?" do
+      should "return true if values were previously selected" do
+        @presenter.stubs(:response_for_current_question).returns(%w[option1 option2])
+        assert @presenter.checked?("option2")
+      end
+
+      should "return false if no values have been selected" do
+        @presenter.stubs(:response_for_current_question).returns(nil)
+
+        %w[option1 option2 option3 none].each do |option|
+          assert_not @presenter.checked?(option)
+        end
+      end
     end
   end
 end

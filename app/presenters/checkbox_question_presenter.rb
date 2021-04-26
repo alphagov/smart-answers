@@ -34,4 +34,10 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
       }
     end
   end
+
+  def checked?(value)
+    return false if response_for_current_question.blank?
+
+    response_for_current_question.include?(value)
+  end
 end
