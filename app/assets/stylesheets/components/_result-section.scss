@@ -1,5 +1,5 @@
 .app-c-result-section {
   @include govuk-font($size: 19);
+  @include govuk-responsive-padding(4, 'top');
   border-top: 1px solid $govuk-border-colour;
-  padding-top: govuk-spacing(6);
 }
