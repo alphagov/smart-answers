@@ -15,6 +15,7 @@ module SmartAnswer
       @renderer.stubs(:option).with(:option3).returns({ label: "Option 3" })
 
       @presenter = CheckboxQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
+      @presenter.stubs(:response_for_current_question).returns(nil)
     end
 
     test "#response_labels returns option labels for responses" do
