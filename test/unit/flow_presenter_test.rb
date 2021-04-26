@@ -153,6 +153,22 @@ class FlowPresenterTest < ActiveSupport::TestCase
       flow_presenter = FlowPresenter.new(params, @flow)
       assert_nil(flow_presenter.response_for_current_question)
     end
+
+    should "format the response for checkbox questions" do
+      flow = SmartAnswer::Flow.new do
+        name "flow-name"
+        checkbox_question :first_question_key do
+          next_node { outcome :second_question_key }
+        end
+        value_question :second_question_key do
+          next_node { outcome :outcome_key }
+        end
+      end
+      params = { id: flow.name, responses: "question-1-answer", previous_response: "question-2-answer-a,question-2-answer-b" }
+      flow_presenter = FlowPresenter.new(params, flow)
+
+      assert_equal(["question-2-answer-a", "question-2-answer-b"], flow_presenter.response_for_current_question)
+    end
   end
 
   context "#normalize_responses_param" do

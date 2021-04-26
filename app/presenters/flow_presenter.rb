@@ -83,7 +83,7 @@ class FlowPresenter
       responses = params[:responses]
       responses[current_state.current_node.to_s]
     elsif params[:previous_response].present?
-      params[:previous_response]
+      current_node.to_response(params[:previous_response])
     else
       question_number = current_state.path.size
       all_responses[question_number]
