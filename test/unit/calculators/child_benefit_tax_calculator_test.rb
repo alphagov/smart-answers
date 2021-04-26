@@ -806,31 +806,6 @@ module SmartAnswer::Calculators
             assert_equal 621.0, calculator.benefits_claimed_amount.round(2)
           end
 
-          should "set the start date to start of the selected tax year" do
-            calculator = ChildBenefitTaxCalculator.new(
-              tax_year: "2016",
-              children_count: 1,
-            )
-
-            assert_equal Date.parse("06 April 2016"), calculator.child_benefit_start_date
-            assert_equal Date.parse("05 April 2017"), calculator.child_benefit_end_date
-          end
-
-          should "set the stop date to end of the selected tax year" do
-            calculator = ChildBenefitTaxCalculator.new(
-              tax_year: "2016",
-              children_count: 1,
-              part_year_children_count: 1,
-            )
-            calculator.part_year_claim_dates = {
-              "0" => {
-                start_date: Date.parse("06-04-2016"),
-              },
-            }
-
-            assert_equal Date.parse("05 April 2017"), calculator.child_benefit_end_date
-          end
-
           should "correctly calculate the benefit amount for multiple full year and part year children" do
             calculator = ChildBenefitTaxCalculator.new(
               tax_year: "2016",
