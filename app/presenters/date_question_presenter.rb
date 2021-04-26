@@ -1,6 +1,4 @@
 class DateQuestionPresenter < QuestionPresenter
-  include CurrentQuestionHelper
-
   delegate :default_day,
            :default_month,
            :default_year,
@@ -15,15 +13,21 @@ class DateQuestionPresenter < QuestionPresenter
   end
 
   def selected_day
-    prefill_value_for(self, :day)
+    return if response_for_current_question.blank?
+
+    response_for_current_question[:day]
   end
 
   def selected_month
-    prefill_value_for(self, :month)
+    return if response_for_current_question.blank?
+
+    response_for_current_question[:month]
   end
 
   def selected_year
-    prefill_value_for(self, :year)
+    return if response_for_current_question.blank?
+
+    response_for_current_question[:year]
   end
 
 private
