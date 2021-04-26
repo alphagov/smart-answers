@@ -16,7 +16,7 @@ module SmartAnswer
 
         on_response do |response|
           self.calculator = Calculators::NextStepsForYourBusinessCalculator.new
-          calculator.annual_turnover = response
+          calculator.annual_turnover_over_85k = response
         end
 
         next_node do
@@ -28,13 +28,13 @@ module SmartAnswer
       # Do you want to employ someone?
       # ======================================================================
       radio :employ_someone do
+        option :in_future
         option :yes
-        option :already_employ
         option :no
         option :not_sure
 
         on_response do |response|
-          calculator.employ_someone = response
+          calculator.employer = response
         end
 
         next_node do
@@ -46,13 +46,13 @@ module SmartAnswer
       # Does your business do any of the following?
       # ======================================================================
       checkbox_question :activities do
-        option :import
-        option :export
+        option :import_goods
+        option :export_goods_or_services
         option :sell_online
         none_option
 
         on_response do |response|
-          calculator.business_intent = response.split(",")
+          calculator.activities = response.split(",")
         end
 
         next_node do
@@ -68,7 +68,7 @@ module SmartAnswer
         option :no
 
         on_response do |response|
-          calculator.financial_support = response
+          calculator.needs_financial_support = response
         end
 
         next_node do
