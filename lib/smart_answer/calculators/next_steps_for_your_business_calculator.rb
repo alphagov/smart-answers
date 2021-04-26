@@ -7,11 +7,10 @@ module SmartAnswer::Calculators
   class NextStepsForYourBusinessCalculator
     RESULT_DATA = YAML.load_file(Rails.root.join("config/smart_answers/next_steps_for_your_business.yml")).freeze
 
-    attr_accessor :crn,
-                  :annual_turnover,
-                  :employ_someone,
-                  :business_intent,
-                  :financial_support,
+    attr_accessor :annual_turnover_over_85k,
+                  :employer,
+                  :activities,
+                  :needs_financial_support,
                   :business_premises
 
     def grouped_results
