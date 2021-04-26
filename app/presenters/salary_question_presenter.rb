@@ -10,4 +10,10 @@ class SalaryQuestionPresenter < QuestionPresenter
 
     response_for_current_question[:amount]
   end
+
+  def period
+    return if response_for_current_question.blank?
+
+    response_for_current_question[:period]
+  end
 end

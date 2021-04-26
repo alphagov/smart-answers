@@ -21,5 +21,8 @@ module SmartAnswer
       end
     end
 
+    test "#period returns the period the salary is paid" do
+      assert_equal "month", @presenter.period
+    end
   end
 end
