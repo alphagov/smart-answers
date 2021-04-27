@@ -44,15 +44,4 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow" do
 
     ensure_page_has(header: headings[:results])
   end
-
-  scenario "Skip last question if business type nightclubs" do
-    answer(question: headings[:business_based], of_type: :radio, with: answers[:england])
-    answer(question: headings[:business_size], of_type: :radio, with: answers[:employees])
-    answer(question: headings[:paye_scheme], of_type: :radio, with: answers[:yes])
-    answer(question: headings[:self_employed], of_type: :radio, with: answers[:yes])
-    answer(question: headings[:non_domestic_property], of_type: :radio, with: answers[:property])
-    answer(question: headings[:sectors], of_type: :checkbox, with: answers[:adult])
-
-    ensure_page_has(header: headings[:results])
-  end
 end
