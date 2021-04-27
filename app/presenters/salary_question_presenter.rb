@@ -6,13 +6,13 @@ class SalaryQuestionPresenter < QuestionPresenter
   end
 
   def amount
-    return if response_for_current_question.blank?
+    return response_for_current_question unless response_for_current_question.is_a? Hash
 
     response_for_current_question[:amount]
   end
 
   def period
-    return if response_for_current_question.blank?
+    return unless response_for_current_question.is_a? Hash
 
     response_for_current_question[:period]
   end
