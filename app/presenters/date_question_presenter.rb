@@ -13,19 +13,19 @@ class DateQuestionPresenter < QuestionPresenter
   end
 
   def selected_day
-    return if response_for_current_question.blank?
+    return unless response_for_current_question.is_a? Hash
 
     response_for_current_question[:day]
   end
 
   def selected_month
-    return if response_for_current_question.blank?
+    return unless response_for_current_question.is_a? Hash
 
     response_for_current_question[:month]
   end
 
   def selected_year
-    return if response_for_current_question.blank?
+    return unless response_for_current_question.is_a? Hash
 
     response_for_current_question[:year]
   end
