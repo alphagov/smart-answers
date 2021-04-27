@@ -125,6 +125,10 @@ module SmartAnswer
       @nodes.find { |n| n.name == node_or_name.to_sym } || raise("Node '#{node_or_name}' does not exist")
     end
 
+    def start_node
+      Node.new(self, name.underscore.to_sym)
+    end
+
     def start_state
       State.new(questions.first.name).freeze
     end

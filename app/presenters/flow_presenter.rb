@@ -95,8 +95,7 @@ class FlowPresenter
   end
 
   def start_node
-    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    @start_node ||= StartNodePresenter.new(node)
+    @start_node ||= StartNodePresenter.new(@flow.start_node)
   end
 
   def change_collapsed_question_link(question_number, question)
