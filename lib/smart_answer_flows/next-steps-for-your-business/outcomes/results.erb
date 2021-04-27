@@ -14,17 +14,19 @@
 <% end %>
 
 <% text_for :body do %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: "Things you need to do next",
-    font_size: "l",
-    border_top: 2,
-    margin_bottom: 4
-  } %>
-  <% calculator.grouped_results.each do |section_name, results| %>
-    <%= render "components/result-section", {
-      title: section_name,
-      results: results,
-      highlighted: true
+  <% calculator.grouped_results.each do |group, topics| %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: group,
+      font_size: "l",
+      border_top: 2,
+      padding: true
     } %>
+    <% topics.each do |topic, results| %>
+      <%= render "components/result-section", {
+        title: topic,
+        results: results,
+        highlighted: true
+      } %>
+    <% end %>
   <% end %>
 <% end %>

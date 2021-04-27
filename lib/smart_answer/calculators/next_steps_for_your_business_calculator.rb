@@ -14,7 +14,11 @@ module SmartAnswer::Calculators
                   :business_premises
 
     def grouped_results
-      filtered_results.group_by { |result| result["topic"] }
+      grouped_results = filtered_results.group_by { |result| result["group"] }
+
+      grouped_results.transform_values do |results|
+        results.group_by { |result| result["topic"] }
+      end
     end
 
     def filtered_results
