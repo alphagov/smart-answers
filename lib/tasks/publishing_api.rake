@@ -1,18 +1,19 @@
 namespace :publishing_api do
   desc "Sync all smart answers with the Publishing API"
   task sync_all: [:environment] do
-    flow_presenters = RegisterableSmartAnswers.new.flow_presenters
-    ContentItemSyncer.new.sync(flow_presenters)
+    flows = SmartAnswer::FlowRegistry.instance.flows
+    ContentItemSyncer.new.sync(flows)
   end
 
   desc "Sync a single smart answer with the Publishing API"
   task :sync, %i[slug] => [:environment] do |_, args|
-    flow_presenters = RegisterableSmartAnswers.new.flow_presenters
-    ContentItemSyncer.new.sync(
-      flow_presenters.select do |presenter|
-        presenter.name == args[:slug]
-      end,
-    )
+    to_sync = SmartAnswer::FlowRegistry.instance.flows.find do |flow|
+      flow.name == args[:slug]
+    end
+
+    raise "Smart Answer #{args[:slug]} not found" unless to_sync
+
+    ContentItemSyncer.new.sync([to_sync])
   end
 
   desc "Unpublish a content item with a redirect"
