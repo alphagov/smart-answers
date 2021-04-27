@@ -14,17 +14,17 @@
           { text: "Links" },
           { text: "" },
         ],
-        rows: @flows.map { |flow|
-          presenter = FlowPresenter.new({}, flow)
+        rows: @flows.map do |flow|
+          presenter = StartNodePresenter.new(flow.start_node)
           [
-            { text: title_and_url(flow.name, presenter.start_node.title) },
+            { text: title_and_url(flow.name, presenter.title) },
             { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
             { text: flow.questions.count },
             { text: flow.outcomes.count },
             { text: code_links(flow.name) },
             { text: link_to('Visualise', visualise_path(flow.name)) },
           ]
-        }
+        end
       } %>
     </div>
 
