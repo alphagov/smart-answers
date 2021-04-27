@@ -1,6 +1,4 @@
 class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
-  include CurrentQuestionHelper
-
   def response_labels(values)
     values.split(",").map do |value|
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION
@@ -29,9 +27,15 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
         label: option[:label],
         value: option[:value],
         hint: option[:hint_text],
-        checked: prefill_value_includes?(self, option[:value]),
+        checked: checked?(option[:value]),
         exclusive: option[:value] == "none" || nil,
       }
     end
+  end
+
+  def checked?(value)
+    return false if response_for_current_question.blank?
+
+    response_for_current_question.include?(value)
   end
 end
