@@ -16,9 +16,10 @@ module SmartAnswer::Calculators
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
-        "2019-20": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
+        "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
+        "2019-20-covid-easement": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
       },
-      offline_filing_deadline: {
+      paper_filing_deadline: {
         "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
         "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
@@ -192,7 +193,12 @@ module SmartAnswer::Calculators
     end
 
     def filing_deadline
-      submission_method == "online" ? DEADLINES[:online_filing_deadline][tax_year.to_sym] : DEADLINES[:offline_filing_deadline][tax_year.to_sym]
+      deadline_period = filed_during_covid_deadline_easement? ? "#{tax_year}-covid-easement" : tax_year
+      DEADLINES[:"#{submission_method}_filing_deadline"][deadline_period.to_sym]
+    end
+
+    def filed_during_covid_deadline_easement?
+      tax_year == "2019-20" && filing_date < Date.parse("2021-03-01")
     end
 
     def payment_deadline
