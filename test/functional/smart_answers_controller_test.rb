@@ -156,7 +156,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "head meta[name=robots][content=noindex]"
     end
 
-    should "accept responses as GET params and redirect to canonical url" do
+    should "accept responses as GET params and redirect to canonical path" do
       submit_response "yes"
       assert_redirected_to "/smart-answers-controller-sample/y/yes"
     end
