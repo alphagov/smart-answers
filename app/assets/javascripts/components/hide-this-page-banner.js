@@ -1,35 +1,35 @@
-function HideThisPageBanner ($module) {
-  this.$module = $module
-}
+window.GOVUK = window.GOVUK || {}
+window.GOVUK.Modules = window.GOVUK.Modules || {};
 
-HideThisPageBanner.prototype.init = function () {
-  var $module = this.$module
+(function (Modules) {
+  function HideThisPageBanner () { }
 
-  if (!$module) return
+  HideThisPageBanner.prototype.start = function ($module) {
+    this.$module = $module[0]
 
-  $module
-    .querySelector('.gem-c-button')
-    .addEventListener('click', this.handleClick.bind(this))
-}
+    this.$module
+      .querySelector('.gem-c-button')
+      .addEventListener('click', this.handleClick.bind(this))
+  }
 
-HideThisPageBanner.prototype.handleClick = function (event) {
-  event.preventDefault()
+  HideThisPageBanner.prototype.handleClick = function (event) {
+    event.preventDefault()
 
-  var url = event.target.getAttribute('href')
-  var rel = event.target.getAttribute('rel')
+    var url = event.target.getAttribute('href')
+    var rel = event.target.getAttribute('rel')
 
-  this.openNewPage(url, rel)
-  this.replaceCurrentPage(url)
-}
+    this.openNewPage(url, rel)
+    this.replaceCurrentPage(url)
+  }
 
-HideThisPageBanner.prototype.openNewPage = function (url, rel) {
-  var newWindow = window.open(url, rel)
-  newWindow.opener = null
-}
+  HideThisPageBanner.prototype.openNewPage = function (url, rel) {
+    var newWindow = window.open(url, rel)
+    newWindow.opener = null
+  }
 
-HideThisPageBanner.prototype.replaceCurrentPage = function (url) {
-  window.location.replace(url)
-}
+  HideThisPageBanner.prototype.replaceCurrentPage = function (url) {
+    window.location.replace(url)
+  }
 
-var $hideThisPageBanner = document.querySelector('[data-module="app-hide-this-page-banner"]')
-new HideThisPageBanner($hideThisPageBanner).init()
+  Modules.HideThisPageBanner = HideThisPageBanner
+})(window.GOVUK.Modules)

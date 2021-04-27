@@ -1,29 +1,21 @@
 /* eslint-env jasmine */
-/* global HideThisPageBanner */
 
 describe('Hide this page banner component', function () {
   'use strict'
 
-  var container
   var hideThisPageBannerElement
   var hideThisPageBannerModule
 
   beforeEach(function () {
-    container = document.createElement('div')
-    container.innerHTML = '<div class="app-c-hide-this-page-banner" data-module="app-hide-this-page-banner">' +
-                            '<div class="app-c-hide-this-page-banner__link-wrapper">' +
-                              '<a class="gem-c-button govuk-button govuk-button--warning" role="button" rel="nofollow noreferrer noopener" target="_blank" href="https://www.gov.uk/">Hide this page</a>' +
-                            '</div>' +
-                          '</div>'
-    document.body.appendChild(container)
-    hideThisPageBannerElement = document.querySelector('[data-module="app-hide-this-page-banner"]')
-    hideThisPageBannerModule = new HideThisPageBanner(hideThisPageBannerElement)
+    hideThisPageBannerElement = document.createElement('div')
+    hideThisPageBannerElement.innerHTML = '<div class="app-c-hide-this-page-banner" data-module="app-hide-this-page-banner">' +
+                                            '<div class="app-c-hide-this-page-banner__link-wrapper">' +
+                                              '<a class="gem-c-button govuk-button govuk-button--warning" role="button" rel="nofollow noreferrer noopener" target="_blank" href="https://www.gov.uk/">Hide this page</a>' +
+                                            '</div>' +
+                                          '</div>'
+    hideThisPageBannerModule = new GOVUK.Modules.HideThisPageBanner()
     hideThisPageBannerModule.replaceCurrentPage = function () {}
-    hideThisPageBannerModule.init()
-  })
-
-  afterEach(function () {
-    document.body.removeChild(container)
+    hideThisPageBannerModule.start([hideThisPageBannerElement])
   })
 
   it('opens a new page', function () {
