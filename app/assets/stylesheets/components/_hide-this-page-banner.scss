@@ -27,7 +27,7 @@
   padding-top: govuk-spacing(3);
 
   @include govuk-media-query($from: tablet) {
-    padding-top: govuk-spacing(1) + 3;
+    padding-top: govuk-spacing(1) + 2;
     flex: 1;
   }
 }
