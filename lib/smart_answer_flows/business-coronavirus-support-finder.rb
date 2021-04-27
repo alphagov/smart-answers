@@ -85,11 +85,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.sectors == %w[nightclubs_or_adult_entertainment]
-            outcome :results
-          else
-            question :closed_by_restrictions?
-          end
+          question :closed_by_restrictions?
         end
       end
 
