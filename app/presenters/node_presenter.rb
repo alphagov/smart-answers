@@ -12,7 +12,7 @@ class NodePresenter
   end
 
   def node_slug
-    node_name.to_s.dasherize
+    @node.slug
   end
 
   def view_template_path

@@ -20,6 +20,10 @@ module SmartAnswer
       to_s.sub(/\?$/, "")
     end
 
+    def slug
+      filesystem_friendly_name.dasherize
+    end
+
     def on_response(&block)
       @on_response_blocks << Block.new(&block)
     end

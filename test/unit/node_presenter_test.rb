@@ -2,7 +2,7 @@ require "test_helper"
 
 class NodePresenterTest < ActiveSupport::TestCase
   def node
-    OpenStruct.new(name: :foo_bar, view_template_path: "view")
+    OpenStruct.new(name: :foo_bar, slug: "foo-bar", view_template_path: "view")
   end
 
   def node_presenter
