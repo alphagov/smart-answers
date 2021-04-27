@@ -6,7 +6,7 @@ class FlowController < ApplicationController
 
   def start
     response_store.clear
-    redirect_to flow_path(id: params[:id], node_slug: next_node_slug)
+    redirect_to flow_path(id: params[:id], node_slug: flow.questions.first.slug)
   end
 
   def show
