@@ -15,6 +15,7 @@ module SmartAnswer
       @renderer.stubs(:option).with(:option3).returns("Option 3")
 
       @presenter = MultipleChoiceQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
+      @presenter.stubs(:response_for_current_question).returns(nil)
     end
 
     test "#response_label returns option label" do
@@ -24,7 +25,13 @@ module SmartAnswer
     test "#radio_buttons return hashes of radio attributes" do
       assert_equal(%w[option1 option2 option3], @presenter.radio_buttons.map { |c| c[:value] })
       assert_equal(["Option 1", "Option 2", "Option 3"], @presenter.radio_buttons.map { |c| c[:text] })
-      assert_equal([nil, nil, nil], @presenter.radio_buttons.map { |c| c[:checked] })
+      assert_equal([false, false, false], @presenter.radio_buttons.map { |c| c[:checked] })
+    end
+
+    test "#radio_buttons sets an existing selection to true" do
+      @presenter.stubs(:response_for_current_question).returns("option2")
+
+      assert_equal([false, true, false], @presenter.radio_buttons.map { |c| c[:checked] })
     end
 
     test "#caption returns the given caption when a caption is given" do

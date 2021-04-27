@@ -1,6 +1,4 @@
 class MultipleChoiceQuestionPresenter < QuestionWithOptionsPresenter
-  include CurrentQuestionHelper
-
   def response_label(value)
     options.find { |option| option[:value] == value }[:label]
   end
@@ -11,8 +9,14 @@ class MultipleChoiceQuestionPresenter < QuestionWithOptionsPresenter
         text: option[:label],
         value: option[:value],
         hint_text: option[:hint_text],
-        checked: prefill_value_is?(option[:value]),
+        checked: selected?(option[:value]),
       }
     end
+  end
+
+  def selected?(value)
+    return false if response_for_current_question.blank?
+
+    value == response_for_current_question
   end
 end
