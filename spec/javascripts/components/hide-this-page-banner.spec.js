@@ -14,18 +14,19 @@ describe('Hide this page banner component', function () {
                                             '</div>' +
                                           '</div>'
     hideThisPageBannerModule = new GOVUK.Modules.HideThisPageBanner()
-    hideThisPageBannerModule.replaceCurrentPage = function () {}
     hideThisPageBannerModule.start([hideThisPageBannerElement])
+
+    spyOn(window, 'open').and.returnValue({})
+    // stub replaceCurrentPage as window.location cannot be stubbed
+    spyOn(hideThisPageBannerModule, 'replaceCurrentPage')
   })
 
   it('opens a new page', function () {
-    spyOn(hideThisPageBannerModule, 'openNewPage')
     hideThisPageBannerElement.querySelector('.gem-c-button').click()
-    expect(hideThisPageBannerModule.openNewPage).toHaveBeenCalledWith('https://www.gov.uk/', 'nofollow noreferrer noopener')
+    expect(window.open).toHaveBeenCalledWith('https://www.gov.uk/', 'nofollow noreferrer noopener')
   })
 
   it('replaces the original page', function () {
-    spyOn(hideThisPageBannerModule, 'replaceCurrentPage')
     hideThisPageBannerElement.querySelector('.gem-c-button').click()
     expect(hideThisPageBannerModule.replaceCurrentPage).toHaveBeenCalledWith('https://www.gov.uk/')
   })
