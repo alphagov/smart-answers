@@ -38,6 +38,8 @@ module SmartAnswer
       end
 
       def to_response(input)
+        return unless input.respond_to?(:split)
+
         input.split(",")
       end
 
