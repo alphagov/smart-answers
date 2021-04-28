@@ -1,7 +1,7 @@
 class NodePresenter
   delegate :outcome?, to: :@node
 
-  def initialize(node, flow_presenter, state = nil, _options = {}, _params = {})
+  def initialize(node, flow_presenter, state = nil, _options = {})
     @node = node
     @flow_presenter = flow_presenter
     @state = state || SmartAnswer::State.new(nil)

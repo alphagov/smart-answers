@@ -1,6 +1,8 @@
 require_relative "../test_helper"
 
 class FlowPresenterTest < ActiveSupport::TestCase
+  include Rails.application.routes.url_helpers
+
   def flow_registry
     SmartAnswer::FlowRegistry.instance
   end
@@ -15,8 +17,8 @@ class FlowPresenterTest < ActiveSupport::TestCase
         next_node { outcome :outcome_key }
       end
     end
-    params = {}
-    @flow_presenter = FlowPresenter.new(params, @flow)
+    state = SmartAnswer::State.new(:first_question_key)
+    @flow_presenter = FlowPresenter.new(@flow, state)
   end
 
   test "#presenter_for returns presenter for Date question" do
@@ -103,140 +105,35 @@ class FlowPresenterTest < ActiveSupport::TestCase
     assert_equal @flow_presenter.name, @flow.name
   end
 
-  context "#change_answer_link" do
-    context "with smart answer" do
-      setup do
-        params = { responses: "question-1-answer/question-2-answer", id: @flow.name }
-        @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.answered_questions
-      end
-
-      should "return link to first page with response" do
-        assert_equal(
-          "/#{@flow.name}/y?previous_response=question-1-answer",
-          @flow_presenter.change_answer_link(0, @questions.first, {}),
-        )
-      end
-
-      should "return link to second page with response" do
-        assert_equal(
-          "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
-          @flow_presenter.change_answer_link(1, @questions.first, {}),
-        )
-      end
-    end
-
-    context "with session answer" do
-      setup do
-        @flow.response_store(:session)
-        params = { id: @flow.name }
-        @question = OpenStruct.new(node_slug: "foo")
-
-        @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.answered_questions
-      end
-
-      should "return link to first page with response" do
-        assert_equal(
-          @flow_presenter.flow_path(@flow.name, @question.node_slug),
-          @flow_presenter.change_answer_link(1, @question, {}),
-        )
-      end
-    end
-
-    context "with query parameters" do
-      setup do
-        @flow.response_store(:query_parameters)
-        params = { id: @flow.name, responses: { "foo" => "bar" } }
-        @question = OpenStruct.new(node_slug: "baz")
-
-        @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.answered_questions
-      end
-
-      should "return link to first page with response" do
-        assert_equal(
-          @flow_presenter.flow_path(@flow.name, @question.node_slug, foo: "bar"),
-          @flow_presenter.change_answer_link(2, @question, { "foo" => "bar" }),
-        )
-      end
-    end
+  test "#change_answer_link returns a previous question link for a response store flow" do
+    @flow.response_store(:query_parameters)
+    state = SmartAnswer::State.new(:second_question_key, forwarding_responses: { first_question_key: "answer" })
+    flow_presenter = FlowPresenter.new(@flow, state)
+    question = OpenStruct.new(node_slug: "foo")
+    assert_equal(
+      "/#{@flow.name}/foo?first_question_key=answer",
+      flow_presenter.change_answer_link(question),
+    )
   end
 
-  context "#response_for_current_question" do
-    should "get the response for the current page for session-based smart-answers" do
-      @flow.response_store(:session)
-      params = { id: @flow.name, node_name: "first_question_key", responses: { "first_question_key" => "question-1-answer", "second_question_key" => "question-2-answer" } }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal("question-1-answer", flow_presenter.response_for_current_question)
-    end
-
-    should "get the response for the current page for url-based smart-answers when previous_response" do
-      params = { id: @flow.name, responses: "question-1-answer", previous_response: "question-2-answer" }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal("question-2-answer", flow_presenter.response_for_current_question)
-    end
-
-    should "leave response for the current page blank for url-based smart-answers when no previous_response" do
-      params = { id: @flow.name, responses: "question-1-answer/question-2-answer" }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_nil(flow_presenter.response_for_current_question)
-    end
-
-    should "format the response for checkbox questions" do
-      flow = SmartAnswer::Flow.new do
-        name "flow-name"
-        checkbox_question :first_question_key do
-          next_node { outcome :second_question_key }
-        end
-        value_question :second_question_key do
-          next_node { outcome :outcome_key }
-        end
-      end
-      params = { id: flow.name, responses: "question-1-answer", previous_response: "question-2-answer-a,question-2-answer-b" }
-      flow_presenter = FlowPresenter.new(params, flow)
-
-      assert_equal(["question-2-answer-a", "question-2-answer-b"], flow_presenter.response_for_current_question)
-    end
+  test "#change_answer_link returns a previous question link for a non response store flow" do
+    state = SmartAnswer::StateResolver.new(@flow).state_from_params({ responses: "question-1-answer/question-2-answer" })
+    flow_presenter = FlowPresenter.new(@flow, state)
+    questions = flow_presenter.answered_questions
+    assert_equal(
+      "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
+      flow_presenter.change_answer_link(questions.last),
+    )
   end
 
-  context "#normalize_responses_param" do
-    should "return empty array when no responses in params" do
-      params = {}
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal [], flow_presenter.normalize_responses_param
-    end
-
-    should "return array when responses in an array" do
-      array = (1..5).to_a
-      params = { responses: array }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal array, flow_presenter.normalize_responses_param
-    end
-
-    should "return responses from state when no responses are parameters" do
-      params = ActionController::Parameters.new(responses: "y")
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal %w[y], flow_presenter.normalize_responses_param
-    end
-
-    should "return array of parts when responses in params are path" do
-      array = (1..5).to_a
-      params = { responses: array.join("/") }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      assert_equal array.map(&:to_s), flow_presenter.normalize_responses_param
-    end
+  test "#start_page_link returns the start page link for a response store flow" do
+    @flow.response_store(:query_parameters)
+    state = SmartAnswer::State.new(:first_question_key)
+    flow_presenter = FlowPresenter.new(@flow, state)
+    assert_equal "/flow-name/start", flow_presenter.start_page_link
   end
 
-  context "#start_page_link" do
-    should "return path to first page in smart flow" do
-      assert_equal "/flow-name/y", @flow_presenter.start_page_link
-    end
-
-    should "return path to first page in session flow using sessions" do
-      @flow.response_store(:session)
-      flow_presenter = FlowPresenter.new({}, @flow)
-      assert_equal "/flow-name/start", flow_presenter.start_page_link
-    end
+  test "#start_page_link returns the start page link for a non response store flow" do
+    assert_equal "/flow-name/y", @flow_presenter.start_page_link
   end
 end
