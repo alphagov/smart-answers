@@ -2,12 +2,10 @@ require "node_presenter"
 
 class FlowPresenter
   include Rails.application.routes.url_helpers
-  include ContentItemHelper
 
   attr_reader :params, :flow
 
   delegate :name,
-           :content_id,
            :response_store,
            :questions,
            :use_escape_button?,
@@ -27,10 +25,6 @@ class FlowPresenter
 
   def finished?
     current_node.outcome?
-  end
-
-  def publish?
-    @flow.status == :published
   end
 
   def current_state
@@ -132,10 +126,6 @@ class FlowPresenter
     normalize_responses_param.dup.tap do |responses|
       responses << params[:response] if params[:next]
     end
-  end
-
-  def flows_content
-    extract_flow_content(@flow, start_node)
   end
 
   def start_page_link
