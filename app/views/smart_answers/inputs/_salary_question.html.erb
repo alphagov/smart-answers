@@ -10,7 +10,7 @@
   width: 10,
   hint: "in £",
   error_message: question.error,
-  value: prefill_value_for(question, :amount)
+  value: question.amount
 } %>
 <%= render "govuk_publishing_components/components/select", {
   id: "response_month",
@@ -21,17 +21,17 @@
     {
       text: "per week",
       value: "week",
-      selected: prefill_value_for(question, :period) == "week"
+      selected: question.period == "week"
     },
     {
       text: "per month",
       value: "month",
-      selected: prefill_value_for(question, :period) == "month"
+      selected: question.period == "month"
     },
     {
       text: "per year",
       value: "year",
-      selected: prefill_value_for(question, :period) == "year"
+      selected: question.period == "year"
     }
   ]
 } %>

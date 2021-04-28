@@ -44,6 +44,11 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
           assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
           assert_select ".govuk-error-message", /Please answer this question/
         end
+
+        should "not error if passed string response" do
+          submit_response "bob"
+          assert_response :success
+        end
       end
 
       should "show a validation error if invalid period" do
