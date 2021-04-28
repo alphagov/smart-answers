@@ -1,0 +1,12 @@
+<% content_for :hide_this_page_banner do %>
+  <% if presenter.use_hide_this_page? %>
+    <%= render "components/hide-this-page-banner", {
+      link_url: destroy_flow_path(ext_r: "true"),
+      aria_label: "Hide this page. Quick exit button, it opens BBC Weather in a new tab",
+      details_body: "
+        <p class=\"govuk-body\">Use this button to quickly hide this page. For example, to stop someone seeing you're using this service. The button opens BBC Weather in a new tab.</p>
+        <p class=\"govuk-body\">This tab will stay open and also go to BBC Weather to hide the page you are using, but when you go back in your browser you will go to the start page of this service. Your answers will not be stored.</p>
+      ".html_safe,
+    } %>
+  <% end %>
+<% end %>
