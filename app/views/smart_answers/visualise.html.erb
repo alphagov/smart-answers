@@ -22,7 +22,7 @@
 <p class="govuk-body">This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
 <% if ! @graph_presenter.visualisable? %>
   <%= render "govuk_publishing_components/components/warning_text", {
-    text: "This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly."
+    text: "This visualisation does not show all transitions correctly."
   } %>
 <% end %>
 
