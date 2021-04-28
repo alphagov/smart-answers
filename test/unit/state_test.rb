@@ -5,43 +5,23 @@ module SmartAnswer
     context "transitioning to a new state" do
       should "not modify the existing state" do
         old_state = State.new(:state2)
-        old_state.path << :state1
-        old_state.responses << "yes"
+        old_state.accepted_responses = { state1: "answer" }
         old_state.freeze
 
-        old_state.transition_to(:state3, "fooey")
+        state = old_state.transition_to(:state3, "fooey")
 
-        assert_equal %w[yes], old_state.responses
-        assert_equal [:state1], old_state.path
+        assert_equal ({ state1: "answer" }), old_state.accepted_responses
+        assert_equal ({ state1: "answer", state2: "fooey" }), state.accepted_responses
       end
     end
 
     should "return the default values of attributes set in the constructor" do
       state = State.new(:start_node)
       assert_equal :start_node, state.current_node
-      assert_equal [], state.path
-      assert_equal [], state.responses
-      assert_nil state.response
+      assert_equal ({}), state.accepted_responses
+      assert_equal ({}), state.forwarding_responses
+      assert_nil state.current_response
       assert_nil state.error
-    end
-
-    should "return the modified values of attributes originally set in the constructor" do
-      state = State.new(:start_node)
-
-      state.current_node = :node1
-      assert_equal :node1, state.current_node
-
-      state.path << :node1
-      assert_equal [:node1], state.path
-
-      state.responses << "no"
-      assert_equal %w[no], state.responses
-
-      state.response = "no"
-      assert_equal "no", state.response
-
-      state.error = :error1
-      assert_equal :error1, state.error
     end
 
     should "raise a NoMethodError exception when trying to read a value that hasn't previously been set" do
