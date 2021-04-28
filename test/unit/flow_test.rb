@@ -20,7 +20,7 @@ class FlowTest < ActiveSupport::TestCase
   test "defaults to no response store" do
     smart_answer = SmartAnswer::Flow.new
 
-    assert_equal smart_answer.response_store, nil
+    assert_nil smart_answer.response_store
   end
 
   test "cannot use hide-this-page if the response store isn't session" do
