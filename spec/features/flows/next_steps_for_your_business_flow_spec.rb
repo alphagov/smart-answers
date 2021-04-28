@@ -15,8 +15,8 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
   let(:answers) do
     {
       annual_turnover_over_85k: "Yes",
-      employ_someone: "Maybe in the future",
-      activities: "Sell items or services online",
+      employ_someone: "Not sure",
+      activities: "Buy items from abroad",
       financial_support: "Yes",
       business_premises: "From home",
     }
