@@ -10,10 +10,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", {
-      title: outcome.title
+      title: outcome.title,
+      margin_bottom: 6
     } %>
 
-    <%= tag.p outcome.description, class: "govuk-body govuk-!-margin-bottom-9" %>
+    <%= outcome.description %>
 
     <%= outcome.body %>
     <%= render "govuk_publishing_components/components/print_link" %>
