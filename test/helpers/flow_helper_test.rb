@@ -1,44 +1,6 @@
 require "test_helper"
 
 class FlowHelperTest < ActionView::TestCase
-  context "#forwarding_responses" do
-    setup do
-      stubs(:response_store).returns(
-        ResponseStore.new(responses: { question1: "response1" }),
-      )
-    end
-
-    should "return an empty hash for session based flows" do
-      flow_object = SmartAnswer::Flow.new { response_store :session }
-      stubs(:flow).returns(flow_object)
-
-      assert_equal({}, forwarding_responses)
-    end
-
-    should "return all the previous responses for query parameter based flows" do
-      flow_object = SmartAnswer::Flow.new { response_store :query_parameters }
-      stubs(:flow).returns(flow_object)
-
-      assert_equal({ question1: "response1" }, forwarding_responses)
-    end
-  end
-
-  context "#presenter" do
-    should "return the flow presenter" do
-      params[:node_slug] = "question-2"
-
-      flow_object = SmartAnswer::Flow.new { response_store :other }
-      stubs(:flow).returns(flow_object)
-
-      stubs(:response_store).returns(
-        ResponseStore.new(responses: { question1: "response1" }),
-      )
-
-      assert_instance_of(FlowPresenter, presenter)
-      assert_same flow_object, presenter.flow
-    end
-  end
-
   context "#flow" do
     should "return the flow for the current request" do
       params[:id] = "flow-name"

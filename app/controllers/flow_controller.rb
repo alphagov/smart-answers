@@ -10,18 +10,26 @@ class FlowController < ApplicationController
   end
 
   def show
-    @title = presenter.title
+    state = SmartAnswer::StateResolver.new(flow).state_from_response_store(response_store, node_name)
+    @presenter = FlowPresenter.new(flow, state)
+    @title = @presenter.title
 
-    if params[:node_slug] == presenter.node_slug
-      render presenter.current_node.view_template_path, formats: [:html]
+    if params[:node_slug] == @presenter.node_slug
+      render @presenter.current_node.view_template_path, formats: [:html]
     else
-      redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug, params: forwarding_responses)
+      redirect_to flow_path(id: params[:id],
+                            node_slug: @presenter.node_slug,
+                            params: state.forwarding_responses)
     end
   end
 
   def update
     response_store.add(node_name, params.fetch(:response, ""))
-    redirect_to flow_path(id: params[:id], node_slug: next_node_slug, params: forwarding_responses)
+    state = SmartAnswer::StateResolver.new(flow).state_from_response_store(response_store)
+    presenter = FlowPresenter.new(flow, state)
+    redirect_to flow_path(id: params[:id],
+                          node_slug: presenter.node_slug,
+                          params: state.forwarding_responses)
   end
 
   def destroy

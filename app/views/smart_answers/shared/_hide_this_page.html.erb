@@ -1,5 +1,5 @@
 <% content_for :hide_this_page_banner do %>
-  <% if presenter.use_hide_this_page? %>
+  <% if @presenter.use_hide_this_page? %>
     <%= render "components/hide-this-page-banner", {
       link_url: destroy_flow_path(ext_r: "true"),
       link_aria_label: "Hide this page. Quick exit button, it opens BBC Weather in a new tab",
