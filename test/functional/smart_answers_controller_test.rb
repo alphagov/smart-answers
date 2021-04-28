@@ -162,7 +162,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "show default outcome title when none is supplied" do
-      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: %w[no no] }
+      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no/no" }
       assert_contains css_select("title").first.content, /Outcome/
       assert_contains css_select("title").first.content, /Smart answers controller sample/
       assert_select ".outcome"
