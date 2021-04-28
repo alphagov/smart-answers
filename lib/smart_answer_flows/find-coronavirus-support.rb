@@ -5,7 +5,7 @@ module SmartAnswer
       content_id "d67f2c92-d0f0-438b-9c81-c0059dd71baf"
       status :published
       response_store :session
-      use_hide_this_page_button true
+      use_hide_this_page true
       hide_previous_answers_on_results_page true
 
       # ======================================================================
