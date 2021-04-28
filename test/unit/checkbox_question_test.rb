@@ -104,8 +104,12 @@ module SmartAnswer
         assert_equal %w[red green], @question.to_response("red,green")
       end
 
-      should "remove the none option from the results" do
-        assert_equal [], @question.to_response("none")
+      should "not remove the none option from the results" do
+        assert_equal %w[none], @question.to_response("none")
+      end
+
+      should "return nil for invalid input" do
+        assert_nil @question.to_response({ anything: "anything" })
       end
     end
   end

@@ -38,7 +38,9 @@ module SmartAnswer
       end
 
       def to_response(input)
-        input.split(",").reject { |v| v == NONE_OPTION }
+        return unless input.respond_to?(:split)
+
+        input.split(",")
       end
 
       def none_option?
