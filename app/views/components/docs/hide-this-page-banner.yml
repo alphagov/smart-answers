@@ -10,5 +10,5 @@ examples:
     data:
       link_label: Leave this site
       link_url: 'https://www.gov.uk/'
-      data_attributes:
+      link_data_attributes:
         tracking: GT-1234
