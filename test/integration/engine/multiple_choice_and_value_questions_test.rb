@@ -49,15 +49,13 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Lancelot"
 
-      within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
-        within "tbody tr.govuk-table__row" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your name?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
+      assert page.has_link?("Start again", href: "/bridge-of-death")
+      within ".govuk-summary-list__row" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your name?"
         end
+        within(".govuk-summary-list__value") { assert_page_has_content "Lancelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
       end
 
       within "#current-question" do
@@ -79,22 +77,20 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
-      within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
-        within "tbody tr.govuk-table__row:nth-child(1)" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your name?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
+      assert page.has_link?("Start again", href: "/bridge-of-death")
+      within ".govuk-summary-list__row:nth-child(1)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your name?"
         end
-        within "tbody tr.govuk-table__row:nth-child(2)" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your quest?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Lancelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
+      end
+      within ".govuk-summary-list__row:nth-child(2)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your quest?"
         end
+        within(".govuk-summary-list__value") { assert_page_has_content "To seek the Holy Grail" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
       end
 
       within "#current-question" do
@@ -115,29 +111,27 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
-      within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
-        within "tbody tr.govuk-table__row:nth-child(1)" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your name?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
+      assert page.has_link?("Start again", href: "/bridge-of-death")
+      within ".govuk-summary-list__row:nth-child(1)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your name?"
         end
-        within "tbody tr.govuk-table__row:nth-child(2)" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your quest?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Lancelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
+      end
+      within ".govuk-summary-list__row:nth-child(2)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your quest?"
         end
-        within "tbody tr.govuk-table__row:nth-child(3)" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What...is your favorite colour?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Blue" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+        within(".govuk-summary-list__value") { assert_page_has_content "To seek the Holy Grail" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+      end
+      within ".govuk-summary-list__row:nth-child(3)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "What...is your favorite colour?"
         end
+        within(".govuk-summary-list__value") { assert_page_has_content "Blue" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
       end
 
       within "#result-info" do
@@ -158,22 +152,20 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
 
-    within ".govuk-table" do
-      assert page.has_link?("Start again", href: "/bridge-of-death")
-      within "tbody tr.govuk-table__row:nth-child(1)" do
-        within ".govuk-table__cell:nth-child(1)" do
-          assert_page_has_content "What...is your name?"
-        end
-        within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Robin" }
-        within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Robin") }
+    assert page.has_link?("Start again", href: "/bridge-of-death")
+    within ".govuk-summary-list__row:nth-child(1)" do
+      within ".govuk-summary-list__key" do
+        assert_page_has_content "What...is your name?"
       end
-      within "tbody tr.govuk-table__row:nth-child(2)" do
-        within ".govuk-table__cell:nth-child(1)" do
-          assert_page_has_content "What...is your quest?"
-        end
-        within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
-        within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
+      within(".govuk-summary-list__value") { assert_page_has_content "Robin" }
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Robin") }
+    end
+    within ".govuk-summary-list__row:nth-child(2)" do
+      within ".govuk-summary-list__key" do
+        assert_page_has_content "What...is your quest?"
       end
+      within(".govuk-summary-list__value") { assert_page_has_content "To seek the Holy Grail" }
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
     end
 
     within "#current-question" do

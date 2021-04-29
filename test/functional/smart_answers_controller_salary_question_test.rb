@@ -70,7 +70,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
         end
 
         should "show response summary" do
-          assert_select ".govuk-table", /How much\?\s+£1 per month/
+          assert_select ".govuk-summary-list", /How much\?\s+£1 per month/
         end
 
         should "have cache headers set to 30 mins for inner pages" do
