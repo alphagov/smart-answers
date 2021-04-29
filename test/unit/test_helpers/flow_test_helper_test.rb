@@ -13,18 +13,18 @@ class FlowTestHelperTest < ActiveSupport::TestCase
   end
 
   test "caches current_state" do
-    flow = mock("flow")
-    flow.expects(:process).once.returns(:state)
-    includer = FlowTestHelperIncluder.new(flow, %i[yes no])
+    state_resolver = stub("state_resolver", state_from_params: :state)
+    SmartAnswer::StateResolver.expects(:new).once.returns(state_resolver)
+    includer = FlowTestHelperIncluder.new(stub("flow"), %i[yes no])
     includer.current_state
     includer.current_state
   end
 
   test "busts current_state cache when responses change" do
-    flow = mock("flow")
-    flow.expects(:process).twice.returns(:state)
+    state_resolver = stub("state_resolver", state_from_params: :state)
+    SmartAnswer::StateResolver.expects(:new).twice.returns(state_resolver)
     responses = %i[yes no]
-    includer = FlowTestHelperIncluder.new(flow, responses)
+    includer = FlowTestHelperIncluder.new(stub("flow"), responses)
     includer.current_state
     responses << :maybe
     includer.current_state

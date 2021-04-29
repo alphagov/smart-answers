@@ -123,53 +123,6 @@ module SmartAnswer
       Node.new(self, name.underscore.to_sym)
     end
 
-    def start_state
-      State.new(questions.first.name).freeze
-    end
-
-    def process(responses)
-      responses.inject(start_state) do |state, response|
-        return state if state.error
-
-        transistion_state(state, response)
-      end
-    end
-
-    def resolve_state(responses, requested_node)
-      state = start_state
-      until state.nil?
-        node_name = state.current_node.to_s
-
-        return state unless responses.key?(node_name)
-
-        response = responses[node_name]
-        new_state = transistion_state(state, response)
-
-        return new_state if new_state.error
-        return state if node_name == requested_node
-        return new_state if node(new_state.current_node).outcome?
-
-        state = new_state
-      end
-    end
-
-    def transistion_state(state, response)
-      state = node(state.current_node).transition(state, response)
-    rescue BaseStateTransitionError => e
-      if e.is_a?(LoggedError)
-        GovukError.notify e
-      end
-
-      state.dup.tap do |new_state|
-        new_state.error = e.message
-        new_state.freeze
-      end
-    end
-
-    def path(responses)
-      process(responses).path
-    end
-
     class InvalidStatus < StandardError; end
 
   private
