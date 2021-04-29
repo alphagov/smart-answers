@@ -5,7 +5,8 @@ module SmartAnswer::Calculators
     attr_accessor :postcode, :nationality
 
     def rules_apply?
-      countries_for_postcode.include?("England")
+      true
+      # countries_for_postcode.include?("England")
     end
 
     def countries_for_postcode
