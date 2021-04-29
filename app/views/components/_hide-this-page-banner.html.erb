@@ -7,6 +7,7 @@
   details_body ||= "
     <p class=\"govuk-body\">Use this button to quickly hide this page. For example, to stop someone seeing you're using this service. The button opens a new tab.</p>
   ".html_safe
+  details_data_attributes ||= {}
 %>
 <div class="app-c-hide-this-page-banner" data-module="hide-this-page-banner">
   <div class="govuk-width-container">
@@ -26,7 +27,8 @@
       </div>
       <div class="app-c-hide-this-page-banner__details-wrapper">
         <%= render "govuk_publishing_components/components/details", {
-          title: details_title
+          title: details_title,
+          data_attributes: details_data_attributes,
         } do %>
           <%= details_body %>
         <% end %>
