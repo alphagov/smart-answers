@@ -1,14 +1,28 @@
 name: Hide this page banner
-description: Gives users a quick exit from a website
+description: Provides a button for vulnerable users to switch to a neutral website
 body: |
-  When JavaScript is disabled the link will open in a new tab so the perpetrator won’t be able to press back.
-  When JavaScript is enabled, in addition to the above we try to prevent the perpetrator from discovering the initial tab by changing the location of the original page.
+  This feature is intended for users who may be reading or entering sensitive information that they may quickly want to navigate away from should a third party be in their vicinity.
+  Without JavaScript clicking the button will open a link in a new tab, this is so the current page in the viewport doesn't have a browser history.
+  With JavaScript clicking the button will, in addition to the above, change the previous tab to the same link so the page is no longer open on the device.
 shared_accessibility_criteria:
   - link
 examples:
   default:
     data:
-      link_label: Leave this site
       link_url: 'https://www.gov.uk/'
+      link_aria_label: Hide this page. Quick exit button, it opens GOVUK in a new tab
       link_data_attributes:
-        tracking: GT-1234
+        module: gem-track-click
+        track-category: pageElementInteraction
+        track-action:  Click
+        track-label: Hide this page
+  custom_details_body:
+    data:
+      link_url: 'https://www.gov.uk/'
+      link_aria_label: Hide this page. Quick exit button, it opens GOVUK in a new tab
+      details_body: |
+        <p class="govuk-body">Use this button to quickly hide this page. For example, to stop someone seeing you're using this service. The button opens BBC Weather in a new tab.</p>
+        <p class="govuk-body">This tab will stay open and also go to BBC Weather to hide the page you are using, but when you go back in your browser you will go to the start page of this service. Your answers will not be stored.</p>
+      details_data_attributes:
+        track_category: pageElementInteraction
+        track_action: What does this button do
