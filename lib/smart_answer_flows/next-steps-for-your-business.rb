@@ -48,7 +48,6 @@ module SmartAnswer
       checkbox_question :activities do
         option :import_goods
         option :export_goods_or_services
-        option :sell_online
         none_option
 
         on_response do |response|

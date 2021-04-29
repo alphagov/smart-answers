@@ -8,15 +8,15 @@ RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
       activities: "Does your business do any of the following?",
       financial_support: "Are you looking for financial support for?",
       business_premises: "Where are you running your business?",
-      results: "Next steps for your business",
+      results: "Next steps for your limited company",
     }
   end
 
   let(:answers) do
     {
       annual_turnover_over_85k: "Yes",
-      employ_someone: "Maybe in the future",
-      activities: "Sell items or services online",
+      employ_someone: "Not sure",
+      activities: "Buy items from abroad",
       financial_support: "Yes",
       business_premises: "From home",
     }
