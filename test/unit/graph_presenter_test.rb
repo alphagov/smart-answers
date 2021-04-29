@@ -41,5 +41,9 @@ module SmartAnswer
       p = GraphPresenter.new(SmartAnswer::GraphFlow.build)
       assert p.visualisable?, "'graph' should be visualisable"
     end
+
+    test "#title returns the title of the flow" do
+      assert_equal "Graph Flow", @presenter.title
+    end
   end
 end
