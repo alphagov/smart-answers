@@ -37,7 +37,7 @@ module SmartAnswer
         state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
         next_node = state.instance_exec(input, &next_node_block)
         if next_node.blank?
-          responses_and_input = current_state.responses + [input]
+          responses_and_input = current_state.accepted_responses.values + [input]
           message = "Next node undefined. Node: #{current_state.current_node}."
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined, message

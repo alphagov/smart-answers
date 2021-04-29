@@ -14,7 +14,7 @@ module SmartAnswer
       end
 
       should "start with how_many_children? question" do
-        assert_equal :how_many_children?, @flow.start_state.current_node
+        assert_equal :how_many_children?, @flow.questions.first.name
       end
 
       # Q1
