@@ -6,13 +6,7 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% content_for :escape_link do %>
-  <% if @presenter.show_escape_link? %>
-    <%= render "components/escape-link", {
-      link_url: destroy_flow_path(ext_r: "true")
-    } %>
-  <% end %>
-<% end %>
+<%= render "smart_answers/shared/hide_this_page" %>
 
 <div class="govuk-grid-row">
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">

@@ -33,12 +33,12 @@
   </head>
   <body class="govuk-template__body">
     <div id="wrapper">
+      <%= yield :hide_this_page_banner %>
       <div class="govuk-width-container smart_answer">
         <%= yield :breadcrumbs %>
         <main id="content" role="main">
           <%= yield %>
         </main>
-        <%= yield :escape_link %>
         <%= render "govuk_publishing_components/components/feedback" %>
       </div>
     </div>

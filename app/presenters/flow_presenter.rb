@@ -8,8 +8,7 @@ class FlowPresenter
   delegate :name,
            :response_store,
            :questions,
-           :use_escape_button?,
-           :show_escape_link?,
+           :use_hide_this_page?,
            :hide_previous_answers_on_results_page?,
            to: :flow
 
