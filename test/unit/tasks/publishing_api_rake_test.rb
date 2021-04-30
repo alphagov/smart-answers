@@ -1,6 +1,43 @@
 require "test_helper"
 
 class PublishingApiRakeTest < ActiveSupport::TestCase
+  context "publshing_api:sync_all" do
+    setup { Rake::Task["publishing_api:sync_all"].reenable }
+
+    should "sync all flows with ContentItemSyncer" do
+      mock_syncer = mock("syncer")
+      ContentItemSyncer.stubs(:new).returns(mock_syncer)
+
+      mock_syncer.expects(:sync).with(SmartAnswer::FlowRegistry.instance.flows)
+
+      Rake::Task["publishing_api:sync_all"].invoke
+    end
+  end
+
+  context "publshing_api:sync" do
+    setup { Rake::Task["publishing_api:sync"].reenable }
+
+    should "sync a specified flow with ContentItemSyncer" do
+      flow = mock("flow", name: "a-smart-answer")
+      SmartAnswer::FlowRegistry.any_instance.stubs(flows: [flow])
+      mock_syncer = mock("syncer")
+      ContentItemSyncer.stubs(:new).returns(mock_syncer)
+      mock_syncer.expects(:sync).with([flow])
+
+      Rake::Task["publishing_api:sync"].invoke("a-smart-answer")
+    end
+
+    should "raise an error when given a slug that doesn't exist" do
+      SmartAnswer::FlowRegistry.any_instance.stubs(flows: [])
+
+      exception = assert_raises RuntimeError do
+        Rake::Task["publishing_api:sync"].invoke("a-slug")
+      end
+
+      assert_equal "Smart Answer a-slug not found", exception.message
+    end
+  end
+
   context "publishing_api:unpublish_redirect" do
     setup do
       Rake::Task["publishing_api:unpublish_redirect"].reenable

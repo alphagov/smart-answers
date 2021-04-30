@@ -2,12 +2,10 @@ require "node_presenter"
 
 class FlowPresenter
   include Rails.application.routes.url_helpers
-  include ContentItemHelper
 
   attr_reader :params, :flow
 
   delegate :name,
-           :content_id,
            :response_store,
            :questions,
            :use_escape_button?,
@@ -25,16 +23,8 @@ class FlowPresenter
     @node_presenters = {}
   end
 
-  def started?
-    params.key?(:started)
-  end
-
   def finished?
     current_node.outcome?
-  end
-
-  def publish?
-    @flow.status == :published
   end
 
   def current_state
@@ -99,8 +89,7 @@ class FlowPresenter
   end
 
   def start_node
-    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    @start_node ||= StartNodePresenter.new(node)
+    @start_node ||= StartNodePresenter.new(@flow.start_node)
   end
 
   def change_collapsed_question_link(question_number, question)
@@ -137,10 +126,6 @@ class FlowPresenter
     normalize_responses_param.dup.tap do |responses|
       responses << params[:response] if params[:next]
     end
-  end
-
-  def flows_content
-    extract_flow_content(@flow, start_node)
   end
 
   def start_page_link

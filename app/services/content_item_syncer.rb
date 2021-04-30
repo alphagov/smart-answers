@@ -1,9 +1,9 @@
 class ContentItemSyncer
-  def sync(flow_presenters)
-    flow_presenters.each do |flow_presenter|
-      content_item = ContentItem.new(flow_presenter)
-      GdsApi.publishing_api.put_content(flow_presenter.content_id, content_item.payload)
-      GdsApi.publishing_api.publish(flow_presenter.content_id) if flow_presenter.publish?
+  def sync(flows)
+    flows.each do |flow|
+      content_item = ContentItemPresenter.new(flow)
+      GdsApi.publishing_api.put_content(flow.content_id, content_item.payload)
+      GdsApi.publishing_api.publish(flow.content_id) if flow.status == :published
     end
   end
 end

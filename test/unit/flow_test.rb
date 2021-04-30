@@ -20,7 +20,7 @@ class FlowTest < ActiveSupport::TestCase
   test "defaults to no response store" do
     smart_answer = SmartAnswer::Flow.new
 
-    assert_equal smart_answer.response_store, nil
+    assert_nil smart_answer.response_store
   end
 
   test "cannot use the escape button if the response store isn't session" do
@@ -262,6 +262,13 @@ class FlowTest < ActiveSupport::TestCase
         status :bin
       end
     end
+  end
+
+  test "Can build a start node" do
+    start_node = SmartAnswer::Flow.new { name "my-flow" }.start_node
+
+    assert_instance_of SmartAnswer::Node, start_node
+    assert start_node.name, "my_flow"
   end
 
   context "sequence of two questions" do

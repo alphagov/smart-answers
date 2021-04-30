@@ -24,6 +24,11 @@ module SmartAnswer
       assert_equal "how_much", question.filesystem_friendly_name
     end
 
+    test "#slug returns name without trailing question mark and underscores replaced with dashes" do
+      question = Question::Base.new(@flow, :how_much?)
+      assert_equal "how-much", question.slug
+    end
+
     test "#view_template sets the view template name" do
       node = Node.new(@flow, "node-name") { view_template "view-name" }
       assert_equal "view-name", node.view_template_path

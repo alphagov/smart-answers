@@ -1,18 +1,20 @@
-class ContentItem
-  attr_reader :flow_presenter
+class ContentItemPresenter
+  include ContentItemHelper
 
-  def initialize(flow_presenter)
-    @flow_presenter = flow_presenter
+  attr_reader :flow
+
+  def initialize(flow)
+    @flow = flow
   end
 
   def payload
     {
       base_path: base_path,
-      title: flow_presenter.title,
-      description: flow_presenter.meta_description,
+      title: start_node_presenter.title,
+      description: start_node_presenter.meta_description,
       update_type: "minor",
       details: {
-        hidden_search_terms: flow_presenter.flows_content,
+        hidden_search_terms: extract_flow_content(flow, start_node_presenter),
       },
       schema_name: "smart_answer",
       document_type: "smart_answer",
@@ -28,7 +30,11 @@ class ContentItem
 
 private
 
+  def start_node_presenter
+    @start_node_presenter ||= StartNodePresenter.new(flow.start_node)
+  end
+
   def base_path
-    "/#{flow_presenter.name}"
+    "/#{flow.name}"
   end
 end

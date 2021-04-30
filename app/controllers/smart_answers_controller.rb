@@ -2,7 +2,7 @@ class SmartAnswersController < ApplicationController
   include Slimmer::Headers
 
   before_action :find_smart_answer, except: %w[index]
-  before_action :redirect_response_to_canonical_url, only: %w[show]
+  before_action :redirect_response_to_canonical_path, only: %w[show]
   before_action :set_header_footer_only, only: %w[visualise]
   before_action :setup_content_item, except: %w[index]
 
@@ -59,29 +59,17 @@ private
   end
 
   def page_type
-    if @presenter.started?
-      if @presenter.finished?
-        :result
-      else
-        :question
-      end
-    else
-      :landing
-    end
+    return :landing unless params[:started]
+    return :result if @presenter.finished?
+
+    :question
   end
   helper_method :page_type
 
-  def redirect_response_to_canonical_url
+  def redirect_response_to_canonical_path
     if params[:next] && !@presenter.current_state.error
       set_expiry
-      redirect_params = {
-        action: :show,
-        id: @name,
-        started: "y",
-        responses: @presenter.current_state.responses,
-        protocol: request.ssl? || Rails.env.production? ? "https" : "http",
-      }
-      redirect_to redirect_params
+      redirect_to smart_answer_path(@name, started: "y", responses: @presenter.current_state.responses)
     end
   end
 

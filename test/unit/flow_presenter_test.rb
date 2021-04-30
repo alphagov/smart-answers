@@ -199,20 +199,6 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "publish?" do
-    should "return true for a published flow" do
-      @flow.status(:published)
-      flow_presenter = FlowPresenter.new({}, @flow)
-      assert flow_presenter.publish?
-    end
-
-    should "return false true for a draft flow" do
-      @flow.status(:draft)
-      flow_presenter = FlowPresenter.new({}, @flow)
-      assert_not flow_presenter.publish?
-    end
-  end
-
   context "#start_page_link" do
     should "return path to first page in smart flow" do
       assert_equal "/flow-name/y", @flow_presenter.start_page_link
