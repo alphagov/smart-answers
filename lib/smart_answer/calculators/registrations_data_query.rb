@@ -14,7 +14,6 @@ module SmartAnswer::Calculators
       montserrat
       new-zealand
       pitcairn
-      south-africa
       south-georgia-and-the-south-sandwich-islands
       st-helena-ascension-and-tristan-da-cunha
       turks-and-caicos-islands
