@@ -1,19 +1,10 @@
 <% if @presenter.current_question_number > 1 %>
-  <% if local_assigns[:hide_previous_answers] %>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "Change your answers",
-      heading_level: 2,
-      font_size: "l",
-      margin_bottom: 6
-    } %>
-  <% else %>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "Your answers",
-      heading_level: 2,
-      font_size: "m",
-      margin_bottom: 4
-    } %>
-  <% end %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: local_assigns[:hide_previous_answers] ? "Change your answers" : "Your answers",
+    heading_level: 2,
+    font_size: "m",
+    margin_bottom: 4
+  } %>
 
   <%= tag.p class: "govuk-body" do %>
     <%= link_to "Start again",
