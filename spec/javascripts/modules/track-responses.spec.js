@@ -18,6 +18,13 @@ describe('Track responses', function () {
 
       var fieldset = document.createElement('fieldset')
 
+      var legend = document.createElement('legend')
+      var h1 = document.createElement('h1')
+      h1.innerText = 'The question title?'
+
+      legend.appendChild(h1)
+      fieldset.appendChild(legend)
+
       var checkboxes = [
         { label: 'Construction label', value: 'construction' },
         { label: 'Accommodation label', value: 'accommodation' },
@@ -74,10 +81,10 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'Construction label' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'Construction label' }
       )
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
     })
 
@@ -86,7 +93,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'furniture' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'furniture' }
       )
     })
 
@@ -94,7 +101,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'no response' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
       )
     })
   })
@@ -111,6 +118,13 @@ describe('Track responses', function () {
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset')
+
+      var legend = document.createElement('legend')
+      var h1 = document.createElement('h1')
+      h1.innerText = 'The question title?'
+
+      legend.appendChild(h1)
+      fieldset.appendChild(legend)
 
       var radios = [
         { label: 'Construction label', value: 'construction' },
@@ -167,7 +181,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
     })
 
@@ -175,7 +189,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'no response' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
       )
     })
   })
@@ -209,6 +223,10 @@ describe('Track responses', function () {
         select.appendChild(option)
       })
 
+      var h1 = document.createElement('h1')
+      h1.innerText = 'The question title?'
+
+      element.appendChild(h1)
       element.appendChild(select)
 
       var button = document.createElement('button')
@@ -237,7 +255,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
     })
 
@@ -245,7 +263,7 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'question-key', { transport: 'beacon', label: 'no response' }
+        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
       )
     })
   })

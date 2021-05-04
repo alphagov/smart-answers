@@ -9,8 +9,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       track(element[0])
     }
 
-    function getQuestionKey (submittedForm) {
-      return submittedForm.getAttribute('data-question-key')
+    function getQuestionHeading (submittedForm) {
+      return submittedForm.querySelector('h1').innerText
     }
 
     function getResponseLabelsForRadio (submittedForm) {
@@ -80,12 +80,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     function track (element) {
       element.addEventListener('submit', function (event) {
         var submittedForm = event.target
-        var questionKey = getQuestionKey(submittedForm)
+        var questionHeading = getQuestionHeading(submittedForm)
         var responseLabels = getResponseLabels(submittedForm)
 
         responseLabels.forEach(function (label) {
           var options = { transport: 'beacon', label: label }
-          GOVUK.analytics.trackEvent('question_answer', questionKey, options)
+          GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
         })
       })
     }
