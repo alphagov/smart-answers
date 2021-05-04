@@ -32,7 +32,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def hint
-    @renderer.content_for(:hint)
+    @renderer.content_for(:hint).presence
   end
 
   def caption
@@ -56,7 +56,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def body
-    @renderer.content_for(:body)
+    @renderer.content_for(:body).presence
   end
 
   def post_body
