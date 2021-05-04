@@ -51,10 +51,6 @@ class QuestionPresenter < NodePresenter
     content.presence
   end
 
-  def pretext
-    @renderer.content_for(:pretext)
-  end
-
   def body
     @renderer.content_for(:body).presence
   end
