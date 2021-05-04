@@ -13,10 +13,6 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     true
   end
 
-  def hint_text
-    hint
-  end
-
   def checkboxes
     options.each_with_object([]) do |option, items|
       if option[:value] == "none"
