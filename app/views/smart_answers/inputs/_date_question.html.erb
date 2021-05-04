@@ -3,12 +3,9 @@
     <%= question.body %>
   <% end %>
 
-  <% if question.hint.present? %>
-    <p class="govuk-hint"><%= question.hint %></p>
-  <% end %>
-
   <%= render "govuk_publishing_components/components/date_input", {
     error_message: question.error,
+    hint: question.hint,
     items: [
       question.default_day ? nil : {
         label: "Day",
