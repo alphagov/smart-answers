@@ -32,7 +32,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y", responses: "12345" }
-        assert_select ".govuk-table", /How many green bottles\?\s+12,345/
+        assert_select ".govuk-summary-list", /How many green bottles\?\s+12,345/
       end
     end
   end

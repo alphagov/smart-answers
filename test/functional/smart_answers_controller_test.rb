@@ -184,7 +184,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show response summary" do
-        assert_select ".govuk-table", /Do you like chocolate\?\s+No/
+        assert_select ".govuk-summary-list", /Do you like chocolate\?\s+No/
       end
 
       should "show the next question" do
@@ -192,7 +192,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "link back to change the response" do
-        assert_select ".govuk-table a", /Change/ do |link_nodes|
+        assert_select ".govuk-summary-list__actions a", /Change/ do |link_nodes|
           assert_equal "/smart-answers-controller-sample/y?previous_response=no", link_nodes.first["href"]
         end
       end

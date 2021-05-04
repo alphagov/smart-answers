@@ -30,18 +30,14 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
-      within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/checkbox-sample")
-        within "tbody tr.govuk-table__row" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What do you want on your pizza?"
-          end
-          within ".govuk-table__cell:nth-child(2)" do
-            assert_equal %w[Ham Pepperoni], page.all("li").map(&:text)
-          end
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
-        end
+      assert page.has_link?("Start again", href: "/checkbox-sample")
+      within ".govuk-summary-list__key" do
+        assert_page_has_content "What do you want on your pizza?"
       end
+      within ".govuk-summary-list__value" do
+        assert_equal %w[Ham Pepperoni], page.all("li").map(&:text)
+      end
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
 
       within ".outcome:nth-child(1)" do
         assert_page_has_content "Ok, your pizza is on its way"
@@ -56,16 +52,12 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/none"
 
-      within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/checkbox-sample")
-        within "tbody tr.govuk-table__row" do
-          within ".govuk-table__cell:nth-child(1)" do
-            assert_page_has_content "What do you want on your pizza?"
-          end
-          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "None" }
-          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
-        end
+      assert page.has_link?("Start again", href: "/checkbox-sample")
+      within ".govuk-summary-list__key" do
+        assert_page_has_content "What do you want on your pizza?"
       end
+      within(".govuk-summary-list__value") { assert_page_has_content "None" }
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
 
       assert_page_has_content "Are you sure you don't want any toppings?"
 

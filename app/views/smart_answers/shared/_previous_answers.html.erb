@@ -1,54 +1,53 @@
 <% if @presenter.current_question_number > 1 %>
-  <table class="govuk-table previous-answers-table">
-    <caption class="govuk-table__caption">
-      <% if local_assigns[:hide_previous_answers] %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Change your answers",
-          heading_level: 2,
-          font_size: "l",
-          margin_bottom: 6
-        } %>
-      <% else %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Your answers",
-          heading_level: 2,
-          font_size: "m",
-          margin_bottom: 4
-        } %>
-      <% end %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: local_assigns[:hide_previous_answers] ? "Change your answers" : "Your answers",
+    heading_level: 2,
+    font_size: "m",
+    margin_bottom: 4
+  } %>
 
-      <p class="govuk-body">
-      <%= link_to "Start again",
-        restart_flow_path(@presenter),
-        :class => "govuk-link",
-        :data => {
-          module: "gem-track-click",
-          "track-action": "Start again",
-          "track-category": "StartAgain",
-          "track-label": @presenter.current_node.title
-        } %>
-      </p>
-    </caption>
+  <%= tag.p class: "govuk-body" do %>
+    <%= link_to "Start again",
+      restart_flow_path(@presenter),
+      class: "govuk-link",
+      data: {
+        module: "gem-track-click",
+        "track-action": "Start again",
+        "track-category": "StartAgain",
+        "track-label": @presenter.current_node.title
+      } %>
+  <% end %>
 
-    <% unless local_assigns[:hide_previous_answers] %>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Question</th>
-          <th scope="col" class="govuk-table__header">Answer</th>
-          <th scope="col" class="govuk-table__header">Change answer</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
-          <%= render(
-              'smart_answers/shared/previous_answer',
-              question: question,
-              accepted_response: @presenter.accepted_responses[number_questions_so_far],
-              question_link: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
-            )
-          %>
-        <% end %>
-      </tbody>
-    <% end %>
-  </table>
+  <% unless local_assigns[:hide_previous_answers] %>
+    <% items = @presenter.collapsed_questions.each_with_index.map { |question, number_questions_so_far|
+      accepted_response = @presenter.accepted_responses[number_questions_so_far]
+
+      if question.multiple_responses?
+        value = render "govuk_publishing_components/components/list", {
+          items: question.response_labels(accepted_response)
+        }
+      else
+        value = question.response_label(accepted_response)
+      end
+
+      {
+        field: question.title,
+        value: value,
+        edit: {
+          href: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
+          data_attributes: {
+            "module": "gem-track-click",
+            "track-category": "Smart Answer Change Link",
+            "track-action":  "Link clicked",
+            "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
+          }
+        }
+      }
+    } %>
+
+    <%= render "govuk_publishing_components/components/summary_list", {
+      wide_title: true,
+      items: items
+    } %>
+  <% end %>
 <% end %>
