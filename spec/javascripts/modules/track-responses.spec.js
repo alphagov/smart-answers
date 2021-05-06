@@ -86,6 +86,12 @@ describe('Track responses', function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'Construction label' }
+      )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+      )
     })
 
     it('track events sends value of checkbox when no label is set', function () {
@@ -95,6 +101,9 @@ describe('Track responses', function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'furniture' }
       )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'furniture' }
+      )
     })
 
     it('track event triggered when no response is made', function () {
@@ -102,6 +111,9 @@ describe('Track responses', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
+      )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
     })
   })
@@ -183,6 +195,9 @@ describe('Track responses', function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+      )
     })
 
     it('track event triggered when no response is made', function () {
@@ -190,6 +205,9 @@ describe('Track responses', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
+      )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
     })
   })
@@ -257,6 +275,9 @@ describe('Track responses', function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
       )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+      )
     })
 
     it('track event triggered when no response is made', function () {
@@ -264,6 +285,9 @@ describe('Track responses', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
+      )
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
     })
   })
