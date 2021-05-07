@@ -1,4 +1,4 @@
-<% if @presenter.current_question_number > 1 %>
+<% if @presenter.accepted_responses.present? %>
   <%= render "govuk_publishing_components/components/heading", {
     text: local_assigns[:hide_previous_answers] ? "Change your answers" : "Your answers",
     heading_level: 2,
@@ -14,40 +14,7 @@
         module: "gem-track-click",
         "track-action": "Start again",
         "track-category": "StartAgain",
-        "track-label": @presenter.current_node.title
+        "track-label": @presenter.current_node_presenter.title
       } %>
-  <% end %>
-
-  <% unless local_assigns[:hide_previous_answers] %>
-    <% items = @presenter.collapsed_questions.each_with_index.map { |question, number_questions_so_far|
-      accepted_response = @presenter.accepted_responses[number_questions_so_far]
-
-      if question.multiple_responses?
-        value = render "govuk_publishing_components/components/list", {
-          items: question.response_labels(accepted_response)
-        }
-      else
-        value = question.response_label(accepted_response)
-      end
-
-      {
-        field: question.title,
-        value: value,
-        edit: {
-          href: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
-          data_attributes: {
-            "module": "gem-track-click",
-            "track-category": "Smart Answer Change Link",
-            "track-action":  "Link clicked",
-            "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
-          }
-        }
-      }
-    } %>
-
-    <%= render "govuk_publishing_components/components/summary_list", {
-      wide_title: true,
-      items: items
-    } %>
   <% end %>
 <% end %>

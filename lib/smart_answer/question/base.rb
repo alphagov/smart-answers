@@ -50,13 +50,12 @@ module SmartAnswer
         next_node.to_sym
       end
 
-      def transition(current_state, raw_input)
-        input = parse_input(raw_input)
-        new_state = @on_response_blocks.inject(current_state.dup) do |state, block|
+      def transition(state)
+        input = parse_input(state.responses[name.to_s])
+
+        @on_response_blocks.each do |block|
           block.evaluate(state, input)
         end
-        next_node = next_node_for(new_state, input)
-        new_state.transition_to(next_node, input)
       end
 
       def parse_input(raw_input)
@@ -69,6 +68,16 @@ module SmartAnswer
 
       def question?
         true
+      end
+
+      def error(state)
+        @validations.each do |message, predicate|
+          unless state.instance_exec(state.responses[@name], &predicate)
+            return message
+          end
+        end
+
+        nil
       end
 
     private

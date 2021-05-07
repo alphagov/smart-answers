@@ -2,8 +2,10 @@ require "ostruct"
 
 module SmartAnswer
   class State < OpenStruct
-    def initialize(start_node)
-      super(current_node: start_node, path: [], responses: [], response: nil, error: nil)
+    include Question::NextNodeBlock::InstanceMethods
+
+    def initialize(responses)
+      super(responses: responses)
     end
 
     def method_missing(method_name, *args)
@@ -16,15 +18,6 @@ module SmartAnswer
 
     def respond_to_missing?(method_name, include_private = false)
       method_name =~ /=$/ || super
-    end
-
-    def transition_to(new_node, input)
-      dup.tap do |new_state|
-        new_state.path << current_node
-        new_state.current_node = new_node
-        new_state.responses << input
-        new_state.freeze
-      end
     end
 
     def to_hash

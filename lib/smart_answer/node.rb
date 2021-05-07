@@ -44,5 +44,21 @@ module SmartAnswer
     def view_template(path)
       @view_template_path = path
     end
+
+    def error(_state)
+      nil
+    end
+
+    def next_node_name(state)
+      next_node = state.instance_exec(&next_node_block)
+
+      raise NextNodeUndefined, "Next node undefined." if next_node.blank?
+
+      unless Question::NextNodeBlock.permitted?(next_node)
+        raise "Next node (#{next_node}) not returned via question or outcome method"
+      end
+
+      next_node.to_sym
+    end
   end
 end

@@ -1,17 +1,12 @@
 module FlowHelper
-  def forwarding_responses
-    flow.response_store == :session ? {} : response_store.all
+  def flow
+    @flow ||= SmartAnswer::FlowRegistry.instance.find(params[:id])
   end
 
   def presenter
-    @presenter ||= begin
-      params.merge!(responses: response_store.all, node_name: node_name)
-      FlowPresenter.new(params, flow)
-    end
-  end
+    state = SmartAnswer::State.new(response_store.all)
 
-  def flow
-    @flow ||= SmartAnswer::FlowRegistry.instance.find(params[:id])
+    @presenter ||= FlowPresenter.new(flow, state)
   end
 
   def response_store
@@ -30,6 +25,10 @@ module FlowHelper
     @content_item ||= ContentItemRetriever.fetch(flow.name)
   end
 
+  def forwarding_responses
+    flow.response_store == :session ? {} : response_store.all
+  end
+
 private
 
   def node_name
@@ -37,6 +36,6 @@ private
   end
 
   def next_node_slug
-    presenter.current_state.current_node.to_s.dasherize
+    presenter.current_node.slug
   end
 end

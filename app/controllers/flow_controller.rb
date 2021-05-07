@@ -12,10 +12,14 @@ class FlowController < ApplicationController
   def show
     @title = presenter.title
 
-    if params[:node_slug] == presenter.node_slug
-      render presenter.current_node.view_template_path, formats: [:html]
+    node = presenter.current_node
+
+    @node_presenter = presenter.presenter_for(node)
+
+    if params[:node_slug] == node.slug
+      render @node_presenter.view_template_path, formats: [:html]
     else
-      redirect_to flow_path(id: params[:id], node_slug: presenter.node_slug, params: forwarding_responses)
+      redirect_to flow_path(id: params[:id], node_slug: node.slug, params: forwarding_responses)
     end
   end
 

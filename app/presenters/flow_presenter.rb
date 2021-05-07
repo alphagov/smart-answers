@@ -16,29 +16,14 @@ class FlowPresenter
 
   delegate :node_slug, to: :current_node
 
-  def initialize(params, flow)
-    @params = params
+  def initialize(flow, state)
     @flow = flow
+    @state = state
     @node_presenters = {}
   end
 
-  def finished?
-    current_node.outcome?
-  end
-
-  def current_state
-    @current_state ||= if response_store
-                         requested_node = params[:node_name] unless params[:next]
-                         @flow.resolve_state(params[:responses], requested_node)
-                       else
-                         @flow.process(all_responses)
-                       end
-  end
-
-  def collapsed_questions
-    @flow.path(all_responses).map do |name|
-      presenter_for(@flow.node(name))
-    end
+  def current_node
+    @flow.find_valid_node(@state)
   end
 
   def presenter_for(node)
@@ -64,67 +49,23 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    @node_presenters[node.name] ||= presenter_class.new(node, self, current_state, {}, params)
+    @node_presenters[node.name] ||= presenter_class.new(node, self, @state, {}, params)
   end
 
-  def response_for_current_question
-    if response_store
-      responses = params[:responses]
-      responses[current_state.current_node.to_s]
-    elsif params[:previous_response].present?
-      current_node.to_response(params[:previous_response])
-    else
-      question_number = current_state.path.size
-      all_responses[question_number]
-    end
-  end
-
-  def current_question_number
-    current_state.path.size + 1
-  end
-
-  def current_node
-    presenter_for(@flow.node(current_state.current_node))
+  def current_node_presenter
+    presenter_for(current_node)
   end
 
   def start_node
     @start_node ||= StartNodePresenter.new(@flow.start_node)
   end
 
-  def change_collapsed_question_link(question_number, question)
-    if response_store
-      flow_path(params[:id], node_slug: question.node_slug)
-    else
-      smart_answer_path(
-        id: @params[:id],
-        started: "y",
-        responses: accepted_responses[0...question_number - 1],
-        previous_response: accepted_responses[question_number - 1],
-      )
-    end
-  end
-
-  def normalize_responses_param
-    case params[:responses]
-    when NilClass
-      []
-    when Array
-      params[:responses]
-    when ActionController::Parameters
-      current_state.responses
-    else
-      params[:responses].to_s.split("/")
-    end
-  end
-
   def accepted_responses
-    @current_state.responses
+    @state.responses
   end
 
-  def all_responses
-    normalize_responses_param.dup.tap do |responses|
-      responses << params[:response] if params[:next]
-    end
+  def finished?
+    current_node.outcome?
   end
 
   def start_page_link

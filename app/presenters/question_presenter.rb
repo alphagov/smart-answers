@@ -1,6 +1,4 @@
 class QuestionPresenter < NodePresenter
-  delegate :response_for_current_question, to: :@flow_presenter
-
   attr_reader :params
 
   def initialize(node, flow_presenter, state = nil, options = {}, params = {})
@@ -21,8 +19,8 @@ class QuestionPresenter < NodePresenter
   end
 
   def error
-    if @state.error.present?
-      error_message_for(@state.error) || error_message_for("error_message") || default_error_message
+    if @node.error(@state).present?
+      error_message_for(@node.error) || error_message_for("error_message") || default_error_message
     end
   end
 
@@ -85,5 +83,9 @@ class QuestionPresenter < NodePresenter
 
   def view_template_path
     "smart_answers/question"
+  end
+
+  def response_for_current_question
+    @state.responses[@node.name.to_s]
   end
 end
