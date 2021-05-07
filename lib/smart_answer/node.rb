@@ -7,7 +7,7 @@ module SmartAnswer
 
     def initialize(flow, name, &block)
       @flow = flow
-      @name = name
+      @name = name.to_s
       @on_response_blocks = []
       instance_eval(&block) if block_given?
     end
@@ -58,7 +58,7 @@ module SmartAnswer
         raise "Next node (#{next_node}) not returned via question or outcome method"
       end
 
-      next_node.to_sym
+      next_node.to_s
     end
   end
 end

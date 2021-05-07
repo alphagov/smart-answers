@@ -3,7 +3,7 @@ class StartNodePresenter < NodePresenter
     super(node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory,
-      template_name: @node.name.to_s,
+      template_name: @node.name,
     )
   end
 

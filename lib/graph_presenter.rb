@@ -55,7 +55,7 @@ private
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
-      text << word_wrap(node.name.to_s)
+      text << word_wrap(node.name)
     else
       text << "Unknown node type"
     end

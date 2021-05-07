@@ -111,12 +111,12 @@ module SmartAnswer
       @nodes.select(&:question?)
     end
 
-    def node_exists?(node_or_name)
-      @nodes.any? { |n| n.name == node_or_name.to_sym }
+    def node_exists?(name)
+      @nodes.any? { |n| n.name == name }
     end
 
     def find_node(name)
-      @nodes.find { |n| n.name == name.to_sym } || raise("Node '#{name}' does not exist")
+      @nodes.find { |n| n.name == name } || raise("Node '#{name}' does not exist")
     end
 
     def start_node
@@ -126,7 +126,7 @@ module SmartAnswer
     def find_valid_node(state)
       node = questions.first
 
-      until node.nil? || node.error(state) || state.responses[node.name.to_s].blank?
+      until node.nil? || node.error(state) || state.responses[node.name].blank?
         node.transition(state)
 
         next_node_name = node.next_node_name(state)

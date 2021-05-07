@@ -33,25 +33,8 @@ module SmartAnswer
         @validations << [message, block]
       end
 
-      def next_node_for(current_state, input)
-        validate!(current_state, input)
-        state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
-        next_node = state.instance_exec(input, &next_node_block)
-        if next_node.blank?
-          responses_and_input = current_state.responses + [input]
-          message = "Next node undefined. Node: #{current_state.current_node}."
-          message << " Responses: #{responses_and_input}."
-          raise NextNodeUndefined, message
-        end
-        unless NextNodeBlock.permitted?(next_node)
-          raise "Next node (#{next_node}) not returned via question or outcome method"
-        end
-
-        next_node.to_sym
-      end
-
       def transition(state)
-        input = parse_input(state.responses[name.to_s])
+        input = parse_input(state.responses[name])
 
         @on_response_blocks.each do |block|
           block.evaluate(state, input)

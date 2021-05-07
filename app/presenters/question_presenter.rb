@@ -86,6 +86,6 @@ class QuestionPresenter < NodePresenter
   end
 
   def response_for_current_question
-    @state.responses[@node.name.to_s]
+    @state.responses[@node.name]
   end
 end
