@@ -20,7 +20,7 @@ class FlowController < ApplicationController
   end
 
   def update
-    response_store.add(node_name, params[:response])
+    response_store.add(node_name, params.fetch(:response, ""))
     redirect_to flow_path(id: params[:id], node_slug: next_node_slug, params: forwarding_responses)
   end
 
