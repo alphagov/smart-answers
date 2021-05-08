@@ -1,8 +1,8 @@
 class SalaryQuestionPresenter < QuestionPresenter
   include SmartAnswer::FormattingHelper
 
-  def response_label(value)
-    format_salary(SmartAnswer::Salary.new(value))
+  def response_label
+    format_salary(SmartAnswer::Salary.new(response))
   end
 
   def amount

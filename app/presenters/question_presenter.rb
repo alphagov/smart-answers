@@ -19,7 +19,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def error
-    if @node.error(@state).present?
+    if @node.error.present?
       error_message_for(@node.error) || error_message_for("error_message") || default_error_message
     end
   end
@@ -61,12 +61,16 @@ class QuestionPresenter < NodePresenter
     []
   end
 
+  def response
+    @state.responses[@node.name]
+  end
+
   def to_response(input)
     @node.to_response(input)
   end
 
-  def response_label(value)
-    value
+  def response_label
+    response
   end
 
   def partial_template_name

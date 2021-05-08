@@ -23,7 +23,7 @@ class FlowPresenter
   end
 
   def current_node
-    @flow.find_valid_node(@state)
+    @current_node ||= @flow.visited_nodes(@state).last
   end
 
   def presenter_for(node)
@@ -66,6 +66,34 @@ class FlowPresenter
 
   def finished?
     current_node.outcome?
+  end
+
+  # def answered_questions
+  #   @state.responses.keys.map do |node_name|
+  #     presenter_for(@flow.find_node(node_name))
+  #   end
+  # end
+
+  def previous_questions
+    nodes = @flow.visited_nodes(@state)
+    nodes.pop
+
+    nodes.map do |node|
+      presenter_for(node)
+    end
+  end
+
+  def change_answer_link(question)
+    if response_store
+      flow_path(flow.name, node_slug: question.node_slug, params: {})
+    else
+      smart_answer_path(
+        id: flow.name,
+        started: "y",
+        responses: previous_questions.map(&:response),
+        previous_response: question.response,
+      )
+    end
   end
 
   def start_page_link

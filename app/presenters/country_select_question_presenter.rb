@@ -9,7 +9,7 @@ class CountrySelectQuestionPresenter < QuestionPresenter
     end
   end
 
-  def response_label(value)
-    select_options.find { |option| option[:value] == value }[:text]
+  def response_label
+    select_options.find { |option| option[:value] == response }[:text]
   end
 end

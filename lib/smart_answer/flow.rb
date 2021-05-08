@@ -123,17 +123,21 @@ module SmartAnswer
       Node.new(self, name.underscore.to_sym)
     end
 
-    def find_valid_node(state)
-      node = questions.first
+    def visited_nodes(state)
+      current_node = questions.first
+      nodes = [current_node]
 
-      until node.nil? || node.error(state) || state.responses[node.name].blank?
-        node.transition(state)
+      until current_node.nil? || state.responses[current_node.name].nil?
+        current_node.transition(state)
 
-        next_node_name = node.next_node_name(state)
-        node = find_node(next_node_name)
+        break if current_node.error || current_node.name == state.requested_node
+
+        next_node_name = current_node.next_node_name(state)
+        current_node = find_node(next_node_name)
+        nodes << current_node
       end
 
-      node
+      nodes
     end
 
     class InvalidStatus < StandardError; end

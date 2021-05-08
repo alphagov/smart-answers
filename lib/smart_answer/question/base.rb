@@ -35,10 +35,14 @@ module SmartAnswer
 
       def transition(state)
         input = parse_input(state.responses[name])
+        validate!
 
         @on_response_blocks.each do |block|
           block.evaluate(state, input)
         end
+      rescue BaseStateTransitionError => e
+        GovukError.notify(e) if e.is_a?(LoggedError)
+        @error = e.message
       end
 
       def parse_input(raw_input)
@@ -53,30 +57,16 @@ module SmartAnswer
         true
       end
 
-      def error(state)
-        @validations.each do |message, predicate|
-          unless state.instance_exec(state.responses[@name], &predicate)
-            return message
-          end
-        end
-
-        nil
-      end
-
     private
 
       def next_node_block
         @next_node_block || @default_next_node_block
       end
 
-      def validate!(current_state, input)
+      def validate!
         @validations.each do |message, predicate|
-          unless current_state.instance_exec(input, &predicate)
-            if message
-              raise InvalidResponse, message
-            else
-              raise InvalidResponse
-            end
+          unless state.instance_exec(state.responses[@name], &predicate)
+            @error = message
           end
         end
       end

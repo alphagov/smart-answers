@@ -3,11 +3,12 @@ require "active_support/inflector"
 module SmartAnswer
   class Node
     attr_accessor :flow
-    attr_reader :name, :view_template_path
+    attr_reader :name, :view_template_path, :error
 
     def initialize(flow, name, &block)
       @flow = flow
       @name = name.to_s
+      @error = nil
       @on_response_blocks = []
       instance_eval(&block) if block_given?
     end
@@ -45,18 +46,10 @@ module SmartAnswer
       @view_template_path = path
     end
 
-    def error(_state)
-      nil
-    end
+    def transition(_state); end
 
     def next_node_name(state)
       next_node = state.instance_exec(&next_node_block)
-
-      raise NextNodeUndefined, "Next node undefined." if next_node.blank?
-
-      unless Question::NextNodeBlock.permitted?(next_node)
-        raise "Next node (#{next_node}) not returned via question or outcome method"
-      end
 
       next_node.to_s
     end

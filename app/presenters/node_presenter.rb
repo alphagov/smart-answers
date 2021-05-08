@@ -4,7 +4,7 @@ class NodePresenter
   def initialize(node, flow_presenter, state = nil, _options = {}, _params = {})
     @node = node
     @flow_presenter = flow_presenter
-    @state = state || SmartAnswer::State.new(nil)
+    @state = state || SmartAnswer::State.new(nil, nil)
   end
 
   def node_name

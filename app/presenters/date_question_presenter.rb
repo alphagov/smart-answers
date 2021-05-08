@@ -4,8 +4,8 @@ class DateQuestionPresenter < QuestionPresenter
            :default_year,
            to: :@node
 
-  def response_label(value)
-    if only_display_day_and_month?(value)
+  def response_label
+    if only_display_day_and_month?(response)
       value.strftime("%e %B")
     else
       value.strftime("%e %B %Y")

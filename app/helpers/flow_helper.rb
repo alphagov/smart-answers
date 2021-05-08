@@ -4,7 +4,8 @@ module FlowHelper
   end
 
   def presenter
-    state = SmartAnswer::State.new(response_store.all)
+    requested_node = node_name unless params[:next]
+    state = SmartAnswer::State.new(response_store.all, requested_node)
 
     @presenter ||= FlowPresenter.new(flow, state)
   end

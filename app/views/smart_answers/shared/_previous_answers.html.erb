@@ -17,4 +17,36 @@
         "track-label": @presenter.current_node_presenter.title
       } %>
   <% end %>
+
+   <% unless local_assigns[:hide_previous_answers] %>
+    <% items = @presenter.previous_questions.map { |question_presenter|
+
+      if question_presenter.multiple_responses?
+        value = render "govuk_publishing_components/components/list", {
+          items: question_presenter.response_labels
+        }
+      else
+        value = question_presenter.response_label
+      end
+
+      {
+        field: question_presenter.title,
+        value: value,
+        edit: {
+          href: @presenter.change_answer_link(question_presenter),
+          data_attributes: {
+            "module": "gem-track-click",
+            "track-category": "Smart Answer Change Link",
+            "track-action":  "Link clicked",
+            "track-label": "#{question_presenter.title} / #{question_presenter.response_label}"
+          }
+        }
+      }
+    } %>
+
+    <%= render "govuk_publishing_components/components/summary_list", {
+      wide_title: true,
+      items: items
+    } %>
+  <% end %>
 <% end %>

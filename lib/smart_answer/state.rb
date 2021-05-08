@@ -4,8 +4,11 @@ module SmartAnswer
   class State < OpenStruct
     include Question::NextNodeBlock::InstanceMethods
 
-    def initialize(responses)
-      super(responses: responses)
+    def initialize(responses, requested_node)
+      super(
+        responses: responses,
+        requested_node: requested_node,
+      )
     end
 
     def method_missing(method_name, *args)

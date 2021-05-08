@@ -1,6 +1,6 @@
 class MultipleChoiceQuestionPresenter < QuestionWithOptionsPresenter
-  def response_label(value)
-    options.find { |option| option[:value] == value }[:label]
+  def response_label
+    options.find { |option| option[:value] == response }[:label]
   end
 
   def radio_buttons
