@@ -140,6 +140,21 @@ module SmartAnswer
       nodes
     end
 
+    def convert_url_path_to_response_hash(responses)
+      node = questions.first
+
+      responses.each_with_object(State.new({}, nil)) do |response, state|
+        state.responses[node.name] = response
+
+        node.transition(state)
+
+        return state if node.error
+
+        next_node_name = node.next_node_name(state)
+        node = find_node(next_node_name)
+      end
+    end
+
     class InvalidStatus < StandardError; end
 
   private

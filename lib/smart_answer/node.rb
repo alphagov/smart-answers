@@ -49,7 +49,8 @@ module SmartAnswer
     def transition(_state); end
 
     def next_node_name(state)
-      next_node = state.instance_exec(&next_node_block)
+      response = state.responses[name]
+      next_node = state.instance_exec(response, &next_node_block)
 
       next_node.to_s
     end

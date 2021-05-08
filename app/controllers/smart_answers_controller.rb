@@ -51,7 +51,15 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)
-    @presenter = FlowPresenter.new(@smart_answer, request.params)
+
+    @responses = params[:responses].to_s.split("/")
+
+    response_hash = @smart_answer.convert_url_path_to_response_hash(@responses).responses
+
+    state = SmartAnswer::State.new(response_hash, nil)
+
+    @presenter = FlowPresenter.new(@smart_answer, state)
+    @node_presenter = @presenter.presenter_for(@presenter.current_node)
   end
 
   def flow_registry
@@ -67,9 +75,10 @@ private
   helper_method :page_type
 
   def redirect_response_to_canonical_path
-    if params[:next] && !@presenter.current_state.error
+    if params[:next] && !@presenter.current_node.error
+      @responses << params[:response] if params[:next]
       set_expiry
-      redirect_to smart_answer_path(@name, started: "y", responses: @presenter.current_state.responses)
+      redirect_to smart_answer_path(@name, started: "y", responses: @responses.join("/"))
     end
   end
 

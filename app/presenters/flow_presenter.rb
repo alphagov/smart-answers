@@ -87,10 +87,13 @@ class FlowPresenter
     if response_store
       flow_path(flow.name, node_slug: question.node_slug, params: {})
     else
+      question_index = previous_questions.index { |q| q.node_name == question.node_name }
+      responses = previous_questions[..question_index - 1].map(&:response)
+
       smart_answer_path(
         id: flow.name,
         started: "y",
-        responses: previous_questions.map(&:response),
+        responses: responses,
         previous_response: question.response,
       )
     end
