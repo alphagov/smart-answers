@@ -49,7 +49,7 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    @node_presenters[node.name] ||= presenter_class.new(node, self, @state, {}, params)
+    @node_presenters[node.name] ||= presenter_class.new(node, self, @state, {})
   end
 
   def current_node_presenter
