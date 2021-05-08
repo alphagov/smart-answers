@@ -120,7 +120,7 @@ module SmartAnswer
     end
 
     def start_node
-      Node.new(self, name.underscore.to_sym)
+      StartNode.new(self, name.underscore.to_sym)
     end
 
     def visited_nodes(state)
@@ -140,19 +140,22 @@ module SmartAnswer
       nodes
     end
 
-    def convert_url_path_to_response_hash(responses)
+    def node_from_path(responses)
       node = questions.first
+      state = State.new({}, nil)
 
-      responses.each_with_object(State.new({}, nil)) do |response, state|
+      responses.each do |response|
         state.responses[node.name] = response
 
         node.transition(state)
 
-        return state if node.error
+        return node if node.error
 
         next_node_name = node.next_node_name(state)
         node = find_node(next_node_name)
       end
+
+      node
     end
 
     class InvalidStatus < StandardError; end

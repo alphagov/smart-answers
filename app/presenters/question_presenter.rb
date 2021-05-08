@@ -1,6 +1,6 @@
 class QuestionPresenter < NodePresenter
-  def initialize(node, flow_presenter, state = nil, options = {})
-    super(node, flow_presenter, state)
+  def initialize(node, state = nil, options = {})
+    super(node, state)
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(
@@ -34,7 +34,7 @@ class QuestionPresenter < NodePresenter
     return nil if @renderer.hide_caption
     return @renderer.content_for(:caption) if @renderer.content_for(:caption).present?
 
-    @flow_presenter.title
+    @node.flow.title
   end
 
   def label

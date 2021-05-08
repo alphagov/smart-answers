@@ -1,5 +1,7 @@
 module SmartAnswer
   class Salary
+    PRESENTER_CLASS = SalaryQuestionPresenter
+
     include Comparable
 
     attr_reader :amount, :period

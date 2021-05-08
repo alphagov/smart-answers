@@ -1,6 +1,8 @@
 module SmartAnswer
   module Question
     class Base < Node
+      PRESENTER_CLASS = QuestionPresenter
+
       class NextNodeUndefined < StandardError; end
 
       def initialize(flow, name, &block)

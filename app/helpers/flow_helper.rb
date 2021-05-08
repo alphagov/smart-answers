@@ -3,11 +3,18 @@ module FlowHelper
     @flow ||= SmartAnswer::FlowRegistry.instance.find(params[:id])
   end
 
-  def presenter
-    requested_node = node_name unless params[:next]
-    state = SmartAnswer::State.new(response_store.all, requested_node)
+  def node_presenter
+    visited_node_presenters.last
+  end
 
-    @presenter ||= FlowPresenter.new(flow, state)
+  def visited_node_presenters
+    state = start_state
+    flow.visited_nodes(state).map { |node| node.presenter(state) }
+  end
+
+  def start_state
+    requested_node = node_name unless params[:next]
+    SmartAnswer::State.new(response_store.all, requested_node)
   end
 
   def response_store
@@ -30,13 +37,37 @@ module FlowHelper
     flow.response_store == :session ? {} : response_store.all
   end
 
+  def start_page_link
+    if response_store
+      start_flow_path(flow.name)
+    else
+      smart_answer_path(flow.name, started: "y")
+    end
+  end
+
+  def previous_questions
+    visited_node_presenters.first(visited_node_presenters.length - 1)
+  end
+
+  def change_answer_link(question)
+    if response_store
+      flow_path(flow.name, node_slug: question.slug, params: {})
+    else
+      question_index = previous_questions.index { |q| q.node_name == question.node_name }
+      responses = previous_questions[..question_index - 1].map(&:response)
+
+      smart_answer_path(
+        id: flow.name,
+        started: "y",
+        responses: responses,
+        previous_response: question.response,
+      )
+    end
+  end
+
 private
 
   def node_name
     @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
-  end
-
-  def next_node_slug
-    presenter.current_node.slug
   end
 end

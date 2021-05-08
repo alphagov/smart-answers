@@ -1,4 +1,4 @@
-<% if @presenter.accepted_responses.present? %>
+<% if visited_node_presenters.present? %>
   <%= render "govuk_publishing_components/components/heading", {
     text: local_assigns[:hide_previous_answers] ? "Change your answers" : "Your answers",
     heading_level: 2,
@@ -8,18 +8,18 @@
 
   <%= tag.p class: "govuk-body" do %>
     <%= link_to "Start again",
-      restart_flow_path(@presenter),
+      restart_flow_path,
       class: "govuk-link",
       data: {
         module: "gem-track-click",
         "track-action": "Start again",
         "track-category": "StartAgain",
-        "track-label": @presenter.current_node_presenter.title
+        "track-label": node_presenter.title
       } %>
   <% end %>
 
    <% unless local_assigns[:hide_previous_answers] %>
-    <% items = @presenter.previous_questions.map { |question_presenter|
+    <% items = previous_questions.map { |question_presenter|
 
       if question_presenter.multiple_responses?
         value = render "govuk_publishing_components/components/list", {
@@ -33,7 +33,7 @@
         field: question_presenter.title,
         value: value,
         edit: {
-          href: @presenter.change_answer_link(question_presenter),
+          href: change_answer_link(question_presenter),
           data_attributes: {
             "module": "gem-track-click",
             "track-category": "Smart Answer Change Link",

@@ -1,4 +1,4 @@
-<% outcome = @node_presenter %>
+<% outcome = node_presenter %>
 <% content_for :outcome_title do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>
@@ -50,12 +50,10 @@
       });
     </script>
 
-    <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: @presenter.hide_previous_answers_on_results_page? %>
+    <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: flow.hide_previous_answers_on_results_page? %>
   </div>
 
-  <% if defined?(@presenter.finished?) and @presenter.finished? %>
-    <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item %>
-    </div>
-  <% end %>
+  <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item %>
+  </div>
 </div>

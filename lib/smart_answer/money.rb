@@ -1,6 +1,7 @@
 require "bigdecimal"
 module SmartAnswer
   class Money
+    PRESENTER_CLASS = MoneyQuestionPresenter
     include Comparable
 
     delegate :to_f,

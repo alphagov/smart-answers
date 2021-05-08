@@ -24,7 +24,7 @@ class SmartAnswersController < ApplicationController
   end
 
   def show
-    @title = @presenter.title
+    @title = @start_node_presenter.title
 
     render page_type, formats: [:html]
 
@@ -54,12 +54,12 @@ private
 
     @responses = params[:responses].to_s.split("/")
 
-    response_hash = @smart_answer.convert_url_path_to_response_hash(@responses).responses
+    @node = @smart_answer.node_from_path(@responses)
 
-    state = SmartAnswer::State.new(response_hash, nil)
+    state = SmartAnswer::State.new({}, nil)
 
-    @presenter = FlowPresenter.new(@smart_answer, state)
-    @node_presenter = @presenter.presenter_for(@presenter.current_node)
+    @start_node_presenter = @smart_answer.start_node.presenter(state)
+    @node_presenter = @node.presenter(state)
   end
 
   def flow_registry
@@ -68,14 +68,14 @@ private
 
   def page_type
     return :landing unless params[:started]
-    return :result if @presenter.finished?
+    return :result if @node.outcome?
 
     :question
   end
   helper_method :page_type
 
   def redirect_response_to_canonical_path
-    if params[:next] && !@presenter.current_node.error
+    if params[:next] && !@node.error
       @responses << params[:response] if params[:next]
       set_expiry
       redirect_to smart_answer_path(@name, started: "y", responses: @responses.join("/"))

@@ -1,6 +1,7 @@
 module SmartAnswer
   module Question
     class Checkbox < Base
+      PRESENTER_CLASS = CheckboxQuestionPresenter
       NONE_OPTION = "none".freeze
 
       attr_reader :options

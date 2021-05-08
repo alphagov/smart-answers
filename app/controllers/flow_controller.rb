@@ -10,22 +10,19 @@ class FlowController < ApplicationController
   end
 
   def show
-    @title = presenter.title
+    start_node_presenter = flow.start_node.presenter(start_state)
+    @title = start_node_presenter.title
 
-    node = presenter.current_node
-
-    @node_presenter = presenter.presenter_for(node)
-
-    if params[:node_slug] == node.slug
-      render @node_presenter.view_template_path, formats: [:html]
+    if params[:node_slug] == node_presenter.slug
+      render node_presenter.view_template_path, formats: [:html]
     else
-      redirect_to flow_path(id: params[:id], node_slug: node.slug, params: forwarding_responses)
+      redirect_to flow_path(id: params[:id], node_slug: node_presenter.slug, params: forwarding_responses)
     end
   end
 
   def update
     response_store.add(node_name, params.fetch(:response, ""))
-    redirect_to flow_path(id: params[:id], node_slug: next_node_slug, params: forwarding_responses)
+    redirect_to flow_path(id: params[:id], node_slug: node_presenter.slug, params: forwarding_responses)
   end
 
   def destroy

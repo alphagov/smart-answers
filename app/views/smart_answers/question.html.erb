@@ -1,4 +1,4 @@
-<% question = @node_presenter %>
+<% question = node_presenter %>
 <% content_for :question_title do %><% if question.error.present? %>Error - <% end %><%= question.title %><% end %>
 <% content_for :head do %>
   <meta name="robots" content="noindex">
@@ -9,7 +9,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render 'smart_answers/shared/debug' %>
-    <%= form_tag(current_question_path(@presenter),
+    <%= form_tag(current_question_path,
         :method => :get,
         :data => {
           module: "track-responses",
