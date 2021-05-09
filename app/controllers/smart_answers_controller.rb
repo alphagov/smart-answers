@@ -24,7 +24,7 @@ class SmartAnswersController < ApplicationController
   end
 
   def show
-    @title = @start_node_presenter.title
+    @title = @smart_answer.title
 
     render page_type, formats: [:html]
 

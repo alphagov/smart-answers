@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
+  get "/:id", to: "flow#show"
+
   constraints id: /[a-z0-9-]+/i, started: /y/ do
     get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
 

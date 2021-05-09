@@ -15,9 +15,8 @@
           { text: "" },
         ],
         rows: @flows.map do |flow|
-          presenter = StartNodePresenter.new(flow.start_node)
           [
-            { text: title_and_url(flow.name, presenter.title) },
+            { text: title_and_url(flow.name, flow.title) },
             { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
             { text: flow.questions.count },
             { text: flow.outcomes.count },

@@ -46,7 +46,7 @@ module FlowHelper
   end
 
   def previous_questions
-    visited_node_presenters.first(visited_node_presenters.length - 1)
+    visited_node_presenters.select { |presenter| presenter.question? && presenter.response }
   end
 
   def change_answer_link(question)

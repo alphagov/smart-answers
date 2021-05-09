@@ -10,8 +10,7 @@ class FlowController < ApplicationController
   end
 
   def show
-    start_node_presenter = flow.start_node.presenter(start_state)
-    @title = start_node_presenter.title
+    @title = flow.title
 
     if params[:node_slug] == node_presenter.slug
       render node_presenter.view_template_path, formats: [:html]

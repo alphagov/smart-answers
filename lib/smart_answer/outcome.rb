@@ -2,6 +2,10 @@ module SmartAnswer
   class Outcome < Node
     PRESENTER_CLASS = OutcomePresenter
 
+    def requires_action?(_state)
+      true
+    end
+
     def outcome?
       true
     end

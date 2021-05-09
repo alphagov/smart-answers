@@ -2,12 +2,13 @@ require "ostruct"
 
 module SmartAnswer
   class Flow
-    attr_reader :nodes
+    attr_accessor :nodes
     attr_writer :status
 
     def self.build
       flow = new
       flow.define
+      flow.nodes.prepend(StartNode.new(flow, nil))
       flow
     end
 
@@ -119,15 +120,15 @@ module SmartAnswer
       @nodes.find { |n| n.name == name } || raise("Node '#{name}' does not exist")
     end
 
-    def start_node
-      StartNode.new(self, name.underscore.to_sym)
+    def title
+      @nodes.first.presenter(nil).title
     end
 
     def visited_nodes(state)
-      current_node = questions.first
+      current_node = @nodes.first
       nodes = [current_node]
 
-      until current_node.nil? || state.responses[current_node.name].nil?
+      until current_node.nil? || current_node.requires_action?(state)
         current_node.transition(state)
 
         break if current_node.error || current_node.name == state.requested_node

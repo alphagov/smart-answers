@@ -34,6 +34,10 @@ module SmartAnswer
       @on_response_blocks << Block.new(&block)
     end
 
+    def requires_action?(_state)
+      false
+    end
+
     def outcome?
       false
     end

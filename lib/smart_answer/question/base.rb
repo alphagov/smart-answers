@@ -47,6 +47,10 @@ module SmartAnswer
         @error = e.message
       end
 
+      def requires_action?(state)
+        state.responses[name].nil?
+      end
+
       def parse_input(raw_input)
         raw_input
       end
