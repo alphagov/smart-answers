@@ -4,10 +4,9 @@ module SmartAnswer
   class State < OpenStruct
     include Question::NextNodeBlock::InstanceMethods
 
-    def initialize(responses, requested_node)
+    def initialize(responses)
       super(
         responses: responses,
-        requested_node: requested_node,
       )
     end
 

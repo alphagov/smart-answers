@@ -1,4 +1,5 @@
 class SmartAnswersController < ApplicationController
+  include FlowHelper
   include Slimmer::Headers
 
   before_action :find_smart_answer, except: %w[index]
@@ -51,12 +52,6 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)
-
-    @responses = params[:responses].to_s.split("/")
-    @node = @smart_answer.node_from_path(@responses)
-    state = SmartAnswer::State.new({}, nil)
-
-    @node_presenter = @node.presenter(state)
   end
 
   def flow_registry
@@ -64,18 +59,16 @@ private
   end
 
   def page_type
-    return :landing unless params[:started]
-    return :result if @node.outcome?
+    return :result if node_presenter.outcome?
 
     :question
   end
   helper_method :page_type
 
   def redirect_response_to_canonical_path
-    if params[:next] && !@node.error
-      @responses << params[:response] if params[:next]
-      set_expiry
-      redirect_to smart_answer_path(@name, started: "y", responses: @responses.join("/"))
+    if params[:next] && !node_presenter.error
+      responses = previous_questions.map(&:response).join("/")
+      redirect_to smart_answer_path(@name, started: "y", responses: responses)
     end
   end
 

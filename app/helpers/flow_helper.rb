@@ -8,23 +8,28 @@ module FlowHelper
   end
 
   def visited_node_presenters
-    state = start_state
-    flow.visited_nodes(state).map { |node| node.presenter(state) }
-  end
+    @visited_node_presenters ||= begin
+      state = SmartAnswer::State.new(response_store.all)
+      requested_node = params[:next] || flow.response_store.nil? ? false : params[:node_slug]
 
-  def start_state
-    requested_node = params[:next] ? false : params[:node_slug]
-    SmartAnswer::State.new(response_store.all, requested_node)
+      flow.visited_nodes(state, requested_node).map { |node| node.presenter(state) }
+    end
   end
 
   def response_store
     @response_store ||= begin
       if flow.response_store == :session
         SessionResponseStore.new(flow_name: params[:id], session: session)
-      else
+      elsif flow.response_store == :query_parameters
         allowable_keys = flow.nodes.map(&:name)
         query_parameters = request.query_parameters.slice(*allowable_keys)
         ResponseStore.new(responses: query_parameters)
+      else
+        responses = params[:responses].to_s.split("/")
+        responses << params[:response] if params[:next]
+        state = flow.state_from_path(responses)
+
+        ResponseStore.new(responses: state.responses)
       end
     end
   end
@@ -52,10 +57,10 @@ module FlowHelper
   end
 
   def change_answer_link(question)
-    if response_store
+    if flow.response_store
       flow_path(flow.name, node_slug: question.slug, params: {})
     else
-      question_index = previous_questions.index { |q| q.node_name == question.node_name }
+      question_index = previous_questions.index { |q| q.name == question.name }
       responses = previous_questions[..question_index - 1].map(&:response)
 
       smart_answer_path(

@@ -3,6 +3,10 @@ class NodePresenter
 
   def initialize(node, state = nil, _options = {})
     @node = node
-    @state = state || SmartAnswer::State.new(nil, nil)
+    @state = state || SmartAnswer::State.new(nil)
+  end
+
+  def error
+    nil
   end
 end

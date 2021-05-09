@@ -124,17 +124,14 @@ module SmartAnswer
       @nodes.first.presenter(nil).title
     end
 
-    def visited_nodes(state)
+    def visited_nodes(state, requested_node)
       current_node = @nodes.first
       nodes = [current_node]
 
       until current_node.nil? || current_node.requires_action?(state)
         current_node.transition(state)
 
-        p current_node.slug
-        p state.requested_node
-
-        break if current_node.error || current_node.slug == state.requested_node
+        break if current_node.error || current_node.slug == requested_node
 
         next_node_name = current_node.next_node_name(state)
         current_node = find_node(next_node_name)
@@ -144,22 +141,22 @@ module SmartAnswer
       nodes
     end
 
-    def node_from_path(responses)
+    def state_from_path(responses)
       node = questions.first
-      state = State.new({}, nil)
+      state = State.new({})
 
       responses.each do |response|
         state.responses[node.name] = response
 
         node.transition(state)
 
-        return node if node.error
+        return state if node.error
 
         next_node_name = node.next_node_name(state)
         node = find_node(next_node_name)
       end
 
-      node
+      state
     end
 
     class InvalidStatus < StandardError; end
