@@ -55,10 +55,6 @@ module SmartAnswer
         raw_input
       end
 
-      def to_response(input)
-        input
-      end
-
       def question?
         true
       end

@@ -62,10 +62,6 @@ class QuestionPresenter < NodePresenter
     @state.responses[@node.name]
   end
 
-  def to_response(input)
-    @node.to_response(input)
-  end
-
   def response_label
     response
   end
