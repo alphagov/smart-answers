@@ -2,7 +2,6 @@ class SmartAnswersController < ApplicationController
   include FlowHelper
   include Slimmer::Headers
 
-  before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_path, only: %w[show]
   before_action :set_header_footer_only, only: %w[visualise]
   before_action :setup_content_item, except: %w[index]
@@ -19,15 +18,15 @@ class SmartAnswersController < ApplicationController
   end
 
   def index
-    @flows = flow_registry.flows.sort_by(&:name)
+    @flows = SmartAnswer::FlowRegistry.instance.flows.sort_by(&:name)
     @title = "Smart Answers Index"
     @content_item = {}
   end
 
   def show
-    @title = @smart_answer.title
+    @title = flow.title
 
-    render page_type, formats: [:html]
+    render node_presenter.view_template_path, formats: [:html]
 
     set_expiry
   end
@@ -35,13 +34,13 @@ class SmartAnswersController < ApplicationController
   def visualise
     respond_to do |format|
       format.html do
-        @graph_presenter = GraphPresenter.new(@smart_answer)
+        @graph_presenter = GraphPresenter.new(flow)
         @graph_data = @graph_presenter.to_hash
         render layout: "application"
       end
 
       format.gv do
-        render plain: GraphvizPresenter.new(@smart_answer).to_gv,
+        render plain: GraphvizPresenter.new(flow).to_gv,
                content_type: "text/vnd.graphviz"
       end
     end
@@ -49,26 +48,10 @@ class SmartAnswersController < ApplicationController
 
 private
 
-  def find_smart_answer
-    @name = params[:id].to_sym
-    @smart_answer = flow_registry.find(@name.to_s)
-  end
-
-  def flow_registry
-    @flow_registry = SmartAnswer::FlowRegistry.instance
-  end
-
-  def page_type
-    return :result if node_presenter.outcome?
-
-    :question
-  end
-  helper_method :page_type
-
   def redirect_response_to_canonical_path
     if params[:next] && !node_presenter.error
       responses = previous_questions.map(&:response).join("/")
-      redirect_to smart_answer_path(@name, started: "y", responses: responses)
+      redirect_to smart_answer_path(flow.name, started: "y", responses: responses)
     end
   end
 
