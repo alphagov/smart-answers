@@ -30,8 +30,8 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def checked?(value)
-    return false if response_for_current_question.blank?
+    return false if response.blank?
 
-    response_for_current_question.include?(value)
+    response.include?(value)
   end
 end

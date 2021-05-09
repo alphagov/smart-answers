@@ -13,21 +13,21 @@ class DateQuestionPresenter < QuestionPresenter
   end
 
   def selected_day
-    return unless response_for_current_question.is_a? Hash
+    return unless response.is_a? Hash
 
-    response_for_current_question[:day]
+    response[:day]
   end
 
   def selected_month
-    return unless response_for_current_question.is_a? Hash
+    return unless response.is_a? Hash
 
-    response_for_current_question[:month]
+    response[:month]
   end
 
   def selected_year
-    return unless response_for_current_question.is_a? Hash
+    return unless response.is_a? Hash
 
-    response_for_current_question[:year]
+    response[:year]
   end
 
 private

@@ -15,8 +15,8 @@ class MultipleChoiceQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def selected?(value)
-    return false if response_for_current_question.blank?
+    return false if response.blank?
 
-    value == response_for_current_question
+    value == response
   end
 end

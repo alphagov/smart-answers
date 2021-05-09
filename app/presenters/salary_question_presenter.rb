@@ -6,14 +6,14 @@ class SalaryQuestionPresenter < QuestionPresenter
   end
 
   def amount
-    return response_for_current_question unless response_for_current_question.is_a? Hash
+    return response unless response.is_a? Hash
 
-    response_for_current_question[:amount]
+    response[:amount]
   end
 
   def period
-    return unless response_for_current_question.is_a? Hash
+    return unless response.is_a? Hash
 
-    response_for_current_question[:period]
+    response[:period]
   end
 end

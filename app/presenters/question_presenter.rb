@@ -81,8 +81,4 @@ class QuestionPresenter < NodePresenter
   def view_template_path
     "smart_answers/question"
   end
-
-  def response_for_current_question
-    @state.responses[@node.name]
-  end
 end
