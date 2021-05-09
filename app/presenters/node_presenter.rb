@@ -1,5 +1,5 @@
 class NodePresenter
-  delegate :question?, :outcome?, :name, :slug, :view_template_path, to: :@node
+  delegate :landing?, :question?, :outcome?, :name, :slug, :view_template_path, to: :@node
 
   def initialize(node, state = nil, _options = {})
     @node = node

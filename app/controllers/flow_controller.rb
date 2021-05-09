@@ -20,7 +20,7 @@ class FlowController < ApplicationController
   end
 
   def update
-    response_store.add(node_name, params.fetch(:response, ""))
+    response_store.add(params[:node_slug].underscore, params.fetch(:response, ""))
     redirect_to flow_path(id: params[:id], node_slug: node_presenter.slug, params: forwarding_responses)
   end
 
@@ -37,7 +37,9 @@ class FlowController < ApplicationController
 private
 
   def redirect_path_based_flows
-    redirect_to smart_answer_path(params[:id], started: "y") if flow.response_store.nil?
+    if flow.response_store.nil? && !node_presenter.landing?
+      redirect_to smart_answer_path(params[:id], started: "y")
+    end
   end
 
   def set_cache_headers

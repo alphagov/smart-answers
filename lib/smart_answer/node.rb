@@ -46,6 +46,10 @@ module SmartAnswer
       false
     end
 
+    def landing?
+      false
+    end
+
     def template_directory
       load_path = FlowRegistry.instance.load_path
       Pathname.new(load_path).join(String(@flow.name))

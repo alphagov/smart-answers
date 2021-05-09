@@ -53,12 +53,9 @@ private
     @smart_answer = flow_registry.find(@name.to_s)
 
     @responses = params[:responses].to_s.split("/")
-
     @node = @smart_answer.node_from_path(@responses)
-
     state = SmartAnswer::State.new({}, nil)
 
-    @start_node_presenter = @smart_answer.start_node.presenter(state)
     @node_presenter = @node.presenter(state)
   end
 

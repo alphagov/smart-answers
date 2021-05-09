@@ -14,6 +14,10 @@ module SmartAnswer
       nil
     end
 
+    def landing?
+      true
+    end
+
     def view_template_path
       "smart_answers/landing"
     end

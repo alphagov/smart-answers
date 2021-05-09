@@ -13,7 +13,7 @@ module FlowHelper
   end
 
   def start_state
-    requested_node = node_name unless params[:next]
+    requested_node = params[:next] ? false : params[:node_slug]
     SmartAnswer::State.new(response_store.all, requested_node)
   end
 
@@ -38,7 +38,7 @@ module FlowHelper
   end
 
   def start_page_link
-    if response_store
+    if flow.response_store
       start_flow_path(flow.name)
     else
       smart_answer_path(flow.name, started: "y")
@@ -46,7 +46,9 @@ module FlowHelper
   end
 
   def previous_questions
-    visited_node_presenters.select { |presenter| presenter.question? && presenter.response }
+    visited_node_presenters.select do |presenter|
+      presenter.question? && !presenter.error && presenter.response && presenter.name != node_presenter.name
+    end
   end
 
   def change_answer_link(question)
@@ -63,11 +65,5 @@ module FlowHelper
         previous_response: question.response,
       )
     end
-  end
-
-private
-
-  def node_name
-    @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
   end
 end

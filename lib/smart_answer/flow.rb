@@ -131,7 +131,10 @@ module SmartAnswer
       until current_node.nil? || current_node.requires_action?(state)
         current_node.transition(state)
 
-        break if current_node.error || current_node.name == state.requested_node
+        p current_node.slug
+        p state.requested_node
+
+        break if current_node.error || current_node.slug == state.requested_node
 
         next_node_name = current_node.next_node_name(state)
         current_node = find_node(next_node_name)
