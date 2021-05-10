@@ -9,6 +9,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       track(element[0])
     }
 
+    function getQuestionHeading (submittedForm) {
+      return submittedForm.getAttribute('data-question-text')
+    }
+
     function getQuestionKey (submittedForm) {
       return submittedForm.getAttribute('data-question-key')
     }
@@ -80,12 +84,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     function track (element) {
       element.addEventListener('submit', function (event) {
         var submittedForm = event.target
+        var questionHeading = getQuestionHeading(submittedForm)
         var questionKey = getQuestionKey(submittedForm)
         var responseLabels = getResponseLabels(submittedForm)
 
         responseLabels.forEach(function (label) {
           var options = { transport: 'beacon', label: label }
-          GOVUK.analytics.trackEvent('question_answer', questionKey, options)
+          GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
+          GOVUK.analytics.trackEvent('response_submission', questionKey, options)
         })
       })
     }
