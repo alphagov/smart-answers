@@ -11,6 +11,15 @@ RSpec.feature "Query parameters based flow navigation", flow_dir: :fixture do
     expect(page).to have_text("Results title")
   end
 
+  scenario "User tries to submit a question without an answer" do
+    visit "/query-parameters-based/s"
+
+    click_button "Continue"
+
+    expect(page).to have_text("Question 1 title")
+    expect(page).to have_text("Please answer this question")
+  end
+
   scenario "User changes their answer to previous question" do
     visit "/query-parameters-based/s"
 
