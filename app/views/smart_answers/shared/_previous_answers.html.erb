@@ -19,8 +19,8 @@
   <% end %>
 
   <% unless local_assigns[:hide_previous_answers] %>
-    <% items = @presenter.collapsed_questions.each_with_index.map { |question, number_questions_so_far|
-      accepted_response = @presenter.accepted_responses[number_questions_so_far]
+    <% items = @presenter.collapsed_questions.each_with_index.map { |question, question_number|
+      accepted_response = @presenter.accepted_responses[question_number]
 
       if question.multiple_responses?
         value = render "govuk_publishing_components/components/list", {
@@ -34,7 +34,7 @@
         field: question.title,
         value: value,
         edit: {
-          href: @presenter.change_collapsed_question_link(number_questions_so_far + 1, question),
+          href: @presenter.change_answer_link(question_number, question),
           data_attributes: {
             "module": "gem-track-click",
             "track-category": "Smart Answer Change Link",

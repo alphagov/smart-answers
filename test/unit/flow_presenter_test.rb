@@ -103,34 +103,45 @@ class FlowPresenterTest < ActiveSupport::TestCase
     assert_equal @flow_presenter.name, @flow.name
   end
 
-  context "#change_collapsed_question_link" do
-    should "with smart answer" do
-      params = { responses: "question-1-answer/question-2-answer", id: @flow.name }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      questions = flow_presenter.collapsed_questions
-      assert_equal(
-        "/#{@flow.name}/y?previous_response=question-1-answer",
-        flow_presenter.change_collapsed_question_link(1, questions.first),
-      )
-      assert_equal(
-        "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
-        flow_presenter.change_collapsed_question_link(2, questions.first),
-      )
-      assert_equal(
-        "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
-        flow_presenter.change_collapsed_question_link(2, questions.last),
-      )
+  context "#change_answer_link" do
+    context "with smart answer" do
+      setup do
+        params = { responses: "question-1-answer/question-2-answer", id: @flow.name }
+        @flow_presenter = FlowPresenter.new(params, @flow)
+        @questions = @flow_presenter.collapsed_questions
+      end
+
+      should "return link to first page with response" do
+        assert_equal(
+          "/#{@flow.name}/y?previous_response=question-1-answer",
+          @flow_presenter.change_answer_link(0, @questions.first),
+        )
+      end
+
+      should "return link to second page with response" do
+        assert_equal(
+          "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
+          @flow_presenter.change_answer_link(1, @questions.first),
+        )
+      end
     end
 
-    should "with session answer" do
-      @flow.response_store(:session)
-      params = { id: @flow.name }
-      flow_presenter = FlowPresenter.new(params, @flow)
-      question = OpenStruct.new(node_slug: "foo")
-      assert_equal(
-        flow_presenter.flow_path(@flow.name, question.node_slug),
-        flow_presenter.change_collapsed_question_link(1, question),
-      )
+    context "with session answer" do
+      setup do
+        @flow.response_store(:session)
+        params = { id: @flow.name }
+        @question = OpenStruct.new(node_slug: "foo")
+
+        @flow_presenter = FlowPresenter.new(params, @flow)
+        @questions = @flow_presenter.collapsed_questions
+      end
+
+      should "return link to first page with response" do
+        assert_equal(
+          @flow_presenter.flow_path(@flow.name, @question.node_slug),
+          @flow_presenter.change_answer_link(1, @question),
+        )
+      end
     end
   end
 
