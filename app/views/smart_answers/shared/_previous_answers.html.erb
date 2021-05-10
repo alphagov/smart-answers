@@ -34,7 +34,7 @@
         field: question.title,
         value: value,
         edit: {
-          href: @presenter.change_answer_link(question_number, question),
+          href: @presenter.change_answer_link(question_number, question, forwarding_responses),
           data_attributes: {
             "module": "gem-track-click",
             "track-category": "Smart Answer Change Link",

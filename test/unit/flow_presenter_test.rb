@@ -114,14 +114,14 @@ class FlowPresenterTest < ActiveSupport::TestCase
       should "return link to first page with response" do
         assert_equal(
           "/#{@flow.name}/y?previous_response=question-1-answer",
-          @flow_presenter.change_answer_link(0, @questions.first),
+          @flow_presenter.change_answer_link(0, @questions.first, {}),
         )
       end
 
       should "return link to second page with response" do
         assert_equal(
           "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
-          @flow_presenter.change_answer_link(1, @questions.first),
+          @flow_presenter.change_answer_link(1, @questions.first, {}),
         )
       end
     end
@@ -139,7 +139,25 @@ class FlowPresenterTest < ActiveSupport::TestCase
       should "return link to first page with response" do
         assert_equal(
           @flow_presenter.flow_path(@flow.name, @question.node_slug),
-          @flow_presenter.change_answer_link(1, @question),
+          @flow_presenter.change_answer_link(1, @question, {}),
+        )
+      end
+    end
+
+    context "with query parameters" do
+      setup do
+        @flow.response_store(:query_parameters)
+        params = { id: @flow.name, responses: { "foo" => "bar" } }
+        @question = OpenStruct.new(node_slug: "baz")
+
+        @flow_presenter = FlowPresenter.new(params, @flow)
+        @questions = @flow_presenter.collapsed_questions
+      end
+
+      should "return link to first page with response" do
+        assert_equal(
+          @flow_presenter.flow_path(@flow.name, @question.node_slug, foo: "bar"),
+          @flow_presenter.change_answer_link(2, @question, { "foo" => "bar" }),
         )
       end
     end

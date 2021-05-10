@@ -91,8 +91,10 @@ class FlowPresenter
     @start_node ||= StartNodePresenter.new(@flow.start_node)
   end
 
-  def change_answer_link(question_number, question)
-    if response_store
+  def change_answer_link(question_number, question, responses)
+    if response_store == :query_parameters
+      flow_path(params[:id], node_slug: question.node_slug, **responses)
+    elsif response_store
       flow_path(params[:id], node_slug: question.node_slug)
     else
       smart_answer_path(

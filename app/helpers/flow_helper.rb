@@ -1,6 +1,6 @@
 module FlowHelper
   def forwarding_responses
-    flow.response_store == :session ? {} : response_store.all
+    flow.response_store == :query_parameters ? response_store.all : {}
   end
 
   def presenter
