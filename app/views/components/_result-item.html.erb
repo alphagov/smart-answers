@@ -3,12 +3,20 @@
   url ||= nil
   description ||= nil
   highlighted ||= false
+  section_index ||= nil
   css_classes = %w(app-c-result-item)
   css_classes << "app-c-result-item--highlighted" if highlighted
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s">
-    <a class="govuk-link" href="<%= url %>"><%= title %></a>
+    <%= link_to title, url,
+    class: "govuk-link",
+    data: {
+      module: "gem-track-click",
+      "track-action": "#{section_index}.#{result_index}",
+      "track-category": "SmartAnswerClicked",
+      "track-label": url
+    } %>
   </h4>
   <p class="govuk-body">
     <%= description %>
