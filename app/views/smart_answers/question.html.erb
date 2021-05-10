@@ -14,7 +14,8 @@
         :data => {
           module: "track-responses",
           type: question.partial_template_name,
-          "question-key": question.node_slug
+          "question-key": question.node_slug,
+          "question-text": question.title
         }) do %>
       <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-8" id="current-question">
         <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>

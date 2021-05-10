@@ -14,16 +14,10 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'checkbox_question')
       element.setAttribute('data-question-key', 'question-key')
+      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset')
-
-      var legend = document.createElement('legend')
-      var h1 = document.createElement('h1')
-      h1.innerText = 'The question title?'
-
-      legend.appendChild(h1)
-      fieldset.appendChild(legend)
 
       var checkboxes = [
         { label: 'Construction label', value: 'construction' },
@@ -127,16 +121,10 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'radio_question')
       element.setAttribute('data-question-key', 'question-key')
+      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset')
-
-      var legend = document.createElement('legend')
-      var h1 = document.createElement('h1')
-      h1.innerText = 'The question title?'
-
-      legend.appendChild(h1)
-      fieldset.appendChild(legend)
 
       var radios = [
         { label: 'Construction label', value: 'construction' },
@@ -221,6 +209,7 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'country_select_question')
       element.setAttribute('data-question-key', 'question-key')
+      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var select = document.createElement('select')
@@ -241,10 +230,6 @@ describe('Track responses', function () {
         select.appendChild(option)
       })
 
-      var h1 = document.createElement('h1')
-      h1.innerText = 'The question title?'
-
-      element.appendChild(h1)
       element.appendChild(select)
 
       var button = document.createElement('button')

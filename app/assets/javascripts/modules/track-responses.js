@@ -10,7 +10,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     function getQuestionHeading (submittedForm) {
-      return submittedForm.querySelector('h1').innerText
+      return submittedForm.getAttribute('data-question-text')
     }
 
     function getQuestionKey (submittedForm) {
