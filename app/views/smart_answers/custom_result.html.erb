@@ -26,7 +26,15 @@
     } %>
 
     <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
-      <%= link_to "Start again", restart_flow_path(@presenter), class: "govuk-link" %>
+      <%= link_to "Start again",
+        restart_flow_path(@presenter),
+        class: "govuk-link",
+        data: {
+          module: "gem-track-click",
+          "track-action": "Start again",
+          "track-category": "StartAgain",
+          "track-label": @presenter.current_node.title
+        } %>
     <% end %>
 
     <%= render "govuk_publishing_components/components/print_link" %>
