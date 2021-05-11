@@ -1,0 +1,22 @@
+<% if @presenter.present? && @presenter.flow.name === 'next-steps-for-your-business' %>
+  <% feedback_message = capture do %>
+    We’re still building this part of GOV.UK –
+    <%= link_to "give us your feedback (opens in a new tab)",
+      "/done/next-steps-for-your-business",
+      class: "govuk-link",
+      target: "_blank",
+      rel: "noopener noreferrer",
+      data: {
+        module: "gem-track-click",
+        "track-action": "/done/next-steps-for-your-business",
+        "track-category": "Internal Links Clicked",
+        "track-label": "give us your feedback"
+      }
+    %>
+    to help us improve it.
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/phase_banner", {
+    message: feedback_message
+  } %>
+<% end %>
