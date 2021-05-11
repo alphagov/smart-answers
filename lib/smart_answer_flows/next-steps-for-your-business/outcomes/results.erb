@@ -16,20 +16,13 @@
 <% end %>
 
 <% text_for :body do %>
-  <% calculator.grouped_results.each do |group, topics| %>
+  <% calculator.grouped_results.each.with_index(1) do |(group, topics), index| %>
     <%= render "govuk_publishing_components/components/heading", {
       text: group,
       font_size: "l",
       border_top: 2,
       padding: true
     } %>
-    <% topics.each.with_index(1) do |(topic, results),index| %>
-      <%= render "components/result-section", {
-        title: topic,
-        results: results,
-        section_index: index,
-        highlighted: true
-      } %>
-    <% end %>
+    <%= render "components/result-sections", { topics: topics, group_index: index } %>
   <% end %>
 <% end %>
