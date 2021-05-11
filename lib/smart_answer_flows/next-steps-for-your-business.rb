@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       name "next-steps-for-your-business"
       content_id "4d7751b5-d860-4812-aa36-5b8c57253ff2"
-      status :draft
+      status :published
       response_store :query_parameters
 
       # ======================================================================
