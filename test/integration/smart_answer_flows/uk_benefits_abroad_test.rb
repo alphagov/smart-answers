@@ -8,7 +8,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
-    stub_world_locations %w[albania austria canada ireland jamaica jersey kosovo]
+    stub_world_locations %w[albania austria canada gibraltar ireland jamaica jersey kosovo]
   end
 
   # Q1
@@ -198,48 +198,31 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer Jersey or Guernsey" do
-        setup do
+      context "answer Jersey" do
+        should "go to not entitled outcome" do
           add_response "jersey"
+          assert_current_node :jsa_not_entitled_outcome
         end
-        should "ask you how long are you going abroad for?" do
-          assert_current_node :how_long_abroad?
-        end
+      end
 
-        context "answer less than one year" do
-          should "go to Channel Islands outcome" do
-            add_response "one_year_or_less"
-            assert_current_node :jsa_channel_islands_outcome
-          end
+      context "answer Guernsey" do
+        should "go to JSA SS going abroad outcome" do
+          add_response "guernsey"
+          assert_current_node :jsa_social_security_going_abroad_outcome
         end
+      end
 
-        context "answer more than one year" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "more_than_one_year"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
+      context "answer Gibraltar" do
+        should "go to JSA EEA going abroad outcome" do
+          add_response "gibraltar"
+          assert_current_node :jsa_eea_going_abroad_maybe_outcome
         end
       end
 
       context "answer Kosovo" do
-        setup do
+        should "go to JSA SS going abroad outcome" do
           add_response "kosovo"
-        end
-        should "ask you how long are you going abroad for?" do
-          assert_current_node :how_long_abroad?
-        end
-        context "answer 1 year or less" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "one_year_or_less"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
-        end
-
-        context "answer more than a year" do
-          should "go to JSA SS going abroad outcome" do
-            add_response "more_than_one_year"
-            assert_current_node :jsa_social_security_going_abroad_outcome
-          end
+          assert_current_node :jsa_social_security_going_abroad_outcome
         end
       end
 
@@ -594,6 +577,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 end
               end
             end
+          end
+        end
+        context "answer gibraltar" do # SS country
+          should "go to ESA going abroad maybe outcome" do
+            add_response "gibraltar"
+            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
         context "answer kosovo" do # SS country
@@ -1224,6 +1213,30 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           context "answer no" do
             should "take you to other outcome" do
               add_response "no"
+              assert_current_node :db_going_abroad_other_outcome
+            end
+          end
+        end
+        context "answer Gibraltar" do
+          setup do
+            add_response :gibraltar
+          end
+          should "ask you if you or family are getting benefits" do
+            assert_current_node :db_claiming_benefits?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            should "go to DB going abroad other outcome" do
+              assert_current_node :db_going_abroad_gibraltar_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response :no
+            end
+            should "go to DB going abroad other outcome" do
               assert_current_node :db_going_abroad_other_outcome
             end
           end
@@ -2104,7 +2117,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response :esa
       end
-      should "ask ow long will you be living abroad for?" do
+      should "ask how long will you be living abroad for?" do
         assert_current_node :esa_how_long_abroad?
       end
       context "answer less than 1 year to get medical treatment" do
@@ -2272,6 +2285,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
                 end
               end
             end
+          end
+        end
+        context "answer Gibraltar" do
+          should "go to ESA already abroad EEA outcome" do
+            add_response :gibraltar
+            assert_current_node :esa_already_abroad_eea_outcome
           end
         end
         # SS country
@@ -2588,6 +2607,32 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to other country outcome" do
         assert_current_node :db_already_abroad_other_outcome
+      end
+    end
+    context "answer going abroad permanently, Gibraltar" do
+      setup do
+        add_response "disability_benefits"
+        add_response "permanent"
+        add_response "gibraltar"
+      end
+      should "ask are you or family geting benefits" do
+        assert_current_node :db_claiming_benefits?
+      end
+      context "answer yes" do
+        setup do
+          add_response :yes
+        end
+        should "go to DB already abroad Gibraltar outcome" do
+          assert_current_node :db_already_abroad_gibraltar_outcome
+        end
+      end
+      context "answer no" do
+        setup do
+          add_response :no
+        end
+        should "go to DB already abroad other outcome" do
+          assert_current_node :db_already_abroad_other_outcome
+        end
       end
     end
 
