@@ -1,9 +1,14 @@
 <%
   highlighted ||= false
+  section_index ||= false
 %>
 <section class="app-c-result-section">
   <h3 class="govuk-heading-m"><%= title %></h3>
-  <% results.each_with_index do |result, index| %>
-    <%= render "components/result-item", {highlighted: highlighted}.merge(result.symbolize_keys) %>
+  <% results.each.with_index(1) do |result, index| %>
+    <%= render "components/result-item", {
+      highlighted: highlighted,
+      section_index: section_index,
+      result_index: index
+    }.merge(result.symbolize_keys) %>
   <% end %>
 </section>

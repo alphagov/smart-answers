@@ -1,13 +1,13 @@
 - id: r1
   title: "Register for Corporation Tax"
   description: "You need to register within 3 months of starting to do business, if you have not done so already."
-  url: "https://www.gov.uk/corporation-tax"
+  url: "/corporation-tax"
   topic: Tax
   group: "Things you need to do next"
 - id: r2
   title: "Check if you need any licences for your business"
   description: "You might need licences or to register your company, depending on the type of work you do."
-  url: "https://www.gov.uk/licence-finder/"
+  url: "/licence-finder"
   topic: "Licences and registration"
   group: "Things you need to do next"
 - id: r3
@@ -19,25 +19,25 @@
 - id: r4
   title: "Check if you need to send a Self Assessment"
   description: "You might need to send a tax return if you have any untaxed income, such as dividends."
-  url: "https://www.gov.uk/check-if-you-need-tax-return"
+  url: "/check-if-you-need-tax-return"
   topic: Tax
   group: "Things you need to do next"
 - id: r5
   title: "Selling goods or services"
   description: "Rules on how you offer your products or services"
-  url: "https://www.gov.uk/browse/business/sale-goods-services-data"
+  url: "/browse/business/sale-goods-services-data"
   topic: "Sale of goods or services"
   group: "Rules to follow"
 - id: r6
   title: "Avoid anti-competitive activity"
   description: "You need to understand rules around price-fixing and competition."
-  url: "https://www.gov.uk/cartels-price-fixing"
+  url: "/cartels-price-fixing"
   topic: "Competition law"
   group: "Rules to follow"
 - id: r7
   title: "Learn how to deal with personal information"
   description: "If your business stores anyone's personal information, you need to know how to look after it."
-  url: "https://www.gov.uk/data-protection-your-business"
+  url: "/data-protection-your-business"
   topic: "Data protection"
   group: "Rules to follow"
 - id: r8
@@ -49,132 +49,132 @@
 - id: r9
   title: "How to run a limited company"
   description: "Your responsibilities when running a limited company."
-  url: "https://www.gov.uk/running-a-limited-company"
+  url: "/running-a-limited-company"
   topic: "Running a business"
   group: "Rules to follow"
 - id: r10
   title: "Starting a business overview"
   description: "General guidance about starting and growing your business."
-  url: "https://www.gov.uk/browse/business/setting-up"
+  url: "/browse/business/setting-up"
   topic: "Running a business"
   group: "Rules to follow"
 - id: r11
   title: "Include your company details on stationery"
   description: "Make sure you include your company details on any stationery and promotional materials."
-  url: "https://www.gov.uk/running-a-limited-company/signs-stationery-and-promotional-material"
+  url: "/running-a-limited-company/signs-stationery-and-promotional-material"
   topic: "Running a business"
   group: "Rules to follow"
 - id: r12
   title: "How to dispose of your company's waste"
   description: "Reducing the waste you create, and what to do with it."
-  url: "https://www.gov.uk/managing-your-waste-an-overview"
+  url: "/managing-your-waste-an-overview"
   topic: Environment
   group: "Rules to follow"
 - id: r13
   title: "Protect your brand or designs"
   description: "How to stop others copying your products, designs or brand."
-  url: "https://www.gov.uk/intellectual-property-an-overview"
+  url: "/intellectual-property-an-overview"
   topic: "Intellectual property"
   group: "Good to know"
 - id: r14
   title: "Get help from the Business Support Helpline"
   description: "Speak to the helpline to get advice for your business."
-  url: "https://www.gov.uk/business-support-helpline"
+  url: "/business-support-helpline"
   topic: "Help and support"
   group: "Good to know"
 - id: r15
   title: "Sign up for Companies House email reminders"
   description: "Get an email when your accounts and confirmation statement are due."
-  url: "https://www.gov.uk/guidance/register-for-email-reminders-from-companies-house"
+  url: "/guidance/register-for-email-reminders-from-companies-house"
   topic: "Help and support"
   group: "Good to know"
 - id: r16
   title: "Learn how to deal with personal information"
   description: "You need to register your business for VAT if your business takes more than £85,000 (the 'turnover'), if you have not already."
-  url: "https://www.gov.uk/vat-registration"
+  url: "/vat-registration"
   topic: Tax
   group: "Things you need to do next"
 - id: r17
   title: "Check if you'll need to register for VAT"
   description: "If your business takes more than £85,000 (the 'turnover'), you'll need to register for VAT."
-  url: "https://www.gov.uk/vat-registration/when-to-register"
+  url: "/vat-registration/when-to-register"
   topic: Tax
   group: "Things you need to do next"
 - id: r18
   title: "Check what to do before employing someone"
   description: "What you need to know about to employing people."
-  url: "https://www.gov.uk/get-ready-to-employ-someone"
+  url: "/get-ready-to-employ-someone"
   topic: "Employing people"
   group: "Things you need to do next"
 - id: r19
   title: "See what finance and support is available"
   description: "Look for support, based on where you are, your industry and size."
-  url: "https://www.gov.uk/business-finance-support?business_stages%5B%5D=not-yet-trading"
+  url: "/business-finance-support?business_stages%5B%5D=not-yet-trading"
   topic: "Financial help"
   group: "Things you need to do next"
 - id: r20
   title: "Get financial support during coronavirus"
   description: "You might be able to get financial support if your business has been affected by coronavirus."
-  url: "https://www.gov.uk/business-coronavirus-support-finder"
+  url: "/business-coronavirus-support-finder"
   topic: "Financial help"
   group: "Things you need to do next"
 - id: r21
   title: "Guidance on employing people"
   description: "Read through the rules on employment and looking after your staff."
-  url: "https://www.gov.uk/browse/employing-people"
+  url: "/browse/employing-people"
   topic: "Employing people"
   group: "Rules to follow"
 - id: r22
   title: "Check the rules on running a business from home"
   description: "You might need extra permissions or insurance when you run your business from home."
-  url: "https://www.gov.uk/run-business-from-home"
+  url: "/run-business-from-home"
   topic: "Business location"
   group: "Rules to follow"
 - id: r23
   title: "Your responsibilities when renting"
   description: "Follow health and safety rules, and make repairs when required by your lease."
-  url: "https://www.gov.uk/renting-business-property-tenant-responsibilities"
+  url: "/renting-business-property-tenant-responsibilities"
   topic: "Business location"
   group: "Rules to follow"
 - id: r24
   title: "Find out about rules for business premises"
   description: "Rules that affect your business premises. "
-  url: "https://www.gov.uk/browse/business/premises-rates"
+  url: "/browse/business/premises-rates"
   topic: "Business location"
   group: "Rules to follow"
 - id: r25
   title: "Show a sign where your business operates"
   description: "You need to put up a sign showing your company name at your registered company address and wherever your business operates."
-  url: "https://www.gov.uk/running-a-limited-company/signs-stationery-and-promotional-material"
+  url: "/running-a-limited-company/signs-stationery-and-promotional-material"
   topic: "Business location"
   group: "Rules to follow"
 - id: r26
   title: "How to buy items from abroad"
   description: "Rules you need to follow when importing items into the UK."
-  url: "https://www.gov.uk/import-goods-into-uk"
+  url: "/import-goods-into-uk"
   topic: "Buying and selling"
   group: "Rules to follow"
 - id: r27
   title: "How to sell items abroad"
   description: "Rules you need to follow when exporting items out of the UK."
-  url: "https://www.gov.uk/export-goods"
+  url: "/export-goods"
   topic: "Buying and selling"
   group: "Rules to follow"
 - id: r28
   title: "How and when to charge VAT"
   description: "The rules you need to follow once you're registered for VAT."
-  url: "https://www.gov.uk/vat-businesses"
+  url: "/vat-businesses"
   topic: Tax
   group: "Rules to follow"
 - id: r29
   title: "You can register for VAT if you want to"
   description: "You do not have to register for VAT, because your business will take less than £85,000 (the 'turnover')."
-  url: "https://www.gov.uk/vat-registration/when-to-register"
+  url: "/vat-registration/when-to-register"
   topic: Tax
   group: "Good to know"
 - id: r30
   title: "Find out about export markets"
   description: "See where you could be selling your goods or services"
-  url: "https://www.gov.uk/research-export-markets"
+  url: "/research-export-markets"
   topic: "Buying and selling"
   group: "Good to know"

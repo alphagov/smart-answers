@@ -10,7 +10,7 @@
 <% end %>
 
 <% govspeak_for :description do %>
-  The following list is based on your answers. Use it to find out about what to do now you've registered your limited company. 
+  The following list is based on your answers. Use it to find out about what to do now you've registered your limited company.
 
   It might not cover everything specific to your business, so make sure you read the relevant sections of GOV.UK.
 <% end %>
@@ -23,10 +23,11 @@
       border_top: 2,
       padding: true
     } %>
-    <% topics.each do |topic, results| %>
+    <% topics.each.with_index(1) do |(topic, results),index| %>
       <%= render "components/result-section", {
         title: topic,
         results: results,
+        section_index: index,
         highlighted: true
       } %>
     <% end %>
