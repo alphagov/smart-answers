@@ -12,8 +12,8 @@ RSpec.describe FlowHelper do
       expect(helper.forwarding_responses).to eq({})
     end
 
-    it "returns all the previous responses" do
-      flow = SmartAnswer::Flow.new { response_store :other }
+    it "returns all the previous responses for query parameter based flows" do
+      flow = SmartAnswer::Flow.new { response_store :query_parameters }
       allow(helper).to receive(:flow).and_return(flow)
 
       expect(helper.forwarding_responses).to eq({ question1: "response1" })
