@@ -43,8 +43,8 @@ module SmartAnswer::Calculators
       r13: ->(_) { true },
       r14: ->(_) { true },
       r15: ->(_) { true },
-      r16: ->(calculator) { calculator.annual_turnover_over_85k != "no" },
-      r17: ->(calculator) { calculator.annual_turnover_over_85k != "no" },
+      r16: ->(calculator) { calculator.annual_turnover_over_85k == "yes" },
+      r17: ->(calculator) { calculator.annual_turnover_over_85k == "not_sure" },
       r18: ->(calculator) { calculator.employer != "no" },
       r19: ->(calculator) { calculator.needs_financial_support == "yes" },
       r20: ->(calculator) { calculator.needs_financial_support == "yes" },
@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
       r26: ->(calculator) { calculator.activities.include?("import_goods") },
       r27: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
       r28: ->(_) { true },
-      r29: ->(calculator) { calculator.annual_turnover_over_85k != "yes" },
+      r29: ->(calculator) { calculator.annual_turnover_over_85k == "no" },
       r30: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
     }.with_indifferent_access.freeze
   end
