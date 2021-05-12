@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
       r21: ->(calculator) { calculator.employer != "no" },
       r22: ->(calculator) { calculator.business_premises.include?("home") },
       r23: ->(calculator) { calculator.business_premises.include?("rented") },
-      r24: ->(calculator) { calculator.business_premises.exclude?("none") },
+      r24: ->(calculator) { (calculator.business_premises & %w[rented owned none]).present? },
       r25: ->(calculator) { (calculator.business_premises & %w[rented owned none]).present? },
       r26: ->(calculator) { calculator.activities.include?("import_goods") },
       r27: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
