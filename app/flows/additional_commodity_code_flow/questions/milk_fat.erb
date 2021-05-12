@@ -1,11 +1,9 @@
 <% text_for :title do %>
-  How much milk proteins does the product contain?
+  How much milk fat does the product contain?
 <% end %>
 
 <% options(
-  "0": "0-5.99",
-  "6": "6-17.99",
-  "18": "18 or more"
+  **calculator.milk_fat_options
 ) %>
 
 <% text_for :hint do %>

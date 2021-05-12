@@ -2,56 +2,156 @@ module SmartAnswer::Calculators
   class CommodityCodeCalculator
     include ActiveModel::Model
 
-    attr_reader :matrix_data, :commodity_code_matrix
-
     attr_accessor :starch_glucose_weight, :sucrose_weight, :milk_fat_weight, :milk_protein_weight
 
     def initialize(attributes = {})
       super
-      @matrix_data = self.class.commodity_codes_data
-      @commodity_code_matrix = self.class.commodity_code_matrix
-      @starch_glucose_weight ||= 0
-      @sucrose_weight ||= 0
-      @milk_fat_weight ||= 0
-      @milk_protein_weight ||= 0
+      @starch_glucose_weight ||= nil
+      @sucrose_weight ||= nil
+      @milk_fat_weight ||= nil
+      @milk_protein_weight ||= "0..100"
     end
 
     def commodity_code
-      @commodity_code_matrix[milk_fat_milk_protein_index][glucose_sucrose_index]
+      x_index = MILK_FAT_TO_MILK_PROTEIN.dig(milk_fat_weight, milk_protein_weight)
+      y_index = STARCH_OR_GLUCOSE_TO_SUCROSE.dig(starch_glucose_weight, sucrose_weight)
+
+      COMMODITY_CODE_MATRIX[x_index][y_index] if x_index && y_index
     end
 
     def has_commodity_code?
-      commodity_code != "X"
+      commodity_code.present?
     end
 
-    def self.commodity_code_matrix
-      unless @commodity_code_matrix
-        @commodity_code_matrix = []
-        commodity_codes_data[:commodity_code_matrix].each_line { |l| @commodity_code_matrix << l.split }
-      end
-      @commodity_code_matrix
+    def starch_or_glucose_options
+      question_options_from_ranges(STARCH_OR_GLUCOSE_TO_SUCROSE.keys)
     end
 
-    def self.commodity_codes_data
-      @commodity_codes_data ||= YAML.load(File.open("config/smart_answers/commodity_codes_data.yml").read) # rubocop:disable Security/YAMLLoad
+    def sucrose_options
+      question_options_from_ranges(STARCH_OR_GLUCOSE_TO_SUCROSE[starch_glucose_weight].keys)
+    end
+
+    def milk_fat_options
+      question_options_from_ranges(MILK_FAT_TO_MILK_PROTEIN.keys)
+    end
+
+    def milk_protein_options
+      question_options_from_ranges(MILK_FAT_TO_MILK_PROTEIN[milk_fat_weight].keys)
     end
 
   private
 
-    def glucose_sucrose_index
-      starch_glucose_to_sucrose[starch_glucose_weight][sucrose_weight]
+    def range_to_text(range)
+      range_start, *, range_end = range.split("..")
+
+      if range_end == "100"
+        "#{range_start} or more"
+      else
+        "#{range_start} - #{range_end.to_f - 0.01}"
+      end
     end
 
-    def milk_fat_milk_protein_index
-      milk_fat_to_milk_protein[milk_fat_weight][milk_protein_weight]
+    def question_options_from_ranges(ranges)
+      ranges.index_with { |range| range_to_text(range) }
     end
 
-    def starch_glucose_to_sucrose
-      @matrix_data[:starch_glucose_to_sucrose]
-    end
+    # rubocop:disable Layout/HashAlignment
+    # Starch glucose and sucrose index lookups for commodity code matrix.
+    STARCH_OR_GLUCOSE_TO_SUCROSE = {
+      "0..5"    => { "0..5"    => 0,
+                     "5..30"   => 1,
+                     "30..50"  => 2,
+                     "50..70"  => 3,
+                     "70..100" => 4 },
+      "5..25"   => { "0..5"    => 5,
+                     "5..30"   => 6,
+                     "30..50"  => 7,
+                     "50..70"  => 8,
+                     "70..100" => 9 },
+      "25..50"  => { "0..5"    => 10,
+                     "5..30"   => 11,
+                     "30..50"  => 12,
+                     "50..100" => 13 },
+      "50..75"  => { "0..5"    => 14,
+                     "5..30"   => 15,
+                     "30..100" => 16 },
+      "75..100" => { "0..5"    => 17,
+                     "5..100"  => 18 },
+    }.freeze
 
-    def milk_fat_to_milk_protein
-      @matrix_data[:milk_fat_to_milk_protein]
-    end
+    # Milk fat and protein index lookups for commodity code matrix.
+    MILK_FAT_TO_MILK_PROTEIN = {
+      "0..1.5"  => { "0..2.5"  => 0,
+                     "2.5..6"  => 1,
+                     "6..18"   => 2,
+                     "18..30"  => 3,
+                     "30..60"  => 4,
+                     "60..100" => 5 },
+      "1.5..3"  => { "0..2.5"  => 6,
+                     "2.5..6"  => 7,
+                     "6..18"   => 8,
+                     "18..30"  => 9,
+                     "30..60"  => 10,
+                     "60..100" => 11 },
+      "3..6"    => { "0..2.5"  => 12,
+                     "2.5..12" => 13,
+                     "12..100" => 14 },
+      "6..9"    => { "0..4"    => 15,
+                     "4..15"   => 16,
+                     "15..100" => 17 },
+      "9..12"   => { "0..6"    => 18,
+                     "6..18"   => 19,
+                     "18..100" => 20 },
+      "12..18"  => { "0..6"    => 21,
+                     "6..18"   => 22,
+                     "18..100" => 23 },
+      "18..26"  => { "0..6"    => 24,
+                     "6..100"  => 25 },
+      "26..40"  => { "0..6"    => 26,
+                     "6..100"  => 27 },
+      # No milk protein scales for these fat measures so can skip question
+      "40..55"  => { "0..100"  => 28 },
+      "55..70"  => { "0..100"  => 29 },
+      "70..85"  => { "0..100"  => 30 },
+      "85..100" => { "0..100"  => 31 },
+    }.freeze
   end
+  # rubocop:enable Layout/HashAlignment
+
+  # rubocop:disable Layout/ExtraSpacing, Style/WordArray
+  COMMODITY_CODE_MATRIX = [
+    ["000", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "015", "016", "017", "758", "759"],
+    ["020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "030", "031", "032", "033", "035", "036", "037", "768", "769"],
+    ["040", "041", "042", "043", "044", "045", "046", "047", "048", "049", "050", "051", "052", "053", "055", "056", "057", "778", "779"],
+    ["060", "061", "062", "063", "064", "065", "066", "067", "068", "069", "070", "071", "072", "073", "075", "076", "077", "788", "789"],
+    ["080", "081", "082", "083", "084", "085", "086", "087", "088",   nil, "090", "091", "092",   nil, "095", "096",   nil,   nil,   nil],
+    ["800", "801", "802",   nil,   nil, "805", "806", "807",   nil,   nil, "810", "811",   nil,   nil,   nil,   nil,   nil,   nil,   nil],
+    ["100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "115", "116", "117", "798", "799"],
+    ["120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "135", "136", "137", "808", "809"],
+    ["140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "155", "156", "157", "818", "819"],
+    ["160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "175", "176", "177", "828", "829"],
+    ["180", "181", "182", "183",   nil, "185", "186", "187", "188",   nil, "190", "191", "192",   nil, "195", "196",   nil,   nil,   nil],
+    ["820", "821", "822",   nil,   nil, "825", "826", "827",   nil,   nil, "830", "831",   nil,   nil,   nil,   nil,   nil,   nil,   nil],
+    ["840", "841", "842", "843", "844", "845", "846", "847", "848", "849", "850", "851", "852", "853", "855", "856", "857", "858", "859"],
+    ["200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "215", "216", "217", "220", "221"],
+    ["260", "261", "262", "263", "264", "265", "266", "267", "268", "269", "270", "271", "272", "273", "275", "276",   nil, "838",   nil],
+    ["860", "861", "862", "863", "864", "865", "866", "867", "868", "869", "870", "871", "872", "873", "875", "876", "877", "878", "879"],
+    ["300", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "315", "316", "317", "320", "321"],
+    ["360", "361", "362", "363", "364", "365", "366", "367", "368", "369", "370", "371", "372", "373", "375", "376",   nil, "378",   nil],
+    ["900", "901", "902", "903", "904", "905", "906", "907", "908", "909", "910", "911", "912", "913", "915", "916", "917", "918", "919"],
+    ["400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "415", "416", "417", "420", "421"],
+    ["460", "461", "462", "463", "464", "465", "466", "467", "468",   nil, "470", "471", "472",   nil, "475", "476",   nil,   nil,   nil],
+    ["940", "941", "942", "943", "944", "945", "946", "947", "948", "949", "950", "951", "952", "953", "955", "956", "957", "958", "959"],
+    ["500", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510", "511", "512", "513", "515", "516", "517", "520", "521"],
+    ["560", "561", "562", "563", "564", "565", "566", "567", "568",   nil, "570", "571", "572",   nil, "575", "576",   nil,   nil,   nil],
+    ["960", "961", "962", "963", "964", "965", "966", "967", "968", "969", "970", "971", "972", "973", "975", "976", "977", "978", "979"],
+    ["600", "601", "602", "603", "604", "605", "606", "607", "608", "609", "610", "611", "612", "613", "615", "616",   nil, "620",   nil],
+    ["980", "981", "982", "983", "984", "985", "986", "987", "988",   nil, "990", "991", "992",   nil, "995", "996",   nil,   nil,   nil],
+    ["700", "701", "702", "703",   nil, "705", "706", "707", "708",   nil, "710", "711", "712",   nil, "715", "716",   nil,   nil,   nil],
+    ["720", "721", "722", "723",   nil, "725", "726", "727", "728",   nil, "730", "731", "732",   nil, "735", "736",   nil,   nil,   nil],
+    ["740", "741", "742",   nil,   nil, "745", "746", "747",   nil,   nil, "750", "751",   nil,   nil,   nil,   nil,   nil,   nil,   nil],
+    ["760", "761", "762",   nil,   nil, "765", "766",   nil,   nil,   nil, "770", "771",   nil,   nil,   nil,   nil,   nil,   nil,   nil],
+    ["780", "781",   nil,   nil,   nil, "785", "786",   nil,   nil,   nil,   nil,   nil,   nil,   nil,   nil,   nil,   nil,   nil,   nil],
+  ].freeze
+  # rubocop:enable Layout/ExtraSpacing, Style/WordArray
 end

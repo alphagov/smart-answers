@@ -1,11 +1,9 @@
 <% text_for :title do %>
-  How much milk proteins does the product contain?
+  How much starch or glucose does the product contain?
 <% end %>
 
 <% options(
-  "0": "0-2.49",
-  "2": "2.5-11.99",
-  "12": "12 or more"
+  **calculator.starch_or_glucose_options
 ) %>
 
 <% text_for :hint do %>
