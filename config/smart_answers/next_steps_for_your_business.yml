@@ -89,7 +89,7 @@
   topic: "Help and support"
   group: "Good to know"
 - id: r16
-  title: "Learn how to deal with personal information"
+  title: "Register for VAT"
   description: "You need to register your business for VAT if your business takes more than £85,000 (the 'turnover'), if you have not already."
   url: "/vat-registration"
   topic: Tax
