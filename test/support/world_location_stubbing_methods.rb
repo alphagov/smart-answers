@@ -34,11 +34,4 @@ module WorldLocationStubbingMethods
     WorldLocation.stubs(:find).with(location_slug).returns(location)
     location
   end
-
-  def stub_world_locations(location_slugs, load_fco_organisation_data: false)
-    locations = location_slugs.map do |slug|
-      stub_world_location(slug, load_fco_organisation_data: load_fco_organisation_data)
-    end
-    WorldLocation.stubs(:all).returns(locations)
-  end
 end

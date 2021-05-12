@@ -34,7 +34,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         venezuela
         vietnam
       ]
-      stub_world_locations(@location_slugs)
+      stub_worldwide_api_has_locations(@location_slugs)
       Timecop.travel("2013-01-01")
       stub_content_store_has_item("/country-and-date-sample")
     end

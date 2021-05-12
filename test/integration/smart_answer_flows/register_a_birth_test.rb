@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = %w[afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-the-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone somalia spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela]
-    stub_world_locations(@location_slugs)
+    stub_worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
 
@@ -79,6 +79,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
   context "answer Spain" do
     setup do
+      stub_worldwide_api_has_organisations_for_location("spain", {})
       add_response "spain"
     end
     should "store this as the registration country" do
@@ -169,6 +170,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
   context "answer Iraq" do
     setup do
+      stub_worldwide_api_has_organisations_for_location("iraq", {})
       add_response "iraq"
     end
 
