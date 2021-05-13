@@ -1,11 +1,7 @@
 <% govspeak_for :body do %>
   $!The statutory holiday entitlement is <%= "#{calculator.holiday_entitlement_hours} #{'hour'.pluralize(calculator.holiday_entitlement_hours)}" %> and <%= "#{calculator.holiday_entitlement_minutes} #{'minute'.pluralize(calculator.holiday_entitlement_minutes)}" %> holiday for the year. Rather than taking a day’s holiday it’s <%= "#{calculator.hours_daily} #{'hour'.pluralize(calculator.hours_daily)}" %> and <%= "#{calculator.minutes_daily} #{'minute'.pluralize(calculator.minutes_daily)}" %> holiday for each day otherwise worked.$!
 
-  <%= render partial: 'your_employer_with_rounding' %>
-  
-  <% if calculator.holiday_period == "starting" %>
-    <%= render partial: "the_user_should_be_aware" %>
+  <% calculator.compressed.each do |part| %>
+    <%= render partial: part %>
   <% end %>
-
-  <%= render partial: "guidance_on_calculations" %>
 <% end %>

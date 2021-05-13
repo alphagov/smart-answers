@@ -1,15 +1,7 @@
 <% govspeak_for :body do %>
   $!The statutory holiday entitlement is <%= "#{calculator.shift_entitlement} #{'shift'.pluralize(calculator.shift_entitlement)}" %> for the year. Each shift being <%= "#{calculator.hours_per_shift} #{'hour'.pluralize(calculator.hours_per_shift)}" %>.$!
 
-  <% if calculator.shifts_per_week > 5 %>
-    Even though more than 5 shifts a week are worked the maximum statutory holiday entitlement is 28 shifts.
+  <% calculator.shift_worker.each do |part| %>
+    <%= render partial: part %>
   <% end %>
-
-  <%= render partial: 'shift_worker_your_employer_with_rounding' %>
-
-  <% if calculator.holiday_period == "starting" %>
-    <%= render partial: "the_user_should_be_aware" %>
-  <% end %>
-
-  <%= render partial: "guidance_on_calculations" %>
 <% end %>

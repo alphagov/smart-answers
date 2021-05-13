@@ -181,6 +181,40 @@ module SmartAnswer::Calculators
       (shifts_per_shift_pattern / days_per_shift_pattern * DAYS_PER_WEEK).round(10)
     end
 
+    def compressed
+      content_array = []
+      content_array << "your_employer_with_rounding"
+      content_array << "the_user_should_be_aware" if holiday_period == "starting"
+      content_array << "guidance_on_calculations"
+    end
+
+    def days_and_hours_per_week
+      content_array = []
+      content_array << "days_per_week_greater_than_five" if working_days_per_week > 5
+      content_array << "your_employer_with_rounding"
+      content_array << "the_user_should_be_aware" if holiday_period == "starting"
+      content_array << "guidance_on_calculations"
+    end
+
+    def irregular_and_annualised
+      content_array = []
+      content_array << "your_employer_with_rounding"
+      content_array << if holiday_period == "starting"
+                         "irregular_and_annualised_user_awareness"
+                       else
+                         "entitlement_restriction"
+                       end
+      content_array << "guidance_on_calculations"
+    end
+
+    def shift_worker
+      content_array = []
+      content_array << "shifts_per_week_greater_than_five" if shifts_per_week > 5
+      content_array << "shift_worker_your_employer_with_rounding"
+      content_array << "the_user_should_be_aware" if holiday_period == "starting"
+      content_array << "guidance_on_calculations"
+    end
+
   private
 
     def calculate_leave_year_start_date

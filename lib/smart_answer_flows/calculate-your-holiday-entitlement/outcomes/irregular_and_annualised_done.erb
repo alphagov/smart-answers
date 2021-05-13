@@ -5,13 +5,7 @@
 
   You may wish to [use the calculator again](/calculate-your-holiday-entitlement/y) and calculate the average days or hours worked each week based on a representative reference period instead.
 
-  <%= render partial: 'your_employer_with_rounding' %>
-
-  <% if calculator.holiday_period == 'starting' %>
-    <%= render partial: 'irregular_and_annualised_user_awareness' %>
-  <% else %>
-    <%= render partial: 'entitlement_restriction' %>
+  <% calculator.irregular_and_annualised.each do |part| %>
+    <%= render partial: part %>
   <% end %>
-
-  <%= render partial: "guidance_on_calculations" %>
 <% end %>

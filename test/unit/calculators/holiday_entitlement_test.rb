@@ -2214,5 +2214,137 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "content for compressed hours" do
+      context "holiday period starting" do
+        should "include \'the user should be aware\'" do
+          @calculator.holiday_period = "starting"
+          expected_results = %w[
+            your_employer_with_rounding
+            the_user_should_be_aware
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.compressed
+        end
+      end
+
+      context "holiday not starting" do
+        should "not include \'the user should be aware\'" do
+          @calculator.holiday_period = "leaving"
+          expected_results = %w[
+            your_employer_with_rounding
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.compressed
+        end
+      end
+    end
+
+    context "content for days and hours for week" do
+      context "six or more days per week" do
+        should "include \'days per week greater than five\'" do
+          @calculator.working_days_per_week = 6
+          expected_results = %w[
+            days_per_week_greater_than_five
+            your_employer_with_rounding
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.days_and_hours_per_week
+        end
+      end
+
+      context "holiday period starting" do
+        should "include \'the user should be aware\'" do
+          @calculator.holiday_period = "starting"
+          @calculator.working_days_per_week = 5
+          expected_results = %w[
+            your_employer_with_rounding
+            the_user_should_be_aware
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.days_and_hours_per_week
+        end
+      end
+
+      context "holiday period leaving and working 5 or fewer days per week" do
+        should "not include the extra entries" do
+          @calculator.holiday_period = "leaving"
+          @calculator.working_days_per_week = 5
+          expected_results = %w[
+            your_employer_with_rounding
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.days_and_hours_per_week
+        end
+      end
+    end
+
+    context "content for irregular or annualised hours" do
+      context "holiday period starting" do
+        should "include \'irregular and annualised user awareness\'" do
+          @calculator.holiday_period = "starting"
+          expected_results = %w[
+            your_employer_with_rounding
+            irregular_and_annualised_user_awareness
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.irregular_and_annualised
+        end
+      end
+
+      context "holiday period not \'starting\'" do
+        should "include \'entitlement restriction\'" do
+          @calculator.holiday_period = "leaving"
+          expected_results = %w[
+            your_employer_with_rounding
+            entitlement_restriction
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.irregular_and_annualised
+        end
+      end
+    end
+
+    context "content for shift workers" do
+      context "six or more days per week" do
+        should "include \'shifts_per_week_greater_than_five\'" do
+          @calculator.shifts_per_shift_pattern = 6
+          @calculator.days_per_shift_pattern = 7
+          expected_results = %w[
+            shifts_per_week_greater_than_five
+            shift_worker_your_employer_with_rounding
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.shift_worker
+        end
+      end
+
+      context "holiday period starting" do
+        should "include \'the user should be aware\'" do
+          @calculator.holiday_period = "starting"
+          @calculator.shifts_per_shift_pattern = 5
+          @calculator.days_per_shift_pattern = 7
+          expected_results = %w[
+            shift_worker_your_employer_with_rounding
+            the_user_should_be_aware
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.shift_worker
+        end
+      end
+
+      context "holiday period leaving and working 5 or fewer days per week" do
+        should "not include the extra entries" do
+          @calculator.holiday_period = "leaving"
+          @calculator.shifts_per_shift_pattern = 5
+          @calculator.days_per_shift_pattern = 7
+          expected_results = %w[
+            shift_worker_your_employer_with_rounding
+            guidance_on_calculations
+          ]
+          assert_equal expected_results, @calculator.shift_worker
+        end
+      end
+    end
   end
 end
