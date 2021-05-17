@@ -1,55 +1,57 @@
-RSpec.describe SessionResponseStore do
+require_relative "../test_helper"
+
+class SessionResponseStoreTest < ActiveSupport::TestCase
   context "#all" do
-    it "should return hash of keys and responses for flow" do
+    should "return hash of keys and responses for flow" do
       session = { "flow" => { "key" => "value", "key2" => "value2" } }
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
 
-      expect(response_store.all).to eq({ "key" => "value", "key2" => "value2" })
+      assert_equal({ "key" => "value", "key2" => "value2" }, response_store.all)
     end
   end
 
   context "#add" do
-    it "adds response to empty store" do
+    should "add response to empty store" do
       session = {}
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
       response_store.add("key", "value")
 
-      expect(session.dig("flow", "key")).to eq("value")
+      assert_equal "value", session.dig("flow", "key")
     end
 
-    it "replace existing entry" do
+    should "replace existing entry" do
       session = { "flow" => { "key" => "another_value" } }
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
       response_store.add("key", "value")
 
-      expect(session.dig("flow", "key")).to eq("value")
+      assert_equal "value", session.dig("flow", "key")
     end
   end
 
   context "#get" do
-    it "get value of key" do
+    should "get value of key" do
       session = { "flow" => { "key" => "value" } }
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
 
-      expect(response_store.get("key")).to eq("value")
+      assert_equal "value", response_store.get("key")
     end
   end
 
   context "#clear" do
-    it "remove entries from session" do
+    should "remove entries from session" do
       session = { "flow" => { "key" => "value" } }
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
       response_store.clear
 
-      expect(session).to eq({})
+      assert_equal({}, session)
     end
 
-    it "not change other data in session" do
+    should "not change other data in session" do
       session = { "flow" => { "key" => "value" }, "flow-2" => { "key" => "value" } }
       response_store = SessionResponseStore.new(flow_name: "flow", session: session)
       response_store.clear
 
-      expect(session).to eq({ "flow-2" => { "key" => "value" } })
+      assert_equal({ "flow-2" => { "key" => "value" } }, session)
     end
   end
 end
