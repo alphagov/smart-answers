@@ -20,7 +20,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = FLATTEN_COUNTRIES
-    stub_world_locations(@location_slugs)
+    stub_worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
 
@@ -30,7 +30,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   context "newly added country that has no logic to handle opposite sex marriages" do
     setup do
-      stub_world_locations(%w[narnia])
+      stub_worldwide_api_has_locations(%w[narnia])
       add_response "ceremony_country"
       add_response "partner_local"
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do

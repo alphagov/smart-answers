@@ -10,7 +10,7 @@ class SmartAnswersControllerCountryQuestionTest < ActionController::TestCase
   def setup
     setup_fixture_flows
     stub_content_store_has_item("/smart-answers-controller-sample-with-country-question")
-    stub_world_locations(%w[country1 country2])
+    stub_worldwide_api_has_locations(%w[country1 country2])
   end
 
   def teardown
