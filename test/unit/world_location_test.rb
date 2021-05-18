@@ -195,7 +195,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     should "consider 2 location instances with the same slug as ==" do
       loc1 = WorldLocation.find("rohan")
-      WorldLocation.reset_cache
+      Rails.cache.clear
       loc2 = WorldLocation.find("rohan")
       assert_not_equal loc1.object_id, loc2.object_id # Ensure we've got different instances
       assert loc1 == loc2

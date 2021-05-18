@@ -1,20 +1,8 @@
 class WorldLocation
   attr_reader :title, :details, :slug
 
-  def self.cache
-    @cache ||= {
-      day: ActiveSupport::Cache::MemoryStore.new(expires_in: 24.hours),
-      week: ActiveSupport::Cache::MemoryStore.new(expires_in: 1.week),
-    }
-  end
-
-  def self.reset_cache
-    cache[:day].clear
-    cache[:week].clear
-  end
-
   def self.all
-    cache_fetch("all") do
+    Rails.cache.fetch("all", expires_in: 24.hours) do
       world_locations = GdsApi.worldwide
                               .world_locations
                               .with_subsequent_pages
@@ -28,7 +16,7 @@ class WorldLocation
   end
 
   def self.find(location_slug)
-    cache_fetch("find_#{location_slug}") do
+    Rails.cache.fetch("find_#{location_slug}", expires_in: 24.hours) do
       location = GdsApi.worldwide.world_location(location_slug).to_hash
       new(location)
     rescue GdsApi::HTTPNotFound
@@ -40,27 +28,8 @@ class WorldLocation
     location.is_a?(Hash) && location["format"] == "World location" &&
       location["details"].is_a?(Hash) && location["details"]["slug"].present?
   end
+
   private_class_method :valid_world_location_format?
-
-  # Fetch a value from the cache.
-  #
-  # On GdsApi errors, returns a stale value from the cache if available,
-  # otherwise re-raises the original GdsApi exception
-  def self.cache_fetch(key)
-    value = cache[:day].read(key)
-    return value unless value.nil?
-
-    begin
-      value = yield
-      cache[:day].write(key, value)
-      cache[:week].write(key, value)
-    rescue GdsApi::BaseError => e
-      value = cache[:week].read(key)
-      raise e if value.nil?
-    end
-
-    value
-  end
 
   def initialize(location)
     @title = location.fetch("title", "")

@@ -15,10 +15,14 @@ require "webmock/minitest"
 WebMock.disable_net_connect!(allow_localhost: true)
 
 module MinitestWithTeardownCustomisations
+  def setup
+    Rails.cache.clear
+    super
+  end
+
   def teardown
     super
     Timecop.return
-    WorldLocation.reset_cache
   end
 end
 Minitest::Test.prepend MinitestWithTeardownCustomisations
