@@ -3,16 +3,18 @@
   group_index ||= 1
   result_index ||= 1
 %>
-<% topics.each do |topic, results| %>
-  <section class="app-c-result-section">
-    <h3 class="govuk-heading-m"><%= topic %></h3>
-    <% results.each do |result| %>
-      <%= render "components/result-item", {
-        highlighted: highlighted,
-        group_index: group_index,
-        result_index: result_index
-      }.merge(result.symbolize_keys) %>
-      <% result_index += 1 %>
-    <% end %>
-  </section>
-<% end %>
+<div class="app-c-result-sections">
+  <% topics.each do |topic, results| %>
+    <section class="app-c-result-sections__section">
+      <h3 class="govuk-heading-m"><%= topic %></h3>
+      <% results.each do |result| %>
+        <%= render "components/result-item", {
+          highlighted: highlighted,
+          group_index: group_index,
+          result_index: result_index
+        }.merge(result.symbolize_keys) %>
+        <% result_index += 1 %>
+      <% end %>
+    </section>
+  <% end %>
+</div>

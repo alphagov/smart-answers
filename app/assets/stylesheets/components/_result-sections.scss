@@ -1,4 +1,8 @@
-.app-c-result-section {
+.app-c-result-sections {
+  margin-bottom: govuk-spacing(7) * 2;
+}
+
+.app-c-result-sections__section {
   @include govuk-font($size: 19);
   @include govuk-responsive-padding(4, 'top');
   border-top: 1px solid $govuk-border-colour;
