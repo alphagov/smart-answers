@@ -1,6 +1,10 @@
 RSpec.describe "Query parameter based flow navigation", flow_dir: :fixture do
   let(:cache_header) { "max-age=1800, public" }
 
+  before do
+    allow(Rails.application.config).to receive(:set_http_cache_control_expiry_time).and_return(true)
+  end
+
   context "urls have /s/ prefix" do
     it "redirects to first node" do
       get "/query-parameters-based/s"
