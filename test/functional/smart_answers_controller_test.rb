@@ -130,10 +130,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "have cache headers set to 30 mins" do
-      with_cache_control_expiry do
-        get :show, params: { id: "smart-answers-controller-sample" }
-        assert_equal "max-age=1800, public", @response.header["Cache-Control"]
-      end
+      Rails.application.config.stubs(:set_http_cache_control_expiry_time).returns(true)
+
+      get :show, params: { id: "smart-answers-controller-sample" }
+      assert_equal "max-age=1800, public", @response.header["Cache-Control"]
     end
 
     context "meta description in erb template" do
