@@ -40,6 +40,12 @@ module SmartAnswer::Calculators
       vat_reduction: lambda { |calculator|
         calculator.sectors.include?("retail_hospitality_or_leisure")
       },
+      traineeships: lambda { |calculator|
+        calculator.business_based == "england"
+      },
+      apprenticeships: lambda { |calculator|
+        calculator.business_based == "england"
+      },
       lrsg_closed_addendum: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.closed_by_restrictions.include?("national")

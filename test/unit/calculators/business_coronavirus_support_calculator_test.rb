@@ -129,6 +129,30 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "traineeships" do
+        should "return true when business is based in england" do
+          @calculator.business_based = "england"
+          assert @calculator.show?(:traineeships)
+        end
+
+        should "return false when business is not based in england" do
+          @calculator.business_based = "scotland"
+          assert_not @calculator.show?(:traineeships)
+        end
+      end
+
+      context "apprenticeships" do
+        should "return true when business is based in england" do
+          @calculator.business_based = "england"
+          assert @calculator.show?(:apprenticeships)
+        end
+
+        should "return false when business is not based in england" do
+          @calculator.business_based = "scotland"
+          assert_not @calculator.show?(:apprenticeships)
+        end
+      end
+
       context "lrsg_closed_addendum" do
         should "return true when business closed by national restrictions and based in england" do
           @calculator.business_based = "england"
