@@ -63,17 +63,15 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
       end
 
       context "a response has been accepted" do
-        setup do
-          with_cache_control_expiry do
-            get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y", responses: "1.0-month" }
-          end
-        end
-
         should "show response summary" do
+          get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y", responses: "1.0-month" }
           assert_select ".govuk-summary-list", /How much\?\s+£1 per month/
         end
 
         should "have cache headers set to 30 mins for inner pages" do
+          Rails.application.config.stubs(:set_http_cache_control_expiry_time).returns(true)
+
+          get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y", responses: "1.0-month" }
           assert_equal "max-age=1800, public", @response.header["Cache-Control"]
         end
       end

@@ -19,11 +19,4 @@ module SmartAnswersControllerTestHelper
     params[:response] = response if response
     get :show, params: params.merge(other_params)
   end
-
-  def with_cache_control_expiry(&block)
-    original_value = Rails.configuration.set_http_cache_control_expiry_time
-    Rails.configuration.set_http_cache_control_expiry_time = true
-    block.call
-    Rails.configuration.set_http_cache_control_expiry_time = original_value
-  end
 end
