@@ -26,6 +26,8 @@ class SmartAnswersController < ApplicationController
   def show
     @title = @presenter.title
 
+    # require "byebug"; byebug if params[:id] == "county-and-date-sample" # DEBUG @kevindew
+
     render page_type, formats: [:html]
 
     set_expiry

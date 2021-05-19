@@ -48,6 +48,7 @@ class ActionDispatch::IntegrationTest
     context "with javascript" do
       setup do
         Capybara.current_driver = Capybara.javascript_driver
+        # Rails.configuration.stubs(:set_http_cache_control_expiry_time).returns(false)
       end
 
       yield
@@ -59,7 +60,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def self.with_and_without_javascript(&block)
-    without_javascript(&block)
+    # without_javascript(&block)
 
     with_javascript(&block)
   end

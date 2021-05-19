@@ -37,7 +37,8 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::PublishingApi
   include GdsApi::TestHelpers::Worldwide
   include ActionDispatch::Assertions
-  parallelize workers: 6
+
+  # parallelize workers: 2
 end
 
 require "slimmer/test"
