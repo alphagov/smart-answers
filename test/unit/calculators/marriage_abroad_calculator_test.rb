@@ -254,15 +254,12 @@ module SmartAnswer
       end
 
       context "#world_location" do
-        setup do
-          @calculator = MarriageAbroadCalculator.new
-          @calculator.ceremony_country = "ceremony-country"
-        end
-
         should "return the world location for the given ceremony country" do
-          WorldLocation.stubs(:find).with("ceremony-country").returns("world-location")
+          stub_worldwide_api_has_location("world-location")
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = "world-location"
 
-          assert_equal "world-location", @calculator.world_location
+          assert_equal "world-location", @calculator.world_location.slug
         end
       end
 
@@ -286,25 +283,31 @@ module SmartAnswer
 
       context "#fco_organisation" do
         setup do
+          stub_worldwide_api_has_location("world-location")
           @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = "world-location"
         end
 
         should "return the fco organisation for the world location" do
-          fco_organisation = stub.quacks_like(WorldwideOrganisation.new({}))
-          world_location = stub.quacks_like(WorldLocation.new({}))
-          world_location.stubs(fco_organisation: fco_organisation)
-          WorldLocation.stubs(:find).with("ceremony-country-with-fco-organisation").returns(world_location)
-          @calculator.ceremony_country = "ceremony-country-with-fco-organisation"
+          organisations_data = [
+            {
+              title: "organisation-1-title",
+            },
+            {
+              title: "organisation-2-title",
+              sponsors: [{ details: { acronym: "FCDO" } }],
+            },
+          ]
+          stub_worldwide_api_has_organisations_for_location(
+            "world-location",
+            { results: organisations_data },
+          )
 
-          assert_equal fco_organisation, @calculator.fco_organisation
+          assert_equal "organisation-2-title", @calculator.fco_organisation.title
         end
 
         should "return nil if the world location doesn't have an fco organisation" do
-          world_location = stub.quacks_like(WorldLocation.new({}))
-          world_location.stubs(fco_organisation: nil)
-          WorldLocation.stubs(:find).with("ceremony-country-without-fco-organisation").returns(world_location)
-          @calculator.ceremony_country = "ceremony-country-without-fco-organisation"
-
+          stub_worldwide_api_has_no_organisations_for_location("world-location")
           assert_nil @calculator.fco_organisation
         end
       end
@@ -365,12 +368,12 @@ module SmartAnswer
 
       context "#ceremony_country_name" do
         should "return the name of the world location associated with the ceremony country" do
-          world_location = stub.quacks_like(WorldLocation.new({}))
-          world_location.stubs(name: "world-location-name")
+          stub_worldwide_api_has_location("world-location-name")
+          world_location = WorldLocation.find("world-location-name")
           calculator = MarriageAbroadCalculator.new
-          calculator.stubs(world_location: world_location)
+          calculator.ceremony_country = "world-location-name"
 
-          assert_equal "world-location-name", calculator.ceremony_country_name
+          assert_equal world_location.name, calculator.ceremony_country_name
         end
       end
 
