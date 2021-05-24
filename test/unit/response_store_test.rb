@@ -1,47 +1,49 @@
-RSpec.describe ResponseStore do
+require_relative "../test_helper"
+
+class ResponseStoreTest < ActiveSupport::TestCase
   context "#all" do
-    it "it return hash of keys and responses for flow" do
+    should "return hash of keys and responses for flow" do
       responses = { "key" => "value", "key2" => "value2" }
       response_store = ResponseStore.new(responses: responses)
 
-      expect(response_store.all).to eq(responses)
+      assert_equal responses, response_store.all
     end
   end
 
   context "#add" do
-    it "adds response to empty store" do
+    should "add response to empty store" do
       responses = {}
       response_store = ResponseStore.new(responses: responses)
       response_store.add("key", "value")
 
-      expect(responses["key"]).to eq("value")
+      assert_equal "value", responses["key"]
     end
 
-    it "replace existing entry" do
+    should "replace existing entry" do
       responses = { "key" => "value" }
       response_store = ResponseStore.new(responses: responses)
       response_store.add("key", "another_value")
 
-      expect(responses["key"]).to eq("another_value")
+      assert_equal "another_value", responses["key"]
     end
   end
 
   context "#get" do
-    it "get value of key" do
+    should "get value of key" do
       responses = { "key" => "value" }
       response_store = ResponseStore.new(responses: responses)
 
-      expect(response_store.get("key")).to eq("value")
+      assert_equal "value", response_store.get("key")
     end
   end
 
   context "#clear" do
-    it "remove entries from session" do
+    should "remove entries from session" do
       responses = { "key" => "value" }
       response_store = ResponseStore.new(responses: responses)
 
       response_store.clear
-      expect(response_store.all).to eq({})
+      assert_equal({}, response_store.all)
     end
   end
 end
