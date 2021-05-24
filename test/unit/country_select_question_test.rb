@@ -4,16 +4,9 @@ module SmartAnswer
   class CountrySelectQuestionTest < ActiveSupport::TestCase
     context "using the worldwide API data" do
       setup do
-        location1 = stub(slug: "afghanistan", name: "Afghanistan")
-        location2 = stub(slug: "british-antarctic-territory", name: "British Antartic Territory")
-        location3 = stub(slug: "denmark", name: "Denmark")
-        location4 = stub(slug: "the-gambia", name: "The Gambia")
-        location5 = stub(slug: "holy-see", name: "Holy See")
-        location6 = stub(slug: "united-kingdom", name: "United Kingdom")
-        location7 = stub(slug: "vietnam", name: "Vietnam")
-        location8 = stub(slug: "greenland", name: "Greenland")
-        WorldLocation.stubs(:all).returns([location1, location2, location3, location4, location5, location6, location7])
-        UkbaCountry.stubs(:all).returns([location8])
+        stub_worldwide_api_has_locations(%w[afghanistan british-antarctic-territory denmark the-gambia holy-see united-kingdom vietnam])
+        location = stub(slug: "greenland", name: "Greenland")
+        UkbaCountry.stubs(:all).returns([location])
       end
 
       should "be able to list options" do

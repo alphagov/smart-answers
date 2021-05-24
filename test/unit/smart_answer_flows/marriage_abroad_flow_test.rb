@@ -10,15 +10,7 @@ module SmartAnswer
     setup do
       @calculator = Calculators::MarriageAbroadCalculator.new
       @flow = MarriageAbroadFlow.build
-
-      world_location = stub(
-        "WorldLocation",
-        slug: "afghanistan",
-        name: "Afghanistan",
-        fco_organisation: nil,
-      )
-      WorldLocation.stubs(:all).returns([world_location])
-      WorldLocation.stubs(:find).with("afghanistan").returns(world_location)
+      stub_worldwide_api_has_locations(%w[afghanistan])
     end
 
     should "start with the country_of_ceremony? question" do
