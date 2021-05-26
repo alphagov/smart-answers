@@ -221,6 +221,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       get :visualise, params: { id: "smart-answers-controller-sample" }
 
+      assert_contains css_select("title").first.content, /Smart answers controller sample/
       assert_select "h1", /Smart answers controller sample/
     end
   end
