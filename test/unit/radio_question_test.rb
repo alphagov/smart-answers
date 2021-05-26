@@ -1,7 +1,7 @@
 require_relative "../test_helper"
 
 module SmartAnswer
-  class MultipleChoiceQuestionTest < ActiveSupport::TestCase
+  class RadioQuestionTest < ActiveSupport::TestCase
     test "Can list options" do
       q = Question::Radio.new(nil, :example) do
         option :yes

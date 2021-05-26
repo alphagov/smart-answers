@@ -92,7 +92,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       assert_current_url "/money-and-salary-sample/y/2000.0-week/3000000.0"
     end
 
-    should "be able to change value and multiple choice answers" do
+    should "be able to change value and radio answers" do
       stub_content_store_has_item("/bridge-of-death")
 
       visit "/bridge-of-death/y"

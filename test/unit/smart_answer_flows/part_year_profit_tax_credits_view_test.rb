@@ -38,7 +38,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:have_you_stopped_trading?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -61,7 +61,7 @@ module SmartAnswer
         }
         @calculator = stub("calculator", calculator_options)
         @state.calculator = @calculator
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "display title with interpolated basis_period_ends_on" do
@@ -111,7 +111,7 @@ module SmartAnswer
         }
         @calculator = stub("calculator", calculator_options)
         @state.calculator = @calculator
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do

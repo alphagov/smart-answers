@@ -48,7 +48,7 @@ class FlowPresenter
                       when SmartAnswer::Question::CountrySelect
                         CountrySelectQuestionPresenter
                       when SmartAnswer::Question::Radio
-                        MultipleChoiceQuestionPresenter
+                        RadioQuestionPresenter
                       when SmartAnswer::Question::Checkbox
                         CheckboxQuestionPresenter
                       when SmartAnswer::Question::Value
