@@ -103,7 +103,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
     ffi (1.13.1)
-    gds-api-adapters (71.1.0)
+    gds-api-adapters (71.2.0)
       addressable
       link_header
       null_logger
