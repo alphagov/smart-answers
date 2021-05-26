@@ -2,14 +2,9 @@
   <article>
     <pre class="application-notice info-notice debug">
       Debug info:
-      <% @presenter.current_state.to_hash.each do |k, v| %>
+      <% @presenter.state.to_hash.each do |k, v| %>
         <%= "#{k}: #{v.to_s}"%>
       <% end %>
-
-      Session store:
-      <% @session_store.hash.each do |k, v| %>
-        <%= "#{k}: #{v.inspect}"%>
-      <% end if @session_store %>
     </pre>
   </article>
 <% end %>
