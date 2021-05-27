@@ -31,10 +31,10 @@ class FlowPresenterTest < ActiveSupport::TestCase
     assert_instance_of CountrySelectQuestionPresenter, node_presenter
   end
 
-  test "#presenter_for returns presenter for MultipleChoice question" do
+  test "#presenter_for returns presenter for Radio question" do
     question = @flow.radio(:question_key).last
     node_presenter = @flow_presenter.presenter_for(question)
-    assert_instance_of MultipleChoiceQuestionPresenter, node_presenter
+    assert_instance_of RadioQuestionPresenter, node_presenter
   end
 
   test "#presenter_for returns presenter for Checkbox question" do

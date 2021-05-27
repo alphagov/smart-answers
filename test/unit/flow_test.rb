@@ -104,7 +104,7 @@ class FlowTest < ActiveSupport::TestCase
     assert flow.outcomes.first.template_directory.to_s.end_with?("flow-name")
   end
 
-  test "Can build multiple choice question nodes" do
+  test "Can build radio question nodes" do
     s = SmartAnswer::Flow.new do
       radio :do_you_like_chocolate? do
         option :yes

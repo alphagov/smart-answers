@@ -37,7 +37,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:which_tax_year?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -68,7 +68,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:is_part_year_claim?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -132,7 +132,7 @@ module SmartAnswer
         calculator = Calculators::ChildBenefitTaxCalculator.new
         @state = SmartAnswer::State.new(question)
         @state.calculator = calculator
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -185,7 +185,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:add_allowable_deductions?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do
@@ -217,7 +217,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:add_other_allowable_deductions?)
         @state = SmartAnswer::State.new(question)
-        @presenter = MultipleChoiceQuestionPresenter.new(question, nil, @state)
+        @presenter = RadioQuestionPresenter.new(question, nil, @state)
       end
 
       should "have options with labels" do

@@ -1,12 +1,12 @@
 require_relative "engine_test_helper"
 
-class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
+class RadioAndValueQuestionsTest < EngineIntegrationTest
   with_and_without_javascript do
     setup do
       stub_content_store_has_item("/bridge-of-death")
     end
 
-    should "handle multiple-choice and value questions" do
+    should "handle radio and value questions" do
       visit "/bridge-of-death"
 
       assert_current_url "/bridge-of-death"

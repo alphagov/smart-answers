@@ -1,7 +1,7 @@
 require_relative "../test_helper"
 
 module SmartAnswer
-  class MultipleChoiceQuestionPresenterTest < ActiveSupport::TestCase
+  class RadioQuestionPresenterTest < ActiveSupport::TestCase
     setup do
       @question = Question::Radio.new(nil, :question_name?)
       @question.option(:option1)
@@ -14,7 +14,7 @@ module SmartAnswer
       @renderer.stubs(:option).with(:option2).returns("Option 2")
       @renderer.stubs(:option).with(:option3).returns("Option 3")
 
-      @presenter = MultipleChoiceQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
+      @presenter = RadioQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
       @presenter.stubs(:response_for_current_question).returns(nil)
     end
 

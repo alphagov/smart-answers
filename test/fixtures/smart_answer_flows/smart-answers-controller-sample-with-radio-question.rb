@@ -1,7 +1,7 @@
 module SmartAnswer
-  class SmartAnswersControllerSampleWithMultipleChoiceQuestionFlow < Flow
+  class SmartAnswersControllerSampleWithRadioQuestionFlow < Flow
     def define
-      name "smart-answers-controller-sample-with-multiple-choice-question"
+      name "smart-answers-controller-sample-with-radio-question"
       radio :what? do
         option :cheese
         next_node do
