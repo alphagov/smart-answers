@@ -1,4 +1,3 @@
-<% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
 <meta name="robots" content="noindex, nofollow">
 <%= javascript_include_tag 'joint.patch' %>
@@ -16,10 +15,10 @@
 
 <%= render "govuk_publishing_components/components/title", {
   context: "Flow visualisation for",
-  title: @presenter.title
+  title: @title
 } %>
 
-<p class="govuk-body">This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
+<p class="govuk-body">This is a visualisation of the <%= link_to @title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
 <% if ! @graph_presenter.visualisable? %>
   <%= render "govuk_publishing_components/components/warning_text", {
     text: "This visualisation does not show all transitions correctly."
