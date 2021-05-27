@@ -44,7 +44,7 @@ module SmartAnswer
       end
 
       should "go to what_date_do_your_accounts_go_up_to? question" do
-        assert_equal :what_date_do_your_accounts_go_up_to?, @new_state.current_node
+        assert_equal :what_date_do_your_accounts_go_up_to?, @new_state.current_node_name
         assert_node_exists :what_date_do_your_accounts_go_up_to?
       end
     end
@@ -63,7 +63,7 @@ module SmartAnswer
       end
 
       should "go to have_you_stopped_trading? question" do
-        assert_equal :have_you_stopped_trading?, @new_state.current_node
+        assert_equal :have_you_stopped_trading?, @new_state.current_node_name
         assert_node_exists :have_you_stopped_trading?
       end
     end
@@ -83,7 +83,7 @@ module SmartAnswer
         end
 
         should "go to did_you_start_trading_before_the_relevant_accounting_year? question" do
-          assert_equal :did_you_start_trading_before_the_relevant_accounting_year?, @new_state.current_node
+          assert_equal :did_you_start_trading_before_the_relevant_accounting_year?, @new_state.current_node_name
           assert_node_exists :did_you_start_trading_before_the_relevant_accounting_year?
         end
       end
@@ -102,7 +102,7 @@ module SmartAnswer
         end
 
         should "go to do_your_accounts_cover_a_12_month_period? question" do
-          assert_equal :do_your_accounts_cover_a_12_month_period?, @new_state.current_node
+          assert_equal :do_your_accounts_cover_a_12_month_period?, @new_state.current_node_name
           assert_node_exists :do_your_accounts_cover_a_12_month_period?
         end
       end
@@ -131,7 +131,7 @@ module SmartAnswer
         end
 
         should "go to when_did_you_stop_trading? question" do
-          assert_equal :when_did_you_stop_trading?, @new_state.current_node
+          assert_equal :when_did_you_stop_trading?, @new_state.current_node_name
           assert_node_exists :when_did_you_stop_trading?
         end
       end
@@ -147,7 +147,7 @@ module SmartAnswer
         end
 
         should "go to when_did_you_start_trading question" do
-          assert_equal :when_did_you_start_trading?, @new_state.current_node
+          assert_equal :when_did_you_start_trading?, @new_state.current_node_name
           assert_node_exists :when_did_you_start_trading?
         end
       end
@@ -209,7 +209,7 @@ module SmartAnswer
         end
 
         should "go to when_did_you_stop_trading? question" do
-          assert_equal :when_did_you_stop_trading?, @new_state.current_node
+          assert_equal :when_did_you_stop_trading?, @new_state.current_node_name
           assert_node_exists :when_did_you_stop_trading?
         end
       end
@@ -225,7 +225,7 @@ module SmartAnswer
         end
 
         should "go to when_did_you_stop_trading? question" do
-          assert_equal :what_is_your_taxable_profit?, @new_state.current_node
+          assert_equal :what_is_your_taxable_profit?, @new_state.current_node_name
           assert_node_exists :what_is_your_taxable_profit?
         end
       end
@@ -257,7 +257,7 @@ module SmartAnswer
       end
 
       should "go to what_is_your_taxable_profit? question" do
-        assert_equal :what_is_your_taxable_profit?, @new_state.current_node
+        assert_equal :what_is_your_taxable_profit?, @new_state.current_node_name
         assert_node_exists :what_is_your_taxable_profit?
       end
 
@@ -292,7 +292,7 @@ module SmartAnswer
         end
 
         should "go to what_is_your_taxable_profit? question" do
-          assert_equal :what_is_your_taxable_profit?, @new_state.current_node
+          assert_equal :what_is_your_taxable_profit?, @new_state.current_node_name
           assert_node_exists :what_is_your_taxable_profit?
         end
       end
@@ -309,7 +309,7 @@ module SmartAnswer
         end
 
         should "go to when_did_you_start_trading question" do
-          assert_equal :when_did_you_start_trading?, @new_state.current_node
+          assert_equal :when_did_you_start_trading?, @new_state.current_node_name
           assert_node_exists :when_did_you_start_trading?
         end
       end
@@ -331,7 +331,7 @@ module SmartAnswer
       end
 
       should "go to result outcome" do
-        assert_equal :result, @new_state.current_node
+        assert_equal :result, @new_state.current_node_name
         assert_node_exists :result
       end
     end

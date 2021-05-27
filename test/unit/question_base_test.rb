@@ -61,19 +61,19 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal "Carried over", new_state.something_else
     end
 
-    should "set current_node to value returned from next_node_for" do
+    should "set current_node_name to value returned from next_node_for" do
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       @question.stubs(:next_node_for).returns(:done)
       new_state = @question.transition(initial_state, :anything)
-      assert_equal :done, new_state.current_node
+      assert_equal :done, new_state.current_node_name
     end
 
-    should "set current_node to result of calling next_node block" do
+    should "set current_node_name to result of calling next_node block" do
       @question.next_node { outcome :done_done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :anything)
-      assert_equal :done_done, new_state.current_node
+      assert_equal :done_done, new_state.current_node_name
     end
 
     should "make state available to code in next_node block" do
@@ -83,7 +83,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       initial_state = SmartAnswer::State.new(@question.name)
       initial_state.colour = "red"
       new_state = @question.transition(initial_state, "anything")
-      assert_equal :was_red, new_state.current_node
+      assert_equal :was_red, new_state.current_node_name
     end
 
     should "pass input to next_node block" do

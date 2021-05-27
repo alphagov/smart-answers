@@ -37,7 +37,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: {})
         state = @state_resolver.state_from_response_store(response_store)
 
-        assert_equal :x, state.current_node
+        assert_equal :x, state.current_node_name
         assert_empty state.accepted_responses
         assert_nil state.current_response
       end
@@ -46,7 +46,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "yes" })
         state = @state_resolver.state_from_response_store(response_store)
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_nil state.current_response
       end
@@ -55,7 +55,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "yes", "y" => "no" })
         state = @state_resolver.state_from_response_store(response_store)
 
-        assert_equal :b, state.current_node
+        assert_equal :b, state.current_node_name
         assert_equal ({ x: "yes", y: "no" }), state.accepted_responses
         assert_nil state.current_response
       end
@@ -64,7 +64,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "yes", "y" => "invalid" })
         state = @state_resolver.state_from_response_store(response_store)
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_equal "invalid", state.current_response
         assert state.error.present?
@@ -74,7 +74,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "invalid", "y" => "no" })
         state = @state_resolver.state_from_response_store(response_store, "y")
 
-        assert_equal :x, state.current_node
+        assert_equal :x, state.current_node_name
         assert_equal ({}), state.accepted_responses
         assert_equal "invalid", state.current_response
         assert state.error.present?
@@ -84,7 +84,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "invalid", "y" => "no" })
         state = @state_resolver.state_from_response_store(response_store, "x")
 
-        assert_equal :x, state.current_node
+        assert_equal :x, state.current_node_name
         assert_equal ({}), state.accepted_responses
         assert_equal "invalid", state.current_response
         assert state.error.present?
@@ -94,7 +94,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "x" => "yes", "y" => "no" })
         state = @state_resolver.state_from_response_store(response_store, "y")
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_equal "no", state.current_response
       end
@@ -103,7 +103,7 @@ module SmartAnswer
         response_store = ResponseStore.new(responses: { "y" => "no" })
         state = @state_resolver.state_from_response_store(response_store, "y")
 
-        assert_equal :x, state.current_node
+        assert_equal :x, state.current_node_name
         assert_equal ({}), state.accepted_responses
         assert_nil state.current_response
       end
@@ -133,7 +133,7 @@ module SmartAnswer
       should "return the state for the first question when there are no responses" do
         state = @state_resolver.state_from_params({ responses: "" })
 
-        assert_equal :x, state.current_node
+        assert_equal :x, state.current_node_name
         assert_empty state.accepted_responses
         assert_nil state.current_response
       end
@@ -141,7 +141,7 @@ module SmartAnswer
       should "return the state for the next question when a valid answer is given" do
         state = @state_resolver.state_from_params({ responses: "", next: "1", response: "yes" })
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_nil state.current_response
       end
@@ -149,7 +149,7 @@ module SmartAnswer
       should "return the state for the next question when an answer is in the path" do
         state = @state_resolver.state_from_params({ responses: "yes" })
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_nil state.current_response
       end
@@ -157,7 +157,7 @@ module SmartAnswer
       should "return an error state for the current question when an answer is invalid" do
         state = @state_resolver.state_from_params({ responses: "yes/invalid" })
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_equal "invalid", state.current_response
         assert state.error.present?
@@ -166,7 +166,7 @@ module SmartAnswer
       should "return an outcome state when all questions are answered" do
         state = @state_resolver.state_from_params({ responses: "yes/no" })
 
-        assert_equal :b, state.current_node
+        assert_equal :b, state.current_node_name
         assert_equal ({ x: "yes", y: "no" }), state.accepted_responses
         assert_nil state.current_response
       end
@@ -174,7 +174,7 @@ module SmartAnswer
       should "determine the current response from a previous_response parameter" do
         state = @state_resolver.state_from_params({ responses: "yes", previous_response: "no" })
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_equal "no", state.current_response
       end
@@ -182,7 +182,7 @@ module SmartAnswer
       should "return an error state if a previous_response contains an invalid response" do
         state = @state_resolver.state_from_params({ responses: "yes", previous_response: "invalid" })
 
-        assert_equal :y, state.current_node
+        assert_equal :y, state.current_node_name
         assert_equal ({ x: "yes" }), state.accepted_responses
         assert_equal "invalid", state.current_response
       end

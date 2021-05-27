@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     def assert_node_has_name(name, node, belongs_to_another_flow: false)
-      assert_equal(name, node.current_node)
+      assert_equal(name, node.current_node_name)
       assert_node_exists(name) unless belongs_to_another_flow
     end
   end
