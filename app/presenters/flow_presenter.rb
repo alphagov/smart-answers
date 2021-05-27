@@ -57,7 +57,7 @@ class FlowPresenter
   end
 
   def current_node
-    presenter_for(@flow.node(state.current_node))
+    presenter_for(@flow.node(state.current_node_name))
   end
 
   def start_node

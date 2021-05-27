@@ -32,7 +32,7 @@ module SmartAnswer
   private
 
     def resolve_state(state, response_store, requested_node)
-      node_name = state.current_node.to_s
+      node_name = state.current_node_name.to_s
       response = response_store.get(node_name)
       reached_an_outcome = @flow.node(node_name.to_sym).outcome?
 
@@ -61,7 +61,7 @@ module SmartAnswer
     end
 
     def transition_state_to_next_node(state, response)
-      @flow.node(state.current_node).transition(state, response)
+      @flow.node(state.current_node_name).transition(state, response)
     rescue BaseStateTransitionError => e
       error_state(state, response, e)
     end
