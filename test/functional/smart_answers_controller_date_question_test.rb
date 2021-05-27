@@ -55,7 +55,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
         end
       end
 
-      should "display collapsed question, and format number" do
+      should "display answered question, and format number" do
         get :show, params: { id: "smart-answers-controller-sample-with-date-question", started: "y", responses: "2011-01-01" }
         assert_select ".govuk-summary-list", /When\?\s+1 January 2011/
       end

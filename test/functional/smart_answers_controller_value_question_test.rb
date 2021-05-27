@@ -30,7 +30,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
         assert_redirected_to "/smart-answers-controller-sample-with-value-question/y/10"
       end
 
-      should "display collapsed question, and format number" do
+      should "display answered question, and format number" do
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y", responses: "12345" }
         assert_select ".govuk-summary-list", /How many green bottles\?\s+12,345/
       end

@@ -108,7 +108,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
       setup do
         params = { responses: "question-1-answer/question-2-answer", id: @flow.name }
         @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.collapsed_questions
+        @questions = @flow_presenter.answered_questions
       end
 
       should "return link to first page with response" do
@@ -133,7 +133,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
         @question = OpenStruct.new(node_slug: "foo")
 
         @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.collapsed_questions
+        @questions = @flow_presenter.answered_questions
       end
 
       should "return link to first page with response" do
@@ -151,7 +151,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
         @question = OpenStruct.new(node_slug: "baz")
 
         @flow_presenter = FlowPresenter.new(params, @flow)
-        @questions = @flow_presenter.collapsed_questions
+        @questions = @flow_presenter.answered_questions
       end
 
       should "return link to first page with response" do
