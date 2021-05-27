@@ -46,6 +46,9 @@ module SmartAnswer::Calculators
       apprenticeships: lambda { |calculator|
         calculator.business_based == "england"
       },
+      tlevels: lambda { |calculator|
+        calculator.business_based == "england"
+      },
       lrsg_closed_addendum: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.closed_by_restrictions.include?("national")

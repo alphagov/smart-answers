@@ -153,6 +153,18 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "tlevels" do
+        should "return true when business is based in england" do
+          @calculator.business_based = "england"
+          assert @calculator.show?(:tlevels)
+        end
+
+        should "return false when business is not based in england" do
+          @calculator.business_based = "scotland"
+          assert_not @calculator.show?(:tlevels)
+        end
+      end
+
       context "lrsg_closed_addendum" do
         should "return true when business closed by national restrictions and based in england" do
           @calculator.business_based = "england"
