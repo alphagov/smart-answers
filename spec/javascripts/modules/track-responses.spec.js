@@ -61,8 +61,8 @@ describe('Track responses', function () {
 
       form = createForm()
 
-      tracker = new GOVUK.Modules.TrackResponses()
-      tracker.start([form])
+      tracker = new GOVUK.Modules.TrackResponses(form)
+      tracker.init()
     })
 
     afterEach(function () {
@@ -168,8 +168,8 @@ describe('Track responses', function () {
 
       form = createForm()
 
-      tracker = new GOVUK.Modules.TrackResponses()
-      tracker.start([form])
+      tracker = new GOVUK.Modules.TrackResponses(form)
+      tracker.init()
     })
 
     afterEach(function () {
@@ -245,8 +245,8 @@ describe('Track responses', function () {
 
       form = createForm()
 
-      tracker = new GOVUK.Modules.TrackResponses()
-      tracker.start([form])
+      tracker = new GOVUK.Modules.TrackResponses(form)
+      tracker.init()
     })
 
     afterEach(function () {
