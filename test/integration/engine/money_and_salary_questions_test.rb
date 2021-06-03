@@ -63,7 +63,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       end
 
       within "#result-info" do
-        within(".result-body h2.gem-c-heading") { assert_page_has_content "OK, here you go." }
+        within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "OK, here you go." }
         within(".info-notice") { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
       end
     end

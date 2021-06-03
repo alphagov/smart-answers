@@ -143,7 +143,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within "#result-info" do
-        within(".result-body h2.gem-c-heading") { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
+        within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
       end
     end
   end # with_and_without_javascript
