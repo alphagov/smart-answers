@@ -10,8 +10,3 @@
 //= require components/hide-this-page-banner
 //= require modules/track-responses
 //= require modules/track-results
-
-window.addEventListener('DOMContentLoaded', function () {
-  var error = document.getElementById('current-error')
-  if (error) { error.focus() }
-})
