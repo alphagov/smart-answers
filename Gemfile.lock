@@ -204,7 +204,7 @@ GEM
       nokogiri (~> 1.8, >= 1.8.4)
     null_logger (0.0.1)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.1.1)
       ast (~> 2.4.1)
     phantomjs (2.1.1.0)
     plek (4.0.0)
@@ -295,8 +295,8 @@ GEM
       rubocop-ast (>= 1.2.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.4.1)
-      parser (>= 2.7.1.5)
+    rubocop-ast (1.4.2)
+      parser (>= 3.0.1.1)
     rubocop-govuk (4.0.0.pre.1)
       rubocop (~> 1.10.0)
       rubocop-ast (~> 1.4.0)
@@ -433,7 +433,7 @@ DEPENDENCIES
   rails-i18n
   railties
   rspec-rails
-  rubocop-govuk (= 4.0.0.pre.1)
+  rubocop-govuk
   sassc-rails
   shoulda
   simplecov
