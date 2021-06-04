@@ -40,7 +40,7 @@ group :development, :test do
   gem "jasmine_selenium_runner"
   gem "pry"
   gem "rspec-rails"
-  gem "rubocop-govuk", "4.0.0.pre.1", require: false # Trialling pre-release
+  gem "rubocop-govuk", require: false
 end
 
 group :test do
