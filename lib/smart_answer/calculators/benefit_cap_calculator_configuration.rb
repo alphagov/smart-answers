@@ -65,7 +65,7 @@ module SmartAnswer::Calculators
 
     def london?(postcode)
       area(postcode).any? do |result|
-        result["type"] == "EUR" && result["name"] == "London"
+        result["type"] == "EUR" && result["name"].match?(/.*London.*/i)
       end
     end
 
