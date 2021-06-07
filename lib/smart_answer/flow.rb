@@ -49,7 +49,7 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@use_hide_this_page)
     end
 
-    def hide_previous_answers_on_results_page(hide_previous_answers_on_results_page) # rubocop:disable Style/TrivialAccessors
+    def hide_previous_answers_on_results_page(hide_previous_answers_on_results_page)
       @hide_previous_answers_on_results_page = hide_previous_answers_on_results_page
     end
 
