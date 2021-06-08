@@ -104,10 +104,15 @@ module SmartAnswer::Calculators
           end
         end
         context "lives in Greater London" do
-          setup do
+          should "return true when the name is London" do
             stub_imminence_has_areas_for_postcode("IG6%202BA", [{ type: "EUR", name: "London", country_name: "England" }])
+
+            assert_equal true, @config.london?("IG6%202BA")
           end
-          should "return true" do
+
+          should "return true when London is present in the name" do
+            stub_imminence_has_areas_for_postcode("IG6%202BA", [{ type: "EUR", name: "London English Region", country_name: "England" }])
+
             assert_equal true, @config.london?("IG6%202BA")
           end
         end
