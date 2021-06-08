@@ -10,7 +10,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   TrackResults.prototype.init = function () {
     this.trackCompletedFlow()
-    this.trackResultLinks()
+    this.trackInternalLinks()
   }
 
   TrackResults.prototype.trackCompletedFlow = function () {
@@ -22,7 +22,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options)
   }
 
-  TrackResults.prototype.trackResultLinks = function () {
+  TrackResults.prototype.trackInternalLinks = function () {
     var currentHost = document.location.protocol + '//' + document.location.hostname
     var internalLinkSelector = 'a[href^="' + currentHost + '"], a[href^="/"]'
     var internalResultLinks = document.querySelectorAll(internalLinkSelector)
