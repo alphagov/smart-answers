@@ -8,14 +8,25 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
 
   setup { testing_flow SmartAnswer::FindCoronavirusSupportFlow }
 
-  should render_start_page
+  should "render a start page" do
+    assert_rendered_start_page
+  end
 
   context "question: need_help_with" do
     setup { testing_node :need_help_with }
-    should render_question
+
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response(%w[none])
+      should "have a next node based on a users selection" do
+        assert_next_node :feel_unsafe, for_response: %w[feeling_unsafe]
+      end
+
+      should "have a next node of nation on no selection" do
+        assert_next_node :nation, for_response: %w[none]
+      end
     end
   end
 
@@ -25,10 +36,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[feeling_unsafe]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[feeling_unsafe paying_bills]
+        assert_next_node :afford_rent_mortgage_bills, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -38,10 +58,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[paying_bills]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[paying_bills getting_food]
+        assert_next_node :afford_food, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -51,10 +80,14 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[getting_food]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:get_food).for_response("yes")
+      should "have a next node of get_food" do
+        assert_next_node :get_food, for_response: "yes"
+      end
     end
   end
 
@@ -64,10 +97,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[getting_food], afford_food: "yes"
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[getting_food being_unemployed]
+        assert_next_node :self_employed, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -77,11 +119,27 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[being_unemployed]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:have_you_been_made_unemployed).for_response("no")
-      should have_next_node(:nation).for_response("yes")
+      context "when response is yes" do
+        should "have a next node based on the need_help_with selection" do
+          add_responses need_help_with: %w[being_unemployed going_to_work]
+          assert_next_node :worried_about_work, for_response: "yes"
+        end
+
+        should "have a next node of nation if there isn't other need_help_with selections" do
+          assert_next_node :nation, for_response: "yes"
+        end
+      end
+
+      context "when response is not yes" do
+        should "have a next node of have_you_been_made_unemployed" do
+          assert_next_node :have_you_been_made_unemployed, for_response: "not_sure"
+        end
+      end
     end
   end
 
@@ -91,10 +149,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[being_unemployed], self_employed: "no"
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes_i_have_been_made_unemployed")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[being_unemployed going_to_work]
+        assert_next_node :worried_about_work, for_response: "yes_i_have_been_made_unemployed"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes_i_have_been_made_unemployed"
+      end
     end
   end
 
@@ -104,10 +171,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[going_to_work]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[going_to_work self_isolating]
+        assert_next_node :worried_about_self_isolating, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -117,10 +193,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[self_isolating]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[self_isolating somewhere_to_live]
+        assert_next_node :have_somewhere_to_live, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -130,10 +215,14 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[somewhere_to_live]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:have_you_been_evicted).for_response("yes")
+      should "have a next node of have_you_been_evicted" do
+        assert_next_node :have_you_been_evicted, for_response: "yes"
+      end
     end
   end
 
@@ -144,10 +233,19 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
                     have_somewhere_to_live: "yes"
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node based on the need_help_with selection" do
+        add_responses need_help_with: %w[somewhere_to_live mental_health]
+        assert_next_node :mental_health_worries, for_response: "yes"
+      end
+
+      should "have a next node of nation if there isn't other need_help_with selections" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -157,10 +255,14 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[mental_health]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:nation).for_response("yes")
+      should "have a next node of nation" do
+        assert_next_node :nation, for_response: "yes"
+      end
     end
   end
 
@@ -170,10 +272,14 @@ class FindCoronavirusSupportReworkedFlowTest < ActiveSupport::TestCase
       add_responses need_help_with: %w[none]
     end
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:results).for_response("england")
+      should "have a next node of results" do
+        assert_next_node :results, for_response: "england"
+      end
     end
   end
 

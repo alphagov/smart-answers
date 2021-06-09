@@ -1,18 +1,10 @@
 module ExperimentalFlowTestHelper
-  def self.included(object)
-    object.extend(ClassMethods)
-  end
-
   def testing_flow(flow_class)
     @test_flow = TestFlow.new(flow_class)
   end
 
   def testing_node(node_name)
     @test_flow.testing_node = node_name
-  end
-
-  def subject
-    @test_flow
   end
 
   def add_responses(responses)
@@ -23,7 +15,9 @@ module ExperimentalFlowTestHelper
     @test_flow.add_response(response)
   end
 
-  def assert_next_node(next_node)
+  def assert_next_node(next_node, for_response: nil)
+    add_response for_response if for_response
+
     assert_nil @test_flow.state.error
     assert_equal next_node, @test_flow.current_node_name
 
@@ -63,17 +57,24 @@ module ExperimentalFlowTestHelper
     end
   end
 
-  def assert_rendered_outcome(text: nil)
-    ensure_valid_and_correct_node
+  def assert_rendered_start_page
+    start_node_presenter = StartNodePresenter.new(@test_flow.flow.start_node)
 
-    assert_not_empty @test_flow.outcome_body
-    assert_match text, @test_flow.outcome_body_text if text
+    assert_not_empty start_node_presenter.title, "Expected the start page to have a title"
+    assert_not_empty start_node_presenter.body, "Expected the start page to have a body"
   end
 
   def assert_rendered_question
     ensure_valid_and_correct_node
 
     assert_not_empty @test_flow.question_title
+  end
+
+  def assert_rendered_outcome(text: nil)
+    ensure_valid_and_correct_node
+
+    assert_not_empty @test_flow.outcome_body
+    assert_match text, @test_flow.outcome_body_text if text
   end
 
   class TestFlow
@@ -156,76 +157,6 @@ module ExperimentalFlowTestHelper
 
     def outcome_body_text
       Nokogiri::HTML::DocumentFragment.parse(outcome_body).text
-    end
-  end
-
-  module ClassMethods
-    def render_start_page
-      RenderStartPageMatcher.new
-    end
-
-    def render_question
-      RenderQuestionMatcher.new
-    end
-
-    def have_next_node(next_node)
-      NextNodeMatcher.new(next_node)
-    end
-  end
-
-  class RenderStartPageMatcher
-    def description
-      "render a start page"
-    end
-
-    def matches?(test_flow)
-      start_node_presenter = StartNodePresenter.new(test_flow.flow.start_node)
-      @issues = []
-      @issues << "Missing title" if start_node_presenter.title.blank?
-      @issues << "Missing body" if start_node_presenter.body.blank?
-      @issues.empty?
-    end
-
-    def failure_message
-      "Start page didn't render correctly: #{@issues.join(', ')}"
-    end
-  end
-
-  class RenderQuestionMatcher
-    def in_context(context)
-      @context = context
-    end
-
-    def description
-      "render question"
-    end
-
-    def matches?(_test_flow)
-      @context.public_send(:assert_rendered_question)
-    end
-  end
-
-  class NextNodeMatcher
-    def initialize(next_node)
-      @next_node = next_node
-    end
-
-    def in_context(context)
-      @context = context
-    end
-
-    def description
-      "have next node #{@next_node} for response #{@response}"
-    end
-
-    def for_response(response)
-      @response = response
-      self
-    end
-
-    def matches?(test_flow)
-      test_flow.add_response(@response) if @response
-      @context.public_send(:assert_next_node, @next_node)
     end
   end
 end

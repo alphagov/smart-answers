@@ -8,22 +8,24 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
   setup { testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow }
 
-  should render_start_page
+  should "render a start page" do
+    assert_rendered_start_page
+  end
 
   context "question :basis of calculation?" do
     setup { testing_node :basis_of_calculation? }
 
-    should render_question
+    should "render the question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
       should "take people who work shifts to the shift_worker_basis? question" do
-        add_response "shift-worker"
-        assert_next_node :shift_worker_basis?
+        assert_next_node :shift_worker_basis?, for_response: "shift-worker"
       end
 
       should "take people who don't work shifts to the calculation_period? question" do
-        add_response "days-worked-per-week"
-        assert_next_node :calculation_period?
+        assert_next_node :calculation_period?, for_response: "days-worked-per-week"
       end
     end
   end
@@ -34,12 +36,22 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       add_responses basis_of_calculation?: "days-worked-per-week"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:what_is_your_starting_date?).for_response("starting")
-      should have_next_node(:what_is_your_starting_date?).for_response("starting-and-leaving")
-      should have_next_node(:what_is_your_leaving_date?).for_response("leaving")
+      should "have next node what_is_your_starting_date? for a 'starting' response" do
+        assert_next_node :what_is_your_starting_date?, for_response: "starting"
+      end
+
+      should "have next node what_is_your_starting_date? for a 'starting-and-leaving' response" do
+        assert_next_node :what_is_your_starting_date?, for_response: "starting-and-leaving"
+      end
+
+      should "have next node what_is_your_leaving_date? for a 'leaving' response" do
+        assert_next_node :what_is_your_leaving_date?, for_response: "leaving"
+      end
 
       context "when the response is full-year" do
         setup { add_response "full-year" }
@@ -74,7 +86,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     calculation_period?: "full-year"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for a day of the week below 1" do
@@ -87,7 +101,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should have_next_node(:days_per_week_done).for_response("5")
+      should "have next node of days_per_week_done" do
+        assert_next_node :days_per_week_done, for_response: "5"
+      end
     end
   end
 
@@ -98,7 +114,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     calculation_period?: "starting-and-leaving"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
       setup { add_response "2021-01-01" }
@@ -123,7 +141,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     what_is_your_starting_date?: "2021-01-01"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       context "when calculation period is starting-and-leaving" do
@@ -151,7 +171,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
     context "next_node" do
       context "when calculation period is not starting-and-leaving" do
-        should have_next_node(:when_does_your_leave_year_start?).for_response("2021-05-01")
+        should "have next node when_does_your_leave_year_start?" do
+          assert_next_node :when_does_your_leave_year_start?, for_response: "2021-05-01"
+        end
       end
 
       context "when calculation period is starting-and-leaving" do
@@ -193,7 +215,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     what_is_your_leaving_date?: "2021-10-01"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for a leave year starting after a leaving date" do
@@ -259,7 +283,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     when_does_your_leave_year_start?: "2021-01-01"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for hours below 1" do
@@ -272,7 +298,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should have_next_node(:how_many_days_per_week_for_hours?).for_response("100")
+      should "have next node :how_many_days_per_week_for_hours?" do
+        assert_next_node :how_many_days_per_week_for_hours?, for_response: "100"
+      end
     end
   end
 
@@ -287,7 +315,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     how_many_hours_per_week?: "40"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for a day of the week below 1" do
@@ -305,14 +335,13 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      context "when the user is working compressed hours" do
-        setup { add_responses basis_of_calculation?: "compressed-hours" }
-
-        should have_next_node(:compressed_hours_done).for_response("2")
+      should "have a next node of compressed_hours_done for someone working compressed hours" do
+        add_responses basis_of_calculation?: "compressed-hours"
+        assert_next_node :compressed_hours_done, for_response: "2"
       end
 
-      context "when the user isn't working compressed hours" do
-        should have_next_node(:hours_per_week_done).for_response("2")
+      should "have a next node of hours_per_week_done for someone not working compressed hours" do
+        assert_next_node :hours_per_week_done, for_response: "2"
       end
     end
   end
@@ -323,13 +352,26 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       add_responses basis_of_calculation?: "shift-worker"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "next_node" do
-      should have_next_node(:shift_worker_hours_per_shift?).for_response("full-year")
-      should have_next_node(:what_is_your_starting_date?).for_response("starting")
-      should have_next_node(:what_is_your_starting_date?).for_response("starting-and-leaving")
-      should have_next_node(:what_is_your_leaving_date?).for_response("leaving")
+      should "have a next node of shift_worker_hours_per_shift? for a 'full-year' response" do
+        assert_next_node :shift_worker_hours_per_shift?, for_response: "full-year"
+      end
+
+      should "have a next node of what_is_your_starting_date? for a 'starting' response" do
+        assert_next_node :what_is_your_starting_date?, for_response: "starting"
+      end
+
+      should "have a next node of what_is_your_starting_date? for a 'starting-and-leaving' response" do
+        assert_next_node :what_is_your_starting_date?, for_response: "starting-and-leaving"
+      end
+
+      should "have a next node of what_is_your_leaving_date? for a 'leaving' response" do
+        assert_next_node :what_is_your_leaving_date?, for_response: "leaving"
+      end
     end
   end
 
@@ -340,7 +382,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     shift_worker_basis?: "full-year"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for hours below 0" do
@@ -353,7 +397,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should have_next_node(:shift_worker_shifts_per_shift_pattern?).for_response("8")
+      should "have a next node of shift_worker_shifts_per_shift_pattern?" do
+        assert_next_node :shift_worker_shifts_per_shift_pattern?, for_response: "8"
+      end
     end
   end
 
@@ -365,7 +411,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     shift_worker_hours_per_shift?: "8"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid for a negative number of shifts" do
@@ -374,7 +422,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should have_next_node(:shift_worker_days_per_shift_pattern?).for_response("2")
+      should "have a next node of shift_worker_days_per_shift_pattern?" do
+        assert_next_node :shift_worker_days_per_shift_pattern?, for_response: "2"
+      end
     end
   end
 
@@ -387,7 +437,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     shift_worker_shifts_per_shift_pattern?: "2"
     end
 
-    should render_question
+    should "render question" do
+      assert_rendered_question
+    end
 
     context "validation" do
       should "be invalid when days per shift is less than shifts per shift pattern" do
@@ -396,7 +448,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should have_next_node(:shift_worker_done).for_response("2")
+      should "have a next node of shift_worker_done" do
+        assert_next_node :shift_worker_done, for_response: "2"
+      end
     end
   end
 end
