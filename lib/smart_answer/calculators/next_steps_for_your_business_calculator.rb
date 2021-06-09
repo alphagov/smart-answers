@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
       r25: ->(calculator) { (calculator.business_premises & %w[rented owned none]).present? },
       r26: ->(calculator) { calculator.activities.include?("import_goods") },
       r27: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
-      r28: ->(_) { true },
+      r28: ->(calculator) { calculator.annual_turnover_over_85k == "yes" },
       r29: ->(calculator) { calculator.annual_turnover_over_85k == "no" },
       r30: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
     }.with_indifferent_access.freeze
