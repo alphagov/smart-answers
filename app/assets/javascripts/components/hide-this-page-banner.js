@@ -2,14 +2,13 @@ window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
-  function HideThisPageBanner () { }
+  function HideThisPageBanner ($module) {
+    this.$module = $module
+    this.$button = this.$module.querySelector('.gem-c-button')
+  }
 
-  HideThisPageBanner.prototype.start = function ($module) {
-    this.$module = $module[0]
-
-    this.$module
-      .querySelector('.gem-c-button')
-      .addEventListener('click', this.handleClick.bind(this))
+  HideThisPageBanner.prototype.init = function () {
+    this.$button.addEventListener('click', this.handleClick.bind(this))
   }
 
   HideThisPageBanner.prototype.handleClick = function (event) {

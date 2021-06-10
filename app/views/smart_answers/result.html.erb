@@ -15,7 +15,7 @@
       title: outcome.heading_title
     } %>
 
-    <div class="govuk-!-margin-bottom-6 result-body">
+    <div class="govuk-!-margin-bottom-6" data-module="track-results" data-flow-name="<%= @name %>">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title,
@@ -35,20 +35,6 @@
         <%= outcome.next_steps %>
       </div>
     <% end %>
-
-    <script type="text/javascript">
-      $(function() {
-        var flowName = '<%= @name %>';
-        var page = document.location.pathname;
-        var options = {
-          label: flowName,
-          nonInteraction: true,
-          page: page
-        };
-        GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options);
-        trackInternalLinks('.result-body');
-      });
-    </script>
 
     <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: @presenter.hide_previous_answers_on_results_page? %>
   </div>

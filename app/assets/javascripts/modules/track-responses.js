@@ -1,99 +1,99 @@
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
-(function (global, GOVUK) {
-  'use strict'
+(function (Modules) {
+  function TrackResponses ($module) {
+    this.$module = $module
+  }
 
-  GOVUK.Modules.TrackResponses = function () {
-    this.start = function (element) {
-      track(element[0])
+  TrackResponses.prototype.init = function () {
+    this.$module.addEventListener('submit', this.handleFormSubmit.bind(this))
+  }
+
+  TrackResponses.prototype.handleFormSubmit = function (event) {
+    var submittedForm = event.target
+    var questionHeading = this.getQuestionHeading(submittedForm)
+    var questionKey = this.getQuestionKey(submittedForm)
+    var responseLabels = this.getResponseLabels(submittedForm)
+
+    responseLabels.forEach(function (label) {
+      var options = { transport: 'beacon', label: label }
+      GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
+      GOVUK.analytics.trackEvent('response_submission', questionKey, options)
+    })
+  }
+
+  TrackResponses.prototype.getQuestionHeading = function (submittedForm) {
+    return submittedForm.getAttribute('data-question-text')
+  }
+
+  TrackResponses.prototype.getQuestionKey = function (submittedForm) {
+    return submittedForm.getAttribute('data-question-key')
+  }
+
+  TrackResponses.prototype.getResponseLabelsForInput = function (submittedForm) {
+    var labels = []
+    var checkedOptions = submittedForm.querySelectorAll('input:checked')
+
+    if (checkedOptions.length) {
+      checkedOptions.forEach(function (checkedOption) {
+        var checkedOptionId = checkedOption.getAttribute('id')
+        var checkedOptionLabel = submittedForm.querySelectorAll('label[for="' + checkedOptionId + '"]')
+
+        var eventLabel = checkedOptionLabel.length
+          ? checkedOptionLabel[0].innerText.trim()
+          : checkedOption.value
+
+        labels.push(eventLabel)
+      })
+    } else {
+      labels.push('no response')
     }
 
-    function getQuestionHeading (submittedForm) {
-      return submittedForm.getAttribute('data-question-text')
-    }
+    return labels
+  }
 
-    function getQuestionKey (submittedForm) {
-      return submittedForm.getAttribute('data-question-key')
-    }
+  TrackResponses.prototype.getResponseLabelsForSelect = function (submittedForm) {
+    var labels = []
+    var selectInputs = submittedForm.querySelectorAll('select')
 
-    function getResponseLabelsForRadio (submittedForm) {
-      var labels = []
-      var checkedOptions = submittedForm.querySelectorAll('input:checked')
+    if (selectInputs.length) {
+      selectInputs.forEach(function (select) {
+        var value = select.value
 
-      if (checkedOptions.length) {
-        checkedOptions.forEach(function (checkedOption) {
-          var checkedOptionId = checkedOption.getAttribute('id')
-          var checkedOptionLabel = submittedForm.querySelectorAll('label[for="' + checkedOptionId + '"]')
-
-          var eventLabel = checkedOptionLabel.length
-            ? checkedOptionLabel[0].innerText.trim()
-            : checkedOption.value
-
+        if (value) {
+          var label = select.options[select.selectedIndex].innerHTML
+          var eventLabel = label.length ? label : value
           labels.push(eventLabel)
-        })
-      } else {
-        labels.push('no response')
-      }
-
-      return labels
-    }
-
-    function getResponseLabelsForSelectOption (submittedForm) {
-      var labels = []
-      var selectInputs = submittedForm.querySelectorAll('select')
-
-      if (selectInputs.length) {
-        selectInputs.forEach(function (select) {
-          var value = select.value
-
-          if (value) {
-            var label = select.options[select.selectedIndex].innerHTML
-            var eventLabel = label.length ? label : value
-            labels.push(eventLabel)
-          } else {
-            labels.push('no response')
-          }
-        })
-      }
-
-      return labels
-    }
-
-    function getResponseLabels (submittedForm) {
-      var responseLabels = []
-      var questionType = submittedForm.getAttribute('data-type')
-
-      switch (questionType) {
-        case 'checkbox_question':
-        case 'radio_question':
-          responseLabels = getResponseLabelsForRadio(submittedForm)
-          break
-
-        case 'country_select_question':
-          responseLabels = getResponseLabelsForSelectOption(submittedForm)
-          break
-
-        default:
-          break
-      }
-
-      return responseLabels
-    }
-
-    function track (element) {
-      element.addEventListener('submit', function (event) {
-        var submittedForm = event.target
-        var questionHeading = getQuestionHeading(submittedForm)
-        var questionKey = getQuestionKey(submittedForm)
-        var responseLabels = getResponseLabels(submittedForm)
-
-        responseLabels.forEach(function (label) {
-          var options = { transport: 'beacon', label: label }
-          GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
-          GOVUK.analytics.trackEvent('response_submission', questionKey, options)
-        })
+        } else {
+          labels.push('no response')
+        }
       })
     }
+
+    return labels
   }
-})(window, window.GOVUK)
+
+  TrackResponses.prototype.getResponseLabels = function (submittedForm) {
+    var responseLabels = []
+    var questionType = submittedForm.getAttribute('data-type')
+
+    switch (questionType) {
+      case 'checkbox_question':
+      case 'radio_question':
+        responseLabels = this.getResponseLabelsForInput(submittedForm)
+        break
+
+      case 'country_select_question':
+        responseLabels = this.getResponseLabelsForSelect(submittedForm)
+        break
+
+      default:
+        break
+    }
+
+    return responseLabels
+  }
+
+  Modules.TrackResponses = TrackResponses
+})(window.GOVUK.Modules)
