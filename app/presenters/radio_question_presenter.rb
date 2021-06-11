@@ -9,14 +9,8 @@ class RadioQuestionPresenter < QuestionWithOptionsPresenter
         text: option[:label],
         value: option[:value],
         hint_text: option[:hint_text],
-        checked: selected?(option[:value]),
+        checked: option[:value] == current_response,
       }
     end
-  end
-
-  def selected?(value)
-    return false if response_for_current_question.blank?
-
-    value == response_for_current_question
   end
 end

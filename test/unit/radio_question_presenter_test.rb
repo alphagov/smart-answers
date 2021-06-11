@@ -15,7 +15,7 @@ module SmartAnswer
       @renderer.stubs(:option).with(:option3).returns("Option 3")
 
       @presenter = RadioQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
-      @presenter.stubs(:response_for_current_question).returns(nil)
+      @presenter.stubs(:current_response).returns(nil)
     end
 
     test "#response_label returns option label" do
@@ -29,7 +29,7 @@ module SmartAnswer
     end
 
     test "#radio_buttons sets an existing selection to true" do
-      @presenter.stubs(:response_for_current_question).returns("option2")
+      @presenter.stubs(:current_response).returns("option2")
 
       assert_equal([false, true, false], @presenter.radio_buttons.map { |c| c[:checked] })
     end
