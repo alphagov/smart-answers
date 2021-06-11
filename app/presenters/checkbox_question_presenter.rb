@@ -29,9 +29,13 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     end
   end
 
-  def checked?(value)
-    return false if response_for_current_question.blank?
+private
 
-    response_for_current_question.include?(value)
+  def checked?(value)
+    response = current_response
+    response = current_response.split(",") if current_response.is_a?(String)
+    return false unless response.respond_to?(:include?)
+
+    response.include?(value)
   end
 end

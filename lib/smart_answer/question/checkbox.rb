@@ -37,12 +37,6 @@ module SmartAnswer
         raw_input.sort.join(",")
       end
 
-      def to_response(input)
-        return unless input.respond_to?(:split)
-
-        input.split(",")
-      end
-
       def none_option?
         @options.include?(NONE_OPTION)
       end
