@@ -11,19 +11,19 @@
         label: "Day",
         name: "response[day]",
         width: 2,
-        value: question.selected_day,
+        value: question.parsed_response[:day],
       },
       question.default_month ? nil : {
         label: "Month",
         name: "response[month]",
         width: 2,
-        value: question.selected_month,
+        value: question.parsed_response[:month],
       },
       question.default_year ? nil : {
         label: "Year",
         name: "response[year]",
         width: 4,
-        value: question.selected_year
+        value: question.parsed_response[:year],
       }
     ].compact
   } %>

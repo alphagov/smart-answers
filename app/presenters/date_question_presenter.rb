@@ -12,22 +12,18 @@ class DateQuestionPresenter < QuestionPresenter
     end
   end
 
-  def selected_day
-    return unless response_for_current_question.is_a? Hash
+  def parsed_response
+    return {} if current_response.blank?
+    return current_response if current_response.is_a?(Hash)
 
-    response_for_current_question[:day]
-  end
-
-  def selected_month
-    return unless response_for_current_question.is_a? Hash
-
-    response_for_current_question[:month]
-  end
-
-  def selected_year
-    return unless response_for_current_question.is_a? Hash
-
-    response_for_current_question[:year]
+    date = @node.parse_input(current_response)
+    {
+      day: date.day,
+      month: date.month,
+      year: date.year,
+    }
+  rescue SmartAnswer::InvalidResponse
+    {}
   end
 
 private
