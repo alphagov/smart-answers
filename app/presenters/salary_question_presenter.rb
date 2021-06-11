@@ -5,15 +5,16 @@ class SalaryQuestionPresenter < QuestionPresenter
     format_salary(SmartAnswer::Salary.new(value))
   end
 
-  def amount
-    return response_for_current_question unless response_for_current_question.is_a? Hash
+  def parsed_response
+    return {} if current_response.blank?
+    return current_response if current_response.is_a?(Hash)
 
-    response_for_current_question[:amount]
-  end
-
-  def period
-    return unless response_for_current_question.is_a? Hash
-
-    response_for_current_question[:period]
+    salary = @node.parse_input(current_response)
+    {
+      amount: salary.amount,
+      period: salary.period,
+    }
+  rescue SmartAnswer::InvalidResponse
+    {}
   end
 end
