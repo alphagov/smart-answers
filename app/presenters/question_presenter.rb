@@ -1,5 +1,5 @@
 class QuestionPresenter < NodePresenter
-  delegate :response_for_current_question, to: :@flow_presenter
+  delegate :current_response, to: :@flow_presenter
 
   attr_reader :params
 
@@ -60,10 +60,6 @@ class QuestionPresenter < NodePresenter
 
   def options
     []
-  end
-
-  def to_response(input)
-    @node.to_response(input)
   end
 
   def response_label(value)
