@@ -2,8 +2,6 @@
 
 > Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
 
-Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
-
 ## Screenshots
 
 ![Student Finance Forms screenshot](./docs/assets/govuk-student-finance-forms.png)
@@ -81,6 +79,10 @@ This is a Ruby on Rails application that contains:
 ### Registering on GOV.UK
 
 - `bundle exec rake publishing_api:sync_all` will send all smart answers to the Publishing API.
+
+### Further documentation
+
+- [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
 ## Licence
 
