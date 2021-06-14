@@ -173,7 +173,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
-        assert_equal "/government/publications/italy-list-of-lawyers", current_state.calculator.translator_link_url
+        assert_equal "/government/publications/italy-list-of-translators-and-interpreters", current_state.calculator.translator_link_url
       end
     end # Answer Italy
 
