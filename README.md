@@ -28,26 +28,26 @@ This is a Ruby on Rails application that contains:
 * A DSL for creating Smart Answers
 * The Smart Answers that appear on GOV.UK
 
-### Smart Answers
+### Smart Answer design
 
-* [File structure](docs/smart-answers/file-structure.md)
-* [Flow definition](docs/smart-answers/flow-definition.md)
-* [Question types](docs/smart-answers/question-types.md)
-* [Next node rules](docs/smart-answers/next-node-rules.md)
-* [Storing data](docs/smart-answers/storing-data.md)
-* [ERB templates](docs/smart-answers/erb-templates.md)
-  * [Landing page template](docs/smart-answers/erb-templates/landing-page-template.md)
-  * [Question templates](docs/smart-answers/erb-templates/question-templates.md)
-  * [Outcome templates](docs/smart-answers/erb-templates/outcome-templates.md)
+* [File structure](docs/design/file-structure.md)
+* [Flow definition](docs/design/flow-definition.md)
+* [Question types](docs/design/question-types.md)
+* [Next node rules](docs/design/next-node-rules.md)
+* [Storing data](docs/design/storing-data.md)
+* [ERB templates](docs/design/erb-templates.md)
+  * [Landing page template](docs/design/erb-templates/landing-page-template.md)
+  * [Question templates](docs/design/erb-templates/question-templates.md)
+  * [Outcome templates](docs/design/erb-templates/outcome-templates.md)
 
-### Smart Answer flow development
+### Smart Answer tasks
 
-* [Development principles](docs/smart-answer-flow-development/development-principles.md)
-* [Deploying changes for fact-check](docs/smart-answer-flow-development/fact-check.md)
-* [Creating a new Smart Answer](docs/smart-answer-flow-development/creating-a-new-smart-answer.md)
-* [Publishing a Smart Answer](docs/smart-answer-flow-development/publishing.md)
+* [Development principles](docs/tasks/development-principles.md)
+* [Deploying changes for fact-check](docs/tasks/fact-check.md)
+* [Creating a new Smart Answer](docs/tasks/creating-a-new-smart-answer.md)
+* [Publishing a Smart Answer](docs/tasks/publishing.md)
 
-Further guidance is available in [`docs/smart-answer-flow-development`](docs/smart-answer-flow-development).
+Further guidance is available in [`docs/tasks`](docs/tasks).
 
 ### Smart Answers app development
 
