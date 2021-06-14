@@ -49,12 +49,9 @@ This is a Ruby on Rails application that contains:
 
 Further guidance is available in [`docs/tasks`](docs/tasks).
 
-### Smart Answers app development
-
-* [Testing](docs/smart-answers-app-development/testing.md)
-
 ### Further documentation
 
+- [Testing Smart Answers](docs/testing/testing.md)
 - [Debugging Smart Answers](docs/debugging)
 - [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
