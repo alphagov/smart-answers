@@ -1,6 +1,6 @@
 # Smart Answers
 
-> Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
+A tool for content designers to present complex information as a flow of questions, leading to an outcome.
 
 ## Screenshots
 
