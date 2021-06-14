@@ -44,20 +44,14 @@ This is a Ruby on Rails application that contains:
 
 * [Development principles](docs/smart-answer-flow-development/development-principles.md)
 * [Deploying changes for fact-check](docs/smart-answer-flow-development/fact-check.md)
-* [Flattening outcomes](docs/smart-answer-flow-development/flattening-outcomes.md)
-* [Refactoring existing Smart Answers](docs/smart-answer-flow-development/refactoring.md)
 * [Creating a new Smart Answer](docs/smart-answer-flow-development/creating-a-new-smart-answer.md)
 * [Publishing a Smart Answer](docs/smart-answer-flow-development/publishing.md)
-* [Retiring a Smart Answer](docs/smart-answer-flow-development/retiring-a-smart-answer.md)
-* [Updating worldwide fixture data](docs/smart-answer-flow-development/updating-worldwide-fixture-data.md)
+
+Further guidance is available in [`docs/smart-answer-flow-development`](docs/smart-answer-flow-development).
 
 ### Smart Answers app development
 
 * [Testing](docs/smart-answers-app-development/testing.md)
-
-### Registering on GOV.UK
-
-- `bundle exec rake publishing_api:sync_all` will send all smart answers to the Publishing API.
 
 ### Further documentation
 
