@@ -55,19 +55,13 @@ This is a Ruby on Rails application that contains:
 
 * [Testing](docs/smart-answers-app-development/testing.md)
 
-### Debugging
-
-* [Custom Google Analytics accounts and Tracking IDs](docs/debugging/custom-google-analytics-tracking-id.md)
-* [Viewing landing pages and outcomes as Govspeak](docs/debugging/viewing-templates-as-govspeak.md)
-* [Viewing state of a Smart Answer](docs/debugging/viewing-state.md)
-* [Visualising flows](docs/debugging/visualising-flows.md)
-
 ### Registering on GOV.UK
 
 - `bundle exec rake publishing_api:sync_all` will send all smart answers to the Publishing API.
 
 ### Further documentation
 
+- [Debugging Smart Answers](docs/debugging)
 - [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
 ## Licence
