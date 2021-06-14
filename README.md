@@ -1,6 +1,6 @@
 # Smart Answers
 
-A tool for content designers to present complex information as a flow of questions, leading to an outcome.
+A tool for content designers to present complex information as a flow of questions, leading to an outcome. While the app is mostly self-contained, some Smart Answers use [Imminence](https://github.com/alphagov/imminence) for Post Code lookup, and [Whitehall](https://github.com/alphagov/whitehall) to get data on countries and worldwide organisations.
 
 ## Screenshots
 
@@ -33,14 +33,6 @@ This is a Ruby on Rails application that contains:
 * The Smart Answers that appear on GOV.UK
 
 **NOTE.** This application doesn't use a database and as such it [doesn't include the ActiveRecord Railtie in application.rb](https://github.com/alphagov/smart-answers/blob/4eb1b80a698e6835e745c4ad1954a3892e929b64/config/application.rb#L3).
-
-### Dependencies
-
-* [alphagov/static](https://github.com/alphagov/static): provides static assets (JS/CSS) and the GOV.UK templates.
-* [alphagov/imminence](https://github.com/alphagov/imminence): provides post code lookup
-* [alphagov/whitehall](https://github.com/alphagov/whitehall): provides country
-  lookup; and information about high commisions and embassies
-* [nodejs/node](https://github.com/nodejs/node): provides JS runtime for precompiling assets for deployment
 
 ### Smart Answers
 
