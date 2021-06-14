@@ -2,10 +2,6 @@
 
 A tool for content designers to present complex information as a flow of questions, leading to an outcome. While the app is mostly self-contained, some Smart Answers use [Imminence](https://github.com/alphagov/imminence) for Post Code lookup, and [Whitehall](https://github.com/alphagov/whitehall) to get data on countries and worldwide organisations.
 
-## Screenshots
-
-![Student Finance Forms screenshot](./docs/assets/govuk-student-finance-forms.png)
-
 ## Live examples
 
 * [Look up Meursing code](https://www.gov.uk/additional-commodity-code)
