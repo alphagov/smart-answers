@@ -1,9 +1,9 @@
-require_relative "../../test_helper"
-require_relative "experimental_flow_test_helper"
+require "test_helper"
+require "support/experimental_flow_test_helper"
 
 require "smart_answer_flows/marriage-abroad"
 
-class MarriageAbroadReworkedTest < ActiveSupport::TestCase
+class MarriageAbroadExperimentalFlowTest < ActiveSupport::TestCase
   include ExperimentalFlowTestHelper
 
   CEREMONY_LOCATION_COUNTRIES = %w[finland iceland].freeze

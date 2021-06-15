@@ -1,9 +1,9 @@
-require_relative "../../test_helper"
-require_relative "experimental_flow_test_helper"
+require "test_helper"
+require "support/experimental_flow_test_helper"
 
 require "smart_answer_flows/calculate-your-holiday-entitlement"
 
-class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
+class CalculateYourHolidayEntitlementExperimentalFlowTest < ActiveSupport::TestCase
   include ExperimentalFlowTestHelper
 
   setup { testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow }

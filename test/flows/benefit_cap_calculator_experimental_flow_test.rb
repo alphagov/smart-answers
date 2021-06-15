@@ -1,9 +1,9 @@
-require_relative "../../test_helper"
-require_relative "experimental_flow_test_helper"
+require "test_helper"
+require "support/experimental_flow_test_helper"
 
 require "smart_answer_flows/benefit-cap-calculator"
 
-class BenefitCapCalculatorReworkedTest < ActiveSupport::TestCase
+class BenefitCapCalculatorExperimentalFlowTest < ActiveSupport::TestCase
   include ExperimentalFlowTestHelper
 
   setup { testing_flow SmartAnswer::BenefitCapCalculatorFlow }
