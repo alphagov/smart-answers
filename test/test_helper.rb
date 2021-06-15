@@ -28,7 +28,7 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::PublishingApi
   include GdsApi::TestHelpers::Worldwide
   include ActionDispatch::Assertions
-  parallelize workers: 6
+  parallelize workers: :number_of_processors
 
   teardown do
     Timecop.return
