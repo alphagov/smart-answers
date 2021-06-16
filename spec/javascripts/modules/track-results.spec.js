@@ -15,6 +15,9 @@ describe('Track results', function () {
                               '<a class="govuk-link" href="https://github.com">External link</a>' +
                             '</div>'
       document.body.appendChild(container)
+      container.addEventListener('click', function (e) {
+        e.preventDefault()
+      })
       element = document.querySelector('[data-module="track-results"]')
     })
 
@@ -41,7 +44,7 @@ describe('Track results', function () {
 
       spyOn(GOVUK.analytics, 'trackEvent')
 
-      internalLink.dispatchEvent(new window.Event('click'))
+      window.GOVUK.triggerEvent(internalLink, 'click')
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'Internal Link Clicked', '/internal-link', { transport: 'beacon', label: 'Internal link' }
@@ -55,7 +58,7 @@ describe('Track results', function () {
 
       spyOn(GOVUK.analytics, 'trackEvent')
 
-      externalLink.dispatchEvent(new window.Event('click'))
+      window.GOVUK.triggerEvent(externalLink, 'click')
 
       expect(GOVUK.analytics.trackEvent).not.toHaveBeenCalled()
     })
