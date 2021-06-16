@@ -1,12 +1,6 @@
 # Smart Answers
 
-> Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
-
-Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
-
-## Screenshots
-
-![Student Finance Forms screenshot](./docs/assets/govuk-student-finance-forms.png)
+A tool for content designers to present complex information as a flow of questions, leading to an outcome. While the app is mostly self-contained, some Smart Answers use [Imminence](https://github.com/alphagov/imminence) for Post Code lookup, and [Whitehall](https://github.com/alphagov/whitehall) to get data on countries and worldwide organisations.
 
 ## Live examples
 
@@ -28,59 +22,38 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 ## Technical documentation
 
-This is a Ruby on Rails application that contains:
+This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-* A Rails application to serve Smart Answers
-* A DSL for creating Smart Answers
-* The Smart Answers that appear on GOV.UK
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
 
-**NOTE.** This application doesn't use a database and as such it [doesn't include the ActiveRecord Railtie in application.rb](https://github.com/alphagov/smart-answers/blob/4eb1b80a698e6835e745c4ad1954a3892e929b64/config/application.rb#L3).
+If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
 
-### Dependencies
+### Smart Answer design
 
-* [alphagov/static](https://github.com/alphagov/static): provides static assets (JS/CSS) and the GOV.UK templates.
-* [alphagov/imminence](https://github.com/alphagov/imminence): provides post code lookup
-* [alphagov/whitehall](https://github.com/alphagov/whitehall): provides country
-  lookup; and information about high commisions and embassies
-* [nodejs/node](https://github.com/nodejs/node): provides JS runtime for precompiling assets for deployment
+* [File structure](docs/design/file-structure.md)
+* [Flow definition](docs/design/flow-definition.md)
+* [Question types](docs/design/question-types.md)
+* [Next node rules](docs/design/next-node-rules.md)
+* [Storing data](docs/design/storing-data.md)
+* [ERB templates](docs/design/erb-templates.md)
+  * [Landing page template](docs/design/erb-templates/landing-page-template.md)
+  * [Question templates](docs/design/erb-templates/question-templates.md)
+  * [Outcome templates](docs/design/erb-templates/outcome-templates.md)
 
-### Smart Answers
+### Smart Answer tasks
 
-* [File structure](docs/smart-answers/file-structure.md)
-* [Flow definition](docs/smart-answers/flow-definition.md)
-* [Question types](docs/smart-answers/question-types.md)
-* [Next node rules](docs/smart-answers/next-node-rules.md)
-* [Storing data](docs/smart-answers/storing-data.md)
-* [ERB templates](docs/smart-answers/erb-templates.md)
-  * [Landing page template](docs/smart-answers/erb-templates/landing-page-template.md)
-  * [Question templates](docs/smart-answers/erb-templates/question-templates.md)
-  * [Outcome templates](docs/smart-answers/erb-templates/outcome-templates.md)
+* [Development principles](docs/tasks/development-principles.md)
+* [Deploying changes for fact-check](docs/tasks/fact-check.md)
+* [Creating a new Smart Answer](docs/tasks/creating-a-new-smart-answer.md)
+* [Publishing a Smart Answer](docs/tasks/publishing.md)
 
-### Smart Answer flow development
+Further guidance is available in [`docs/tasks`](docs/tasks).
 
-* [Development principles](docs/smart-answer-flow-development/development-principles.md)
-* [Deploying changes for fact-check](docs/smart-answer-flow-development/fact-check.md)
-* [Flattening outcomes](docs/smart-answer-flow-development/flattening-outcomes.md)
-* [Refactoring existing Smart Answers](docs/smart-answer-flow-development/refactoring.md)
-* [Creating a new Smart Answer](docs/smart-answer-flow-development/creating-a-new-smart-answer.md)
-* [Publishing a Smart Answer](docs/smart-answer-flow-development/publishing.md)
-* [Retiring a Smart Answer](docs/smart-answer-flow-development/retiring-a-smart-answer.md)
-* [Updating worldwide fixture data](docs/smart-answer-flow-development/updating-worldwide-fixture-data.md)
+### Further documentation
 
-### Smart Answers app development
-
-* [Testing](docs/smart-answers-app-development/testing.md)
-
-### Debugging
-
-* [Custom Google Analytics accounts and Tracking IDs](docs/debugging/custom-google-analytics-tracking-id.md)
-* [Viewing landing pages and outcomes as Govspeak](docs/debugging/viewing-templates-as-govspeak.md)
-* [Viewing state of a Smart Answer](docs/debugging/viewing-state.md)
-* [Visualising flows](docs/debugging/visualising-flows.md)
-
-### Registering on GOV.UK
-
-- `bundle exec rake publishing_api:sync_all` will send all smart answers to the Publishing API.
+- [Testing Smart Answers](docs/testing/testing.md)
+- [Debugging Smart Answers](docs/debugging)
+- [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
 ## Licence
 
