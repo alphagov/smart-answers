@@ -16,11 +16,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var questionKey = this.getQuestionKey(submittedForm)
     var responseLabels = this.getResponseLabels(submittedForm)
 
-    responseLabels.forEach(function (label) {
+    for (var i = 0; i < responseLabels.length; i++) {
+      var label = responseLabels[i]
       var options = { transport: 'beacon', label: label }
       GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
       GOVUK.analytics.trackEvent('response_submission', questionKey, options)
-    })
+    }
   }
 
   TrackResponses.prototype.getQuestionHeading = function (submittedForm) {
