@@ -1,4 +1,10 @@
 .smart_answer {
+
+  // TODO Remove after gem layout swaps complete.
+  .gem-c-step-nav-header {
+    line-height: 1;
+  }
+
   a:not(.govuk-button):focus {
     @include govuk-focused-text;
   }
