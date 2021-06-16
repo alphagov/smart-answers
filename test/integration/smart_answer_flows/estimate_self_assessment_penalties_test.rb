@@ -185,16 +185,16 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds
     context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
       setup do
-        add_response "2015-08-01"
-        add_response "2015-08-01"
+        add_response "2015-08-03"
+        add_response "2015-08-03"
         add_response "10000.00"
       end
       should "show results" do
         assert_equal 1500, current_state.calculator.late_filing_penalty
         assert_equal 10_000, current_state.calculator.estimated_bill
-        assert_equal 161.16, current_state.calculator.interest
+        assert_equal 162.95, current_state.calculator.interest
         assert_equal 1000, current_state.calculator.late_payment_penalty
-        assert_equal 12_661, current_state.calculator.total_owed_plus_filing_penalty
+        assert_equal 12_662, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
     # #band 4 case 1
@@ -214,16 +214,16 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds
     context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
       setup do
-        add_response "2016-02-01"
-        add_response "2016-02-01"
+        add_response "2016-02-03"
+        add_response "2016-02-03"
         add_response "10000.00"
       end
       should "show results" do
         assert_equal 2000, current_state.calculator.late_filing_penalty
         assert_equal 10_000, current_state.calculator.estimated_bill
-        assert_equal 325, current_state.calculator.interest
+        assert_equal 326.78, current_state.calculator.interest
         assert_equal 1500, current_state.calculator.late_payment_penalty
-        assert_equal 13_825, current_state.calculator.total_owed_plus_filing_penalty
+        assert_equal 13_826, current_state.calculator.total_owed_plus_filing_penalty
       end
     end
   end
