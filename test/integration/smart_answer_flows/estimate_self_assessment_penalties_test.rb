@@ -250,4 +250,138 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "calculating late payment penalties" do
+    payment_amount = "100.00"
+
+    expected_penalty = {
+      step_1: 5,
+      step_2: 10,
+      step_3: 15,
+    }
+
+    penalty_dates = {
+      "2013-14": {
+        step_1: "2015-03-03",
+        step_2: "2015-08-03",
+        step_3: "2016-02-03",
+      },
+      "2014-15": {
+        step_1: "2016-03-02",
+        step_2: "2016-08-02",
+        step_3: "2017-02-02",
+      },
+      "2015-16": {
+        step_1: "2017-03-03",
+        step_2: "2017-08-03",
+        step_3: "2018-02-03",
+      },
+      "2016-17": {
+        step_1: "2018-03-03",
+        step_2: "2018-08-03",
+        step_3: "2019-02-03",
+      },
+      "2017-18": {
+        step_1: "2019-03-03",
+        step_2: "2019-08-03",
+        step_3: "2020-02-03",
+      },
+      "2018-19": {
+        step_1: "2020-03-02",
+        step_2: "2020-08-02",
+        step_3: "2021-02-02",
+      },
+      "2019-20": {
+        step_1: "2021-04-02", # Deadline extended due to COVID-19
+        step_2: "2021-08-03",
+        step_3: "2022-02-03",
+      },
+    }
+
+    penalty_dates.each do |tax_year, payment_dates|
+      context "for a step 1 payment date in #{tax_year} (#{payment_dates[:step_1]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response payment_dates[:step_1]
+          add_response payment_dates[:step_1]
+          add_response payment_amount
+        end
+
+        should "calculate correct penalty" do
+          assert_equal expected_penalty[:step_1], current_state.calculator.late_payment_penalty
+        end
+      end
+
+      context "for the day before a step 1 payment date in #{tax_year} (#{payment_dates[:step_1]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response Date.parse(payment_dates[:step_1]).prev_day
+          add_response Date.parse(payment_dates[:step_1]).prev_day
+          add_response payment_amount
+        end
+
+        should "not apply the step 1 penalty" do
+          assert_equal 0, current_state.calculator.late_payment_penalty
+        end
+      end
+
+      context "for a step 2 payment date in #{tax_year} (#{payment_dates[:step_2]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response payment_dates[:step_2]
+          add_response payment_dates[:step_2]
+          add_response payment_amount
+        end
+
+        should "calculate correct penalty" do
+          assert_equal expected_penalty[:step_2], current_state.calculator.late_payment_penalty
+        end
+      end
+
+      context "for the day before a step 2 payment date in #{tax_year} (#{payment_dates[:step_2]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response Date.parse(payment_dates[:step_2]).prev_day
+          add_response Date.parse(payment_dates[:step_2]).prev_day
+          add_response payment_amount
+        end
+
+        should "not apply the step 2 penalty" do
+          assert_equal expected_penalty[:step_1], current_state.calculator.late_payment_penalty
+        end
+      end
+
+      context "for a step 3 payment date in #{tax_year} (#{payment_dates[:step_3]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response payment_dates[:step_3]
+          add_response payment_dates[:step_3]
+          add_response payment_amount
+        end
+
+        should "calculate correct penalty" do
+          assert_equal expected_penalty[:step_3], current_state.calculator.late_payment_penalty
+        end
+      end
+
+      context "for the day before a step 3 payment date in #{tax_year} (#{payment_dates[:step_3]})" do
+        setup do
+          add_response tax_year
+          add_response "online"
+          add_response Date.parse(payment_dates[:step_3]).prev_day
+          add_response Date.parse(payment_dates[:step_3]).prev_day
+          add_response payment_amount
+        end
+
+        should "not apply the step 3 penalty" do
+          assert_equal expected_penalty[:step_2], current_state.calculator.late_payment_penalty
+        end
+      end
+    end
+  end
 end
