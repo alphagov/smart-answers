@@ -1,4 +1,6 @@
 class GraphPresenter
+  delegate :title, to: :start_node_presenter
+
   def initialize(flow)
     @flow = flow
   end
@@ -82,7 +84,7 @@ private
     presenter.title
   end
 
-  def presenter
-    @presenter ||= FlowPresenter.new({}, @flow)
+  def start_node_presenter
+    @start_node_presenter ||= StartNodePresenter.new(@flow.start_node)
   end
 end

@@ -7,22 +7,31 @@ module SmartAnswer
       @renderer = stub("renderer")
 
       @presenter = SalaryQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
-      @presenter.stubs(:response_for_current_question).returns(amount: "4000.0", period: "month")
     end
 
-    context "#amount" do
-      should "return the amount" do
-        assert_equal "4000.0", @presenter.amount.to_s
-      end
+    test "#parsed_response returns current_response when it is a hash" do
+      hash = { amount: 150, period: "week" }
+      @presenter.stubs(:current_response).returns(hash)
 
-      should "return the user input if the amount is invalid" do
-        @presenter.stubs(:response_for_current_question).returns(amount: "-123", period: "week")
-        assert_equal "-123", @presenter.amount
-      end
+      assert_equal hash, @presenter.parsed_response
     end
 
-    test "#period returns the period the salary is paid" do
-      assert_equal "month", @presenter.period
+    test "#parsed_response returns salary details when current_response is a parsable string" do
+      @presenter.stubs(:current_response).returns("100.0-month")
+
+      assert_equal ({ amount: 100.0, period: "month" }), @presenter.parsed_response
+    end
+
+    test "#parsed_response returns an empty hash when current_response is an invalid input" do
+      @presenter.stubs(:current_response).returns("blah-blah")
+
+      assert_empty @presenter.parsed_response
+    end
+
+    test "#parsed_response returns an empty hash when current_response is blank" do
+      @presenter.stubs(:current_response).returns("")
+
+      assert_empty @presenter.parsed_response
     end
   end
 end

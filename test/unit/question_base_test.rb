@@ -86,17 +86,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal :was_red, new_state.current_node
     end
 
-    should "ensure state made available to code in next_node block is frozen" do
-      state_made_available = nil
-      @question.next_node do
-        state_made_available = self
-        outcome :done
-      end
-      initial_state = SmartAnswer::State.new(@question.name)
-      @question.transition(initial_state, "anything")
-      assert state_made_available.frozen?
-    end
-
     should "pass input to next_node block" do
       input_was = nil
       @question.next_node do |input|
@@ -106,20 +95,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       initial_state = SmartAnswer::State.new(@question.name)
       @question.transition(initial_state, "something")
       assert_equal "something", input_was
-    end
-
-    should "save input sequence on new state" do
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal [:red], new_state.responses
-    end
-
-    should "save path on new state" do
-      @question.next_node { outcome :done }
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal [@question.name], new_state.path
     end
 
     should "execute on_response block with response" do
@@ -177,17 +152,16 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "raise an exception if next_node does not return a node key" do
-      responses = %i[blue red]
       @question.next_node do
         skip = false
         outcome :skipped if skip
       end
       initial_state = SmartAnswer::State.new(@question.name)
-      initial_state.responses << responses[0]
+      initial_state.accepted_responses = { question_1: "red" }
       error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-        @question.next_node_for(initial_state, responses[1])
+        @question.next_node_for(initial_state, "blue")
       end
-      expected_message = "Next node undefined. Node: #{@question.name}. Responses: #{responses}."
+      expected_message = %(Next node undefined. Node: #{@question.name}. Responses: ["red", "blue"].)
       assert_equal expected_message, error.message
     end
 

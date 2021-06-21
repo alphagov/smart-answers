@@ -81,17 +81,6 @@ module SmartAnswer
         end
       end
 
-      def to_response(input)
-        date = parse_input(input)
-        {
-          day: date.day,
-          month: date.month,
-          year: date.year,
-        }
-      rescue InvalidResponse
-        nil
-      end
-
       def date_of_birth_defaults
         from { 122.years.ago.beginning_of_year.to_date }
         to { ::Time.zone.today.end_of_year }

@@ -13,7 +13,7 @@ module SmartAnswer
     end
 
     should "start taking_paternity_or_maternity_leave_for_adoption? question" do
-      assert_equal :taking_paternity_or_maternity_leave_for_adoption?, @flow.start_state.current_node
+      assert_equal :taking_paternity_or_maternity_leave_for_adoption?, @flow.questions.first.name
     end
 
     context "when answering taking_paternity_or_maternity_leave_for_adoption?" do

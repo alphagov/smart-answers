@@ -96,29 +96,6 @@ module SmartAnswer
       end
     end
 
-    test "to_response returns a hash of day, month and year representing the date returned from parse_input" do
-      valid_date = Date.parse("2015-02-01")
-      q = Question::Date.new(nil, :example)
-      q.stubs(:parse_input).with("valid-date").returns(valid_date)
-
-      expected_hash = { day: 1, month: 2, year: 2015 }
-      assert_equal expected_hash, q.to_response("valid-date")
-    end
-
-    test "to_response returns nil if parse_input raises an InvalidResponse exception" do
-      q = Question::Date.new(nil, :example)
-      q.stubs(:parse_input).with("invalid-date").raises(InvalidResponse)
-      assert_nil q.to_response("invalid-date")
-    end
-
-    test "to_response raises the exception if parse_input raises anything other than an InvalidResponse exception" do
-      q = Question::Date.new(nil, :example)
-      q.stubs(:parse_input).with("anything").raises(StandardError)
-      assert_raises(StandardError) do
-        q.to_response("anything")
-      end
-    end
-
     test "dates are parsed from Hash into Date before being saved" do
       q = Question::Date.new(nil, :example) do
         on_response do |response|

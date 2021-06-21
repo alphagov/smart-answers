@@ -45,21 +45,8 @@ class CurrentQuestionHelperTest < ActionView::TestCase
   def session_presenter
     @session_presenter ||= OpenStruct.new(
       response_store: :session,
-      current_state: current_state,
-      questions: [first_question],
       name: flow_name,
-    )
-  end
-
-  def current_state
-    @current_state ||= OpenStruct.new(
-      current_node: node_name,
-    )
-  end
-
-  def first_question
-    @first_question ||= OpenStruct.new(
-      name: "first",
+      node_slug: node_name.dasherize,
     )
   end
 end

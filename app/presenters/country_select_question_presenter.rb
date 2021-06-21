@@ -4,7 +4,7 @@ class CountrySelectQuestionPresenter < QuestionPresenter
       {
         text: option.name,
         value: option.slug,
-        selected: option.slug == response_for_current_question,
+        selected: option.slug == current_response,
       }
     end
   end

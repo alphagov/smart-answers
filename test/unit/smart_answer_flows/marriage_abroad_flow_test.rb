@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     should "start with the country_of_ceremony? question" do
-      assert_equal :country_of_ceremony?, @flow.start_state.current_node
+      assert_equal :country_of_ceremony?, @flow.questions.first.name
     end
 
     context "when answering country_of_ceremony? question" do

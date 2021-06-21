@@ -60,7 +60,7 @@ class GraphvizPresenter < GraphPresenter
     [
       "overlap=false;",
       "splines=true;",
-      %(label="#{escape(presenter.title)}";),
+      %(label="#{escape(title)}";),
       "fontsize=12;",
     ]
   end

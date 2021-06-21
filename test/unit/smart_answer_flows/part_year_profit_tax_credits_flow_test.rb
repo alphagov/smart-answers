@@ -13,7 +13,7 @@ module SmartAnswer
     end
 
     should "start when_did_your_tax_credits_award_end? question" do
-      assert_equal :when_did_your_tax_credits_award_end?, @flow.start_state.current_node
+      assert_equal :when_did_your_tax_credits_award_end?, @flow.questions.first.name
     end
 
     context "when answering when_did_your_tax_credits_award_end? question" do

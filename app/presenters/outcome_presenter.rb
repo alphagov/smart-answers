@@ -1,7 +1,6 @@
 class OutcomePresenter < NodePresenter
-  def initialize(node, flow_presenter, state = nil, options = {}, params = {})
+  def initialize(node, flow_presenter, state = nil, options = {})
     super(node, flow_presenter, state)
-    @params = params
     helpers = options[:helpers] || []
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory.join("outcomes"),

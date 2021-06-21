@@ -7,25 +7,31 @@ module SmartAnswer
       @renderer = stub("renderer")
 
       @presenter = DateQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
-      @presenter.stubs(:response_for_current_question).returns(
-        {
-          day: 5,
-          month: 1,
-          year: 2021,
-        },
-      )
     end
 
-    test "#selected_day returns the day" do
-      assert_equal 5, @presenter.selected_day
+    test "#parsed_response returns current_response when it is a hash" do
+      hash = { day: 1, month: 5, year: 2021 }
+      @presenter.stubs(:current_response).returns(hash)
+
+      assert_equal hash, @presenter.parsed_response
     end
 
-    test "#selected_month returns the month" do
-      assert_equal 1, @presenter.selected_month
+    test "#parsed_response returns date details when current_response is a parsable string" do
+      @presenter.stubs(:current_response).returns("2021-5-1")
+
+      assert_equal ({ day: 1, month: 5, year: 2021 }), @presenter.parsed_response
     end
 
-    test "#selected_year returns the year" do
-      assert_equal 2021, @presenter.selected_year
+    test "#parsed_response returns an empty hash when current_response is an invalid input" do
+      @presenter.stubs(:current_response).returns("blah-blah")
+
+      assert_empty @presenter.parsed_response
+    end
+
+    test "#parsed_response returns an empty hash when current_response is blank" do
+      @presenter.stubs(:current_response).returns("")
+
+      assert_empty @presenter.parsed_response
     end
   end
 end

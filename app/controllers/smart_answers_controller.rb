@@ -52,7 +52,8 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)
-    @presenter = FlowPresenter.new(request.params, @smart_answer)
+    state = SmartAnswer::StateResolver.new(@smart_answer).state_from_params(request.params)
+    @presenter = FlowPresenter.new(@smart_answer, state)
   end
 
   def flow_registry
@@ -68,9 +69,9 @@ private
   helper_method :page_type
 
   def redirect_response_to_canonical_path
-    if params[:next] && !@presenter.current_state.error
+    if params[:next] && !@presenter.state.error
       set_expiry
-      redirect_to smart_answer_path(@name, started: "y", responses: @presenter.current_state.responses)
+      redirect_to smart_answer_path(@name, started: "y", responses: @presenter.accepted_responses.values)
     end
   end
 

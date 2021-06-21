@@ -15,7 +15,7 @@ module SmartAnswer
       @renderer.stubs(:option).with(:option3).returns({ label: "Option 3" })
 
       @presenter = CheckboxQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
-      @presenter.stubs(:response_for_current_question).returns(nil)
+      @presenter.stubs(:current_response).returns(nil)
     end
 
     test "#response_labels returns option labels for responses" do
@@ -48,26 +48,36 @@ module SmartAnswer
       assert_equal expected_value, @presenter.checkboxes
     end
 
+    test "#checkboxes can mark checkboxes as checked when current response is an array" do
+      @presenter.stubs(:current_response).returns(%w[option1 option3])
+
+      option1, option2, option3 = @presenter.checkboxes
+
+      assert option1[:checked]
+      assert_not option2[:checked]
+      assert option3[:checked]
+    end
+
+    test "#checkboxes can mark checkboxes as checked when current response is a string" do
+      @presenter.stubs(:current_response).returns("option1,option2")
+
+      option1, option2, option3 = @presenter.checkboxes
+
+      assert option1[:checked]
+      assert option2[:checked]
+      assert_not option3[:checked]
+    end
+
+    test "#checkboxes can cope with an unexpected type for current_response" do
+      @presenter.stubs(:current_response).returns(55)
+      assert_not(@presenter.checkboxes.any? { |c| c[:checked] })
+    end
+
     test "#caption returns the given caption when a caption is given" do
       @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")
 
       assert_equal "caption-text", @presenter.caption
-    end
-
-    context "#checked?" do
-      should "return true if values were previously selected" do
-        @presenter.stubs(:response_for_current_question).returns(%w[option1 option2])
-        assert @presenter.checked?("option2")
-      end
-
-      should "return false if no values have been selected" do
-        @presenter.stubs(:response_for_current_question).returns(nil)
-
-        %w[option1 option2 option3 none].each do |option|
-          assert_not @presenter.checked?(option)
-        end
-      end
     end
   end
 end

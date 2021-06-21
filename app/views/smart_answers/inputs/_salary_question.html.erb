@@ -11,7 +11,7 @@
   hint: question.hint,
   suffix: "£",
   error_message: question.error,
-  value: question.amount
+  value: question.parsed_response[:amount]
 } %>
 <%= render "govuk_publishing_components/components/select", {
   id: "response_month",
@@ -22,17 +22,17 @@
     {
       text: "per week",
       value: "week",
-      selected: question.period == "week"
+      selected: question.parsed_response[:period] == "week"
     },
     {
       text: "per month",
       value: "month",
-      selected: question.period == "month"
+      selected: question.parsed_response[:period] == "month"
     },
     {
       text: "per year",
       value: "year",
-      selected: question.period == "year"
+      selected: question.parsed_response[:period] == "year"
     }
   ]
 } %>

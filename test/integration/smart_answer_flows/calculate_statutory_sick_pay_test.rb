@@ -521,13 +521,13 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before 2011" do
-      add_response Date.parse("2010-12-31")
+      add_response "2010-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
       Timecop.freeze("2017-01-01") do
-        add_response(Time.zone.today.end_of_year + 1.day).to_s
+        add_response (Time.zone.today.end_of_year + 1.day).to_s
         assert_current_node_is_error
       end
     end
@@ -539,24 +539,24 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :no
       add_response :yes
       add_response :no
-      add_response "02/04/2013"
+      add_response "2013-04-02"
       assert_current_node :last_sick_day?
     end
 
     should "not allow dates before 2012" do
-      add_response Date.parse("2011-12-31")
+      add_response "2011-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
       Timecop.freeze("2017-01-01") do
-        add_response(Time.zone.today.end_of_year + 1.day).to_s
+        add_response (Time.zone.today.end_of_year + 1.day).to_s
         assert_current_node_is_error
       end
     end
 
     should "not allow dates before start_date" do
-      add_response "01/04/2013"
+      add_response "2013-04-01"
       assert_current_node_is_error
     end
   end
@@ -574,12 +574,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before 2010" do
-      add_response Date.parse("2009-12-31")
+      add_response "2009-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
-      add_response(Time.zone.today.end_of_year + 1.day).to_s
+      add_response (Time.zone.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
 
@@ -604,12 +604,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before 2010" do
-      add_response Date.parse("2009-12-31")
+      add_response "2009-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
-      add_response(Time.zone.today.end_of_year + 1.day).to_s
+      add_response (Time.zone.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
 
@@ -624,7 +624,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow a day before the earliest linked end date" do
-      add_response((@earliest_linked_sickness_end_date - 1.day).to_s)
+      add_response (@earliest_linked_sickness_end_date - 1.day).to_s
       assert_current_node_is_error "error_must_be_within_eight_weeks"
     end
   end
@@ -635,8 +635,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :no
       add_response :yes
       add_response :no
-      add_response "02/04/2013"
-      add_response "10/04/2013"
+      add_response "2013-04-02"
+      add_response "2013-04-10"
       add_response :no
       add_response "eight_weeks_more"
       add_response "weekly"
@@ -644,12 +644,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before 2010" do
-      add_response Date.parse("2009-12-31")
+      add_response "2009-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
-      add_response(Time.zone.today.end_of_year + 1.day).to_s
+      add_response (Time.zone.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
   end
@@ -660,22 +660,22 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :no
       add_response :yes
       add_response :no
-      add_response "02/04/2013"
-      add_response "10/04/2013"
+      add_response "2013-04-02"
+      add_response "2013-04-10"
       add_response :no
       add_response "eight_weeks_more"
       add_response "weekly"
-      add_response "31/03/2013"
+      add_response "2013-03-31"
       assert_current_node :last_payday_before_offset?
     end
 
     should "not allow dates before 2010" do
-      add_response Date.parse("2009-12-31")
+      add_response "2009-12-31"
       assert_current_node_is_error
     end
 
     should "not allow dates next year" do
-      add_response(Time.zone.today.end_of_year + 1.day).to_s
+      add_response (Time.zone.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
   end
