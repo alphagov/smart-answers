@@ -14,7 +14,6 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'checkbox_question')
       element.setAttribute('data-question-key', 'question-key')
-      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset')
@@ -76,12 +75,6 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'Construction label' }
-      )
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
-      )
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'Construction label' }
       )
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
@@ -94,9 +87,6 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'furniture' }
-      )
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'furniture' }
       )
     })
@@ -104,9 +94,6 @@ describe('Track responses', function () {
     it('track event triggered when no response is made', function () {
       form.dispatchEvent(new Event('submit'))
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
-      )
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
@@ -122,7 +109,6 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'radio_question')
       element.setAttribute('data-question-key', 'question-key')
-      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var fieldset = document.createElement('fieldset')
@@ -183,9 +169,6 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
-      )
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
       )
     })
@@ -193,9 +176,6 @@ describe('Track responses', function () {
     it('track event triggered when no response is made', function () {
       form.dispatchEvent(new Event('submit'))
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
-      )
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
@@ -211,7 +191,6 @@ describe('Track responses', function () {
       element.setAttribute('data-module', 'track-responses')
       element.setAttribute('data-type', 'country_select_question')
       element.setAttribute('data-question-key', 'question-key')
-      element.setAttribute('data-question-text', 'The question title?')
       element.setAttribute('method', 'post')
 
       var select = document.createElement('select')
@@ -261,9 +240,6 @@ describe('Track responses', function () {
       form.dispatchEvent(new Event('submit'))
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'Accommodation label' }
-      )
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
       )
     })
@@ -271,9 +247,6 @@ describe('Track responses', function () {
     it('track event triggered when no response is made', function () {
       form.dispatchEvent(new Event('submit'))
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'question_answer', 'The question title?', { transport: 'beacon', label: 'no response' }
-      )
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'no response' }
       )
