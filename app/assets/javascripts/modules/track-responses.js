@@ -16,11 +16,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var questionKey = this.getQuestionKey(submittedForm)
     var responseLabels = this.getResponseLabels(submittedForm)
 
-    responseLabels.forEach(function (label) {
+    for (var i = 0; i < responseLabels.length; i++) {
+      var label = responseLabels[i]
       var options = { transport: 'beacon', label: label }
       GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
       GOVUK.analytics.trackEvent('response_submission', questionKey, options)
-    })
+    }
   }
 
   TrackResponses.prototype.getQuestionHeading = function (submittedForm) {
@@ -36,7 +37,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var checkedOptions = submittedForm.querySelectorAll('input:checked')
 
     if (checkedOptions.length) {
-      checkedOptions.forEach(function (checkedOption) {
+      for (var i = 0; i < checkedOptions.length; i++) {
+        var checkedOption = checkedOptions[i]
         var checkedOptionId = checkedOption.getAttribute('id')
         var checkedOptionLabel = submittedForm.querySelectorAll('label[for="' + checkedOptionId + '"]')
 
@@ -45,7 +47,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           : checkedOption.value
 
         labels.push(eventLabel)
-      })
+      }
     } else {
       labels.push('no response')
     }
@@ -58,7 +60,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var selectInputs = submittedForm.querySelectorAll('select')
 
     if (selectInputs.length) {
-      selectInputs.forEach(function (select) {
+      for (var i = 0; i < selectInputs.length; i++) {
+        var select = selectInputs[i]
         var value = select.value
 
         if (value) {
@@ -68,7 +71,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         } else {
           labels.push('no response')
         }
-      })
+      }
     }
 
     return labels

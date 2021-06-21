@@ -25,7 +25,8 @@ describe('Track responses', function () {
         { value: 'furniture' }
       ]
 
-      checkboxes.forEach(function (checkbox, index) {
+      for (var index = 0; index < checkboxes.length; index++) {
+        var checkbox = checkboxes[index]
         var id = 'checkbox-' + index
         var checkboxWrapper = document.createElement('div')
         var input = document.createElement('input')
@@ -44,7 +45,7 @@ describe('Track responses', function () {
         }
 
         fieldset.appendChild(checkboxWrapper)
-      })
+      }
 
       element.appendChild(fieldset)
 
@@ -132,7 +133,8 @@ describe('Track responses', function () {
         { label: 'Furniture label', value: 'furniture' }
       ]
 
-      radios.forEach(function (radio, index) {
+      for (var index = 0; index < radios.length; index++) {
+        var radio = radios[index]
         var id = 'radio-' + index
         var radioWrapper = document.createElement('div')
         var input = document.createElement('input')
@@ -151,7 +153,7 @@ describe('Track responses', function () {
         }
 
         fieldset.appendChild(radioWrapper)
-      })
+      }
 
       element.appendChild(fieldset)
 
@@ -222,13 +224,14 @@ describe('Track responses', function () {
         { label: 'Furniture label', value: 'furniture' }
       ]
 
-      selectOptions.forEach(function (opt, index) {
+      for (var index = 0; index < selectOptions.length; index++) {
+        var opt = selectOptions[index]
         var option = document.createElement('option')
         option.value = opt.value
         option.innerText = opt.label
 
         select.appendChild(option)
-      })
+      }
 
       element.appendChild(select)
 

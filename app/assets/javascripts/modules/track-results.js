@@ -4,7 +4,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   function TrackResults ($module) {
     this.$module = $module
-    this.flowName = this.$module.dataset.flowName
+    this.flowName = this.$module.getAttribute('data-flow-name')
     this.page = document.location.pathname
   }
 
