@@ -12,20 +12,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   TrackResponses.prototype.handleFormSubmit = function (event) {
     var submittedForm = event.target
-    var questionHeading = this.getQuestionHeading(submittedForm)
     var questionKey = this.getQuestionKey(submittedForm)
     var responseLabels = this.getResponseLabels(submittedForm)
 
     for (var i = 0; i < responseLabels.length; i++) {
       var label = responseLabels[i]
       var options = { transport: 'beacon', label: label }
-      GOVUK.analytics.trackEvent('question_answer', questionHeading, options)
       GOVUK.analytics.trackEvent('response_submission', questionKey, options)
     }
-  }
-
-  TrackResponses.prototype.getQuestionHeading = function (submittedForm) {
-    return submittedForm.getAttribute('data-question-text')
   }
 
   TrackResponses.prototype.getQuestionKey = function (submittedForm) {
