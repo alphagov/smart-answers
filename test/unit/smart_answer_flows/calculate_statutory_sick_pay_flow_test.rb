@@ -28,7 +28,7 @@ module SmartAnswer
         end
 
         should "go to has_linked_sickness? question" do
-          assert_equal :has_linked_sickness?, @new_state.current_node
+          assert_equal :has_linked_sickness?, @new_state.current_node_name
           assert_node_exists :has_linked_sickness?
         end
       end
@@ -44,7 +44,7 @@ module SmartAnswer
         end
 
         should "go to must_be_sick_for_4_days outcome" do
-          assert_equal :must_be_sick_for_4_days, @new_state.current_node
+          assert_equal :must_be_sick_for_4_days, @new_state.current_node_name
           assert_node_exists :must_be_sick_for_4_days
         end
       end

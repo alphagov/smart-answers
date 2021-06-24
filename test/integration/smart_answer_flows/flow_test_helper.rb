@@ -26,20 +26,20 @@ module FlowTestHelper
 
   def current_question
     @current_question ||= begin
-      presenter = QuestionPresenter.new(@flow.node(current_state.current_node), nil, current_state)
+      presenter = QuestionPresenter.new(@flow.node(current_state.current_node_name), nil, current_state)
       presenter.title
     end
   end
 
   def outcome_body
     @outcome_body ||= begin
-      presenter = OutcomePresenter.new(@flow.node(current_state.current_node), nil, current_state)
+      presenter = OutcomePresenter.new(@flow.node(current_state.current_node_name), nil, current_state)
       Nokogiri::HTML::DocumentFragment.parse(presenter.body)
     end
   end
 
   def assert_current_node(node_name, opts = {})
-    assert_equal node_name, current_state.current_node
+    assert_equal node_name, current_state.current_node_name
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
     if opts[:error]
       assert_current_node_is_error(opts[:error].is_a?(Class) ? (opts[:error]).to_s : nil)
@@ -59,7 +59,7 @@ module FlowTestHelper
   end
 
   def assert_current_node_is_error(message = nil)
-    assert current_state.error, "Expected #{current_state.current_node} to be in error state"
+    assert current_state.error, "Expected #{current_state.current_node_name} to be in error state"
     assert_equal message, current_state.error if message
   end
 

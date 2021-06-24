@@ -27,7 +27,7 @@ module SmartAnswer
       end
 
       should "go to worked_for_same_employer? question" do
-        assert_equal :worked_for_same_employer?, @new_state.current_node
+        assert_equal :worked_for_same_employer?, @new_state.current_node_name
         assert_node_exists :worked_for_same_employer?
       end
 
@@ -63,7 +63,7 @@ module SmartAnswer
       end
 
       should "go to done_with_number_formatting outcomeuestion" do
-        assert_equal :done_with_number_formatting, @new_state.current_node
+        assert_equal :done_with_number_formatting, @new_state.current_node_name
         assert_node_exists :done_with_number_formatting
       end
 

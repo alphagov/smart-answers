@@ -17,7 +17,7 @@ module SmartAnswer
 
     should "return the default values of attributes set in the constructor" do
       state = State.new(:start_node)
-      assert_equal :start_node, state.current_node
+      assert_equal :start_node, state.current_node_name
       assert_equal ({}), state.accepted_responses
       assert_equal ({}), state.forwarding_responses
       assert_nil state.current_response
@@ -39,7 +39,7 @@ module SmartAnswer
 
     should "respond_to reader method for attribute set in constructor" do
       state = State.new(:start_node)
-      assert state.respond_to?(:current_node)
+      assert state.respond_to?(:current_node_name)
     end
 
     should "respond_to reader method for attribute that has previously been set" do
@@ -55,7 +55,7 @@ module SmartAnswer
 
     should "respond_to writer method for attribute set in constructor" do
       state = State.new(:start_node)
-      assert state.respond_to?(:current_node=)
+      assert state.respond_to?(:current_node_name=)
     end
 
     should "respond_to writer method for attribute that has previously been set" do

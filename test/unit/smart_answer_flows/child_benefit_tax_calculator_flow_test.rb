@@ -36,7 +36,7 @@ module SmartAnswer
         end
 
         should "go to which_tax_year? question" do
-          assert_equal :which_tax_year?, @new_state.current_node
+          assert_equal :which_tax_year?, @new_state.current_node_name
           assert_node_exists :which_tax_year?
         end
       end
@@ -60,7 +60,7 @@ module SmartAnswer
         end
 
         should "go to is_part_year_claim? question" do
-          assert_equal :is_part_year_claim?, @new_state.current_node
+          assert_equal :is_part_year_claim?, @new_state.current_node_name
           assert_node_exists :is_part_year_claim?
         end
       end
@@ -81,7 +81,7 @@ module SmartAnswer
           end
 
           should "go to how_many_children_part_year? question" do
-            assert_equal :how_many_children_part_year?, @new_state.current_node
+            assert_equal :how_many_children_part_year?, @new_state.current_node_name
             assert_node_exists :how_many_children_part_year?
           end
         end
@@ -107,7 +107,7 @@ module SmartAnswer
                 initial_state: { calculator: @calculator },
               )
             end
-            assert_equal :income_details?, @new_state.current_node
+            assert_equal :income_details?, @new_state.current_node_name
             assert_node_exists :income_details?
           end
         end
@@ -130,7 +130,7 @@ module SmartAnswer
           end
 
           should "go to child_benefit_start? question" do
-            assert_equal :child_benefit_start?, @new_state.current_node
+            assert_equal :child_benefit_start?, @new_state.current_node_name
             assert_node_exists :child_benefit_start?
           end
         end
@@ -153,7 +153,7 @@ module SmartAnswer
           end
 
           should "go to add_child_benefit_stop? question" do
-            assert_equal :add_child_benefit_stop?, @new_state.current_node
+            assert_equal :add_child_benefit_stop?, @new_state.current_node_name
             assert_node_exists :add_child_benefit_stop?
           end
         end
@@ -175,7 +175,7 @@ module SmartAnswer
           end
 
           should "go to child_benefit_stop? question" do
-            assert_equal :child_benefit_stop?, @new_state.current_node
+            assert_equal :child_benefit_stop?, @new_state.current_node_name
             assert_node_exists :child_benefit_stop?
           end
         end
@@ -194,7 +194,7 @@ module SmartAnswer
           end
 
           should "go to income_details? question" do
-            assert_equal :income_details?, @new_state.current_node
+            assert_equal :income_details?, @new_state.current_node_name
             assert_node_exists :income_details?
           end
         end
@@ -223,7 +223,7 @@ module SmartAnswer
           end
 
           should "go to child_benefit_start? question" do
-            assert_equal :child_benefit_start?, @new_state.current_node
+            assert_equal :child_benefit_start?, @new_state.current_node_name
             assert_node_exists :child_benefit_start?
           end
         end
@@ -242,7 +242,7 @@ module SmartAnswer
           end
 
           should "go to income_details? question" do
-            assert_equal :income_details?, @new_state.current_node
+            assert_equal :income_details?, @new_state.current_node_name
             assert_node_exists :income_details?
           end
         end
@@ -267,7 +267,7 @@ module SmartAnswer
         end
 
         should "go to add_allowable_deductions? question" do
-          assert_equal :add_allowable_deductions?, @new_state.current_node
+          assert_equal :add_allowable_deductions?, @new_state.current_node_name
           assert_node_exists :add_allowable_deductions?
         end
       end
@@ -288,7 +288,7 @@ module SmartAnswer
           end
 
           should "go to allowable_deductions? question" do
-            assert_equal :allowable_deductions?, @new_state.current_node
+            assert_equal :allowable_deductions?, @new_state.current_node_name
             assert_node_exists :allowable_deductions?
           end
         end
@@ -307,7 +307,7 @@ module SmartAnswer
           end
 
           should "go to outcome" do
-            assert_equal :results, @new_state.current_node
+            assert_equal :results, @new_state.current_node_name
             assert_node_exists :results
           end
         end
@@ -332,7 +332,7 @@ module SmartAnswer
         end
 
         should "go to add_other_allowable_deductions? question" do
-          assert_equal :add_other_allowable_deductions?, @new_state.current_node
+          assert_equal :add_other_allowable_deductions?, @new_state.current_node_name
           assert_node_exists :add_other_allowable_deductions?
         end
       end
@@ -353,7 +353,7 @@ module SmartAnswer
           end
 
           should "go to other_allowable_deductions? question" do
-            assert_equal :other_allowable_deductions?, @new_state.current_node
+            assert_equal :other_allowable_deductions?, @new_state.current_node_name
             assert_node_exists :other_allowable_deductions?
           end
         end
@@ -372,7 +372,7 @@ module SmartAnswer
           end
 
           should "go to outcome" do
-            assert_equal :results, @new_state.current_node
+            assert_equal :results, @new_state.current_node_name
             assert_node_exists :results
           end
         end
@@ -397,7 +397,7 @@ module SmartAnswer
         end
 
         should "go to results page" do
-          assert_equal :results, @new_state.current_node
+          assert_equal :results, @new_state.current_node_name
           assert_node_exists :results
         end
       end

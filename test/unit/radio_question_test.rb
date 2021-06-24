@@ -29,7 +29,7 @@ module SmartAnswer
 
       current_state = State.new(:example)
       new_state = q.transition(current_state, :yes)
-      assert_equal :fred, new_state.current_node
+      assert_equal :fred, new_state.current_node_name
       assert new_state.frozen?
     end
 
@@ -41,7 +41,7 @@ module SmartAnswer
       end
 
       new_state = q.transition(State.new(:example), :no)
-      assert_equal :baz, new_state.current_node
+      assert_equal :baz, new_state.current_node_name
     end
 
     test "Error raised on illegal input" do

@@ -27,7 +27,7 @@ module SmartAnswer
       end
 
       should "go to when_paid? question" do
-        assert_equal :when_paid?, @new_state.current_node
+        assert_equal :when_paid?, @new_state.current_node_name
         assert_node_exists :when_paid?
       end
 
@@ -64,7 +64,7 @@ module SmartAnswer
       end
 
       should "go to filed_and_paid_on_time outcome" do
-        assert_equal :filed_and_paid_on_time, @new_state.current_node
+        assert_equal :filed_and_paid_on_time, @new_state.current_node_name
         assert_node_exists :filed_and_paid_on_time
       end
 

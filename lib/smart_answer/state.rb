@@ -2,8 +2,8 @@ require "ostruct"
 
 module SmartAnswer
   class State < OpenStruct
-    def initialize(start_node, forwarding_responses: {})
-      super(current_node: start_node,
+    def initialize(start_node_name, forwarding_responses: {})
+      super(current_node_name: start_node_name,
             accepted_responses: {},
             forwarding_responses: forwarding_responses,
             current_response: nil,
@@ -22,10 +22,10 @@ module SmartAnswer
       method_name =~ /=$/ || super
     end
 
-    def transition_to(new_node, input)
+    def transition_to(new_node_name, input)
       dup.tap do |new_state|
-        new_state.current_node = new_node
-        new_state.accepted_responses[current_node] = input
+        new_state.current_node_name = new_node_name
+        new_state.accepted_responses[current_node_name] = input
         new_state.freeze
       end
     end
