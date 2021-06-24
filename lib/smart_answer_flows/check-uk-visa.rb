@@ -366,7 +366,7 @@ module SmartAnswer
 
         if calculator.marriage_visit?
           if calculator.passport_country_in_eea?
-            next outcome(:outcome_marriage_eea)
+            next outcome(:outcome_marriage_nvn_ukot)
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_marriage_nvn_ukot)
           elsif calculator.passport_country_in_electronic_visa_waiver_list?
