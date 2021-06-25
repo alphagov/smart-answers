@@ -4,10 +4,6 @@
     Information based on your answers
 <% end %>
 
-<% html_for :body do %>
-  <div class="govspeak-wrapper">
-<% end %>
-
 <% govspeak_for :body do %>
   <% if calculator.has_results? %>
 
@@ -61,8 +57,4 @@
       [Give feedback on this service](/done/find-coronavirus-support)
     $CTA
   <% end %>
-<% end %>
-
-<% html_for :body do %>
-  </div>
 <% end %>

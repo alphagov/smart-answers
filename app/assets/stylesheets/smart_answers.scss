@@ -1,62 +1,9 @@
 .smart_answer {
-
-  // TODO Remove after gem layout swaps complete.
-  .gem-c-step-nav-header {
-    line-height: 1;
-  }
-
-  a:not(.govuk-button):focus {
-    @include govuk-focused-text;
-  }
-
-  .outcome {
-    min-height: 0; //overrides a much higher min height from static
+  .app-c-callout-title {
+    @include govuk-font($size: 19, $weight: bold);
   }
 
   // stylelint-disable scss/at-extend-no-missing-placeholder
-  .govspeak-wrapper {
-    h2 {
-      @extend %govuk-heading-l;
-    }
-
-    h3 {
-      @extend %govuk-heading-m;
-    }
-
-    h4 {
-      @extend %govuk-heading-s;
-    }
-
-    p {
-      @extend %govuk-body-m;
-    }
-
-    ul {
-      @extend %govuk-list;
-      @extend %govuk-list--bullet;
-    }
-
-    table {
-      @extend .govuk-table;
-    }
-
-    th {
-      @extend .govuk-table__header;
-    }
-
-    td {
-      @extend .govuk-table__cell;
-    }
-
-    hr {
-      margin-top: govuk-spacing(8);
-      margin-bottom: govuk-spacing(8);
-    }
-
-    .app-c-callout-title {
-      @extend %govuk-heading-s;
-    }
-  }
   // This allows govspeak in hint component to have hint styling rather than govspeak
   .gem-c-hint {
     .govuk-govspeak {
