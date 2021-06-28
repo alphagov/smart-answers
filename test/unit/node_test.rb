@@ -19,6 +19,17 @@ module SmartAnswer
       assert_equal expected_directory, @node.template_directory
     end
 
+    test "#template_name can set a specific template name" do
+      question = Question::Base.new(@flow, :how_much?)
+      question.template_name("custom_template_file")
+      assert_equal "custom_template_file", question.template_name
+    end
+
+    test "#template_name defaults to returning the filesystem_friendly_name" do
+      question = Question::Base.new(@flow, :how_much?)
+      assert_equal question.filesystem_friendly_name, question.template_name
+    end
+
     test "#filesystem_friendly_name returns name without trailing question mark" do
       question = Question::Base.new(@flow, :how_much?)
       assert_equal "how_much", question.filesystem_friendly_name
@@ -29,9 +40,9 @@ module SmartAnswer
       assert_equal "how-much", question.slug
     end
 
-    test "#view_template sets the view template name" do
-      node = Node.new(@flow, "node-name") { view_template "view-name" }
-      assert_equal "view-name", node.view_template_path
+    test "#view_template sets the view template path" do
+      node = Node.new(@flow, "node-name") { view_template "path/to/view" }
+      assert_equal "path/to/view", node.view_template_path
     end
 
     test "#view_template_path return nil is not set" do

@@ -9,7 +9,7 @@ class QuestionPresenter < NodePresenter
     helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory.join("questions"),
-      template_name: @node.filesystem_friendly_name,
+      template_name: @node.template_name,
       locals: @state.to_hash,
       helpers: [SmartAnswer::FormattingHelper] + helpers,
     )
