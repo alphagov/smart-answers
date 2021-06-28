@@ -245,21 +245,21 @@ module SmartAnswer::Calculators
             @calculator.payment_date = Date.parse("2015-04-02")
             assert_equal 53.42, @calculator.interest # 50.14 + 0.04 penalty interest
             # one day before late payment penalty 2
-            @calculator.payment_date = Date.parse("2015-08-01")
+            @calculator.payment_date = Date.parse("2015-08-03")
             assert_equal 1000, @calculator.late_payment_penalty
-            assert_equal 161.16, @calculator.interest
+            assert_equal 162.95, @calculator.interest
             # should calculate PenaltyInterest2
             @calculator.payment_date = Date.parse("2015-09-02")
             assert_equal 1000, @calculator.late_payment_penalty
             assert_equal 189.66, @calculator.interest
             # one day before late payment penalty 3
-            @calculator.payment_date = Date.parse("2016-02-01")
+            @calculator.payment_date = Date.parse("2016-02-03")
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 325, @calculator.interest
+            assert_equal 326.78, @calculator.interest
             # should apply late payment penalty 3
-            @calculator.payment_date = Date.parse("2016-02-02")
+            @calculator.payment_date = Date.parse("2016-02-04")
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 325.89, @calculator.interest
+            assert_equal 327.67, @calculator.interest
             # should calculate PenaltyInterest3
             @calculator.payment_date = Date.parse("2016-03-05")
             assert_equal 1500, @calculator.late_payment_penalty
@@ -271,11 +271,11 @@ module SmartAnswer::Calculators
             assert_equal 5000, @calculator.total_owed
             @calculator.payment_date = Date.parse("2015-02-04")
             assert_equal 5001, @calculator.total_owed
-            @calculator.payment_date = Date.parse("2015-08-01")
-            assert_equal 5580, @calculator.total_owed
-            @calculator.payment_date = Date.parse("2016-02-02")
+            @calculator.payment_date = Date.parse("2015-08-03")
+            assert_equal 5581, @calculator.total_owed
+            @calculator.payment_date = Date.parse("2016-02-03")
             assert_equal 750, @calculator.late_payment_penalty
-            assert_equal 5912, @calculator.total_owed
+            assert_equal 5913, @calculator.total_owed
           end
         end
 
