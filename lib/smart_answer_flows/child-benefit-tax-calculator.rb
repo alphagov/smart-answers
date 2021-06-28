@@ -94,9 +94,9 @@ module SmartAnswer
             if response == "yes"
               question "child_benefit_#{child_number}_stop?".to_sym
             else
-              calculator.child_index = child_number
-              if calculator.child_index < calculator.part_year_children_count
-                question "child_benefit_#{calculator.child_index + 1}_start?".to_sym
+              calculator.child_number = child_number + 1
+              if calculator.child_number <= calculator.part_year_children_count
+                question "child_benefit_#{calculator.child_number}_start?".to_sym
               else
                 question :income_details?
               end
@@ -121,9 +121,9 @@ module SmartAnswer
           end
 
           next_node do
-            calculator.child_index = child_number
-            if calculator.child_index < calculator.part_year_children_count
-              question "child_benefit_#{calculator.child_index + 1}_start?".to_sym
+            calculator.child_number = child_number + 1
+            if calculator.child_number <= calculator.part_year_children_count
+              question "child_benefit_#{calculator.child_number}_start?".to_sym
             else
               question :income_details?
             end

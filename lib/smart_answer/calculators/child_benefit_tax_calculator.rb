@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
                   :allowable_deductions,
                   :other_allowable_deductions,
                   :part_year_claim_dates,
-                  :child_index
+                  :child_number
 
     attr_reader :child_benefit_data
 
@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
       @other_allowable_deductions = other_allowable_deductions
 
       @part_year_claim_dates = HashWithIndifferentAccess.new
-      @child_index = 0
+      @child_number = 1
       @child_benefit_data = self.class.child_benefit_data
     end
 
@@ -94,11 +94,11 @@ module SmartAnswer::Calculators
 
     # Methods only used in calculator flow
     def store_date(date_type, response)
-      part_year_claim_dates[child_index] = if part_year_claim_dates[child_index].nil?
-                                             { date_type => response }
-                                           else
-                                             part_year_claim_dates[child_index].merge!({ date_type => response })
-                                           end
+      part_year_claim_dates[child_number] = if part_year_claim_dates[child_number].nil?
+                                              { date_type => response }
+                                            else
+                                              part_year_claim_dates[child_number].merge!({ date_type => response })
+                                            end
     end
 
     def valid_number_of_children?
@@ -110,12 +110,12 @@ module SmartAnswer::Calculators
     end
 
     def valid_within_tax_year?(date_type)
-      part_year_claim_dates[child_index][date_type] >= selected_tax_year["start_date"] &&
-        part_year_claim_dates[child_index][date_type] <= child_benefit_end_date
+      part_year_claim_dates[child_number][date_type] >= selected_tax_year["start_date"] &&
+        part_year_claim_dates[child_number][date_type] <= child_benefit_end_date
     end
 
     def valid_end_date?
-      part_year_claim_dates[child_index][:end_date] > part_year_claim_dates[child_index][:start_date]
+      part_year_claim_dates[child_number][:end_date] > part_year_claim_dates[child_number][:start_date]
     end
 
     # Methods only used in results view

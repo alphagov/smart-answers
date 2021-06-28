@@ -133,7 +133,7 @@ module SmartAnswer
           question = @flow.node(:child_benefit_2_start?)
           state = SmartAnswer::State.new(question)
           state.calculator = Calculators::ChildBenefitTaxCalculator.new
-          state.calculator.child_index = 1
+          state.calculator.child_number = 2
           presenter = DateQuestionPresenter.new(question, nil, state)
 
           assert_match "Child 2", presenter.body
@@ -190,7 +190,7 @@ module SmartAnswer
           question = @flow.node(:child_benefit_2_stop?)
           state = SmartAnswer::State.new(question)
           state.calculator = Calculators::ChildBenefitTaxCalculator.new
-          state.calculator.child_index = 1
+          state.calculator.child_number = 2
           presenter = DateQuestionPresenter.new(question, nil, state)
 
           assert_match "Child 2", presenter.body

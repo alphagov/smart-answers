@@ -259,7 +259,7 @@ module SmartAnswer
 
         context "when there are more part year children" do
           setup do
-            @calculator.child_index = 1
+            @calculator.child_number = 2
             @calculator.part_year_children_count = 6
             setup_states_for_question(
               :child_benefit_1_stop?,
@@ -306,7 +306,7 @@ module SmartAnswer
 
         context "when there are more part year children" do
           setup do
-            @calculator.child_index = 2
+            @calculator.child_number = 3
             @calculator.part_year_children_count = 6
             setup_states_for_question(
               :child_benefit_2_stop?,
