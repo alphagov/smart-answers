@@ -3,7 +3,6 @@ class SmartAnswersController < ApplicationController
 
   before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_path, only: %w[show]
-  before_action :set_header_footer_only, only: %w[visualise]
   before_action :setup_content_item, except: %w[index]
 
   attr_accessor :content_item
@@ -73,10 +72,6 @@ private
       set_expiry
       redirect_to smart_answer_path(@name, started: "y", responses: @presenter.accepted_responses.values)
     end
-  end
-
-  def set_header_footer_only
-    set_slimmer_headers(template: "header_footer_only")
   end
 
   def set_expiry(duration = 30.minutes)
