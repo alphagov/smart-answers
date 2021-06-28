@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
 
     NET_INCOME_THRESHOLD = 50_000
     TAX_COMMENCEMENT_DATE = Date.parse("7 Jan 2013") # special case for 2012-13, only weeks from 7th Jan 2013 are taxable
+    MAX_CHILDREN = 30
 
     def initialize(children_count: 0,
                    tax_year: nil,
@@ -101,7 +102,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_number_of_children?
-      children_count.positive? && children_count <= 30
+      children_count.positive? && children_count <= MAX_CHILDREN
     end
 
     def valid_number_of_part_year_children?
