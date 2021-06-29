@@ -39,7 +39,7 @@ class FlowPresenter
   end
 
   def start_node
-    @start_node ||= StartNodePresenter.new(@flow.start_node)
+    @start_node ||= @flow.start_node.presenter(self, nil)
   end
 
   def change_answer_link(question)

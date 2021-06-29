@@ -120,7 +120,7 @@ module SmartAnswer
     end
 
     def start_node
-      Node.new(self, name.underscore.to_sym)
+      StartNode.new(self, name.underscore.to_sym)
     end
 
     class InvalidStatus < StandardError; end
