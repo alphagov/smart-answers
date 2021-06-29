@@ -61,64 +61,72 @@ module SmartAnswer
         end
 
         next_node do
-          question :child_benefit_start?
+          question :child_benefit_1_start?
         end
       end
 
-      # Q3b
-      date_question :child_benefit_start? do
-        on_response do |response|
-          calculator.store_date(:start_date, response)
+      (1..Calculators::ChildBenefitTaxCalculator::MAX_CHILDREN).each do |child_number|
+        # Q3b
+        date_question "child_benefit_#{child_number}_start?".to_sym do
+          template_name "child_benefit_start"
+
+          on_response do |response|
+            calculator.store_date(:start_date, response)
+          end
+
+          validate(:valid_within_tax_year) do
+            calculator.valid_within_tax_year?(:start_date)
+          end
+
+          next_node do
+            question "add_child_benefit_#{child_number}_stop?".to_sym
+          end
         end
 
-        validate(:valid_within_tax_year) do
-          calculator.valid_within_tax_year?(:start_date)
-        end
+        # Q3c
+        radio "add_child_benefit_#{child_number}_stop?".to_sym do
+          template_name "add_child_benefit_stop"
 
-        next_node do
-          question :add_child_benefit_stop?
-        end
-      end
+          option :yes
+          option :no
 
-      # Q3c
-      radio :add_child_benefit_stop? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            question :child_benefit_stop?
-          else
-            calculator.child_index += 1
-            if calculator.child_index < calculator.part_year_children_count
-              question :child_benefit_start?
+          next_node do |response|
+            if response == "yes"
+              question "child_benefit_#{child_number}_stop?".to_sym
             else
-              question :income_details?
+              calculator.child_number = child_number + 1
+              if calculator.child_number <= calculator.part_year_children_count
+                question "child_benefit_#{calculator.child_number}_start?".to_sym
+              else
+                question :income_details?
+              end
             end
           end
         end
-      end
 
-      # Q3d
-      date_question :child_benefit_stop? do
-        on_response do |response|
-          calculator.store_date(:end_date, response)
-        end
+        # Q3d
+        date_question "child_benefit_#{child_number}_stop?".to_sym do
+          template_name "child_benefit_stop"
 
-        validate(:valid_within_tax_year) do
-          calculator.valid_within_tax_year?(:end_date)
-        end
+          on_response do |response|
+            calculator.store_date(:end_date, response)
+          end
 
-        validate(:valid_end_date) do
-          calculator.valid_end_date?
-        end
+          validate(:valid_within_tax_year) do
+            calculator.valid_within_tax_year?(:end_date)
+          end
 
-        next_node do
-          calculator.child_index += 1
-          if calculator.child_index < calculator.part_year_children_count
-            question :child_benefit_start?
-          else
-            question :income_details?
+          validate(:valid_end_date) do
+            calculator.valid_end_date?
+          end
+
+          next_node do
+            calculator.child_number = child_number + 1
+            if calculator.child_number <= calculator.part_year_children_count
+              question "child_benefit_#{calculator.child_number}_start?".to_sym
+            else
+              question :income_details?
+            end
           end
         end
       end

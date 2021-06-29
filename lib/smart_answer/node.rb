@@ -9,12 +9,18 @@ module SmartAnswer
       @flow = flow
       @name = name
       @on_response_blocks = []
+      @template_name = filesystem_friendly_name
       instance_eval(&block) if block_given?
     end
 
     delegate :to_sym, to: :name
 
     delegate :to_s, to: :name
+
+    def template_name(template_name = nil)
+      @template_name = template_name unless template_name.nil?
+      @template_name
+    end
 
     def filesystem_friendly_name
       to_s.sub(/\?$/, "")

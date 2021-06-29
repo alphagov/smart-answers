@@ -48,19 +48,19 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
         assert_current_node :how_many_children_part_year?
         add_response "2"
         # Q3b
-        assert_current_node :child_benefit_start?
+        assert_current_node :child_benefit_1_start?
         add_response "2015-06-01"
         # Q3c
-        assert_current_node :add_child_benefit_stop?
+        assert_current_node :add_child_benefit_1_stop?
         add_response "yes"
         # Q3d
-        assert_current_node :child_benefit_stop?
+        assert_current_node :child_benefit_1_stop?
         add_response "2016-03-01"
         # Q3b
-        assert_current_node :child_benefit_start?
+        assert_current_node :child_benefit_2_start?
         add_response "2015-06-06"
         # Q3c
-        assert_current_node :add_child_benefit_stop?
+        assert_current_node :add_child_benefit_2_stop?
         add_response "no"
         # Q4
         assert_current_node :income_details?

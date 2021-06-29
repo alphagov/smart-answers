@@ -81,7 +81,7 @@ module SmartAnswer::Calculators
               tax_year: "2014",
             )
             calculator.part_year_claim_dates = {
-              0 => {
+              1 => {
                 start_date: Date.parse("14-01-2013"),
               },
             }
@@ -94,7 +94,7 @@ module SmartAnswer::Calculators
               tax_year: "2014",
             )
             calculator.part_year_claim_dates = {
-              0 => {
+              1 => {
                 start_date: Date.parse("14-05-2015"),
               },
             }
@@ -107,7 +107,7 @@ module SmartAnswer::Calculators
               tax_year: "2014",
             )
             calculator.part_year_claim_dates = {
-              0 => {
+              1 => {
                 start_date: Date.parse("14-05-2014"),
               },
             }
@@ -122,7 +122,7 @@ module SmartAnswer::Calculators
               tax_year: "2014",
             )
             calculator.part_year_claim_dates = {
-              0 => {
+              1 => {
                 start_date: Date.parse("14-05-2014"),
                 end_date: Date.parse("15-05-2014"),
               },
@@ -136,7 +136,7 @@ module SmartAnswer::Calculators
               tax_year: "2014",
             )
             calculator.part_year_claim_dates = {
-              0 => {
+              1 => {
                 start_date: Date.parse("14-05-2014"),
                 end_date: Date.parse("13-05-2014"),
               },
@@ -157,11 +157,11 @@ module SmartAnswer::Calculators
           )
 
           calculator.part_year_claim_dates = {
-            "0" => { # 2 weeks/Mondays
+            "1" => { # 2 weeks/Mondays
               start_date: Date.parse("2017-04-06"),
               end_date: Date.parse("2017-04-23"),
             },
-            "1" => { # 48 weeks/mondays
+            "2" => { # 48 weeks/mondays
               start_date: Date.parse("2017-04-06"),
               end_date: Date.parse("2018-03-05"),
             },
@@ -178,19 +178,19 @@ module SmartAnswer::Calculators
           )
 
           calculator.part_year_claim_dates = {
-            "0" => { # 2 weeks/Mondays #
+            "1" => { # 2 weeks/Mondays #
               start_date: Date.parse("2017-04-06"),
               end_date: Date.parse("2017-04-23"),
             },
-            "1" => { # 48 weeks/Mondays
+            "2" => { # 48 weeks/Mondays
               start_date: Date.parse("2017-04-06"),
               end_date: Date.parse("2018-03-05"),
             },
-            "2" => { # 10 weeks/Mondays
+            "3" => { # 10 weeks/Mondays
               start_date: Date.parse("2017-04-06"),
               end_date: Date.parse("2017-06-15"),
             },
-            "3" => { # 12 weeks/Mondays
+            "4" => { # 12 weeks/Mondays
               start_date: Date.parse("2017-08-15"),
               end_date: Date.parse("2017-11-07"),
             },
@@ -215,7 +215,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2012-06-01"),
                 end_date: Date.parse("2013-04-01"),
               },
@@ -271,11 +271,11 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => { # 18 weeks/Mondays
+              "1" => { # 18 weeks/Mondays
                 start_date: Date.parse("2019-12-2"),
                 end_date: Date.parse("2020-04-05"),
               },
-              "1" => { # 13 weeks/Mondays
+              "2" => { # 13 weeks/Mondays
                 start_date: Date.parse("2020-01-06"),
                 end_date: Date.parse("2020-04-05"),
               },
@@ -290,11 +290,11 @@ module SmartAnswer::Calculators
               part_year_children_count: 2,
             )
             calculator.part_year_claim_dates = {
-              "0" => { # 18 weeks/Mondays
+              "1" => { # 18 weeks/Mondays
                 start_date: Date.parse("2019-12-2"),
                 end_date: Date.parse("2020-04-05"),
               },
-              "1" => { # 13 weeks/Mondays
+              "2" => { # 13 weeks/Mondays
                 start_date: Date.parse("2020-01-06"),
                 end_date: Date.parse("2020-04-05"),
               },
@@ -325,7 +325,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2022-01-06"),
                 end_date: Date.parse("2022-04-05"),
               },
@@ -341,11 +341,11 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => { # 18 weeks/Mondays
+              "1" => { # 18 weeks/Mondays
                 start_date: Date.parse("2021-12-2"),
                 end_date: Date.parse("2022-04-05"),
               },
-              "1" => { # 13 weeks/Mondays
+              "2" => { # 13 weeks/Mondays
                 start_date: Date.parse("2022-01-06"),
                 end_date: Date.parse("2022-04-05"),
               },
@@ -360,11 +360,11 @@ module SmartAnswer::Calculators
               part_year_children_count: 2,
             )
             calculator.part_year_claim_dates = {
-              "0" => { # 18 weeks/Mondays
+              "1" => { # 18 weeks/Mondays
                 start_date: Date.parse("2021-12-2"),
                 end_date: Date.parse("2022-04-05"),
               },
-              "1" => { # 13 weeks/Mondays
+              "2" => { # 13 weeks/Mondays
                 start_date: Date.parse("2022-01-06"),
                 end_date: Date.parse("2022-04-05"),
               },
@@ -463,7 +463,7 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2013-03-01"),
               },
             }
@@ -478,7 +478,7 @@ module SmartAnswer::Calculators
               tax_year: "2012",
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2012-05-01"),
               },
             }
@@ -495,7 +495,7 @@ module SmartAnswer::Calculators
               tax_year: "2013",
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2014-02-22"),
               },
             }
@@ -514,7 +514,7 @@ module SmartAnswer::Calculators
               tax_year: "2016",
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2017-03-01"),
               },
             }
@@ -531,7 +531,7 @@ module SmartAnswer::Calculators
               tax_year: "2016",
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("2017-02-01"),
                 end_date: Date.parse("2017-03-01"),
               },
@@ -552,15 +552,15 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => {
-                start_date: Date.parse("06-01-2013"),
-                end_date: Date.parse("05-04-2013"),
-              },
               "1" => {
                 start_date: Date.parse("06-01-2013"),
                 end_date: Date.parse("05-04-2013"),
               },
               "2" => {
+                start_date: Date.parse("06-01-2013"),
+                end_date: Date.parse("05-04-2013"),
+              },
+              "3" => {
                 start_date: Date.parse("06-01-2013"),
                 end_date: Date.parse("05-04-2013"),
               },
@@ -577,15 +577,15 @@ module SmartAnswer::Calculators
               part_year_children_count: 3,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
-                start_date: Date.parse("06-01-2013"),
-                end_date: Date.parse("05-04-2013"),
-              },
               "1" => {
                 start_date: Date.parse("06-01-2013"),
                 end_date: Date.parse("05-04-2013"),
               },
               "2" => {
+                start_date: Date.parse("06-01-2013"),
+                end_date: Date.parse("05-04-2013"),
+              },
+              "3" => {
                 start_date: Date.parse("07-01-2013"),
                 end_date: Date.parse("05-04-2013"),
               },
@@ -602,7 +602,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("14-01-2013"),
                 end_date: Date.parse("21-01-2013"),
               },
@@ -632,7 +632,7 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2013"),
                 end_date: Date.parse("14-06-2013"),
               },
@@ -650,7 +650,7 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("01-07-2013"),
               },
             }
@@ -685,7 +685,7 @@ module SmartAnswer::Calculators
             )
 
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2014"),
                 end_date: Date.parse("06-11-2014"),
               },
@@ -700,7 +700,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2014"),
                 end_date: Date.parse("06-11-2014"),
               },
@@ -733,7 +733,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2015"),
                 end_date: Date.parse("06-10-2015"),
               },
@@ -748,7 +748,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2015"),
                 end_date: Date.parse("06-11-2015"),
               },
@@ -782,7 +782,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2016"),
                 end_date: Date.parse("06-10-2016"),
               },
@@ -797,7 +797,7 @@ module SmartAnswer::Calculators
               part_year_children_count: 1,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("06-04-2016"),
                 end_date: Date.parse("06-11-2016"),
               },
@@ -813,11 +813,11 @@ module SmartAnswer::Calculators
               part_year_children_count: 2,
             )
             calculator.part_year_claim_dates = {
-              "0" => {
+              "1" => {
                 start_date: Date.parse("01-06-2016"),
                 end_date: Date.parse("01-09-2016"),
               },
-              "1" => {
+              "2" => {
                 start_date: Date.parse("01-01-2017"),
                 end_date: Date.parse("01-04-2017"),
               },

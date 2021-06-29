@@ -5,11 +5,11 @@ module FlowTestHelper
   end
 
   def reset_responses
-    @responses = []
+    @responses = {}
   end
 
   def add_response(resp)
-    @responses << resp.to_s
+    @responses[@flow.node(current_state.current_node_name)] = resp.to_s
   end
 
   def current_state
@@ -20,7 +20,7 @@ module FlowTestHelper
     end
     @current_state ||= begin
       @cached_responses = @responses.dup
-      SmartAnswer::StateResolver.new(@flow).state_from_params({ responses: @responses.join("/") })
+      SmartAnswer::StateResolver.new(@flow).state_from_params({ responses: @responses.values.join("/") })
     end
   end
 
@@ -52,7 +52,7 @@ module FlowTestHelper
   def assert_page_renders
     silence_warnings do # Without this get a Mocha deprecation warning that I was unable to find the source of.
       ContentItemRetriever.stubs(:fetch).returns({})
-      path = "/#{@flow.name}/y/#{@responses.join('/')}"
+      path = "/#{@flow.name}/y/#{@responses.values.join('/')}"
       get path
       assert_equal response.code, "200"
     end

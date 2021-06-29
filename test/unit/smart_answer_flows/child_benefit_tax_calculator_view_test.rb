@@ -105,13 +105,17 @@ module SmartAnswer
     end
 
     # Q3b
-    context "when rendering child_benefit_start? question" do
+    context "when rendering child_benefit_x_start? questions" do
       setup do
-        question = @flow.node(:child_benefit_start?)
+        question = @flow.node(:child_benefit_1_start?)
         calculator = Calculators::ChildBenefitTaxCalculator.new
         @state = SmartAnswer::State.new(question)
         @state.calculator = calculator
         @presenter = DateQuestionPresenter.new(question, nil, @state)
+      end
+
+      should "render the child number" do
+        assert_match "Child 1", @presenter.body
       end
 
       should "have a default error message" do
@@ -123,12 +127,24 @@ module SmartAnswer
         @state.error = "valid_within_tax_year"
         assert_equal "Child Benefit start date must be within the tax year selected", @presenter.error
       end
+
+      context "when this question is presented for a later child" do
+        should "render the appropriate child number" do
+          question = @flow.node(:child_benefit_2_start?)
+          state = SmartAnswer::State.new(question)
+          state.calculator = Calculators::ChildBenefitTaxCalculator.new
+          state.calculator.child_number = 2
+          presenter = DateQuestionPresenter.new(question, nil, state)
+
+          assert_match "Child 2", presenter.body
+        end
+      end
     end
 
     # Q3c
-    context "when rendering add_child_benefit_stop? question" do
+    context "when rendering add_child_benefit_x_stop? questions" do
       setup do
-        question = @flow.node(:add_child_benefit_stop?)
+        question = @flow.node(:add_child_benefit_1_stop?)
         calculator = Calculators::ChildBenefitTaxCalculator.new
         @state = SmartAnswer::State.new(question)
         @state.calculator = calculator
@@ -146,13 +162,17 @@ module SmartAnswer
     end
 
     # Q3d
-    context "when rendering child_benefit_stop? question" do
+    context "when rendering child_benefit_x_stop? question" do
       setup do
-        question = @flow.node(:child_benefit_stop?)
+        question = @flow.node(:child_benefit_1_stop?)
         calculator = Calculators::ChildBenefitTaxCalculator.new
         @state = SmartAnswer::State.new(question)
         @state.calculator = calculator
         @presenter = DateQuestionPresenter.new(question, nil, @state)
+      end
+
+      should "render the child number" do
+        assert_match "Child 1", @presenter.body
       end
 
       should "have a default error message" do
@@ -163,6 +183,18 @@ module SmartAnswer
       should "display a useful error message when the date entered is not within the tax year selected" do
         @state.error = "valid_within_tax_year"
         assert_equal "Child Benefit stop date must be within the tax year selected", @presenter.error
+      end
+
+      context "when this question is presented for a later child" do
+        should "render the appropriate child number" do
+          question = @flow.node(:child_benefit_2_stop?)
+          state = SmartAnswer::State.new(question)
+          state.calculator = Calculators::ChildBenefitTaxCalculator.new
+          state.calculator.child_number = 2
+          presenter = DateQuestionPresenter.new(question, nil, state)
+
+          assert_match "Child 2", presenter.body
+        end
       end
     end
 

@@ -73,8 +73,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "when invalid options are choosen" do
       setup do
         add_response "yes"
-        add_response "motorcycle"
-        add_response "using_home_for_business"
       end
 
       should "raise invalid error" do
