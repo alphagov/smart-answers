@@ -129,20 +129,20 @@ module SmartAnswer
             assert_same @calculator, @new_state.calculator
           end
 
-          should "go to child_benefit_start? question" do
-            assert_equal :child_benefit_start?, @new_state.current_node_name
-            assert_node_exists :child_benefit_start?
+          should "go to child_benefit_1_start? question" do
+            assert_equal :child_benefit_1_start?, @new_state.current_node_name
+            assert_node_exists :child_benefit_1_start?
           end
         end
       end
 
       # Q3b
-      context "when answering how_many_children_part_year? question" do
+      context "when answering child_benefit_1_start? question" do
         context "when the date is valid" do
           setup do
             @calculator.tax_year = "2015"
             setup_states_for_question(
-              :child_benefit_start?,
+              :child_benefit_1_start?,
               responding_with: "2015-06-09",
               initial_state: { calculator: @calculator },
             )
@@ -152,19 +152,37 @@ module SmartAnswer
             assert_same @calculator, @new_state.calculator
           end
 
-          should "go to add_child_benefit_stop? question" do
-            assert_equal :add_child_benefit_stop?, @new_state.current_node_name
-            assert_node_exists :add_child_benefit_stop?
+          should "go to add_child_benefit_1_stop? question" do
+            assert_equal :add_child_benefit_1_stop?, @new_state.current_node_name
+            assert_node_exists :add_child_benefit_1_stop?
+          end
+        end
+      end
+
+      context "when answering a later child_benefit_x_start? question" do
+        context "when the date is valid" do
+          setup do
+            @calculator.tax_year = "2015"
+            setup_states_for_question(
+              :child_benefit_2_start?,
+              responding_with: "2015-06-09",
+              initial_state: { calculator: @calculator },
+            )
+          end
+
+          should "go to the corresponding add_child_benefit_x_stop? question" do
+            assert_equal :add_child_benefit_2_stop?, @new_state.current_node_name
+            assert_node_exists :add_child_benefit_2_stop?
           end
         end
       end
 
       # Q3c
-      context "when answering how_many_children_part_year? question" do
+      context "when answering add_child_benefit_1_stop? question" do
         context "when answering yes" do
           setup do
             setup_states_for_question(
-              :add_child_benefit_stop?,
+              :add_child_benefit_1_stop?,
               responding_with: "yes",
               initial_state: { calculator: @calculator },
             )
@@ -174,16 +192,16 @@ module SmartAnswer
             assert_same @calculator, @new_state.calculator
           end
 
-          should "go to child_benefit_stop? question" do
-            assert_equal :child_benefit_stop?, @new_state.current_node_name
-            assert_node_exists :child_benefit_stop?
+          should "go to child_benefit_1_stop? question" do
+            assert_equal :child_benefit_1_stop?, @new_state.current_node_name
+            assert_node_exists :child_benefit_1_stop?
           end
         end
 
         context "when answering no" do
           setup do
             setup_states_for_question(
-              :add_child_benefit_stop?,
+              :add_child_benefit_1_stop?,
               responding_with: "no",
               initial_state: { calculator: @calculator },
             )
@@ -200,8 +218,87 @@ module SmartAnswer
         end
       end
 
+      context "when answering a later add_child_benefit_x_stop? question" do
+        context "when answering yes" do
+          setup do
+            setup_states_for_question(
+              :add_child_benefit_2_stop?,
+              responding_with: "yes",
+              initial_state: { calculator: @calculator },
+            )
+          end
+
+          should "go to the corresponding child_benefit_x_stop? question" do
+            assert_equal :child_benefit_2_stop?, @new_state.current_node_name
+            assert_node_exists :child_benefit_2_stop?
+          end
+        end
+
+        context "when answering no" do
+          setup do
+            setup_states_for_question(
+              :add_child_benefit_2_stop?,
+              responding_with: "no",
+              initial_state: { calculator: @calculator },
+            )
+          end
+
+          should "go to income_details? question" do
+            assert_equal :income_details?, @new_state.current_node_name
+            assert_node_exists :income_details?
+          end
+        end
+      end
+
       # Q3d
-      context "when answering child_benefit_stop? question" do
+      context "when answering child_benefit_1_stop? question" do
+        setup do
+          @calculator.tax_year = "2015"
+          @calculator.stubs(:valid_end_date?).returns true
+        end
+
+        context "when there are more part year children" do
+          setup do
+            @calculator.child_index = 1
+            @calculator.part_year_children_count = 6
+            setup_states_for_question(
+              :child_benefit_1_stop?,
+              responding_with: "2015-06-09",
+              initial_state: { calculator: @calculator },
+            )
+          end
+
+          should "instantiate and store calculator" do
+            assert_same @calculator, @new_state.calculator
+          end
+
+          should "go to child_benefit_2_start? question" do
+            assert_equal :child_benefit_2_start?, @new_state.current_node_name
+            assert_node_exists :child_benefit_2_start?
+          end
+        end
+
+        context "when the final part year child" do
+          setup do
+            setup_states_for_question(
+              :child_benefit_1_stop?,
+              responding_with: "2015-06-09",
+              initial_state: { calculator: @calculator },
+            )
+          end
+
+          should "instantiate and store calculator" do
+            assert_same @calculator, @new_state.calculator
+          end
+
+          should "go to income_details? question" do
+            assert_equal :income_details?, @new_state.current_node_name
+            assert_node_exists :income_details?
+          end
+        end
+      end
+
+      context "when answering a later child_benefit_x_stop? question" do
         setup do
           @calculator.tax_year = "2015"
           @calculator.stubs(:valid_end_date?).returns true
@@ -212,33 +309,25 @@ module SmartAnswer
             @calculator.child_index = 2
             @calculator.part_year_children_count = 6
             setup_states_for_question(
-              :child_benefit_stop?,
+              :child_benefit_2_stop?,
               responding_with: "2015-06-09",
               initial_state: { calculator: @calculator },
             )
           end
 
-          should "instantiate and store calculator" do
-            assert_same @calculator, @new_state.calculator
-          end
-
-          should "go to child_benefit_start? question" do
-            assert_equal :child_benefit_start?, @new_state.current_node_name
-            assert_node_exists :child_benefit_start?
+          should "go to the next child_benefit_x_start? question" do
+            assert_equal :child_benefit_3_start?, @new_state.current_node_name
+            assert_node_exists :child_benefit_3_start?
           end
         end
 
         context "when the final part year child" do
           setup do
             setup_states_for_question(
-              :child_benefit_stop?,
+              :child_benefit_2_stop?,
               responding_with: "2015-06-09",
               initial_state: { calculator: @calculator },
             )
-          end
-
-          should "instantiate and store calculator" do
-            assert_same @calculator, @new_state.calculator
           end
 
           should "go to income_details? question" do
