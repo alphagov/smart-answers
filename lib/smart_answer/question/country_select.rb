@@ -1,6 +1,8 @@
 module SmartAnswer
   module Question
     class CountrySelect < Base
+      PRESENTER_CLASS = CountrySelectQuestionPresenter
+
       def initialize(flow, name, options = {}, &block)
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)

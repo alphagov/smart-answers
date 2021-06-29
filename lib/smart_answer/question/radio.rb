@@ -1,6 +1,8 @@
 module SmartAnswer
   module Question
     class Radio < Base
+      PRESENTER_CLASS = RadioQuestionPresenter
+
       attr_reader :permitted_options
 
       def initialize(flow, name, &block)

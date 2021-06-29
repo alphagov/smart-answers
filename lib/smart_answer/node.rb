@@ -2,6 +2,8 @@ require "active_support/inflector"
 
 module SmartAnswer
   class Node
+    PRESENTER_CLASS = NodePresenter
+
     attr_accessor :flow
     attr_reader :name, :view_template_path
 
@@ -15,6 +17,10 @@ module SmartAnswer
     delegate :to_sym, to: :name
 
     delegate :to_s, to: :name
+
+    def presenter(flow_presenter, state)
+      self.class::PRESENTER_CLASS.new(self, flow_presenter, state)
+    end
 
     def filesystem_friendly_name
       to_s.sub(/\?$/, "")

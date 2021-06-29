@@ -38,5 +38,10 @@ module SmartAnswer
       node = Node.new(@flow, "node-name")
       assert_nil node.view_template_path
     end
+
+    test "#presenter returns a presenter object" do
+      node = Node.new(@flow, "node-name")
+      assert_instance_of Node::PRESENTER_CLASS, node.presenter(nil, nil)
+    end
   end
 end

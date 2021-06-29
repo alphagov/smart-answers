@@ -1,6 +1,8 @@
 module SmartAnswer
   module Question
     class Value < Base
+      PRESENTER_CLASS = ValueQuestionPresenter
+
       def initialize(flow, name, options = {}, &block)
         @parse = options[:parse]
         super(flow, name, &block)
