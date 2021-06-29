@@ -31,29 +31,7 @@ class FlowPresenter
   end
 
   def presenter_for(node)
-    presenter_class = case node
-                      when SmartAnswer::Question::Date
-                        DateQuestionPresenter
-                      when SmartAnswer::Question::CountrySelect
-                        CountrySelectQuestionPresenter
-                      when SmartAnswer::Question::Radio
-                        RadioQuestionPresenter
-                      when SmartAnswer::Question::Checkbox
-                        CheckboxQuestionPresenter
-                      when SmartAnswer::Question::Value
-                        ValueQuestionPresenter
-                      when SmartAnswer::Question::Money
-                        MoneyQuestionPresenter
-                      when SmartAnswer::Question::Salary
-                        SalaryQuestionPresenter
-                      when SmartAnswer::Question::Base
-                        QuestionPresenter
-                      when SmartAnswer::Outcome
-                        OutcomePresenter
-                      else
-                        NodePresenter
-                      end
-    @node_presenters[node.name] ||= presenter_class.new(node, self, state, {})
+    @node_presenters[node.name] ||= node.presenter(self, state)
   end
 
   def current_node

@@ -3,6 +3,8 @@ require "date"
 module SmartAnswer
   module Question
     class Date < Base
+      PRESENTER_CLASS = DateQuestionPresenter
+
       def validate_in_range
         @validate_in_range = true
       end
