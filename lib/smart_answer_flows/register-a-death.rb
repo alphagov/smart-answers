@@ -5,6 +5,10 @@ module SmartAnswer
       name "register-a-death"
       status :published
 
+      start_page do
+        next_node { question :where_did_the_death_happen? }
+      end
+
       # Q1
       radio :where_did_the_death_happen? do
         on_response do |response|

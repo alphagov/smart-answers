@@ -5,6 +5,10 @@ module SmartAnswer
       name "student-finance-calculator"
       status :published
 
+      start_page do
+        next_node { question :when_does_your_course_start? }
+      end
+
       # Q1
       radio :when_does_your_course_start? do
         option :"2020-2021"

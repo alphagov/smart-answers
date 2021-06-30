@@ -5,6 +5,10 @@ module SmartAnswer
       name "childcare-costs-for-tax-credits"
       status :published
 
+      start_page do
+        next_node { question :currently_claiming? }
+      end
+
       # Q1
       radio :currently_claiming? do
         option :yes

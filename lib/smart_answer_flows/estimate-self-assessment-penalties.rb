@@ -5,6 +5,10 @@ module SmartAnswer
       name "estimate-self-assessment-penalties"
       status :published
 
+      start_page do
+        next_node { question :which_year? }
+      end
+
       radio :which_year? do
         option :"2013-14"
         option :"2014-15"

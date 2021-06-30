@@ -5,6 +5,10 @@ module SmartAnswer
       name "vat-payment-deadlines"
       status :published
 
+      start_page do
+        next_node { question :when_does_your_vat_accounting_period_end? }
+      end
+
       date_question :when_does_your_vat_accounting_period_end? do
         default_day { -1 }
 

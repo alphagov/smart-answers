@@ -5,6 +5,10 @@ module SmartAnswer
       name "state-pension-through-partner"
       status :published
 
+      start_page do
+        next_node { question :what_is_your_marital_status? }
+      end
+
       # Q1
       radio :what_is_your_marital_status? do
         option :married

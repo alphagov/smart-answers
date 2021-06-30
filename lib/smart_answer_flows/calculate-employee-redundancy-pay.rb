@@ -8,6 +8,10 @@ module SmartAnswer
 
       status :published
 
+      start_page do
+        next_node { question :date_of_redundancy? }
+      end
+
       append(Shared::RedundancyPayFlow.build)
     end
   end

@@ -16,6 +16,10 @@ module SmartAnswer
 
       exclude_countries = %w[samoa mali holy-see british-antarctic-territory the-occupied-palestinian-territories]
 
+      start_page do
+        next_node { question :country_of_ceremony? }
+      end
+
       # Q1
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
         on_response do |response|

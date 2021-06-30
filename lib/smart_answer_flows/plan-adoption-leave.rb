@@ -5,6 +5,10 @@ module SmartAnswer
       name "plan-adoption-leave"
       status :published
 
+      start_page do
+        next_node { question :child_match_date? }
+      end
+
       date_question :child_match_date? do
         on_response do |response|
           self.calculator = Calculators::PlanAdoptionLeave.new

@@ -8,6 +8,10 @@ module SmartAnswer
       # The case & if blocks in this file are organised to be read in the same order
       # as the flow chart rather than to minimise repetition.
 
+      start_page do
+        next_node { question :region? }
+      end
+
       # Q1
       radio :region? do
         option :"england-and-wales"

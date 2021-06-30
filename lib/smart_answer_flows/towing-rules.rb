@@ -5,6 +5,10 @@ module SmartAnswer
       name "towing-rules"
       status :published
 
+      start_page do
+        next_node { question :towing_vehicle_type? }
+      end
+
       ## Cars and light vehicles
       ##
       ## Q1

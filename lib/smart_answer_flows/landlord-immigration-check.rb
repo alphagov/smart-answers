@@ -5,6 +5,10 @@ module SmartAnswer
       name "landlord-immigration-check"
       status :published
 
+      start_page do
+        next_node { question :property? }
+      end
+
       # Q0
       postcode_question :property? do
         on_response do |response|

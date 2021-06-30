@@ -5,6 +5,10 @@ module SmartAnswer
       name "maternity-paternity-pay-leave"
       status :published
 
+      start_page do
+        next_node { question :two_carers }
+      end
+
       radio :two_carers do
         option "yes"
         option "no"

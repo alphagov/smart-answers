@@ -5,6 +5,10 @@ module SmartAnswer
       name "simplified-expenses-checker"
       status :published
 
+      start_page do
+        next_node { question :vehicle_expense? }
+      end
+
       # Q1 - vehicle expense
       radio :vehicle_expense? do
         option :car

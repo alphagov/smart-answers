@@ -5,6 +5,10 @@ module SmartAnswer
       name "report-a-lost-or-stolen-passport"
       status :published
 
+      start_page do
+        next_node { question :where_was_the_passport_lost_or_stolen? }
+      end
+
       radio :where_was_the_passport_lost_or_stolen? do
         option :in_the_uk
         option :abroad

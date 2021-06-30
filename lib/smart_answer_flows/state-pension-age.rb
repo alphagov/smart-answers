@@ -5,6 +5,10 @@ module SmartAnswer
       name "state-pension-age"
       status :published
 
+      start_page do
+        next_node { question :which_calculation? }
+      end
+
       # Q1
       radio :which_calculation? do
         option :age

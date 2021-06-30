@@ -5,6 +5,10 @@ module SmartAnswer
       content_id "0e1de8f1-9909-4e45-a6a3-bffe95470275"
       status :published
 
+      start_page do
+        next_node { question :how_many_children? }
+      end
+
       # Q1
       value_question :how_many_children?, parse: Integer do
         on_response do |response|

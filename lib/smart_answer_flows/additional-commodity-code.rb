@@ -6,6 +6,10 @@ module SmartAnswer
 
       status :published
 
+      start_page do
+        next_node { question :how_much_starch_glucose? }
+      end
+
       # Q1
       radio :how_much_starch_glucose? do
         option 0

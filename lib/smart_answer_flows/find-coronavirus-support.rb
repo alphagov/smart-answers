@@ -8,6 +8,10 @@ module SmartAnswer
       use_hide_this_page true
       hide_previous_answers_on_results_page true
 
+      start_page do
+        next_node { question :need_help_with }
+      end
+
       # ======================================================================
       # What do you need help with because of coronavirus?
       # ======================================================================

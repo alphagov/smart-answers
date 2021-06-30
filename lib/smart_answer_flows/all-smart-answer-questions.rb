@@ -8,6 +8,10 @@ module SmartAnswer
 
       additional_countries = [OpenStruct.new(slug: "mordor", name: "Mordor")]
 
+      start_page do
+        next_node { question :which_checkboxes? }
+      end
+
       checkbox_question :which_checkboxes? do
         option :radagast
         option :mithrandir

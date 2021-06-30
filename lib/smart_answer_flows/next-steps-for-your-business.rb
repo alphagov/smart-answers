@@ -6,6 +6,10 @@ module SmartAnswer
       status :published
       response_store :query_parameters
 
+      start_page do
+        next_node { question :annual_turnover_over_85k }
+      end
+
       # ======================================================================
       # Will your business take more than £85,000 in a 12 month period?
       # ======================================================================

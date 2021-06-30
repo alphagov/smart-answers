@@ -6,6 +6,10 @@ module SmartAnswer
 
       status :published
 
+      start_page do
+        next_node { question :is_your_employee_getting? }
+      end
+
       # Question 1
       checkbox_question :is_your_employee_getting? do
         option :statutory_maternity_pay

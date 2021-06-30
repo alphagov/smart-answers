@@ -5,6 +5,10 @@ module SmartAnswer
       name "register-a-birth"
       status :published
 
+      start_page do
+        next_node { question :country_of_birth? }
+      end
+
       # Q1
       country_select :country_of_birth?, exclude_countries: Calculators::RegisterABirthCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|

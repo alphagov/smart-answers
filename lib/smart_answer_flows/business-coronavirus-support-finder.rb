@@ -5,6 +5,10 @@ module SmartAnswer
       name "business-coronavirus-support-finder"
       status :published
 
+      start_page do
+        next_node { question :business_based? }
+      end
+
       radio :business_based? do
         option :england
         option :scotland

@@ -5,6 +5,10 @@ module SmartAnswer
       name "calculate-your-holiday-entitlement"
       status :published
 
+      start_page do
+        next_node { question :basis_of_calculation? }
+      end
+
       # Q1
       radio :basis_of_calculation? do
         option "days-worked-per-week"

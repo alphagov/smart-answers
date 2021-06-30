@@ -7,6 +7,10 @@ module SmartAnswer
 
       calculator = Calculators::BenefitCapCalculatorConfiguration
 
+      start_page do
+        next_node { question :receive_housing_benefit? }
+      end
+
       # Q1
       radio :receive_housing_benefit? do
         option :yes

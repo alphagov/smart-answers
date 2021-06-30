@@ -5,6 +5,10 @@ module SmartAnswer
       name "calculate-married-couples-allowance"
       status :published
 
+      start_page do
+        next_node { question :were_you_or_your_partner_born_on_or_before_6_april_1935? }
+      end
+
       radio :were_you_or_your_partner_born_on_or_before_6_april_1935? do
         option :yes
         option :no

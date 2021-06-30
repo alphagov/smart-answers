@@ -8,6 +8,10 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
+      start_page do
+        next_node { question :what_sort_of_passport? }
+      end
+
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|

@@ -5,6 +5,10 @@ module SmartAnswer
       name "calculate-agricultural-holiday-entitlement"
       status :published
 
+      start_page do
+        next_node { question :work_the_same_number_of_days_each_week? }
+      end
+
       radio :work_the_same_number_of_days_each_week? do
         option "same-number-of-days"
         option "different-number-of-days"

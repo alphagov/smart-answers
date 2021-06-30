@@ -10,6 +10,10 @@ module SmartAnswer
       name "maternity-paternity-calculator"
       status :published
 
+      start_page do
+        next_node { question :what_type_of_leave? }
+      end
+
       ## Q1
       radio :what_type_of_leave? do
         option :maternity

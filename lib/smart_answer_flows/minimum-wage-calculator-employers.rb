@@ -7,6 +7,10 @@ module SmartAnswer
       name "minimum-wage-calculator-employers"
       status :published
 
+      start_page do
+        next_node { question :what_would_you_like_to_check? }
+      end
+
       # Q1
       radio :what_would_you_like_to_check? do
         option "current_payment"

@@ -6,6 +6,10 @@ module SmartAnswer
       status :published
       content_id "de6723a5-7256-4bfd-aad3-82b04b06b73e"
 
+      start_page do
+        next_node { question :when_did_your_tax_credits_award_end? }
+      end
+
       date_question :when_did_your_tax_credits_award_end? do
         from { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
         to   { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE }

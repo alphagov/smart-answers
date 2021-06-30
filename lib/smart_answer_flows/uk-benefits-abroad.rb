@@ -11,6 +11,10 @@ module SmartAnswer
         OpenStruct.new(slug: "guernsey", name: "Guernsey"),
       ]
 
+      start_page do
+        next_node { question :going_or_already_abroad? }
+      end
+
       # Q1
       radio :going_or_already_abroad? do
         option :going_abroad
