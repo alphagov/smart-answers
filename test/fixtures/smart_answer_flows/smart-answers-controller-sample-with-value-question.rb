@@ -3,6 +3,7 @@ module SmartAnswer
     def define
       name "smart-answers-controller-sample-with-value-question"
 
+      start_page
       value_question :how_many_green_bottles? do
         next_node do
           question :value_question_with_label?

@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class NodeTest < ActiveSupport::TestCase
     setup do
-      @flow = Flow.new
+      @flow = Flow.build
       @node = Outcome.new(@flow, "node-name")
       @load_path = FlowRegistry.instance.load_path
     end

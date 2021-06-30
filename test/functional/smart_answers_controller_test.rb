@@ -19,13 +19,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
                      status: :published,
                      questions: stub(count: 2),
                      outcomes: stub(count: 3),
-                     start_node: stub(presenter: stub(title: "Flow A")))
+                     nodes: [stub(presenter: stub(title: "Flow A"))])
 
       @flow_b = stub(name: "flow-b",
                      status: :draft,
                      questions: stub(count: 3),
                      outcomes: stub(count: 0),
-                     start_node: stub(presenter: stub(title: "Flow B")))
+                     nodes: [stub(presenter: stub(title: "Flow B"))])
 
       registry = stub("Flow registry")
       registry.stubs(:flows).returns([@flow_b, @flow_a])

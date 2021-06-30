@@ -15,7 +15,7 @@
           { text: "" },
         ],
         rows: @flows.map do |flow|
-          presenter = flow.start_node.presenter(nil, nil)
+          presenter = flow.nodes.first.presenter(nil, nil)
           [
             { text: title_and_url(flow.name, presenter.title) },
             { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },

@@ -4,6 +4,8 @@ module SmartAnswer
       name "bridge-of-death"
       status :draft
 
+      start_page
+
       value_question :what_is_your_name? do
         on_response do |response|
           self.your_name = response

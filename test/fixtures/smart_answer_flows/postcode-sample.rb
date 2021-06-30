@@ -4,6 +4,8 @@ module SmartAnswer
       name "postcode-sample"
       status :draft
 
+      start_page
+
       postcode_question :user_input? do
         on_response do |response|
           self.user_input = response

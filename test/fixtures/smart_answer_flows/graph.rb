@@ -4,6 +4,8 @@ module SmartAnswer
       name "graph"
       status :draft
 
+      start_page
+
       radio :q1? do
         option :yes
         option :no

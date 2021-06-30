@@ -3,6 +3,8 @@ module SmartAnswer
     def define
       name "smart-answers-controller-sample"
 
+      start_page
+
       radio :do_you_like_chocolate? do
         option :yes
         option :no

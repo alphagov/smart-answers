@@ -4,6 +4,8 @@ module SmartAnswer
       name "money-and-salary-sample"
       status :draft
 
+      start_page
+
       salary_question :how_much_do_you_earn? do
         on_response do |response|
           self.salary = response

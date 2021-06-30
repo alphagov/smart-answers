@@ -4,6 +4,8 @@ module SmartAnswer
       name "value-sample"
       status :draft
 
+      start_page
+
       value_question :user_input? do
         on_response do |response|
           self.user_input = response

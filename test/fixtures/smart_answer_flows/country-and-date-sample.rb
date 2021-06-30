@@ -4,6 +4,8 @@ module SmartAnswer
       name "country-and-date-sample"
       status :draft
 
+      start_page
+
       country_select :which_country_do_you_live_in? do
         on_response do |response|
           self.country = response

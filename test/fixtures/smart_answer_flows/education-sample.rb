@@ -3,6 +3,8 @@ module SmartAnswer
     def define
       name "education-sample"
 
+      start_page
+
       postcode_question :user_input? do
         on_response do |response|
           self.user_input = response

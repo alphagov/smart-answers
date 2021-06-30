@@ -5,16 +5,21 @@ module SmartAnswer
     attr_reader :nodes
     attr_writer :status
 
-    def self.build
+    def self.build(&block)
       flow = new
-      flow.define
+
+      if block_given?
+        flow.instance_eval(&block)
+      else
+        flow.define
+      end
+
       flow
     end
 
-    def initialize(&block)
+    def initialize
       @nodes = []
       status(:draft)
-      instance_eval(&block) if block_given?
     end
 
     def append(flow)
@@ -65,6 +70,10 @@ module SmartAnswer
       end
 
       @status
+    end
+
+    def start_page(&block)
+      add_node StartNode.new(self, name.underscore.to_sym, &block)
     end
 
     def radio(name, &block)
@@ -119,9 +128,7 @@ module SmartAnswer
       @nodes.find { |n| n.name == node_or_name.to_sym } || raise("Node '#{node_or_name}' does not exist")
     end
 
-    def start_node
-      StartNode.new(self, name.underscore.to_sym)
-    end
+    def define; end
 
     class InvalidStatus < StandardError; end
 

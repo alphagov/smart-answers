@@ -58,6 +58,8 @@ private
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
       text << word_wrap(node.name.to_s)
+    when SmartAnswer::StartNode
+      text << word_wrap(node.name.to_s)
     else
       text << "Unknown node type"
     end
@@ -85,6 +87,6 @@ private
   end
 
   def start_node_presenter
-    @start_node_presenter ||= @flow.start_node.presenter(nil, nil)
+    @start_node_presenter ||= @flow.nodes.first.presenter(nil, nil)
   end
 end

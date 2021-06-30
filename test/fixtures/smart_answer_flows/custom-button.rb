@@ -4,6 +4,8 @@ module SmartAnswer
       name "custom-button"
       status :draft
 
+      start_page
+
       value_question :user_input? do
       end
     end

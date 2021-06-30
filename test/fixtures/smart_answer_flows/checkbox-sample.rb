@@ -4,6 +4,8 @@ module SmartAnswer
       name "checkbox-sample"
       status :draft
 
+      start_page
+
       checkbox_question :what_do_you_want_on_your_pizza? do
         option :ham
         option :peppers

@@ -5,6 +5,8 @@ module SmartAnswer
       content_id "f26e566e-2557-4921-b944-9373c32255f1"
       response_store :session
 
+      start_page
+
       radio :question1 do
         option :response1
         option :response2
