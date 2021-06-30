@@ -2,7 +2,7 @@ require_relative "../test_helper"
 
 class FlowTest < ActiveSupport::TestCase
   test "Can set the name" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       name "sweet-or-savoury"
     end
 
@@ -10,7 +10,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "can set response store type" do
-    smart_answer = SmartAnswer::Flow.new do
+    smart_answer = SmartAnswer::Flow.build do
       response_store(:session)
     end
 
@@ -18,21 +18,21 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "defaults to no response store" do
-    smart_answer = SmartAnswer::Flow.new
+    smart_answer = SmartAnswer::Flow.build
 
     assert_nil smart_answer.response_store
   end
 
   test "cannot use hide-this-page if the response store isn't session" do
     exception = assert_raises RuntimeError do
-      SmartAnswer::Flow.new { use_hide_this_page true }
+      SmartAnswer::Flow.build { use_hide_this_page true }
     end
 
     assert_equal "This flow is not session based", exception.message
   end
 
   test "can use hide-this-page when response store is session" do
-    smart_answer = SmartAnswer::Flow.new do
+    smart_answer = SmartAnswer::Flow.build do
       response_store :session
       use_hide_this_page true
     end
@@ -41,13 +41,13 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "defaults to not use hide-this-page" do
-    smart_answer = SmartAnswer::Flow.new
+    smart_answer = SmartAnswer::Flow.build
 
     assert_not smart_answer.use_hide_this_page?
   end
 
   test "can set flag to hide previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.new do
+    smart_answer = SmartAnswer::Flow.build do
       hide_previous_answers_on_results_page true
     end
 
@@ -55,7 +55,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "can set flag to hide previous answers on results pagewith string" do
-    smart_answer = SmartAnswer::Flow.new do
+    smart_answer = SmartAnswer::Flow.build do
       hide_previous_answers_on_results_page "yes"
     end
 
@@ -63,7 +63,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "can set flag not to hide previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.new do
+    smart_answer = SmartAnswer::Flow.build do
       hide_previous_answers_on_results_page "false"
     end
 
@@ -71,13 +71,13 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "defaults to show previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.new
+    smart_answer = SmartAnswer::Flow.build
 
     assert_not smart_answer.hide_previous_answers_on_results_page?
   end
 
   test "Can set the content_id" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       content_id "587920ff-b854-4adb-9334-451b45652467"
     end
 
@@ -85,7 +85,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build outcome nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       outcome :you_dont_have_a_sweet_tooth
     end
 
@@ -95,7 +95,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build outcomes where the whole flow uses ERB templates" do
-    flow = SmartAnswer::Flow.new do
+    flow = SmartAnswer::Flow.build do
       name "flow-name"
       outcome :outcome_name
     end
@@ -105,7 +105,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build radio question nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       radio :do_you_like_chocolate? do
         option :yes
         option :no
@@ -129,7 +129,7 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build country select question nodes" do
     stub_worldwide_api_has_locations(%w[afghanistan])
 
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       country_select :which_country?
     end
 
@@ -139,7 +139,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build date question nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       date_question :when_is_your_birthday? do
         from { Date.parse("2011-01-01") }
         to { Date.parse("2014-01-01") }
@@ -152,7 +152,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build value question nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       value_question :what_colour_are_the_bottles? do
         on_response do |response|
           self.bottle_colour = response
@@ -166,7 +166,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build value question nodes with parse option specified" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       value_question :how_many_green_bottles?, parse: Integer do
         on_response do |response|
           self.num_bottles = response
@@ -179,7 +179,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build money question nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       money_question :how_much? do
         on_response do |response|
           self.price = response
@@ -193,12 +193,12 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build salary question nodes" do
-    s = SmartAnswer::Flow.new { salary_question :how_much? }
+    s = SmartAnswer::Flow.build { salary_question :how_much? }
     assert_equal [:how_much?], s.questions.map(&:name)
   end
 
   test "Can build checkbox question nodes" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       checkbox_question :choose_some do
         option :foo
         next_node { outcome :done }
@@ -212,7 +212,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build postcode question nodes" do
-    flow = SmartAnswer::Flow.new { postcode_question :postcode? }
+    flow = SmartAnswer::Flow.build { postcode_question :postcode? }
 
     assert_equal 1, flow.questions.size
     question = flow.questions.first
@@ -221,13 +221,13 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "should default to a draft status" do
-    s = SmartAnswer::Flow.new {}
+    s = SmartAnswer::Flow.build {}
 
     assert_equal :draft, s.status
   end
 
   test "supports setting a status" do
-    s = SmartAnswer::Flow.new do
+    s = SmartAnswer::Flow.build do
       status :published
     end
 
@@ -236,14 +236,14 @@ class FlowTest < ActiveSupport::TestCase
 
   test "should throw an exception if invalid status provided" do
     assert_raise SmartAnswer::Flow::InvalidStatus do
-      SmartAnswer::Flow.new do
+      SmartAnswer::Flow.build do
         status :bin
       end
     end
   end
 
   test "Can build a start node" do
-    start_node = SmartAnswer::Flow.new { name "my-flow" }.start_node
+    start_node = SmartAnswer::Flow.build { name "my-flow" }.start_node
 
     assert_instance_of SmartAnswer::Node, start_node
     assert start_node.name, "my_flow"
@@ -251,10 +251,10 @@ class FlowTest < ActiveSupport::TestCase
 
   context "when another flow is appended to this one" do
     setup do
-      other_flow = SmartAnswer::Flow.new do
+      other_flow = SmartAnswer::Flow.build do
         outcome :another_outcome
       end
-      @flow = SmartAnswer::Flow.new do
+      @flow = SmartAnswer::Flow.build do
         value_question :question?
         outcome :outcome
         append(other_flow)

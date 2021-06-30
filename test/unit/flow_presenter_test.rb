@@ -8,7 +8,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   setup do
-    @flow = SmartAnswer::Flow.new do
+    @flow = SmartAnswer::Flow.build do
       name "flow-name"
       value_question :first_question_key do
         next_node { question :second_question_key }

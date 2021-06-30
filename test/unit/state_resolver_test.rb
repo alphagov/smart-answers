@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class StateResolverTest < ActiveSupport::TestCase
     setup do
-      @flow = SmartAnswer::Flow.new do
+      @flow = SmartAnswer::Flow.build do
         radio :x do
           option :yes
           option :no
