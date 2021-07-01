@@ -253,7 +253,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       should "take you to outcome outcome_marriage_nvn_ukot" do
-        assert_current_node :outcome_marriage_eea
+        assert_current_node :outcome_marriage_nvn_ukot
       end
     end
 
