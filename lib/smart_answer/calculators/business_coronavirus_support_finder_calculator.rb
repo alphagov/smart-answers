@@ -49,23 +49,13 @@ module SmartAnswer::Calculators
       tlevels: lambda { |calculator|
         calculator.business_based == "england"
       },
-      lrsg_closed_addendum: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.closed_by_restrictions.include?("national")
-      },
       additional_restrictions_grant: lambda { |calculator|
         calculator.business_based == "england"
       },
-      restart_grant: lambda { |calculator|
-        calculator.business_based == "england" &&
-          calculator.sectors.intersection(%w[retail_hospitality_or_leisure personal_care]).any?
-      },
       council_grants: lambda { |calculator|
-        council_grant_questions = %i[lrsg_closed_addendum
-                                     additional_restrictions_grant
+        council_grant_questions = %i[additional_restrictions_grant
                                      retail_hospitality_leisure_business_rates
-                                     nursery_support
-                                     restart_grant]
+                                     nursery_support]
 
         council_grant_questions.any? { |q| calculator.show?(q) }
       },

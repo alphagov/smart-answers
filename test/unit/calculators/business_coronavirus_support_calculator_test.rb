@@ -165,26 +165,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "lrsg_closed_addendum" do
-        should "return true when business closed by national restrictions and based in england" do
-          @calculator.business_based = "england"
-          @calculator.closed_by_restrictions << "national"
-          assert @calculator.show?(:lrsg_closed_addendum)
-        end
-
-        should "return false when business not based in england" do
-          @calculator.business_based = "scotland"
-          @calculator.closed_by_restrictions << "national"
-          assert_not @calculator.show?(:lrsg_closed_addendum)
-        end
-
-        should "return false when business not closed by national restrictions" do
-          @calculator.business_based = "england"
-          @calculator.closed_by_restrictions = []
-          assert_not @calculator.show?(:lrsg_closed_addendum)
-        end
-      end
-
       context "additional_restrictions_grant" do
         should "return true when business based in england" do
           @calculator.business_based = "england"
@@ -194,31 +174,6 @@ module SmartAnswer::Calculators
         should "return false when business not based in england" do
           @calculator.business_based = "scotland"
           assert_not @calculator.show?(:additional_restrictions_grant)
-        end
-      end
-
-      context "restart_grant" do
-        should "return true when business is based in England and in the retail sector" do
-          @calculator.business_based = "england"
-          @calculator.sectors = %w[retail_hospitality_or_leisure]
-          assert @calculator.show?(:restart_grant)
-        end
-
-        should "return true when business is based in England and in the personal care sector" do
-          @calculator.business_based = "england"
-          @calculator.sectors = %w[personal_care]
-          assert @calculator.show?(:restart_grant)
-        end
-
-        should "return false when business not based in England" do
-          @calculator.business_based = "scotland"
-          @calculator.sectors = %w[retail_hospitality_or_leisure]
-          assert_not @calculator.show?(:restart_grant)
-        end
-
-        should "return false when business is based in England but not in a qualifying sector" do
-          @calculator.business_based = "england"
-          assert_not @calculator.show?(:restart_grant)
         end
       end
 
