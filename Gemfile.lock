@@ -127,7 +127,7 @@ GEM
       sanitize (>= 5.2.1, < 6)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (3.2.0)
+    govuk_app_config (3.3.0)
       logstasher (>= 1.2.2, < 2.2.0)
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.5.0)
