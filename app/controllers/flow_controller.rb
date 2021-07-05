@@ -14,7 +14,7 @@ class FlowController < ApplicationController
     @presenter = FlowPresenter.new(flow, state)
     @title = @presenter.title
 
-    if params[:node_slug] == @presenter.node_slug
+    if params[:node_slug] == @presenter.node_slug || params[:node_slug].blank?
       render @presenter.current_node.view_template_path, formats: [:html]
     else
       redirect_to flow_path(id: params[:id],

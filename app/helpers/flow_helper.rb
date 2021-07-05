@@ -20,6 +20,10 @@ module FlowHelper
 private
 
   def node_name
-    @node_name ||= params[:node_slug].underscore if params[:node_slug].present?
+    @node_name ||= if params[:node_slug].present?
+                     params[:node_slug].underscore
+                   else
+                     flow.nodes.first.slug
+                   end
   end
 end
