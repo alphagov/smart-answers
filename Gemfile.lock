@@ -89,19 +89,23 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    faraday (1.4.3)
+    faraday (1.5.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
+    faraday-patron (1.0.0)
     ffi (1.13.1)
     gds-api-adapters (71.7.0)
       addressable
@@ -132,7 +136,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (24.17.0)
+    govuk_publishing_components (24.18.1)
       govuk_app_config
       kramdown
       plek
