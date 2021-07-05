@@ -33,7 +33,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       stub_worldwide_api_has_locations(%w[narnia])
       add_response "ceremony_country"
       add_response "partner_local"
-      assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+      assert_raises(SmartAnswer::Node::NextNodeUndefined) do
         add_response "opposite_sex"
       end
     end
