@@ -35,7 +35,6 @@ module SmartAnswer
       end
 
       def next_node_for(current_state, input)
-        validate!(current_state, input)
         state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
         next_node = state.instance_exec(input, &next_node_block)
         if next_node.blank?
@@ -56,6 +55,7 @@ module SmartAnswer
         new_state = @on_response_blocks.inject(current_state.dup) do |state, block|
           block.evaluate(state, input)
         end
+        validate!(new_state, input)
         next_node = next_node_for(new_state, input)
         new_state.transition_to(next_node, input)
       end
