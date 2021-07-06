@@ -12,7 +12,6 @@ module SmartAnswer
     def initialize(flow, name, &block)
       @flow = flow
       @name = name
-      @on_response_blocks = []
       @template_name = filesystem_friendly_name
 
       @default_next_node_block = ->(_) { nil }
@@ -40,10 +39,6 @@ module SmartAnswer
 
     def slug
       filesystem_friendly_name.dasherize
-    end
-
-    def on_response(&block)
-      @on_response_blocks << Block.new(&block)
     end
 
     def outcome?

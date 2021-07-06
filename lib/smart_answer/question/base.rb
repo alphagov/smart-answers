@@ -4,6 +4,7 @@ module SmartAnswer
       PRESENTER_CLASS = QuestionPresenter
 
       def initialize(flow, name, &block)
+        @on_response_blocks = []
         @validations = []
         super
       end
@@ -20,6 +21,10 @@ module SmartAnswer
         validate!(new_state, input)
         next_node = next_node_for(new_state, input)
         new_state.transition_to(next_node, input)
+      end
+
+      def on_response(&block)
+        @on_response_blocks << Block.new(&block)
       end
 
       def parse_input(raw_input)
