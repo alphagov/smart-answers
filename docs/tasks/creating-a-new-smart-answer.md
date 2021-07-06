@@ -72,7 +72,7 @@ Create a new file for our landing page template.
 
 ```
 $ mkdir lib/smart_answer_flows/example-smart-answer
-$ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.erb
+$ touch lib/smart_answer_flows/example-smart-answer/start.erb
 ```
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!

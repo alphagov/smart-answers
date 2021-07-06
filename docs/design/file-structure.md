@@ -10,7 +10,7 @@ lib
 |__ smart_answer_flows
     |__ <flow-name>.rb (Required: Flow and question logic)
     |__ <flow-name>
-    |   |__ <flow-name>.erb (Optional: Content for the landing page)
+    |   |__ start.erb (Optional: Content for the landing page)
     |   |__ outcomes
     |   |   |__ <outcome-name>.erb (Optional: Content for each outcome page)
     |   |   |__ _<partial-name>.erb (Optional: Useful when you need to share content between outcome templates)
