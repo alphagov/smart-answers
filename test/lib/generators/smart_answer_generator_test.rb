@@ -17,7 +17,7 @@ class SmartAnswerGeneratorTest < Rails::Generators::TestCase
         assert_match(/status :draft/, content)
       end
 
-      assert_file "lib/smart_answer_flows/example-smart-answer/example_smart_answer.erb" do |content|
+      assert_file "lib/smart_answer_flows/example-smart-answer/start.erb" do |content|
         assert_match(/Example smart answer/, content)
       end
 
