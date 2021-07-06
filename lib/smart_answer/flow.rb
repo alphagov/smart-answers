@@ -5,16 +5,21 @@ module SmartAnswer
     attr_reader :nodes
     attr_writer :status
 
-    def self.build
+    def self.build(&block)
       flow = new
-      flow.define
+
+      if block_given?
+        flow.instance_eval(&block)
+      else
+        flow.define
+      end
+
       flow
     end
 
-    def initialize(&block)
+    def initialize
       @nodes = []
       status(:draft)
-      instance_eval(&block) if block_given?
     end
 
     def append(flow)
@@ -122,6 +127,8 @@ module SmartAnswer
     def start_node
       Node.new(self, name.underscore.to_sym)
     end
+
+    def define; end
 
     class InvalidStatus < StandardError; end
 

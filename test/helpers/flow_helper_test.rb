@@ -5,7 +5,7 @@ class FlowHelperTest < ActionView::TestCase
     should "return the flow for the current request" do
       params[:id] = "flow-name"
 
-      flow_object = SmartAnswer::Flow.new { name "flow-name" }
+      flow_object = SmartAnswer::Flow.build { name "flow-name" }
 
       flow_registry = mock
       SmartAnswer::FlowRegistry.stubs(:instance).returns(flow_registry)
@@ -22,7 +22,7 @@ class FlowHelperTest < ActionView::TestCase
 
         store = mock
 
-        flow_object = SmartAnswer::Flow.new { response_store :session }
+        flow_object = SmartAnswer::Flow.build { response_store :session }
         stubs(:flow).returns(flow_object)
 
         SessionResponseStore.expects(:new).with(
@@ -41,7 +41,7 @@ class FlowHelperTest < ActionView::TestCase
           "key": "value",
         }))
 
-        flow_object = SmartAnswer::Flow.new do
+        flow_object = SmartAnswer::Flow.build do
           response_store :other
           radio :question1
         end
@@ -59,7 +59,7 @@ class FlowHelperTest < ActionView::TestCase
 
   context "#content_item" do
     should "return a content item for the flow" do
-      flow_object = SmartAnswer::Flow.new { name "flow-name" }
+      flow_object = SmartAnswer::Flow.build { name "flow-name" }
       stubs(:flow).returns(flow_object)
 
       content_item_object = { "content_item": "value" }
