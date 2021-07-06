@@ -17,7 +17,7 @@ class SmartAnswerGenerator < Rails::Generators::NamedBase
   end
 
   def copy_landing
-    filename = "lib/smart_answer_flows/#{name.dasherize}/#{name.underscore}.erb"
+    filename = "lib/smart_answer_flows/#{name.dasherize}/start.erb"
     copy_file "landing.erb", filename
 
     gsub_file filename, "TITLE", name.humanize
