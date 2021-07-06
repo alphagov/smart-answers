@@ -1,6 +1,6 @@
 class StartNodePresenter < NodePresenter
-  def initialize(node, state = nil, options = {})
-    super(node, state)
+  def initialize(node, flow_presenter, state = nil, options = {})
+    super(node, flow_presenter, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory,
       template_name: "start",

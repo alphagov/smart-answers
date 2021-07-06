@@ -245,7 +245,7 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build a start node" do
     start_node = SmartAnswer::Flow.build { name "my-flow" }.start_node
 
-    assert_instance_of SmartAnswer::Node, start_node
+    assert_instance_of SmartAnswer::StartNode, start_node
     assert start_node.name, "my_flow"
   end
 

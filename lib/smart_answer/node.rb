@@ -2,6 +2,8 @@ require "active_support/inflector"
 
 module SmartAnswer
   class Node
+    PRESENTER_CLASS = NodePresenter
+
     attr_accessor :flow
     attr_reader :name, :view_template_path
 
@@ -20,6 +22,10 @@ module SmartAnswer
     def template_name(template_name = nil)
       @template_name = template_name unless template_name.nil?
       @template_name
+    end
+
+    def presenter(flow_presenter: nil, state: nil)
+      self.class::PRESENTER_CLASS.new(self, flow_presenter, state)
     end
 
     def filesystem_friendly_name

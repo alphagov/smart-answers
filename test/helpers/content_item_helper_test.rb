@@ -7,8 +7,8 @@ class ContentItemHelperTest < ActionView::TestCase
     setup_fixture_flows
     @flow = SmartAnswer::FlowSampleFlow.build
 
-    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    @start_node = StartNodePresenter.new(node)
+    node = SmartAnswer::StartNode.new(@flow, @flow.name.underscore.to_sym)
+    @start_node = node.presenter
   end
 
   def teardown
