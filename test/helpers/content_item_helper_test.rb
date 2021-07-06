@@ -8,7 +8,7 @@ class ContentItemHelperTest < ActionView::TestCase
     @flow = SmartAnswer::FlowSampleFlow.build
 
     node = SmartAnswer::StartNode.new(@flow, @flow.name.underscore.to_sym)
-    @start_node = node.presenter(nil, nil)
+    @start_node = node.presenter
   end
 
   def teardown

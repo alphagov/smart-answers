@@ -85,6 +85,6 @@ private
   end
 
   def start_node_presenter
-    @start_node_presenter ||= @flow.start_node.presenter(nil, nil)
+    @start_node_presenter ||= @flow.start_node.presenter
   end
 end

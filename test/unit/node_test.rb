@@ -52,7 +52,7 @@ module SmartAnswer
 
     test "#presenter returns a presenter object" do
       node = Node.new(@flow, "node-name")
-      assert_instance_of Node::PRESENTER_CLASS, node.presenter(nil, nil)
+      assert_instance_of Node::PRESENTER_CLASS, node.presenter
     end
   end
 end

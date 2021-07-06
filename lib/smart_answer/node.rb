@@ -24,7 +24,7 @@ module SmartAnswer
       @template_name
     end
 
-    def presenter(flow_presenter, state)
+    def presenter(flow_presenter: nil, state: nil)
       self.class::PRESENTER_CLASS.new(self, flow_presenter, state)
     end
 

@@ -31,7 +31,7 @@ class FlowPresenter
   end
 
   def presenter_for(node)
-    @node_presenters[node.name] ||= node.presenter(self, state)
+    @node_presenters[node.name] ||= node.presenter(flow_presenter: self, state: state)
   end
 
   def current_node
@@ -39,7 +39,7 @@ class FlowPresenter
   end
 
   def start_node
-    @start_node ||= @flow.start_node.presenter(self, nil)
+    @start_node ||= @flow.start_node.presenter(flow_presenter: self)
   end
 
   def change_answer_link(question)

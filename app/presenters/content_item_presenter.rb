@@ -31,7 +31,7 @@ class ContentItemPresenter
 private
 
   def start_node_presenter
-    @start_node_presenter ||= flow.start_node.presenter(nil, nil)
+    @start_node_presenter ||= flow.start_node.presenter
   end
 
   def base_path
