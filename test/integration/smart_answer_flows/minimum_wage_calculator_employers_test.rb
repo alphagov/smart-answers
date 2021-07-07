@@ -1,5 +1,5 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/minimum-wage-calculator-employers"
 
@@ -7,7 +7,7 @@ class MinimumWageCalculatorEmployersTest < ActionDispatch::IntegrationTest
   # This tests the parts of the flow defined within MinimumWageCalculatorEmployersFlow
   # Much of the user journey is through a shared flow Shared::MinimumWageFlow
   # Which is tested via AmIGettingMinimumWageTest
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::MinimumWageCalculatorEmployersFlow

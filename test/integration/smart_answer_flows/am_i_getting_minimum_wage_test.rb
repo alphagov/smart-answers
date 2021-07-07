@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/am-i-getting-minimum-wage"
 
 class AmIGettingMinimumWageTest < ActiveSupport::TestCase
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   setup do
     Timecop.freeze(Date.parse("2015-01-01"))

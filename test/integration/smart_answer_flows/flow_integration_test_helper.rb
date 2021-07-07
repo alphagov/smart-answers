@@ -1,4 +1,4 @@
-module FlowTestHelper
+module FlowIntegrationTestHelper
   def setup_for_testing_flow(klass)
     @flow = klass.build
     reset_responses

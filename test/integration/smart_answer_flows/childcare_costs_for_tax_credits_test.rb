@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/childcare-costs-for-tax-credits"
 
 class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::ChildcareCostsForTaxCreditsFlow

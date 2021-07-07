@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/help-if-you-are-arrested-abroad"
 
 class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   setup do
     @location_slugs = %w[aruba belgium bermuda greece iran syria democratic-republic-of-the-congo]
