@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/marriage-abroad"
 
 class MarriageAbroadTest < ActiveSupport::TestCase
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES = %w[finland iceland].freeze
   FLATTEN_COUNTRIES_1_OUTCOME = %w[french-guiana french-polynesia guadeloupe martinique mayotte reunion st-pierre-and-miquelon].freeze
