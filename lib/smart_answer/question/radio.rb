@@ -3,23 +3,26 @@ module SmartAnswer
     class Radio < Base
       PRESENTER_CLASS = RadioQuestionPresenter
 
-      attr_reader :permitted_options
+      attr_accessor :option_keys, :options_block
 
       def initialize(flow, name, &block)
-        @permitted_options = []
+        @option_keys = []
+        @options_block = nil
         super
       end
 
-      def option(option_key)
-        @permitted_options << option_key.to_s
+      def option(key)
+        @option_keys << key.to_s
       end
 
-      def options
-        @permitted_options
+      def options(&block)
+        raise InvalidNode, "Options needs to be a given a block" unless block_given?
+
+        @options_block = block
       end
 
       def valid_option?(option)
-        options.include?(option.to_s)
+        @option_keys.include?(option.to_s)
       end
 
       def parse_input(raw_input)

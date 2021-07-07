@@ -2,22 +2,21 @@ require_relative "../test_helper"
 
 module SmartAnswer
   class RadioQuestionTest < ActiveSupport::TestCase
-    test "Can list options" do
+    test "Can add options as keys" do
       q = Question::Radio.new(nil, :example) do
         option :yes
         option :no
       end
 
-      assert_equal %w[yes no], q.options
+      assert_equal %w[yes no], q.option_keys
     end
 
-    test "Can list options without transitions" do
+    test "Can add options as a block" do
       q = Question::Radio.new(nil, :example) do
-        option :yes
-        option :no
+        options { %i[x y] }
       end
 
-      assert_equal %w[yes no], q.options
+      assert_equal %i[x y], q.options_block.call
     end
 
     test "Can determine next state on provision of an input" do

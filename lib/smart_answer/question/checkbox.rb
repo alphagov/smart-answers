@@ -4,22 +4,39 @@ module SmartAnswer
       PRESENTER_CLASS = CheckboxQuestionPresenter
       NONE_OPTION = "none".freeze
 
-      attr_reader :options
+      attr_accessor :option_keys, :options_block
 
       def initialize(flow, name, &block)
-        @options = []
+        @option_keys = []
+        @options_block = nil
         super
       end
 
-      def option(option_slug)
-        raise InvalidNode, "Can't use reserved option name '#{NONE_OPTION}'" if option_slug.to_s == NONE_OPTION
-        raise InvalidNode, "Invalid option specified" unless option_slug.to_s =~ /\A[a-z0-9_-]+\z/
+      def none_option
+        @option_keys << NONE_OPTION
+      end
 
-        @options << option_slug.to_s
+      def option(key)
+        key = key.to_s
+
+        raise InvalidNode, "Can't use reserved option name '#{NONE_OPTION}'" if key == NONE_OPTION
+        raise InvalidNode, "Invalid option specified" unless key =~ /\A[a-z0-9_-]+\z/
+
+        @option_keys << key
+      end
+
+      def options(&block)
+        raise InvalidNode, "Options needs to be a given a block" unless block_given?
+
+        @options_block = block
+      end
+
+      def none_option?
+        @option_keys.include?(NONE_OPTION)
       end
 
       def valid_option?(option)
-        @options.include?(option) || option == NONE_OPTION
+        @option_keys.include?(option)
       end
 
       def parse_input(raw_input)
@@ -36,14 +53,6 @@ module SmartAnswer
           raise SmartAnswer::InvalidResponse, "Illegal option #{option} for #{name}", caller unless valid_option?(option)
         end
         raw_input.sort.join(",")
-      end
-
-      def none_option?
-        @options.include?(NONE_OPTION)
-      end
-
-      def none_option
-        @options << NONE_OPTION
       end
     end
   end
