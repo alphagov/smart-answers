@@ -11,7 +11,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
   include MaternityCalculatorHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::MaternityPaternityCalculatorFlow
+    setup_for_testing_flow MaternityPaternityCalculatorFlow
   end
   ## Q1
   should "ask what type of leave or pay you want to check" do

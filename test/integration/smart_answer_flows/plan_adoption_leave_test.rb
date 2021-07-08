@@ -8,7 +8,7 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
 
   context "test basic flow" do
     setup do
-      setup_for_testing_flow SmartAnswer::PlanAdoptionLeaveFlow
+      setup_for_testing_flow PlanAdoptionLeaveFlow
     end
 
     should "start on the baby_due_date? question" do

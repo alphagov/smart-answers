@@ -21,7 +21,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::EstimateSelfAssessmentPenaltiesFlow
+    setup_for_testing_flow EstimateSelfAssessmentPenaltiesFlow
   end
 
   should "ask which year you want to estimate" do

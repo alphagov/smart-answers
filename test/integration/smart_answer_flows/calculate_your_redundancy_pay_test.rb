@@ -8,7 +8,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   setup do
     Timecop.freeze("2019-08-31")
-    setup_for_testing_flow SmartAnswer::CalculateYourRedundancyPayFlow
+    setup_for_testing_flow CalculateYourRedundancyPayFlow
   end
 
   should "ask when you were made redundant" do

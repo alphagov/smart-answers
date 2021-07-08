@@ -1,18 +1,16 @@
-module SmartAnswer
-  class SmartAnswersControllerSampleWithSalaryQuestionFlow < Flow
-    def define
-      name "smart-answers-controller-sample-with-salary-question"
-      salary_question(:how_much?) do
-        next_node do
-          question :salary_question_with_error_message?
-        end
+class SmartAnswersControllerSampleWithSalaryQuestionFlow < SmartAnswer::Flow
+  def define
+    name "smart-answers-controller-sample-with-salary-question"
+    salary_question(:how_much?) do
+      next_node do
+        question :salary_question_with_error_message?
       end
-      salary_question(:salary_question_with_error_message?) do
-        next_node do
-          outcome :done
-        end
-      end
-      outcome :done
     end
+    salary_question(:salary_question_with_error_message?) do
+      next_node do
+        outcome :done
+      end
+    end
+    outcome :done
   end
 end

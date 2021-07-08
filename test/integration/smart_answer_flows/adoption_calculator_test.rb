@@ -9,7 +9,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::MaternityPaternityCalculatorFlow
+    setup_for_testing_flow MaternityPaternityCalculatorFlow
   end
 
   ## Q1

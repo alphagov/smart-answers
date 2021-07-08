@@ -7,7 +7,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::InheritsSomeoneDiesWithoutWillFlow
+    setup_for_testing_flow InheritsSomeoneDiesWithoutWillFlow
   end
 
   context "england-and-wales" do

@@ -9,7 +9,7 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
   setup do
     WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL)
       .to_return(body: File.open(fixture_file("bank_holidays.json")))
-    setup_for_testing_flow SmartAnswer::VatPaymentDeadlinesFlow
+    setup_for_testing_flow VatPaymentDeadlinesFlow
   end
 
   should "ask when your VAT accounting period ends" do

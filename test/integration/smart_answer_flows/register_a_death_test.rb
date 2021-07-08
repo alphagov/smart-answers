@@ -9,7 +9,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w[afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon democratic-republic-of-the-congo dominica egypt france germany grenada iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia somalia spain st-kitts-and-nevis st-martin uganda]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::RegisterADeathFlow
+    setup_for_testing_flow RegisterADeathFlow
   end
 
   should "ask where the death happened" do

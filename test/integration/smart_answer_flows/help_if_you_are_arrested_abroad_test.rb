@@ -9,7 +9,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w[aruba belgium bermuda greece iran syria democratic-republic-of-the-congo]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
+    setup_for_testing_flow HelpIfYouAreArrestedAbroadFlow
   end
 
   should "ask which country the arrest is in" do

@@ -7,7 +7,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::CalculateStatutorySickPayFlow
+    setup_for_testing_flow CalculateStatutorySickPayFlow
   end
 
   context "Getting Statutory Maternity Pay" do

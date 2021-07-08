@@ -7,7 +7,7 @@ class TowingRulesTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::TowingRulesFlow
+    setup_for_testing_flow TowingRulesFlow
   end
   ## Cars and light vehicles
   ##

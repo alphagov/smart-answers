@@ -7,7 +7,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::ChildBenefitTaxCalculatorFlow
+    setup_for_testing_flow ChildBenefitTaxCalculatorFlow
   end
 
   context "Child Benefit tax calculator" do

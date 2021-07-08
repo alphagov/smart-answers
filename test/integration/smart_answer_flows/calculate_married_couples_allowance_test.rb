@@ -7,7 +7,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::CalculateMarriedCouplesAllowanceFlow
+    setup_for_testing_flow CalculateMarriedCouplesAllowanceFlow
   end
 
   should "ask if you or partner were born before April 1935" do

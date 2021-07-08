@@ -9,7 +9,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w[azerbaijan canada]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::ReportALostOrStolenPassportFlow
+    setup_for_testing_flow ReportALostOrStolenPassportFlow
   end
 
   should "ask where the passport was lost or stolen" do

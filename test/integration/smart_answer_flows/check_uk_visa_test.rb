@@ -9,7 +9,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong ireland latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+    setup_for_testing_flow CheckUkVisaFlow
   end
 
   context "hong-kong" do

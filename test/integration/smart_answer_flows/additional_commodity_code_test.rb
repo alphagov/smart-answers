@@ -7,7 +7,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::AdditionalCommodityCodeFlow
+    setup_for_testing_flow AdditionalCommodityCodeFlow
   end
   ## Q1
   should "ask how much starch glucose the product contains" do

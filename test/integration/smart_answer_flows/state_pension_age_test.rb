@@ -7,7 +7,7 @@ class StatePensionAgeTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::StatePensionAgeFlow
+    setup_for_testing_flow StatePensionAgeFlow
   end
 
   should "ask which calculation to perform" do

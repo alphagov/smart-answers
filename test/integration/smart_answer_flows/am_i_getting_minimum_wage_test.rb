@@ -8,7 +8,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
   setup do
     Timecop.freeze(Date.parse("2015-01-01"))
-    setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
+    setup_for_testing_flow AmIGettingMinimumWageFlow
   end
 
   # Q1
@@ -805,7 +805,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   context "2020 scenarios" do
     setup do
       Timecop.freeze(Date.parse("2020-04-01"))
-      setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
+      setup_for_testing_flow AmIGettingMinimumWageFlow
     end
 
     context "23 year old, 2nd year apprentice, paid additional work" do
@@ -1200,7 +1200,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   context "2021 scenarios" do
     setup do
       Timecop.freeze(Date.parse("2021-04-01"))
-      setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
+      setup_for_testing_flow AmIGettingMinimumWageFlow
     end
 
     context "27 year old, not apprentice, no additional charges" do

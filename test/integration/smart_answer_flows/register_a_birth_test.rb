@@ -9,7 +9,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w[afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-the-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone somalia spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::RegisterABirthFlow
+    setup_for_testing_flow RegisterABirthFlow
   end
 
   should "ask which country the child was born in" do

@@ -7,7 +7,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::StudentFinanceCalculatorFlow
+    setup_for_testing_flow StudentFinanceCalculatorFlow
   end
 
   should "ask when your course starts" do

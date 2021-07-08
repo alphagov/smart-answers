@@ -8,7 +8,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::StatePensionThroughPartnerFlow
+    setup_for_testing_flow StatePensionThroughPartnerFlow
   end
 
   context "married (old1)" do

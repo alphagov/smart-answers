@@ -10,7 +10,7 @@ class MinimumWageCalculatorEmployersTest < ActionDispatch::IntegrationTest
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::MinimumWageCalculatorEmployersFlow
+    setup_for_testing_flow MinimumWageCalculatorEmployersFlow
   end
 
   should "complete flow for current payment under school age" do

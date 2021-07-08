@@ -1,14 +1,12 @@
-module SmartAnswer
-  class SmartAnswersControllerSampleWithRadioQuestionFlow < Flow
-    def define
-      name "smart-answers-controller-sample-with-radio-question"
-      radio :what? do
-        option :cheese
-        next_node do
-          outcome :done
-        end
+class SmartAnswersControllerSampleWithRadioQuestionFlow < SmartAnswer::Flow
+  def define
+    name "smart-answers-controller-sample-with-radio-question"
+    radio :what? do
+      option :cheese
+      next_node do
+        outcome :done
       end
-      outcome :done
     end
+    outcome :done
   end
 end

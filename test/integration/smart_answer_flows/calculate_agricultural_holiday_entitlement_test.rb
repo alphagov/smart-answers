@@ -7,7 +7,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::CalculateAgriculturalHolidayEntitlementFlow
+    setup_for_testing_flow CalculateAgriculturalHolidayEntitlementFlow
   end
 
   should "ask what your days worked per week is" do

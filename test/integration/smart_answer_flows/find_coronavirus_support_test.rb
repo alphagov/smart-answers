@@ -7,7 +7,7 @@ class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::FindCoronavirusSupportFlow
+    setup_for_testing_flow FindCoronavirusSupportFlow
   end
 
   context "specific outcomes" do

@@ -7,7 +7,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::SimplifiedExpensesCheckerFlow
+    setup_for_testing_flow SimplifiedExpensesCheckerFlow
   end
 
   context "you can't use simplified expenses result (Q1, Q2, result 1)" do

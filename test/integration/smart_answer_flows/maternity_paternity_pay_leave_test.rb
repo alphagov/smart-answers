@@ -7,7 +7,7 @@ class MaternityPaternityPayLeaveTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::MaternityPaternityPayLeaveFlow
+    setup_for_testing_flow MaternityPaternityPayLeaveFlow
   end
 
   context "birth-singleparent" do

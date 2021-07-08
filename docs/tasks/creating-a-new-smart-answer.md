@@ -43,21 +43,19 @@ $ touch lib/smart_answer_flows/example-smart-answer.rb
 Open the new file in your editor and copy/paste this skeleton flow:
 
 ```ruby
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      name 'example-smart-answer'
-      content_id "<SecureRandom.uuid>"
-      status :draft
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    name 'example-smart-answer'
+    content_id "<SecureRandom.uuid>"
+    status :draft
 
-      value_question :question_1? do
-        next_node do
-          outcome :outcome_1
-        end
+    value_question :question_1? do
+      next_node do
+        outcome :outcome_1
       end
-
-      outcome :outcome_1
     end
+
+    outcome :outcome_1
   end
 end
 ```
