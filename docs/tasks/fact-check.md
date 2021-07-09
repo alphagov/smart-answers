@@ -6,7 +6,7 @@ These are created automatically when a new PR is opened and will also be
 automatically linked to from the PR. They will also update on each new commit
 to the PR.
 
-The master branch of Smart Answers is deployed to Heroku with each update and
+The main branch of Smart Answers is deployed to Heroku with each update and
 this allows previewing draft Smart Answers. This is available at
 https://smart-answers-preview.herokuapp.com/.
 
