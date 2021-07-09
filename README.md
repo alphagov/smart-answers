@@ -51,7 +51,6 @@ Further guidance is available in [`docs/tasks`](docs/tasks).
 
 ### Further documentation
 
-- [Testing Smart Answers](docs/testing/testing.md)
 - [Debugging Smart Answers](docs/debugging)
 - [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
