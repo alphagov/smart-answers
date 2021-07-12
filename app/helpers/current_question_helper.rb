@@ -13,7 +13,7 @@ module CurrentQuestionHelper
     if presenter.response_store
       destroy_flow_path(presenter.name)
     else
-      smart_answer_path(presenter.name)
+      flow_landing_path(presenter.name)
     end
   end
 end

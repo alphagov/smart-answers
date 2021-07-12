@@ -13,7 +13,7 @@ class CurrentQuestionHelperTest < ActionView::TestCase
 
   context "#restart_flow_path" do
     should "return root smart answer path" do
-      assert_equal smart_answer_path(flow_name), restart_flow_path(presenter)
+      assert_equal flow_landing_path(flow_name), restart_flow_path(presenter)
     end
 
     should "return root smart answer path for session answer" do
