@@ -27,4 +27,8 @@ class StartNodePresenter < NodePresenter
     custom_button_text = @renderer.content_for(:start_button_text)
     custom_button_text.presence || "Start now"
   end
+
+  def view_template_path
+    "smart_answers/landing"
+  end
 end
