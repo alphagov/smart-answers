@@ -14,7 +14,7 @@ class SmartAnswersControllerErrorHandlingTest < ActionDispatch::IntegrationTest
     end
 
     should "set response status code to 404" do
-      get "/flow-name"
+      get "/flow-name/y"
       assert_response 404
     end
   end
@@ -25,7 +25,7 @@ class SmartAnswersControllerErrorHandlingTest < ActionDispatch::IntegrationTest
     end
 
     should "set response status code to 404" do
-      get "/flow-name"
+      get "/flow-name/y"
       assert_response 404
     end
   end
