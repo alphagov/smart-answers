@@ -1,4 +1,4 @@
-RSpec.feature "SmartAnswer::NextStepsForYourBusinessFlow" do
+RSpec.feature "NextStepsForYourBusinessFlow" do
   let(:headings) do
     # <question name>: <text_for :title from erb>
     {

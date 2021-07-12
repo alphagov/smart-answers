@@ -58,7 +58,7 @@ module SmartAnswer
       else
         require @load_path.join(name)
       end
-      namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
+      namespaced_class = "#{class_prefix}Flow".constantize
       namespaced_class.build
     end
 
