@@ -2,8 +2,6 @@ require_relative "../../test_helper"
 require_relative "flow_unit_test_helper"
 require_relative "test_node"
 
-require "smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow"
-
 class AdoptionCalculatorFlowTest < ActiveSupport::TestCase
   include FlowUnitTestHelper
 

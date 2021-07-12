@@ -1,5 +1,4 @@
 require_relative "../../test_helper"
-require "smart_answer_flows/child-benefit-tax-calculator"
 
 class ChildBenefitTaxCalculatorViewTest < ActiveSupport::TestCase
   include ERB::Util

@@ -1,7 +1,5 @@
 require_relative "../../test_helper"
 
-require "smart_answer_flows/state-pension-age"
-
 class StatePensionAgeFlowTest < ActiveSupport::TestCase
   setup do
     @flow = StatePensionAgeFlow.build

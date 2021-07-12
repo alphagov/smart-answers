@@ -1,7 +1,5 @@
 require_relative "../../test_helper"
 
-require "smart_answer_flows/part-year-profit-tax-credits"
-
 class PartYearProfitTaxCreditsViewTest < ActiveSupport::TestCase
   setup do
     @flow = PartYearProfitTaxCreditsFlow.build

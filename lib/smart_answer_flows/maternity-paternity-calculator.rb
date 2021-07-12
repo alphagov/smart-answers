@@ -1,8 +1,3 @@
-require "smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow"
-require "smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow"
-require "smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow"
-require "smart_answer_flows/maternity-paternity-calculator/shared_adoption_maternity_paternity_flow"
-
 class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
   def define
     content_id "05d5412d-455b-485e-a570-020c9176a46e"

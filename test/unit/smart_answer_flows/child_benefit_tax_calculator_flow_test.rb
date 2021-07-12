@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_unit_test_helper"
 
-require "smart_answer_flows/child-benefit-tax-calculator"
-
 class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
   context ChildBenefitTaxCalculatorFlow do
     include FlowUnitTestHelper

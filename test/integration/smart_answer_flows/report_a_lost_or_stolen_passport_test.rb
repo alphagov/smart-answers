@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/report-a-lost-or-stolen-passport"
-
 class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 

@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/part-year-profit-tax-credits"
-
 class PartYearProfitTaxCreditsTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 

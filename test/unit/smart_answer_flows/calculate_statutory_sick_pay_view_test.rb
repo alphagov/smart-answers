@@ -1,7 +1,5 @@
 require_relative "../../test_helper"
 
-require "smart_answer_flows/calculate-statutory-sick-pay"
-
 class CalculateStatutorySickPayViewTest < ActiveSupport::TestCase
   setup do
     @flow = CalculateStatutorySickPayFlow.build

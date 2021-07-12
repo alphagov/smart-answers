@@ -1,7 +1,5 @@
 require_relative "../../test_helper"
 
-require "smart_answer_flows/am-i-getting-minimum-wage"
-
 class AmIGettingMinimumWageFlowTest < ActiveSupport::TestCase
   setup do
     @flow = AmIGettingMinimumWageFlow.build

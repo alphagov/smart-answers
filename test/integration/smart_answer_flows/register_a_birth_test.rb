@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/register-a-birth"
-
 class RegisterABirthTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 

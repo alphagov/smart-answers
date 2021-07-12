@@ -1,5 +1,4 @@
 require_relative "../../test_helper"
-require "smart_answer_flows/benefit-cap-calculator"
 
 class BenefitCapCalculatorFlowTest < ActiveSupport::TestCase
   context BenefitCapCalculatorFlow do

@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_unit_test_helper"
 
-require "smart_answer_flows/calculate-statutory-sick-pay"
-
 class CalculateStatutorySickPayFlowTest < ActiveSupport::TestCase
   include FlowUnitTestHelper
 

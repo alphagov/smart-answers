@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_unit_test_helper"
 
-require "smart_answer_flows/estimate-self-assessment-penalties"
-
 class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
   include FlowUnitTestHelper
 
