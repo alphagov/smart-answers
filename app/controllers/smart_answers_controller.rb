@@ -70,7 +70,7 @@ private
   def redirect_response_to_canonical_path
     if params[:next] && !@presenter.state.error
       set_expiry
-      redirect_to smart_answer_path(@name, started: "y", responses: @presenter.accepted_responses.values)
+      redirect_to smart_answer_path(@name, responses: @presenter.accepted_responses.values)
     end
   end
 

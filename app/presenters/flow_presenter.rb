@@ -50,7 +50,6 @@ class FlowPresenter
 
       smart_answer_path(
         id: @flow.name,
-        started: "y",
         responses: accepted_responses.values[0...question_number],
         previous_response: accepted_responses[question.node_name],
       )
@@ -61,7 +60,7 @@ class FlowPresenter
     if response_store
       start_flow_path(name)
     else
-      smart_answer_path(name, started: "y")
+      smart_answer_path(name)
     end
   end
 end
