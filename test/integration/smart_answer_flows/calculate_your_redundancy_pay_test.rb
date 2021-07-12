@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative "flow_integration_test_helper"
 
 require "smart_answer_flows/calculate-your-redundancy-pay"
 
 class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
-  include FlowTestHelper
+  include FlowIntegrationTestHelper
 
   setup do
     Timecop.freeze("2019-08-31")
