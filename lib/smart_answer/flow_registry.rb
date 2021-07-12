@@ -53,11 +53,6 @@ module SmartAnswer
 
     def build_flow(name)
       class_prefix = name.tr("-", "_").camelize
-      if Rails.env.development?
-        load @load_path.join("#{name}.rb")
-      else
-        require @load_path.join(name)
-      end
       namespaced_class = "#{class_prefix}Flow".constantize
       namespaced_class.build
     end
