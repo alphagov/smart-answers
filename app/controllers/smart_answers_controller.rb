@@ -60,7 +60,6 @@ private
   end
 
   def page_type
-    return :landing unless params[:started]
     return :result if @presenter.finished?
 
     :question
