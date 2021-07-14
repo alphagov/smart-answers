@@ -1,15 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/check-uk-visa"
-
 class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
     @location_slugs = %w[andorra anguilla armenia austria bolivia canada china colombia croatia estonia hong-kong ireland latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+    setup_for_testing_flow CheckUkVisaFlow
   end
 
   context "hong-kong" do

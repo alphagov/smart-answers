@@ -1,13 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/find-coronavirus-support"
-
 class FindCoronavirusSupportFlowTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::FindCoronavirusSupportFlow
+    setup_for_testing_flow FindCoronavirusSupportFlow
   end
 
   context "specific outcomes" do

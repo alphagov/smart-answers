@@ -71,9 +71,13 @@ RSpec.configure do |config|
   end
 
   config.before(:context, flow_dir: :fixture) do
+    fixture_load_path = Rails.root.join("spec/fixtures/flows")
+
+    Dir[fixture_load_path.join("*.rb")].map { |path| require path }
+
     SmartAnswer::FlowRegistry.reset_instance(
       preload_flows: false,
-      smart_answer_load_path: Rails.root.join("spec/fixtures/flows"),
+      smart_answer_load_path: fixture_load_path,
     )
   end
 

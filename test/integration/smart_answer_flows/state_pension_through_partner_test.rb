@@ -2,13 +2,11 @@ require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 require "gds_api/test_helpers/worldwide"
 
-require "smart_answer_flows/state-pension-through-partner"
-
 class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::StatePensionThroughPartnerFlow
+    setup_for_testing_flow StatePensionThroughPartnerFlow
   end
 
   context "married (old1)" do

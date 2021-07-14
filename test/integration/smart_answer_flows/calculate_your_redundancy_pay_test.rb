@@ -1,14 +1,12 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/calculate-your-redundancy-pay"
-
 class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
     Timecop.freeze("2019-08-31")
-    setup_for_testing_flow SmartAnswer::CalculateYourRedundancyPayFlow
+    setup_for_testing_flow CalculateYourRedundancyPayFlow
   end
 
   should "ask when you were made redundant" do

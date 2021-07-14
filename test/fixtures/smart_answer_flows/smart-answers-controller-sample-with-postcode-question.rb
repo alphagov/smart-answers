@@ -1,13 +1,11 @@
-module SmartAnswer
-  class SmartAnswersControllerSampleWithPostcodeQuestionFlow < Flow
-    def define
-      name "smart-answers-controller-sample-with-postcode-question"
-      postcode_question :postcode? do
-        next_node do
-          outcome :done
-        end
+class SmartAnswersControllerSampleWithPostcodeQuestionFlow < SmartAnswer::Flow
+  def define
+    name "smart-answers-controller-sample-with-postcode-question"
+    postcode_question :postcode? do
+      next_node do
+        outcome :done
       end
-      outcome :done
     end
+    outcome :done
   end
 end

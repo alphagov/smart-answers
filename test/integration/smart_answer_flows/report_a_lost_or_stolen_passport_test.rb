@@ -1,15 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/report-a-lost-or-stolen-passport"
-
 class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
     @location_slugs = %w[azerbaijan canada]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::ReportALostOrStolenPassportFlow
+    setup_for_testing_flow ReportALostOrStolenPassportFlow
   end
 
   should "ask where the passport was lost or stolen" do

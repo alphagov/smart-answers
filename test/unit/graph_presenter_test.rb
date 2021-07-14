@@ -5,7 +5,7 @@ module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
     setup do
       setup_fixture_flows
-      @flow = SmartAnswer::GraphFlow.build
+      @flow = GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
@@ -38,7 +38,7 @@ module SmartAnswer
     end
 
     test "indicates does not define transitions in a way which can be visualised" do
-      p = GraphPresenter.new(SmartAnswer::GraphFlow.build)
+      p = GraphPresenter.new(GraphFlow.build)
       assert p.visualisable?, "'graph' should be visualisable"
     end
 

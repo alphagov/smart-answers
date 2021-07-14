@@ -12,6 +12,9 @@ module FixtureMethods
       .to_return(status: 404, body: {}.to_json)
 
     fixture_flows_path = Rails.root.join("test/fixtures/smart_answer_flows")
+    # require each of the flows since they're outside the autload path
+    Dir[fixture_flows_path.join("*.rb")].map { |path| require path }
+
     @preload_flows = SmartAnswer::FlowRegistry.instance.preloaded?
     SmartAnswer::FlowRegistry.reset_instance(
       preload_flows: false,

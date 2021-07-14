@@ -1,13 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/maternity-paternity-pay-leave"
-
 class MaternityPaternityPayLeaveTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::MaternityPaternityPayLeaveFlow
+    setup_for_testing_flow MaternityPaternityPayLeaveFlow
   end
 
   context "birth-singleparent" do

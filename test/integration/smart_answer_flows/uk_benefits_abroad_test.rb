@@ -1,13 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/uk-benefits-abroad"
-
 class UKBenefitsAbroadTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
+    setup_for_testing_flow UkBenefitsAbroadFlow
     stub_worldwide_api_has_locations(%w[albania austria canada gibraltar ireland jamaica jersey kosovo])
   end
 

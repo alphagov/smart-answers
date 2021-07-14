@@ -1,13 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/towing-rules"
-
 class TowingRulesTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::TowingRulesFlow
+    setup_for_testing_flow TowingRulesFlow
   end
   ## Cars and light vehicles
   ##

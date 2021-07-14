@@ -1,15 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/help-if-you-are-arrested-abroad"
-
 class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
     @location_slugs = %w[aruba belgium bermuda greece iran syria democratic-republic-of-the-congo]
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
+    setup_for_testing_flow HelpIfYouAreArrestedAbroadFlow
   end
 
   should "ask which country the arrest is in" do

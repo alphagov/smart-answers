@@ -1,15 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/vat-payment-deadlines"
-
 class VatPaymentDeadlinesTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
     WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL)
       .to_return(body: File.open(fixture_file("bank_holidays.json")))
-    setup_for_testing_flow SmartAnswer::VatPaymentDeadlinesFlow
+    setup_for_testing_flow VatPaymentDeadlinesFlow
   end
 
   should "ask when your VAT accounting period ends" do

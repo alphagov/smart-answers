@@ -1,8 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_integration_test_helper"
 
-require "smart_answer_flows/marriage-abroad"
-
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
@@ -21,7 +19,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   setup do
     @location_slugs = FLATTEN_COUNTRIES
     stub_worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
+    setup_for_testing_flow MarriageAbroadFlow
   end
 
   should "which country you want the ceremony to take place in" do
