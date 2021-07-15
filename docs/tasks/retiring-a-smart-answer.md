@@ -87,6 +87,8 @@ bundle exec rake "publishing_api:change_owning_application[/marriage-abroad,publ
 Once this is complete you can then create a new piece of content with the URL
 the Smart Answer page previously used.
 
-> If you are replacing the start page of the Smart Answer with a page from a
-> different publishing application don't forget to redirect or remove the flow
-> page as well.
+> NOTE: Start pages once existed in Publisher, and artefacts may persist in Publisher's
+> database with current Smart Answer slugs. This may prevent a Smart Answer being replaced
+> by a new document type as Publisher is still reserving the slug. [You will need to delete
+> the old artefact]https://github.com/alphagov/publisher/pull/1474/files), once confirmed
+> it is no longer needed.
