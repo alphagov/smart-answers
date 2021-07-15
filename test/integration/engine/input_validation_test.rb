@@ -3,9 +3,9 @@ require_relative "engine_test_helper"
 class InputValidationTest < EngineIntegrationTest
   with_and_without_javascript do
     should "validate input and display errors" do
-      stub_content_store_has_item("/money-and-salary-sample")
+      stub_content_store_has_item("/annual-bonus")
 
-      visit "/money-and-salary-sample/y"
+      visit "/annual-bonus/y"
 
       fill_in "response[amount]", with: "-123"
       click_on "Continue"
@@ -20,7 +20,7 @@ class InputValidationTest < EngineIntegrationTest
       select "month", from: "response[period]"
       click_on "Continue"
 
-      assert_current_url "/money-and-salary-sample/y/4000.0-month"
+      assert_current_url "/annual-bonus/y/4000.0-month"
 
       fill_in "response", with: "asdfasdf"
       click_on "Continue"
@@ -34,13 +34,13 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "50000"
       click_on "Continue"
 
-      assert_current_url "/money-and-salary-sample/y/4000.0-month/50000.0"
+      assert_current_url "/annual-bonus/y/4000.0-month/50000.0"
     end
 
     should "allow custom validation in calculations" do
-      stub_content_store_has_item("/money-and-salary-sample")
+      stub_content_store_has_item("/annual-bonus")
 
-      visit "/money-and-salary-sample/y/4000.0-month"
+      visit "/annual-bonus/y/4000.0-month"
 
       fill_in "response", with: "3000"
       click_on "Continue"
@@ -54,7 +54,7 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "50000"
       click_on "Continue"
 
-      assert_current_url "/money-and-salary-sample/y/4000.0-month/50000.0"
+      assert_current_url "/annual-bonus/y/4000.0-month/50000.0"
 
       within "#result-info" do
         within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "OK, here you go." }

@@ -1,7 +1,6 @@
-class MoneyAndSalarySampleFlow < SmartAnswer::Flow
+class AnnualBonusFlow < SmartAnswer::Flow
   def define
-    name "money-and-salary-sample"
-    status :draft
+    name "annual-bonus"
 
     salary_question :how_much_do_you_earn? do
       on_response do |response|
