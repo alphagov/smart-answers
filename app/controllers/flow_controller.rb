@@ -2,7 +2,14 @@ class FlowController < ApplicationController
   include FlowHelper
 
   before_action :set_cache_headers
-  before_action :redirect_path_based_flows
+  before_action :redirect_path_based_flows, except: :landing
+
+  def landing
+    @presenter = FlowPresenter.new(flow, nil)
+    @title = @presenter.title
+
+    render @presenter.start_node.view_template_path, formats: [:html]
+  end
 
   def start
     response_store.clear
@@ -45,7 +52,7 @@ class FlowController < ApplicationController
 private
 
   def redirect_path_based_flows
-    redirect_to smart_answer_path(params[:id], started: "y") if flow.response_store.nil?
+    redirect_to smart_answer_path(params[:id]) if flow.response_store.nil?
   end
 
   def set_cache_headers

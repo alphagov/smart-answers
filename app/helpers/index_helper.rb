@@ -1,6 +1,6 @@
 module IndexHelper
   def title_and_url(flow_name, title)
-    sanitize(title) + tag.br + link_to("/#{flow_name}", smart_answer_path(flow_name))
+    sanitize(title) + tag.br + link_to("/#{flow_name}", flow_landing_path(flow_name))
   end
 
   def live_link(flow_name, status)

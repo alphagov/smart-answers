@@ -83,11 +83,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_response :missing
     end
 
-    should "display landing page in html if no questions answered yet" do
-      get :show, params: { id: "smart-answers-controller-sample" }
-      assert_select "h1", /Smart answers controller sample/
-    end
-
     context "when a smart answer exist on the content store" do
       setup do
         @content_item = {
@@ -113,27 +108,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "assign empty hash to content_item" do
         assert_equal({}, assigns(:content_item))
-      end
-    end
-
-    should "not have noindex tag on landing page" do
-      get :show, params: { id: "smart-answers-controller-sample" }
-      assert_select "meta[name=robots][content=noindex]", count: 0
-    end
-
-    should "have cache headers set to 30 mins" do
-      Rails.application.config.stubs(:set_http_cache_control_expiry_time).returns(true)
-
-      get :show, params: { id: "smart-answers-controller-sample" }
-      assert_equal "max-age=1800, public", @response.header["Cache-Control"]
-    end
-
-    context "meta description in erb template" do
-      should "be shown" do
-        get :show, params: { id: "smart-answers-controller-sample" }
-        assert_select "head meta[name=description]" do |meta_tags|
-          assert_equal "This is a test description", meta_tags.first["content"]
-        end
       end
     end
 

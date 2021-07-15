@@ -7,14 +7,10 @@ Rails.application.routes.draw do
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
-  constraints id: /[a-z0-9-]+/i, started: /y/ do
-    get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
+  get "/:id", to: "flow#landing", as: :flow_landing
 
-    get "/:id(/:started(/*responses))",
-        to: "smart_answers#show",
-        as: :smart_answer,
-        format: false
-  end
+  get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
+  get "/:id(/y(/*responses))", to: "smart_answers#show", as: :smart_answer, format: false
 
   get "/:id/start", to: "flow#start", as: :start_flow
   get "/:id/destroy_session", to: "flow#destroy", as: :destroy_flow
