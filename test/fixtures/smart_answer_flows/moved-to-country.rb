@@ -1,6 +1,6 @@
-class CountryAndDateSampleFlow < SmartAnswer::Flow
+class MovedToCountryFlow < SmartAnswer::Flow
   def define
-    name "country-and-date-sample"
+    name "moved-to-country"
     status :draft
 
     country_select :which_country_do_you_live_in? do

@@ -36,11 +36,11 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       ]
       stub_worldwide_api_has_locations(@location_slugs)
       Timecop.travel("2013-01-01")
-      stub_content_store_has_item("/country-and-date-sample")
+      stub_content_store_has_item("/moved-to-country")
     end
 
     should "handle country and date questions" do
-      visit "/country-and-date-sample/y"
+      visit "/moved-to-country/y"
 
       within "#current-question" do
         assert_page_has_content "Which country do you live in?"
@@ -54,15 +54,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       select "Belarus", from: "response"
       click_on "Continue"
 
-      assert_current_url "/country-and-date-sample/y/belarus"
+      assert_current_url "/moved-to-country/y/belarus"
 
-      assert page.has_link?("Start again", href: "/country-and-date-sample")
+      assert page.has_link?("Start again", href: "/moved-to-country")
       within ".govuk-summary-list__row:nth-child(1)" do
         within ".govuk-summary-list__key" do
           assert_page_has_content "Which country do you live in?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Belarus" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y?previous_response=belarus") }
       end
 
       within "#current-question" do
@@ -81,15 +81,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       fill_in "Year", with: "1975"
       click_on "Continue"
 
-      assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
+      assert_current_url "/moved-to-country/y/belarus/1975-05-05"
 
-      assert page.has_link?("Start again", href: "/country-and-date-sample")
+      assert page.has_link?("Start again", href: "/moved-to-country")
       within ".govuk-summary-list__row:nth-child(1)" do
         within ".govuk-summary-list__key" do
           assert_page_has_content "Which country do you live in?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Belarus" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y?previous_response=belarus") }
       end
 
       within ".govuk-summary-list__row:nth-child(2)" do
@@ -98,7 +98,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
 
         within(".govuk-summary-list__value") { assert_page_has_content "5 May 1975" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y/belarus?previous_response=1975-05-05") }
       end
 
       within "#current-question" do
@@ -113,15 +113,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       select "Venezuela", from: "response"
       click_on "Continue"
 
-      assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/venezuela"
+      assert_current_url "/moved-to-country/y/belarus/1975-05-05/venezuela"
 
-      assert page.has_link?("Start again", href: "/country-and-date-sample")
+      assert page.has_link?("Start again", href: "/moved-to-country")
       within ".govuk-summary-list__row:nth-child(1)" do
         within ".govuk-summary-list__key" do
           assert_page_has_content "Which country do you live in?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Belarus" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y?previous_response=belarus") }
       end
 
       within ".govuk-summary-list__row:nth-child(2)" do
@@ -130,7 +130,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
 
         within(".govuk-summary-list__value") { assert_page_has_content "5 May 1975" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y/belarus?previous_response=1975-05-05") }
       end
 
       within ".govuk-summary-list__row:nth-child(3)" do
@@ -139,7 +139,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
 
         within(".govuk-summary-list__value") { assert_page_has_content "Venezuela" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=venezuela") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/moved-to-country/y/belarus/1975-05-05?previous_response=venezuela") }
       end
 
       within "#result-info" do
