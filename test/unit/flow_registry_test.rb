@@ -7,7 +7,7 @@ module SmartAnswer
     end
 
     test "Can load a flow from a file" do
-      flow = registry.find("flow-sample")
+      flow = registry.find("radio-sample")
       assert_equal 2, flow.questions.size
       assert_equal :hotter_or_colder?, flow.questions.first.name
       assert_equal %w[hotter colder], flow.questions.first.options
@@ -36,8 +36,8 @@ module SmartAnswer
       end
 
       should "build a new flow instance each time" do
-        first_call = registry.find("flow-sample")
-        second_call = registry.find("flow-sample")
+        first_call = registry.find("radio-sample")
+        second_call = registry.find("radio-sample")
 
         assert_equal first_call.name, second_call.name
         assert_not_equal first_call.object_id, second_call.object_id
@@ -53,7 +53,7 @@ module SmartAnswer
         Dir.expects(:[]).never
         File.expects(:read).never
 
-        assert @r.find("flow-sample").is_a?(Flow)
+        assert @r.find("radio-sample").is_a?(Flow)
       end
 
       should "not hit the filesystem when finding a non-existent flow" do
