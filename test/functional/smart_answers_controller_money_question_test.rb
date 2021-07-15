@@ -1,5 +1,4 @@
 require_relative "../test_helper"
-require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-money-question"
 require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
@@ -7,19 +6,13 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
 
   include SmartAnswersControllerTestHelper
 
-  def setup
-    setup_fixture_flows
-    stub_content_store_has_item("/smart-answers-controller-sample-with-money-question")
-  end
-
-  def teardown
-    teardown_fixture_flows
-  end
+  setup { setup_fixture_flows }
+  teardown { teardown_fixture_flows }
 
   context "GET /<slug>" do
     context "money question" do
       should "display question" do
-        get :show, params: { id: "smart-answers-controller-sample-with-money-question", started: "y" }
+        get :show, params: { id: "money-sample", started: "y" }
         assert_select ".govuk-caption-l", "Sample money question"
         assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
         assert_select "input[type=text][name=response]"
@@ -33,7 +26,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
 
       context "suffix_label in erb template" do
         setup do
-          get :show, params: { id: "smart-answers-controller-sample-with-money-question", started: "y", responses: "1.23" }
+          get :show, params: { id: "money-sample", started: "y", responses: "1.23" }
         end
 
         should "show the label after the question input" do
@@ -44,10 +37,10 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: "smart-answers-controller-sample-with-money-question"))
+    super(response, other_params.merge(id: "money-sample"))
   end
 
   def submit_json_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: "smart-answers-controller-sample-with-money-question"))
+    super(response, other_params.merge(id: "money-sample"))
   end
 end
