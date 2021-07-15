@@ -1,12 +1,10 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-require "smart_answer_flows/calculate-your-holiday-entitlement"
-
 class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  setup { testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow }
+  setup { testing_flow CalculateYourHolidayEntitlementFlow }
 
   should "render a start page" do
     assert_rendered_start_page
