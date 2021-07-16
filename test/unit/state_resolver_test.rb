@@ -108,7 +108,7 @@ module SmartAnswer
         assert_nil state.current_response
       end
 
-      should "maintain all responses for forwarding by query string on a non-session response_store" do
+      should "maintain forwarding responses from the response_store" do
         @flow.response_store(:query_parameters)
         responses = { "x" => "yes", "y" => "no", "z" => "yes" }
         response_store = ResponseStore.new(responses: responses)
@@ -116,16 +116,6 @@ module SmartAnswer
         state = @state_resolver.state_from_response_store(response_store, "y")
 
         assert_equal responses, state.forwarding_responses
-      end
-
-      should "not maintain forwarding responses on a session response_store as they're stored in the session" do
-        @flow.response_store(:session)
-        responses = { "x" => "yes", "y" => "no", "z" => "yes" }
-        response_store = ResponseStore.new(responses: responses)
-
-        state = @state_resolver.state_from_response_store(response_store)
-
-        assert_empty state.forwarding_responses
       end
     end
 

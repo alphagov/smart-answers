@@ -5,8 +5,7 @@ module SmartAnswer
     end
 
     def state_from_response_store(response_store, requested_node = nil)
-      forwarding_responses = @flow.response_store == :session ? {} : response_store.all
-      resolve_state(start_state(forwarding_responses),
+      resolve_state(start_state(response_store.forwarding_responses),
                     response_store,
                     requested_node)
     end

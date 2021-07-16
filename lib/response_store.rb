@@ -18,4 +18,8 @@ class ResponseStore
   def clear
     @store = {}
   end
+
+  def forwarding_responses
+    all
+  end
 end

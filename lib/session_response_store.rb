@@ -12,4 +12,8 @@ class SessionResponseStore < ResponseStore
   def clear
     @store.delete(@flow_name)
   end
+
+  def forwarding_responses
+    {}
+  end
 end

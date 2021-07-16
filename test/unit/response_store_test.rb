@@ -46,4 +46,13 @@ class ResponseStoreTest < ActiveSupport::TestCase
       assert_equal({}, response_store.all)
     end
   end
+
+  context "#forwarding_responses" do
+    should "return all responses" do
+      responses = { "key" => "value" }
+      response_store = ResponseStore.new(responses: responses)
+
+      assert_equal(responses, response_store.forwarding_responses)
+    end
+  end
 end
