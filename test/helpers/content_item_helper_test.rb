@@ -1,11 +1,9 @@
 require "test_helper"
 
-require File.expand_path("../fixtures/smart_answer_flows/flow-sample", __dir__)
-
 class ContentItemHelperTest < ActionView::TestCase
   def setup
     setup_fixture_flows
-    @flow = FlowSampleFlow.build
+    @flow = RadioSampleFlow.build
 
     node = SmartAnswer::StartNode.new(@flow, @flow.name.underscore.to_sym)
     @start_node = node.presenter
