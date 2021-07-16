@@ -1,5 +1,4 @@
 require_relative "../test_helper"
-require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-radio-question"
 require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerRadioQuestionTest < ActionController::TestCase
@@ -7,20 +6,14 @@ class SmartAnswersControllerRadioQuestionTest < ActionController::TestCase
 
   include SmartAnswersControllerTestHelper
 
-  def setup
-    setup_fixture_flows
-    stub_content_store_has_item("/smart-answers-controller-sample-with-radio-question")
-  end
-
-  def teardown
-    teardown_fixture_flows
-  end
+  setup { setup_fixture_flows }
+  teardown { teardown_fixture_flows }
 
   context "radio question" do
     should "display question" do
-      get :show, params: { id: "smart-answers-controller-sample-with-radio-question", started: "y" }
+      get :show, params: { id: "radio-sample", started: "y" }
       assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l .govuk-caption-l", "Sample radio question"
-      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /What\?/
+      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /Hotter or colder\?/
       assert_select "input[type=radio][name=response]"
     end
 
@@ -34,10 +27,6 @@ class SmartAnswersControllerRadioQuestionTest < ActionController::TestCase
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: "smart-answers-controller-sample-with-radio-question"))
-  end
-
-  def submit_json_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: "smart-answers-controller-sample-with-radio-question"))
+    super(response, other_params.merge(id: "radio-sample"))
   end
 end

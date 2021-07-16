@@ -1,11 +1,8 @@
 <% text_for :title do %>
-  QUESTION_2_TITLE
+  Frozen?
 <% end %>
 
-<% text_for :hint do %>
-  QUESTION_2_HINT
-<% end %>
-
-<% govspeak_for :body do %>
-  QUESTION_2_BODY <a href="/">LINK TEXT</a> &rarr;
-<% end %>
+<% options(
+  "yes": "Yes",
+  "no": "No",
+) %>
