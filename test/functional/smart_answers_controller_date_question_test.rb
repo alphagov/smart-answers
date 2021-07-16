@@ -1,5 +1,4 @@
 require_relative "../test_helper"
-require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-date-question"
 require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
@@ -7,19 +6,13 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
 
   include SmartAnswersControllerTestHelper
 
-  def setup
-    setup_fixture_flows
-    stub_content_store_has_item("/smart-answers-controller-sample-with-date-question")
-  end
-
-  def teardown
-    teardown_fixture_flows
-  end
+  setup { setup_fixture_flows }
+  teardown { teardown_fixture_flows }
 
   context "GET /<slug>" do
     context "date question" do
       should "display question" do
-        get :show, params: { id: "smart-answers-controller-sample-with-date-question", started: "y" }
+        get :show, params: { id: "date-sample", started: "y" }
         assert_select ".govuk-caption-l", "Sample date question"
         assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /When\?/
         assert_select "input[name='response[day]']"
@@ -29,7 +22,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
 
       should "accept question input and redirect to canonical url" do
         submit_response day: "1", month: "1", year: "2011"
-        assert_redirected_to "/smart-answers-controller-sample-with-date-question/y/2011-01-01"
+        assert_redirected_to "/date-sample/y/2011-01-01"
       end
 
       should "not error if passed blank response" do
@@ -56,13 +49,13 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
       end
 
       should "display answered question, and format number" do
-        get :show, params: { id: "smart-answers-controller-sample-with-date-question", started: "y", responses: "2011-01-01" }
+        get :show, params: { id: "date-sample", started: "y", responses: "2011-01-01" }
         assert_select ".govuk-summary-list", /When\?\s+1 January 2011/
       end
     end
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: "smart-answers-controller-sample-with-date-question"))
+    super(response, other_params.merge(id: "date-sample"))
   end
 end
