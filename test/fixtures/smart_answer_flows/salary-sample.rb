@@ -1,6 +1,6 @@
-class SmartAnswersControllerSampleWithSalaryQuestionFlow < SmartAnswer::Flow
+class SalarySampleFlow < SmartAnswer::Flow
   def define
-    name "smart-answers-controller-sample-with-salary-question"
+    name "salary-sample"
     salary_question(:how_much?) do
       next_node do
         question :salary_question_with_error_message?
