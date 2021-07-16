@@ -3,10 +3,10 @@ require_relative "engine_test_helper"
 class ChangingAnswerTest < EngineIntegrationTest
   with_and_without_javascript do
     should "be able to change country and date answers" do
-      stub_content_store_has_item("/country-and-date-sample")
+      stub_content_store_has_item("/moved-to-country")
       stub_worldwide_api_has_locations(%w[argentina belarus])
 
-      visit "/country-and-date-sample/y"
+      visit "/moved-to-country/y"
 
       select "Belarus", from: "response"
       click_on "Continue"
@@ -29,7 +29,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "Argentina", from: "response"
       click_on "Continue"
 
-      assert_current_url "/country-and-date-sample/y/argentina"
+      assert_current_url "/moved-to-country/y/argentina"
 
       fill_in "response[day]", with: "10"
       fill_in "response[month]", with: "6"
@@ -49,7 +49,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response[year]", with: "2000"
       click_on "Continue"
 
-      assert_current_url "/country-and-date-sample/y/argentina/2000-04-15"
+      assert_current_url "/moved-to-country/y/argentina/2000-04-15"
     end
 
     should "be able to change money and salary answers" do
