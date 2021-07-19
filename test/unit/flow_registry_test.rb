@@ -22,10 +22,6 @@ module SmartAnswer
       end
     end
 
-    test "should find draft flow if show_drafts is specified" do
-      assert registry(show_drafts: true).find("draft-flow-sample")
-    end
-
     test "Should enumerate all flows" do
       flows = registry.flows
       assert_kind_of Enumerable, flows
