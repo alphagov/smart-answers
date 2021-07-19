@@ -53,9 +53,9 @@ class ChangingAnswerTest < EngineIntegrationTest
     end
 
     should "be able to change money and salary answers" do
-      stub_content_store_has_item("/money-and-salary-sample")
+      stub_content_store_has_item("/annual-bonus")
 
-      visit "/money-and-salary-sample/y"
+      visit "/annual-bonus/y"
 
       fill_in "response[amount]", with: "5000"
       select "month", from: "response[period]"
@@ -77,7 +77,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "week", from: "response[period]"
       click_on "Continue"
 
-      assert_current_url "/money-and-salary-sample/y/2000.0-week"
+      assert_current_url "/annual-bonus/y/2000.0-week"
 
       fill_in "response", with: "2000000"
       click_on "Continue"
@@ -89,7 +89,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "3000000"
       click_on "Continue"
 
-      assert_current_url "/money-and-salary-sample/y/2000.0-week/3000000.0"
+      assert_current_url "/annual-bonus/y/2000.0-week/3000000.0"
     end
 
     should "be able to change value and radio answers" do
