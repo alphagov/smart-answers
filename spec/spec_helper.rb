@@ -76,7 +76,6 @@ RSpec.configure do |config|
     Dir[fixture_load_path.join("*.rb")].map { |path| require path }
 
     SmartAnswer::FlowRegistry.reset_instance(
-      preload_flows: false,
       smart_answer_load_path: fixture_load_path,
     )
   end
