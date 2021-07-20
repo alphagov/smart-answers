@@ -102,14 +102,12 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal [:you_dont_have_a_sweet_tooth], s.outcomes.map(&:name)
   end
 
-  test "Can build outcomes where the whole flow uses ERB templates" do
+  test "Can build outcomes" do
     flow = SmartAnswer::Flow.build do
-      name "flow-name"
       outcome :outcome_name
     end
 
     assert_equal 1, flow.outcomes.size
-    assert flow.outcomes.first.template_directory.to_s.end_with?("flow-name")
   end
 
   test "Can build radio question nodes" do
