@@ -1,17 +1,11 @@
 require_relative "../test_helper"
-require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample"
 require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include SmartAnswersControllerTestHelper
 
-  def setup
-    setup_fixture_flows
-  end
-
-  def teardown
-    teardown_fixture_flows
-  end
+  setup { setup_fixture_flows }
+  teardown { teardown_fixture_flows }
 
   context "GET /" do
     setup do
@@ -71,28 +65,24 @@ class SmartAnswersControllerTest < ActionController::TestCase
   end
 
   context "GET /<slug>" do
-    setup do
-      stub_content_store_has_item("/smart-answers-controller-sample")
-    end
-
     should "respond with 404 if not found" do
       @registry = stub("Flow registry")
       @registry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
       @controller.stubs(:flow_registry).returns(@registry)
-      get :show, params: { id: "smart-answers-controller-sample" }
+      get :show, params: { id: "radio-sample" }
       assert_response :missing
     end
 
     context "when a smart answer exist on the content store" do
       setup do
         @content_item = {
-          base_path: "/smart-answers-controller-sample",
+          base_path: "/radio-sample",
         }.with_indifferent_access
 
         ContentItemRetriever.stubs(:fetch)
           .returns(@content_item)
 
-        get :show, params: { id: "smart-answers-controller-sample" }
+        get :show, params: { id: "radio-sample" }
       end
 
       should "assign response from content store" do
@@ -103,7 +93,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "when a smart answer does not exist on the content store" do
       setup do
         ContentItemRetriever.stubs(:fetch).returns({})
-        get :show, params: { id: "smart-answers-controller-sample" }
+        get :show, params: { id: "radio-sample" }
       end
 
       should "assign empty hash to content_item" do
@@ -112,54 +102,54 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "display first question after starting" do
-      get :show, params: { id: "smart-answers-controller-sample", started: "y" }
-      assert_contains css_select("title").first.content, /Do you like chocolate?/
-      assert_contains css_select("title").first.content, /Smart answers controller sample/
-      assert_select ".govuk-fieldset__legend", /Do you like chocolate\?/
-      assert_select "input[name=response][value=yes]"
-      assert_select "input[name=response][value=no]"
+      get :show, params: { id: "radio-sample", started: "y" }
+      assert_contains css_select("title").first.content, /Hotter or colder\?/
+      assert_contains css_select("title").first.content, /Sample radio question/
+      assert_select ".govuk-fieldset__legend", /Hotter or colder\?/
+      assert_select "input[name=response][value=hotter]"
+      assert_select "input[name=response][value=colder]"
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
-      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes" }
-      assert_contains css_select("title").first.content, /sweet-tooth-outcome-title/
-      assert_contains css_select("title").first.content, /Smart answers controller sample/
+      get :show, params: { id: "radio-sample", started: "y", responses: "hotter" }
+      assert_contains css_select("title").first.content, /Hot outcome title/
+      assert_contains css_select("title").first.content, /Sample radio question/
       assert_select ".outcome"
     end
 
     should "show default outcome title when none is supplied" do
-      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no/no" }
+      get :show, params: { id: "radio-sample", started: "y", responses: "colder/no" }
       assert_contains css_select("title").first.content, /Outcome/
-      assert_contains css_select("title").first.content, /Smart answers controller sample/
+      assert_contains css_select("title").first.content, /Sample radio question/
       assert_select ".outcome"
     end
 
     should "have meta robots noindex on question pages" do
-      get :show, params: { id: "smart-answers-controller-sample", started: "y" }
+      get :show, params: { id: "radio-sample", started: "y" }
       assert_select "head meta[name=robots][content=noindex]"
     end
 
     should "accept responses as GET params and redirect to canonical path" do
-      submit_response "yes"
-      assert_redirected_to "/smart-answers-controller-sample/y/yes"
+      submit_response "hotter"
+      assert_redirected_to "/radio-sample/y/hotter"
     end
 
     context "a response has been accepted" do
       setup do
-        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no" }
+        get :show, params: { id: "radio-sample", started: "y", responses: "colder" }
       end
 
       should "show response summary" do
-        assert_select ".govuk-summary-list", /Do you like chocolate\?\s+No/
+        assert_select ".govuk-summary-list", /Hotter or colder\?\s+Colder/
       end
 
       should "show the next question" do
-        assert_select "#current-question", /Do you like jam\?/
+        assert_select "#current-question", /Frozen\?/
       end
 
       should "link back to change the response" do
         assert_select ".govuk-summary-list__actions a", /Change/ do |link_nodes|
-          assert_equal "/smart-answers-controller-sample/y?previous_response=no", link_nodes.first["href"]
+          assert_equal "/radio-sample/y?previous_response=colder", link_nodes.first["href"]
         end
       end
     end
@@ -167,14 +157,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)
-        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no", debug: "1" }
+        get :show, params: { id: "radio-sample", started: "y", responses: "no", debug: "1" }
 
         assert_select "pre.debug"
       end
 
       should "not render debug information on the page when not enabled" do
         @controller.stubs(:debug?).returns(false)
-        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no", debug: nil }
+        get :show, params: { id: "radio-sample", started: "y", responses: "no", debug: nil }
 
         assert_select "pre.debug", false, "The page should not render debug information"
       end
@@ -183,20 +173,20 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   context "GET /<slug>/visualise" do
     should "display the visualisation" do
-      stub_content_store_has_item("/smart-answers-controller-sample")
+      stub_content_store_has_item("/radio-sample")
 
-      get :visualise, params: { id: "smart-answers-controller-sample" }
+      get :visualise, params: { id: "radio-sample" }
 
-      assert_contains css_select("title").first.content, /Smart answers controller sample/
-      assert_select "h1", /Smart answers controller sample/
+      assert_contains css_select("title").first.content, /Sample radio question/
+      assert_select "h1", /Sample radio question/
     end
   end
 
   context "GET /<slug>/visualise.gz" do
     should "display the visualisation in graphviz format" do
-      stub_content_store_has_item("/smart-answers-controller-sample")
+      stub_content_store_has_item("/radio-sample")
 
-      get :visualise, format: :gv, params: { id: "smart-answers-controller-sample" }
+      get :visualise, format: :gv, params: { id: "radio-sample" }
 
       assert_equal "text/vnd.graphviz", response.media_type
       assert_match "digraph", response.body

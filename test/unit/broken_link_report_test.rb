@@ -3,8 +3,8 @@ require "minitest/autorun"
 
 class BrokenLinkReportTest < ActiveSupport::TestCase
   def path
-    # Defaulting path to only flow-with-links flow to limit scope of most tests (simpler and faster)
-    @path ||= Rails.root.join "test/fixtures/smart_answer_flows/flow-with-links"
+    # Defaulting path to only radio-sample flow to limit scope of most tests (simpler and faster)
+    @path ||= Rails.root.join "test/fixtures/smart_answer_flows/radio-sample"
   end
 
   def broken_link_report
@@ -16,7 +16,7 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
   end
 
   def erb_file_path
-    File.expand_path("outcomes/results.erb", path)
+    File.expand_path("outcomes/hot.erb", path)
   end
 
   def erb_file_content
@@ -103,7 +103,7 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
     end
 
     should "contain a folder representing the child folder" do
-      assert_equal "outcomes", broken_link_report.folders.first.name
+      assert_includes broken_link_report.folders.map(&:name), "outcomes"
     end
 
     should "find many folders if path is to smart_answers_flows" do
@@ -111,34 +111,34 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
       assert broken_link_report.folders.length > 1
     end
 
-    should "include flow-with-links as child if path is to smart_answers_flows" do
+    should "include radio-sample as child if path is to smart_answers_flows" do
       @path = Rails.root.join "test/fixtures/smart_answer_flows"
-      assert_includes broken_link_report.folders.map(&:name), "flow-with-links"
+      assert_includes broken_link_report.folders.map(&:name), "radio-sample"
     end
   end
 
   context "#folder_paths" do
-    should "be the child folders within the root folder" do
+    should "include the child folders within the root folder" do
       child_path = File.expand_path("outcomes", path)
-      assert_equal [child_path], broken_link_report.folder_paths
+      assert_includes broken_link_report.folder_paths, child_path
     end
   end
 
   context "Folder#name" do
     should "be the name of the parent folder" do
-      assert_equal "flow-with-links", folder.name
+      assert_equal "radio-sample", folder.name
     end
   end
 
   context "#erb_files" do
-    should "be the paths to erb files withing the folder" do
-      assert_equal [erb_file_path], folder.erb_files
+    should "include the paths to erb files withing the folder" do
+      assert_includes folder.erb_files, erb_file_path
     end
   end
 
   context "Folder#texts" do
-    should "be an array of the text content for erb files in the folder" do
-      assert_equal [erb_file_content], folder.texts
+    should "include the text content for erb files in the folder" do
+      assert_includes folder.texts, erb_file_content
     end
   end
 

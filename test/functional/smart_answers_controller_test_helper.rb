@@ -1,7 +1,7 @@
 module SmartAnswersControllerTestHelper
   def submit_response(response = nil, other_params = {})
     params = {
-      id: "smart-answers-controller-sample",
+      id: "radio-sample",
       started: "y",
       next: "Next Question",
     }
@@ -11,7 +11,7 @@ module SmartAnswersControllerTestHelper
 
   def submit_json_response(response = nil, other_params = {})
     params = {
-      id: "smart-answers-controller-sample",
+      id: "radio-sample",
       started: "y",
       format: "json",
       next: "1",

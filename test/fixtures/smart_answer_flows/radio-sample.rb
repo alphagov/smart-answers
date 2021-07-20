@@ -1,6 +1,6 @@
-class FlowSampleFlow < SmartAnswer::Flow
+class RadioSampleFlow < SmartAnswer::Flow
   def define
-    name "flow-sample"
+    name "radio-sample"
     content_id "f26e566e-2557-4921-b944-9373c32255f1"
 
     radio :hotter_or_colder? do
