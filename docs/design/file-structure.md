@@ -14,10 +14,8 @@ app
     |   |__ questions
     |   |   |__ <question-name>.erb (Optional: Data used to build questions e.g. question and option text)
     |__ shared
-    |    |__ <shared-directory-name>
-    |        |__ _<partial-name>.erb (Optional: Useful when you need to share content between Smart Answers)
-    |__ shared_logic
-        |__ <shared-logic-name>.rb (Optional: Useful when you need to share flow and question logic between Smart Answers)
+        |__ <shared-directory-name>
+            |__ _<partial-name>.erb (Optional: Useful when you need to share content between Smart Answers)
 lib
 |__ smart_answer
     |__ calculators
