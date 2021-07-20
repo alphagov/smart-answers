@@ -16,20 +16,13 @@ module SmartAnswer
     def initialize(options = {})
       @load_path = Pathname.new(options.fetch(:smart_answer_load_path, FLOW_DIR))
       @flows = Dir[@load_path.join("*.rb")].map do |path|
-        build_flow(File.basename(path, ".rb"))
+        class_name = File.basename(path, ".rb").camelize
+        class_name.constantize.build
       end
     end
 
     def find(name)
       @flows.find { |flow| flow.name == name } || raise(NotFound, "'#{name}' not found")
-    end
-
-  private
-
-    def build_flow(name)
-      class_prefix = name.tr("-", "_").camelize
-      namespaced_class = "#{class_prefix}Flow".constantize
-      namespaced_class.build
     end
   end
 end

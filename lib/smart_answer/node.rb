@@ -51,7 +51,7 @@ module SmartAnswer
 
     def template_directory
       load_path = FlowRegistry.instance.load_path
-      Pathname.new(load_path).join(String(@flow.name))
+      Pathname.new(load_path).join(@flow.class.name.underscore)
     end
 
     def view_template(path)
