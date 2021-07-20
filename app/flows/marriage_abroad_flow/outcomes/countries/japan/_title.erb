@@ -1,4 +1,6 @@
-<% if calculator.partner_is_same_sex? %>
+<% if calculator.is_civil_partnership? %>
+  Opposite sex civil partnership in Japan
+<% elsif calculator.partner_is_same_sex? %>
   Same-sex marriage and civil partnership in Japan
 <% else %>
   Marriage in Japan

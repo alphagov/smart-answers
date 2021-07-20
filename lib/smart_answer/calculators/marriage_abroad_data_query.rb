@@ -76,6 +76,16 @@ module SmartAnswer::Calculators
       vietnam
     ].freeze
 
+    CONSULAR_OPPOSITE_SEX_CIVIL_PARTNERSHIP = %w[
+      japan
+      vietnam
+      panama
+    ].freeze
+
+    def offers_consular_opposite_sex_civil_partnership?(country_slug)
+      CONSULAR_OPPOSITE_SEX_CIVIL_PARTNERSHIP.include?(country_slug)
+    end
+
     def ss_marriage_countries?(country_slug)
       SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
@@ -110,8 +120,10 @@ module SmartAnswer::Calculators
 
     def outcome_per_path_countries
       (countries_with_18_outcomes +
+      countries_with_19_outcomes +
       countries_with_6_outcomes +
       countries_with_2_outcomes +
+      countries_with_3_outcomes +
       countries_with_2_outcomes_marriage_or_pacs +
       countries_with_ceremony_location_outcomes +
       countries_with_1_outcome).sort
@@ -125,6 +137,10 @@ module SmartAnswer::Calculators
       country_outcomes(:countries_with_2_outcomes)
     end
 
+    def countries_with_3_outcomes
+      country_outcomes(:countries_with_3_outcomes)
+    end
+
     def countries_with_2_outcomes_marriage_or_pacs
       country_outcomes(:countries_with_2_outcomes_marriage_or_pacs)
     end
@@ -135,6 +151,10 @@ module SmartAnswer::Calculators
 
     def countries_with_18_outcomes
       country_outcomes(:countries_with_18_outcomes)
+    end
+
+    def countries_with_19_outcomes
+      country_outcomes(:countries_with_19_outcomes)
     end
 
     def countries_with_ceremony_location_outcomes

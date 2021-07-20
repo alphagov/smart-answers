@@ -1,4 +1,6 @@
-<% if calculator.partner_is_same_sex? %>
+<% if calculator.is_civil_partnership? %>
+  Opposite sex civil partnership in Panama
+<% elsif calculator.partner_is_same_sex? %>
   Civil partnership and same sex marriage in Panama
 <% else %>
   Marriage in Panama

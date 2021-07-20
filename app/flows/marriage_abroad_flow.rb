@@ -97,10 +97,30 @@ class MarriageAbroadFlow < SmartAnswer::Flow
         calculator.sex_of_your_partner = response
       end
 
-      next_node do
-        if calculator.has_outcome_per_path?
+      next_node do |response|
+        if calculator.offers_consular_opposite_sex_civil_partnership? && response == "opposite_sex"
+          if calculator.ceremony_country == "vietnam" && calculator.partner_nationality == "partner_local"
+            outcome :outcome_marriage_abroad_in_country
+          else
+            question :marriage_or_civil_partnership?
+          end
+        elsif calculator.has_outcome_per_path?
           outcome :outcome_marriage_abroad_in_country
         end
+      end
+    end
+
+    # Q6
+    radio :marriage_or_civil_partnership? do
+      option :marriage
+      option :civil_partnership
+
+      on_response do |response|
+        calculator.type_of_ceremony = response
+      end
+
+      next_node do
+        outcome :outcome_marriage_abroad_in_country
       end
     end
 
