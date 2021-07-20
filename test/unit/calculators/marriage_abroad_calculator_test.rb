@@ -693,6 +693,22 @@ module SmartAnswer
         end
       end
 
+      context "#offers_consular_opposite_sex_civil_partnership?" do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should "return true if a consular opposite sex civil partnership is available in the ceremony country" do
+          @calculator.ceremony_country = "japan"
+          assert @calculator.offers_consular_opposite_sex_civil_partnership?
+        end
+
+        should "return false if a consular opposite sex civil partnership is not available in the ceremony country" do
+          @calculator.ceremony_country = "country-without-pacs"
+          assert_not @calculator.offers_consular_opposite_sex_civil_partnership?
+        end
+      end
+
       context "#services_payment_partial_name" do
         should "return nil if there's no data for the ceremony country" do
           calculator = MarriageAbroadCalculator.new(services_data: {})
