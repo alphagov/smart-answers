@@ -19,6 +19,7 @@ module SmartAnswer
 
     def initialize
       @nodes = []
+      @additional_parameters = []
       status(:draft)
     end
 
