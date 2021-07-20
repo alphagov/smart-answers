@@ -44,6 +44,11 @@ module SmartAnswer
       @response_store
     end
 
+    def additional_parameters(additional_parameters = nil)
+      @additional_parameters = additional_parameters unless additional_parameters.nil?
+      @additional_parameters
+    end
+
     def use_hide_this_page(use_hide_this_page)
       raise "This flow is not session based" unless response_store == :session
 
