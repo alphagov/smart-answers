@@ -1,6 +1,6 @@
 # Landing page template
 
-Landing page templates live in `lib/smart_answer_flows/<flow-name>/start.erb`.
+Landing page templates live in `app/flows/<flow-name>/start.erb`.
 
 ## Content types
 

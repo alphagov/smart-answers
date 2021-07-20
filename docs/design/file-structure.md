@@ -3,11 +3,8 @@
 This is an overview of the components that make up a single Smart Answer.
 
 ```
-lib
-|__ smart_answer
-|   |__ calculators
-|       |__ <calculator-name>.rb (Optional: Object encapsulating business logic for the flow)
-|__ smart_answer_flows
+app
+|__ flows
     |__ <flow-name>.rb (Required: Flow and question logic)
     |__ <flow-name>
     |   |__ start.erb (Optional: Content for the landing page)
@@ -21,4 +18,8 @@ lib
     |        |__ _<partial-name>.erb (Optional: Useful when you need to share content between Smart Answers)
     |__ shared_logic
         |__ <shared-logic-name>.rb (Optional: Useful when you need to share flow and question logic between Smart Answers)
+lib
+|__ smart_answer
+    |__ calculators
+        |__ <calculator-name>.rb (Optional: Object encapsulating business logic for the flow)
 ```

@@ -37,7 +37,7 @@ This walks through the basics of manually creating a new Smart Answer.
 Start by creating a new file to hold the logic of our flow:
 
 ```bash
-$ touch lib/smart_answer_flows/example-smart-answer.rb
+$ touch app/flows/example_smart_answer_flow.rb
 ```
 
 Open the new file in your editor and copy/paste this skeleton flow:
@@ -69,8 +69,8 @@ If you were to run `rails server` and visit [http://localhost:3000/example-smart
 Create a new file for our landing page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer
-$ touch lib/smart_answer_flows/example-smart-answer/start.erb
+$ mkdir app/flows/example_smart_answer_flow
+$ touch app/flows/example_smart_answer_flow/start.erb
 ```
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
@@ -100,8 +100,8 @@ Click "Start now" to visit the first question. You should see an error message i
 Create a new file for our question page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer/questions
-$ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.erb
+$ mkdir app/flows/example_smart_answer_flow/questions
+$ touch app/flows/example_smart_answer_flow/questions/question_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
@@ -131,8 +131,8 @@ Enter any value in the text field and click "Continue". You should see an error 
 Create a new file for our outcome page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer/outcomes
-$ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.erb
+$ mkdir app/flows/example_smart_answer_flow/outcomes
+$ touch app/flows/example_smart_answer/outcomes/outcome_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!

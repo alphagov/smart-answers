@@ -4,24 +4,20 @@ At the heart of each Smart Answer is a subclass of `SmartAnswer::Flow`. Subclass
 
 ## Naming
 
-The flow filename should be based on the path where the Smart Answer is to be found on gov.uk. For example, for a Smart Answer at https://www.gov.uk/example-smart-answer, the flow file should be named `lib/smart_answer_flows/example-smart-answer.rb`. Similarly the template directory should be named `lib/smart_answer_flows/example-smart-answer/`.
+The flow filename should be based on the path where the Smart Answer is to be found on gov.uk. For example, for a Smart Answer at https://www.gov.uk/example-smart-answer, the flow file should be named `app/flows/example_smart_answer_flow.rb`. Similarly the template directory should be named `app/flows/example_smart_answer_flow/`.
 
-The flow class should be a camel-case version of the flow filename with the suffix, `Flow` e.g. in the case above it would be `ExampleSmartAnswerFlow`. The class should inherit from `SmartAnswer::Flow` and be in the `SmartAnswer` namespace.
+The flow class should be a camel-case version of the flow filename e.g. in the case above it would be `ExampleSmartAnswerFlow`. The class should inherit from `SmartAnswer::Flow`.
 
 For example:
 
 ```ruby
-# lib/smart_answer_flows/example-smart-answer/example-smart-answer.rb
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      # flow definition specified here
-    end
+# app/flows/example_smart_answer_flow.rb
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    # flow definition specified here
   end
 end
 ```
-
-> Note that much of the above does not follow standard Ruby or Rails conventions which isn't ideal. However, the plan is to move towards using such conventions as soon as possible.
 
 ## Definition
 
@@ -45,15 +41,13 @@ It's important to understand this distinction between "flow definition time" and
 There are a number of methods on `SmartAnswer::Flow` which allow "metadata" for the flow to be specified:
 
 ```ruby
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
-      content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
-      status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
+    content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
+    status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
 
-      # question & outcome definitions specified here
-    end
+    # question & outcome definitions specified here
   end
 end
 ```
@@ -93,22 +87,20 @@ Question nodes are defined by calls to one of the various [question-type methods
 For example:
 
 ```ruby
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      # self = instance of SmartAnswer::Flow
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    # self = instance of SmartAnswer::Flow
 
-      # metadata specified here
+    # metadata specified here
 
-      radio :question_key do
-        option :option_key_1
-        option :option_key_2
+    radio :question_key do
+      option :option_key_1
+      option :option_key_2
 
-        # optional blocks specified here
+      # optional blocks specified here
 
-        next_node do
-          # routing logic specified here
-        end
+      next_node do
+        # routing logic specified here
       end
     end
   end

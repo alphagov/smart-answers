@@ -1,6 +1,6 @@
 # Question templates
 
-Question templates live in `lib/smart_answer_flows/<flow-name>/questions/<question-name>.erb`.
+Question templates live in `app/flows/<flow-name>/questions/<question-name>.erb`.
 
 ## Content types
 
