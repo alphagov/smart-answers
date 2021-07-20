@@ -1,5 +1,7 @@
 class ResponseStore
-  def initialize(responses:)
+  def initialize(responses: {}, user_response_keys: [], additional_keys: [])
+    @user_response_keys = user_response_keys
+    @additional_keys = additional_keys
     @store = responses
   end
 
