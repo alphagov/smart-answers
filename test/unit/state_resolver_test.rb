@@ -107,16 +107,6 @@ module SmartAnswer
         assert_equal ({}), state.accepted_responses
         assert_nil state.current_response
       end
-
-      should "maintain forwarding responses from the response_store" do
-        @flow.response_store(:query_parameters)
-        responses = { "x" => "yes", "y" => "no", "z" => "yes" }
-        response_store = ResponseStore.new(responses: responses)
-
-        state = @state_resolver.state_from_response_store(response_store, "y")
-
-        assert_equal responses, state.forwarding_responses
-      end
     end
 
     context "#state_from_params" do

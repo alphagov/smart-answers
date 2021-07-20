@@ -19,7 +19,6 @@ module SmartAnswer
       state = State.new(:start_node)
       assert_equal :start_node, state.current_node_name
       assert_equal ({}), state.accepted_responses
-      assert_equal ({}), state.forwarding_responses
       assert_nil state.current_response
       assert_nil state.error
     end
