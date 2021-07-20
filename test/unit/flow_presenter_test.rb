@@ -107,12 +107,13 @@ class FlowPresenterTest < ActiveSupport::TestCase
 
   test "#change_answer_link returns a previous question link for a response store flow" do
     @flow.response_store(:query_parameters)
-    state = SmartAnswer::State.new(:second_question_key, forwarding_responses: { first_question_key: "answer" })
+    forwarding_responses = { first_question_key: "answer" }
+    state = SmartAnswer::State.new(:second_question_key, forwarding_responses: forwarding_responses)
     flow_presenter = FlowPresenter.new(@flow, state)
     question = OpenStruct.new(node_slug: "foo")
     assert_equal(
       "/#{@flow.name}/foo?first_question_key=answer",
-      flow_presenter.change_answer_link(question),
+      flow_presenter.change_answer_link(question, forwarding_responses),
     )
   end
 
@@ -122,7 +123,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
     questions = flow_presenter.answered_questions
     assert_equal(
       "/#{@flow.name}/y/question-1-answer?previous_response=question-2-answer",
-      flow_presenter.change_answer_link(questions.last),
+      flow_presenter.change_answer_link(questions.last, {}),
     )
   end
 
