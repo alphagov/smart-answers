@@ -180,7 +180,7 @@ new_state.equal?(state) # => false (i.e. they are *different* instances)
 new_state.example_state_variable # => 123
 ```
 
-It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the _same_ instances of those other object - those objects will *not* themselves be duplicated. The *only* exceptions to this are two built-in state variables, `responses` & `path` ([see below](#built-in-state-variables)) which are themselves duplicated using `Object#dup` in `State#initialize_copy`.
+It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the _same_ instances of those other object - those objects will *not* themselves be duplicated. The exceptions to this are built-in state variables: `accepted_responses` and `forwarding_responses` ([see below](#built-in-state-variables)), these are duplicated using `Object#dup` in `State#initialize_copy`.
 
 ```ruby
 state = SmartAnswer::State.new(:first_node)
@@ -197,19 +197,19 @@ It's possible to [view the state](viewing-state.md) when you're running the app 
 
 ##### Built-in state variables
 
-* `current_node` - symbol key for the node being processed
-* `path` - array of symbol keys for nodes previously processed
-* `responses` - user responses parsed from request path; usually strings (?)
-* `response` - always `nil` (?)
+* `current_node_name` - symbol key for the node being processed
+* `accepted_responses` - hash of symbol keys for nodes previously processed with the answer input
+* `forwarding_responses` - hash of unprocessed user input of questions, used to store answers when returning to previous nodes
+* `current_response` - the user input provided for the current question if provided
 * `error` - key for validation error message to display; usually a string (?)
 
 ```ruby
 state = SmartAnswer::State.new(:first_node)
-# => #<SmartAnswer::State current_node=:first_node, path=[], responses=[], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:first_node, accepted_responses={}, forwarding_responses={}, current_response=nil, error=nil>
 first_state = state.transition_to(:second_node, 'first-response')
-# => #<SmartAnswer::State current_node=:second_node, path=[:first_node], responses=["first-response"], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:second_node, accepted_responses={:first_node=>"first-response"}, forwarding_responses={}, current_response=nil, error=nil> 
 second_state = first_state.transition_to(:third_node, 'second-response')
-# => #<SmartAnswer::State current_node=:third_node, path=[:first_node, :second_node], responses=["first-response", "second-response"], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:third_node, accepted_responses={:first_node=>"first-response", :second_node=>"second-response"}, forwarding_responses={}, current_response=nil, error=nil>
 ```
 
 > Note that some of the application code (e.g. illegal radio response) erroneously sets the error key to the validation error message *string*. Since this string is not the *key* to an error message, the default error message is displayed.
