@@ -4,7 +4,7 @@ require "minitest/autorun"
 class BrokenLinkReportTest < ActiveSupport::TestCase
   def path
     # Defaulting path to only radio-sample flow to limit scope of most tests (simpler and faster)
-    @path ||= Rails.root.join "test/fixtures/smart_answer_flows/radio-sample"
+    @path ||= Rails.root.join "test/fixtures/smart_answer_flows/radio_sample_flow"
   end
 
   def broken_link_report
@@ -111,9 +111,9 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
       assert broken_link_report.folders.length > 1
     end
 
-    should "include radio-sample as child if path is to smart_answers_flows" do
+    should "include radio_sample_flow as child if path is to smart_answers_flows" do
       @path = Rails.root.join "test/fixtures/smart_answer_flows"
-      assert_includes broken_link_report.folders.map(&:name), "radio-sample"
+      assert_includes broken_link_report.folders.map(&:name), "radio_sample_flow"
     end
   end
 
@@ -126,7 +126,7 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
 
   context "Folder#name" do
     should "be the name of the parent folder" do
-      assert_equal "radio-sample", folder.name
+      assert_equal "radio_sample_flow", folder.name
     end
   end
 
