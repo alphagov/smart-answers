@@ -10,20 +10,20 @@ class SmartAnswerGeneratorTest < Rails::Generators::TestCase
     assert_nothing_raised do
       run_generator %w[example_smart_answer]
 
-      assert_file "lib/smart_answer_flows/example-smart-answer.rb" do |content|
+      assert_file "app/flows/example_smart_answer_flow.rb" do |content|
         assert_match(/ExampleSmartAnswerFlow/, content)
         assert_match(/name "example-smart-answer"/, content)
         assert_match(/content_id/, content)
         assert_match(/status :draft/, content)
       end
 
-      assert_file "lib/smart_answer_flows/example-smart-answer/start.erb" do |content|
+      assert_file "app/flows/example_smart_answer_flow/start.erb" do |content|
         assert_match(/Example smart answer/, content)
       end
 
-      assert_file "lib/smart_answer_flows/example-smart-answer/questions/question.erb"
+      assert_file "app/flows/example_smart_answer_flow/questions/question.erb"
 
-      assert_file "lib/smart_answer_flows/example-smart-answer/outcomes/results.erb"
+      assert_file "app/flows/example_smart_answer_flow/outcomes/results.erb"
 
       assert_file "lib/smart_answer/calculators/example_smart_answer_calculator.rb" do |content|
         assert_match(/ExampleSmartAnswer/, content)

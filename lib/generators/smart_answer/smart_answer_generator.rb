@@ -2,7 +2,7 @@ class SmartAnswerGenerator < Rails::Generators::NamedBase
   source_root File.expand_path("templates", __dir__)
 
   def copy_flow
-    filename = "lib/smart_answer_flows/#{name.dasherize}.rb"
+    filename = "app/flows/#{name.underscore}_flow.rb"
     copy_file "flow.rb", filename
 
     gsub_file filename, "SmartAnswerName", name.camelize
@@ -17,19 +17,19 @@ class SmartAnswerGenerator < Rails::Generators::NamedBase
   end
 
   def copy_landing
-    filename = "lib/smart_answer_flows/#{name.dasherize}/start.erb"
+    filename = "app/flows/#{name.underscore}_flow/start.erb"
     copy_file "landing.erb", filename
 
     gsub_file filename, "TITLE", name.humanize
   end
 
   def copy_question
-    filename = "lib/smart_answer_flows/#{name.dasherize}/questions/question.erb"
+    filename = "app/flows/#{name.underscore}_flow/questions/question.erb"
     copy_file "question.erb", filename
   end
 
   def copy_results
-    filename = "lib/smart_answer_flows/#{name.dasherize}/outcomes/results.erb"
+    filename = "app/flows/#{name.underscore}_flow/outcomes/results.erb"
     copy_file "results.erb", filename
   end
 

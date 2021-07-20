@@ -5,8 +5,8 @@ Example:
     rails generate smart_answer foo_bar
 
     This will create:
-        lib/smart_answer_flows/foo_bar.rb
-        lib/smart_answer_flows/foo_bar/start.erb
-        lib/smart_answer_flows/foo_bar/questions/question.erb
-        lib/smart_answer_flows/foo_bar/outcomes/results.erb
+        app/flows/foo_bar_flow.rb
+        app/flows/foo_bar_flow/start.erb
+        app/flows/foo_bar_flow/questions/question.erb
+        app/flows/foo_bar_flow/outcomes/results.erb
         lib/smart_answer/calculators/foo_bar_calculator.rb
