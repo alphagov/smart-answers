@@ -6,7 +6,7 @@ module FlowHelper
   def response_store
     @response_store ||= begin
       keys = {
-        user_response_keys: flow.nodes.map(&:name),
+        user_response_keys: flow.questions.map { |node| node.name.to_s },
         additional_keys: flow.additional_parameters,
       }
 

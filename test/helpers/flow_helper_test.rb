@@ -26,7 +26,10 @@ class FlowHelperTest < ActionView::TestCase
         stubs(:flow).returns(flow_object)
 
         SessionResponseStore.expects(:new).with(
-          flow_name: params[:id], session: session,
+          flow_name: params[:id],
+          session: session,
+          user_response_keys: [],
+          additional_keys: [],
         ).returns(store)
 
         assert_same store, response_store
@@ -49,7 +52,9 @@ class FlowHelperTest < ActionView::TestCase
         stubs(:flow).returns(flow_object)
 
         ResponseStore.expects(:new).with(
-          responses: { "question1": "response1" },
+          query_parameters: { "question1": "response1", "key": "value" },
+          user_response_keys: %w[question1],
+          additional_keys: [],
         ).returns(store)
 
         assert_same store, response_store

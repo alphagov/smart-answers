@@ -55,4 +55,15 @@ class ResponseStoreTest < ActiveSupport::TestCase
       assert_equal(responses, response_store.forwarding_responses)
     end
   end
+
+  context "#clear_user_responses" do
+    should "clear only responses that match user response keys" do
+      responses = { k1: "v1", k2: "v2", k3: "v3" }
+      response_store = ResponseStore.new(responses: responses,
+                                         user_response_keys: %i[k2 k3])
+
+      response_store.clear_user_responses
+      assert_equal({ k1: "v1" }, response_store.all)
+    end
+  end
 end

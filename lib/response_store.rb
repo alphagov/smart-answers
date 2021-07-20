@@ -21,6 +21,10 @@ class ResponseStore
     @store = {}
   end
 
+  def clear_user_responses
+    @user_response_keys.each { |key| all.delete(key) }
+  end
+
   def forwarding_responses
     all
   end
