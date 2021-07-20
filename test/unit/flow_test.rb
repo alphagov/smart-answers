@@ -76,6 +76,14 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.hide_previous_answers_on_results_page?
   end
 
+  test "setting additional parameters" do
+    s = SmartAnswer::Flow.build do
+      additional_parameters %i[param1 param2]
+    end
+
+    assert_equal %i[param1 param2], s.additional_parameters
+  end
+
   test "Can set the content_id" do
     s = SmartAnswer::Flow.build do
       content_id "587920ff-b854-4adb-9334-451b45652467"

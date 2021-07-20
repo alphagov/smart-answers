@@ -4,6 +4,7 @@ class NextStepsForYourBusinessFlow < SmartAnswer::Flow
     content_id "4d7751b5-d860-4812-aa36-5b8c57253ff2"
     status :published
     response_store :query_parameters
+    additional_parameters %i[ct crn]
 
     # ======================================================================
     # Will your business take more than £85,000 in a 12 month period?
