@@ -56,9 +56,9 @@ class FlowPresenter
     end
   end
 
-  def start_page_link
+  def start_page_link(forwarding_responses)
     if response_store
-      start_flow_path(name)
+      start_flow_path(name, params: forwarding_responses)
     else
       smart_answer_path(name)
     end

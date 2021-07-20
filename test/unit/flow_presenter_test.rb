@@ -129,12 +129,11 @@ class FlowPresenterTest < ActiveSupport::TestCase
 
   test "#start_page_link returns the start page link for a response store flow" do
     @flow.response_store(:query_parameters)
-    state = SmartAnswer::State.new(:first_question_key)
-    flow_presenter = FlowPresenter.new(@flow, state)
-    assert_equal "/flow-name/start", flow_presenter.start_page_link
+    flow_presenter = FlowPresenter.new(@flow, nil)
+    assert_equal "/flow-name/start?key=value", flow_presenter.start_page_link({ "key" => "value" })
   end
 
   test "#start_page_link returns the start page link for a non response store flow" do
-    assert_equal "/flow-name/y", @flow_presenter.start_page_link
+    assert_equal "/flow-name/y", @flow_presenter.start_page_link({ "key" => "value" })
   end
 end
