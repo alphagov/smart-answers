@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
-    attr_accessor :ceremony_country, :marriage_or_pacs
-    attr_writer :resident_of, :partner_nationality, :sex_of_your_partner
+    attr_accessor :ceremony_country, :marriage_or_pacs, :partner_nationality
+    attr_writer :resident_of, :sex_of_your_partner
 
     def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
@@ -140,6 +140,10 @@ module SmartAnswer::Calculators
 
     def ceremony_country_is_dutch_caribbean_island?
       @data_query.dutch_caribbean_islands?(ceremony_country)
+    end
+
+    def offers_consular_opposite_sex_civil_partnership?
+      @data_query.offers_consular_opposite_sex_civil_partnership?(ceremony_country)
     end
 
     def ceremony_country_offers_pacs?
