@@ -8,14 +8,10 @@ module SmartAnswer
       @load_path = FlowRegistry.instance.load_path
     end
 
-    test "#template_directory returns flows load path if flow has no name" do
-      assert_equal Pathname.new(@load_path), @node.template_directory
-    end
+    test "#template_directory returns the path to the templates based on the class name" do
+      @flow.class.stubs(:name).returns("MyFlow")
 
-    test "#template_directory returns the path to the templates belonging to the flow" do
-      @flow.name("flow-name")
-
-      expected_directory = Pathname.new(@load_path).join("flow-name")
+      expected_directory = Pathname.new(@load_path).join("my_flow")
       assert_equal expected_directory, @node.template_directory
     end
 
