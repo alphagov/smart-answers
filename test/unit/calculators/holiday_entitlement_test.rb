@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
           end
 
           # Dept Test 6 is a data entry validation for entering 8 days a week covered in
-          # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # test/integration/flows/calculate_your_holiday_entitlement_test.rb
         end
       end
 
@@ -433,7 +433,7 @@ module SmartAnswer::Calculators
           end
 
           # Dept Test 24 is a data entry validation to ensure leave date is after start date covered in
-          # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # test/integration/flows/calculate_your_holiday_entitlement_test.rb
         end
       end
     end
@@ -494,7 +494,7 @@ module SmartAnswer::Calculators
         end
 
         # Test 7 is a data entry validation test implemented in
-        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
         #  /compressed-hours/starting/2020-07-14/2019-11-01/26.0/2.0
         should "for starting part way through a leave year (Test 8)" do
@@ -530,7 +530,7 @@ module SmartAnswer::Calculators
         end
 
         # Tests 11 and 12 are data entry validation tests implemented in
-        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
         # /compressed-hours/leaving/2019-07-10/2018-11-01/33.0/3.0
         should "for leaving part way through a leave year (Test 13)" do
@@ -544,7 +544,7 @@ module SmartAnswer::Calculators
         end
 
         # Test 14 is a data entry validation test implemented in
-        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
         # /compressed-hours/leaving/2020-03-18/2019-10-01/73.0/7.0
         should "for leaving part way through a leave year (Test 15)" do
@@ -558,7 +558,7 @@ module SmartAnswer::Calculators
         end
 
         # Tests 16-18 are a data entry validation tests implemented in
-        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
         # /compressed-hours/starting-and-leaving/2018-05-10/2018-12-04/35.0/3.0
         should "starting and leaving part way through a leave year (Test 19)" do
@@ -605,7 +605,7 @@ module SmartAnswer::Calculators
         end
 
         # Test 23 is a data entry validation test implemented in
-        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
         # /compressed-hours/starting-and-leaving/2020-03-01/2020-06-01/37.5/5.0
         should "starting and leaving part way through a leave year (Test 24)" do
@@ -1177,7 +1177,7 @@ module SmartAnswer::Calculators
           end
 
           # Test 10 is a data entry validation test implemented in
-          # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
           # Dept Test 11 - /shift-worker/starting/2019-06-12/2019-03-19/4.0/6/7.0
           should "for 6 shifts over 7 days (Test 11)" do
@@ -1739,7 +1739,7 @@ module SmartAnswer::Calculators
           end
 
           # Dept Test 15 is a data entry validation to ensure leaving date is before leave year starts
-          # covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # covered in test/integration/flows/calculate_your_holiday_entitlement_test.rb
         end
       end
 
@@ -1852,7 +1852,7 @@ module SmartAnswer::Calculators
           end
 
           # Dept Test 22 is a data entry validation to ensure leaving date is before leave year starts
-          # covered in test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # covered in test/integration/flows/calculate_your_holiday_entitlement_test.rb
         end
       end
     end
@@ -2052,7 +2052,7 @@ module SmartAnswer::Calculators
           end
 
           # department test 10 is data validation to ensure leaving date is after leave year start
-          # this is covered in  test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+          # this is covered in  test/integration/flows/calculate_your_holiday_entitlement_test.rb
 
           # /annualised-hours/leaving/2018-12-30/2018-06-01
           should "dept test 11" do
