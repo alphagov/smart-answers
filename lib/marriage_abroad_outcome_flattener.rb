@@ -2,7 +2,7 @@ require "rails/console/app"
 
 # TODO: Break this class up a bit
 class MarriageAbroadOutcomeFlattener
-  COUNTRIES_DIR = "lib/smart_answer_flows/marriage-abroad/outcomes/countries".freeze
+  COUNTRIES_DIR = "app/flows/marriage_abroad_flow/outcomes/countries".freeze
 
   include Rails::ConsoleMethods
 

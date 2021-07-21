@@ -56,11 +56,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "render links to code" do
       get :index
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/lib/smart_answer_flows/flow-a.rb']", text: "Definition"
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/lib/smart_answer_flows/flow-a']", text: "Content files"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-a.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-a']", text: "Content files"
 
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/lib/smart_answer_flows/flow-b.rb']", text: "Definition"
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/lib/smart_answer_flows/flow-b']", text: "Content files"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-b.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-b']", text: "Content files"
     end
   end
 

@@ -61,7 +61,7 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
 
   context ".for_erb_files_at" do
     should "return the summary report for live flows" do
-      @path = Rails.root.join("lib/smart_answer_flows")
+      @path = Rails.root.join("app/flows")
       LinkChecker.stub :new, mock_link_checker do
         report = BrokenLinkReport.for_erb_files_at(@path)
         assert_equal broken_link_report.summary_report, report

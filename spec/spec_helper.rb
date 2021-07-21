@@ -5,7 +5,7 @@ ENV["RAILS_ENV"] ||= "test"
 require "simplecov"
 
 SimpleCov.start "rails" do
-  add_group "Smart Answer Flows", "lib/smart_answer_flows"
+  add_group "Smart Answer Flows", "app/flows"
 end
 
 require File.expand_path("../config/environment", __dir__)

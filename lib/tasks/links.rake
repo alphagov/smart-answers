@@ -1,4 +1,4 @@
-SMART_ANSWER_FLOW_PATH = Rails.root.join "lib/smart_answer_flows"
+SMART_ANSWER_FLOW_PATH = Rails.root.join("app/flows")
 
 namespace :links do
   desc "Checks all URLs within Smart Answers for errors."

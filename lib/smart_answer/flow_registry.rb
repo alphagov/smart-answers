@@ -1,7 +1,7 @@
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
-    FLOW_DIR = Rails.root.join("lib/smart_answer_flows")
+    FLOW_DIR = Rails.root.join("app/flows")
 
     attr_reader :flows, :load_path
 
