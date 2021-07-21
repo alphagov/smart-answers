@@ -10,12 +10,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
   context "GET /" do
     setup do
       @flow_a = stub(name: "flow-a",
+                     class: stub(name: "FlowA"),
                      status: :published,
                      questions: stub(count: 2),
                      outcomes: stub(count: 3),
                      start_node: stub(presenter: stub(title: "Flow A")))
 
       @flow_b = stub(name: "flow-b",
+                     class: stub(name: "FlowB"),
                      status: :draft,
                      questions: stub(count: 3),
                      outcomes: stub(count: 0),
@@ -56,11 +58,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "render links to code" do
       get :index
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-a.rb']", text: "Definition"
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-a']", text: "Content files"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow_a.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow_a']", text: "Content files"
 
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-b.rb']", text: "Definition"
-      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow-b']", text: "Content files"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow_b.rb']", text: "Definition"
+      assert_select "table td a[href='https://www.github.com/alphagov/smart-answers/blob/main/app/flows/flow_b']", text: "Content files"
     end
   end
 

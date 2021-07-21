@@ -21,7 +21,7 @@
             { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
             { text: flow.questions.count },
             { text: flow.outcomes.count },
-            { text: code_links(flow.name) },
+            { text: code_links(flow.class) },
             { text: link_to('Visualise', visualise_path(flow.name)) },
           ]
         end

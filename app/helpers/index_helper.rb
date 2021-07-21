@@ -11,9 +11,9 @@ module IndexHelper
     end
   end
 
-  def code_links(flow_name)
-    link_to("Definition", "https://www.github.com/alphagov/smart-answers/blob/main/app/flows/#{flow_name}.rb") +
+  def code_links(flow_class)
+    link_to("Definition", "https://www.github.com/alphagov/smart-answers/blob/main/app/flows/#{flow_class.name.underscore}.rb") +
       tag.br +
-      link_to("Content files", "https://www.github.com/alphagov/smart-answers/blob/main/app/flows/#{flow_name}")
+      link_to("Content files", "https://www.github.com/alphagov/smart-answers/blob/main/app/flows/#{flow_class.name.underscore}")
   end
 end
