@@ -70,7 +70,7 @@ Some flows (e.g. [register-a-birth][local-variable-in-flow-definition]) define l
 
 Every flow has an implicit start node which represents the "landing page" i.e. the page which displays the "Start" button. There is no representation of this start node in the flow definition. Clicking the "Start" button on the "landing page" takes you to the page for the first question node (see below).
 
-Also see the documentation for [landing page templates](/docs/smart-answers/erb-templates/landing-page-template.md).
+Also see the documentation for [landing page templates](erb-templates/landing-page-template.md).
 
 ### Question nodes
 
@@ -251,7 +251,7 @@ Each of these block types and the point at which they are executed is explained 
   1. A `SmartAnswer::InvalidResponse` exception is raised with the `message_key` set as the exception message.
   2. This exception is handled within the app and prevents the transition to the next node.
   3. The `message_key` from the exception message is set on the built-in state variable, `error`.
-  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](/docs/smart-answers/erb-templates/question-templates.md#error_messagemessage).
+  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](erb-templates/question-templates.md#error_messagemessage).
 
 > The use of these blocks is encouraged. However, they should call `valid_xxx?` methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
@@ -283,7 +283,7 @@ See the [documentation on storing data](storing-data.md).
 
 #### Templates
 
-See the [documentation for question templates](/docs/smart-answers/erb-templates/question-templates.md).
+See the [documentation for question templates](erb-templates/question-templates.md).
 
 ### Outcome nodes
 
@@ -295,7 +295,7 @@ If any attempt is made to process a response when the current node is an outcome
 
 #### Templates
 
-See the [documentation for outcome templates](/docs/smart-answers/erb-templates/outcome-templates.md).
+See the [documentation for outcome templates](erb-templates/outcome-templates.md).
 
 [instance-eval]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_eval
 [instance-exec]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_exec
