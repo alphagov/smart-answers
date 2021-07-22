@@ -37,7 +37,7 @@ This walks through the basics of manually creating a new Smart Answer.
 Start by creating a new file to hold the logic of our flow:
 
 ```bash
-$ touch lib/smart_answer_flows/example-smart-answer.rb
+$ touch app/flows/example_smart_answer_flow.rb
 ```
 
 Open the new file in your editor and copy/paste this skeleton flow:
@@ -69,8 +69,8 @@ If you were to run `rails server` and visit [http://localhost:3000/example-smart
 Create a new file for our landing page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer
-$ touch lib/smart_answer_flows/example-smart-answer/start.erb
+$ mkdir app/flows/example_smart_answer_flow
+$ touch app/flows/example_smart_answer_flow/start.erb
 ```
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
@@ -91,7 +91,7 @@ Open the new landing page template your editor and copy/paste the following cont
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [landing page templates](/docs/smart-answers/erb-templates/landing-page-template.md).
+Read more about [landing page templates](../design/erb-templates/landing-page-template.md).
 
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 
@@ -100,8 +100,8 @@ Click "Start now" to visit the first question. You should see an error message i
 Create a new file for our question page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer/questions
-$ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.erb
+$ mkdir app/flows/example_smart_answer_flow/questions
+$ touch app/flows/example_smart_answer_flow/questions/question_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
@@ -122,7 +122,7 @@ Open the new question page template in your editor and copy/paste the following 
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [question page templates](/docs/smart-answers/erb-templates/question-templates.md).
+Read more about [question page templates](../design/erb-templates/question-templates.md).
 
 Enter any value in the text field and click "Continue". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
@@ -131,8 +131,8 @@ Enter any value in the text field and click "Continue". You should see an error 
 Create a new file for our outcome page template.
 
 ```
-$ mkdir lib/smart_answer_flows/example-smart-answer/outcomes
-$ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.erb
+$ mkdir app/flows/example_smart_answer_flow/outcomes
+$ touch app/flows/example_smart_answer/outcomes/outcome_1.erb
 ```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
@@ -153,7 +153,7 @@ Open the new outcome page template in your editor and copy/paste the following c
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [outcome page templates](/docs/smart-answers/erb-templates/outcome-templates.md).
+Read more about [outcome page templates](../design/erb-templates/outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
 

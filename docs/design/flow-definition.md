@@ -4,24 +4,20 @@ At the heart of each Smart Answer is a subclass of `SmartAnswer::Flow`. Subclass
 
 ## Naming
 
-The flow filename should be based on the path where the Smart Answer is to be found on gov.uk. For example, for a Smart Answer at https://www.gov.uk/example-smart-answer, the flow file should be named `lib/smart_answer_flows/example-smart-answer.rb`. Similarly the template directory should be named `lib/smart_answer_flows/example-smart-answer/`.
+The flow filename should be based on the path where the Smart Answer is to be found on gov.uk. For example, for a Smart Answer at https://www.gov.uk/example-smart-answer, the flow file should be named `app/flows/example_smart_answer_flow.rb`. Similarly the template directory should be named `app/flows/example_smart_answer_flow/`.
 
-The flow class should be a camel-case version of the flow filename with the suffix, `Flow` e.g. in the case above it would be `ExampleSmartAnswerFlow`. The class should inherit from `SmartAnswer::Flow` and be in the `SmartAnswer` namespace.
+The flow class should be a camel-case version of the flow filename e.g. in the case above it would be `ExampleSmartAnswerFlow`. The class should inherit from `SmartAnswer::Flow`.
 
 For example:
 
 ```ruby
-# lib/smart_answer_flows/example-smart-answer/example-smart-answer.rb
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      # flow definition specified here
-    end
+# app/flows/example_smart_answer_flow.rb
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    # flow definition specified here
   end
 end
 ```
-
-> Note that much of the above does not follow standard Ruby or Rails conventions which isn't ideal. However, the plan is to move towards using such conventions as soon as possible.
 
 ## Definition
 
@@ -45,15 +41,13 @@ It's important to understand this distinction between "flow definition time" and
 There are a number of methods on `SmartAnswer::Flow` which allow "metadata" for the flow to be specified:
 
 ```ruby
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
-      content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
-      status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    name 'example-smart-answer' # this is the path where the Smart Answer will be registered on gov.uk (via the publishing-api)
+    content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207" # a UUID used by v2 of the Publishing API (?)
+    status :published # this indicates whether or not the flow is available to be published to live gov.uk , those with `:draft` status will be available on draft gov.uk
 
-      # question & outcome definitions specified here
-    end
+    # question & outcome definitions specified here
   end
 end
 ```
@@ -76,7 +70,7 @@ Some flows (e.g. [register-a-birth][local-variable-in-flow-definition]) define l
 
 Every flow has an implicit start node which represents the "landing page" i.e. the page which displays the "Start" button. There is no representation of this start node in the flow definition. Clicking the "Start" button on the "landing page" takes you to the page for the first question node (see below).
 
-Also see the documentation for [landing page templates](/docs/smart-answers/erb-templates/landing-page-template.md).
+Also see the documentation for [landing page templates](erb-templates/landing-page-template.md).
 
 ### Question nodes
 
@@ -93,22 +87,20 @@ Question nodes are defined by calls to one of the various [question-type methods
 For example:
 
 ```ruby
-module SmartAnswer
-  class ExampleSmartAnswerFlow < Flow
-    def define
-      # self = instance of SmartAnswer::Flow
+class ExampleSmartAnswerFlow < SmartAnswer::Flow
+  def define
+    # self = instance of SmartAnswer::Flow
 
-      # metadata specified here
+    # metadata specified here
 
-      radio :question_key do
-        option :option_key_1
-        option :option_key_2
+    radio :question_key do
+      option :option_key_1
+      option :option_key_2
 
-        # optional blocks specified here
+      # optional blocks specified here
 
-        next_node do
-          # routing logic specified here
-        end
+      next_node do
+        # routing logic specified here
       end
     end
   end
@@ -188,7 +180,7 @@ new_state.equal?(state) # => false (i.e. they are *different* instances)
 new_state.example_state_variable # => 123
 ```
 
-It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the _same_ instances of those other object - those objects will *not* themselves be duplicated. The *only* exceptions to this are two built-in state variables, `responses` & `path` ([see below](#built-in-state-variables)) which are themselves duplicated using `Object#dup` in `State#initialize_copy`.
+It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the _same_ instances of those other object - those objects will *not* themselves be duplicated. The exceptions to this are built-in state variables: `accepted_responses` and `forwarding_responses` ([see below](#built-in-state-variables)), these are duplicated using `Object#dup` in `State#initialize_copy`.
 
 ```ruby
 state = SmartAnswer::State.new(:first_node)
@@ -205,19 +197,19 @@ It's possible to [view the state](viewing-state.md) when you're running the app 
 
 ##### Built-in state variables
 
-* `current_node` - symbol key for the node being processed
-* `path` - array of symbol keys for nodes previously processed
-* `responses` - user responses parsed from request path; usually strings (?)
-* `response` - always `nil` (?)
+* `current_node_name` - symbol key for the node being processed
+* `accepted_responses` - hash of symbol keys for nodes previously processed with the answer input
+* `forwarding_responses` - hash of unprocessed user input of questions, used to store answers when returning to previous nodes
+* `current_response` - the user input provided for the current question if provided
 * `error` - key for validation error message to display; usually a string (?)
 
 ```ruby
 state = SmartAnswer::State.new(:first_node)
-# => #<SmartAnswer::State current_node=:first_node, path=[], responses=[], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:first_node, accepted_responses={}, forwarding_responses={}, current_response=nil, error=nil>
 first_state = state.transition_to(:second_node, 'first-response')
-# => #<SmartAnswer::State current_node=:second_node, path=[:first_node], responses=["first-response"], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:second_node, accepted_responses={:first_node=>"first-response"}, forwarding_responses={}, current_response=nil, error=nil> 
 second_state = first_state.transition_to(:third_node, 'second-response')
-# => #<SmartAnswer::State current_node=:third_node, path=[:first_node, :second_node], responses=["first-response", "second-response"], response=nil, error=nil>
+# => #<SmartAnswer::State current_node_name=:third_node, accepted_responses={:first_node=>"first-response", :second_node=>"second-response"}, forwarding_responses={}, current_response=nil, error=nil>
 ```
 
 > Note that some of the application code (e.g. illegal radio response) erroneously sets the error key to the validation error message *string*. Since this string is not the *key* to an error message, the default error message is displayed.
@@ -259,7 +251,7 @@ Each of these block types and the point at which they are executed is explained 
   1. A `SmartAnswer::InvalidResponse` exception is raised with the `message_key` set as the exception message.
   2. This exception is handled within the app and prevents the transition to the next node.
   3. The `message_key` from the exception message is set on the built-in state variable, `error`.
-  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](/docs/smart-answers/erb-templates/question-templates.md#error_messagemessage).
+  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](erb-templates/question-templates.md#error_messagemessage).
 
 > The use of these blocks is encouraged. However, they should call `valid_xxx?` methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
@@ -291,7 +283,7 @@ See the [documentation on storing data](storing-data.md).
 
 #### Templates
 
-See the [documentation for question templates](/docs/smart-answers/erb-templates/question-templates.md).
+See the [documentation for question templates](erb-templates/question-templates.md).
 
 ### Outcome nodes
 
@@ -303,7 +295,7 @@ If any attempt is made to process a response when the current node is an outcome
 
 #### Templates
 
-See the [documentation for outcome templates](/docs/smart-answers/erb-templates/outcome-templates.md).
+See the [documentation for outcome templates](erb-templates/outcome-templates.md).
 
 [instance-eval]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_eval
 [instance-exec]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_exec

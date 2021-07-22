@@ -11,24 +11,24 @@ Remove all the files and directories associated with the individual Smart
 Answer and their associated tests, examples of common files:
 
 - Flow class files
-  - lib/smart_answer_flows/<\smart-answer-name>.rb
+  - app/flows/<\smart-answer>\_flow.rb
 - ERB templates directory
-  - lib/smart_answer_flows/<\smart-answer-name>
+  - app/flows/<\smart-answer>\_flow
 - YAML files
-  - config/smart_answers/rates/<\smart-answer-name>.yml
-  - config/smart_answers/<\smart-answer-name>.yml
+  - config/smart_answers/rates/<\smart-answer>.yml
+  - config/smart_answers/<\smart-answer>.yml
 - Calculators, data query and other ruby files
-  - lib/smart_answer/calculators/<\smart-answer-name>\_calculator.rb
-  - lib/smart_answer/calculators/<\smart-answer-name>\_data_query.rb
+  - lib/smart_answer/calculators/<\smart-answer>\_calculator.rb
+  - lib/smart_answer/calculators/<\smart-answer>\_data_query.rb
 
 ## Removing the content item
 
 Before removing a Smart Answer you will need the content_id for the Smart
 Answer. These can be found in the
-`lib/smart_answer_flows/<\smart-answer-name>.rb` file of the Smart Answer that
+`app/flows/<\smart-answer>_flow.rb` file of the Smart Answer that
 is being retired. For redirecting or replacing a Smart Answer you will also
 need to know the paths of these pages these are based off the `name` attribute
-of the `lib/smart_answer_flows/<\smart-answer-name>.rb` file. For example, for
+of the `app/flows/<\smart-answer>_flow.rb` file. For example, for
 the Marriage Abroad Smart Answer the path is `/marriage-abroad`.
 
 ### Redirecting users to a different URL
@@ -41,7 +41,7 @@ destination, `/random`, you'd run the following rake task:
 bundle exec rake "publishing_api:unpublish_redirect[<content_id>,<base_path>,/random,prefix]"
 ```
 
-Applying this to the [Marriage Abroad](../../lib/smart_answer_flows/marriage-abroad.rb)
+Applying this to the [Marriage Abroad](../../app/flows/marriage_abroad_flow.rb)
 Smart Answer you'd run the following command:
 
 ```

@@ -1,6 +1,6 @@
 # Outcome templates
 
-Outcome templates live in `lib/smart_answer_flows/<flow-name>/outcomes/<outcome-name>.erb`.
+Outcome templates live in `app/flows/<flow-name>/outcomes/<outcome-name>.erb`.
 
 ## Content types
 
