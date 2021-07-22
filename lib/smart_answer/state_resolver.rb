@@ -5,10 +5,7 @@ module SmartAnswer
     end
 
     def state_from_response_store(response_store, requested_node = nil)
-      forwarding_responses = @flow.response_store == :session ? {} : response_store.all
-      resolve_state(start_state(forwarding_responses),
-                    response_store,
-                    requested_node)
+      resolve_state(start_state, response_store, requested_node)
     end
 
     def state_from_params(params)
@@ -43,9 +40,8 @@ module SmartAnswer
       resolve_state(next_state, response_store, requested_node)
     end
 
-    def start_state(forwarding_responses = {})
-      State.new(@flow.questions.first.name,
-                forwarding_responses: forwarding_responses).freeze
+    def start_state
+      State.new(@flow.questions.first.name).freeze
     end
 
     def apply_response_to_state(state, response)

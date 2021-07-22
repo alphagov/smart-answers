@@ -2,10 +2,9 @@ require "ostruct"
 
 module SmartAnswer
   class State < OpenStruct
-    def initialize(start_node_name, forwarding_responses: {})
+    def initialize(start_node_name)
       super(current_node_name: start_node_name,
             accepted_responses: {},
-            forwarding_responses: forwarding_responses,
             current_response: nil,
             error: nil)
     end
@@ -39,7 +38,6 @@ module SmartAnswer
     def initialize_copy(orig)
       super
       self.accepted_responses = orig.accepted_responses.dup
-      self.forwarding_responses = orig.forwarding_responses.dup
     end
   end
 end

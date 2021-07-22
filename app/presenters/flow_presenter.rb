@@ -14,7 +14,7 @@ class FlowPresenter
 
   delegate :title, :meta_description, to: :start_node
   delegate :node_slug, to: :current_node
-  delegate :accepted_responses, :forwarding_responses, :current_response, to: :state
+  delegate :accepted_responses, :current_response, to: :state
 
   def initialize(flow, state)
     @flow = flow
@@ -42,7 +42,7 @@ class FlowPresenter
     @start_node ||= @flow.start_node.presenter(flow_presenter: self)
   end
 
-  def change_answer_link(question)
+  def change_answer_link(question, forwarding_responses)
     if response_store
       flow_path(@flow.name, node_slug: question.node_slug, params: forwarding_responses)
     else
@@ -56,9 +56,9 @@ class FlowPresenter
     end
   end
 
-  def start_page_link
+  def start_page_link(forwarding_responses)
     if response_store
-      start_flow_path(name)
+      start_flow_path(name, params: forwarding_responses)
     else
       smart_answer_path(name)
     end

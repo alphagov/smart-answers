@@ -1,5 +1,7 @@
 class ResponseStore
-  def initialize(responses:)
+  def initialize(responses: {}, user_response_keys: [], additional_keys: [])
+    @user_response_keys = user_response_keys
+    @additional_keys = additional_keys
     @store = responses
   end
 
@@ -17,5 +19,13 @@ class ResponseStore
 
   def clear
     @store = {}
+  end
+
+  def clear_user_responses
+    @user_response_keys.each { |key| all.delete(key) }
+  end
+
+  def forwarding_responses
+    all
   end
 end

@@ -12,8 +12,10 @@ class FlowController < ApplicationController
   end
 
   def start
-    response_store.clear
-    redirect_to flow_path(id: params[:id], node_slug: flow.questions.first.slug)
+    response_store.clear_user_responses
+    redirect_to flow_path(id: params[:id],
+                          node_slug: flow.questions.first.slug,
+                          params: response_store.forwarding_responses)
   end
 
   def show
@@ -26,7 +28,7 @@ class FlowController < ApplicationController
     else
       redirect_to flow_path(id: params[:id],
                             node_slug: @presenter.node_slug,
-                            params: state.forwarding_responses)
+                            params: response_store.forwarding_responses)
     end
   end
 
@@ -36,7 +38,7 @@ class FlowController < ApplicationController
     presenter = FlowPresenter.new(flow, state)
     redirect_to flow_path(id: params[:id],
                           node_slug: presenter.node_slug,
-                          params: state.forwarding_responses)
+                          params: response_store.forwarding_responses)
   end
 
   def destroy

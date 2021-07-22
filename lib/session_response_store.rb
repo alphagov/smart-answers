@@ -1,7 +1,9 @@
 class SessionResponseStore < ResponseStore
-  def initialize(flow_name:, session:)
+  def initialize(flow_name:, session:, user_response_keys: [], additional_keys: [])
     @flow_name = flow_name
-    super(responses: session)
+    super(responses: session,
+          user_response_keys: user_response_keys,
+          additional_keys: additional_keys)
   end
 
   def all
@@ -11,5 +13,9 @@ class SessionResponseStore < ResponseStore
 
   def clear
     @store.delete(@flow_name)
+  end
+
+  def forwarding_responses
+    {}
   end
 end

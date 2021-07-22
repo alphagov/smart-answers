@@ -22,7 +22,7 @@
 
         <%= content_tag(:div, question.post_body, class: "govuk-!-margin-bottom-4") if question.post_body.present? %>
 
-        <% controller_name == 'flow' && @presenter.forwarding_responses.each do |name, value| %>
+        <% controller_name == 'flow' && response_store.forwarding_responses.each do |name, value| %>
           <% if value.kind_of?(Array) %>
             <% value.each do |item| %>
               <input type="hidden" name="<%= name %>[]" value="<%= item %>" />

@@ -54,4 +54,13 @@ class SessionResponseStoreTest < ActiveSupport::TestCase
       assert_equal({ "flow-2" => { "key" => "value" } }, session)
     end
   end
+
+  context "#forwarding_responses" do
+    should "return empty hash" do
+      session = { "flow" => { "key" => "value" } }
+      response_store = SessionResponseStore.new(flow_name: "flow", session: session)
+
+      assert_equal({}, response_store.forwarding_responses)
+    end
+  end
 end
