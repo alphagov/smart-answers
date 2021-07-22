@@ -8,7 +8,7 @@ module FixtureMethods
   end
 
   def fixture_flows_path
-    Rails.root.join("test/fixtures/smart_answer_flows")
+    Rails.root.join("test/fixtures/flows")
   end
 
   def require_fixture_flows

@@ -5,7 +5,7 @@ module SmartAnswer
     setup { require_fixture_flows }
 
     def registry(options = {})
-      FlowRegistry.new(options.merge(smart_answer_load_path: File.expand_path("../fixtures/smart_answer_flows", __dir__)))
+      FlowRegistry.new(options.merge(smart_answer_load_path: File.expand_path("../fixtures/flows", __dir__)))
     end
 
     test "Can load a flow from a file" do
