@@ -5,11 +5,17 @@ module SmartAnswer
     end
 
     def state_from_response_store(response_store, requested_node = nil)
-      resolve_state(start_state, response_store, requested_node)
+      start_state = State.new(@flow.questions.first.name)
+      @flow.additional_parameters.each do |param|
+        start_state[param] = response_store.get(param)
+      end
+
+      resolve_state(start_state.freeze, response_store, requested_node)
     end
 
     def state_from_params(params)
       responses = params[:responses].to_s.split("/")
+      start_state = State.new(@flow.questions.first.name).freeze
 
       state = responses.inject(start_state) do |current_state, response|
         return current_state if current_state.error
@@ -38,10 +44,6 @@ module SmartAnswer
 
       next_state = transition_state_to_next_node(state, response)
       resolve_state(next_state, response_store, requested_node)
-    end
-
-    def start_state
-      State.new(@flow.questions.first.name).freeze
     end
 
     def apply_response_to_state(state, response)
