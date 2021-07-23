@@ -1,0 +1,193 @@
+<% text_for :title do %>
+  You need a visa to work in arts or culture
+<% end %>
+
+<% govspeak_for :body do %>
+  Based on your answers, you have the following visa options.
+
+  <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
+
+  ----
+
+  ##If you're coming to work in an eligible skilled job
+
+  You may be eligible for the [Skilled Worker visa](https://www.gov.uk/skilled-worker-visa). Various arts and culture jobs are eligible for this visa, including:
+
+  + entertainers or creative artists - for example actors, dancers or musicians
+  + other creative roles - for example architects, designers or journalists
+  + many managerial or administrative roles in arts and culture
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  - having a job offer
+  - being paid a minimum salary - how much depends on the type of work you do
+  - usually proving that you can read, write, speak and understand English
+
+  ^Many arts and culture jobs are on the ‘shortage occupation list’ which means you can be paid a lower salary and pay a lower application fee.
+
+  ###How long you can stay
+
+  Your visa can last for up to 5 years. You can extend it as long as you're still eligible.
+
+  After 5 years, you may be able to apply to settle permanently in the UK.
+
+  ----
+
+  ##If your work is internationally recognised
+
+  You may be eligible for the [Global Talent visa](https://www.gov.uk/global-talent-arts-culture) if your work is internationally recognised.
+
+  You must work in one of the following fields:
+
+  + combined arts, dance, literature, music, theatre or visual arts
+  + architecture
+  + fashion design
+  + film and television, including animation, post production and visual effects
+
+  With this visa, you can:
+
+  + work in the UK without a job offer
+  + be an employee, self-employed and a director of a company
+
+  ###Eligibility
+
+  The eligibility criteria includes proving you are a leader or potential leader in your field by applying for an ‘endorsement’.
+
+  There are no English language or minimum salary eligibility requirements.
+
+  ###How long you can stay
+
+  Your visa can last for up to 5 years.  You can extend it as long as you're still eligible.
+
+  You may be able to apply to settle permanently in the UK:
+
+  + after 3 years if you're a leader in your field
+  + after 5 years if you're a potential leader in your field
+
+  ----
+
+  ##If you're coming to work as an entertainer or creative artist
+
+  You may be eligible for a [Temporary Worker - Creative and Sporting visa (T5)](https://www.gov.uk/temporary-worker-creative-and-sporting-visa) if you either:
+
+  + work or perform as an entertainer or creative artist - for example as an actor, dancer or musician
+  + provide technical or personal support to an entertainer or creative artist - for example as a member of a production crew or a personal assistant
+
+  The application fee is cheaper than the Skilled Worker or Global Talent visa.
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  + having a job offer
+  + proving that you can make a ‘unique contribution to the UK labour market' - for example you’re internationally renowned or are required for continuity
+
+  ###How long you can stay
+
+  You can stay up to 2 years in the UK on this visa. If you want to stay longer you must switch to another type of visa.
+
+  ----
+
+  ##If you work at a multinational company
+
+  You may be able to work at your employer’s UK branch with a [Intra-company transfer visa](https://www.gov.uk/intracompany-transfer-worker-visa).
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  - working in an eligible job
+  - being paid a minimum salary - how much depends on the type of work you do
+
+  ###How long you can stay
+
+  In most cases, your visa can last for up to 5 years. You may be able to extend it, depending on your salary and total time in the UK.
+
+  There are different rules if you're transferring as part of a graduate training programme. Your visa can last for up to 1 year.  If you want to stay longer you must switch to another type of visa.
+
+  ----
+
+  <% if calculator.passport_country_in_youth_mobility_scheme_list? %>
+    ##If you’re aged 18 to 30
+
+    You may be able to live and work in the UK with a [Youth Mobility Scheme visa (T5)](https://www.gov.uk/youth-mobility).
+
+    With this visa, you can:
+
+    + work in the UK without a job offer
+    + be an employee, self-employed or a director of a company
+
+    ###Eligibility
+
+    The eligibility criteria includes:
+
+    + being aged 18 to 30 when you apply
+    + depending on where you’re from, successfully applying for a ballot
+
+    ###How long you can stay
+
+    Your visa can last for up to 2 years.  If you want to stay longer you must switch to another type of visa.
+
+    ----
+  <% end %>
+
+  ##If you’re a citizen of a Commonwealth country
+
+  You may be able to live and work in the UK with a [UK Ancestry visa](https://www.gov.uk/ancestry-visa) if one of your grandparents was born in the UK.
+
+  With this visa, you can:
+
+  + work in the UK without a job offer
+  + be an employee, self-employed or a director of a company
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  + being from a [Commonwealth country](https://thecommonwealth.org/member-countries)
+  + proving that one of your grandparents was born in the UK, the Channel Islands or the Isle of Man
+  + being aged 17 or over
+
+
+  ###How long you can stay
+
+  This visa lasts for 5 years. After this time, you may be able to apply to either:
+
+  + extend it for a further 5 years
+  + settle permanently in the UK
+
+  ----
+
+  ##If you work for an overseas news or broadcasting organisation
+
+  If you are being posted on a long-term assignment to the UK, you may be eligible for a [Representative of an Overseas Business visa](https://www.gov.uk/representative-overseas-business).
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  + usually proving that you can read, write, speak and understand English
+  + working for an overseas news or broadcasting organisation
+
+  ###How long you can stay
+
+  Your visa can last for up to 3 years. You can extend it for another 2 years as long as you're still eligible.
+
+  After 5 years, you may be able to settle permanently in the UK.
+
+  ----
+
+  ##If you're coming for a work experience scheme
+
+  You may be eligible for a [Temporary Worker - Government Authorised Exchange visa (T5)](https://www.gov.uk/government-authorised-exchange) if you take part in an approved work experience scheme.
+
+  ###Eligibility
+
+  The eligibility criteria includes having a job offer.
+
+  ###How long you can stay
+
+  Your visa can last for up to 1 year.  If you want to stay longer you must switch to another type of visa.
+<% end %>

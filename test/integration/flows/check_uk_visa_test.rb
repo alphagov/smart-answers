@@ -101,7 +101,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
 
     context "marriage" do
-      should "suggest to apply in country of originallity or residence for outcome_marriage" do
+      should "suggest to apply in country of origin or residence for outcome_marriage" do
         add_response "marriage"
 
         assert_current_node :outcome_marriage_visa_nat_datv
@@ -109,14 +109,14 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
 
     context "study" do
-      should "suggest to apply in country of originallity or residence for outcome_study_m" do
+      should "suggest to apply in country of origin or residence for outcome_study_m" do
         add_response "study"
         add_response "six_months_or_less"
 
         assert_current_node :outcome_study_m
       end
 
-      should "suggest to apply in country of originallity or residence for outcome_study_y" do
+      should "suggest to apply in country of origin or residence for outcome_study_y" do
         add_response "study"
         add_response "longer_than_six_months"
 
@@ -125,21 +125,63 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
 
     context "work" do
-      should "suggest to apply in country of originallity or residence for outcome_work_m" do
+      setup do
         add_response "work"
+      end
+      should "suggest to apply in country of origin or residence for outcome_work_m" do
         add_response "six_months_or_less"
         assert_current_node :outcome_work_m
       end
 
-      should "suggest to apply in country of originallity or residence for outcome_work_y" do
-        add_response "work"
-        add_response "longer_than_six_months"
-        assert_current_node :outcome_work_y
+      context "when longer than six months" do
+        setup do
+          add_response "longer_than_six_months"
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_health" do
+          add_response "health"
+          assert_current_node :outcome_work_y_health
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_digital" do
+          add_response "digital"
+          assert_current_node :outcome_work_y_digital
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_academic" do
+          add_response "academic"
+          assert_current_node :outcome_work_y_academic
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_arts" do
+          add_response "arts"
+          assert_current_node :outcome_work_y_arts
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_sports" do
+          add_response "sports"
+          assert_current_node :outcome_work_y_sports
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_religious" do
+          add_response "religious"
+          assert_current_node :outcome_work_y_religious
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_business" do
+          add_response "business"
+          assert_current_node :outcome_work_y_business
+        end
+
+        should "suggest to apply in country of origin or residence for outcome_work_y_other" do
+          add_response "other"
+          assert_current_node :outcome_work_y_other
+        end
       end
     end
 
     context "transit" do
-      should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
+      should "suggest to apply in country of origin or residence for outcome_transit_leaving_airport" do
         add_response "transit"
         add_response "somewhere_else"
         add_response "yes"
@@ -162,12 +204,12 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :travelling_visiting_partner_family_member?
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_school_y" do
+    should "suggest to apply in country of origin or residence for outcome_school_y" do
       add_response "school"
       assert_current_node :outcome_school_y
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_medical_y" do
+    should "suggest to apply in country of origin or residence for outcome_medical_y" do
       add_response "medical"
       assert_current_node :outcome_medical_y
     end
@@ -239,9 +281,50 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_n
       end
 
-      should "take you to outcome outcome_work_y if longer than six months" do
-        add_response "longer_than_six_months"
-        assert_current_node :outcome_work_y
+      context "when longer than six months" do
+        setup do
+          add_response "longer_than_six_months"
+        end
+
+        should "take you to outcome outcome_work_y_health if a health worker" do
+          add_response "health"
+          assert_current_node :outcome_work_y_health
+        end
+
+        should "take you to outcome outcome_work_y_digital if a digital worker" do
+          add_response "digital"
+          assert_current_node :outcome_work_y_digital
+        end
+
+        should "take you to outcome outcome_work_y_academic if an academic worker" do
+          add_response "academic"
+          assert_current_node :outcome_work_y_academic
+        end
+
+        should "take you to outcome outcome_work_y_arts if an arts worker" do
+          add_response "arts"
+          assert_current_node :outcome_work_y_arts
+        end
+
+        should "take you to outcome outcome_work_y_sports if a sportsperson" do
+          add_response "sports"
+          assert_current_node :outcome_work_y_sports
+        end
+
+        should "take you to outcome outcome_work_y_religious if a religious worker" do
+          add_response "religious"
+          assert_current_node :outcome_work_y_religious
+        end
+
+        should "take you to outcome outcome_work_y_business if starting a business" do
+          add_response "business"
+          assert_current_node :outcome_work_y_business
+        end
+
+        should "take you to outcome outcome_work_y_other if for other work reasons" do
+          add_response "other"
+          assert_current_node :outcome_work_y_other
+        end
       end
     end
 
@@ -605,8 +688,44 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "longer_than_six_months"
         end
 
-        should "take you to the outcome work_y" do
-          assert_current_node :outcome_work_y
+        should "take you to outcome outcome_work_y_health if a health worker" do
+          add_response "health"
+          assert_current_node :outcome_work_y_health
+        end
+
+        should "take you to outcome outcome_work_y_digital if a digital worker" do
+          add_response "digital"
+          assert_current_node :outcome_work_y_digital
+        end
+
+        should "take you to outcome outcome_work_y_academic if an academic worker" do
+          add_response "academic"
+          assert_current_node :outcome_work_y_academic
+        end
+
+        should "take you to outcome outcome_work_y_arts if an arts worker" do
+          add_response "arts"
+          assert_current_node :outcome_work_y_arts
+        end
+
+        should "take you to outcome outcome_work_y_sports if a sportsperson" do
+          add_response "sports"
+          assert_current_node :outcome_work_y_sports
+        end
+
+        should "take you to outcome outcome_work_y_religious if a religious worker" do
+          add_response "religious"
+          assert_current_node :outcome_work_y_religious
+        end
+
+        should "take you to outcome outcome_work_y_business if starting a business" do
+          add_response "business"
+          assert_current_node :outcome_work_y_business
+        end
+
+        should "take you to outcome outcome_work_y_other if for other work reasons" do
+          add_response "other"
+          assert_current_node :outcome_work_y_other
         end
       end
     end
@@ -881,9 +1000,47 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
         end
         context "more than 6 months" do
-          should "takes you to outcome_work_y" do
+          setup do
             add_response "longer_than_six_months"
-            assert_current_node :outcome_work_y
+          end
+          should "take you to outcome outcome_work_y_health if a health worker" do
+            add_response "health"
+            assert_current_node :outcome_work_y_health
+          end
+
+          should "take you to outcome outcome_work_y_digital if a digital worker" do
+            add_response "digital"
+            assert_current_node :outcome_work_y_digital
+          end
+
+          should "take you to outcome outcome_work_y_academic if an academic worker" do
+            add_response "academic"
+            assert_current_node :outcome_work_y_academic
+          end
+
+          should "take you to outcome outcome_work_y_arts if an arts worker" do
+            add_response "arts"
+            assert_current_node :outcome_work_y_arts
+          end
+
+          should "take you to outcome outcome_work_y_sports if a sportsperson" do
+            add_response "sports"
+            assert_current_node :outcome_work_y_sports
+          end
+
+          should "take you to outcome outcome_work_y_religious if a religious worker" do
+            add_response "religious"
+            assert_current_node :outcome_work_y_religious
+          end
+
+          should "take you to outcome outcome_work_y_business if starting a business" do
+            add_response "business"
+            assert_current_node :outcome_work_y_business
+          end
+
+          should "take you to outcome outcome_work_y_other if for other work reasons" do
+            add_response "other"
+            assert_current_node :outcome_work_y_other
           end
         end
       end
@@ -957,9 +1114,47 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
         end
         context "more than 6 months" do
-          should "takes you to outcome_work_y" do
+          setup do
             add_response "longer_than_six_months"
-            assert_current_node :outcome_work_y
+          end
+          should "take you to outcome outcome_work_y_health if a health worker" do
+            add_response "health"
+            assert_current_node :outcome_work_y_health
+          end
+
+          should "take you to outcome outcome_work_y_digital if a digital worker" do
+            add_response "digital"
+            assert_current_node :outcome_work_y_digital
+          end
+
+          should "take you to outcome outcome_work_y_academic if an academic worker" do
+            add_response "academic"
+            assert_current_node :outcome_work_y_academic
+          end
+
+          should "take you to outcome outcome_work_y_arts if an arts worker" do
+            add_response "arts"
+            assert_current_node :outcome_work_y_arts
+          end
+
+          should "take you to outcome outcome_work_y_sports if a sportsperson" do
+            add_response "sports"
+            assert_current_node :outcome_work_y_sports
+          end
+
+          should "take you to outcome outcome_work_y_religious if a religious worker" do
+            add_response "religious"
+            assert_current_node :outcome_work_y_religious
+          end
+
+          should "take you to outcome outcome_work_y_business if starting a business" do
+            add_response "business"
+            assert_current_node :outcome_work_y_business
+          end
+
+          should "take you to outcome outcome_work_y_other if for other work reasons" do
+            add_response "other"
+            assert_current_node :outcome_work_y_other
           end
         end
       end
@@ -1053,10 +1248,50 @@ class CheckUkVisaTest < ActiveSupport::TestCase
             assert_current_node :outcome_work_m
           end
         end
+
         context "more than 6 months" do
-          should "takes you to outcome_work_y" do
+          setup do
             add_response "longer_than_six_months"
-            assert_current_node :outcome_work_y
+          end
+
+          should "take you to outcome outcome_work_y_health if a health worker" do
+            add_response "health"
+            assert_current_node :outcome_work_y_health
+          end
+
+          should "take you to outcome outcome_work_y_digital if a digital worker" do
+            add_response "digital"
+            assert_current_node :outcome_work_y_digital
+          end
+
+          should "take you to outcome outcome_work_y_academic if an academic worker" do
+            add_response "academic"
+            assert_current_node :outcome_work_y_academic
+          end
+
+          should "take you to outcome outcome_work_y_arts if an arts worker" do
+            add_response "arts"
+            assert_current_node :outcome_work_y_arts
+          end
+
+          should "take you to outcome outcome_work_y_sports if a sportsperson" do
+            add_response "sports"
+            assert_current_node :outcome_work_y_sports
+          end
+
+          should "take you to outcome outcome_work_y_religious if a religious worker" do
+            add_response "religious"
+            assert_current_node :outcome_work_y_religious
+          end
+
+          should "take you to outcome outcome_work_y_business if starting a business" do
+            add_response "business"
+            assert_current_node :outcome_work_y_business
+          end
+
+          should "take you to outcome outcome_work_y_other if for other work reasons" do
+            add_response "other"
+            assert_current_node :outcome_work_y_other
           end
         end
       end
@@ -1130,9 +1365,48 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
         end
         context "more than 6 months" do
-          should "takes you to outcome_work_y" do
+          setup do
             add_response "longer_than_six_months"
-            assert_current_node :outcome_work_y
+          end
+
+          should "take you to outcome outcome_work_y_health if a health worker" do
+            add_response "health"
+            assert_current_node :outcome_work_y_health
+          end
+
+          should "take you to outcome outcome_work_y_digital if a digital worker" do
+            add_response "digital"
+            assert_current_node :outcome_work_y_digital
+          end
+
+          should "take you to outcome outcome_work_y_academic if an academic worker" do
+            add_response "academic"
+            assert_current_node :outcome_work_y_academic
+          end
+
+          should "take you to outcome outcome_work_y_arts if an arts worker" do
+            add_response "arts"
+            assert_current_node :outcome_work_y_arts
+          end
+
+          should "take you to outcome outcome_work_y_sports if a sportsperson" do
+            add_response "sports"
+            assert_current_node :outcome_work_y_sports
+          end
+
+          should "take you to outcome outcome_work_y_religious if a religious worker" do
+            add_response "religious"
+            assert_current_node :outcome_work_y_religious
+          end
+
+          should "take you to outcome outcome_work_y_business if starting a business" do
+            add_response "business"
+            assert_current_node :outcome_work_y_business
+          end
+
+          should "take you to outcome outcome_work_y_other if for other work reasons" do
+            add_response "other"
+            assert_current_node :outcome_work_y_other
           end
         end
       end
@@ -1155,8 +1429,45 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "work"
       add_response "longer_than_six_months"
     end
-    should "takes you to outcome_work_y" do
-      assert_current_node :outcome_work_y
+
+    should "take you to outcome outcome_work_y_health if a health worker" do
+      add_response "health"
+      assert_current_node :outcome_work_y_health
+    end
+
+    should "take you to outcome outcome_work_y_digital if a digital worker" do
+      add_response "digital"
+      assert_current_node :outcome_work_y_digital
+    end
+
+    should "take you to outcome outcome_work_y_academic if an academic worker" do
+      add_response "academic"
+      assert_current_node :outcome_work_y_academic
+    end
+
+    should "take you to outcome outcome_work_y_arts if an arts worker" do
+      add_response "arts"
+      assert_current_node :outcome_work_y_arts
+    end
+
+    should "take you to outcome outcome_work_y_sports if a sportsperson" do
+      add_response "sports"
+      assert_current_node :outcome_work_y_sports
+    end
+
+    should "take you to outcome outcome_work_y_religious if a religious worker" do
+      add_response "religious"
+      assert_current_node :outcome_work_y_religious
+    end
+
+    should "take you to outcome outcome_work_y_business if starting a business" do
+      add_response "business"
+      assert_current_node :outcome_work_y_business
+    end
+
+    should "take you to outcome outcome_work_y_other if for other work reasons" do
+      add_response "other"
+      assert_current_node :outcome_work_y_other
     end
   end
   context "testing outcome visit waiver" do
@@ -1217,8 +1528,44 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         setup do
           add_response "longer_than_six_months"
         end
-        should "take you to outcome 2 study y" do
-          assert_current_node :outcome_work_y
+        should "take you to outcome outcome_work_y_health if a health worker" do
+          add_response "health"
+          assert_current_node :outcome_work_y_health
+        end
+
+        should "take you to outcome outcome_work_y_digital if a digital worker" do
+          add_response "digital"
+          assert_current_node :outcome_work_y_digital
+        end
+
+        should "take you to outcome outcome_work_y_academic if an academic worker" do
+          add_response "academic"
+          assert_current_node :outcome_work_y_academic
+        end
+
+        should "take you to outcome outcome_work_y_arts if an arts worker" do
+          add_response "arts"
+          assert_current_node :outcome_work_y_arts
+        end
+
+        should "take you to outcome outcome_work_y_sports if a sportsperson" do
+          add_response "sports"
+          assert_current_node :outcome_work_y_sports
+        end
+
+        should "take you to outcome outcome_work_y_religious if a religious worker" do
+          add_response "religious"
+          assert_current_node :outcome_work_y_religious
+        end
+
+        should "take you to outcome outcome_work_y_business if starting a business" do
+          add_response "business"
+          assert_current_node :outcome_work_y_business
+        end
+
+        should "take you to outcome outcome_work_y_other if for other work reasons" do
+          add_response "other"
+          assert_current_node :outcome_work_y_other
         end
       end
 
