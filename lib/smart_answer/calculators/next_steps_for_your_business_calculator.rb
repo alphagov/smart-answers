@@ -11,7 +11,8 @@ module SmartAnswer::Calculators
                   :employer,
                   :activities,
                   :needs_financial_support,
-                  :business_premises
+                  :business_premises,
+                  :registered_for_corp_tax
 
     def grouped_results
       grouped_results = filtered_results.group_by { |result| result["group"] }
@@ -28,7 +29,7 @@ module SmartAnswer::Calculators
     end
 
     RULES = {
-      r1: ->(_) { true },
+      r1: ->(calculator) { calculator.registered_for_corp_tax != true },
       r2: ->(_) { true },
       r3: ->(_) { true },
       r4: ->(_) { true },
