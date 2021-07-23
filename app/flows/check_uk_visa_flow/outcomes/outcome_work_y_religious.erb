@@ -1,0 +1,93 @@
+<% text_for :title do %>
+  You need a visa as a religious worker
+<% end %>
+
+<% govspeak_for :body do %>
+  Based on your answers, you have the following visa options.
+
+  <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
+
+  ----
+
+  ##If you want to stay up to 2 years
+
+  You may be eligible for a [Temporary Worker - Religious Worker visa (T5)](https://www.gov.uk/religious-worker-visa). 
+
+  ###Eligibility
+
+  The eligibility criteria includes having a job offer.
+
+  ###How long you can stay
+
+  You can stay up to 2 years in the UK on this visa. If you want to stay longer you must switch to another type of visa.
+
+  ----
+
+  ##If you want to stay for longer
+
+  You may be eligible for a [Minister of Religion visa (T2)](https://www.gov.uk/religious-worker-visa). It's more expensive than the Temporary Worker - Religious Worker visa (T5).
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  + having a job offer
+  + usually proving that you can read, write, speak and understand English
+
+  ###How long you can stay
+
+  Your visa can last for up to 3 years. You can extend it as long as you’re still eligible.
+
+  After 5 years, you may be able to settle permanently in the UK.
+
+  ----
+
+  <% if calculator.passport_country_in_youth_mobility_scheme_list? %>
+    ##If you’re aged 18 to 30
+
+    You may be able to live and work in the UK with a [Youth Mobility Scheme visa (T5)](https://www.gov.uk/youth-mobility).
+
+    With this visa, you can:
+
+    + work in the UK without a job offer
+    + be an employee, self-employed or a director of a company
+
+    ###Eligibility
+
+    The eligibility criteria includes:
+
+    + being aged 18 to 30 when you apply
+    + depending on where you’re from, successfully applying for a ballot
+
+    ###How long you can stay
+
+    Your visa can last for up to 2 years.  If you want to stay longer you must switch to another type of visa.
+
+    ----
+  <% end %>
+
+  ##If you’re a citizen of a Commonwealth country
+
+  You may be able to live and work in the UK with a [UK Ancestry visa](https://www.gov.uk/ancestry-visa) if one of your grandparents was born in the UK.
+
+  With this visa, you can:
+
+  + work in the UK without a job offer
+  + be an employee, self-employed or a director of a company
+
+  ###Eligibility
+
+  The eligibility criteria includes:
+
+  + being from a [Commonwealth country](https://thecommonwealth.org/member-countries)
+  + proving that one of your grandparents was born in the UK, the Channel Islands or the Isle of Man
+  + being aged 17 or over
+
+
+  ###How long you can stay
+
+  This visa lasts for 5 years. After this time, you may be able to apply to either:
+
+  + extend it for a further 5 years
+  + settle permanently in the UK
+<% end %>
