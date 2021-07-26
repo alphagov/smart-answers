@@ -17,6 +17,7 @@ class NextStepsForYourBusinessFlow < SmartAnswer::Flow
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::NextStepsForYourBusinessCalculator.new
         calculator.annual_turnover_over_85k = response
+        calculator.registered_for_corp_tax = (ct == "true")
       end
 
       next_node do
