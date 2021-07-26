@@ -4,6 +4,8 @@ module SmartAnswer
   class StateResolverTest < ActiveSupport::TestCase
     setup do
       @flow = SmartAnswer::Flow.build do
+        additional_parameters %w[c d]
+
         radio :x do
           option :yes
           option :no
@@ -106,6 +108,14 @@ module SmartAnswer
         assert_equal :x, state.current_node_name
         assert_equal ({}), state.accepted_responses
         assert_nil state.current_response
+      end
+
+      should "set additional parameters on the state" do
+        response_store = ResponseStore.new(responses: { "x" => "yes", "c" => "true" })
+        state = @state_resolver.state_from_response_store(response_store)
+
+        assert_equal :y, state.current_node_name
+        assert_equal "true", state.c
       end
     end
 
