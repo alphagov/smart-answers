@@ -107,7 +107,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     ffi (1.13.1)
-    gds-api-adapters (72.0.0)
+    gds-api-adapters (72.1.0)
       addressable
       link_header
       null_logger
