@@ -73,17 +73,17 @@ module SmartAnswer
         end
       end
 
-      context "#passport_country_in_datv_list?" do
+      context "#passport_country_in_direct_airside_transit_visa_list?" do
         should "return true if passport_country is in list of countries requiring a direct airside transit visa" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "afghanistan"
-          assert calculator.passport_country_in_datv_list?
+          assert calculator.passport_country_in_direct_airside_transit_visa_list?
         end
 
         should "return false if passport_country is not in list of countries requiring a direct airside transit visa" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_in_datv_list?
+          assert_not calculator.passport_country_in_direct_airside_transit_visa_list?
         end
       end
 

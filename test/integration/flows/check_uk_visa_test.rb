@@ -104,7 +104,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       should "suggest to apply in country of originallity or residence for outcome_marriage" do
         add_response "marriage"
 
-        assert_current_node :outcome_marriage_visa_nat_datv
+        assert_current_node :outcome_marriage_visa_nat_direct_airside_transit_visa
       end
     end
 
@@ -662,7 +662,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  context "choose a DATV country" do
+  context "choose a DIRECT_AIRSIDE_TRANSIT_VISA country" do
     setup do
       add_response "democratic-republic-of-the-congo"
     end
@@ -714,7 +714,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "marriage"
       end
       should "take you to  marriage outcome" do
-        assert_current_node :outcome_marriage_visa_nat_datv
+        assert_current_node :outcome_marriage_visa_nat_direct_airside_transit_visa
       end
     end
     context "get private medical treatment" do
@@ -738,7 +738,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "yes"
         end
         should "take you to transit_leaving_airport outcome" do
-          assert_current_node :outcome_transit_leaving_airport_datv
+          assert_current_node :outcome_transit_leaving_airport_direct_airside_transit_visa
         end
       end
       context "not planning to leave airport" do
@@ -763,8 +763,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           setup do
             add_response "yes"
           end
-          should "lead to outcome_transit_leaving_airport_datv" do
-            assert_current_node :outcome_transit_leaving_airport_datv
+          should "lead to outcome_transit_leaving_airport_direct_airside_transit_visa" do
+            assert_current_node :outcome_transit_leaving_airport_direct_airside_transit_visa
           end
         end
         context "not leaving airport" do
@@ -1418,7 +1418,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
     should "mention B1 and B2 visas when leaving the airport" do
       add_response "yes"
-      assert_current_node :outcome_transit_leaving_airport_datv
+      assert_current_node :outcome_transit_leaving_airport_direct_airside_transit_visa
     end
 
     should "mention B1 and B2 visas when not leaving the airport" do
@@ -1504,7 +1504,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "answer yes" do
           should "go to outcome transit leaving airport" do # /estonia/alien/transit/somewhere_else/yes
             add_response "yes"
-            assert_current_node :outcome_transit_leaving_airport_datv
+            assert_current_node :outcome_transit_leaving_airport_direct_airside_transit_visa
           end
         end
 
@@ -1585,7 +1585,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         context "answer yes" do
           should "go to outcome transit leaving airport" do # /latvia/alien/transit/somewhere_else/yes
             add_response "yes"
-            assert_current_node :outcome_transit_leaving_airport_datv
+            assert_current_node :outcome_transit_leaving_airport_direct_airside_transit_visa
           end
         end
 

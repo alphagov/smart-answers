@@ -26,8 +26,8 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES.include?(@passport_country)
     end
 
-    def passport_country_in_datv_list?
-      COUNTRY_GROUP_DATV.include?(@passport_country)
+    def passport_country_in_direct_airside_transit_visa_list?
+      COUNTRY_GROUP_DIRECT_AIRSIDE_TRANSIT_VISA.include?(@passport_country)
     end
 
     def passport_country_in_youth_mobility_scheme_list?
@@ -329,7 +329,7 @@ module SmartAnswer::Calculators
       zambia
     ].freeze
 
-    COUNTRY_GROUP_DATV = %w[
+    COUNTRY_GROUP_DIRECT_AIRSIDE_TRANSIT_VISA = %w[
       afghanistan
       albania
       algeria

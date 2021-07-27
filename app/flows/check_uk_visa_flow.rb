@@ -160,8 +160,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
               calculator.passport_country_in_electronic_visa_waiver_list? ||
               calculator.travel_document?
             outcome :outcome_transit_leaving_airport
-          elsif calculator.passport_country_in_datv_list?
-            outcome :outcome_transit_leaving_airport_datv
+          elsif calculator.passport_country_in_direct_airside_transit_visa_list?
+            outcome :outcome_transit_leaving_airport_direct_airside_transit_visa
           end
         elsif calculator.passport_country_is_taiwan?
           outcome :outcome_transit_taiwan
@@ -169,7 +169,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           outcome :outcome_no_visa_needed
         elsif calculator.applicant_is_stateless_or_a_refugee?
           outcome :outcome_transit_refugee_not_leaving_airport
-        elsif calculator.passport_country_in_datv_list?
+        elsif calculator.passport_country_in_direct_airside_transit_visa_list?
           outcome :outcome_transit_not_leaving_airport
         elsif calculator.passport_country_in_visa_national_list? || calculator.travel_document?
           outcome :outcome_no_visa_needed
@@ -196,7 +196,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
               outcome :outcome_study_waiver
             elsif calculator.passport_country_is_taiwan?
               outcome :outcome_study_waiver_taiwan
-            elsif calculator.passport_country_in_datv_list? ||
+            elsif calculator.passport_country_in_direct_airside_transit_visa_list? ||
                 calculator.passport_country_in_visa_national_list? ||
                 calculator.travel_document?
               outcome :outcome_study_m # outcome 3 study m visa needed short courses
@@ -271,7 +271,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_joining_family_nvn
     outcome :outcome_marriage_nvn_british_overseas_territories
     outcome :outcome_marriage_taiwan
-    outcome :outcome_marriage_visa_nat_datv
+    outcome :outcome_marriage_visa_nat_direct_airside_transit_visa
     outcome :outcome_marriage_electronic_visa_waiver
     outcome :outcome_medical_n
     outcome :outcome_medical_y
@@ -290,7 +290,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_study_no_visa_needed
     outcome :outcome_study_y
     outcome :outcome_transit_leaving_airport
-    outcome :outcome_transit_leaving_airport_datv
+    outcome :outcome_transit_leaving_airport_direct_airside_transit_visa
     outcome :outcome_transit_not_leaving_airport
     outcome :outcome_transit_refugee_not_leaving_airport
     outcome :outcome_transit_taiwan
@@ -371,13 +371,13 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_marriage_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_marriage_taiwan)
-        elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
-          next outcome(:outcome_marriage_visa_nat_datv)
+        elsif calculator.passport_country_in_direct_airside_transit_visa_list? || calculator.passport_country_in_visa_national_list?
+          next outcome(:outcome_marriage_visa_nat_direct_airside_transit_visa)
         end
       end
 
       if calculator.transit_visit?
-        if calculator.passport_country_in_datv_list? ||
+        if calculator.passport_country_in_direct_airside_transit_visa_list? ||
             calculator.passport_country_in_visa_national_list? ||
             calculator.passport_country_is_taiwan? ||
             calculator.passport_country_is_venezuela? ||
