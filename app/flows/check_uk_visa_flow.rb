@@ -188,7 +188,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           if calculator.study_visit?
             outcome :outcome_study_y # outcome 2 study y
           elsif calculator.work_visit?
-            outcome :outcome_work_y # outcome 4 work y
+            question :what_type_of_work?
           end
         when "six_months_or_less"
           if calculator.study_visit?
@@ -266,6 +266,22 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
+    # Q8
+    radio :what_type_of_work? do
+      option :health
+      option :digital
+      option :academic
+      option :arts
+      option :sports
+      option :religious
+      option :business
+      option :other
+
+      next_node do |response|
+        outcome :"outcome_work_y_#{response}"
+      end
+    end
+
     outcome :outcome_diplomatic_business
     outcome :outcome_joining_family_m
     outcome :outcome_joining_family_nvn
@@ -303,7 +319,14 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_work_m
     outcome :outcome_work_n
     outcome :outcome_work_waiver
-    outcome :outcome_work_y
+    outcome :outcome_work_y_health
+    outcome :outcome_work_y_digital
+    outcome :outcome_work_y_academic
+    outcome :outcome_work_y_arts
+    outcome :outcome_work_y_sports
+    outcome :outcome_work_y_religious
+    outcome :outcome_work_y_business
+    outcome :outcome_work_y_other
   end
 
   def travel_response_next_route(node)
