@@ -213,6 +213,20 @@ module SmartAnswer
         end
       end
 
+      context "#passport_country_in_uk_ancestry_visa_list?" do
+        should "return true if passport_country is in list of UK Ancestry Visa countries" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "australia"
+          assert calculator.passport_country_in_youth_mobility_scheme_list?
+        end
+
+        should "return false if passport_country is not in list of UK Ancestry Visa countries" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "slovenia"
+          assert_not calculator.passport_country_in_youth_mobility_scheme_list?
+        end
+      end
+
       context "#passport_country_in_electronic_visa_waiver_list?" do
         should "return true if passport_country is in list of countries that can apply for an electronic visa waiver" do
           calculator = UkVisaCalculator.new
