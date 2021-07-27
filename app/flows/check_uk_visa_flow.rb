@@ -110,7 +110,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
         elsif calculator.travelling_to_ireland?
           if (calculator.passport_country_in_non_visa_national_list? ||
               calculator.passport_country_in_eea? ||
-              calculator.passport_country_in_ukot_list?) &&
+              calculator.passport_country_in_british_overseas_territories_list?) &&
               !calculator.travel_document?
             next outcome(:outcome_no_visa_needed)
           else
@@ -119,7 +119,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
         elsif calculator.travelling_to_elsewhere?
           if (calculator.passport_country_in_non_visa_national_list? ||
               calculator.passport_country_in_eea? ||
-              calculator.passport_country_in_ukot_list?) &&
+              calculator.passport_country_in_british_overseas_territories_list?) &&
               !calculator.travel_document?
             next outcome(:outcome_no_visa_needed)
           else
@@ -200,13 +200,13 @@ class CheckUkVisaFlow < SmartAnswer::Flow
                 calculator.passport_country_in_visa_national_list? ||
                 calculator.travel_document?
               outcome :outcome_study_m # outcome 3 study m visa needed short courses
-            elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
+            elsif calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
               outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
             end
           elsif calculator.work_visit?
             if calculator.passport_country_in_electronic_visa_waiver_list?
               outcome :outcome_work_waiver
-            elsif (calculator.passport_country_in_ukot_list? ||
+            elsif (calculator.passport_country_in_british_overseas_territories_list? ||
                 calculator.passport_country_is_taiwan? ||
                 calculator.passport_country_in_non_visa_national_list? ||
                 calculator.passport_country_in_eea?) &&
@@ -269,7 +269,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_diplomatic_business
     outcome :outcome_joining_family_m
     outcome :outcome_joining_family_nvn
-    outcome :outcome_marriage_nvn_ukot
+    outcome :outcome_marriage_nvn_british_overseas_territories
     outcome :outcome_marriage_taiwan
     outcome :outcome_marriage_visa_nat_datv
     outcome :outcome_marriage_electronic_visa_waiver
@@ -325,7 +325,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_school_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_study_waiver_taiwan)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list? || calculator.passport_country_in_eea?
+        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_eea?
           next outcome(:outcome_school_n)
         else
           next outcome(:outcome_school_y)
@@ -339,7 +339,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_visit_waiver_taiwan)
         elsif (calculator.passport_country_in_non_visa_national_list? ||
             calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_ukot_list?) &&
+            calculator.passport_country_in_british_overseas_territories_list?) &&
             !calculator.travel_document?
           next outcome(:outcome_medical_n)
         else
@@ -354,7 +354,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_visit_waiver_taiwan)
         elsif (calculator.passport_country_in_non_visa_national_list? ||
             calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_ukot_list?) &&
+            calculator.passport_country_in_british_overseas_territories_list?) &&
             !calculator.travel_document?
           next outcome(:outcome_tourism_n)
         else
@@ -364,9 +364,9 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
       if calculator.marriage_visit?
         if calculator.passport_country_in_eea?
-          next outcome(:outcome_marriage_nvn_ukot)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-          next outcome(:outcome_marriage_nvn_ukot)
+          next outcome(:outcome_marriage_nvn_british_overseas_territories)
+        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list?
+          next outcome(:outcome_marriage_nvn_british_overseas_territories)
         elsif calculator.passport_country_in_electronic_visa_waiver_list?
           next outcome(:outcome_marriage_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?
@@ -383,7 +383,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
             calculator.passport_country_is_venezuela? ||
             calculator.passport_country_in_non_visa_national_list? ||
             calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_ukot_list? ||
+            calculator.passport_country_in_british_overseas_territories_list? ||
             calculator.travel_document?
           next question(:travelling_to_cta?)
         else
@@ -392,7 +392,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.family_visit?
-        if calculator.passport_country_in_ukot_list?
+        if calculator.passport_country_in_british_overseas_territories_list?
           next outcome(:outcome_joining_family_m)
         elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
           next outcome(:outcome_joining_family_nvn)

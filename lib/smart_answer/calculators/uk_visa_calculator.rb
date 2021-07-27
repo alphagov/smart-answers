@@ -22,8 +22,8 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_VISA_NATIONAL.include?(@passport_country)
     end
 
-    def passport_country_in_ukot_list?
-      COUNTRY_GROUP_UKOT.include?(@passport_country)
+    def passport_country_in_british_overseas_territories_list?
+      COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES.include?(@passport_country)
     end
 
     def passport_country_in_datv_list?
@@ -189,7 +189,7 @@ module SmartAnswer::Calculators
       western-sahara
     ].freeze
 
-    COUNTRY_GROUP_UKOT = %w[
+    COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES = %w[
       anguilla
       bermuda
       british-dependent-territories-citizen

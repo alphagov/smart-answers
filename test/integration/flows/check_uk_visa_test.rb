@@ -250,8 +250,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "marriage"
       end
 
-      should "take you to outcome outcome_marriage_nvn_ukot" do
-        assert_current_node :outcome_marriage_nvn_ukot
+      should "take you to outcome outcome_marriage_nvn_british_overseas_territories" do
+        assert_current_node :outcome_marriage_nvn_british_overseas_territories
       end
     end
 
@@ -336,7 +336,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  context "choose a UKOT country" do
+  context "choose a BRITISH_OVERSEAS_TERRITORIES country" do
     setup do
       add_response "anguilla"
     end
@@ -382,7 +382,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "marriage"
       end
       should "take you to the marriage outcome" do
-        assert_current_node :outcome_marriage_nvn_ukot
+        assert_current_node :outcome_marriage_nvn_british_overseas_territories
       end
     end
     context "get private medical treatment" do
@@ -457,7 +457,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response "marriage"
       end
       should "take you to marriage outcome" do
-        assert_current_node :outcome_marriage_nvn_ukot
+        assert_current_node :outcome_marriage_nvn_british_overseas_territories
       end
     end
     context "get private medical treatment" do
