@@ -13,17 +13,33 @@ module SmartAnswer::Calculators
     end
 
     def areas_for_postcode
-      response = GdsApi.imminence.areas_for_postcode(postcode)
-      response_status = response.dig("_response_info", "status")
-
-      case response_status
-      when "ok"
-        response["results"]
-      when 404
-        raise invalid_postcode_error
-      else
-        raise failed_postcode_lookup_error(response_status, postcode)
-      end
+      # response = GdsApi.imminence.areas_for_postcode(postcode)
+      # response_status = response.dig("_response_info", "status")
+      #
+      # case response_status
+      # when "ok"
+      #   response["results"]
+      # when 404
+      #   raise invalid_postcode_error
+      # else
+      #   raise failed_postcode_lookup_error(response_status, postcode)
+      # end
+      [{"name"=>"Anston & Woodsetts",
+        "country_name"=>"England",
+        "type"=>"MTW",
+        "codes"=>{"gss"=>"E05012993"}},
+      {"name"=>"Rotherham Metropolitan Borough Council",
+       "country_name"=>"England",
+       "type"=>"MTD",
+       "codes"=>{"gss"=>"E08000018"}},
+      {"name"=>"Rother Valley",
+       "country_name"=>"England",
+       "type"=>"WMC",
+       "codes"=>{"gss"=>"E14000903"}},
+      {"name"=>"Yorkshire and the Humber English Region",
+       "country_name"=>"England",
+       "type"=>"EUR",
+       "codes"=>{"gss"=>"E12000003"}}]
     end
 
     def invalid_postcode_error
