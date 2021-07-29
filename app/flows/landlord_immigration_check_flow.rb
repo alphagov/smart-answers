@@ -7,7 +7,7 @@ class LandlordImmigrationCheckFlow < SmartAnswer::Flow
     # Q0
     postcode_question :property? do
       on_response do |response|
-        self.calculator = Calculators::LandlordImmigrationCheckCalculator.new
+        self.calculator = SmartAnswer::Calculators::LandlordImmigrationCheckCalculator.new
         calculator.postcode = response
       end
 
