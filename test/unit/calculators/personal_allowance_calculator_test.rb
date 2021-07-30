@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
 
     context "before 2013 to 2014 tax year" do
       setup do
-        travel_to(Date.parse("2012-11-11"))
+        travel_to("2012-11-11")
       end
 
       should "return the basic allowance for someone aged 64 at end of tax year" do
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
 
     context "in or after 2013 to 2014 tax year" do
       setup do
-        travel_to(Date.parse("2014-04-06"))
+        travel_to("2014-04-06")
       end
 
       should "return the basic allowance for someone born on 6th April 1948" do

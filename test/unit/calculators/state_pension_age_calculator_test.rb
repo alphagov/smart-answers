@@ -320,13 +320,13 @@ module SmartAnswer::Calculators
           @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "female"))
         end
         should "return true for a woman approaching state pension age (at 61 years, 10 months, 20 days) in 2 months time" do
-          travel_to(Date.parse("2013-07-06")) do
+          travel_to("2013-07-06") do
             assert @calculator.can_apply?
           end
         end
 
         should "return false for a woman approaching state pension age (at 61 years, 10 months, 20 days) in more than 2 months time" do
-          travel_to(Date.parse("2013-07-05")) do
+          travel_to("2013-07-05") do
             assert_not @calculator.can_apply?
           end
         end
@@ -337,13 +337,13 @@ module SmartAnswer::Calculators
           @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "male"))
         end
         should "return true for a man approaching pension age (at 65 years) in 2 months time" do
-          travel_to(Date.parse("2016-10-17")) do
+          travel_to("2016-10-17") do
             assert @calculator.can_apply?
           end
         end
 
         should "return false for a man approaching pension age (at 65 years) in more than 2 months time" do
-          travel_to(Date.parse("2016-10-16")) do
+          travel_to("2016-10-16") do
             assert_not @calculator.can_apply?
           end
         end

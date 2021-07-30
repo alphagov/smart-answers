@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for year 2013" do
-      travel_to(Date.parse("2013-06-01")) do
+      travel_to("2013-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 9440, calculator.personal_allowance
@@ -125,7 +125,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for year 2014" do
-      travel_to(Date.parse("2014-06-01")) do
+      travel_to("2014-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 10_000, calculator.personal_allowance
@@ -136,7 +136,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for year 2015" do
-      travel_to(Date.parse("2015-06-01")) do
+      travel_to("2015-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 10_600, calculator.personal_allowance
@@ -147,7 +147,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for year 2016" do
-      travel_to(Date.parse("2016-06-01")) do
+      travel_to("2016-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 11_000, calculator.personal_allowance
@@ -158,7 +158,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for year 2017" do
-      travel_to(Date.parse("2017-06-01")) do
+      travel_to("2017-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 11_000, calculator.personal_allowance
@@ -169,7 +169,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for 2018/19" do
-      travel_to(Date.parse("2018-06-01")) do
+      travel_to("2018-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 11_850, calculator.personal_allowance
@@ -180,7 +180,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for 2019/20" do
-      travel_to(Date.parse("2019-06-01")) do
+      travel_to("2019-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 12_500, calculator.personal_allowance
@@ -191,7 +191,7 @@ module SmartAnswer::Calculators
     end
 
     test "rate values for 2020/21" do
-      travel_to(Date.parse("2020-06-01")) do
+      travel_to("2020-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 12_500, calculator.personal_allowance

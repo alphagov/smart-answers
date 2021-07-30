@@ -25,28 +25,28 @@ module SmartAnswer::Calculators
 
     context "lower earnings limit annual rate" do
       should "return the lel rate based on the date" do
-        travel_to(Date.parse("2013-04-07")) do
+        travel_to("2013-04-07") do
           assert_equal 5564, WorkplacePensionCalculator.new.lel_annual_rate
         end
       end
     end
     context "lower earnings limit annual rate" do
       should "return the lel rate based on the date" do
-        travel_to(Date.parse("2013-04-08")) do
+        travel_to("2013-04-08") do
           assert_equal 5668, WorkplacePensionCalculator.new.lel_annual_rate
         end
       end
     end
     context "threshold limit annual rate" do
       should "return the threshold rate based on the date" do
-        travel_to(Date.parse("2013-04-07")) do
+        travel_to("2013-04-07") do
           assert_equal 8105, WorkplacePensionCalculator.new.threshold_annual_rate
         end
       end
     end
     context "threshold limit annual rate" do
       should "return the lel rate based on the date" do
-        travel_to(Date.parse("2013-04-08")) do
+        travel_to("2013-04-08") do
           assert_equal 9440, WorkplacePensionCalculator.new.threshold_annual_rate
         end
       end

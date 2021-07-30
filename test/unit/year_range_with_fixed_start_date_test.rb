@@ -51,7 +51,7 @@ module SmartAnswer
 
       context "when tax year is built for today" do
         setup do
-          travel_to(Date.parse("2000-01-01"))
+          travel_to("2000-01-01")
           @tax_year1999 = @tax_year.current
         end
 
