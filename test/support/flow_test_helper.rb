@@ -23,7 +23,7 @@ module FlowTestHelper
     when :question
       assert_not_empty test_flow.question_title
     when :outcome
-      assert_not_empty test_flow.outcome_body
+      assert_not_empty test_flow.outcome_text
     else
       raise "Unknown node type for #{next_node}"
     end
@@ -71,8 +71,8 @@ module FlowTestHelper
   def assert_rendered_outcome(text: nil)
     ensure_valid_and_correct_node
 
-    assert_not_empty test_flow.outcome_body
-    assert_match text, test_flow.outcome_body_text if text
+    assert_not_empty test_flow.outcome_text
+    assert_match text, test_flow.outcome_text if text
   end
 
   class TestFlow
@@ -146,13 +146,25 @@ module FlowTestHelper
     end
 
     def outcome_body
-      raise "#{state.current_node_name} is not an outcome" unless current_node_type == :outcome
+      outcome_presenter.body
+    end
 
-      OutcomePresenter.new(flow.node(state.current_node_name), nil, state).body
+    def outcome_title
+      outcome_presenter.title
     end
 
     def outcome_body_text
       Nokogiri::HTML::DocumentFragment.parse(outcome_body).text
+    end
+
+    def outcome_text
+      [outcome_title, outcome_body_text].reject(&:blank?).join("\n")
+    end
+
+    def outcome_presenter
+      raise "#{state.current_node_name} is not an outcome" unless current_node_type == :outcome
+
+      OutcomePresenter.new(flow.node(state.current_node_name), nil, state)
     end
   end
 end
