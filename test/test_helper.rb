@@ -31,7 +31,6 @@ class ActiveSupport::TestCase
   parallelize workers: :number_of_processors
 
   teardown do
-    Timecop.return
     WorldLocation.reset_cache
   end
 end

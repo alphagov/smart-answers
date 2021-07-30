@@ -4,11 +4,7 @@ module SmartAnswer
   class DateOfBirthTest < ActiveSupport::TestCase
     setup do
       @today = Date.parse("2015-05-15")
-      Timecop.freeze(@today)
-    end
-
-    teardown do
-      Timecop.return
+      travel_to(@today)
     end
 
     context "when birthday has not yet occurred in this year" do

@@ -18,11 +18,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
     setup { add_response :paternity }
     context "given the date is April 9th (post 4th April changes)" do
       setup do
-        Timecop.travel("2013-04-09")
-      end
-
-      teardown do
-        Timecop.return
+        travel_to("2013-04-09")
       end
 
       ## QP0

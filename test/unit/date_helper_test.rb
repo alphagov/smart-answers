@@ -13,7 +13,7 @@ module SmartAnswer
 
     context "current day" do
       should "return today, if rates query date is not set" do
-        Timecop.freeze("2016-09-27") do
+        travel_to("2016-09-27") do
           assert_equal Date.parse("2016-09-27"), SmartAnswer::DateHelper.current_day
         end
       end

@@ -52,6 +52,5 @@ group :test do
   gem "shoulda"
   gem "simplecov", require: false
   gem "simplecov-rcov", require: false
-  gem "timecop"
   gem "webmock", require: false
 end

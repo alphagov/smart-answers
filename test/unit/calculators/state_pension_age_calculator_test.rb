@@ -186,21 +186,21 @@ module SmartAnswer::Calculators
       end
 
       should "return true for someone yet to reach their state pension date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today + 1.day)
           assert @calculator.before_state_pension_date?
         end
       end
 
       should "return false for someone who has reached their state pension date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today)
           assert_not @calculator.before_state_pension_date?
         end
       end
 
       should "return false for someone who has just passed their state pension date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today - 1.day)
           assert_not @calculator.before_state_pension_date?
         end
@@ -213,21 +213,21 @@ module SmartAnswer::Calculators
       end
 
       should "return true for someone just over 30 days away from their pension_credit_date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today + 31.days)
           assert @calculator.before_state_pension_date?(days: 2)
         end
       end
 
       should "return false for someone exactly 30 days away" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today + 30.days)
           assert_not @calculator.before_state_pension_date?(days: 30)
         end
       end
 
       should "return false for someone less than 30 days to their pension credit date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:state_pension_date).returns(Time.zone.today + 29.days)
           assert_not @calculator.before_state_pension_date?(days: 30)
         end
@@ -240,21 +240,21 @@ module SmartAnswer::Calculators
       end
 
       should "return true for someone yet to reach their pension credit date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:pension_credit_date).returns(Time.zone.today + 1.day)
           assert @calculator.before_pension_credit_date?
         end
       end
 
       should "return false for someone has just reached their pension credit date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:pension_credit_date).returns(Time.zone.today)
           assert_not @calculator.before_pension_credit_date?
         end
       end
 
       should "return false for someone who has just passed their pension credit date" do
-        Timecop.freeze do
+        freeze_time do
           @calculator.stubs(:pension_credit_date).returns(Time.zone.today - 1.day)
           assert_not @calculator.before_pension_credit_date?
         end
@@ -284,7 +284,7 @@ module SmartAnswer::Calculators
 
     context "#over_16_years_old?" do
       should "be true for someone just older than 16" do
-        Timecop.freeze do
+        freeze_time do
           date_of_birth = (16.years + 1.minute).ago
 
           calculator = StatePensionAgeCalculator.new(dob: date_of_birth)
@@ -293,7 +293,7 @@ module SmartAnswer::Calculators
       end
 
       should "return false for someone exactly 16 years old" do
-        Timecop.freeze do
+        freeze_time do
           date_of_birth = 16.years.ago
 
           calculator = StatePensionAgeCalculator.new(dob: date_of_birth)
@@ -302,7 +302,7 @@ module SmartAnswer::Calculators
       end
 
       should "return false for someone just under 16 years old" do
-        Timecop.freeze do
+        freeze_time do
           date_of_birth = (16.years - 1.minute).ago
 
           calculator = StatePensionAgeCalculator.new(dob: date_of_birth)
@@ -320,13 +320,13 @@ module SmartAnswer::Calculators
           @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "female"))
         end
         should "return true for a woman approaching state pension age (at 61 years, 10 months, 20 days) in 2 months time" do
-          Timecop.freeze(Date.parse("2013-07-06")) do
+          travel_to(Date.parse("2013-07-06")) do
             assert @calculator.can_apply?
           end
         end
 
         should "return false for a woman approaching state pension age (at 61 years, 10 months, 20 days) in more than 2 months time" do
-          Timecop.freeze(Date.parse("2013-07-05")) do
+          travel_to(Date.parse("2013-07-05")) do
             assert_not @calculator.can_apply?
           end
         end
@@ -337,13 +337,13 @@ module SmartAnswer::Calculators
           @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "male"))
         end
         should "return true for a man approaching pension age (at 65 years) in 2 months time" do
-          Timecop.freeze(Date.parse("2016-10-17")) do
+          travel_to(Date.parse("2016-10-17")) do
             assert @calculator.can_apply?
           end
         end
 
         should "return false for a man approaching pension age (at 65 years) in more than 2 months time" do
-          Timecop.freeze(Date.parse("2016-10-16")) do
+          travel_to(Date.parse("2016-10-16")) do
             assert_not @calculator.can_apply?
           end
         end

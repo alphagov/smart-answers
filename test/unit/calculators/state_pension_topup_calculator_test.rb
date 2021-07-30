@@ -34,17 +34,17 @@ module SmartAnswer::Calculators
     context "top-up start date" do
       context "Should show current year" do
         should "be 2015" do
-          Timecop.freeze("2015-10-31")
+          travel_to("2015-10-31")
           assert_equal 2015, @calculator.topup_start_year
         end
 
         should "be 2016" do
-          Timecop.freeze("2016-10-31")
+          travel_to("2016-10-31")
           assert_equal 2016, @calculator.topup_start_year
         end
 
         should "be 2015 if year is before scheme start date" do
-          Timecop.freeze("2014-10-31")
+          travel_to("2014-10-31")
           assert_equal 2015, @calculator.topup_start_year
         end
       end
@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
     context "lump_sum_and_age" do
       context "when male" do
         setup do
-          Timecop.freeze("2016-12-01")
+          travel_to("2016-12-01")
           @calculator.gender = "male"
         end
 
@@ -102,7 +102,7 @@ module SmartAnswer::Calculators
 
       context "when female" do
         setup do
-          Timecop.freeze("2016-12-01")
+          travel_to("2016-12-01")
           @calculator.gender = "female"
         end
 
@@ -143,12 +143,8 @@ module SmartAnswer::Calculators
 
       context "end of scheme" do
         setup do
-          Timecop.freeze("2017-02-01")
+          travel_to("2017-02-01")
           @calculator.gender = "male"
-        end
-
-        teardown do
-          Timecop.return
         end
 
         should "show two rates for final year of scheme when birthday before end of scheme" do

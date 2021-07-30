@@ -300,7 +300,7 @@ module SmartAnswer::Calculators
     # Test URL: /am-i-getting-minimum-wage/y/past_payment/2010-10-01/apprentice_under_19/7/35/78.0/0/no
     context "Historical adjustment for apprentices (hours:35, pay:78)" do
       setup do
-        Timecop.travel(Date.parse("30 Sep 2013"))
+        travel_to(Date.parse("30 Sep 2013"))
       end
       should "equal 10.07 historical adjustment" do
         @calculator = MinimumWageCalculator.new(
@@ -640,7 +640,7 @@ module SmartAnswer::Calculators
 
     context "historical below minimum wage" do
       setup do
-        Timecop.travel(Date.parse("2012-10-09"))
+        travel_to(Date.parse("2012-10-09"))
       end
       should "return false to minimum_wage_or_above?" do
         @calculator = MinimumWageCalculator.new(

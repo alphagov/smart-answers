@@ -5,7 +5,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    Timecop.freeze("2019-08-31")
+    travel_to("2019-08-31")
     setup_for_testing_flow CalculateYourRedundancyPayFlow
   end
 
@@ -16,7 +16,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   context "answer with a valid date (within 4 years of now)" do
     setup do
       # Freeze to 2017 so that 2013 is still an allowed date
-      Timecop.freeze("2017-08-31")
+      travel_to("2017-08-31")
       add_response "2013-01-31"
     end
 
@@ -238,7 +238,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2012/2013 (rate ends on 1st Feb)" do
     should "use the correct rates" do
-      Timecop.freeze("2017-08-31")
+      travel_to("2017-08-31")
       add_response "2013-01-31"
       add_response "42"
       add_response "4.5"
@@ -251,7 +251,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2013/2014 (rate starts on 1st Feb)" do
     should "use the correct rates" do
-      Timecop.freeze("2017-08-31")
+      travel_to("2017-08-31")
       add_response "2013-02-01"
       add_response "42"
       add_response "4.5"

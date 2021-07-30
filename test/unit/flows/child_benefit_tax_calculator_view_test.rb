@@ -288,7 +288,7 @@ class ChildBenefitTaxCalculatorViewTest < ActiveSupport::TestCase
 
     context "when tax year is incomplete" do
       setup do
-        Timecop.freeze("2019-07-02")
+        travel_to("2019-07-02")
         @calculator.stubs(calculate_adjusted_net_income: SmartAnswer::Money.new(60_000))
         @presenter = OutcomePresenter.new(@outcome, nil, @state)
         @body = @presenter.body

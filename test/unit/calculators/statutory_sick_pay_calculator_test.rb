@@ -1007,12 +1007,12 @@ module SmartAnswer
 
       context "possible year of sickness" do
         should "returns 31 Dec 2017 when month is between January and May" do
-          Timecop.freeze("1 May 2017")
+          travel_to("1 May 2017")
           assert_equal StatutorySickPayCalculator.year_of_sickness, Date.parse("31 Dec 2017")
         end
 
         should "returns 31 Dec 2018 when month is between June and December" do
-          Timecop.freeze("1 June 2017")
+          travel_to("1 June 2017")
           assert_equal StatutorySickPayCalculator.year_of_sickness, Date.parse("31 Dec 2018")
         end
       end

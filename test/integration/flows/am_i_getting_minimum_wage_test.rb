@@ -5,7 +5,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   include FlowIntegrationTestHelper
 
   setup do
-    Timecop.freeze(Date.parse("2015-01-01"))
+    travel_to(Date.parse("2015-01-01"))
     setup_for_testing_flow AmIGettingMinimumWageFlow
   end
 
@@ -802,7 +802,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
   context "2020 scenarios" do
     setup do
-      Timecop.freeze(Date.parse("2020-04-01"))
+      travel_to(Date.parse("2020-04-01"))
       setup_for_testing_flow AmIGettingMinimumWageFlow
     end
 
@@ -1197,7 +1197,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
   context "2021 scenarios" do
     setup do
-      Timecop.freeze(Date.parse("2021-04-01"))
+      travel_to(Date.parse("2021-04-01"))
       setup_for_testing_flow AmIGettingMinimumWageFlow
     end
 

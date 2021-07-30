@@ -55,13 +55,13 @@ class WorldLocationTest < ActiveSupport::TestCase
       should "cache the loaded locations for a day" do
         first = WorldLocation.all
 
-        Timecop.travel(23.hours.from_now) do
+        travel_to(23.hours.from_now) do
           second = WorldLocation.all
           assert_requested :get, @endpoint, times: 1
           assert_equal first, second
         end
 
-        Timecop.travel(25.hours.from_now) do
+        travel_to(25.hours.from_now) do
           third = WorldLocation.all
           assert_requested :get, @endpoint, times: 2
           assert_equal first, third
@@ -73,14 +73,14 @@ class WorldLocationTest < ActiveSupport::TestCase
 
         stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations").to_timeout
 
-        Timecop.travel(25.hours.from_now) do
+        travel_to(25.hours.from_now) do
           assert_nothing_raised do
             second = WorldLocation.all
             assert_equal first, second
           end
         end
 
-        Timecop.travel(1.week.from_now + 1.hour) do
+        travel_to(1.week.from_now + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.all
           end
@@ -154,13 +154,13 @@ class WorldLocationTest < ActiveSupport::TestCase
       should "cache the loaded location for a day" do
         first = WorldLocation.find("rohan")
 
-        Timecop.travel(23.hours.from_now) do
+        travel_to(23.hours.from_now) do
           second = WorldLocation.find("rohan")
           assert_requested @rohan_request, times: 1
           assert_equal first, second
         end
 
-        Timecop.travel(25.hours.from_now) do
+        travel_to(25.hours.from_now) do
           third = WorldLocation.find("rohan")
           assert_requested @rohan_request, times: 2
           assert_equal first, third
@@ -171,14 +171,14 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.find("rohan")
         @rohan_request.to_timeout
 
-        Timecop.travel(25.hours.from_now) do
+        travel_to(25.hours.from_now) do
           assert_nothing_raised do
             second = WorldLocation.find("rohan")
             assert_equal first, second
           end
         end
 
-        Timecop.travel(1.week.from_now + 1.hour) do
+        travel_to(1.week.from_now + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.find("rohan")
           end

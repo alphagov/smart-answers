@@ -51,12 +51,8 @@ module SmartAnswer
 
       context "when tax year is built for today" do
         setup do
-          Timecop.freeze(Date.parse("2000-01-01"))
+          travel_to(Date.parse("2000-01-01"))
           @tax_year1999 = @tax_year.current
-        end
-
-        teardown do
-          Timecop.return
         end
 
         should "begin on 6th April" do
