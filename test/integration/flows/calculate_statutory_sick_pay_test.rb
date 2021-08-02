@@ -524,7 +524,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      Timecop.freeze("2017-01-01") do
+      travel_to("2017-01-01") do
         add_response (Time.zone.today.end_of_year + 1.day).to_s
         assert_current_node_is_error
       end
@@ -547,7 +547,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      Timecop.freeze("2017-01-01") do
+      travel_to("2017-01-01") do
         add_response (Time.zone.today.end_of_year + 1.day).to_s
         assert_current_node_is_error
       end

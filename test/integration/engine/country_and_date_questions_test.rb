@@ -35,7 +35,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         vietnam
       ]
       stub_worldwide_api_has_locations(@location_slugs)
-      Timecop.travel("2013-01-01")
+      travel_to("2013-01-01")
       stub_content_store_has_item("/moved-to-country")
     end
 

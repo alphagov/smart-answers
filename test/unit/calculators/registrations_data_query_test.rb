@@ -95,7 +95,7 @@ module SmartAnswer::Calculators
       context "fetching document return fees" do
         context "when before 2015-08-01" do
           setup do
-            Timecop.travel("2015-07-31")
+            travel_to("2015-07-31")
           end
 
           should "display 4.50, 12.50 and 22" do
@@ -107,7 +107,7 @@ module SmartAnswer::Calculators
 
         context "on and after 2015-08-01" do
           setup do
-            Timecop.travel("2015-08-01")
+            travel_to("2015-08-01")
           end
 
           should "display 4.50, 12.50 and 22" do

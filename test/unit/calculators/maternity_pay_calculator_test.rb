@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
           @due_date = 4.months.since(Time.zone.today)
           @start_of_week_in_four_months = @due_date - @due_date.wday
           @calculator = MaternityPayCalculator.new(@due_date)
-          Timecop.travel("25 March 2013")
+          travel_to("25 March 2013")
         end
 
         should "calculate expected birth week" do
@@ -548,7 +548,7 @@ module SmartAnswer::Calculators
 
       context "pay date starting month is December" do
         should "produce a list of the paydates adjust one month forward" do
-          Timecop.travel("26 Jul 2013")
+          travel_to("26 Jul 2013")
 
           calculator = MaternityPayCalculator.new(Date.parse("14 January 2014"))
           calculator.leave_start_date = Date.parse("12 December 2013")

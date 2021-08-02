@@ -16,21 +16,21 @@ module SmartAnswer::Calculators
       end
       context "start_of_holiday_year" do
         should "divide the year on 1st Oct and return the relevant calculation start date" do
-          Timecop.travel(Date.civil(Time.zone.today.year, 6, 1))
+          travel_to(Date.civil(Time.zone.today.year, 6, 1))
           assert_equal Date.civil(Time.zone.today.year - 1, 10, 1), @calc.start_of_holiday_year
-          Timecop.travel(Date.civil(Time.zone.today.year, 10, 2))
+          travel_to(Date.civil(Time.zone.today.year, 10, 2))
           assert_equal Date.civil(Time.zone.today.year, 10, 1), @calc.start_of_holiday_year
         end
       end
       context "weeks_worked" do
         should "give the number of weeks between the calculation period and holiday start dates" do
-          Timecop.travel(Date.civil(Time.zone.today.year, 10, 2))
+          travel_to(Date.civil(Time.zone.today.year, 10, 2))
           assert_equal 4, @calc.weeks_worked(Date.civil(Time.zone.today.year, 11, 1))
         end
       end
       context "available_days" do
         should "give the number of days since the calculation period started" do
-          Timecop.travel(Date.civil(Time.zone.today.year, 12, 25))
+          travel_to(Date.civil(Time.zone.today.year, 12, 25))
           assert_equal 85, @calc.available_days
         end
       end

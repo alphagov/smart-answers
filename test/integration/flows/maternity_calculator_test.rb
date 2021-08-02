@@ -79,11 +79,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
     context "given the date is April 9th (after changes)" do
       setup do
-        Timecop.travel("2013-04-09")
-      end
-
-      teardown do
-        Timecop.return
+        travel_to("2013-04-09")
       end
 
       ## QM1
@@ -658,7 +654,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
   # https://govuk.zendesk.com/agent/tickets/2700341
   context "Example 1" do
     setup do
-      Timecop.freeze("2018-09-06")
+      travel_to("2018-09-06")
 
       add_response :maternity
       add_response Date.parse("2018-10-01")
@@ -671,10 +667,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       add_response "2"
       add_response "usual_paydates"
       add_response "last_day_of_the_month"
-    end
-
-    teardown do
-      Timecop.return
     end
 
     should "match the results provided by HMRC" do
@@ -697,7 +689,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
   context "Example 2" do
     setup do
-      Timecop.freeze("2018-09-06")
+      travel_to("2018-09-06")
 
       add_response :maternity
       add_response Date.parse("2018-10-14")
@@ -711,10 +703,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       add_response "usual_paydates"
       add_response "last_working_day_of_the_month"
       add_response "1,2,3,5"
-    end
-
-    teardown do
-      Timecop.return
     end
 
     should "match the results provided by HMRC" do
@@ -737,7 +725,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
   context "Example 3" do
     setup do
-      Timecop.freeze("2018-09-06")
+      travel_to("2018-09-06")
 
       add_response :maternity
       add_response Date.parse("2018-08-18")
@@ -750,10 +738,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       add_response "2"
       add_response "usual_paydates"
       add_response Date.parse("2018-06-22")
-    end
-
-    teardown do
-      Timecop.return
     end
 
     should "match the results provided by HMRC" do
