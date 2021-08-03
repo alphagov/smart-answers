@@ -18,11 +18,11 @@
           presenter = flow.start_node.presenter
           [
             { text: title_and_url(flow.name, presenter.title) },
-            { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status)) },
+            { text: link_to(flow.status.capitalize, live_link(flow.name, flow.status), class: "govuk-link") },
             { text: flow.questions.count },
             { text: flow.outcomes.count },
             { text: code_links(flow.class) },
-            { text: link_to('Visualise', visualise_path(flow.name)) },
+            { text: link_to('Visualise', visualise_path(flow.name), class: "govuk-link") },
           ]
         end
       } %>
