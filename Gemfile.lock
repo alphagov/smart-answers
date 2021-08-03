@@ -89,7 +89,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    faraday (1.5.1)
+    faraday (1.6.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -97,6 +97,7 @@ GEM
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
@@ -106,6 +107,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
     ffi (1.13.1)
     gds-api-adapters (72.1.0)
       addressable
@@ -116,7 +118,7 @@ GEM
     gds_zendesk (3.2.0)
       null_logger (~> 0)
       zendesk_api (~> 1.27)
-    globalid (0.5.1)
+    globalid (0.5.2)
       activesupport (>= 5.0)
     govspeak (6.7.1)
       actionview (>= 5.0, < 7)
@@ -137,7 +139,7 @@ GEM
       sentry-ruby (~> 4.5.0)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (25.0.0)
+    govuk_publishing_components (25.1.0)
       govuk_app_config
       kramdown
       plek
@@ -183,7 +185,7 @@ GEM
     logstasher (2.1.5)
       activesupport (>= 5.2)
       request_store
-    loofah (2.10.0)
+    loofah (2.11.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -201,7 +203,7 @@ GEM
     mocha (1.11.2)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.5.7)
+    nio4r (2.5.8)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
