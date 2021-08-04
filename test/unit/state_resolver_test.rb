@@ -6,6 +6,10 @@ module SmartAnswer
       @flow = SmartAnswer::Flow.build do
         additional_parameters %w[c d]
 
+        setup do
+          self.e = :f
+        end
+
         radio :x do
           option :yes
           option :no
@@ -116,6 +120,13 @@ module SmartAnswer
 
         assert_equal :y, state.current_node_name
         assert_equal "true", state.c
+      end
+
+      should "run setup on the start state" do
+        response_store = ResponseStore.new(responses: {})
+        state = @state_resolver.state_from_response_store(response_store)
+
+        assert_equal :f, state.e
       end
     end
 

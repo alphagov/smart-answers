@@ -20,6 +20,7 @@ module SmartAnswer
     def initialize
       @nodes = []
       @additional_parameters = []
+      @setup = nil
       status(:draft)
     end
 
@@ -76,6 +77,12 @@ module SmartAnswer
       end
 
       @status
+    end
+
+    def setup(&block)
+      return @setup unless block_given?
+
+      @setup = block
     end
 
     def radio(name, &block)

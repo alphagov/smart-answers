@@ -92,6 +92,16 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "587920ff-b854-4adb-9334-451b45652467", s.content_id
   end
 
+  test "Can define the setup block" do
+    s = SmartAnswer::Flow.build do
+      setup do
+        return "setup"
+      end
+    end
+
+    assert_equal "setup", s.setup.call
+  end
+
   test "Can build outcome nodes" do
     s = SmartAnswer::Flow.build do
       outcome :you_dont_have_a_sweet_tooth

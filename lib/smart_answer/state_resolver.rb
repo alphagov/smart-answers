@@ -6,6 +6,8 @@ module SmartAnswer
 
     def state_from_response_store(response_store, requested_node = nil)
       start_state = State.new(@flow.questions.first.name)
+      start_state.instance_eval(&@flow.setup) if @flow.setup
+
       @flow.additional_parameters.each do |param|
         start_state[param] = response_store.get(param)
       end
