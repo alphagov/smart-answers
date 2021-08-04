@@ -25,6 +25,12 @@ module SmartAnswer
         @option_keys.include?(option.to_s)
       end
 
+      def setup(state)
+        unless @options_block.nil?
+          @option_keys = state.instance_exec(&@options_block)
+        end
+      end
+
       def parse_input(raw_input)
         raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
 

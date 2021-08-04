@@ -39,6 +39,12 @@ module SmartAnswer
         @option_keys.include?(option)
       end
 
+      def setup(state)
+        unless @options_block.nil?
+          @option_keys = state.instance_exec(&@options_block)
+        end
+      end
+
       def parse_input(raw_input)
         if raw_input.blank?
           # Raise on for blank input when showing a 'none' option as input is required.

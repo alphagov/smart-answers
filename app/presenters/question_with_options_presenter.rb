@@ -1,9 +1,5 @@
 class QuestionWithOptionsPresenter < QuestionPresenter
   def options
-    unless @node.options_block.nil?
-      @node.option_keys = @state.instance_exec(&@node.options_block)
-    end
-
     @node.option_keys.map { |option_key| option_attributes(option_key) }
   end
 
