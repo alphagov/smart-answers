@@ -4,7 +4,7 @@ class QuestionWithOptionsPresenter < QuestionPresenter
   end
 
   def option_attributes(key)
-    option = @renderer.option(key.to_sym)
+    option = @renderer.option(key)
 
     if option.is_a?(String)
       { label: option, value: key }

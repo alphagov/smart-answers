@@ -21,7 +21,7 @@ module SmartAnswer
 
     def option(key)
       rendered_view
-      @view.options.fetch(key)
+      @view.options.with_indifferent_access.fetch(key)
     end
 
     def content_for(name)

@@ -10,9 +10,9 @@ module SmartAnswer
 
       @renderer = stub("renderer")
 
-      @renderer.stubs(:option).with(:option1).returns("Option 1")
-      @renderer.stubs(:option).with(:option2).returns("Option 2")
-      @renderer.stubs(:option).with(:option3).returns("Option 3")
+      @renderer.stubs(:option).with("option1").returns("Option 1")
+      @renderer.stubs(:option).with("option2").returns("Option 2")
+      @renderer.stubs(:option).with("option3").returns("Option 3")
 
       @presenter = RadioQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
       @presenter.stubs(:current_response).returns(nil)

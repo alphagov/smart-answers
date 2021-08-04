@@ -5,8 +5,8 @@ module SmartAnswer
     setup do
       @renderer = stub("renderer")
 
-      @renderer.stubs(:option).with(:option_one).returns("option-one-text")
-      @renderer.stubs(:option).with(:option_two).returns({ label: "option-two-text", hint_text: "option-two-hint" })
+      @renderer.stubs(:option).with("option_one").returns("option-one-text")
+      @renderer.stubs(:option).with("option_two").returns({ label: "option-two-text", hint_text: "option-two-hint" })
     end
 
     context "question defined with option keys" do
