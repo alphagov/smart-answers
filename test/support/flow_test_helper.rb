@@ -98,9 +98,10 @@ module FlowTestHelper
 
     def add_responses(responses)
       question_names = flow.questions.map(&:name)
+      valid_parameters = question_names + flow.additional_parameters
 
       responses.each do |key, value|
-        raise "Invalid question #{key}" unless question_names.include?(key.to_sym)
+        raise "Invalid question or query parameter: #{key}" unless valid_parameters.include?(key.to_sym)
 
         unless value.is_a?(String) || (value.is_a?(Array) && value.all? { |v| v.is_a?(String) })
           raise "response values must be a string or an array of strings"
