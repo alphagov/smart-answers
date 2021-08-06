@@ -62,11 +62,7 @@ class RedundancyPayFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if years_employed < 2
-          outcome :done_no_statutory
-        else
-          outcome :done
-        end
+        outcome :done
       end
     end
 
