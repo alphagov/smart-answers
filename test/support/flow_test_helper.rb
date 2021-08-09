@@ -82,7 +82,7 @@ module FlowTestHelper
 
     def initialize(flow_class)
       @flow = flow_class.build
-      @response_store = ResponseStore.new(responses: {})
+      @response_store = ResponseStore.new(responses: {}.with_indifferent_access)
     end
 
     def testing_node=(node_name)
