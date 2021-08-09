@@ -98,6 +98,12 @@ module SmartAnswer
       end
     end
 
+    context "#setup" do
+      should "be a method" do
+        assert_equal nil, @node.setup(nil)
+      end
+    end
+
     context "#transition" do
       should "copy values from initial state to new state" do
         @node.next_node { outcome :done }

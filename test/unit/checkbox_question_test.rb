@@ -12,7 +12,15 @@ module SmartAnswer
           option :reddy_brown
         end
 
-        assert_equal %w[red blue green blue-green reddy_brown], q.options
+        assert_equal %w[red blue green blue-green reddy_brown], q.option_keys
+      end
+
+      should "be able to specify options with block" do
+        q = Question::Checkbox.new(nil, :something) do
+          options { %w[x y z] }
+        end
+
+        assert_equal %w[x y z], q.options_block.call
       end
 
       should "not be able to use reserved 'none' option" do
@@ -28,6 +36,29 @@ module SmartAnswer
         assert_raise InvalidNode do
           Question::Checkbox.new(nil, :something) { option "a,comma" }
         end
+      end
+    end
+
+    context "setup" do
+      should "resolve the options keys from the option block" do
+        q = Question::Checkbox.new(nil, :example) do
+          options { %i[x y] }
+        end
+
+        q.setup(nil)
+
+        assert_equal %i[x y], q.option_keys
+      end
+
+      should "not clear options keys if option block is nil" do
+        q = Question::Checkbox.new(nil, :example) do
+          option :a
+          option :b
+        end
+
+        q.setup(nil)
+
+        assert_equal %w[a b], q.option_keys
       end
     end
 

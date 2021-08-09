@@ -6,6 +6,8 @@ module SmartAnswer
 
     def state_from_response_store(response_store, requested_node = nil)
       start_state = State.new(@flow.questions.first.name)
+      start_state.instance_eval(&@flow.setup) if @flow.setup
+
       @flow.additional_parameters.each do |param|
         start_state[param] = response_store.get(param)
       end
@@ -36,10 +38,12 @@ module SmartAnswer
 
     def resolve_state(state, response_store, requested_node)
       node_name = state.current_node_name.to_s
-      response = response_store.get(node_name)
-      reached_an_outcome = @flow.node(node_name.to_sym).outcome?
+      node = @flow.node(node_name.to_sym)
+      node.setup(state)
 
-      return state if response.nil? || reached_an_outcome || state.error
+      response = response_store.get(node_name)
+
+      return state if response.nil? || node.outcome? || state.error
       return apply_response_to_state(state, response) if requested_node == node_name
 
       next_state = transition_state_to_next_node(state, response)

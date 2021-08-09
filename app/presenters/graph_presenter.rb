@@ -49,7 +49,7 @@ private
     when SmartAnswer::Question::Radio
       text << word_wrap(node_title(node))
       text << "\n\n"
-      text << node.permitted_options.map { |o| "( ) #{o}" }.join("\n")
+      text << node.option_keys.map { |o| "( ) #{o}" }.join("\n")
     when SmartAnswer::Question::Checkbox
       text << word_wrap(node_title(node))
       text << "\n\n"

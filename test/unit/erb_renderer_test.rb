@@ -130,7 +130,7 @@ module SmartAnswer
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
 
         assert_equal "option-one-text", renderer.option(:option_one)
-        assert_equal({ label: "option-two-text", hint_text: "option-two-hint-text" }, renderer.option(:option_two))
+        assert_equal({ "label" => "option-two-text", "hint_text" => "option-two-hint-text" }, renderer.option(:option_two))
       end
     end
 

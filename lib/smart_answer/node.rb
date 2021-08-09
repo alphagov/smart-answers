@@ -76,6 +76,8 @@ module SmartAnswer
       end
     end
 
+    def setup(_state); end
+
     def transition(current_state, _input)
       new_state = current_state.dup
       next_node = next_node_for(new_state, nil)

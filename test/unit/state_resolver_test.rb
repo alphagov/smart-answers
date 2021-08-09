@@ -6,6 +6,10 @@ module SmartAnswer
       @flow = SmartAnswer::Flow.build do
         additional_parameters %w[c d]
 
+        setup do
+          self.e = :f
+        end
+
         radio :x do
           option :yes
           option :no
@@ -116,6 +120,25 @@ module SmartAnswer
 
         assert_equal :y, state.current_node_name
         assert_equal "true", state.c
+      end
+
+      should "run the flow setup block on the start state" do
+        response_store = ResponseStore.new(responses: {})
+        state = @state_resolver.state_from_response_store(response_store)
+
+        assert_equal :f, state.e
+      end
+
+      should "run setup method for each visited node in order" do
+        response_store = ResponseStore.new(responses: { "x" => "yes", "y" => "no" })
+        setup_order = sequence("setup_order")
+
+        @flow.node(:x).expects(:setup).once.in_sequence(setup_order)
+        @flow.node(:y).expects(:setup).once.in_sequence(setup_order)
+        @flow.node(:b).expects(:setup).once.in_sequence(setup_order)
+        @flow.node(:a).expects(:setup).never
+
+        @state_resolver.state_from_response_store(response_store)
       end
     end
 

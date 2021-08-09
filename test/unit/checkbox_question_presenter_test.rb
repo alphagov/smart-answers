@@ -10,9 +10,9 @@ module SmartAnswer
 
       @renderer = stub("renderer")
 
-      @renderer.stubs(:option).with(:option1).returns("Option 1")
-      @renderer.stubs(:option).with(:option2).returns({ label: "Option 2", hint_text: "Hint 2" })
-      @renderer.stubs(:option).with(:option3).returns({ label: "Option 3" })
+      @renderer.stubs(:option).with("option1").returns("Option 1")
+      @renderer.stubs(:option).with("option2").returns({ label: "Option 2", hint_text: "Hint 2" })
+      @renderer.stubs(:option).with("option3").returns({ label: "Option 3" })
 
       @presenter = CheckboxQuestionPresenter.new(@question, nil, nil, renderer: @renderer)
       @presenter.stubs(:current_response).returns(nil)
@@ -35,7 +35,7 @@ module SmartAnswer
 
     test "#checkboxes return array including an or divider for none options" do
       @question.none_option
-      @renderer.stubs(:option).with(:none).returns({ label: "None" })
+      @renderer.stubs(:option).with("none").returns({ label: "None" })
 
       expected_value = [
         { label: "Option 1", value: "option1", hint: nil, checked: false, exclusive: nil },
