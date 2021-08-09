@@ -89,7 +89,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    faraday (1.6.0)
+    faraday (1.7.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -139,7 +139,7 @@ GEM
       sentry-ruby (~> 4.5.0)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (25.1.0)
+    govuk_publishing_components (25.2.3)
       govuk_app_config
       kramdown
       plek
