@@ -1,20 +1,14 @@
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
-    attr_accessor :born_on_or_before_6_april_1935,
-                  :marriage_or_civil_partnership_before_5_december_2005,
+    attr_accessor :marriage_or_civil_partnership_before_5_december_2005,
                   :birth_date,
                   :income,
-                  :paying_into_a_pension,
                   :gross_pension_contributions,
                   :net_pension_contributions,
                   :gift_aided_donations
 
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
-    end
-
-    def qualifies?
-      born_on_or_before_6_april_1935 == "yes"
     end
 
     def husband_income_measured?
@@ -27,10 +21,6 @@ module SmartAnswer::Calculators
 
     def valid_income?
       income > 0 # rubocop:disable Style/NumericPredicate
-    end
-
-    def paying_into_a_pension?
-      paying_into_a_pension == "yes"
     end
 
     def calculate_adjusted_net_income
