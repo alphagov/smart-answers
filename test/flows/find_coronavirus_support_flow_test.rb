@@ -594,7 +594,7 @@ class FindCoronavirusSupportFlowFlowTest < ActiveSupport::TestCase
       end
 
       should "render no information guidance if need_help_with? is none" do
-        assert_rendered_outcome text: "Based on your answers, there’s no specific information for you in this service at the moment."
+        assert_rendered_outcome text: "There’s no specific information for you in this service at the moment."
       end
 
       should "render extra guidance for England" do
