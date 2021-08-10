@@ -38,11 +38,11 @@ class AmIGettingMinimumWageFlowTest < ActiveSupport::TestCase
 
     should "render living wage copy if a user is eligible for the national living wage" do
       add_responses how_old_are_you?: @living_wage_age
-      assert_rendered_outcome text: "you appear to be getting the National Living Wage"
+      assert_rendered_outcome text: "You appear to be getting the National Living Wage"
     end
 
     should "render minimum wage copy if a user is not eligible for the national living wage" do
-      assert_rendered_outcome text: "you appear to be getting the National Minimum Wage"
+      assert_rendered_outcome text: "You appear to be getting the National Minimum Wage"
     end
 
     should "render underpayment information for someone underpaid" do
@@ -81,11 +81,11 @@ class AmIGettingMinimumWageFlowTest < ActiveSupport::TestCase
 
     should "render living wage copy if a user is eligible for the national living wage" do
       add_responses how_old_are_you?: @living_wage_age
-      assert_rendered_outcome text: "you appear to be not getting the National Living Wage"
+      assert_rendered_outcome text: "You appear to be not getting the National Living Wage"
     end
 
     should "render minimum wage copy if a user is not eligible for the national living wage" do
-      assert_rendered_outcome text: "you appear to be not getting the National Minimum Wage"
+      assert_rendered_outcome text: "You appear to be not getting the National Minimum Wage"
     end
 
     should "render underpayment information for someone underpaid" do

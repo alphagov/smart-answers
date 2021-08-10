@@ -63,36 +63,6 @@ module SmartAnswer
       end
     end
 
-    test "#use_title_as_h1 returns true if it is set to true" do
-      erb_template = "<% use_title_as_h1 true %>"
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert renderer.use_title_as_h1
-      end
-    end
-
-    test "#use_title_as_h1 returns false if it is set to false" do
-      erb_template = "<% use_title_as_h1 false %>"
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_not renderer.use_title_as_h1
-      end
-    end
-
-    test "#use_title_as_h1 returns false if it is not set" do
-      erb_template = ""
-
-      with_erb_template_file("template-name", erb_template) do |erb_template_directory|
-        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: "template-name")
-
-        assert_not renderer.use_title_as_h1
-      end
-    end
-
     test "#hide_caption returns true if set as true in the view" do
       erb_template = "<% hide_caption true %>"
 

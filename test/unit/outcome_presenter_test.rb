@@ -51,28 +51,6 @@ module SmartAnswer
       assert_equal "title-text", @presenter.title
     end
 
-    test "#heading_title when title_as_heading is false returns the flow title" do
-      flow = stub("flow_presenter")
-      outcome = OutcomePresenter.new(stub("outcome"), flow, nil, renderer: stub("renderer"))
-
-      flow.stubs(:title).returns("flow-title")
-      outcome.stubs(:title).returns("outcome-title")
-      outcome.stubs(:title_as_heading?).returns(false)
-
-      assert_equal outcome.heading_title, flow.title
-    end
-
-    test "#heading_title when title_as_heading is true returns the outcome title" do
-      flow = stub("flow_presenter")
-      outcome = OutcomePresenter.new(stub("outcome"), flow, nil, renderer: stub("renderer"))
-
-      flow.stubs(:title).returns("flow-title")
-      outcome.stubs(:title).returns("outcome-title")
-      outcome.stubs(:title_as_heading?).returns(true)
-
-      assert_equal outcome.heading_title, outcome.title
-    end
-
     test "#body returns content rendered for body block" do
       @renderer.stubs(:content_for).with(:body).returns("body-html")
 

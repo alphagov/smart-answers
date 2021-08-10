@@ -12,7 +12,9 @@
   <div id="result-info" class="govuk-grid-column-two-thirds outcome">
     <%= render 'smart_answers/shared/debug' %>
     <%= render "govuk_publishing_components/components/title", {
-      title: outcome.heading_title
+      title: "Information based on your answers",
+      context: @presenter.title + ":",
+      context_inside: true,
     } %>
 
     <div class="govuk-!-margin-bottom-6" data-module="track-results" data-flow-name="<%= @name %>">
@@ -20,7 +22,7 @@
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title,
           margin_bottom: 6
-        } unless outcome.title_as_heading? %>
+        } %>
       <% end %>
 
       <%= outcome.body %>
