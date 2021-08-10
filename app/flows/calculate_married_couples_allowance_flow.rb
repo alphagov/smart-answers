@@ -8,13 +8,8 @@ class CalculateMarriedCouplesAllowanceFlow < SmartAnswer::Flow
       option :yes
       option :no
 
-      on_response do |response|
-        self.calculator = SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.new
-        calculator.born_on_or_before_6_april_1935 = response
-      end
-
-      next_node do
-        if calculator.qualifies?
+      next_node do |response|
+        if response == "yes"
           question :did_you_marry_or_civil_partner_before_5_december_2005?
         else
           outcome :sorry
@@ -27,6 +22,7 @@ class CalculateMarriedCouplesAllowanceFlow < SmartAnswer::Flow
       option :no
 
       on_response do |response|
+        self.calculator = SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.new
         calculator.marriage_or_civil_partnership_before_5_december_2005 = response
       end
 
@@ -101,12 +97,8 @@ class CalculateMarriedCouplesAllowanceFlow < SmartAnswer::Flow
       option :yes
       option :no
 
-      on_response do |response|
-        calculator.paying_into_a_pension = response
-      end
-
-      next_node do
-        if calculator.paying_into_a_pension?
+      next_node do |response|
+        if response == "yes"
           question :how_much_expected_contributions_before_tax?
         else
           question :how_much_expected_gift_aided_donations?
