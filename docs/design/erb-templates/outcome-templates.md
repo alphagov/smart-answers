@@ -32,16 +32,6 @@ Used to generate the main content. Expected to be govspeak or HTML. Example:
 <% end %>
 ```
 
-### `:use_title_as_h1`
-
-When `true`, specifies that you want to use the given `title` as the outcome page
-`<h1>` heading instead of the default `<h2>` heading.  The flow title is no longer
-shown.
-
-```erb
-<% use_title_as_h1 true %>
-```
-
 ### `next_steps`
 
 Used to generate the "next steps" content (at the top of the right-hand sidebar). Expected to be govspeak or HTML. Example:

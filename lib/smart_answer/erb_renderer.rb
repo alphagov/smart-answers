@@ -17,7 +17,6 @@ module SmartAnswer
     end
 
     delegate :hide_caption, to: :rendered_view
-    delegate :use_title_as_h1, to: :rendered_view
 
     def option(key)
       rendered_view
