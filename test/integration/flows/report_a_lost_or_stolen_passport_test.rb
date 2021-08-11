@@ -11,7 +11,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   end
 
   should "ask where the passport was lost or stolen" do
-    assert_current_node :where_was_the_passport_lost_or_stolen?
+    assert_current_node :location
   end
 
   context "in the UK" do

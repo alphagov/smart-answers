@@ -3,8 +3,9 @@ class ReportALostOrStolenPassportFlow < SmartAnswer::Flow
     content_id "f02fc2c9-f5ff-4ea2-acc4-730bbda957bb"
     name "report-a-lost-or-stolen-passport"
     status :published
+    response_store :query_parameters
 
-    radio :where_was_the_passport_lost_or_stolen? do
+    radio :location do
       option :in_the_uk
       option :abroad
 
