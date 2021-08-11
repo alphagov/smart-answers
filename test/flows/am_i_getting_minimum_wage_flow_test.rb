@@ -1,6 +1,6 @@
 require "test_helper"
 require "support/flow_test_helper"
-require "support/shared_flows/minimum_wage_flow_test_helper"
+require "support/flows/minimum_wage_flow_test_helper"
 
 class AmIGettingMinimumWageFlowTest < ActiveSupport::TestCase
   include FlowTestHelper

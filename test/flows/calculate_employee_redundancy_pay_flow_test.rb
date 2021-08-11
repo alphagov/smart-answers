@@ -1,6 +1,6 @@
 require "test_helper"
 require "support/flow_test_helper"
-require "support/shared_flows/redundancy_pay_flow_test_helper"
+require "support/flows/redundancy_pay_flow_test_helper"
 
 class CalculateEmployeeRedundancyPayFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
