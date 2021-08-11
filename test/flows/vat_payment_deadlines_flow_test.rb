@@ -14,8 +14,8 @@ class VatPaymentDeadlinesFlowTest < ActiveSupport::TestCase
     assert_rendered_start_page
   end
 
-  context "question: when_does_your_vat_accounting_period_end?" do
-    setup { testing_node :when_does_your_vat_accounting_period_end? }
+  context "question: vat_accounting_period_end" do
+    setup { testing_node :vat_accounting_period_end }
 
     should "render the question" do
       assert_rendered_question
@@ -36,16 +36,16 @@ class VatPaymentDeadlinesFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of how_do_you_want_to_pay? for a valid response" do
-        assert_next_node :how_do_you_want_to_pay?, for_response: "2013-04-30"
+      should "have a next node of payment_method for a valid response" do
+        assert_next_node :payment_method, for_response: "2013-04-30"
       end
     end
   end
 
-  context "question: how_do_you_want_to_pay?" do
+  context "question: payment_method" do
     setup do
-      testing_node :how_do_you_want_to_pay?
-      add_responses when_does_your_vat_accounting_period_end?: "2013-04-30"
+      testing_node :payment_method
+      add_responses vat_accounting_period_end: "2013-04-30"
     end
 
     should "render the question" do

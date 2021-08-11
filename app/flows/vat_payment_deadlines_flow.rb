@@ -8,7 +8,7 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
       self.calculator = SmartAnswer::Calculators::VatPaymentDeadlines.new
     end
 
-    date_question :when_does_your_vat_accounting_period_end? do
+    date_question :vat_accounting_period_end do
       default_day { -1 }
 
       on_response do |response|
@@ -20,11 +20,11 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :how_do_you_want_to_pay?
+        question :payment_method
       end
     end
 
-    radio :how_do_you_want_to_pay? do
+    radio :payment_method do
       option "direct-debit"
       option "online-telephone-banking"
       option "online-debit-credit-card"
@@ -40,29 +40,29 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
       next_node do |response|
         case response
         when "direct-debit"
-          outcome :result_direct_debit
+          outcome :direct_debit
         when "online-telephone-banking"
-          outcome :result_online_telephone_banking
+          outcome :online_telephone_banking
         when "online-debit-credit-card"
-          outcome :result_online_debit_credit_card
+          outcome :online_debit_credit_card
         when "bacs-direct-credit"
-          outcome :result_bacs_direct_credit
+          outcome :bacs_direct_credit
         when "bank-giro"
-          outcome :result_bank_giro
+          outcome :bank_giro
         when "chaps"
-          outcome :result_chaps
+          outcome :chaps
         when "cheque"
-          outcome :result_cheque
+          outcome :cheque
         end
       end
     end
 
-    outcome :result_direct_debit
-    outcome :result_online_telephone_banking
-    outcome :result_online_debit_credit_card
-    outcome :result_bacs_direct_credit
-    outcome :result_bank_giro
-    outcome :result_chaps
-    outcome :result_cheque
+    outcome :direct_debit
+    outcome :online_telephone_banking
+    outcome :online_debit_credit_card
+    outcome :bacs_direct_credit
+    outcome :bank_giro
+    outcome :chaps
+    outcome :cheque
   end
 end
