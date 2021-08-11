@@ -4,19 +4,22 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
     name "vat-payment-deadlines"
     status :published
 
+    setup do
+      self.calculator = SmartAnswer::Calculators::VatPaymentDeadlines.new
+    end
+
     date_question :when_does_your_vat_accounting_period_end? do
       default_day { -1 }
 
-      on_response do
-        self.calculator = SmartAnswer::Calculators::VatPaymentDeadlines.new
+      on_response do |response|
+        calculator.period_end_date = response
       end
 
       validate :error_message do |response|
         response == response.end_of_month
       end
 
-      next_node do |response|
-        calculator.period_end_date = response
+      next_node do
         question :how_do_you_want_to_pay?
       end
     end
