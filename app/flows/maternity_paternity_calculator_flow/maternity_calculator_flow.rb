@@ -137,8 +137,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
             question :how_many_payments_every_4_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
           elsif calculator.monthly?
             question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
-          else
-            question :how_do_you_want_the_smp_calculated?
           end
         end
       end

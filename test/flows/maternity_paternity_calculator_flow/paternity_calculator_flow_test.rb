@@ -417,8 +417,6 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
         add_responses pay_frequency_paternity?: "monthly"
         assert_next_node :how_many_payments_monthly?, for_response: "5000"
       end
-
-      # impossible to reach how_do_you_want_spp_calculated from here
     end
   end
 

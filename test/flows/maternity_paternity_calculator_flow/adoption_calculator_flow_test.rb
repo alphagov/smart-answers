@@ -342,8 +342,6 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
         add_responses pay_frequency_adoption?: "monthly"
         assert_next_node :how_many_payments_monthly?, for_response: "4000"
       end
-
-      # impossible to reach how_do_you_want_sap_calculated from here
     end
   end
 

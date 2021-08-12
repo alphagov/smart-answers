@@ -193,8 +193,6 @@ class MaternityPaternityCalculatorFlow::MaternityCalculatorFlowTest < ActiveSupp
         add_responses pay_frequency?: "monthly"
         assert_next_node :how_many_payments_monthly?, for_response: "100"
       end
-
-      # impossible to reach how_do_you_want_smp_calculated from here
     end
   end
 
