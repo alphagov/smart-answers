@@ -3,6 +3,7 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
     content_id "dfa9a5c3-d52e-479c-8505-855f475dc338"
     name "vat-payment-deadlines"
     status :published
+    response_store :query_parameters
 
     setup do
       self.calculator = SmartAnswer::Calculators::VatPaymentDeadlines.new
