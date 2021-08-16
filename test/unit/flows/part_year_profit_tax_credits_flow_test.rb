@@ -26,16 +26,6 @@ class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
       assert_same @calculator, @new_state.calculator
     end
 
-    should "set the from date of the date select to the constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE
-      assert_equal expected, @question.range.begin
-    end
-
-    should "set the to date of the date select to the constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE
-      assert_equal expected, @question.range.end
-    end
-
     should "store parsed response on calculator as tax_credits_award_ends_on" do
       assert_equal Date.parse("2016-02-20"), @calculator.tax_credits_award_ends_on
     end
@@ -164,16 +154,6 @@ class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
       )
     end
 
-    should "set the from date of the date select to constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
-      assert_equal expected, @question.range.begin
-    end
-
-    should "set the to date of the date select to the constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE
-      assert_equal expected, @question.range.end
-    end
-
     should "store parsed response on calculator as started_trading_on" do
       assert_equal Date.parse("2015-02-01"), @calculator.started_trading_on
     end
@@ -237,16 +217,6 @@ class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
         responding_with: "2015-06-01",
         initial_state: { calculator: @calculator },
       )
-    end
-
-    should "set the from date of the date select to the constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
-      assert_equal expected, @question.range.begin
-    end
-
-    should "set the to date of the date select to the constant defined in the calculator" do
-      expected = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE
-      assert_equal expected, @question.range.end
     end
 
     should "store parsed response on calculator as stopped_trading_on" do
