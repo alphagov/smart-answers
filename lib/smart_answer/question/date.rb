@@ -50,7 +50,15 @@ module SmartAnswer
       end
 
       def range
-        @range ||= from && to ? from..to : false
+        if from && to
+          raise "to date must be after the from date" if from >= to
+
+          from..to
+        elsif !from && !to
+          false
+        else
+          raise "Both from and to must be defined to validate a date question"
+        end
       end
 
       def parse_input(input)
