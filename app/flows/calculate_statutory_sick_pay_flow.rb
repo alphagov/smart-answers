@@ -117,8 +117,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
         calculator.sick_start_date = response
       end
 
-      validate_in_range
-
       next_node do
         question :last_sick_day?
       end
@@ -132,8 +130,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       on_response do |response|
         calculator.sick_end_date = response
       end
-
-      validate_in_range
 
       validate do
         calculator.valid_last_sick_day?
@@ -180,8 +176,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
         calculator.linked_sickness_start_date = response
       end
 
-      validate_in_range
-
       validate :error_linked_sickness_must_be_before do
         calculator.valid_linked_sickness_start_date?
       end
@@ -199,8 +193,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       on_response do |response|
         calculator.linked_sickness_end_date = response
       end
-
-      validate_in_range
 
       validate :error_must_be_within_eight_weeks do
         calculator.within_eight_weeks_of_current_sickness_period?
@@ -265,7 +257,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
     date_question :last_payday_before_sickness? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
-      validate_in_range
 
       on_response do |response|
         calculator.relevant_period_to = response
@@ -284,7 +275,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
     date_question :last_payday_before_offset? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
-      validate_in_range
 
       on_response do |response|
         calculator.relevant_period_from = response + 1.day

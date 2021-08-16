@@ -5,10 +5,6 @@ module SmartAnswer
     class Date < Base
       PRESENTER_CLASS = DateQuestionPresenter
 
-      def validate_in_range
-        @validate_in_range = true
-      end
-
       def from(&block)
         if block_given?
           @from_func = block
@@ -49,18 +45,6 @@ module SmartAnswer
         end
       end
 
-      def range
-        if from && to
-          raise "to date must be after the from date" if from >= to
-
-          from..to
-        elsif !from && !to
-          false
-        else
-          raise "Both from and to must be defined to validate a date question"
-        end
-      end
-
       def parse_input(input)
         date = case input
                when Hash, ActiveSupport::HashWithIndifferentAccess
@@ -81,7 +65,7 @@ module SmartAnswer
                  raise InvalidResponse, "Bad date", caller
                end
 
-        validate_input(date) if @validate_in_range
+        validate_input(date)
         date
       rescue ArgumentError => e
         if e.message =~ /invalid date/
@@ -94,16 +78,14 @@ module SmartAnswer
       def date_of_birth_defaults
         from { 122.years.ago.beginning_of_year.to_date }
         to { ::Time.zone.today.end_of_year }
-        validate_in_range
       end
 
     private
 
       def validate_input(date)
-        return unless range
+        raise "from date must not be after the to date" if from && to && from > to
 
-        min, max = [range.begin, range.end].sort
-        if date < min || date > max
+        if (from && date < from) || (to && date > to)
           raise InvalidResponse, "Provided date is out of range: #{date}", caller
         end
       end

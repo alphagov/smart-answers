@@ -3,7 +3,6 @@ class RedundancyPayFlow < SmartAnswer::Flow
     date_question :date_of_redundancy? do
       from { SmartAnswer::Calculators::RedundancyCalculator.first_selectable_date }
       to { SmartAnswer::Calculators::RedundancyCalculator.last_selectable_date }
-      validate_in_range
 
       on_response do |response|
         self.rates = SmartAnswer::Calculators::RedundancyCalculator.redundancy_rates(response)

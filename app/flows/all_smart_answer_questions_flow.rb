@@ -43,8 +43,6 @@ class AllSmartAnswerQuestionsFlow < SmartAnswer::Flow
       from { Time.zone.today }
       to { 4.years.since(Time.zone.today) }
 
-      validate_in_range
-
       next_node do
         question :which_date_this_year?
       end
