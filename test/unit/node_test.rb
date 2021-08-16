@@ -100,7 +100,7 @@ module SmartAnswer
 
     context "#setup" do
       should "be a method" do
-        assert_equal nil, @node.setup(nil)
+        assert_nil @node.setup(nil)
       end
     end
 
