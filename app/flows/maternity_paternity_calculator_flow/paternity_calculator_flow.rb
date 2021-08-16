@@ -206,9 +206,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QP8
       date_question :employee_start_paternity? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.employee_leave_start = response
           self.leave_start_date = employee_leave_start
@@ -251,9 +248,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QP10
       date_question :last_normal_payday_paternity? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           calculator.last_payday = response
         end
@@ -269,9 +263,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QP11
       date_question :payday_eight_weeks_paternity? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           calculator.pre_offset_payday = response + 1.day
           self.relevant_period = calculator.formatted_relevant_period
@@ -349,9 +340,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QP15 - Also shared with adoption calculator here onwards
       date_question :next_pay_day_paternity? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.next_pay_day = response
           calculator.pay_date = next_pay_day

@@ -43,9 +43,6 @@ class CalculateAgriculturalHolidayEntitlementFlow < SmartAnswer::Flow
     end
 
     date_question :what_date_does_holiday_start? do
-      from { Date.civil(Time.zone.today.year, 1, 1) }
-      to { Date.civil(Time.zone.today.year + 1, 12, 31) }
-
       on_response do |response|
         calculator.holiday_starts_on = response
       end

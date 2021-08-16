@@ -51,9 +51,6 @@ class AllSmartAnswerQuestionsFlow < SmartAnswer::Flow
     end
 
     date_question :which_date_this_year? do
-      from { 1.year.ago.beginning_of_year.to_date }
-      to { ::Time.zone.today.end_of_year }
-
       default_year { 0 }
 
       next_node do
