@@ -1,28 +1,17 @@
 <% govspeak_for :body do %>
-  <% if calculator.already_abroad %>
-    You may be able to claim tax credits while you're abroad.
-  <% else %>
-    You may be able to get tax credits while you're abroad.
-  <% end %>
+There’s a different process depending on whether you want to make a new claim or you have an existing claim.
 
-  ##Working Tax Credit
+## If you want to get tax credits
 
-  You could get [Working Tax Credit](/working-tax-credit) if you either:
+You must first [apply for Universal Credit](/universal-credit/how-to-claim). You will not be eligible for Universal Credit because you do not have an address in the UK and you’ll be contacted by a Universal Credit adviser. If you’re eligible for tax credits, your claim will then be passed to HM Revenue and Customs (HMRC).
 
-  - live in Switzerland or an [European Economic Area](/eu-eea) (EEA) country and travel to the UK to work
-  - travel abroad to work, but are ‘ordinarily resident' in the UK
+You do not need a [Frontier Worker permit](/frontier-worker-permit) to make this claim, but it may help your claim be dealt with more quickly.
 
-  ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
+## If you already get tax credits
 
-  ##Child Tax Credit
+If you're already getting either [Working Tax Credit](/working-tax-credit) or [Child Tax Credit](/child-tax-credit) and you want to claim the other type of tax credit, update your existing tax claim by [reporting a change in circumstances to HMRC](/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries).
 
-  You could get [Child Tax Credit](/child-tax-credit) if:
-
-  - you are ordinarily resident in the UK
-  - you work in the UK and pay [National Insurance contributions](/national-insurance) here
-  - your child lives in an EEA country or in Switzerland and depends on you to support them
-
-  Contact the Tax Credits Helpline to claim.
+If you want to check that you’re able to continue getting tax credits while you're abroad, contact the Tax Credits Helpline.
 
   <% if calculator.already_abroad %>
     <%= render partial: 'tax_credits_already_abroad_helpline' %>
@@ -31,4 +20,5 @@
   <% end %>
 
   *[EEA]: European Economic Area
+  *[HMRC]: HM Revenue and Customs
 <% end %>
