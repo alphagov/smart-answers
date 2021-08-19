@@ -558,7 +558,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   end
 
   context "outcome: outcome_no_visa_needed" do
-    # travelling before 2021 conditional is unreachable
     setup do
       testing_node :outcome_no_visa_needed
       add_responses what_passport_do_you_have?: @eea_country,
