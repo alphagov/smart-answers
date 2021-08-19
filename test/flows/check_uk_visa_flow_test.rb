@@ -683,10 +683,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_transit_taiwan_through_border_control" do
-    # conditionals are unreachable
-  end
-
   context "outcome: outcome_work_n" do
     setup do
       testing_node :outcome_work_n
