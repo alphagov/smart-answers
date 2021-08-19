@@ -230,8 +230,6 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       next_node do |response|
         if response == "yes"
           outcome :outcome_tourism_visa_partner
-        elsif calculator.family_visit?
-          question :partner_family_british_citizen?
         else
           outcome :outcome_standard_visitor_visa
         end

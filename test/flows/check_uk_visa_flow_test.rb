@@ -452,8 +452,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_standard_visitor_visa for a 'no' response and a non family visit" do
         assert_next_node :outcome_standard_visitor_visa, for_response: "no"
       end
-
-      # impossible to reach partner_family_british_citizen?
     end
   end
 
