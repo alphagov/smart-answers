@@ -646,8 +646,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
     end
-
-    # unreachable conditionals left
   end
 
   context "outcome: outcome_transit_leaving_airport" do
