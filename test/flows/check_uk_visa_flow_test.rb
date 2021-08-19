@@ -145,8 +145,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     context "next_node" do
       test_shared_purpose_of_visit_next_nodes
 
-      # outcome_no_visa_needed is unreachable
-
       should "have a next node of travelling_to_cta? for a 'transit' response" do
         assert_next_node :travelling_to_cta?, for_response: "transit"
       end

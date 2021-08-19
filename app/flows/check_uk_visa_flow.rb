@@ -377,18 +377,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.transit_visit?
-        if calculator.passport_country_in_direct_airside_transit_visa_list? ||
-            calculator.passport_country_in_visa_national_list? ||
-            calculator.passport_country_is_taiwan? ||
-            calculator.passport_country_is_venezuela? ||
-            calculator.passport_country_in_non_visa_national_list? ||
-            calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_british_overseas_territories_list? ||
-            calculator.travel_document?
-          next question(:travelling_to_cta?)
-        else
-          next outcome(:outcome_no_visa_needed)
-        end
+        next question(:travelling_to_cta?)
       end
 
       if calculator.family_visit?
