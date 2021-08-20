@@ -164,7 +164,8 @@ class FlowTest < ActiveSupport::TestCase
 
     assert_equal 1, s.nodes.size
     assert_equal 1, s.questions.size
-    assert_equal Date.parse("2011-01-01")..Date.parse("2014-01-01"), s.questions.first.range
+    assert_equal Date.parse("2011-01-01"), s.questions.first.from
+    assert_equal Date.parse("2014-01-01"), s.questions.first.to
   end
 
   test "Can build value question nodes" do

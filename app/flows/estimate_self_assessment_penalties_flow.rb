@@ -37,9 +37,6 @@ class EstimateSelfAssessmentPenaltiesFlow < SmartAnswer::Flow
     end
 
     date_question :when_submitted? do
-      from { 3.years.ago(Time.zone.today) }
-      to { 2.years.since(Time.zone.today) }
-
       on_response do |response|
         calculator.filing_date = response
       end
@@ -52,9 +49,6 @@ class EstimateSelfAssessmentPenaltiesFlow < SmartAnswer::Flow
     end
 
     date_question :when_paid? do
-      from { 3.years.ago(Time.zone.today) }
-      to { 2.years.since(Time.zone.today) }
-
       on_response do |response|
         calculator.payment_date = response
       end

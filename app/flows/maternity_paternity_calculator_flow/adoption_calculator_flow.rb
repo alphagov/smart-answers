@@ -154,9 +154,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
       end
 
       date_question :last_normal_payday_adoption? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.last_payday = response
           calculator.last_payday = last_payday
@@ -174,9 +171,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
       end
 
       date_question :payday_eight_weeks_adoption? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.last_payday_eight_weeks = response + 1.day
           calculator.pre_offset_payday = last_payday_eight_weeks

@@ -6,9 +6,6 @@ class PartYearProfitTaxCreditsFlow < SmartAnswer::Flow
     content_id "de6723a5-7256-4bfd-aad3-82b04b06b73e"
 
     date_question :when_did_your_tax_credits_award_end? do
-      from { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
-      to   { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE }
-
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator.new
         calculator.tax_credits_award_ends_on = response
@@ -68,9 +65,6 @@ class PartYearProfitTaxCreditsFlow < SmartAnswer::Flow
     end
 
     date_question :when_did_you_stop_trading? do
-      from { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
-      to   { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
-
       on_response do |response|
         calculator.stopped_trading_on = response
       end
@@ -98,9 +92,6 @@ class PartYearProfitTaxCreditsFlow < SmartAnswer::Flow
     end
 
     date_question :when_did_you_start_trading? do
-      from { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
-      to   { SmartAnswer::Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
-
       on_response do |response|
         calculator.started_trading_on = response
       end

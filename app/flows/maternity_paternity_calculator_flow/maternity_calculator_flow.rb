@@ -5,9 +5,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QM1
       date_question :baby_due_date_maternity? do
-        from { 1.year.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.calculator = SmartAnswer::Calculators::MaternityPayCalculator.new(response)
         end
@@ -19,9 +16,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QM2
       date_question :date_leave_starts? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.leave_start_date = response
           calculator.leave_start_date = leave_start_date
@@ -81,9 +75,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QM5
       date_question :last_normal_payday? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.last_payday = response
           calculator.last_payday = last_payday
@@ -100,9 +91,6 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       ## QM6
       date_question :payday_eight_weeks? do
-        from { 2.years.ago(Time.zone.today) }
-        to { 2.years.since(Time.zone.today) }
-
         on_response do |response|
           self.last_payday_eight_weeks = 1.day.after(response)
           calculator.pre_offset_payday = last_payday_eight_weeks

@@ -123,73 +123,80 @@ module SmartAnswer
       end
     end
 
-    test "range returns false when neither from nor to are set" do
-      q = Question::Date.new(nil, :question_name)
-      assert_equal false, q.range
-    end
-
-    test "range returns false when only the from date is set" do
-      q = Question::Date.new(nil, :question_name) do
-        from { Time.zone.today }
-      end
-      assert_equal false, q.range
-    end
-
-    test "range returns false when only the to date is set" do
-      q = Question::Date.new(nil, :question_name) do
-        to { Time.zone.today }
-      end
-      assert_equal false, q.range
-    end
-
-    test "define allowable range of dates" do
-      q = Question::Date.new(nil, :example) do
-        on_response do |response|
-          self.date = response
-        end
-
+    test "rejects dates before a specified from date" do
+      question = Question::Date.new(nil, :example) do
+        from { Date.parse("2021-08-01") }
         next_node { outcome :done }
-        from { Date.parse("2011-01-01") }
-        to { Date.parse("2011-01-03") }
       end
-      assert_equal ::Date.parse("2011-01-01")..::Date.parse("2011-01-03"), q.range
-    end
 
-    test "a day before the allowed range is invalid" do
       assert_raises(InvalidResponse) do
-        date_question_2011.transition(@initial_state, "2010-12-31")
+        question.transition(@initial_state, "2021-07-31")
       end
     end
 
-    test "a day after the allowed range is invalid" do
-      assert_raises(InvalidResponse) do
-        date_question_2011.transition(@initial_state, "2012-01-01")
+    test "accepts dates equal to the specified from date" do
+      question = Question::Date.new(nil, :example) do
+        from { Date.parse("2021-08-01") }
+        next_node { outcome :done }
       end
-    end
 
-    test "the first day of the allowed range is valid" do
-      new_state = date_question_2011.transition(@initial_state, "2011-01-01")
+      new_state = question.transition(@initial_state, "2021-08-01")
       assert @initial_state != new_state
     end
 
-    test "the last day of the allowed range is valid" do
-      new_state = date_question_2011.transition(@initial_state, "2011-12-31")
+    test "accepts dates greater than the specified from date" do
+      question = Question::Date.new(nil, :example) do
+        from { Date.parse("2021-08-01") }
+        next_node { outcome :done }
+      end
+
+      new_state = question.transition(@initial_state, "2021-08-02")
       assert @initial_state != new_state
     end
 
-    test "do not complain when the input is within the allowed range when the dates are in descending order" do
-      q = Question::Date.new(nil, :example) do
-        on_response do |response|
-          self.date = response
-        end
-
+    test "rejects dates after a specified to date" do
+      question = Question::Date.new(nil, :example) do
+        to { Date.parse("2021-08-01") }
         next_node { outcome :done }
-        from { Date.parse("2011-01-03") }
-        to { Date.parse("2011-01-01") }
-        validate_in_range
       end
 
-      q.transition(@initial_state, "2011-01-02")
+      assert_raises(InvalidResponse) do
+        question.transition(@initial_state, "2021-08-02")
+      end
+    end
+
+    test "accepts dates equal to the specified to date" do
+      question = Question::Date.new(nil, :example) do
+        to { Date.parse("2021-08-01") }
+        next_node { outcome :done }
+      end
+
+      new_state = question.transition(@initial_state, "2021-08-01")
+      assert @initial_state != new_state
+    end
+
+    test "accepts dates less than the specified to date" do
+      question = Question::Date.new(nil, :example) do
+        to { Date.parse("2021-08-01") }
+        next_node { outcome :done }
+      end
+
+      new_state = question.transition(@initial_state, "2021-07-31")
+      assert @initial_state != new_state
+    end
+
+    test "raises an error when date validation is misconfigured to block flow progression" do
+      question = Question::Date.new(nil, :example) do
+        to { Date.parse("2021-08-01") }
+        from { Date.parse("2021-08-03") }
+        next_node { outcome :done }
+      end
+
+      exception = assert_raise RuntimeError do
+        question.transition(@initial_state, "2021-08-02")
+      end
+
+      assert "from date must not be after the to date", exception.message
     end
 
     test "define default day" do
@@ -262,19 +269,6 @@ module SmartAnswer
     end
 
   private
-
-    def date_question_2011
-      Question::Date.new(nil, :example) do
-        on_response do |response|
-          self.date = response
-        end
-
-        next_node { outcome :done }
-        from { Date.parse("2011-01-01") }
-        to { Date.parse("2011-12-31") }
-        validate_in_range
-      end
-    end
 
     def dob_question
       Question::Date.new(nil, :example) do
