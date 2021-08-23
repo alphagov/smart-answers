@@ -1,7 +1,12 @@
 <% govspeak_for :body do %>
-  You may be able to get tax credits while you're abroad.
+You cannot make a new claim for tax credits, unless you already get either:
 
-  Contact the Tax Credits Helpline to claim.
+* Working Tax Credit and you want to claim [Child Tax Credit](/child-tax-credit)
+* Child Tax Credit and you want to claim [Working Tax Credit](/working-tax-credit)
+
+If you want to claim for either Working Tax Credit or Child Tax Credit, update your existing tax credit claim by [reporting a change in circumstances to HM Revenue and Customs (HMRC)](/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries).
+
+If you’re already getting tax credits, you may be able to continue getting them while you’re abroad. Contact the Tax Credits Helpline to check.
 
   <% if calculator.already_abroad %>
     <%= render partial: 'tax_credits_already_abroad_helpline' %>
