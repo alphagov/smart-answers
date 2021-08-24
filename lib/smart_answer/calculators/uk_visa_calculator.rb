@@ -428,18 +428,6 @@ module SmartAnswer::Calculators
       switzerland
     ].freeze
 
-    COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w[
-      australia
-      canada
-      hong-kong
-      japan
-      monaco
-      new-zealand
-      san-marino
-      south-korea
-      taiwan
-    ].freeze
-
     COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w[
       kuwait
       oman
@@ -461,5 +449,19 @@ module SmartAnswer::Calculators
       british-national-overseas
       hong-kong-(british-national-overseas)
     ].freeze
+
+    COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = [
+      COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES,
+      COUNTRY_GROUP_BRITISH_NATIONAL_OVERSEAS,
+      "australia",
+      "canada",
+      "hong-kong",
+      "japan",
+      "monaco",
+      "new-zealand",
+      "san-marino",
+      "south-korea",
+      "taiwan",
+    ].flatten.freeze
   end
 end
