@@ -139,7 +139,7 @@ GEM
       sentry-ruby (~> 4.5.0)
       statsd-ruby (~> 1.5.0)
       unicorn (>= 5.4, < 5.9)
-    govuk_publishing_components (25.5.0)
+    govuk_publishing_components (25.6.0)
       govuk_app_config
       kramdown
       plek
@@ -195,7 +195,7 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0704)
-    mini_mime (1.1.0)
+    mini_mime (1.1.1)
     mini_portile2 (2.5.3)
     minitest (5.14.4)
     minitest-focus (1.2.1)
@@ -248,7 +248,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.1)
+    rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
