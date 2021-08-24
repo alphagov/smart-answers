@@ -4,7 +4,7 @@ module SmartAnswer
       PRESENTER_CLASS = QuestionPresenter
 
       def initialize(flow, name, &block)
-        @on_response_blocks = []
+        @on_response_block = nil
         @validations = []
         super
       end
@@ -15,16 +15,19 @@ module SmartAnswer
 
       def transition(current_state, raw_input)
         input = parse_input(raw_input)
-        new_state = @on_response_blocks.inject(current_state.dup) do |state, block|
-          block.evaluate(state, input)
-        end
+
+        new_state = current_state.dup
+        new_state.instance_exec(input, &@on_response_block) if @on_response_block
+
         validate!(new_state, input)
         next_node = next_node_for(new_state, input)
         new_state.transition_to(next_node, input)
       end
 
       def on_response(&block)
-        @on_response_blocks << Block.new(&block)
+        raise "Multiple on_response blocks not allowed" if @on_response_block.present?
+
+        @on_response_block = block
       end
 
       def parse_input(raw_input)
