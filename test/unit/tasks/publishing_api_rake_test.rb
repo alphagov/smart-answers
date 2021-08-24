@@ -128,6 +128,39 @@ class PublishingApiRakeTest < ActiveSupport::TestCase
     end
   end
 
+  context "publishing_api:unpublish_gone_with_explanation rake task" do
+    setup do
+      Rake::Task["publishing_api:unpublish_gone_with_explanation"].reenable
+    end
+
+    should "raise exception when content_id isn't supplied" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["publishing_api:unpublish_gone_with_explanation"].invoke(nil, "explanation")
+      end
+
+      assert_equal "Missing content_id parameter", exception.message
+    end
+
+    should "raise exception when explanation isn't supplied" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["publishing_api:unpublish_gone_with_explanation"].invoke("content-id", nil)
+      end
+
+      assert_equal "Missing explanation parameter", exception.message
+    end
+
+    should "send an unpublishing of type gone to the Publishing API" do
+      explanation = "The latest support and advice has been added to www.gov.uk/somewhere."
+      unpublish_request = stub_publishing_api_unpublish(
+        "content-id",
+        body: { type: "gone", explanation: explanation, discard_drafts: true },
+      )
+
+      Rake::Task["publishing_api:unpublish_gone_with_explanation"].invoke("content-id", explanation)
+      assert_requested unpublish_request
+    end
+  end
+
   context "publishing_api:unpublish_vanish rake task" do
     setup do
       Rake::Task["publishing_api:unpublish_vanish"].reenable

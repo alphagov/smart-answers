@@ -45,6 +45,14 @@ namespace :publishing_api do
     GdsApi.publishing_api.unpublish(args.content_id, type: "gone", discard_drafts: true)
   end
 
+  desc "Unpublish a content item with a type of gone and an explanation"
+  task :unpublish_gone_with_explanation, %i[content_id explanation] => :environment do |_, args|
+    raise "Missing content_id parameter" unless args.content_id
+    raise "Missing explanation parameter" unless args.explanation
+
+    GdsApi.publishing_api.unpublish(args.content_id, type: "gone", explanation: args.explanation, discard_drafts: true)
+  end
+
   desc "Unpublish a content item with a type of vanish"
   task :unpublish_vanish, [:content_id] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id
