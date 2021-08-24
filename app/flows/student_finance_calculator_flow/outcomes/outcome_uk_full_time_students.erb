@@ -1,11 +1,7 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer' %>
 
-  ##Student finance
-
-  You could get per year:
-
-  <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start } %>
+  <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall } %>
 
   ###Extra student funding
 
