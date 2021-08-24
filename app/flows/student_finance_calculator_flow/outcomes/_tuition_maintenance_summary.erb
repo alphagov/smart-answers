@@ -2,16 +2,18 @@
 
 You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/new-fulltime-students) each year to pay for your course.
 
-## Maintenance Loan
+<% if maintenance_loan_amount > 0 %>
+  ## Maintenance Loan
 
-You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/new-fulltime-students) to contribute towards your living costs.
+  You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/new-fulltime-students) to contribute towards your living costs.
 
-How your Maintenance Loan is calculated:
+  How your Maintenance Loan is calculated:
 
-<%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)  
-\- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
-= <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
+  <%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)  
+  \- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
+  = <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
 
-You can find out more about [how Maintenance Loans are calculated](https://trello.com/government/publications/student-finance-how-youre-assessed-and-paid).
+  You can find out more about [how Maintenance Loans are calculated](https://trello.com/government/publications/student-finance-how-youre-assessed-and-paid).
 
-If you need more money to fund your living costs and you qualify, you can apply for extra help.
+  If you need more money to fund your living costs and you qualify, you can apply for extra help.
+<% end %>
