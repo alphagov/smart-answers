@@ -6,8 +6,8 @@
 
     In each of your first 4 years, you could get:
 
-    <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start } %>
-
+    - <%= format_money(calculator.tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/new-fulltime-students) to pay for your course
+    - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/new-fulltime-students) to pay living costs
     <% if calculator.eligible_for_childcare_grant_one_child? %>
       - up to 85% of your childcare costs (maximum <%= format_money(calculator.childcare_grant_one_child) %> a week for a single child or <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week if you have more than one) in Childcare Grant
     <% elsif calculator.eligible_for_childcare_grant_more_than_one_child? %>
