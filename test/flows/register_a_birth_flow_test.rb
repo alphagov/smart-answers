@@ -7,6 +7,7 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
   def stub_worldwide_locations
     locations = %w[
       algeria
+      andorra
       belgium
       cambodia
       cameroon
@@ -266,6 +267,11 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
                     married_couple_or_civil_partnership?: "no",
                     where_are_you_now?: "same_country"
       assert_rendered_outcome text: "To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married."
+    end
+
+    should "render Andorra guidance if child born in Andorra" do
+      add_responses country_of_birth?: "andorra"
+      assert_rendered_outcome text: "declaració de naixement"
     end
 
     should "render Belgium guidance if child born in Belgium" do
