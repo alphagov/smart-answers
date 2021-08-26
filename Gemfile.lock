@@ -109,7 +109,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     ffi (1.13.1)
-    gds-api-adapters (72.1.0)
+    gds-api-adapters (73.0.0)
       addressable
       link_header
       null_logger
