@@ -6,6 +6,7 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
 
   def stub_worldwide_locations
     locations = %w[
+      afghanistan
       algeria
       andorra
       belgium
@@ -16,12 +17,15 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
       france
       india
       indonesia
+      iran
+      iraq
       ireland
       israel
       italy
       japan
       jordan
       kenya
+      kuwait
       libya
       monaco
       morocco
@@ -29,11 +33,15 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
       netherlands
       nigeria
       north-korea
+      oman
+      pakistan
       papua-new-guinea
       philippines
       poland
       portugal
+      qatar
       russia
+      saudi-arabia
       sierra-leone
       somalia
       south-korea
@@ -511,6 +519,84 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
 
     should "render generic document return guidance if currently in the uk" do
       assert_rendered_outcome text: "Your documents will be returned to you by secure courier after the birth has been registered"
+    end
+  end
+
+  context "outcome: no_birth_certificate_result" do
+    setup do
+      testing_node :no_birth_certificate_result
+      add_responses country_of_birth?: "jordan",
+                    who_has_british_nationality?: "mother",
+                    married_couple_or_civil_partnership?: "no"
+    end
+
+    context "same_country" do
+      setup do
+        add_responses where_are_you_now?: "same_country"
+      end
+
+      should "render Afghanistan guidance if child born in Afghanistan" do
+        add_responses country_of_birth?: "afghanistan"
+        assert_rendered_outcome text: "It’s illegal in Afghanistan to have a child outside of marriage"
+      end
+
+      should "render Iran guidance if child born in Iran" do
+        add_responses country_of_birth?: "iran"
+        assert_rendered_outcome text: "It’s illegal in Iran to register the birth of a child if the parents aren’t married"
+      end
+
+      should "render Afghanistan guidance if child born in Iraq" do
+        add_responses country_of_birth?: "iraq"
+        assert_rendered_outcome text: "It’s illegal in Iraq to register the birth of a child if the parents aren’t married"
+      end
+
+      should "render Jordan guidance if child born in Jordan" do
+        add_responses country_of_birth?: "jordan"
+        assert_rendered_outcome text: "It’s illegal in Jordan to have a child outside of marriage"
+      end
+
+      should "render Kuwait guidance if child born in Kuwait" do
+        add_responses country_of_birth?: "kuwait"
+        assert_rendered_outcome text: "It’s illegal in Kuwait to have a child outside of marriage or within the first 6 months of marriage"
+      end
+
+      should "render Oman guidance if child born in Oman" do
+        add_responses country_of_birth?: "oman"
+        assert_rendered_outcome text: "It’s illegal in Oman to have a child outside of marriage"
+      end
+
+      should "render Pakistan guidance if child born in Pakistan" do
+        add_responses country_of_birth?: "pakistan"
+        assert_rendered_outcome text: "It’s illegal in Pakistan to have a child outside of marriage"
+      end
+
+      should "render Qatar guidance if child born in Qatar" do
+        add_responses country_of_birth?: "qatar"
+        assert_rendered_outcome text: "It’s illegal in Qatar to have a child outside of marriage"
+      end
+
+      should "render Saudi Arabia guidance if child born in Saudi Arabia" do
+        add_responses country_of_birth?: "saudi-arabia"
+        assert_rendered_outcome text: "It’s illegal in Saudi Arabia to have a child outside of marriage"
+      end
+
+      should "render United Arab Emirates guidance if child born in United Arab Emirates" do
+        add_responses country_of_birth?: "united-arab-emirates"
+        assert_rendered_outcome text: "It’s illegal in the United Arab Emirates to have a child outside of marriage"
+      end
+    end
+
+    context "not in country of birth" do
+      setup do
+        add_responses where_are_you_now?: "in_the_uk"
+      end
+
+      SmartAnswer::Calculators::RegistrationsDataQuery::COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.each do |country|
+        should "render #{country.titleize} guidance if child born in #{country.titleize}" do
+          add_responses country_of_birth?: country
+          assert_rendered_outcome text: "You can’t get a local birth certificate if you weren’t married when you had your child."
+        end
+      end
     end
   end
 end
