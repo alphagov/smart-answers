@@ -5,59 +5,15 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   def stub_worldwide_locations
-    locations = %w[
-      afghanistan
-      algeria
-      andorra
-      belgium
-      cambodia
-      cameroon
-      denmark
-      finland
-      france
-      india
-      indonesia
-      iran
-      iraq
-      ireland
-      israel
-      italy
-      japan
-      jordan
-      kenya
-      kuwait
-      libya
-      monaco
-      morocco
-      nepal
-      netherlands
-      nigeria
-      north-korea
-      oman
-      pakistan
-      papua-new-guinea
-      philippines
-      poland
-      portugal
-      qatar
-      russia
-      saudi-arabia
-      sierra-leone
-      somalia
-      south-korea
-      spain
-      sri-lanka
-      sudan
-      sweden
-      united-arab-emirates
-      taiwan
-      the-occupied-palestinian-territories
-      turkey
-      uganda
-      usa
-      yemen
-    ]
-    stub_worldwide_api_has_locations(locations)
+    countries = SmartAnswer::Calculators::RegistrationsDataQuery::COUNTRIES_WITHOUT_UK_REGISTRATION +
+      SmartAnswer::Calculators::RegistrationsDataQuery::COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION +
+      SmartAnswer::Calculators::RegistrationsDataQuery::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH +
+      SmartAnswer::Calculators::RegistrationsDataQuery::ORU_COURIER_VARIANTS +
+      SmartAnswer::Calculators::RegistrationsDataQuery::ORU_COURIER_BY_HIGH_COMISSION +
+      SmartAnswer::Calculators::RegistrationsDataQuery::HIGHER_RISK_COUNTRIES +
+      %w[indonesia]
+
+    stub_worldwide_api_has_locations(countries.uniq)
     stub_worldwide_api_has_organisations_for_location("north-korea", { results: [{ title: "organisation-title" }] })
   end
 
@@ -79,7 +35,7 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of no_embassy_result for any for any country without an embassy" do
-        assert_next_node :no_embassy_result, for_response: "yemen"
+        assert_next_node :no_embassy_result, for_response: "libya"
       end
 
       should "have a next node of nonregistrable_result for any nonregistrable country" do
