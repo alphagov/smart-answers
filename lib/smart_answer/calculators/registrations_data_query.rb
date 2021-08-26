@@ -212,11 +212,6 @@ module SmartAnswer::Calculators
       uganda
     ].freeze
 
-    MAY_REQUIRE_DNA_TESTS = %w[
-      libya
-      somalia
-    ].freeze
-
     ORU_REGISTRATION_DURATION = {
       "afghanistan" => "6 months",
       "algeria" => "12 weeks",
@@ -282,10 +277,6 @@ module SmartAnswer::Calculators
 
     def lower_risk_country?(country_slug)
       !higher_risk_country?(country_slug)
-    end
-
-    def may_require_dna_tests?(country_slug)
-      MAY_REQUIRE_DNA_TESTS.include?(country_slug)
     end
 
     def registration_country_slug(country_slug)

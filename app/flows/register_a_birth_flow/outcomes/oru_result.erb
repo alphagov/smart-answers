@@ -240,21 +240,7 @@ Depending on the document, you'll be asked to provide an original version or a p
 
   ##Return of your documents
 
-  <% if calculator.may_require_dna_tests? %>
-    Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
-
-    * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
-
-    The Overseas Registration Unit will contact you if they need:
-
-    - more information
-    - to verify your documents
-    - the child or parents to take a DNA test
-
-    If this happens, it will take longer for the birth to be registered.
-
-    ^You must pay all costs relating to DNA testing.^
-  <% elsif calculator.custom_waiting_time %>
+  <% if calculator.custom_waiting_time %>
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
     * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
