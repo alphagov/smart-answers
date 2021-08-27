@@ -51,16 +51,6 @@ module SmartAnswer
       @additional_parameters
     end
 
-    def use_hide_this_page(use_hide_this_page)
-      raise "This flow is not session based" unless response_store == :session
-
-      @use_hide_this_page = use_hide_this_page
-    end
-
-    def use_hide_this_page?
-      ActiveModel::Type::Boolean.new.cast(@use_hide_this_page)
-    end
-
     def status(potential_status = nil)
       if potential_status
         raise Flow::InvalidStatus unless %i[published draft].include? potential_status
