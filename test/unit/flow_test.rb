@@ -46,36 +46,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_not smart_answer.use_hide_this_page?
   end
 
-  test "can set flag to hide previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.build do
-      hide_previous_answers_on_results_page true
-    end
-
-    assert smart_answer.hide_previous_answers_on_results_page?
-  end
-
-  test "can set flag to hide previous answers on results pagewith string" do
-    smart_answer = SmartAnswer::Flow.build do
-      hide_previous_answers_on_results_page "yes"
-    end
-
-    assert smart_answer.hide_previous_answers_on_results_page?
-  end
-
-  test "can set flag not to hide previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.build do
-      hide_previous_answers_on_results_page "false"
-    end
-
-    assert_not smart_answer.hide_previous_answers_on_results_page?
-  end
-
-  test "defaults to show previous answers on results page" do
-    smart_answer = SmartAnswer::Flow.build
-
-    assert_not smart_answer.hide_previous_answers_on_results_page?
-  end
-
   test "setting additional parameters" do
     s = SmartAnswer::Flow.build do
       additional_parameters %i[param1 param2]
