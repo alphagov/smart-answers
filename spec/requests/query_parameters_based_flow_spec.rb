@@ -40,10 +40,4 @@ RSpec.describe "Query parameter based flow navigation", flow_dir: :fixture do
     expect(response).to redirect_to("/query-parameters-based")
     expect(response.headers["Cache-Control"]).to eq(cache_header)
   end
-
-  it "clears the session and redirects to another page" do
-    get "/query-parameters-based/destroy_session", params: { ext_r: "true" }
-    expect(response).to redirect_to("https://www.bbc.co.uk/weather")
-    expect(response.headers["Cache-Control"]).to eq(cache_header)
-  end
 end
