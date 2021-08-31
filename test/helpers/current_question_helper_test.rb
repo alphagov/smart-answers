@@ -22,11 +22,11 @@ class CurrentQuestionHelperTest < ActionView::TestCase
   end
 
   def flow_name
-    "find-coronavirus-support"
+    "flow-name"
   end
 
   def node_name
-    "need_help_with"
+    "node_name"
   end
 
   def params
