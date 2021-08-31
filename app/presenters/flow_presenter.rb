@@ -9,7 +9,6 @@ class FlowPresenter
            :response_store,
            :questions,
            :use_hide_this_page?,
-           :hide_previous_answers_on_results_page?,
            to: :flow
 
   delegate :title, :meta_description, to: :start_node

@@ -61,14 +61,6 @@ module SmartAnswer
       ActiveModel::Type::Boolean.new.cast(@use_hide_this_page)
     end
 
-    def hide_previous_answers_on_results_page(hide_previous_answers_on_results_page)
-      @hide_previous_answers_on_results_page = hide_previous_answers_on_results_page
-    end
-
-    def hide_previous_answers_on_results_page?
-      ActiveModel::Type::Boolean.new.cast(@hide_previous_answers_on_results_page)
-    end
-
     def status(potential_status = nil)
       if potential_status
         raise Flow::InvalidStatus unless %i[published draft].include? potential_status

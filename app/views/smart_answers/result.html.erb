@@ -38,7 +38,7 @@
       </div>
     <% end %>
 
-    <%= render 'smart_answers/shared/previous_answers', hide_previous_answers: @presenter.hide_previous_answers_on_results_page? %>
+    <%= render 'smart_answers/shared/previous_answers' %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>

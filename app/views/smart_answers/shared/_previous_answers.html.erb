@@ -1,6 +1,6 @@
 <% if @presenter.accepted_responses.any? %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: local_assigns[:hide_previous_answers] ? "Change your answers" : "Your answers",
+    text: "Your answers",
     heading_level: 2,
     font_size: "m",
     margin_bottom: 4
@@ -16,35 +16,33 @@
         "track-label": @presenter.current_node.title
       } %>
   <% end %>
-  <% unless local_assigns[:hide_previous_answers] %>
-    <% items = @presenter.answered_questions.map do |question|
-      accepted_response = @presenter.accepted_responses[question.node_name]
+  <% items = @presenter.answered_questions.map do |question|
+    accepted_response = @presenter.accepted_responses[question.node_name]
 
-      if question.multiple_responses?
-        value = render "govuk_publishing_components/components/list", {
-          items: question.response_labels(accepted_response)
-        }
-      else
-        value = question.response_label(accepted_response)
-      end
+    if question.multiple_responses?
+      value = render "govuk_publishing_components/components/list", {
+        items: question.response_labels(accepted_response)
+      }
+    else
+      value = question.response_label(accepted_response)
+    end
 
-      {
-        field: question.title,
-        value: value,
-        edit: {
-          href: @presenter.change_answer_link(question, response_store.forwarding_responses),
-          data_attributes: {
-            "module": "gem-track-click",
-            "track-category": "Smart Answer Change Link",
-            "track-action":  "Link clicked",
-            "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
-          }
+    {
+      field: question.title,
+      value: value,
+      edit: {
+        href: @presenter.change_answer_link(question, response_store.forwarding_responses),
+        data_attributes: {
+          "module": "gem-track-click",
+          "track-category": "Smart Answer Change Link",
+          "track-action":  "Link clicked",
+          "track-label": "#{question.title} / #{question.response_label(accepted_response)}"
         }
       }
-    end %>
-    <%= render "govuk_publishing_components/components/summary_list", {
-      wide_title: true,
-      items: items
-    } %>
-  <% end %>
+    }
+  end %>
+  <%= render "govuk_publishing_components/components/summary_list", {
+    wide_title: true,
+    items: items
+  } %>
 <% end %>
