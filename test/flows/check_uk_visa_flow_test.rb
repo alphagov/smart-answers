@@ -145,8 +145,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     context "next_node" do
       test_shared_purpose_of_visit_next_nodes
 
-      # outcome_no_visa_needed is unreachable
-
       should "have a next node of travelling_to_cta? for a 'transit' response" do
         assert_next_node :travelling_to_cta?, for_response: "transit"
       end
@@ -454,8 +452,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_standard_visitor_visa for a 'no' response and a non family visit" do
         assert_next_node :outcome_standard_visitor_visa, for_response: "no"
       end
-
-      # impossible to reach partner_family_british_citizen?
     end
   end
 
@@ -562,7 +558,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   end
 
   context "outcome: outcome_no_visa_needed" do
-    # travelling before 2021 conditional is unreachable
     setup do
       testing_node :outcome_no_visa_needed
       add_responses what_passport_do_you_have?: @eea_country,
@@ -651,8 +646,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
     end
-
-    # unreachable conditionals left
   end
 
   context "outcome: outcome_transit_leaving_airport" do
@@ -688,10 +681,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @b1_b2_country
       assert_rendered_outcome text: "except if you have a B1 or B2 visit visa from the USA"
     end
-  end
-
-  context "outcome: outcome_transit_taiwan_through_border_control" do
-    # conditionals are unreachable
   end
 
   context "outcome: outcome_work_n" do
