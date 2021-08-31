@@ -23,29 +23,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_nil smart_answer.response_store
   end
 
-  test "cannot use hide-this-page if the response store isn't session" do
-    exception = assert_raises RuntimeError do
-      SmartAnswer::Flow.build { use_hide_this_page true }
-    end
-
-    assert_equal "This flow is not session based", exception.message
-  end
-
-  test "can use hide-this-page when response store is session" do
-    smart_answer = SmartAnswer::Flow.build do
-      response_store :session
-      use_hide_this_page true
-    end
-
-    assert smart_answer.use_hide_this_page?
-  end
-
-  test "defaults to not use hide-this-page" do
-    smart_answer = SmartAnswer::Flow.build
-
-    assert_not smart_answer.use_hide_this_page?
-  end
-
   test "setting additional parameters" do
     s = SmartAnswer::Flow.build do
       additional_parameters %i[param1 param2]

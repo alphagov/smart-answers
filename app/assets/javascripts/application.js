@@ -7,6 +7,5 @@
 //= require govuk_publishing_components/components/print-link
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/step-by-step-nav
-//= require components/hide-this-page-banner
 //= require modules/track-responses
 //= require modules/track-results

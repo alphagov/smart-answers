@@ -37,11 +37,6 @@ RSpec.describe "Session based flow navigation", flow_dir: :fixture do
     expect(response.headers["Cache-Control"]).to eq(no_cache_header)
   end
 
-  it "clears the session and redirects to another page" do
-    get "/session-based/destroy_session", params: { ext_r: "true" }
-    expect(response).to redirect_to("https://www.bbc.co.uk/weather")
-  end
-
   context "urls are for path based flows" do
     it "redirects requests to old route" do
       get "/path-based/start"

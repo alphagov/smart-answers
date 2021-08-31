@@ -43,12 +43,7 @@ class FlowController < ApplicationController
 
   def destroy
     response_store.clear
-
-    if params[:ext_r] == "true"
-      redirect_to "https://www.bbc.co.uk/weather"
-    else
-      redirect_to "/#{params[:id]}"
-    end
+    redirect_to "/#{params[:id]}"
   end
 
 private

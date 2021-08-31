@@ -8,7 +8,6 @@ class FlowPresenter
   delegate :name,
            :response_store,
            :questions,
-           :use_hide_this_page?,
            to: :flow
 
   delegate :title, :meta_description, to: :start_node
