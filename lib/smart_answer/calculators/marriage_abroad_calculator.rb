@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
-    attr_accessor :ceremony_country, :marriage_or_pacs
-    attr_writer :resident_of, :partner_nationality, :sex_of_your_partner
+    attr_accessor :ceremony_country, :marriage_or_pacs, :partner_nationality
+    attr_writer :resident_of, :sex_of_your_partner, :type_of_ceremony
 
     def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
@@ -46,6 +46,10 @@ module SmartAnswer::Calculators
 
     def want_to_get_married?
       @marriage_or_pacs == "marriage"
+    end
+
+    def is_civil_partnership?
+      @type_of_ceremony == "civil_partnership"
     end
 
     def world_location
@@ -142,6 +146,10 @@ module SmartAnswer::Calculators
       @data_query.dutch_caribbean_islands?(ceremony_country)
     end
 
+    def offers_consular_opposite_sex_civil_partnership?
+      @data_query.offers_consular_opposite_sex_civil_partnership?(ceremony_country)
+    end
+
     def ceremony_country_offers_pacs?
       MarriageAbroadDataQuery::CEREMONY_COUNTRIES_OFFERING_PACS.include?(ceremony_country)
     end
@@ -175,6 +183,8 @@ module SmartAnswer::Calculators
     def path_to_outcome
       if outcome_ceremony_location_country?
         [ceremony_country, ceremony_location_path_name]
+      elsif offers_consular_opposite_sex_civil_partnership? && is_civil_partnership?
+        [ceremony_country, "#{marriage_type_path_name}_#{@type_of_ceremony}"]
       elsif one_question_country?
         [ceremony_country, ceremony_country]
       elsif two_questions_country?
@@ -201,7 +211,8 @@ module SmartAnswer::Calculators
     end
 
     def two_questions_country?
-      @data_query.countries_with_2_outcomes.include?(ceremony_country)
+      @data_query.countries_with_2_outcomes.include?(ceremony_country) ||
+        @data_query.countries_with_3_outcomes.include?(ceremony_country)
     end
 
     def two_questions_country_marriage_or_pacs?
@@ -213,7 +224,8 @@ module SmartAnswer::Calculators
     end
 
     def four_questions_country?
-      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+      @data_query.countries_with_18_outcomes.include?(ceremony_country) ||
+        @data_query.countries_with_19_outcomes.include?(ceremony_country)
     end
 
   private

@@ -27,7 +27,14 @@ module SmartAnswer
           end
 
           should "only contain pre-defined data keys" do
-            keys = %w[countries_with_18_outcomes countries_with_2_outcomes countries_with_2_outcomes_marriage_or_pacs countries_with_6_outcomes countries_with_ceremony_location_outcomes countries_with_1_outcome]
+            keys = %w[countries_with_18_outcomes
+                      countries_with_19_outcomes
+                      countries_with_2_outcomes
+                      countries_with_3_outcomes
+                      countries_with_2_outcomes_marriage_or_pacs
+                      countries_with_6_outcomes
+                      countries_with_ceremony_location_outcomes
+                      countries_with_1_outcome]
             data = @data_query.marriage_data
 
             assert_equal keys, data.keys
@@ -302,15 +309,24 @@ module SmartAnswer
           should "return an alphabetical list of countries under all outcome groups" do
             YAML.stubs(:load_file).returns(
               countries_with_18_outcomes: %w[anguilla],
+              countries_with_19_outcomes: %w[panama],
               countries_with_6_outcomes: %w[bermuda],
               countries_with_2_outcomes: %w[cayman-islands],
+              countries_with_3_outcomes: %w[japan],
               countries_with_2_outcomes_marriage_or_pacs: %w[monaco],
               countries_with_ceremony_location_outcomes: %w[finland],
               countries_with_1_outcome: %w[french-guiana],
             )
 
             assert_equal @data_query.outcome_per_path_countries,
-                         %w[anguilla bermuda cayman-islands finland french-guiana monaco]
+                         %w[anguilla
+                            bermuda
+                            cayman-islands
+                            finland
+                            french-guiana
+                            japan
+                            monaco
+                            panama]
           end
         end
       end

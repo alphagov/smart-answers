@@ -58,6 +58,29 @@ module SmartAnswer
           assert_equal %w[2_outcome_country same_sex], @calculator.path_to_outcome
         end
 
+        context "country offers opposite sex civil partnership" do
+          setup do
+            MarriageAbroadDataQuery.any_instance
+                .stubs(:offers_consular_opposite_sex_civil_partnership?).returns(%w[country])
+          end
+
+          should "get outcome for consular civil partnership countries for opposite sex civil partnership" do
+            @calculator.ceremony_country = "country"
+            @calculator.sex_of_your_partner = "opposite_sex"
+            @calculator.type_of_ceremony = "civil_partnership"
+
+            assert_equal %w[country opposite_sex_civil_partnership], @calculator.path_to_outcome
+          end
+
+          should "get outcome for consular civil partnership countries for opposite sex marriage" do
+            @calculator.ceremony_country = "2_outcome_country"
+            @calculator.sex_of_your_partner = "opposite_sex"
+            @calculator.type_of_ceremony = "marriage"
+
+            assert_equal %w[2_outcome_country opposite_sex], @calculator.path_to_outcome
+          end
+        end
+
         context "when ceremony country is a three questions country" do
           setup do
             MarriageAbroadDataQuery.any_instance
@@ -690,6 +713,22 @@ module SmartAnswer
         should "return false if a PACS is not available in the ceremony country" do
           @calculator.ceremony_country = "country-without-pacs"
           assert_not @calculator.ceremony_country_offers_pacs?
+        end
+      end
+
+      context "#offers_consular_opposite_sex_civil_partnership?" do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should "return true if a consular opposite sex civil partnership is available in the ceremony country" do
+          @calculator.ceremony_country = "japan"
+          assert @calculator.offers_consular_opposite_sex_civil_partnership?
+        end
+
+        should "return false if a consular opposite sex civil partnership is not available in the ceremony country" do
+          @calculator.ceremony_country = "country-without-pacs"
+          assert_not @calculator.offers_consular_opposite_sex_civil_partnership?
         end
       end
 

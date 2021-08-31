@@ -130,7 +130,6 @@ countries_with_18_outcomes:
   - oman
   - pakistan
   - palau
-  - panama
   - papua-new-guinea
   - paraguay
   - peru
@@ -185,10 +184,12 @@ countries_with_18_outcomes:
   - uzbekistan
   - vanuatu
   - venezuela
-  - vietnam
   - western-sahara
   - yemen
   - zambia
+countries_with_19_outcomes:
+  - panama
+  - vietnam
 countries_with_2_outcomes:
   - australia
   - croatia
@@ -197,7 +198,6 @@ countries_with_2_outcomes:
   - france
   - india
   - ireland
-  - japan
   - luxembourg
   - philippines
   - south-africa
@@ -207,6 +207,8 @@ countries_with_2_outcomes:
   - turkey
   - usa
   - zimbabwe
+countries_with_3_outcomes:
+  - japan
 countries_with_2_outcomes_marriage_or_pacs:
   - monaco
   - new-caledonia

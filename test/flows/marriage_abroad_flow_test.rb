@@ -26,7 +26,9 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
 
   def all_countries_list
     all_types = %w[countries_with_ceremony_location_outcomes
+                   countries_with_19_outcomes
                    countries_with_2_outcomes_marriage_or_pacs
+                   countries_with_3_outcomes
                    countries_with_1_outcome
                    countries_with_2_outcomes
                    countries_with_6_outcomes
@@ -177,6 +179,25 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: marriage_or_civil_partnership?" do
+    setup do
+      testing_node :marriage_or_civil_partnership?
+      stub_worldwide_api(all_countries_list)
+      add_responses country_of_ceremony?: random_country(:countries_with_3_outcomes),
+                    partner_opposite_or_same_sex?: "opposite_sex"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next_node of outcome_marriage_abroad_in_country" do
+        assert_next_node :outcome_marriage_abroad_in_country, for_response: "marriage"
+      end
+    end
+  end
+
   context "outcome :outcome_marriage_abroad_in_country" do
     setup { testing_node :outcome_marriage_abroad_in_country }
 
@@ -245,6 +266,32 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
 
         should "render an opposite sex outcome" do
           add_responses partner_opposite_or_same_sex?: "opposite_sex"
+          assert_rendered_outcome
+        end
+
+        should "render a same sex outcome" do
+          add_responses partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+      end
+    end
+
+    countries_list(:countries_with_3_outcomes).each do |country|
+      context "2 outcome country offering consular civil partnership: #{country}" do
+        setup do
+          stub_worldwide_api([country])
+          add_responses country_of_ceremony?: country
+        end
+
+        should "render an opposite sex civil partnership outcome" do
+          add_responses partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an opposite sex civil marriage outcome" do
+          add_responses partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
           assert_rendered_outcome
         end
 
@@ -436,6 +483,250 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
           add_responses legal_residency?: "uk",
                         what_is_your_partners_nationality?: "partner_other",
                         partner_opposite_or_same_sex?: "opposite_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is not local and same sex" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+      end
+    end
+
+    countries_list(:countries_with_19_outcomes).each do |country|
+      context "18 outcome country offering consular civil partnerships: #{country}" do
+        setup do
+          # stubbing a single country at a time makes this test > 60s faster
+          stub_worldwide_api([country])
+          add_responses country_of_ceremony?: country
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is British and opposite sex getting married" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is British and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is British and same sex" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is local and opposite sex getting married" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is local and opposite sex registering a " \
+               " civil partnership" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is local and same sex" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is not local and opposite sex getting married" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is not local and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is not local and same sex" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is British and opposite sex getting married" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is British and opposite sex registering a " \
+               "civil partnership" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is British and same sex" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is local and opposite sex getting married" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is local and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is local and same sex" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is not local and opposite sex getting married" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is not local and opposite sex registering a " \
+               "civil partnership" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is not local and same sex" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner " \
+                "is British and opposite sex getting married" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner " \
+               "is British and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is British and same sex" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_british",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner "\
+               "is local and opposite sex getting married" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner " \
+               " is local and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is local and same sex" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_local",
+                        partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner " \
+               " is not local and opposite sex getting married" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "marriage"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner " \
+               " is not local and opposite sex registering a civil partnership" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_other",
+                        partner_opposite_or_same_sex?: "opposite_sex",
+                        marriage_or_civil_partnership?: "civil_partnership"
           assert_rendered_outcome
         end
 
