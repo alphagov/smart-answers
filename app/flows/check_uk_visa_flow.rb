@@ -237,34 +237,6 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     end
 
     # Q6
-    radio :partner_family_british_citizen? do
-      option :yes
-      option :no
-
-      next_node do |response|
-        if response == "yes"
-          outcome :outcome_partner_family_british_citizen_y
-        else
-          question :partner_family_eea?
-        end
-      end
-    end
-
-    # Q7
-    radio :partner_family_eea? do
-      option :yes
-      option :no
-
-      next_node do |response|
-        if response == "yes"
-          outcome :outcome_partner_family_eea_y
-        else
-          outcome :outcome_partner_family_eea_n
-        end
-      end
-    end
-
-    # Q8
     radio :what_type_of_work? do
       option :health
       option :digital
@@ -281,7 +253,6 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     end
 
     outcome :outcome_diplomatic_business
-    outcome :outcome_joining_family_m
     outcome :outcome_joining_family_nvn
     outcome :outcome_marriage_nvn_british_overseas_territories
     outcome :outcome_marriage_taiwan
@@ -291,9 +262,6 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_medical_y
     outcome :outcome_no_visa_needed
     outcome :outcome_no_visa_needed_ireland
-    outcome :outcome_partner_family_british_citizen_y
-    outcome :outcome_partner_family_eea_y
-    outcome :outcome_partner_family_eea_n
     outcome :outcome_school_n
     outcome :outcome_school_waiver
     outcome :outcome_school_y
@@ -402,13 +370,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.family_visit?
-        if calculator.passport_country_in_british_overseas_territories_list?
-          next outcome(:outcome_joining_family_m)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
-          next outcome(:outcome_joining_family_nvn)
-        else
-          next question(:partner_family_british_citizen?)
-        end
+        next outcome(:outcome_joining_family_nvn)
       end
     end
   end
