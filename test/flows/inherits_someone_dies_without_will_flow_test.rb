@@ -555,4 +555,41 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "outcome: outcome_1" do
+    setup do
+      testing_node :outcome_1
+      add_responses region?: "england-and-wales",
+                    partner?: "yes",
+                    estate_over_270000?: "no"
+    end
+
+    should "render wills link if estate under 270000" do
+      assert_rendered_outcome text: "Read the guide to wills, probate and inheritance."
+    end
+
+    should "render inheritance link if estate over 270000 and no children" do
+      add_responses estate_over_270000?: "yes",
+                    children?: "no"
+      assert_rendered_outcome text: "Inheritance Tax"
+    end
+  end
+
+  context "outcome: outcome_25" do
+    setup do
+      testing_node :outcome_25
+      add_responses region?: "england-and-wales",
+                    partner?: "no",
+                    children?: "no",
+                    parents?: "no",
+                    siblings?: "no",
+                    half_siblings?: "no",
+                    grandparents?: "no",
+                    aunts_or_uncles?: "no",
+                    half_aunts_or_uncles?: "no"
+    end
+    should "render ownerless link" do
+      assert_rendered_outcome text: "Find out what happens to ownerless property"
+    end
+  end
 end

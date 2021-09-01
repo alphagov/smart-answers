@@ -154,12 +154,20 @@ module FlowTestHelper
       outcome_presenter.title
     end
 
+    def outcome_next_steps
+      outcome_presenter.next_steps
+    end
+
     def outcome_body_text
       Nokogiri::HTML::DocumentFragment.parse(outcome_body).text
     end
 
+    def outcome_next_steps_text
+      Nokogiri::HTML::DocumentFragment.parse(outcome_next_steps).text
+    end
+
     def outcome_text
-      [outcome_title, outcome_body_text].reject(&:blank?).join("\n")
+      [outcome_title, outcome_body_text, outcome_next_steps_text].reject(&:blank?).join("\n")
     end
 
     def outcome_presenter
