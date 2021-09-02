@@ -9,8 +9,12 @@
 
     In each of your first 4 years, you could get:
 
-    - <%= format_money(calculator.tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/new-fulltime-students) to pay for your course
-    - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/new-fulltime-students) to pay living costs
+    <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students" } %>
+
+    In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan.
+    You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
+
+    
     <% if calculator.eligible_for_childcare_grant_one_child? %>
       - up to 85% of your childcare costs (maximum <%= format_money(calculator.childcare_grant_one_child) %> a week for a single child or <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week if you have more than one) in Childcare Grant
     <% elsif calculator.eligible_for_childcare_grant_more_than_one_child? %>
@@ -25,13 +29,9 @@
       - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
-    <% if calculator.uk_ft_circumstances.include?('has-disability') %>
-      - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
-    <% end %>
-
-    In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
-
     <%= render partial: 'nhs_full_time_funding', locals: { calculator: calculator } %>
+
+    If you need more money to fund your living costs and you qualify, you can apply for extra help.
 
     ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
 
