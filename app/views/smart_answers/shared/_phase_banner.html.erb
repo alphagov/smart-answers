@@ -1,19 +1,18 @@
 <% if @presenter.present? && @presenter.flow.name === 'next-steps-for-your-business' %>
   <% feedback_message = capture do %>
-    We’re still building this part of GOV.UK –
-    <%= link_to "give us your feedback (opens in a new tab)",
-      "/done/next-steps-for-your-business",
+    Help improve GOV.UK –
+    <%= link_to "Sign up to take part in user research (opens in a new tab)",
+      "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Next_steps_ltd_co&utm_source=govukother&utm_medium=gov.uk&t=GDS&id=303",
       class: "govuk-link",
       target: "_blank",
       rel: "noopener noreferrer",
       data: {
         module: "gem-track-click",
-        "track-action": "/done/next-steps-for-your-business",
+        "track-action": "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Next_steps_ltd_co&utm_source=govukother&utm_medium=gov.uk&t=GDS&id=303",
         "track-category": "Internal Links Clicked",
-        "track-label": "give us your feedback"
+        "track-label": "Sign up to take part in user research"
       }
     %>
-    to help us improve it.
   <% end %>
 
   <%= render "govuk_publishing_components/components/phase_banner", {
