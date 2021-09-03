@@ -50,6 +50,11 @@ class QuestionPresenter < NodePresenter
     content.presence
   end
 
+  def prefix_label
+    content = @renderer.content_for(:prefix_label)
+    content.presence
+  end
+
   def body
     @renderer.content_for(:body).presence
   end

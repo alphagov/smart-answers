@@ -54,6 +54,18 @@ module SmartAnswer
       assert_nil @presenter.suffix_label
     end
 
+    test "#prefix_label returns single line of content rendered for prefix_label block" do
+      @renderer.stubs(:content_for).with(:prefix_label).returns("prefix-label-text")
+
+      assert_equal "prefix-label-text", @presenter.prefix_label
+    end
+
+    test "#prefix_label return nil if text empty" do
+      @renderer.stubs(:content_for).with(:prefix_label).returns(" ")
+
+      assert_nil @presenter.prefix_label
+    end
+
     test "#body returns content rendered for body block" do
       @renderer.stubs(:content_for).with(:body).returns("body-html")
 
