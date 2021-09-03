@@ -32,5 +32,11 @@ module SmartAnswer
 
       assert_equal "caption-text", @presenter.caption
     end
+
+    test "#prefix_label return '£' by default" do
+      @renderer.stubs(:content_for).with(:prefix_label).returns(" ")
+
+      assert_equal "£", @presenter.prefix_label
+    end
   end
 end
