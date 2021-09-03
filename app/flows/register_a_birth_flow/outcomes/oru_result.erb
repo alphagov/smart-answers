@@ -42,87 +42,81 @@ Depending on the document, you'll be asked to provide an original version or a p
   You must send the original versions (not photocopies) of:
 
   <% if calculator.oru_documents_variant_for_birth? %>
-    <% if calculator.country_of_birth == 'united-arab-emirates' && calculator.paternity_declaration? %>
-      - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fdco.gov.uk> if the local authorities will not provide a birth certificate)
-    <% else %>
-      <% case calculator.country_of_birth %>
-      <% when 'oru_documents_variant_andorra' %>
-        - the child’s full local birth certificate (‘declaració de naixement’) - it must have both parents’ names
-      <% when 'belgium' %>
-        - the child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) - it must have both parents’ names
-      <% when 'denmark' %>
-        - the child's full local birth certificate ('fødsel og navneattest') - it must have both parents' names
-        - confirmation from the hospital or clinic where the child was born - for example a letter or live birth notification
-      <% when 'finland' %>
-        - a birth certificate issued by the hospital
-        - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last 3 months - you can get this from the [register office](https://dvv.fi/en/digital-and-population-data-services-agency)
-      <% when 'france' %>
-        - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
-      <% when 'india' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - the mother's antenatal records (eg blood test results, ultrasound scans and doctors' notes)
-        - the hospital live birth certificate
-        - the hospital discharge summary (a letter from the hospital saying what treatment you had)
-      <% when 'israel' %>
-        - the child's full local birth certificate
-        - the hospital live birth certificate (if the father is not named on the local birth certificate)
-      <% when 'italy' %>
-        - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
-      <% when 'japan' %>
-        - the child’s local birth certificate ('shussetodoke kisaijiko shomeisho') - it must have the name and address of the hospital
-        - a copy of the family register ('koseki tohon') which has been certified by the ward office (if one of the parents is Japanese)
-        - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
-      <% when 'monaco' %>
-        - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
-      <% when 'morocco' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
-      <% when 'nepal' %>
-        - the child’s full local birth certificate (if one parent is Nepali) - it must have both parents’ names
-        - the hospital live birth certificate
-      <% when 'netherlands' %>
-        - the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
-      <% when 'nigeria' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - the mother's antenatal records (eg blood test results, ultrasound scans and doctors' notes)
-        - the hospital live birth certificate
-      <% when 'poland' %>
-        - the child’s full local birth certificate (‘zupelny’) - it must have both parents’ names
-      <% when 'portugal' %>
-        - the child’s full local birth certificate (‘assento de nascimento’) - it must have both parents’ names
-        - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
-      <% when 'russia' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-      <% when 'sierra-leone' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - the hospital live birth certificate
-      <% when 'south-korea' %>
-        - the child's birth certificate ('gi bon jung myung seo') and family relations certificate ('ga-jok-gwan-gye-jeung-myeong-seo') (if one or both parents are Korean nationals)
-        - the child's hospital birth certificate with both parents' names (if neither parent is a Korean national)
-        - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the family relations certificate (the rules are on the form)
-      <% when 'spain' %>
-        - the child’s full local birth certificate (‘certificación literal’) - it must have both parents’ names
-      <% when 'sri-lanka' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - hospital live birth certificate
-      <% when 'sweden' %>
-        - a family certificate (‘familjebevis’) from the the Swedish Tax Agency (Skatteverket)
-      <% when 'united-arab-emirates' %>
-        - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
-      <% when 'taiwan' %>
-        - both Chinese and English versions of the child’s birth certificate - you can send a translation if the hospital doesn't issue an English version
-      <% when 'the-occupied-palestinian-territories' %>
-        - the child's full local birth certificate
-        - the hospital declaration of live birth (if the father isn't named on the birth certificate)
-      <% when 'turkey' %>
-        - the child’s full local birth certificate - called the ‘Formül A’
-        - the hospital live birth report
-      <% when 'uae_not_married' %>
-        - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fcdo.gov.uk> if the local authorities will not provide a birth certificate)
-      <% when 'usa' %>
-        - the child’s full local birth certificate - it must have both parents’ names
-        - hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
-      <% end %>
+    <% case calculator.country_of_birth %>
+    <% when 'andorra' %>
+      - the child’s full local birth certificate (‘declaració de naixement’) - it must have both parents’ names
+    <% when 'belgium' %>
+      - the child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) - it must have both parents’ names
+    <% when 'denmark' %>
+      - the child's full local birth certificate ('fødsel og navneattest') - it must have both parents' names
+      - confirmation from the hospital or clinic where the child was born - for example a letter or live birth notification
+    <% when 'finland' %>
+      - a birth certificate issued by the hospital
+      - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last 3 months - you can get this from the [register office](https://dvv.fi/en/digital-and-population-data-services-agency)
+    <% when 'france' %>
+      - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+    <% when 'india' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - the mother's antenatal records (eg blood test results, ultrasound scans and doctors' notes)
+      - the hospital live birth certificate
+      - the hospital discharge summary (a letter from the hospital saying what treatment you had)
+    <% when 'israel' %>
+      - the child's full local birth certificate
+      - the hospital live birth certificate (if the father is not named on the local birth certificate)
+    <% when 'italy' %>
+      - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
+    <% when 'japan' %>
+      - the child’s local birth certificate ('shussetodoke kisaijiko shomeisho') - it must have the name and address of the hospital
+      - a copy of the family register ('koseki tohon') which has been certified by the ward office (if one of the parents is Japanese)
+      - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
+    <% when 'monaco' %>
+      - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+    <% when 'morocco' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
+    <% when 'nepal' %>
+      - the child’s full local birth certificate (if one parent is Nepali) - it must have both parents’ names
+      - the hospital live birth certificate
+    <% when 'netherlands' %>
+      - the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
+    <% when 'nigeria' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - the mother's antenatal records (eg blood test results, ultrasound scans and doctors' notes)
+      - the hospital live birth certificate
+    <% when 'poland' %>
+      - the child’s full local birth certificate (‘zupelny’) - it must have both parents’ names
+    <% when 'portugal' %>
+      - the child’s full local birth certificate (‘assento de nascimento’) - it must have both parents’ names
+      - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
+    <% when 'russia' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+    <% when 'sierra-leone' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - the hospital live birth certificate
+    <% when 'south-korea' %>
+      - the child's birth certificate ('gi bon jung myung seo') and family relations certificate ('ga-jok-gwan-gye-jeung-myeong-seo') (if one or both parents are Korean nationals)
+      - the child's hospital birth certificate with both parents' names (if neither parent is a Korean national)
+      - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the family relations certificate (the rules are on the form)
+    <% when 'spain' %>
+      - the child’s full local birth certificate (‘certificación literal’) - it must have both parents’ names
+    <% when 'sri-lanka' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - hospital live birth certificate
+    <% when 'sweden' %>
+      - a family certificate (‘familjebevis’) from the the Swedish Tax Agency (Skatteverket)
+    <% when 'united-arab-emirates' %>
+      - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
+    <% when 'taiwan' %>
+      - both Chinese and English versions of the child’s birth certificate - you can send a translation if the hospital doesn't issue an English version
+    <% when 'the-occupied-palestinian-territories' %>
+      - the child's full local birth certificate
+      - the hospital declaration of live birth (if the father isn't named on the birth certificate)
+    <% when 'turkey' %>
+      - the child’s full local birth certificate - called the ‘Formül A’
+      - the hospital live birth report
+    <% when 'usa' %>
+      - the child’s full local birth certificate - it must have both parents’ names
+      - hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
     <% end %>
   <% else %>
     - the child’s full local birth certificate - it must have both parents' names
@@ -246,21 +240,7 @@ Depending on the document, you'll be asked to provide an original version or a p
 
   ##Return of your documents
 
-  <% if calculator.may_require_dna_tests? %>
-    Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
-
-    * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
-
-    The Overseas Registration Unit will contact you if they need:
-
-    - more information
-    - to verify your documents
-    - the child or parents to take a DNA test
-
-    If this happens, it will take longer for the birth to be registered.
-
-    ^You must pay all costs relating to DNA testing.^
-  <% elsif calculator.custom_waiting_time %>
+  <% if calculator.custom_waiting_time %>
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
     * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
@@ -288,8 +268,6 @@ Depending on the document, you'll be asked to provide an original version or a p
         Your documents will be returned to the British High Commission in Lagos after the birth has been registered.
 
         You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents and certificates are ready for collection.
-      <% when 'north-korea' %>
-        Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
       <% when 'papua-new-guinea' %>
         Your documents will be returned to the British Embassy in Port Moresby after the birth has been registered.
       <% when 'uganda' %>

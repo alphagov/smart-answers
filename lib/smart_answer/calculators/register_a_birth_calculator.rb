@@ -108,10 +108,6 @@ module SmartAnswer::Calculators
       @reg_data_query.oru_documents_variant_for_birth?(country_of_birth)
     end
 
-    def may_require_dna_tests?
-      @reg_data_query.may_require_dna_tests?(country_of_birth)
-    end
-
     def oru_courier_variant?
       @reg_data_query.oru_courier_variant?(registration_country)
     end
