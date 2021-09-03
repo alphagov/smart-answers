@@ -1,0 +1,50 @@
+<% text_for :title do %>
+  You need a visa to work as a professional sportsperson
+<% end %>
+
+<% govspeak_for :body do %>
+  Based on your answers, you have the following visa options.
+
+  <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
+
+  ----
+
+  ##If you want to stay up to 1 year
+
+  You may be eligible for a [Temporary Worker - Creative and Sporting visa (T5)](https://www.gov.uk/temporary-worker-creative-and-sporting-visa).
+
+  ###Eligibility
+
+  The eligibility criteria include:
+
+  + having a job offer
+  + being endorsed by your sport's governing body - you must make a significant contribution to your sport at the highest level
+
+  ###How long you can stay
+
+  You can stay up to 1 year in the UK on this visa. If you want to stay longer you must switch to another type of visa.
+
+  ----
+
+  ##If you want to stay for longer
+
+  You may be eligible for a [Sportsperson visa (T2)](https://www.gov.uk/sportsperson-visa) to work as an elite sportsperson or coach. It's more expensive than the Temporary Worker - Creative and Sporting visa (T5).
+
+  ###Eligibility
+
+  The eligibility criteria include:
+
+  + having a job offer
+  + being endorsed by your sport's governing body - you must be an elite sportsperson or coach at highest level of your profession internationally
+  + usually proving that you can speak and understand English
+
+  ###How long you can stay
+
+  Your visa can last for up to 3 years. You can extend it as long as you’re still eligible.
+
+  After 5 years, you may be able to settle permanently in the UK.
+
+  ----
+
+  <%= render partial: 'citizen_of_commonwealth_country' %>
+<% end %>

@@ -151,6 +151,53 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: what_type_of_work?" do
+    setup do
+      testing_node :what_type_of_work?
+      add_responses what_passport_do_you_have?: @eea_country,
+                    purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of outcome_work_y_academic if working in academia" do
+        assert_next_node :outcome_work_y_academic, for_response: "academic"
+      end
+
+      should "have a next node of outcome_work_y_arts if working in arts" do
+        assert_next_node :outcome_work_y_arts, for_response: "arts"
+      end
+
+      should "have a next node of outcome_work_y_business if working in business" do
+        assert_next_node :outcome_work_y_business, for_response: "business"
+      end
+
+      should "have a next node of outcome_work_y_digital if working in digital" do
+        assert_next_node :outcome_work_y_digital, for_response: "digital"
+      end
+
+      should "have a next node of outcome_work_y_health if working in health" do
+        assert_next_node :outcome_work_y_health, for_response: "health"
+      end
+
+      should "have a next node of outcome_work_y_other if working in a sector thats not listed" do
+        assert_next_node :outcome_work_y_other, for_response: "other"
+      end
+
+      should "have a next node of outcome_work_y_religious if working in religioun" do
+        assert_next_node :outcome_work_y_religious, for_response: "religious"
+      end
+
+      should "have a next node of outcome_work_y_sports if working in sports" do
+        assert_next_node :outcome_work_y_sports, for_response: "sports"
+      end
+    end
+  end
+
   context "question: travelling_to_cta?" do
     setup do
       testing_node :travelling_to_cta?
@@ -332,9 +379,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_study_y, for_response: "longer_than_six_months"
         end
 
-        should "have a next node of outcome_work_y for a work visit purpose" do
+        should "have a next node of what_type_of_work? for a work visit purpose" do
           add_responses purpose_of_visit?: "work"
-          assert_next_node :outcome_work_y, for_response: "longer_than_six_months"
+          assert_next_node :what_type_of_work?, for_response: "longer_than_six_months"
         end
       end
 
@@ -707,24 +754,118 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
   end
 
-  context "outcome: outcome_work_y" do
+  context "outcome: outcome_work_y_academic" do
     setup do
-      testing_node :outcome_work_y
+      testing_node :outcome_work_y_academic
       add_responses purpose_of_visit?: "work",
-                    staying_for_how_long?: "longer_than_six_months"
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "academic"
     end
 
-    should "render extra guidance to British nationals overseas passports" do
-      add_responses what_passport_do_you_have?: "british-national-overseas"
-      assert_rendered_outcome text: "You can apply for a British National Overseas (BNO) visa"
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_arts" do
+    setup do
+      testing_node :outcome_work_y_arts
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "arts"
     end
 
-    should "render extra guidance to youth mobility scheme country passports" do
-      add_responses what_passport_do_you_have?: @youth_mobility_scheme_country
-      assert_rendered_outcome text: "You can apply for the ‘youth mobility scheme’ visa"
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_business" do
+    setup do
+      testing_node :outcome_work_y_business
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "business"
     end
 
-    test_estonia_latvia_alien_outcome_guidance
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_business" do
+    setup do
+      testing_node :outcome_work_y_business
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "business"
+    end
+
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_digital" do
+    setup do
+      testing_node :outcome_work_y_digital
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "digital"
+    end
+
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_health" do
+    setup do
+      testing_node :outcome_work_y_health
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "health"
+    end
+
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_other" do
+    setup do
+      testing_node :outcome_work_y_other
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "other"
+    end
+
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_religious" do
+    setup do
+      testing_node :outcome_work_y_religious
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "religious"
+    end
+
+    test_stateless_or_refugee_outcome_guidance
+    test_bno_outcome_guidance
+    test_country_in_youth_mobility_outcome_guidance
+  end
+
+  context "outcome: outcome_work_y_other" do
+    setup do
+      testing_node :outcome_work_y_other
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months",
+                    what_type_of_work?: "other"
+    end
+
     test_stateless_or_refugee_outcome_guidance
   end
 end

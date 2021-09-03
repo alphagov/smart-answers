@@ -16,6 +16,20 @@ module CheckUkVisaFlowTestHelper
     end
   end
 
+  def test_bno_outcome_guidance
+    should "render visa country guidance when passport country is in the BNO list" do
+      add_responses what_passport_do_you_have?: "british-national-overseas"
+      assert_rendered_outcome text: "If you have British national (overseas) status"
+    end
+  end
+
+  def test_country_in_youth_mobility_outcome_guidance
+    should "render visa country guidance when passport country is in the Youth Mobility scheme" do
+      add_responses what_passport_do_you_have?: "canada"
+      assert_rendered_outcome text: "If you’re aged 18 to 30"
+    end
+  end
+
   def test_shared_purpose_of_visit_next_nodes
     should "have a next node of staying_for_how_long? for a 'study' response" do
       assert_next_node :staying_for_how_long?, for_response: "study"
