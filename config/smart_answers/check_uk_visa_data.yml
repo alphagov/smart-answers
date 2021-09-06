@@ -1,0 +1,101 @@
+---
+  visas_for_outcome:
+    academic:
+      title: You need a visa to work as an academic or researcher
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: eligible_skilled_job_academic
+        - name: global_talent_academic
+        - name: temporary_worker_government_authorised_exchange_academic
+        - name: work_at_multinational_company
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+    arts:
+      title: You need a visa to work in arts or culture
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: eligible_skilled_job_arts
+        - name: global_talent_arts
+        - name: temporary_worker_creative_and_sporting_arts
+        - name: work_at_multinational_company
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+        - name: representative_of_overseas_business_arts
+        - name: work_experience_scheme
+    business:
+      title: You need a visa to start or invest in a business
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: innovative_business
+        - name: global_talent_business
+        - name: representative_of_overseas_business_business
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+        - name: investor
+    digital:
+      title: You need a visa to work in digital technology
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: eligible_skilled_job_digital
+        - name: global_talent_digital
+        - name: work_at_multinational_company
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+    health:
+      title: You need a visa to work in health and care
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: eligible_skilled_job_health
+        - name: work_at_multinational_company
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+        - name: temporary_worker_government_authorised_exchange_health
+        - name: work_experience_scheme
+    other:
+      title: You need a visa to work in the UK
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: eligible_skilled_job_other
+        - name: work_at_multinational_company
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+        - name: temporary_worker_charity
+        - name: temporary_worker_government_authorised_exchange
+        - name: temporary_worker_international_agreement_service
+        - name: temporary_worker_international_agreement_work
+    religious:
+      title: You need a visa as a religious worker
+      visas:
+        - name: country_in_bno_list
+          condition: passport_country_in_british_national_overseas_list?
+        - name: temporary_worker_religious_worker
+        - name: minister_of_religion
+        - name: country_in_youth_mobility_scheme
+          condition: passport_country_in_youth_mobility_scheme_list?
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
+    sports:
+      title: You need a visa to work as a professional sportsperson
+      visas:
+        - name: temporary_worker_creative_and_sporting_sports
+        - name: sportsperson
+        - name: uk_ancestry_visa
+          condition: passport_country_in_uk_ancestry_visa_list?
