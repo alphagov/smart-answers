@@ -11,65 +11,15 @@
 
   <%= render partial: 'visa_types/country_in_bno_list', locals: { calculator: calculator } %>
 
-  ##If you're coming to work in an eligible skilled job
-
-  You may be eligible for the [Skilled Worker visa](https://www.gov.uk/skilled-worker-visa).
-
-  ###Eligibility
-
-  The eligibility criteria include:
-
-  - working in an eligible job - various jobs in research and academia are eligible
-  - having a job offer
-  - being paid a minimum salary - how much depends on the type of work you do
-  - usually proving that you can read, write, speak and understand English
-
-  ###How long you can stay
-
-  Your visa can last for up to 5 years. You can extend it as long as you're still eligible.
-
-  After 5 years, you may be able to apply to settle permanently in the UK.
+  <%= render partial: 'visa_types/eligible_skilled_job_acamdemic', locals: { calculator: calculator } %>
 
   ----
 
-  ##If you’re a leader or potential leader in your field
-
-  You may be eligible for the [Global Talent visa](https://www.gov.uk/global-talent-researcher-academic) if you are a leader or potential leader in science, medicine, engineering or humanities.
-
-  With this visa, you:
-
-  + may be able to work in the UK without a job offer
-  + can be an employee, self-employed and a director of a company
-
-  ###Eligibility
-
-  The eligibility criteria include proving you are a leader or potential leader in your field by applying for an ‘endorsement’.
-
-  There are no English language or minimum salary eligibility requirements.
-
-  ###How long you can stay
-
-  Your visa can last for up to 5 years.  You can extend it as long as you're still eligible.
-
-  After 3 years, you may be able to settle permanently in the UK.
+  <%= render partial: 'visa_types/global_talent_academic', locals: { calculator: calculator } %>
 
   ----
 
-  ##If you’re coming to work in a research or training programme
-
-  You may be eligible for a [Temporary Worker - Government Authorised Exchange visa (T5)](https://www.gov.uk/government-authorised-exchange).
-
-  You can work as a researcher, visiting academic or examiner if it’s part of an approved programme.
-
-  The application fee is cheaper than the Skilled Worker or Global Talent visa.
-
-  ###Eligibility
-
-  The eligibility criteria include having a job offer.
-
-  ###How long you can stay
-
-  You can stay up to 2 years in the UK on this visa. If you want to stay longer you must switch to another type of visa.
+  <%= render partial: 'visa_types/temporary_worker_government_authorised_exchange_academic', locals: { calculator: calculator } %>
 
   ----
 

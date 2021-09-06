@@ -11,30 +11,7 @@
 
   <%= render partial: 'visa_types/country_in_bno_list', locals: { calculator: calculator } %>
 
-  ##If you're coming to work in an eligible skilled job
-
-  You may be eligible for the [Skilled Worker visa](https://www.gov.uk/skilled-worker-visa) to work in a skilled job.
-
-  Many types of job are eligible, including:
-
-  + jobs that require a university degree, such as scientists or doctors
-  + many managerial or skilled administrative roles
-  + skilled trades, such as carpenters or plumbers
-
-  ###Eligibility
-
-  The eligibility criteria include:
-
-  - working in an eligible job
-  - having a job offer
-  - being paid a minimum salary - how much depends on the type of work you do
-  - usually proving that you can read, write, speak and understand English
-
-  ###How long you can stay
-
-  Your visa can last for up to 5 years. You can extend it as long as you're still eligible.
-
-  After 5 years, you may be able to apply to settle permanently in the UK.
+  <%= render partial: 'visa_types/eligible_skilled_job_other', locals: { calculator: calculator } %>
 
   ----
 
@@ -48,71 +25,17 @@
 
   ----
 
-  ##If you're coming to volunteer for a charity
-
-  You may be eligible for a [Temporary Worker - Charity Worker visa (T5)](https://www.gov.uk/temporary-worker-charity-worker-visa).
-
-  ###Eligibility
-
-  The eligibility criteria include having a job offer.
-
-  ###How long you can stay
-
-  You can stay up to 1 year. If you want to stay longer you must switch to another type of visa.
-
+  <%= render partial: 'visa_types/temporary_worker_charity', locals: { calculator: calculator } %>
 
   ----
 
-  ##If you're coming for an approved government programme
-
-  You may be eligible for a [Temporary Worker - Government Authorised Exchange visa (T5)](https://www.gov.uk/government-authorised-exchange) if you take part in an approved:
-
-  - work experience programme
-  - research and training programme
-  - Overseas Government Language Programme
-
-  ###Eligibility
-
-  The eligibility criteria include having a job offer.
-
-  ###How long you can stay
-
-  You can stay up to 2 years (1 year for work experience). If you want to stay longer you must switch to another type of visa.
+  <%= render partial: 'visa_types/temporary_worker_government_organised_exchange', locals: { calculator: calculator } %>
 
   ----
 
-  ##If you're temporarily providing an eligible service in the UK
-
-  You may be eligible for a [Temporary Worker - International Agreement Worker visa (T5)](https://www.gov.uk/international-agreement-worker-visa) if you provide an eligible service in the UK.
-
-  The services you can provide depend on the country you’re from. Check if the service you provide is eligible in Annex IAW1 of the [guidance for sponsors](https://www.gov.uk/government/publications/workers-and-temporary-workers-guidance-for-sponsors-sponsor-an-international-agreement-worker).
-
-  ###Eligibility
-
-  The eligibility criteria include:
-
-  + having a job offer
-  + usually having a university degree or technical qualification of an equivalent level
-  + having enough professional experience - this is 6 years if you're self-employed, or usually 3 years if you're working for an overseas business providing a contractual service in the UK
-
-  ###How long you can stay
-
-  You can usually stay up to 6 months (or 1 year in some cases). If you want to stay longer you must switch to another type of visa.
+  <%= render partial: 'visa_types/temporary_worker_international_agreement_service', locals: { calculator: calculator } %>
 
   ----
 
-  ##If you're coming to work in the UK for a foreign government or international organisation
-
-  You may be eligible for a [Temporary Worker – International Agreement Worker visa (T5)](https://www.gov.uk/international-agreement-worker-visa) if you’re coming to work:
-
-  + for a foreign government or international organisation
-  + in a diplomat’s home, for example as a cook, cleaner or carer
-
-  ###Eligibility
-
-  The eligibility criteria include having a job offer.
-
-  ###How long you can stay
-
-  You can usually stay up to 2 years. If you want to stay longer you must switch to another type of visa.
+  <%= render partial: 'visa_types/temporary_worker_international_agreement_work', locals: { calculator: calculator } %>
 <% end %>
