@@ -249,7 +249,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
       next_node do |response|
         calculator.what_type_of_work = response
-        outcome :"outcome_work_y_#{response}"
+        outcome :outcome_work_y
       end
     end
 
@@ -286,14 +286,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_work_m
     outcome :outcome_work_n
     outcome :outcome_work_waiver
-    outcome :outcome_work_y_health
-    outcome :outcome_work_y_digital
-    outcome :outcome_work_y_academic
-    outcome :outcome_work_y_arts
-    outcome :outcome_work_y_sports
-    outcome :outcome_work_y_religious
-    outcome :outcome_work_y_business
-    outcome :outcome_work_y_other
+    outcome :outcome_work_y
   end
 
   def travel_response_next_route(node)

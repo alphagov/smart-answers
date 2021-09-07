@@ -11,6 +11,18 @@ module SmartAnswer::Calculators
 
     attr_accessor :what_type_of_work
 
+    OUTCOME_DATA = YAML.load_file(Rails.root.join("config/smart_answers/check_uk_visa_data.yml")).freeze
+
+    def outcome_title
+      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "title")
+    end
+
+    def visas_for_outcome
+      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "visas").map { |visa|
+        visa["name"] if visa["condition"].nil? || send(visa["condition"])
+      }.compact
+    end
+
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
     end

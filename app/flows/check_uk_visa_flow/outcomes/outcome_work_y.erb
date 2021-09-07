@@ -1,0 +1,19 @@
+<% text_for :title do %>
+  <%= calculator.outcome_title %>
+<% end %>
+
+<% govspeak_for :body do %>
+  Based on your answers, you have the following visa options.
+
+  <%= render partial: "stateless_or_refugee", locals: {calculator: calculator} %>
+
+  ----
+
+  <% calculator.visas_for_outcome.each do |visa| %>
+    <%= render partial: "visa_types/#{visa}", locals: {calculator: calculator} %>
+
+    ----
+
+  <% end %>
+
+<% end %>
