@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
                 :travel_document_type,
                 :travelling_visiting_partner_family_member_answer
 
+    attr_accessor :what_type_of_work
+
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
     end

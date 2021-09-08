@@ -248,6 +248,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       option :other
 
       next_node do |response|
+        calculator.what_type_of_work = response
         outcome :"outcome_work_y_#{response}"
       end
     end
