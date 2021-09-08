@@ -1,6 +1,6 @@
 require "test_helper"
 require "support/flow_test_helper"
-require "support/shared_flows/check_uk_visa_flow_test_helper"
+require "support/flows/check_uk_visa_flow_test_helper"
 
 class CheckUkVisaFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
