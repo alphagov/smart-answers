@@ -750,20 +750,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_country_in_uk_ancestry_visa_with_business_information
   end
 
-  context "outcome: outcome_work_y_business" do
-    setup do
-      testing_node :outcome_work_y_business
-      add_responses purpose_of_visit?: "work",
-                    staying_for_how_long?: "longer_than_six_months",
-                    what_type_of_work?: "business"
-    end
-
-    test_stateless_or_refugee_outcome_guidance
-    test_bno_outcome_guidance
-    test_country_in_youth_mobility_outcome_guidance
-    test_country_in_uk_ancestry_visa
-  end
-
   context "outcome: outcome_work_y_digital" do
     setup do
       testing_node :outcome_work_y_digital
@@ -818,16 +804,5 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
     test_country_in_uk_ancestry_visa
-  end
-
-  context "outcome: outcome_work_y_other" do
-    setup do
-      testing_node :outcome_work_y_other
-      add_responses purpose_of_visit?: "work",
-                    staying_for_how_long?: "longer_than_six_months",
-                    what_type_of_work?: "other"
-    end
-
-    test_stateless_or_refugee_outcome_guidance
   end
 end
