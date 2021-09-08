@@ -12,12 +12,12 @@ class GraphFlow < SmartAnswer::Flow
       end
     end
 
-    radio :q2? do
+    checkbox_question :q2? do
       option :a
       option :b
 
       next_node do |response|
-        if response == "a"
+        if response.split(",").include?("a")
           outcome :done_a
         else
           question :q_with_interpolation?

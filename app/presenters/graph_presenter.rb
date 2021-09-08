@@ -53,7 +53,7 @@ private
     when SmartAnswer::Question::Checkbox
       text << word_wrap(node_title(node))
       text << "\n\n"
-      text << node.options.map { |o| "[ ] #{o}" }.join("\n")
+      text << node.option_keys.map { |o| "[ ] #{o}" }.join("\n")
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
