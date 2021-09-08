@@ -188,7 +188,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         assert_next_node :outcome_work_y_other, for_response: "other"
       end
 
-      should "have a next node of outcome_work_y_religious if working in religioun" do
+      should "have a next node of outcome_work_y_religious if working in religion" do
         assert_next_node :outcome_work_y_religious, for_response: "religious"
       end
 
