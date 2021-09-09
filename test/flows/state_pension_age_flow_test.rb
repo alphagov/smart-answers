@@ -80,13 +80,6 @@ class StatePensionAgeFlowTest < ActiveSupport::TestCase
         assert_next_node :has_reached_sp_age_non_binary, for_response: "prefer_not_to_say"
       end
 
-      # This node is not reachable. It has not been reachable since 2018 which is when men born in 1953 turned 65.
-      # The code will be removed in a future commit.
-      # should "have a next node of not_yet_reached_sp_age when state pension age has not been reached" do
-      # add_responses dob_age?: n/a
-      # assert_next_node :not_yet_reached_sp_age, for_response: "male"
-      # end
-
       should "have a next node of has_reached_sp_age when state pension age has been reached" do
         assert_next_node :has_reached_sp_age, for_response: "female"
       end
