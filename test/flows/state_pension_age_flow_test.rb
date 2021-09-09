@@ -116,26 +116,5 @@ class StatePensionAgeFlowTest < ActiveSupport::TestCase
 
       travel_back
     end
-
-    should "render when the Pension Credit qualifying age will be reached before the pension credit date" do
-      add_responses dob_age?: Time.zone.today.to_s
-
-      travel(67.years)
-
-      assert_rendered_outcome text: "reach the Pension Credit qualifying age on"
-
-      travel_back
-    end
-
-    # It's impossible to reach this code.
-    # Pension credit age calculation for all genders is equivalent /
-    # to the state pension date calculation for women. /
-    # Users can't get to this view if they have reached state pension date, so should not reach this condition either.
-    # should "render You\'ve already reached the Pension Credit qualifying age after pension credit date" do
-    # add_responses dob_age?: Time.zone.today.to_s
-    # travel(68.years)
-    # assert_rendered_outcome text: "You\'ve already reached the Pension Credit qualifying age"
-    # travel_back
-    # end
   end
 end
