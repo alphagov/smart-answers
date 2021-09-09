@@ -107,16 +107,6 @@ class StatePensionAgeFlowTest < ActiveSupport::TestCase
       travel_back
     end
 
-    # It's impossible to reach this code if state_pension_date is after 6 April 2016.
-    # At the moment the earliest you could be born and see this view is 1955 (1955 + 66 = 2021).
-    # state_pension_date of 2021 is way after 2016.
-    # The code will be removed in a future commit.
-    # should "render information about basic State Pension when state pension date is before 6 April 2016" do
-    # add_responses dob_age?: "06-04-1955",
-    # gender?: "female"
-    # assert_rendered_outcome text: "Find out more information about the basic State Pension"
-    # end
-
     should "render that you can get a forecast of your state pension over 30 days before state pension date" do
       add_responses dob_age?: Time.zone.today.to_s
 

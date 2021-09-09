@@ -16,11 +16,7 @@
     Alternatively, you can [delay (defer) claiming](/deferring-state-pension).
   <% end %>
 
-  <% if calculator.old_state_pension? %>
-    Find out more information about the [basic State Pension](/state-pension).
-  <% else %>
-    Find out more information about the [new State Pension](/new-state-pension).
-  <% end %>
+  Find out more information about the [new State Pension](/new-state-pension).
 
   <% if calculator.before_state_pension_date?(days: 30) && calculator.over_16_years_old? %>
     ^You can get a [forecast or statement of how much State Pension you may get](/state-pension-statement).^
