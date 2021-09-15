@@ -33,6 +33,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME.include?(@passport_country)
     end
 
+    def passport_country_in_uk_ancestry_visa_list?
+      COUNTRY_GROUP_UK_ANCESTRY_VISA.include?(@passport_country)
+    end
+
     def passport_country_in_electronic_visa_waiver_list?
       COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
     end
@@ -182,6 +186,62 @@ module SmartAnswer::Calculators
       the-occupied-palestinian-territories
       wallis-and-futuna
       western-sahara
+    ].freeze
+
+    COUNTRY_GROUP_COMMONWEALTH = %w[
+      antigua-and-barbuda
+      australia
+      bahamas
+      bangladesh
+      barbados
+      belize
+      botswana
+      brunei
+      cameroon
+      canada
+      cyprus
+      dominica
+      eswatini
+      fiji
+      ghana
+      grenada
+      guyana
+      india
+      jamaica
+      kenya
+      kiribati
+      lesotho
+      malawi
+      malaysia
+      maldives
+      malta
+      mauritius
+      mozambique
+      namibia
+      nauru
+      new-zealand
+      nigeria
+      pakistan
+      papua-new-guinea
+      rwanda
+      samoa
+      seychelles
+      sierra-leone
+      singapore
+      solomon-islands
+      south-africa
+      sri-lanka
+      st-kitts-and-nevis
+      st-lucia
+      st-vincent-and-the-grenadines
+      tanzania
+      the-gambia
+      tonga
+      trinidad-and-tobago
+      tuvalu
+      uganda
+      vanuatu
+      zambia
     ].freeze
 
     COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES = %w[
@@ -457,6 +517,14 @@ module SmartAnswer::Calculators
       "san-marino",
       "south-korea",
       "taiwan",
+    ].flatten.freeze
+
+    COUNTRY_GROUP_UK_ANCESTRY_VISA = [
+      COUNTRY_GROUP_COMMONWEALTH,
+      COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES,
+      COUNTRY_GROUP_BRITISH_NATIONAL_OVERSEAS,
+      "british-overseas-citizen",
+      "zimbabwe",
     ].flatten.freeze
   end
 end

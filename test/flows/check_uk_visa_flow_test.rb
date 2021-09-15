@@ -720,6 +720,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_arts" do
@@ -746,6 +747,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa_with_business_information
   end
 
   context "outcome: outcome_work_y_business" do
@@ -759,6 +761,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_digital" do
@@ -772,6 +775,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_health" do
@@ -785,6 +789,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_other" do
@@ -798,6 +803,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_religious" do
@@ -811,6 +817,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     test_stateless_or_refugee_outcome_guidance
     test_bno_outcome_guidance
     test_country_in_youth_mobility_outcome_guidance
+    test_country_in_uk_ancestry_visa
   end
 
   context "outcome: outcome_work_y_other" do

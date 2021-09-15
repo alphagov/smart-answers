@@ -30,6 +30,21 @@ module CheckUkVisaFlowTestHelper
     end
   end
 
+  def test_country_in_uk_ancestry_visa
+    should "render visa country guidance when passport country is in the UK Ancestry Visa list" do
+      add_responses what_passport_do_you_have?: "canada"
+      assert_rendered_outcome text: "If one of your grandparents was born in the UK"
+    end
+  end
+
+  def test_country_in_uk_ancestry_visa_with_business_information
+    should "render visa country guidance with business information when passport country is in the UK Ancestry Visa list" do
+      add_responses what_passport_do_you_have?: "canada"
+      assert_rendered_outcome text: "If one of your grandparents was born in the UK"
+      assert_rendered_outcome text: "start a business"
+    end
+  end
+
   def test_shared_purpose_of_visit_next_nodes
     should "have a next node of staying_for_how_long? for a 'study' response" do
       assert_next_node :staying_for_how_long?, for_response: "study"
