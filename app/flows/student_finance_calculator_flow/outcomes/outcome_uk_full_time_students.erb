@@ -1,11 +1,9 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer' %>
 
-  ##Student finance
+  Read the [guidance](https://www.gov.uk/student-finance/new-fulltime-students) about student finance and how to apply.
 
-  You could get per year:
-
-  <%= render partial: 'full_time_tuition', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start } %>
+  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students" } %>
 
   ###Extra student funding
 
@@ -46,8 +44,8 @@
       - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
     <% end %>
 
-    <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
-
     <%= render partial: 'next_steps' %>
   <% end %>
+
+  <%= render partial: 'uk_extra_help', locals: { course_type: calculator.course_type } %>
 <% end %>

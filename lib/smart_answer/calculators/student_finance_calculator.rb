@@ -191,11 +191,15 @@ module SmartAnswer
         uk_all_circumstances.include?("no") && course_studied != "teacher-training" && course_studied != "social-work"
       end
 
-    private
+      def loan_shortfall
+        SmartAnswer::Money.new(max_loan_amount - maintenance_loan_amount.to_f)
+      end
 
       def max_loan_amount
         LOAN_MAXIMUMS[@course_start][@residence]
       end
+
+    private
 
       def min_loan_amount
         LOAN_MINIMUMS[@course_start][@residence]

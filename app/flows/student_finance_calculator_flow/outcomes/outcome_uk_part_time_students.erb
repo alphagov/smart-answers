@@ -1,6 +1,8 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer' %>
 
+  Read the [guidance](https://www.gov.uk/student-finance/parttime-students) about student finance and how to apply.
+
   <% if calculator.course_studied == 'dental-medical-healthcare' %>
     To qualify for a Maintenance Loan you must be studying a DipHE in dental hygiene and dental therapy or operating department practice, or a Foundation Degree in dental hygiene and dental therapy.
   <% elsif calculator.course_studied == 'teacher-training' %>
@@ -15,15 +17,7 @@
     - a Graduate Certificate or Graduate Diploma
   <% end %>
 
-  ##Student finance
-
-  You could get per year:
-
-  - <%= format_money(calculator.tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/parttime-students)
-
-  <% if calculator.maintenance_loan_amount > 0 %>
-    - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/parttime-students)
-  <% end %>
+  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/parttime-students", maintenance_loan_url: "/student-finance/parttime-students" } %>
 
   ###Extra student funding
 

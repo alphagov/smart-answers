@@ -187,7 +187,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         add_response "10"
         add_response "has-disability,low-income"
         add_response "dental-medical-healthcare"
-        assert_current_node :outcome_uk_all_students
+        assert_current_node :outcome_uk_part_time_students
       end
     end
   end
@@ -367,7 +367,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         add_response "10"
         add_response "has-disability,low-income"
         add_response "dental-medical-healthcare"
-        assert_current_node :outcome_uk_all_students
+        assert_current_node :outcome_uk_part_time_students
       end
     end
   end

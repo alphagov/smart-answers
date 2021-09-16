@@ -818,6 +818,28 @@ module SmartAnswer
             assert_equal 1902, calculator.reduced_maintenance_loan_for_healthcare
           end
         end
+
+        context "#loan_shortfall" do
+          setup do
+            @household_income = 50_000
+            @course_type = "uk-full-time"
+            @doctor_or_dentist = true
+          end
+
+          should "show the difference between the maximum loan amount and what the student is eligible for" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: current_year,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: "away-in-london",
+              doctor_or_dentist: @doctor_or_dentist,
+            )
+
+            assert_equal 3453, calculator.loan_shortfall
+            assert_equal 12_382, calculator.max_loan_amount
+            assert_equal 8929, calculator.maintenance_loan_amount
+          end
+        end
       end
 
       context "#course_start_years" do

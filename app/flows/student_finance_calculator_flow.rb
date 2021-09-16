@@ -170,7 +170,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
             outcome :outcome_uk_full_time_students
           end
         when "uk-part-time"
-          outcome :outcome_uk_all_students
+          outcome :outcome_uk_part_time_students
         else
           outcome :outcome_eu_students
         end
@@ -197,7 +197,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_uk_full_time_students
 
-    outcome :outcome_uk_all_students
+    outcome :outcome_uk_part_time_students
 
     outcome :outcome_eu_students
 
