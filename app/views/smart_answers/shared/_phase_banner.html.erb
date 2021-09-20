@@ -1,6 +1,5 @@
 <% if @presenter.present? && @presenter.flow.name === 'next-steps-for-your-business' %>
-  <% feedback_message = capture do %>
-    Help improve GOV.UK –
+  <% banner_message = capture do %>
     <%= link_to "Sign up to take part in user research (opens in a new tab)",
       "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Next_steps_ltd_co&utm_source=govukother&utm_medium=gov.uk&t=GDS&id=303",
       class: "govuk-link",
@@ -15,7 +14,8 @@
     %>
   <% end %>
 
-  <%= render "govuk_publishing_components/components/phase_banner", {
-    message: feedback_message
+  <%= render "components/user-research-banner", {
+    title: "Help improve GOV.UK",
+    message: banner_message,
   } %>
 <% end %>
