@@ -9,6 +9,28 @@ module SmartAnswer::Calculators
                 :travel_document_type,
                 :travelling_visiting_partner_family_member_answer
 
+    attr_accessor :what_type_of_work
+
+    OUTCOME_DATA = YAML.load_file(Rails.root.join("config/smart_answers/check_uk_visa_data.yml")).freeze
+
+    def outcome_title
+      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "title")
+    end
+
+    def visas_for_outcome
+      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "visas").select { |visa|
+        visa["condition"].nil? || send(visa["condition"])
+      }.compact
+    end
+
+    def visa_types_for_outcome
+      visas_for_outcome.map { |visa| visa["name"] }
+    end
+
+    def number_of_visas_for_outcome
+      visas_for_outcome.map { |visa| visa["number_of_visas"] || 1 }.sum
+    end
+
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
     end
