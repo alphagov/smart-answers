@@ -1,0 +1,29 @@
+.app-c-user-research-banner {
+  @include govuk-font($size: 16);
+  background-color: govuk-colour("light-grey");
+  padding: govuk-spacing(3);
+  margin: govuk-spacing(4) auto;
+  border-left: $govuk-border-width-wide solid govuk-colour("green");
+  @include govuk-media-query($from: tablet) {
+    margin: govuk-spacing(4) auto govuk-spacing(6);
+  }
+}
+
+.app-c-user-research-banner__title {
+  @include govuk-font($size: 16, $weight: bold);
+  display: block;
+  color: $govuk-text-colour;
+  margin-bottom: govuk-spacing(2);
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: 0;
+    display: inline-block;
+
+    &:after {
+      @include govuk-font($size: 16);
+      color: $govuk-secondary-text-colour;
+      content: "|";
+      margin: 0 govuk-spacing(2);
+    }
+  }
+}
