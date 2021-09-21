@@ -18,9 +18,17 @@ module SmartAnswer::Calculators
     end
 
     def visas_for_outcome
-      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "visas").map { |visa|
-        visa["name"] if visa["condition"].nil? || send(visa["condition"])
+      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "visas").select { |visa|
+        visa["condition"].nil? || send(visa["condition"])
       }.compact
+    end
+
+    def visa_types_for_outcome
+      visas_for_outcome.map { |visa| visa["name"] }
+    end
+
+    def number_of_visas_for_outcome
+      visas_for_outcome.map { |visa| visa["number_of_visas"] || 1 }.sum
     end
 
     def passport_country_in_eea?

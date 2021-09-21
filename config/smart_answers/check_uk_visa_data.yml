@@ -34,6 +34,7 @@
         - name: country_in_bno_list
           condition: passport_country_in_british_national_overseas_list?
         - name: innovative_business
+          number_of_visas: 2
         - name: global_talent_business
         - name: representative_of_overseas_business_business
         - name: country_in_youth_mobility_scheme
@@ -59,6 +60,7 @@
         - name: country_in_bno_list
           condition: passport_country_in_british_national_overseas_list?
         - name: eligible_skilled_job_health
+          number_of_visas: 2
         - name: work_at_multinational_company
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?

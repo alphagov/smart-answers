@@ -9,6 +9,15 @@ module CheckUkVisaFlowTestHelper
     end
   end
 
+  def test_visa_count(passport_country, expected_count)
+    should "render outcome of #{expected_count} visas available with correct plural form for passport country #{passport_country}" do
+      plural_form = "option".pluralize(expected_count)
+
+      add_responses what_passport_do_you_have?: passport_country
+      assert_rendered_outcome text: "Based on your answers, you have #{expected_count} visa #{plural_form}."
+    end
+  end
+
   def test_stateless_or_refugee_outcome_guidance
     should "render visa country guidance when passport country is stateless-or-refugee" do
       add_responses what_passport_do_you_have?: "stateless-or-refugee"

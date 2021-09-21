@@ -3,13 +3,13 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  Based on your answers, you have the following visa options.
+  Based on your answers, you have <span style="font-weight: bold"><%= calculator.number_of_visas_for_outcome %></span> visa <%= "option".pluralize(calculator.number_of_visas_for_outcome) %>.
 
   <%= render partial: "stateless_or_refugee", locals: {calculator: calculator} %>
 
   ----
 
-  <% calculator.visas_for_outcome.each do |visa| %>
+  <% calculator.visa_types_for_outcome.each do |visa| %>
     <%= render partial: "visa_types/#{visa}", locals: {calculator: calculator} %>
 
     ----
