@@ -176,7 +176,10 @@ module SmartAnswer::Calculators
 
     def services_payment_partial_name
       if services_data_for_ceremony_country?
-        @services_data[ceremony_country]["payment_partial_name"]
+        country_payment_partial = @services_data[ceremony_country]["payment_partial_name"]
+        return country_payment_partial if country_payment_partial.present?
+
+        @services_data.dig(ceremony_country, marriage_type_path_name, "payment_partial_name")
       end
     end
 

@@ -748,10 +748,22 @@ module SmartAnswer
           assert_nil calculator.services_payment_partial_name
         end
 
-        should "return the name of the payment information partial" do
+        should "return the name of the country payment information partial" do
           services_data = {
             "ceremony-country" => {
               "payment_partial_name" => "partial-name",
+            },
+          }
+          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator.ceremony_country = "ceremony-country"
+
+          assert_equal "partial-name", calculator.services_payment_partial_name
+        end
+
+        should "return the name of the countries marriage type payment information partial" do
+          services_data = {
+            "ceremony-country" => {
+              "opposite_sex" => { "payment_partial_name" => "partial-name" },
             },
           }
           calculator = MarriageAbroadCalculator.new(services_data: services_data)
