@@ -109,7 +109,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     ffi (1.13.1)
-    gds-api-adapters (73.1.0)
+    gds-api-adapters (74.0.0)
       addressable
       link_header
       null_logger
@@ -390,7 +390,7 @@ GEM
     uk_postcode (2.1.5)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
+    unf_ext (0.0.8)
     unicode-display_width (2.1.0)
     unicorn (5.8.0)
       kgio (~> 2.6)
