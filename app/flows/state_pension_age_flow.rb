@@ -54,8 +54,6 @@ class StatePensionAgeFlow < SmartAnswer::Flow
 
         if calculator.non_binary?
           outcome :has_reached_sp_age_non_binary
-        elsif calculator.before_state_pension_date?
-          outcome :not_yet_reached_sp_age
         else
           outcome :has_reached_sp_age
         end
