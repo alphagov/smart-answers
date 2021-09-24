@@ -227,9 +227,24 @@ module CheckUkVisaFlowTestHelper
     end
 
     context "for a 'family' response" do
-      should "have a next node of outcome_joining_family_nvn" do
+      should "have a next node of outcome_joining_family_m for a British overseas territory passport" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_next_node :outcome_joining_family_m, for_response: "family"
+      end
+
+      should "have a next node of outcome_joining_family_nvn for a non-visa national passport" do
         add_responses what_passport_do_you_have?: @non_visa_national_country
         assert_next_node :outcome_joining_family_nvn, for_response: "family"
+      end
+
+      should "have a next node of outcome_joining_family_nvn for an EEA passport" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_next_node :outcome_joining_family_nvn, for_response: "family"
+      end
+
+      should "have a next node of partner_family_british_citizen? for other passports" do
+        add_responses what_passport_do_you_have?: @visa_national_country
+        assert_next_node :partner_family_british_citizen?, for_response: "family"
       end
     end
   end

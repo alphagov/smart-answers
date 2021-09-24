@@ -502,6 +502,51 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: partner_family_british_citizen?" do
+    setup do
+      testing_node :partner_family_british_citizen?
+      add_responses what_passport_do_you_have?: @visa_national_country,
+                    purpose_of_visit?: "family"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of outcome_partner_family_british_citizen_y for a 'yes' response" do
+        assert_next_node :outcome_partner_family_british_citizen_y, for_response: "yes"
+      end
+
+      should "have a next node of partner_family_eea? for a 'no' response" do
+        assert_next_node :partner_family_eea?, for_response: "no"
+      end
+    end
+  end
+
+  context "question: partner_family_eea?" do
+    setup do
+      testing_node :partner_family_eea?
+      add_responses what_passport_do_you_have?: @visa_national_country,
+                    purpose_of_visit?: "family",
+                    partner_family_british_citizen?: "no"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of outcome_partner_family_eea_y for a 'yes' response" do
+        assert_next_node :outcome_partner_family_eea_y, for_response: "yes"
+      end
+
+      should "have a next node of outcome_partner_family_eea_n for a 'no' response" do
+        assert_next_node :outcome_partner_family_eea_n, for_response: "no"
+      end
+    end
+  end
+
   context "outcome: outcome_marriage_visa_nat_direct_airside_transit_visa" do
     setup do
       testing_node :outcome_marriage_visa_nat_direct_airside_transit_visa
