@@ -128,7 +128,7 @@ end
 #### Testing validation
 
 ```ruby
-  context "question :shift_worker_hours_per_shift?" do
+  context "question: shift_worker_hours_per_shift?" do
     setup do
       testing_node :shift_worker_hours_per_shift?
       add_responses basis_of_calculation?: "shift-worker",
