@@ -425,14 +425,13 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           end
         elsif calculator.already_abroad
           if response == "yes"
-            if calculator.country == "ireland"
+            case calculator.country
+            when "ireland"
               question :is_british_or_irish?
-            elsif calculator.country == "gibraltar"
+            when "gibraltar"
               outcome :db_already_abroad_gibraltar_outcome
-            elsif calculator.eea_country?
-              question :worked_in_eea_or_switzerland? # A37 going_abroad
             else
-              outcome :db_already_abroad_eea_outcome # A36 already_abroad
+              question :worked_in_eea_or_switzerland? # A37 going_abroad
             end
           else
             outcome :db_already_abroad_other_outcome # A35 already_abroad
