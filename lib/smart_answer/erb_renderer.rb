@@ -8,7 +8,7 @@ module SmartAnswer
       lookup_context = ActionView::LookupContext.new(
         [@template_directory, FlowRegistry.instance.load_path] + default_view_paths,
       )
-      @view = ActionView::Base.with_empty_template_cache.new(lookup_context)
+      @view = ActionView::Base.with_empty_template_cache.new(lookup_context, {}, {})
       # This is required to continue supporting .govspeak.erb templates
       @view.formats = %i[govspeak html]
       helpers.each { |helper| @view.extend(helper) }
