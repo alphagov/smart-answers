@@ -11,7 +11,7 @@ class FlowControllerTest < ActionController::TestCase
 
   teardown { teardown_fixture_flows }
 
-  context "GET /<slug>" do
+  context "GET /<id>" do
     should "display landing page in html if no questions answered yet" do
       get :landing, params: { id: "radio-sample" }
       assert_select "h1", /Sample radio question/
