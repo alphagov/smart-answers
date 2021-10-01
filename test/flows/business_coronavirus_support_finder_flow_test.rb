@@ -168,10 +168,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Statutory Sick Pay rebate"
     end
 
-    should "render self_employed_income_scheme if self_employed is yes" do
-      assert_rendered_outcome text: "Self-Employment Income Support Scheme (SEISS)"
-    end
-
     should "render kickstart_scheme if business_based is not set to northern_ireland" do
       assert_rendered_outcome text: "Support to create job placements: Kickstart Scheme"
     end
