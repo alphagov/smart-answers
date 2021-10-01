@@ -86,6 +86,7 @@ class CalculateAgriculturalHolidayEntitlementFlowTest < ActiveSupport::TestCase
 
   context "question: how_many_total_days?" do
     setup do
+      travel_to("2021-12-01")
       testing_node :how_many_total_days?
       add_responses work_the_same_number_of_days_each_week?: "different-number-of-days",
                     what_date_does_holiday_start?: "2021-12-01"
