@@ -104,7 +104,9 @@ class CalculateAgriculturalHolidayEntitlementFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of worked_for_same_employer? for any valid response" do
-        assert_next_node :worked_for_same_employer?, for_response: "50"
+        travel_to("2022-02-01") do
+          assert_next_node :worked_for_same_employer?, for_response: "50"
+        end
       end
     end
   end
