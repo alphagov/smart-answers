@@ -54,7 +54,7 @@ private
 
   def set_cache_headers
     if flow.response_store == :session
-      response.headers["Cache-Control"] = "private, no-store, max-age=0, must-revalidate"
+      response.headers["Cache-Control"] = "no-store"
     elsif Rails.configuration.set_http_cache_control_expiry_time
       expires_in(30.minutes, public: true)
     end

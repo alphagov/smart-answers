@@ -204,6 +204,6 @@ class FlowControllerTest < ActionController::TestCase
   end
 
   def assert_uncached_response
-    assert_equal "max-age=0, private, must-revalidate, no-store", @response.header["Cache-Control"]
+    assert_equal "no-store", @response.header["Cache-Control"]
   end
 end
