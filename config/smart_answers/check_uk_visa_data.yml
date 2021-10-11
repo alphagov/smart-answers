@@ -97,7 +97,6 @@
     sports:
       title: You need a visa to work as a professional sportsperson
       visas:
-        - name: temporary_worker_creative_and_sporting_sports
         - name: sportsperson
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
