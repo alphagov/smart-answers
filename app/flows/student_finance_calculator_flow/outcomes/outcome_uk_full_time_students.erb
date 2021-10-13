@@ -8,6 +8,7 @@
   ###Extra student funding
 
   <% if calculator.uk_ft_circumstances.include?('no') && calculator.course_studied == 'none-of-the-above' %>
+    <%= non_existant_variable %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     Depending on your income and circumstances, you could get:
