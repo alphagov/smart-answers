@@ -156,6 +156,23 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
+    context "flow response store is query parameters" do
+      should "redirect to the query parameter url" do
+        get :show, params: { id: "query-parameters-based", started: "y", responses: "response1" }
+        assert_redirected_to "/query-parameters-based/question2?question1=response1"
+      end
+
+      should "redirect to the query parameter url for first question" do
+        get :show, params: { id: "query-parameters-based", started: "y" }
+        assert_redirected_to "/query-parameters-based/question1"
+      end
+
+      should "redirect to the query parameter url with correct question branching" do
+        get :show, params: { id: "query-parameters-based", started: "y", responses: "response3" }
+        assert_redirected_to "/query-parameters-based/question3?question1=response3"
+      end
+    end
+
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)

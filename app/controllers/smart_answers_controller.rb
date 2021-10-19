@@ -3,6 +3,7 @@ class SmartAnswersController < ApplicationController
 
   before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_path, only: %w[show]
+  before_action :redirect_query_parameter_flows, only: %w[show]
   before_action :setup_content_item, except: %w[index]
 
   attr_accessor :content_item
@@ -47,6 +48,16 @@ class SmartAnswersController < ApplicationController
   end
 
 private
+
+  def redirect_query_parameter_flows
+    if @presenter.response_store == :query_parameters
+      redirect_to flow_path(
+        id: params[:id],
+        node_slug: @presenter.state.current_node_name,
+        params: @presenter.state.accepted_responses,
+      )
+    end
+  end
 
   def find_smart_answer
     @name = params[:id].to_sym
