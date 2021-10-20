@@ -10,7 +10,6 @@ module SmartAnswer::Calculators
 
     DEADLINES = {
       online_filing_deadline: {
-        "2013-14": ONLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2014-15": ONLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": ONLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
@@ -20,7 +19,6 @@ module SmartAnswer::Calculators
         "2019-20-covid-easement": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
       },
       paper_filing_deadline: {
-        "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
         "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
@@ -29,7 +27,6 @@ module SmartAnswer::Calculators
         "2019-20": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
       },
       payment_deadline: {
-        "2013-14": PAYMENT_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2014-15": PAYMENT_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": PAYMENT_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
@@ -41,8 +38,6 @@ module SmartAnswer::Calculators
 
     def tax_year_range
       case tax_year
-      when "2013-14"
-        SmartAnswer::YearRange.tax_year.starting_in(2013)
       when "2014-15"
         SmartAnswer::YearRange.tax_year.starting_in(2014)
       when "2015-16"
@@ -64,8 +59,6 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when "2013-14"
-        PENALTY_YEAR.starting_in(2016).begins_on
       when "2014-15"
         PENALTY_YEAR.starting_in(2017).begins_on
       when "2015-16"
@@ -178,8 +171,6 @@ module SmartAnswer::Calculators
       end
     end
 
-  private
-
     def overdue_filing_days
       (filing_date - filing_deadline).to_i
     end
@@ -187,6 +178,8 @@ module SmartAnswer::Calculators
     def overdue_payment_days
       (payment_date - payment_deadline).to_i
     end
+
+  private
 
     def late_payment_penalty_part
       0.05 * estimated_bill.value

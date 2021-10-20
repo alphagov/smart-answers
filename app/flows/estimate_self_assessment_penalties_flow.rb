@@ -5,7 +5,6 @@ class EstimateSelfAssessmentPenaltiesFlow < SmartAnswer::Flow
     status :published
 
     radio :which_year? do
-      option :"2013-14"
       option :"2014-15"
       option :"2015-16"
       option :"2016-17"
