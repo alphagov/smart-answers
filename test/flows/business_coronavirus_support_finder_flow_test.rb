@@ -160,10 +160,6 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
                     closed_by_restrictions?: %w[none]
     end
 
-    should "render job_retention_scheme if paye_scheme? is yes" do
-      assert_rendered_outcome text: "Coronavirus Job Retention Scheme (furlough scheme)"
-    end
-
     should "render statutory_sick_rebate if paye_scheme? is yes and business_size is 0_to_249" do
       assert_rendered_outcome text: "Statutory Sick Pay rebate"
     end

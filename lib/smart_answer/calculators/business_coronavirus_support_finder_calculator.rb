@@ -14,9 +14,6 @@ module SmartAnswer::Calculators
     end
 
     RULES = {
-      job_retention_scheme: lambda { |calculator|
-        calculator.paye_scheme == "yes"
-      },
       statutory_sick_rebate: lambda { |calculator|
         calculator.business_size == "0_to_249" &&
           calculator.paye_scheme == "yes"
