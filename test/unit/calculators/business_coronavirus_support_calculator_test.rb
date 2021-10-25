@@ -7,18 +7,6 @@ module SmartAnswer::Calculators
     end
 
     context "#show?" do
-      context "job_retention_scheme" do
-        should "return true when criteria met" do
-          @calculator.paye_scheme = "yes"
-          assert @calculator.show?(:job_retention_scheme)
-        end
-
-        should "return false when criteria not met" do
-          @calculator.paye_scheme = "no"
-          assert_not @calculator.show?(:job_retention_scheme)
-        end
-      end
-
       context "statutory_sick_rebate" do
         setup do
           @calculator.business_size = "0_to_249"
