@@ -33,7 +33,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   TrackResults.prototype.trackClickEvent = function (event) {
-    var $link = event.target
+    var $link = event.currentTarget
     var options = { transport: 'beacon' }
     var href = $link.getAttribute('href')
     var linkText = $link.innerText.trim()
