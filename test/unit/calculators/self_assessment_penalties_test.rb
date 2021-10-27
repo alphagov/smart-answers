@@ -5,19 +5,14 @@ module SmartAnswer::Calculators
     def setup
       @calculator = SelfAssessmentPenalties.new(
         submission_method: "online",
-        filing_date: Date.parse("2015-01-10"),
-        payment_date: Date.parse("2015-03-10"),
+        filing_date: Date.parse("2016-01-10"),
+        payment_date: Date.parse("2016-03-10"),
         estimated_bill: SmartAnswer::Money.new(5000),
-        tax_year: "2013-14",
+        tax_year: "2014-15",
       )
     end
 
     context "#start_of_next_year" do
-      should "return 2014-04-06 if tax-year is 2013-14" do
-        @calculator.tax_year = "2013-14"
-
-        assert_equal Date.new(2014, 4, 6), @calculator.start_of_next_tax_year
-      end
       should "return 2015-04-06 if tax-year is 2014-15" do
         @calculator.tax_year = "2014-15"
 
@@ -48,14 +43,14 @@ module SmartAnswer::Calculators
 
         assert_equal Date.new(2020, 4, 6), @calculator.start_of_next_tax_year
       end
+      should "return 2021-04-06 if tax-year is 2020-21" do
+        @calculator.tax_year = "2020-21"
+
+        assert_equal Date.new(2021, 4, 6), @calculator.start_of_next_tax_year
+      end
     end
 
     context "one_year_after_start_date_for_penalties" do
-      should "return 2016-02-01 if tax-year is 2013-14" do
-        @calculator.tax_year = "2013-14"
-
-        assert_equal Date.new(2016, 2, 1), @calculator.one_year_after_start_date_for_penalties
-      end
       should "return 2017-02-01 if tax-year is 2014-15" do
         @calculator.tax_year = "2014-15"
 
@@ -85,6 +80,11 @@ module SmartAnswer::Calculators
         @calculator.tax_year = "2019-20"
 
         assert_equal Date.new(2022, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should "return 2023-02-01 if tax-year is 2020-21" do
+        @calculator.tax_year = "2020-21"
+
+        assert_equal Date.new(2023, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
     end
 
@@ -193,87 +193,183 @@ module SmartAnswer::Calculators
         end
 
         should "calculate late filing penalty" do
-          # band one
-          @calculator.filing_date = Date.parse("2015-02-02")
+          # band 0: No penalty by 31 January for previous tax year
+          @calculator.filing_date = Date.parse("2016-01-31")
+          assert_equal 0, @calculator.late_filing_penalty
+
+          # band one: 01 Feb - 29 April: incurs £100 penalty (<= 89 days)
+          @calculator.filing_date = Date.parse("2016-02-01")
+          assert_equal 1, @calculator.overdue_filing_days
           assert_equal 100, @calculator.late_filing_penalty
-          # band two
-          @calculator.filing_date = Date.parse("2015-05-01")
+          @calculator.filing_date = Date.parse("2016-04-29")
+          assert_equal 89, @calculator.overdue_filing_days
+          assert_equal 100, @calculator.late_filing_penalty
+
+          # band two: 30 April - 30 July: band one + £10/day (up to 90 days)
+          # 1 day late incurs £10 penalty
+          @calculator.filing_date = Date.parse("2016-04-30")
+          assert_equal 90, @calculator.overdue_filing_days
           assert_equal 110, @calculator.late_filing_penalty
-          # band three
-          @calculator.filing_date = Date.parse("2015-05-02")
-          assert_equal 120, @calculator.late_filing_penalty
-          @calculator.filing_date = Date.parse("2015-06-06")
-          assert_equal 470, @calculator.late_filing_penalty
-          @calculator.filing_date = Date.parse("2015-07-29")
+          # 3 days late incurs £30 penalty
+          @calculator.filing_date = Date.parse("2016-05-02")
+          assert_equal 92, @calculator.overdue_filing_days
+          assert_equal 130, @calculator.late_filing_penalty
+          # 90 days late incurs £900 penalty + band one
+          @calculator.filing_date = Date.parse("2016-07-30")
+          assert_equal 181, @calculator.overdue_filing_days
           assert_equal 1000, @calculator.late_filing_penalty
-          # band four
-          @calculator.filing_date = Date.parse("2015-09-06")
+
+          # band three: 31 July - 31 Jan 2017: bands one + two + greater of £300 or 5% tax
+          # > 181 days late incurs band two + £300
+          @calculator.filing_date = Date.parse("2016-07-31")
+          assert_equal 182, @calculator.overdue_filing_days
           assert_equal 1300, @calculator.late_filing_penalty
-          # band four (1000 + 5% of estimated bill larger than £300)
-          @calculator.estimated_bill = SmartAnswer::Money.new(11_000)
-          assert_equal 1550, @calculator.late_filing_penalty
-          # band five
-          @calculator.estimated_bill = SmartAnswer::Money.new(0)
-          @calculator.filing_date = Date.parse("2016-02-02")
+          # < 366 days late incurs band two + £300
+          @calculator.filing_date = Date.parse("2017-01-30")
+          assert_equal 365, @calculator.overdue_filing_days
+          assert_equal 1300, @calculator.late_filing_penalty
+          # > 181 days late incurs band two + 5% tax
+          @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          @calculator.filing_date = Date.parse("2016-07-31")
+          assert_equal 182, @calculator.overdue_filing_days
+          assert_equal 1500, @calculator.late_filing_penalty
+          # < 366 days late incurs band two + 5% tax
+          @calculator.filing_date = Date.parse("2017-01-30")
+          assert_equal 365, @calculator.overdue_filing_days
+          assert_equal 1500, @calculator.late_filing_penalty
+
+          # band four: After 31 Jan 2017: band one + two + three + greater of £300 or 5% tax
+          # > 365 days late incurs band three + £300
+          @calculator.estimated_bill = SmartAnswer::Money.new(5_000)
+          @calculator.filing_date = Date.parse("2017-01-31")
+          assert_equal 366, @calculator.overdue_filing_days
           assert_equal 1600, @calculator.late_filing_penalty
-          # band five (1000 + 5% estimated bill larger than £600)
+          # > 365 days late incurs band three + 5% tax
           @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          @calculator.filing_date = Date.parse("2017-01-31")
+          assert_equal 366, @calculator.overdue_filing_days
           assert_equal 2000, @calculator.late_filing_penalty
-          # from 6 to 12 months, tax <=6002
-          @calculator.filing_date = Date.parse("2015-10-31")
+        end
+
+        should "calculate late filing penalty for 2020-21" do
+          @calculator.tax_year = "2020-21"
+          # band 0: No penalty by 31 January for previous tax year
+          @calculator.filing_date = Date.parse("2022-01-31")
+          assert_equal 0, @calculator.late_filing_penalty
+
+          # band one: 01 Feb - 29 April: incurs £100 penalty (<= 89 days)
+          @calculator.filing_date = Date.parse("2022-02-01")
+          assert_equal 1, @calculator.overdue_filing_days
+          assert_equal 100, @calculator.late_filing_penalty
+          @calculator.filing_date = Date.parse("2022-04-30")
+          assert_equal 89, @calculator.overdue_filing_days
+          assert_equal 100, @calculator.late_filing_penalty
+
+          # band two: 30 April - 30 July: band one + £10/day (up to 90 days)
+          # 1 day late incurs £10 penalty
+          @calculator.filing_date = Date.parse("2022-05-01")
+          assert_equal 90, @calculator.overdue_filing_days
+          assert_equal 110, @calculator.late_filing_penalty
+          # 3 days late incurs £30 penalty
+          @calculator.filing_date = Date.parse("2022-05-03")
+          assert_equal 92, @calculator.overdue_filing_days
+          assert_equal 130, @calculator.late_filing_penalty
+          # 90 days late incurs £900 penalty + band one
+          @calculator.filing_date = Date.parse("2022-07-31")
+          assert_equal 181, @calculator.overdue_filing_days
+          assert_equal 1000, @calculator.late_filing_penalty
+
+          # band three: 31 July - 31 Jan: bands one + two + greater of £300 or 5% tax
+          # > 181 days late incurs band two + £300
+          @calculator.filing_date = Date.parse("2022-08-01")
+          assert_equal 182, @calculator.overdue_filing_days
+          assert_equal 1300, @calculator.late_filing_penalty
+          # < 366 days late incurs band two + £300
+          @calculator.filing_date = Date.parse("2023-01-31")
+          assert_equal 365, @calculator.overdue_filing_days
+          assert_equal 1300, @calculator.late_filing_penalty
+          # > 181 days late incurs band two + 5% tax
           @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
+          @calculator.filing_date = Date.parse("2022-08-01")
+          assert_equal 182, @calculator.overdue_filing_days
           assert_equal 1500, @calculator.late_filing_penalty
-          # from 6 to 12 months, tax >6002
-          @calculator.filing_date = Date.parse("2015-10-31")
+          # < 366 days late incurs band two + 5% tax
+          @calculator.filing_date = Date.parse("2023-01-31")
+          assert_equal 365, @calculator.overdue_filing_days
+          assert_equal 1500, @calculator.late_filing_penalty
+
+          # band four: After 31 Jan: band one + two + three + greater of £300 or 5% tax
+          # > 365 days late incurs band three + £300
+          @calculator.estimated_bill = SmartAnswer::Money.new(5_000)
+          @calculator.filing_date = Date.parse("2023-02-01")
+          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 1600, @calculator.late_filing_penalty
+          # > 365 days late incurs band three + 5% tax
           @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
-          assert_equal 1500, @calculator.late_filing_penalty
+          @calculator.filing_date = Date.parse("2023-02-01")
+          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 2000, @calculator.late_filing_penalty
         end
 
         context "pay penalty before rate change on 23 Aug 2016" do
           should "calculate interest and late payment penalty" do
             @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
-            @calculator.payment_date = Date.parse("2015-01-01")
+            @calculator.payment_date = Date.parse("2016-01-01")
             assert_equal 0, @calculator.interest
             # 1 day after the deadline
-            @calculator.payment_date = Date.parse("2015-02-01")
+            @calculator.payment_date = Date.parse("2016-02-01")
+            assert_equal 1, @calculator.overdue_payment_days
             assert_equal 0, @calculator.interest
             # 31 days after the deadline
-            @calculator.payment_date = Date.parse("2015-03-03")
+            @calculator.payment_date = Date.parse("2016-03-02")
+            assert_equal 31, @calculator.overdue_payment_days
             assert_equal 26.71, @calculator.interest
             assert_equal 500, @calculator.late_payment_penalty
-            # should calculate PenaltyInterest1
-            @calculator.payment_date = Date.parse("2015-04-02")
+            # > 60 days late should calculate PenaltyInterest1
+            @calculator.payment_date = Date.parse("2016-04-01")
+            assert_equal 61, @calculator.overdue_payment_days
+            assert_equal 500, @calculator.late_payment_penalty
             assert_equal 53.42, @calculator.interest # 50.14 + 0.04 penalty interest
-            # one day before late payment penalty 2
-            @calculator.payment_date = Date.parse("2015-08-03")
+            # 183 days late, one day before late payment penalty 2
+            @calculator.payment_date = Date.parse("2016-08-01")
+            assert_equal 183, @calculator.overdue_payment_days
+            assert_equal 500, @calculator.late_payment_penalty
+            assert_equal 162.05, @calculator.interest
+            # > 183 days late, should calculate PenaltyInterest2
+            @calculator.payment_date = Date.parse("2016-08-02")
+            assert_equal 184, @calculator.overdue_payment_days
             assert_equal 1000, @calculator.late_payment_penalty
             assert_equal 162.95, @calculator.interest
-            # should calculate PenaltyInterest2
-            @calculator.payment_date = Date.parse("2015-09-02")
+            # 214 days late, should calculate PenaltyInterest2
+            @calculator.payment_date = Date.parse("2016-09-01")
+            assert_equal 214, @calculator.overdue_payment_days
             assert_equal 1000, @calculator.late_payment_penalty
             assert_equal 189.66, @calculator.interest
-            # one day before late payment penalty 3
-            @calculator.payment_date = Date.parse("2016-02-03")
+            # 367 days late, one day before late payment penalty 3
+            @calculator.payment_date = Date.parse("2017-02-01")
+            assert_equal 367, @calculator.overdue_payment_days
+            assert_equal 1000, @calculator.late_payment_penalty
+            assert_equal 325.89, @calculator.interest
+            # > 367 days late, should apply late payment penalty 3
+            @calculator.payment_date = Date.parse("2017-02-02")
+            assert_equal 368, @calculator.overdue_payment_days
             assert_equal 1500, @calculator.late_payment_penalty
             assert_equal 326.78, @calculator.interest
-            # should apply late payment penalty 3
-            @calculator.payment_date = Date.parse("2016-02-04")
+            # 398 days late, should calculate PenaltyInterest3
+            @calculator.payment_date = Date.parse("2017-03-04")
+            assert_equal 398, @calculator.overdue_payment_days
             assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 327.67, @calculator.interest
-            # should calculate PenaltyInterest3
-            @calculator.payment_date = Date.parse("2016-03-05")
-            assert_equal 1500, @calculator.late_payment_penalty
-            assert_equal 354.37999999999997, @calculator.interest
+            assert_equal 353.49, @calculator.interest
           end
 
           should "calculate total owed (excludes filing penalty)" do
-            @calculator.payment_date = Date.parse("2015-02-02")
+            @calculator.payment_date = Date.parse("2016-02-02")
             assert_equal 5000, @calculator.total_owed
-            @calculator.payment_date = Date.parse("2015-02-04")
+            @calculator.payment_date = Date.parse("2016-02-04")
             assert_equal 5001, @calculator.total_owed
-            @calculator.payment_date = Date.parse("2015-08-03")
+            @calculator.payment_date = Date.parse("2016-08-03")
             assert_equal 5581, @calculator.total_owed
-            @calculator.payment_date = Date.parse("2016-02-03")
+            @calculator.payment_date = Date.parse("2017-02-03")
             assert_equal 750, @calculator.late_payment_penalty
             assert_equal 5913, @calculator.total_owed
           end
@@ -359,8 +455,8 @@ module SmartAnswer::Calculators
       end
       context "filed and paid on time" do
         setup do
-          @calculator.filing_date = Date.parse("2013-10-30")
-          @calculator.payment_date = Date.parse("2014-01-30")
+          @calculator.filing_date = Date.parse("2014-10-30")
+          @calculator.payment_date = Date.parse("2015-01-30")
         end
 
         should "confirm payment was made on time" do
@@ -370,8 +466,8 @@ module SmartAnswer::Calculators
 
       context "filed or paid late" do
         setup do
-          @calculator.filing_date = Date.parse("2014-01-10")
-          @calculator.payment_date = Date.parse("2015-02-01")
+          @calculator.filing_date = Date.parse("2015-01-10")
+          @calculator.payment_date = Date.parse("2016-02-01")
         end
         should "confirm payment was made late" do
           assert_not @calculator.paid_on_time?
