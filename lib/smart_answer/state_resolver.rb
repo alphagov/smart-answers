@@ -64,7 +64,7 @@ module SmartAnswer
 
     def transition_state_to_next_node(state, response)
       @flow.node(state.current_node_name).transition(state, response)
-    rescue BaseStateTransitionError => e
+    rescue InvalidResponse => e
       error_state(state, response, e)
     end
 
