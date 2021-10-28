@@ -69,8 +69,6 @@ module SmartAnswer
     end
 
     def error_state(state, response, error)
-      GovukError.notify(error) if error.is_a?(LoggedError)
-
       state.dup.tap do |new_state|
         new_state.error = error.message
         new_state.current_response = response
