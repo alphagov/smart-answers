@@ -282,7 +282,6 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     end
 
     outcome :outcome_diplomatic_business
-    outcome :outcome_joining_family_m
     outcome :outcome_joining_family_nvn
     outcome :outcome_marriage_nvn_british_overseas_territories
     outcome :outcome_marriage_taiwan
@@ -396,9 +395,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.family_visit?
-        if calculator.passport_country_in_british_overseas_territories_list?
-          next outcome(:outcome_joining_family_m)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
+        if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? || calculator.passport_country_in_british_overseas_territories_list?
           next outcome(:outcome_joining_family_nvn)
         else
           next question(:partner_family_british_citizen?)
