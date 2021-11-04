@@ -681,12 +681,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     should "render specific guidance for a Taiwan passport" do
       add_responses what_passport_do_you_have?: "taiwan"
-      assert_rendered_outcome text: "You won’t need a visa if your passport has a personal ID number on the bio data page."
+      assert_rendered_outcome text: "You will not need a visa if your passport has a personal ID number on the bio data page."
     end
 
     should "render specific guidance for passports from countries on the electronic visa waiver list" do
       add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_rendered_outcome text: "You’ll need an electronic visa waiver (EVW) or a visitor visa"
+      assert_rendered_outcome text: "You’ll need an electronic visa waiver (EVW) or a Standard Visitor visa"
     end
 
     should "render different guidance for passports from outher countries" do
@@ -712,8 +712,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK in transit"
     end
-
-    test_stateless_or_refugee_outcome_guidance
   end
 
   context "outcome: outcome_transit_leaving_airport_direct_airside_transit_visa" do

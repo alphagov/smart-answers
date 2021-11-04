@@ -514,11 +514,42 @@ module SmartAnswer::Calculators
 
     COUNTRY_GROUP_EPASSPORT_GATES = %w[
       australia
+      austria
+      belgium
+      bulgaria
       canada
+      croatia
+      cyprus
+      czech-republic
+      denmark
+      estonia
+      finland
+      france
+      germany
+      greece
+      hungary
+      iceland
+      ireland
+      italy
       japan
+      latvia
+      liechtenstein
+      lithuania
+      luxembourg
+      malta
+      netherlands
       new-zealand
+      norway
+      poland
+      portugal
+      romania
       singapore
+      slovakia
+      slovenia
       south-korea
+      spain
+      sweden
+      switzerland
       usa
     ].freeze
 
