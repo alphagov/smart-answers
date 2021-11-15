@@ -171,8 +171,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           end
         when "uk-part-time"
           outcome :outcome_uk_part_time_students
-        else
-          outcome :outcome_eu_students
         end
       end
     end
