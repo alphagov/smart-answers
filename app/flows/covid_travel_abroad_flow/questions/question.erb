@@ -1,0 +1,20 @@
+<%#
+  ======================================================================
+  A single question in the flow.
+  ======================================================================
+%>
+
+<% text_for :title do %>
+  What are your favourite colours?
+<% end %>
+
+<% options(
+  "blue": "Blue",
+  "green": "Green",
+  "red": "Red",
+  "yellow": "Yellow",
+) %>
+
+<% text_for :error_message do %>
+  Please select at least one color
+<% end %>
