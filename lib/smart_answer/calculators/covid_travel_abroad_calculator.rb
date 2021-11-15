@@ -1,12 +1,11 @@
-# ======================================================================
-# Allows access to the quesion answers provides custom validations
-# and calculations, and other supporting methods.
-# ======================================================================
-
 module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
-    attr_accessor :question
+    MAX_COUNTRIES = 99
 
-      
+    attr_accessor :countries, :country_count
+
+    def initialize
+      @countries = []
+    end
   end
 end
