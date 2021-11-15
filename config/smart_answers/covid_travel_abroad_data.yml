@@ -1,0 +1,12 @@
+---
+algeria:
+  rag_status: red
+  quarantine: true
+argentina:
+  rag_status: red
+  quarantine: true
+belize:
+  rag_status: red
+  quarantine: true
+canada:
+  quarantine: true

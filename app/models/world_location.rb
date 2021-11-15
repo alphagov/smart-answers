@@ -62,6 +62,10 @@ class WorldLocation
     value
   end
 
+  def travel_rules
+    @travel_rules ||= YAML.load_file(Rails.root.join("config/smart_answers/covid_travel_abroad_data.yml"))
+  end
+
   def initialize(location)
     @title = location.fetch("title", "")
     @details = location.fetch("details", {})
@@ -80,6 +84,10 @@ class WorldLocation
 
   def fco_organisation
     organisations.find(&:fco_sponsored?)
+  end
+
+  def travel_status
+    travel_rules[@slug]
   end
 
   class NoLocationsFromWorldwideApiError < StandardError; end
