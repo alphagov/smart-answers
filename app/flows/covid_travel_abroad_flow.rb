@@ -27,9 +27,22 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
           if num < calculator.country_count
             question "which_#{num + 1}_country?".to_sym
           else
-            outcome :results
+            question :vaccine_status?
           end
         end
+      end
+    end
+
+    radio :vaccine_status? do
+      option :vaccinated
+      option :not_vaccinated
+
+      on_response do |response|
+        calculator.vaccine_status = response
+      end
+
+      next_node do
+        outcome :results
       end
     end
 
