@@ -21,19 +21,12 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     # ======================================================================
     # Question
     # ======================================================================
-    checkbox_question :question? do
-      option :blue
-      option :green
-      option :red
-      option :yellow
 
+    # Q1
+    country_select :question?, exclude_countries: [] do
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
         calculator.question = response
-      end
-
-      validate do
-        calculator.validate?
       end
 
       next_node do
