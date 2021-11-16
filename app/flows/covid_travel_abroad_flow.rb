@@ -4,14 +4,12 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     content_id "b46df1e7-e770-43ab-8b4c-ce402736420c"
     status :draft
 
-    calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
-
     (1..SmartAnswer::Calculators::CovidTravelAbroadCalculator::MAX_COUNTRIES).each do |num|
       country_select "which_#{num}_country?".to_sym, exclude_countries: [] do
         template_name "which_country"
 
         on_response do |response|
-          self.calculator = calculator
+          self[:calculator] ||= SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
           calculator.countries << response
         end
 
