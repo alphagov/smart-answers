@@ -2,10 +2,11 @@ module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     MAX_COUNTRIES = 99
 
-    attr_accessor :countries, :country_count, :vaccine_status
+    attr_accessor :countries, :vaccine_status, :any_other_countries, :country_count
 
     def initialize
       @countries = []
+      @country_count = 1
     end
 
     def location(slug)
