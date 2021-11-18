@@ -51,12 +51,11 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     checkbox_question :transit_countries? do
-      # calculator.countries.each do |country|
-      #   option country.to_sym
-      # end
-      #
+      option :belize
+      option :canada
+
       on_response do |response|
-        calculator.vaccine_status = response
+        calculator.transit_countries = response
       end
 
       next_node do
