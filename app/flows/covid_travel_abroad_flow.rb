@@ -4,9 +4,11 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     content_id "b46df1e7-e770-43ab-8b4c-ce402736420c"
     status :draft
 
+    calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
+
     country_select "which_country?".to_sym, exclude_countries: [] do
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
+        self.calculator = calculator
         calculator.country_count += 1
         calculator.countries << response
       end
@@ -51,8 +53,9 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     checkbox_question :transit_countries? do
-      option :belize
-      option :canada
+      option_block do
+        calculator.countries
+      end
 
       on_response do |response|
         calculator.transit_countries = response

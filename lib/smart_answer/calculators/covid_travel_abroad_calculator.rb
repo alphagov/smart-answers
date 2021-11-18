@@ -18,5 +18,14 @@ module SmartAnswer::Calculators
         location(country)
       end
     end
+
+    def transit_country_options
+      transit_country_options = {}
+      countries.map do |country|
+        transit_country_options[country] = country.humanize
+      end
+
+      transit_country_options
+    end
   end
 end
