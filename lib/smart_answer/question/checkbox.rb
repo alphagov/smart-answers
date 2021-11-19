@@ -16,13 +16,6 @@ module SmartAnswer
         @option_keys << NONE_OPTION
       end
 
-      def option_block(&block)
-        @option_block = Block.new(&block)
-        @option_block.map do |option|
-          option(option.to_sym)
-        end
-      end
-
       def option(key)
         key = key.to_s
 
