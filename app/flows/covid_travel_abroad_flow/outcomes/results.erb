@@ -3,15 +3,38 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  <% calculator.inspect %>
   <% calculator.travel_rules.each do |country| %>
-    <% if calculator.vaccination_status == "fully_vaccinated" %>
-      <h2>Vaccination status</h2>
-      <a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people!</a>
+    <h2><%= country.name %></h2>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <% if calculator.transit_countries.count > 0 && calculator.transit_countries.include?(country.slug) %>
+      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Transit guidance</a>
     <% end %>
-    <%= calculator.inspect %>
-    <%# if calculator.transit_countries.include?(country.slug) %>
-      <!-- <h2>Transit rules</h2> -->
-    <%# end %>
+
+    <% if calculator.vaccination_status == "fully_vaccinated" %>
+      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
+    <% else %>
+      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for unvaccinated people</a>
+    <% end %>
+
+    <% if calculator.travelling_with_children == "yes" %>
+      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for travelling with children</a>
+    <% end %>
   <% end %>
+
+  <h2>Returning to the UK</h2>
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <% if calculator.vaccination_status == "fully_vaccinated" %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for vaccinated people</a>
+  <% else %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for unvaccinated people</a>
+  <% end %>
+
+  <% if calculator.travelling_with_children == "yes" %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with children</a>
+  <% end %>
+
+  <p><a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK exempt jobs guidance</a></p>
+  <p><a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance on arriving for urgent medical treatment</a></p>
 <% end %>
