@@ -12,7 +12,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question "any_other_countries_#{calculator.country_count}".to_sym
+        question "any_other_countries_#{calculator.countries.count}".to_sym
       end
     end
 
@@ -31,7 +31,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
           if calculator.any_other_countries == "no"
             question :transit_countries
           else
-            question "which_#{calculator.country_count}_country".to_sym
+            question "which_#{calculator.countries.count}_country".to_sym
           end
         end
       end
@@ -48,7 +48,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
         end
 
         next_node do
-          question "any_other_countries_#{calculator.country_count}".to_sym
+          question "any_other_countries_#{calculator.countries.count}".to_sym
         end
       end
     end
@@ -61,7 +61,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
-        outcome :vaccination_status
+        question :vaccination_status
       end
     end
 

@@ -20,10 +20,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    def country_count
-      countries.count
-    end
-
     def transit_countries=(transit_countries)
       transit_countries.split(",").each do |country|
         @transit_countries << country unless country == "none"
