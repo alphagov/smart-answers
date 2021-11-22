@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     MAX_COUNTRIES = 99
 
-    attr_accessor :countries, :vaccination_status, :any_other_countries
+    attr_accessor :countries, :vaccination_status, :any_other_countries, :travelling_with_children
     attr_reader :transit_countries
 
     def initialize

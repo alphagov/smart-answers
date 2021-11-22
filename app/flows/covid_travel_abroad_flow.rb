@@ -74,6 +74,19 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
+        question :travelling_with_children
+      end
+    end
+
+    radio :travelling_with_children do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.travelling_with_children = response
+      end
+
+      next_node do
         outcome :results
       end
     end
