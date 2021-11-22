@@ -8,7 +8,6 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     country_select "which_country".to_sym, exclude_countries: [] do
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
-        calculator.country_count += 1
         calculator.countries << response
       end
 
@@ -42,7 +41,6 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
 
         on_response do |response|
           calculator.countries << response
-          calculator.country_count += 1
         end
 
         validate do
@@ -58,17 +56,21 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     checkbox_question :transit_countries do
       options { calculator.countries }
 
+      on_response do |response|
+        calculator.transit_countries = response
+      end
+
       next_node do
-        outcome :vaccine_status
+        outcome :vaccination_status
       end
     end
 
-    radio :vaccine_status do
-      option :vaccinated
-      option :not_vaccinated
+    radio :vaccination_status do
+      option :fully_vaccinated
+      option :unvaccinated
 
       on_response do |response|
-        calculator.vaccine_status = response
+        calculator.vaccination_status = response
       end
 
       next_node do

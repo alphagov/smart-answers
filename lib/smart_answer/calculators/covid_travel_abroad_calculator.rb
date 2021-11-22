@@ -2,11 +2,12 @@ module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     MAX_COUNTRIES = 99
 
-    attr_accessor :countries, :vaccine_status, :any_other_countries, :country_count, :transit_countries
+    attr_accessor :countries, :vaccination_status, :any_other_countries
+    attr_reader :transit_countries
 
     def initialize
       @countries = []
-      @country_count = 0
+      @transit_countries = []
     end
 
     def location(slug)
@@ -16,6 +17,16 @@ module SmartAnswer::Calculators
     def travel_rules
       countries.map do |country|
         location(country)
+      end
+    end
+
+    def country_count
+      countries.count
+    end
+
+    def transit_countries=(transit_countries)
+      transit_countries.split(",").each do |country|
+        @transit_countries << country unless country == "none"
       end
     end
 
