@@ -127,7 +127,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "when which country is 'canada' " \
                 "and any other countries is 'no' " \
                 "and transit countries is 'none' " do
-        assert_next_node :travelling_with_children, for_response: "fully_vaccinated"
+        assert_next_node :travelling_with_children, for_response: "second_dose"
       end
     end
   end
@@ -138,7 +138,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "canada",
                     any_other_countries_1: "no",
                     transit_countries: "none",
-                    vaccination_status: "fully_vaccinated"
+                    vaccination_status: "second_dose"
     end
 
     should "render question" do
@@ -151,7 +151,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "when which country is 'canada' " \
                 "and any other countries is 'no' " \
                 "and transit countries is 'none' " \
-                "and vaccination status is 'fully_vaccinated' " do
+                "and vaccination status is 'second_dose' " do
         assert_next_node :results, for_response: "yes"
       end
     end
@@ -163,7 +163,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "canada",
                     any_other_countries_1: "no",
                     transit_countries: "none",
-                    vaccination_status: "fully_vaccinated",
+                    vaccination_status: "second_dose",
                     travelling_with_children: "no"
     end
 
@@ -184,7 +184,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     end
 
     should "render unvaccinated guidance when user is not fully vaccinated" do
-      add_responses vaccination_status: "unvaccinated"
+      add_responses vaccination_status: "none"
       assert_rendered_outcome text: "Guidance for unvaccinated people"
       assert_rendered_outcome text: "UK guidance for unvaccinated people"
     end

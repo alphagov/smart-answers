@@ -11,10 +11,10 @@
       <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Transit guidance</a>
     <% end %>
 
-    <% if calculator.vaccination_status == "fully_vaccinated" %>
-      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
-    <% else %>
+    <% if calculator.vaccination_status == "none" %>
       <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for unvaccinated people</a>
+    <% else %>
+      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
     <% end %>
 
     <% if calculator.travelling_with_children == "yes" %>
@@ -25,10 +25,10 @@
   <h2>Returning to the UK</h2>
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-  <% if calculator.vaccination_status == "fully_vaccinated" %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for vaccinated people</a>
-  <% else %>
+  <% if calculator.vaccination_status == "none" %>
     <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for unvaccinated people</a>
+  <% else %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for vaccinated people</a>
   <% end %>
 
   <% if calculator.travelling_with_children == "yes" %>

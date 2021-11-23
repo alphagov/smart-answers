@@ -66,8 +66,10 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     radio :vaccination_status do
-      option :fully_vaccinated
-      option :unvaccinated
+      option :second_dose
+      option :in_trial
+      option :exempt
+      option :none
 
       on_response do |response|
         calculator.vaccination_status = response

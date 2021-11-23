@@ -6,7 +6,13 @@
   Placeholder content
 <% end %>
 
+<% text_for :hint do %>
+  Select one of the following options:
+<% end %>
+
 <% options(
-  "fully_vaccinated": "Fully vaccinated",
-  "unvaccinated": "Unvaccinated",
+  "second_dose": "I had my second dose of an approved COVID-19 vaccine 14 or more days ago",
+  "in_trial": "I'm taking part in an approved COVID-19 vaccine trial in the UK",
+  "exempt": "I cannot have a COVID-19 vaccination for a medical reason approved by a clinician",
+  "none": "None of the above",
 ) %>
