@@ -6,4 +6,10 @@
   Placeholder content
 <% end %>
 
-<%= options(calculator.transit_country_options) %>
+<% text_for :hint do %>
+  Select all that apply:
+<% end %>
+
+<% countries = calculator.transit_country_options.dup %>
+<% countries[:none] = "No" %>
+<%= options(countries) %>

@@ -1,13 +1,17 @@
 <% text_for :title do %>
-  Are you travelling with anyone age 17 or under?
+  Are you travelling with anyone aged 17 or under?
 <% end %>
 
 <% govspeak_for :body do %>
   Placeholder content
 <% end %>
 
+<% text_for :hint do %>
+  Select all that apply:
+<% end %>
+
 <% options(
-  "zero_to_four": "Aged 0 to 4",
-  "five_to_seventeen": "Aged 5 to 17",
-  "no": "I'm not travelling with any young people",
+  "zero_to_four": "Yes, aged 0 to 4",
+  "five_to_seventeen": "Yes, aged 5 to 17",
+  "none": "No",
 ) %>

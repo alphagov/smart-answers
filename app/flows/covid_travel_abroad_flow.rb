@@ -54,10 +54,10 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     checkbox_question :transit_countries do
-      options { calculator.countries }
+      options { calculator.countries.dup << "none" }
 
       on_response do |response|
-        calculator.transit_countries = response
+        calculator.transit_countries = response unless response == "none"
       end
 
       next_node do
@@ -66,7 +66,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     radio :vaccination_status do
-      option :second_dose
+      option :vaccinated
       option :in_trial
       option :exempt
       option :none
@@ -80,10 +80,10 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
     end
 
-    radio :travelling_with_children do
+    checkbox_question :travelling_with_children do
       option :zero_to_four
       option :five_to_seventeen
-      option :no
+      none_option
 
       on_response do |response|
         calculator.travelling_with_children = response

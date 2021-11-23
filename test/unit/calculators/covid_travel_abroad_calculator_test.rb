@@ -25,12 +25,6 @@ module SmartAnswer::Calculators
     end
 
     context "transit_countries=" do
-      should "not add a country when 'none'" do
-        @calculator.transit_countries = "none"
-
-        assert_equal [], @calculator.transit_countries
-      end
-
       should "add a single country" do
         @calculator.transit_countries = "one"
 

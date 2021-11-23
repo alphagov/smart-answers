@@ -1,9 +1,9 @@
 <% text_for :title do %>
-  Vaccination status?
+  Vaccination status
 <% end %>
 
 <% govspeak_for :body do %>
-  Placeholder content
+  <a href="https://www.gov.uk/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination">Approved COVID-19 vaccine programmes</a>
 <% end %>
 
 <% text_for :hint do %>
@@ -11,7 +11,7 @@
 <% end %>
 
 <% options(
-  "second_dose": "I had my second dose of an approved COVID-19 vaccine 14 or more days ago",
+  "vaccinated": "I had my second dose of an approved COVID-19 vaccine 14 or more days ago",
   "in_trial": "I'm taking part in an approved COVID-19 vaccine trial in the UK",
   "exempt": "I cannot have a COVID-19 vaccination for a medical reason approved by a clinician",
   "none": "None of the above",

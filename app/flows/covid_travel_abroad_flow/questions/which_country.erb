@@ -1,5 +1,10 @@
 <% text_for :title do %>
-  Which countries will you be going to?
+  <% calculator ||= nil %>
+  <% if calculator && calculator.countries.count >= 1 %>
+    Which other countries will you be going to?
+  <% else %>
+    Which countries will you be going to?
+  <% end %>
 <% end %>
 
 <% text_for :error_message do %>

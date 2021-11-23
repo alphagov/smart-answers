@@ -127,7 +127,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "when which country is 'canada' " \
                 "and any other countries is 'no' " \
                 "and transit countries is 'none' " do
-        assert_next_node :travelling_with_children, for_response: "second_dose"
+        assert_next_node :travelling_with_children, for_response: "vaccinated"
       end
     end
   end
@@ -138,7 +138,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "canada",
                     any_other_countries_1: "no",
                     transit_countries: "none",
-                    vaccination_status: "second_dose"
+                    vaccination_status: "vaccinated"
     end
 
     should "render question" do
@@ -150,8 +150,8 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "for any response " \
                 "when which country is 'canada' " \
                 "and any other countries is 'no' " \
-                "and transit countries is 'none' " \
-                "and vaccination status is 'second_dose' " do
+                "and transit countries is 'no' " \
+                "and vaccination status is 'vaccinated' " do
         assert_next_node :results, for_response: "zero_to_four"
       end
     end
@@ -163,8 +163,8 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "canada",
                     any_other_countries_1: "no",
                     transit_countries: "none",
-                    vaccination_status: "second_dose",
-                    travelling_with_children: "no"
+                    vaccination_status: "vaccinated",
+                    travelling_with_children: "none"
     end
 
     should "render the appropriate country name" do

@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
 
     def transit_countries=(transit_countries)
       transit_countries.split(",").each do |country|
-        @transit_countries << country unless country == "none"
+        @transit_countries << country
       end
     end
 
