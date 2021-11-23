@@ -81,7 +81,8 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     radio :travelling_with_children do
-      option :yes
+      option :zero_to_four
+      option :five_to_seventeen
       option :no
 
       on_response do |response|

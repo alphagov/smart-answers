@@ -152,7 +152,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "and any other countries is 'no' " \
                 "and transit countries is 'none' " \
                 "and vaccination status is 'second_dose' " do
-        assert_next_node :results, for_response: "yes"
+        assert_next_node :results, for_response: "zero_to_four"
       end
     end
   end
@@ -189,10 +189,16 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "UK guidance for unvaccinated people"
     end
 
-    should "render travelling with children guidance when user is travelling with children" do
-      add_responses travelling_with_children: "yes"
+    should "render travelling with children zero to four guidance when user is travelling with children" do
+      add_responses travelling_with_children: "zero_to_four"
       assert_rendered_outcome text: "Guidance for travelling with children"
-      assert_rendered_outcome text: "UK guidance for travelling with children"
+      assert_rendered_outcome text: "UK guidance for travelling with a person aged 0 to 4"
+    end
+
+    should "render travelling with children five to seventeen guidance when user is travelling with children" do
+      add_responses travelling_with_children: "five_to_seventeen"
+      assert_rendered_outcome text: "Guidance for travelling with children"
+      assert_rendered_outcome text: "UK guidance for travelling with a person aged 5 to 17"
     end
 
     should "render the exempt jobs guidance" do

@@ -17,7 +17,7 @@
       <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
     <% end %>
 
-    <% if calculator.travelling_with_children == "yes" %>
+    <% unless calculator.travelling_with_children == "no" %>
       <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for travelling with children</a>
     <% end %>
   <% end %>
@@ -31,8 +31,10 @@
     <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for vaccinated people</a>
   <% end %>
 
-  <% if calculator.travelling_with_children == "yes" %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with children</a>
+  <% if calculator.travelling_with_children == "zero_to_four" %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with a person aged 0 to 4</a>
+  <% elsif calculator.travelling_with_children == "five_to_seventeen" %>
+    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with a person aged 5 to 17</a>
   <% end %>
 
   <p><a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK exempt jobs guidance</a></p>
