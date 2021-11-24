@@ -24,6 +24,20 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "travelling_with_children=" do
+      should "add a single response" do
+        @calculator.travelling_with_children = "one"
+
+        assert_equal %w[one], @calculator.travelling_with_children
+      end
+
+      should "add more than one response" do
+        @calculator.travelling_with_children = "one,two"
+
+        assert_equal %w[one two], @calculator.travelling_with_children
+      end
+    end
+
     context "transit_countries=" do
       should "add a single country" do
         @calculator.transit_countries = "one"
