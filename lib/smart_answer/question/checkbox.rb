@@ -4,7 +4,7 @@ module SmartAnswer
       PRESENTER_CLASS = CheckboxQuestionPresenter
       NONE_OPTION = "none".freeze
 
-      attr_accessor :option_keys, :options_block
+      attr_accessor :option_keys, :options_block, :select_filter
 
       def initialize(flow, name, &block)
         @option_keys = []

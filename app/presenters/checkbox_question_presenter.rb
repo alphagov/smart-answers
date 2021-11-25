@@ -13,6 +13,10 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     true
   end
 
+  def select_filter?
+    @node.select_filter
+  end
+
   def checkboxes
     options.each_with_object([]) do |option, items|
       if option[:value] == "none"

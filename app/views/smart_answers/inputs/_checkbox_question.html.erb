@@ -10,3 +10,9 @@
   hint_text: question.hint,
   items: question.checkboxes
 } %>
+
+<% if question.select_filter? %>
+  <script type="text/javascript">
+    console.log("You are seeing this because the 'select_filter' flag is set!")
+  </script>
+<% end %>

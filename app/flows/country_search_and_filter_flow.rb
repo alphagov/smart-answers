@@ -1,11 +1,13 @@
 class CountrySearchAndFilterFlow < SmartAnswer::Flow
   def define
-      name "country-search-and-filter"
-      content_id "cb3d7d6a-0140-4706-8583-bafecdf06f53"
-      status :draft
+    name "country-search-and-filter"
+    content_id "cb3d7d6a-0140-4706-8583-bafecdf06f53"
+    status :draft
 
     checkbox_question :countries do
-      SmartAnswer::Calculators::CountrySearchAndFilterCalculator.countries.keys.each do |slug|
+      self.select_filter = true
+
+      SmartAnswer::Calculators::CountrySearchAndFilterCalculator.countries.each_key do |slug|
         option slug.to_sym
       end
 
