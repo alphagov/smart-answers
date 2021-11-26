@@ -9,16 +9,16 @@
 
     <% if calculator.transit_countries.count > 0 && calculator.transit_countries.include?(country.slug) %>
       <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Transit guidance</a>
-    <% end %>
-
-    <% if calculator.vaccination_status == "none" %>
-      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for unvaccinated people</a>
     <% else %>
-      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
-    <% end %>
+      <% if calculator.vaccination_status == "none" %>
+        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for unvaccinated people</a>
+      <% else %>
+        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
+      <% end %>
 
-    <% unless calculator.travelling_with_children == "no" %>
-      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for travelling with children</a>
+      <% unless calculator.travelling_with_children == "no" %>
+        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for travelling with children</a>
+      <% end %>
     <% end %>
   <% end %>
 
