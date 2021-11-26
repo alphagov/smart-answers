@@ -41,5 +41,30 @@ module SmartAnswer::Calculators
 
       transit_country_options
     end
+
+    def countries_with_content_headers_converted
+      %w[
+        spain
+        usa
+        france
+        italy
+        netherlands
+        germany
+        united-arab-emirates
+        turkey
+        ireland
+        portugal
+        poland
+        belgium
+        india
+        austria
+        switzerland
+        mexico
+        hungary
+        thailand
+        egypt
+        australia
+      ]
+    end
   end
 end
