@@ -175,38 +175,36 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "canada",
                     any_other_countries_1: "no",
                     transit_countries: "canada"
-      assert_rendered_outcome text: "Transit guidance"
+      assert_rendered_outcome text: "travelling through Canada"
     end
 
     should "render vaccinated guidance when user is fully vaccinated" do
-      assert_rendered_outcome text: "Guidance for vaccinated people"
-      assert_rendered_outcome text: "UK guidance for vaccinated people"
+      assert_rendered_outcome text: "Travelling to England if you're fully vaccinated"
     end
 
     should "render unvaccinated guidance when user is not fully vaccinated" do
       add_responses vaccination_status: "none"
-      assert_rendered_outcome text: "Guidance for unvaccinated people"
-      assert_rendered_outcome text: "UK guidance for unvaccinated people"
+      assert_rendered_outcome text: "Travelling to England if you're not fully vaccinated"
     end
 
     should "render travelling with children zero to four guidance when user is travelling with children" do
       add_responses travelling_with_children: "zero_to_four"
-      assert_rendered_outcome text: "Guidance for travelling with children"
-      assert_rendered_outcome text: "UK guidance for travelling with a person aged 0 to 4"
+      assert_rendered_outcome text: "travelling with children and young people"
+      assert_rendered_outcome text: "Travelling to England with children aged 4 and under"
     end
 
     should "render travelling with children five to seventeen guidance when user is travelling with children" do
       add_responses travelling_with_children: "five_to_seventeen"
-      assert_rendered_outcome text: "Guidance for travelling with children"
-      assert_rendered_outcome text: "UK guidance for travelling with a person aged 5 to 17"
+      assert_rendered_outcome text: "travelling with children and young people"
+      assert_rendered_outcome text: "Travelling to England with young people aged 5 to 17"
     end
 
     should "render the exempt jobs guidance" do
-      assert_rendered_outcome text: "UK exempt jobs guidance"
+      assert_rendered_outcome text: "Exemptions because of your job"
     end
 
     should "render the arriving for urgent medical treatment guidance" do
-      assert_rendered_outcome text: "UK guidance on arriving for urgent medical treatment"
+      assert_rendered_outcome text: "Arriving in England to receive urgent medical treatment"
     end
   end
 end

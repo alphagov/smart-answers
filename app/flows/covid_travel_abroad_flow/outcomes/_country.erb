@@ -1,0 +1,29 @@
+<h4><%= country.title %></h4>
+
+<p>You should read the following sections of the <%= country.title %> entry requirements guidance on:</p>
+
+<% if calculator.transit_countries.include?(country.slug) %>
+  <ul>
+    <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-transiting-through-<%= country.slug %>">travelling through <%= country.title %></a></li>
+  </ul>
+<% else %>
+  <ul>
+    <% if calculator.vaccination_status == "none" %>
+      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated">people who aren't fully vaccinated</a></li>
+    <% else %>
+      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated">fully vaccinated people</a></li>
+    <% end %>
+
+    <% unless calculator.travelling_with_children == "no" %>
+      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#entry-requirements-for-children-and-young-people">travelling with children and young people</a></li>
+    <% end %>
+
+    <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#exemptions">exemptions</a></li>
+  </ul>
+
+  <%# Show only if the country they select HAS had the new heading structure applied. I do not know how we know this yet! %>
+  <p>There may be <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">other requirements for entering <%= country.title %></a> that you need to follow.</p>
+
+  <%# Show only if the country they select HAS NOT had the new heading structure applied. %>
+  <p>You should read the <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements"><%= country.title %> entry requirements</a>.</p>
+<% end %>

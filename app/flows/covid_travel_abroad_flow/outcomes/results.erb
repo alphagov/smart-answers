@@ -1,44 +1,25 @@
-<% text_for :title do %>
-  Outcome
-<% end %>
-
 <% govspeak_for :body do %>
+  <h3>Travelling abroad from England</h3>
+
   <% calculator.travel_rules.each do |country| %>
-    <h2><%= country.name %></h2>
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <% if calculator.transit_countries.count > 0 && calculator.transit_countries.include?(country.slug) %>
-      <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Transit guidance</a>
-    <% else %>
-      <% if calculator.vaccination_status == "none" %>
-        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for unvaccinated people</a>
-      <% else %>
-        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for vaccinated people</a>
-      <% end %>
-
-      <% unless calculator.travelling_with_children == "no" %>
-        <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements">Guidance for travelling with children</a>
-      <% end %>
-    <% end %>
+    <%= render partial: "country", locals: { calculator: calculator, country: country } %>
   <% end %>
 
-  <h2>Returning to the UK</h2>
-  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
   <% if calculator.vaccination_status == "none" %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for unvaccinated people</a>
+    <%= render partial: "not_fully_vaxed" %>
   <% else %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for vaccinated people</a>
+    <%= render partial: "fully_vaxed" %>
   <% end %>
 
   <% if calculator.travelling_with_children.include?("zero_to_four") %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with a person aged 0 to 4</a>
+    <%= render partial: "children_zero_to_four" %>
   <% end %>
 
   <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
-    <a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance for travelling with a person aged 5 to 17</a>
+    <%= render partial: "children_five_to_seventeen" %>
   <% end %>
 
-  <p><a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK exempt jobs guidance</a></p>
-  <p><a href="https://www.gov.uk/foreign-travel-advice/uk/entry-requirements">UK guidance on arriving for urgent medical treatment</a></p>
+  <%= render partial: "exempt" %>
+
+  <%= render partial: "medical_treatment" %>
 <% end %>
