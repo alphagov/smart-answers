@@ -29,7 +29,11 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
 
         next_node do
           if calculator.any_other_countries == "no"
-            question :transit_countries
+            if calculator.countries.count > 1
+              question :transit_countries
+            else
+              question :vaccination_status
+            end
           else
             question "which_#{calculator.countries.count}_country".to_sym
           end
