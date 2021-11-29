@@ -1,5 +1,5 @@
 <% govspeak_for :body do %>
-  <h3>Travelling abroad from England</h3>
+  <h2 class="govuk-heading-xl">Travelling abroad from England</h2>
 
   <% calculator.travel_rules.each do |country| %>
     <%= render partial: "country", locals: { calculator: calculator, country: country } %>
