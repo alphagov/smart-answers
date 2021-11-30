@@ -4,12 +4,16 @@ class CountrySearchAndFilterFlow < SmartAnswer::Flow
     content_id "cb3d7d6a-0140-4706-8583-bafecdf06f53"
     status :draft
 
-    checkbox_question :countries do
-      self.select_filter = true
+    # checkbox_question :countries do
+    #   self.select_filter = true
+    #
+    #   SmartAnswer::Calculators::CountrySearchAndFilterCalculator.countries.each_key do |slug|
+    #     option slug.to_sym
+    #   end
 
-      SmartAnswer::Calculators::CountrySearchAndFilterCalculator.countries.each_key do |slug|
-        option slug.to_sym
-      end
+    multiple_country_select :countries do
+      self.select_count = 6
+      options
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::CountrySearchAndFilterCalculator.new

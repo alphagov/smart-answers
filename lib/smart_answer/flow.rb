@@ -75,6 +75,10 @@ module SmartAnswer
       add_node Question::CountrySelect.new(self, name, options, &block)
     end
 
+    def multiple_country_select(name, options = {}, &block)
+      add_node Question::MultipleCountrySelect.new(self, name, options, &block)
+    end
+
     def date_question(name, &block)
       add_node Question::Date.new(self, name, &block)
     end

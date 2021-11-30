@@ -1,0 +1,8 @@
+<% question.select_count.times do |i| %>
+  <%= render "govuk_publishing_components/components/select", {
+    id: "response_#{i}",
+    name: "response[#{i}]",
+    label: "",
+    options: question.select_options(i).prepend({text: "", value: "", selected: false})
+  } %>
+<% end %>
