@@ -95,12 +95,12 @@ class TowingRulesFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of limited_trailer_entitlement for a 'licence-issued-before-19-Jan-2013' response" do
-        assert_next_node :limited_trailer_entitlement, for_response: "licence-issued-before-19-Jan-2013"
+      should "have a next node of limited_trailer_entitlement_before_1997 for a 'licence-issued-before-19-Jan-2013' response" do
+        assert_next_node :limited_trailer_entitlement_before_1997, for_response: "licence-issued-before-19-Jan-2013"
       end
 
-      should "have a next node of limited_trailer_entitlement_2013 for a 'licence-issued-after-19-Jan-2013' response" do
-        assert_next_node :limited_trailer_entitlement_2013, for_response: "licence-issued-after-19-Jan-2013"
+      should "have a next node of limited_trailer_entitlement_after_1997 for a 'licence-issued-after-19-Jan-2013' response" do
+        assert_next_node :limited_trailer_entitlement_after_1997, for_response: "licence-issued-after-19-Jan-2013"
       end
     end
   end
