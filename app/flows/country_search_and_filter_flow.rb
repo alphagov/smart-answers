@@ -3,6 +3,7 @@ class CountrySearchAndFilterFlow < SmartAnswer::Flow
     name "country-search-and-filter"
     content_id "cb3d7d6a-0140-4706-8583-bafecdf06f53"
     status :draft
+    response_store :query_parameters
 
     # checkbox_question :countries do
     #   self.select_filter = true

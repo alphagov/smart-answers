@@ -38,7 +38,7 @@ class FlowController < ApplicationController
     presenter = FlowPresenter.new(flow, state)
     redirect_to flow_path(id: params[:id],
                           node_slug: presenter.node_slug,
-                          params: response_store.forwarding_responses)
+                          params: response_store.forwarding_responses.as_json)
   end
 
   def destroy

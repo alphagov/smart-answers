@@ -21,6 +21,7 @@ module SmartAnswer
       def parse_input(raw_input)
         return {} if raw_input.blank?
         return raw_input if raw_input.is_a?(Hash)
+        return raw_input.as_json if raw_input.is_a?(ActionController::Parameters)
 
         parsed_input = {}
         raw_input.split("&").each do |selection|
