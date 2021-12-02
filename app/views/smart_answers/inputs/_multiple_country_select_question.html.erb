@@ -1,0 +1,27 @@
+<%= render "smart_answers/inputs/caption", question: question %>
+
+<p>Current Response: <%= question.current_response %></p>
+<p>Current Error: <%= question.error %></p>
+
+<% if question.current_response.nil? %>
+  <% countries = [] %>
+<% else %>
+  <% responses = question.current_response.values.reject(&:empty?) %>
+  <p>Changed Response: <%= responses %></p>
+  <% countries = responses %>
+<% end %>
+
+<%# countries = question.current_response ? question.current_response.split("|") : [] %>
+
+
+<% question.select_count.times do |i| %>
+  <% value = countries[i].blank? ? "" : countries[i].gsub("§", "/") %>
+  <%= render "components/autocomplete", {
+    id: "response",
+    name: "response[#{i}]",
+    label: "Countries",
+    error_items: question.error,
+    value: value,
+    options: question.select_options
+  } %>
+<% end %>

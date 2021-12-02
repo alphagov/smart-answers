@@ -21,7 +21,19 @@ class AllSmartAnswerQuestionsFlow < SmartAnswer::Flow
 
     country_select :which_country?, additional_countries: additional_countries do
       next_node do
-        question :which_date?
+        question :which_countries?
+      end
+    end
+
+    multiple_country_select :which_countries? do
+      self.select_count = 4
+
+      validate do
+        false
+      end
+
+      next_node do
+        outcome :which_date?
       end
     end
 
