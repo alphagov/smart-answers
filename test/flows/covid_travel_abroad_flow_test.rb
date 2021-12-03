@@ -43,10 +43,16 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of vaccination_status " \
+      should "have a next node of going_to_countries_within_10_days " \
                 "for a 'no' response " \
                 "when which country is 'spain' " do
-        assert_next_node :vaccination_status, for_response: "no"
+        assert_next_node :going_to_countries_within_10_days, for_response: "no"
+      end
+
+      should "have a next node of which_1_country " \
+                "for a 'yes' response " \
+                "when which country is 'spain' " do
+        assert_next_node :which_1_country, for_response: "yes"
       end
 
       should "have a next node of transit_countries " \
@@ -58,35 +64,6 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                       any_other_countries_1: "yes",
                       which_1_country: "argentina"
         assert_next_node :transit_countries, for_response: "no"
-      end
-
-      should "have a next node of which_1_country " \
-                "for a 'yes' response " \
-                "when which country is 'spain' " do
-        assert_next_node :which_1_country, for_response: "yes"
-      end
-    end
-  end
-
-  context "question: transit_countries" do
-    setup do
-      testing_node :transit_countries
-      add_responses which_country: "spain",
-                    any_other_countries_1: "yes",
-                    which_1_country: "argentina",
-                    any_other_countries_2: "no"
-    end
-
-    should "render question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of vaccination_status " \
-                "for any response " \
-                "when which country is 'spain' " \
-                "and any other countries is 'no' " do
-        assert_next_node :vaccination_status, for_response: "none"
       end
     end
   end
@@ -122,12 +99,78 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: transit_countries" do
+    setup do
+      testing_node :transit_countries
+      add_responses which_country: "spain",
+                    any_other_countries_1: "yes",
+                    which_1_country: "argentina",
+                    any_other_countries_2: "no"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of going_to_countries_within_10_days " \
+                "for any response " do
+        assert_next_node :going_to_countries_within_10_days, for_response: "none"
+      end
+    end
+  end
+
+  context "question: going_to_countries_within_10_days" do
+    setup do
+      testing_node :going_to_countries_within_10_days
+      add_responses which_country: "spain",
+                    any_other_countries_1: "no"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of countries_within_10_days " \
+                "for a 'yes' response " do
+        assert_next_node :countries_within_10_days, for_response: "yes"
+      end
+
+      should "have a next node of vaccination_status " \
+                "for a 'no' response " do
+        assert_next_node :vaccination_status, for_response: "no"
+      end
+    end
+  end
+
+  context "question: countries_within_10_days" do
+    setup do
+      testing_node :countries_within_10_days
+      add_responses which_country: "spain",
+                    any_other_countries_1: "no",
+                    going_to_countries_within_10_days: "yes"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of vaccination_status " \
+                "for any response " do
+        assert_next_node :vaccination_status, for_response: "none"
+      end
+    end
+  end
+
   context "question: vaccination_status" do
     setup do
       testing_node :vaccination_status
       add_responses which_country: "spain",
                     any_other_countries_1: "no",
-                    transit_countries: "none"
+                    transit_countries: "none",
+                    going_to_countries_within_10_days: "no"
     end
 
     should "render question" do
@@ -151,6 +194,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       add_responses which_country: "spain",
                     any_other_countries_1: "no",
                     transit_countries: "none",
+                    going_to_countries_within_10_days: "no",
                     vaccination_status: "vaccinated"
     end
 
@@ -175,11 +219,12 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       testing_node :results
     end
 
-    context "country content that has not had the headers converted" do
+    context "country specific content that has not had the headers converted" do
       setup do
         add_responses which_country: "belize",
                       any_other_countries_1: "no",
                       transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
       end
@@ -189,17 +234,72 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
     end
 
-    context "country content that has had the headers converted" do
+    context "country specific content that has had the headers converted" do
       setup do
         add_responses which_country: "spain",
                       any_other_countries_1: "no",
                       transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
       end
 
       should "render the appropriate country name" do
         assert_rendered_outcome text: "Spain"
+      end
+    end
+
+    context "content with a red list country" do
+      setup do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "yes",
+                      countries_within_10_days: "spain",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+      end
+
+      should "render transit guidance when transit countries includes a selected country" do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "yes",
+                      which_1_country: "argentina",
+                      any_other_countries_2: "no",
+                      transit_countries: "spain"
+        assert_rendered_outcome text: "travelling through Spain"
+      end
+
+      should "render red list country guidance" do
+        assert_rendered_outcome text: "Returning to England after visiting a red list country"
+      end
+
+      should "render travelling with children zero to four guidance when user is travelling with children" do
+        add_responses travelling_with_children: "zero_to_four"
+        assert_rendered_outcome text: "Returning to England with children aged 4 and under"
+      end
+
+      should "render travelling with children five to seventeen guidance when user is travelling with children" do
+        add_responses travelling_with_children: "five_to_seventeen"
+        assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
+      end
+
+      should "render the exempt medical guidance" do
+        assert_rendered_outcome text: "Exemptions for medical reasons"
+      end
+
+      should "render the exempt compassionate guidance" do
+        assert_rendered_outcome text: "Exemptions for compassionate reasons"
+      end
+    end
+
+    context "content without a red list country" do
+      setup do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
       end
 
       should "render transit guidance when transit countries includes a selected country" do
@@ -222,13 +322,11 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
 
       should "render travelling with children zero to four guidance when user is travelling with children" do
         add_responses travelling_with_children: "zero_to_four"
-        assert_rendered_outcome text: "travelling with children and young people"
         assert_rendered_outcome text: "Returning to England with children aged 4 and under"
       end
 
       should "render travelling with children five to seventeen guidance when user is travelling with children" do
         add_responses travelling_with_children: "five_to_seventeen"
-        assert_rendered_outcome text: "travelling with children and young people"
         assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
       end
 

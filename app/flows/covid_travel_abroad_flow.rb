@@ -32,7 +32,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
             if calculator.countries.count > 1
               question :transit_countries
             else
-              question :vaccination_status
+              question :going_to_countries_within_10_days
             end
           else
             question "which_#{calculator.countries.count}_country".to_sym
@@ -62,6 +62,35 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
 
       on_response do |response|
         calculator.transit_countries = response unless response == "none"
+      end
+
+      next_node do
+        question :going_to_countries_within_10_days
+      end
+    end
+
+    radio :going_to_countries_within_10_days do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.going_to_countries_within_10_days = response
+      end
+
+      next_node do
+        if calculator.going_to_countries_within_10_days == "yes"
+          question :countries_within_10_days
+        else
+          question :vaccination_status
+        end
+      end
+    end
+
+    checkbox_question :countries_within_10_days do
+      options { calculator.countries.dup << "none" }
+
+      on_response do |response|
+        calculator.countries_within_10_days = response unless response == "none"
       end
 
       next_node do

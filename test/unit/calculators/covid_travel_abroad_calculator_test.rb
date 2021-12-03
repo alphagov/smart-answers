@@ -52,6 +52,20 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "countries_within_10_days=" do
+      should "add a single country" do
+        @calculator.countries_within_10_days = "one"
+
+        assert_equal %w[one], @calculator.countries_within_10_days
+      end
+
+      should "add more than one country" do
+        @calculator.countries_within_10_days = "one,two"
+
+        assert_equal %w[one two], @calculator.countries_within_10_days
+      end
+    end
+
     context "transit_country_options" do
       should "add a single country" do
         @calculator.countries << "one"
@@ -66,6 +80,23 @@ module SmartAnswer::Calculators
         expected = { one: "One", two: "Two" }
 
         assert_equal expected.with_indifferent_access, @calculator.transit_country_options
+      end
+    end
+
+    context "travelling_to_red_list_country?" do
+      should "return true if going to any country on the red list" do
+        @calculator.countries << "one"
+        @calculator.countries << "two"
+        @calculator.countries_within_10_days = "one"
+
+        assert_equal true, @calculator.travelling_to_red_list_country?
+      end
+
+      should "return false if not going to a country on the red list" do
+        @calculator.countries << "one"
+        @calculator.countries << "two"
+
+        assert_equal false, @calculator.travelling_to_red_list_country?
       end
     end
   end

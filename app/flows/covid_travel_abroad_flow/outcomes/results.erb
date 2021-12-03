@@ -5,21 +5,35 @@
     <%= render partial: "country", locals: { calculator: calculator, country: country } %>
   <% end %>
 
-  <% if calculator.vaccination_status == "none" %>
-    <%= render partial: "not_fully_vaxed" %>
+  <% if calculator.travelling_to_red_list_country? %>
+    <%= render partial: "return_from_red_list" %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "red_list_children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "red_list_children_five_to_seventeen" %>
+    <% end %>
+
+    <%= render partial: "exempt_medical" %>
+    <%= render partial: "exempt_compassionate" %>
   <% else %>
-    <%= render partial: "fully_vaxed" %>
+    <% if calculator.vaccination_status == "none" %>
+      <%= render partial: "not_fully_vaxed" %>
+    <% else %>
+      <%= render partial: "fully_vaxed" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "children_five_to_seventeen" %>
+    <% end %>
+
+    <%= render partial: "exempt_job" %>
+    <%= render partial: "medical_treatment" %>
   <% end %>
-
-  <% if calculator.travelling_with_children.include?("zero_to_four") %>
-    <%= render partial: "children_zero_to_four" %>
-  <% end %>
-
-  <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
-    <%= render partial: "children_five_to_seventeen" %>
-  <% end %>
-
-  <%= render partial: "exempt" %>
-
-  <%= render partial: "medical_treatment" %>
 <% end %>
