@@ -217,19 +217,19 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
 
       should "render unvaccinated guidance when user is not fully vaccinated" do
         add_responses vaccination_status: "none"
-        assert_rendered_outcome text: "Travelling to England if you're not fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
       end
 
       should "render travelling with children zero to four guidance when user is travelling with children" do
         add_responses travelling_with_children: "zero_to_four"
         assert_rendered_outcome text: "travelling with children and young people"
-        assert_rendered_outcome text: "Travelling to England with children aged 4 and under"
+        assert_rendered_outcome text: "Returning to England with children aged 4 and under"
       end
 
       should "render travelling with children five to seventeen guidance when user is travelling with children" do
         add_responses travelling_with_children: "five_to_seventeen"
         assert_rendered_outcome text: "travelling with children and young people"
-        assert_rendered_outcome text: "Travelling to England with young people aged 5 to 17"
+        assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
       end
 
       should "render the exempt jobs guidance" do
@@ -237,7 +237,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
 
       should "render the arriving for urgent medical treatment guidance" do
-        assert_rendered_outcome text: "Arriving in England to receive urgent medical treatment"
+        assert_rendered_outcome text: "Returning to England to receive urgent medical treatment"
       end
     end
   end
