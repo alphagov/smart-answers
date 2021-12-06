@@ -1,12 +1,10 @@
 ---
-algeria:
-  rag_status: red
-  quarantine: true
-argentina:
-  rag_status: red
-  quarantine: true
-belize:
-  rag_status: red
-  quarantine: true
-canada:
-  quarantine: true
+results:
+  - title: Italy
+    details:
+      slug: italy
+    england_coronavirus_travel:
+      rag_status: red
+      next_rag_status: green
+      next_rag_applies_at:
+      status_out_of_date: false
