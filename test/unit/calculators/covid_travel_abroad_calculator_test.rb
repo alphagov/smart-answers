@@ -4,21 +4,22 @@ module SmartAnswer::Calculators
   class CovidTravelAbroadCalculatorTest < ActiveSupport::TestCase
     setup do
       @calculator = CovidTravelAbroadCalculator.new
-      stub_worldwide_api_has_locations(%w[canada])
+
+      stub_worldwide_api_has_locations(%w[spain italy poland])
     end
 
     context "location" do
       should "find a country if it exists" do
-        country = @calculator.location("canada")
+        country = @calculator.location("spain")
 
-        assert_equal "canada", country.slug
+        assert_equal "spain", country.slug
       end
     end
 
     context "travel_rules" do
       should "find a country if it exists" do
-        @calculator.countries << "canada"
-        country = @calculator.location("canada")
+        @calculator.countries << "spain"
+        country = @calculator.location("spain")
 
         assert_equal [country], @calculator.travel_rules
       end
@@ -26,58 +27,58 @@ module SmartAnswer::Calculators
 
     context "travelling_with_children=" do
       should "add a single response" do
-        @calculator.travelling_with_children = "one"
+        @calculator.travelling_with_children = "spain"
 
-        assert_equal %w[one], @calculator.travelling_with_children
+        assert_equal %w[spain], @calculator.travelling_with_children
       end
 
       should "add more than one response" do
-        @calculator.travelling_with_children = "one,two"
+        @calculator.travelling_with_children = "spain,italy"
 
-        assert_equal %w[one two], @calculator.travelling_with_children
+        assert_equal %w[spain italy], @calculator.travelling_with_children
       end
     end
 
     context "transit_countries=" do
       should "add a single country" do
-        @calculator.transit_countries = "one"
+        @calculator.transit_countries = "spain"
 
-        assert_equal %w[one], @calculator.transit_countries
+        assert_equal %w[spain], @calculator.transit_countries
       end
 
       should "add more than one country" do
-        @calculator.transit_countries = "one,two"
+        @calculator.transit_countries = "spain,italy"
 
-        assert_equal %w[one two], @calculator.transit_countries
+        assert_equal %w[spain italy], @calculator.transit_countries
       end
     end
 
     context "countries_within_10_days=" do
       should "add a single country" do
-        @calculator.countries_within_10_days = "one"
+        @calculator.countries_within_10_days = "spain"
 
-        assert_equal %w[one], @calculator.countries_within_10_days
+        assert_equal %w[spain], @calculator.countries_within_10_days
       end
 
       should "add more than one country" do
-        @calculator.countries_within_10_days = "one,two"
+        @calculator.countries_within_10_days = "spain,italy"
 
-        assert_equal %w[one two], @calculator.countries_within_10_days
+        assert_equal %w[spain italy], @calculator.countries_within_10_days
       end
     end
 
     context "transit_country_options" do
       should "add a single country" do
-        @calculator.countries << "one"
-        expected = { one: "One" }
+        @calculator.countries << "spain"
+        expected = { spain: "Spain" }
 
         assert_equal expected.with_indifferent_access, @calculator.transit_country_options
       end
 
       should "add more than one country" do
-        @calculator.countries << "one"
-        @calculator.countries << "two"
-        expected = { one: "One", two: "Two" }
+        @calculator.countries << "spain"
+        @calculator.countries << "italy"
+        expected = { spain: "Spain", italy: "Italy" }
 
         assert_equal expected.with_indifferent_access, @calculator.transit_country_options
       end
@@ -85,16 +86,16 @@ module SmartAnswer::Calculators
 
     context "travelling_to_red_list_country?" do
       should "return true if going to any country on the red list" do
-        @calculator.countries << "one"
-        @calculator.countries << "two"
-        @calculator.countries_within_10_days = "one"
+        @calculator.countries << "poland"
+        @calculator.countries << "spain"
+        @calculator.countries_within_10_days = "poland"
 
         assert_equal true, @calculator.travelling_to_red_list_country?
       end
 
       should "return false if not going to a country on the red list" do
-        @calculator.countries << "one"
-        @calculator.countries << "two"
+        @calculator.countries << "spain"
+        @calculator.countries << "italy"
 
         assert_equal false, @calculator.travelling_to_red_list_country?
       end

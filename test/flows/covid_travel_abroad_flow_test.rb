@@ -4,11 +4,9 @@ require "support/flow_test_helper"
 class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  countries = %w[argentina belize spain]
-
   setup do
     testing_flow CovidTravelAbroadFlow
-    stub_worldwide_api_has_locations(countries)
+    stub_worldwide_api_has_locations(%w[spain italy poland])
   end
 
   should "render start page" do
@@ -59,10 +57,10 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                "for a 'no' response " \
                "when which country is 'spain' " \
                "and any other countries is 'yes' " \
-               "and which 1 country is 'argentina' " do
+               "and which 1 country is 'italy' " do
         add_responses which_country: "spain",
                       any_other_countries_1: "yes",
-                      which_1_country: "argentina"
+                      which_1_country: "italy"
         assert_next_node :transit_countries, for_response: "no"
       end
     end
@@ -85,7 +83,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
 
       should "be valid for a country that has not already been chosen" do
-        assert_valid_response "argentina"
+        assert_valid_response "italy"
       end
     end
 
@@ -94,7 +92,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "for any response " \
                 "when which country is 'spain' " \
                 "and any other countries is 'yes' " do
-        assert_next_node :any_other_countries_2, for_response: "argentina"
+        assert_next_node :any_other_countries_2, for_response: "italy"
       end
     end
   end
@@ -104,7 +102,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       testing_node :transit_countries
       add_responses which_country: "spain",
                     any_other_countries_1: "yes",
-                    which_1_country: "argentina",
+                    which_1_country: "italy",
                     any_other_countries_2: "no"
     end
 
@@ -221,7 +219,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
 
     context "country specific content that has not had the headers converted" do
       setup do
-        add_responses which_country: "belize",
+        add_responses which_country: "poland",
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
@@ -230,7 +228,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
 
       should "render the entry requirements" do
-        assert_rendered_outcome text: "You should read the Belize entry requirements"
+        assert_rendered_outcome text: "You should read the Poland entry requirements"
       end
     end
 
@@ -251,22 +249,13 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
 
     context "content with a red list country" do
       setup do
-        add_responses which_country: "spain",
+        add_responses which_country: "poland",
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "yes",
-                      countries_within_10_days: "spain",
+                      countries_within_10_days: "poland",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
-      end
-
-      should "render transit guidance when transit countries includes a selected country" do
-        add_responses which_country: "spain",
-                      any_other_countries_1: "yes",
-                      which_1_country: "argentina",
-                      any_other_countries_2: "no",
-                      transit_countries: "spain"
-        assert_rendered_outcome text: "travelling through Spain"
       end
 
       should "render red list country guidance" do
@@ -305,7 +294,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       should "render transit guidance when transit countries includes a selected country" do
         add_responses which_country: "spain",
                       any_other_countries_1: "yes",
-                      which_1_country: "argentina",
+                      which_1_country: "italy",
                       any_other_countries_2: "no",
                       transit_countries: "spain"
         assert_rendered_outcome text: "travelling through Spain"

@@ -50,21 +50,21 @@ module SmartAnswer::Calculators
     end
 
     def travelling_to_red_list_country?
-      @countries_within_10_days.intersection(@countries).any?
+      @countries_within_10_days.intersection(red_list_countries).any?
     end
 
     def red_list_countries
       %w[
-        spain
-        usa
-        france
-        italy
-        netherlands
-        germany
-        united-arab-emirates
-        turkey
-        ireland
-        portugal
+        poland
+        belgium
+        india
+        austria
+        switzerland
+        mexico
+        hungary
+        thailand
+        egypt
+        australia
       ]
     end
 
@@ -80,16 +80,6 @@ module SmartAnswer::Calculators
         turkey
         ireland
         portugal
-        poland
-        belgium
-        india
-        austria
-        switzerland
-        mexico
-        hungary
-        thailand
-        egypt
-        australia
       ]
     end
   end
