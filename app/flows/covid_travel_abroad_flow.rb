@@ -31,8 +31,10 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
           if calculator.any_other_countries == "no"
             if calculator.countries.count > 1
               question :transit_countries
-            else
+            elsif calculator.red_list_countries.intersection(calculator.countries).any?
               question :going_to_countries_within_10_days
+            else
+              question :vaccination_status
             end
           else
             question "which_#{calculator.countries.count}_country".to_sym
@@ -65,7 +67,11 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :going_to_countries_within_10_days
+        if calculator.red_list_countries.intersection(calculator.countries).any?
+          question :going_to_countries_within_10_days
+        else
+          question :vaccination_status
+        end
       end
     end
 
@@ -78,7 +84,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.going_to_countries_within_10_days == "yes"
+        if calculator.red_list_countries.intersection(calculator.countries).any? && calculator.going_to_countries_within_10_days == "yes"
           question :countries_within_10_days
         else
           question :vaccination_status

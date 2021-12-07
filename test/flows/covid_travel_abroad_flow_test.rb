@@ -41,10 +41,10 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of going_to_countries_within_10_days " \
+      should "have a next node of vaccination_status " \
                 "for a 'no' response " \
                 "when which country is 'spain' " do
-        assert_next_node :going_to_countries_within_10_days, for_response: "no"
+        assert_next_node :vaccination_status, for_response: "no"
       end
 
       should "have a next node of which_1_country " \
@@ -111,9 +111,9 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of going_to_countries_within_10_days " \
+      should "have a next node of vaccination_status " \
                 "for any response " do
-        assert_next_node :going_to_countries_within_10_days, for_response: "none"
+        assert_next_node :vaccination_status, for_response: "none"
       end
     end
   end
@@ -122,7 +122,10 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :going_to_countries_within_10_days
       add_responses which_country: "spain",
-                    any_other_countries_1: "no"
+                    any_other_countries_1: "yes",
+                    which_1_country: "poland",
+                    any_other_countries_2: "no",
+                    transit_countries: "none"
     end
 
     should "render question" do
@@ -146,7 +149,10 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :countries_within_10_days
       add_responses which_country: "spain",
-                    any_other_countries_1: "no",
+                    any_other_countries_1: "yes",
+                    which_1_country: "poland",
+                    any_other_countries_2: "no",
+                    transit_countries: "none",
                     going_to_countries_within_10_days: "yes"
     end
 
