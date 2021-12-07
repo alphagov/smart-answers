@@ -87,7 +87,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     end
 
     checkbox_question :countries_within_10_days do
-      options { calculator.countries.dup << "none" }
+      options { calculator.red_list_country_options.keys.dup << "none" }
 
       on_response do |response|
         calculator.countries_within_10_days = response unless response == "none"

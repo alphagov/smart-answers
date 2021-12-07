@@ -50,7 +50,16 @@ module SmartAnswer::Calculators
     end
 
     def travelling_to_red_list_country?
-      @countries_within_10_days.intersection(red_list_countries).any?
+      @countries_within_10_days.intersection(red_list_countries.intersection(@countries)).any?
+    end
+
+    def red_list_country_options
+      red_list_country_options = {}
+      countries.map do |country|
+        red_list_country_options[country] = country.humanize if red_list_countries.include?(country)
+      end
+
+      red_list_country_options
     end
 
     def red_list_countries

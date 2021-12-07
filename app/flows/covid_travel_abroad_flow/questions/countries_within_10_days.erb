@@ -10,6 +10,6 @@
   Select all that apply:
 <% end %>
 
-<% countries = calculator.transit_country_options.dup %>
+<% countries = calculator.red_list_country_options.dup %>
 <% countries[:none] = "None" %>
 <%= options(countries) %>
