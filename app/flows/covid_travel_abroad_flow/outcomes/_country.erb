@@ -15,7 +15,7 @@
         <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated">fully vaccinated people</a></li>
       <% end %>
 
-      <% unless calculator.travelling_with_children == "no" %>
+      <% unless calculator.travelling_with_children == ["none"] %>
         <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#entry-requirements-for-children-and-young-people">travelling with children and young people</a></li>
       <% end %>
 
