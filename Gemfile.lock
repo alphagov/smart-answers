@@ -112,7 +112,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     ffi (1.13.1)
-    gds-api-adapters (75.3.0)
+    gds-api-adapters (76.0.0)
       addressable
       link_header
       null_logger
@@ -199,9 +199,9 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     method_source (1.0.0)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0901)
+    mime-types-data (3.2021.1115)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
