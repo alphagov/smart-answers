@@ -28,12 +28,10 @@
 
   ##If you use simplified expenses
 
-  <% if calculator.simple_vehicle_costs_car_van.to_f > 0.0 ||
-      calculator.simple_vehicle_costs_motorcycle > 0.0 ||
-      calculator.simple_home_costs.to_f > 0.0 %>
+  <% if calculator.simple_vehicle_costs_car_van.to_f > 0.0 || calculator.simple_vehicle_costs_motorcycle > 0.0 %>
     You could claim:
   <% end %>
-
+ 
   <% unless calculator.capital_allowance_claimed? or calculator.simple_vehicle_costs_car_van.to_f == 0.0 %>
     <% if calculator.car? || calculator.van? %>
       - <%= format_money(calculator.simple_vehicle_costs_car_van) %> for your car or van
@@ -47,18 +45,10 @@
   <% end %>
 
   <% if calculator.working_from_home? %>
-    <% if calculator.simple_home_costs.to_f == 0.0 %>
-      - you have to work at least 25 hours per month from home to use simplified expenses
-    <% else %>
       - <%= format_money(calculator.simple_home_costs) %> to claim for working from home
-    <% end %>
   <% end %>
-
-  <% if calculator.simple_total == 0.0 %>
-    **Total to claim per year:**
-  <% else %>
-    **Total to claim per year:** <%= format_money(calculator.simple_total) %>
-  <% end %>
+ 
+  **Total to claim per year:** <%= format_money(calculator.simple_total) %>
 
   <% if calculator.simple_business_costs.to_f > 0.0 && calculator.living_on_business_premises? %>
     - <%= format_money(calculator.simple_business_costs) %> to deduct from your total business costs - you then claim the balance
@@ -86,9 +76,7 @@
   <% end %>
 
   <% if calculator.vehicle_costs.to_f > 0.0 %>
-    <% if calculator.car? || calculator.van? || calculator.motorcycle? %>
       - <%= format_money(calculator.vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
-    <% end %>
   <% end %>
 
   <% if calculator.capital_allowances_estimate > 0.0 %>
@@ -97,7 +85,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.home_costs.to_f > 0.0 && calculator.working_from_home? %>
+  <% if calculator.working_from_home? %>
     - <%= format_money(calculator.home_costs) %> for working from home
   <% end %>
 
@@ -105,14 +93,7 @@
     - <%= format_money(calculator.business_premises_cost) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 
-  <% if calculator.vehicle_costs.to_f == 0.0 &&
-      calculator.capital_allowances_estimate.to_f == 0.0 &&
-      calculator.home_costs.to_f == 0.0 &&
-      calculator.business_premises_cost.to_f == 0.0 %>
-    **Total to claim per year:**
-  <% else %>
-    **Total to claim per year:** <%= format_money(calculator.vehicle_costs.to_f + calculator.capital_allowances_estimate.to_f + calculator.home_costs.to_f + calculator.business_premises_cost.to_f) %>
-  <% end %>
+  **Total to claim per year:** <%= format_money(calculator.vehicle_costs.to_f + calculator.capital_allowances_estimate.to_f + calculator.home_costs.to_f + calculator.business_premises_cost.to_f) %>
 
   <% if calculator.over_limit? %>
     The upper limit for Capital Allowance write offs for vans is £250,000.
