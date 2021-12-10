@@ -133,6 +133,8 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
     end
 
-    outcome :results
+    outcome :results do
+      view_template "smart_answers/custom_result_full_width"
+    end
   end
 end
