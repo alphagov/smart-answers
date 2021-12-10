@@ -63,33 +63,11 @@ module SmartAnswer::Calculators
     end
 
     def red_list_countries
-      %w[
-        poland
-        belgium
-        india
-        austria
-        switzerland
-        mexico
-        hungary
-        thailand
-        egypt
-        australia
-      ]
+      %w[south-africa]
     end
 
     def countries_with_content_headers_converted
-      %w[
-        spain
-        usa
-        france
-        italy
-        netherlands
-        germany
-        united-arab-emirates
-        turkey
-        ireland
-        portugal
-      ]
+      %w[denmark]
     end
   end
 end
