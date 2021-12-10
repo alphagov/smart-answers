@@ -85,13 +85,13 @@ module SmartAnswer::Calculators
     end
 
     context "travelling_to_red_list_country?" do
-      should "return true if going to any country on the red list" do
-        @calculator.countries << "poland"
-        @calculator.countries << "spain"
-        @calculator.countries_within_10_days = "poland"
+      # should "return true if going to any country on the red list" do
+      #   @calculator.countries << "poland"
+      #   @calculator.countries << "spain"
+      #   @calculator.countries_within_10_days = "poland"
 
-        assert_equal true, @calculator.travelling_to_red_list_country?
-      end
+      #   assert_equal true, @calculator.travelling_to_red_list_country?
+      # end
 
       should "return false if not going to a country on the red list" do
         @calculator.countries << "spain"
