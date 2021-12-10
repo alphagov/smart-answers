@@ -10,7 +10,7 @@
 
   <% if calculator.transit_countries.include?(country.slug) %>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link">travelling through <%= country.title %></a></li>
+      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements#if-youre-transiting-through-<%= country.slug %>" class="govuk-link">travelling through <%= country.title %></a></li>
     </ul>
   <% else %>
     <ul class="govuk-list govuk-list--bullet">
