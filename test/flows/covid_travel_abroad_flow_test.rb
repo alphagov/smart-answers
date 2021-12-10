@@ -307,7 +307,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       # end
 
       should "render vaccinated guidance when user is fully vaccinated" do
-        assert_rendered_outcome text: "Travelling to England if you're fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
       end
 
       should "render unvaccinated guidance when user is not fully vaccinated" do
