@@ -1,12 +1,45 @@
-<% govspeak_for :body do %>
-  <h2 class="govuk-heading-xl">Travelling abroad from England</h2>
+<% html_for :body do %>
+  <%= render "govuk_publishing_components/components/print_link" %>
+
+  <%# this is temporary until we can migrate this component, do not merge %>
+  <div class="app-c-signup-link govuk-!-display-none-print govuk-!-margin-bottom-6 app-c-signup-link--with-background-and-border">
+    <div class="app-c-signup-link__inner govuk-width-container">
+      <svg class="app-c-signup-link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewbox="0 0 459.334 459.334">
+        <path fill="black" d="M177.216 404.514c-.001.12-.009.239-.009.359 0 30.078 24.383 54.461 54.461 54.461s54.461-24.383 54.461-54.461c0-.12-.008-.239-.009-.359H175.216zM403.549 336.438l-49.015-72.002v-89.83c0-60.581-43.144-111.079-100.381-122.459V24.485C254.152 10.963 243.19 0 229.667 0s-24.485 10.963-24.485 24.485v27.663c-57.237 11.381-100.381 61.879-100.381 122.459v89.83l-49.015 72.002a24.76 24.76 0 0 0 20.468 38.693H383.08a24.761 24.761 0 0 0 20.469-38.694z"></path>
+      </svg>
+      <h3 class="govuk-heading-s app-c-signup-link__title">What you need to do may change</h3>
+      <a class="govuk-link app-c-signup-link__link" href="#">Sign up for email updates about travel</a>
+    </div>
+  </div>
+
+  <div class="travel-abroad__heading">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Travelling abroad from England",
+      font_size: "l",
+    } %>
+  </div>
 
   <% calculator.travel_rules.each do |country| %>
-    <%= render partial: "country", locals: { calculator: calculator, country: country } %>
+    <div class="govuk-grid-row travel-abroad__section">
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body">Because you said</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <% if calculator.transit_countries.include?(country.slug) %>
+            <li>You are transiting through <%= country.title %></li>
+          <% else %>
+            <li>You are travelling to <%= country.title %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <%= render partial: "country", locals: { calculator: calculator, country: country } %>
+      </div>
+    </div>
   <% end %>
 
   <% if calculator.travelling_to_red_list_country? %>
-    <%= render partial: "return_from_red_list" %>
+    <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>
 
     <% if calculator.travelling_with_children.include?("zero_to_four") %>
       <%= render partial: "red_list_children_zero_to_four" %>
@@ -20,9 +53,9 @@
     <%= render partial: "exempt_compassionate" %>
   <% else %>
     <% if calculator.vaccination_status == "none" %>
-      <%= render partial: "not_fully_vaxed" %>
+      <%= render partial: "not_fully_vaxed", locals: { calculator: calculator } %>
     <% else %>
-      <%= render partial: "fully_vaxed" %>
+      <%= render partial: "fully_vaxed", locals: { calculator: calculator } %>
     <% end %>
 
     <% if calculator.travelling_with_children.include?("zero_to_four") %>

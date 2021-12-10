@@ -35,3 +35,58 @@ $govuk-new-link-styles: true;
 @import "components/result-sections";
 @import "components/user-research-banner";
 @import "smart_answers";
+
+.travel-abroad__heading {
+  padding: govuk-spacing(4) 0;
+  margin-bottom: govuk-spacing(4);
+  border-top: solid 3px $govuk-link-colour;
+  border-bottom: solid 1px $govuk-border-colour;
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-spacing(8);
+  }
+}
+
+.travel-abroad__section {
+  margin-bottom: govuk-spacing(2);
+
+  & + .travel-abroad__heading {
+    margin-top: govuk-spacing(8);
+  }
+}
+
+// this is temporary until we can migrate this component do not merge
+.app-c-signup-link__link {
+  @include govuk-font($size: 19);
+}
+
+.app-c-signup-link__inner {
+  position: relative;
+}
+
+.app-c-signup-link__icon {
+  position: absolute;
+
+  @include govuk-media-query($from: tablet) {
+    top: 2px;
+  }
+}
+
+.app-c-signup-link__title {
+  margin-bottom: govuk-spacing(2);
+  margin-left: govuk-spacing(5);
+}
+
+.app-c-signup-link--with-background-and-border {
+  padding: govuk-spacing(6);
+  background-color: govuk-colour("light-grey");
+  border: 1px solid $govuk-border-colour;
+}
+
+.app-c-signup-link--link-only .app-c-signup-link__link {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  margin-left: govuk-spacing(5);
+  margin-bottom: 0;
+}

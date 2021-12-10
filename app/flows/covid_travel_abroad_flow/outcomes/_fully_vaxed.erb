@@ -1,35 +1,60 @@
-<h2 class="govuk-heading-xl">Travelling to England if you're fully vaccinated</h2>
+<% content = capture do %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Proof of vaccination",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
 
-<h3>Proof of vaccination</h3>
+  <p class="govuk-body">You must be able to prove that you've been fully vaccinated. If you live in England, you can prove your vaccination status using the <a href="https://www.gov.uk/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>
 
-<p>You must be able to prove that you've been fully vaccinated. If you live in England, you can prove your vaccination status using the <a href="https://www.gov.uk/guidance/nhs-covid-pass">NHS COVID Pass</a>.</p>
+  <p class="govuk-body">If you were vaccinated in another country or territory, see <a href="https://www.gov.uk/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination#countries-with-an-approved-proof-of-vaccination-and-examples-of-proof-required" class="govuk-link">examples of what you can use as proof of vaccination</a>.</p>
 
-<p>If you were vaccinated in another country or territory, see <a href="https://www.gov.uk/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination#countries-with-an-approved-proof-of-vaccination-and-examples-of-proof-required">examples of what you can use as proof of vaccination</a>.</p>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Before you travel to England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
 
-<h3>Before you travel to England</h3>
+  <p class="govuk-body">You must:</p>
 
-<p>You must:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="https://www.gov.uk/find-travel-test-provider" class="govuk-link">take a PCR or rapid lateral flow COVID-19 test</a> - to be taken in the 48 hours before you travel to England</li>
+    <li><a href="https://www.gov.uk/find-travel-test-provider" class="govuk-link">book and pay for a COVID-19 PCR test</a> - to be taken after arrival before the end of day 2</li>
+    <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> - to be completed in the 48 hours before you arrive in England</li>
+  </ul>
 
-<ul>
-  <li><a href="https://www.gov.uk/find-travel-test-provider">take a PCR or rapid lateral flow COVID-19 test</a> - to be taken in the 48 hours before you travel to England</li>
-  <li><a href="https://www.gov.uk/find-travel-test-provider">book and pay for a COVID-19 PCR test</a> - to be taken after arrival before the end of day 2</li>
-  <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk">complete a passenger locator form</a> - to be completed in the 48 hours before you arrive in England</li>
-</ul>
+  <p class="govuk-body">You must use a private test provider. You cannot use a free NHS test.</p>
 
-<p>You must use a private test provider. You cannot use a free NHS test.</p>
+  <p class="govuk-body">You will need to enter your COVID-19 test booking reference number on your passenger locator form.</p>
 
-<p>You will need to enter your COVID-19 test booking reference number on your passenger locator form.</p>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "When you arrive in England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
 
-<h3>When you arrive in England</h3>
+  <p class="govuk-body">You must take the COVID-19 PCR test you booked before travel on or before day 2 (the day you arrive is day 0).</p>
 
-<p>You must take the COVID-19 PCR test you booked before travel on or before day 2 (the day you arrive is day 0).</p>
+  <p class="govuk-body">You must <a href="https://www.gov.uk/guidance/how-to-quarantine-when-you-arrive-in-england" class="govuk-link">quarantine at home or the place you're staying</a> while you wait for your test result.</p>
 
-<p>You must <a href="https://www.gov.uk/guidance/how-to-quarantine-when-you-arrive-in-england">quarantine at home or the place you're staying</a> while you wait for your test result.</p>
+  <p class="govuk-body">If the test result is negative, you can end your quarantine.</p>
 
-<p>If the test result is negative, you can end your quarantine.</p>
+  <p class="govuk-body">If the test is positive or unclear, you must <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do" class="govuk-link">self-isolate</a> for 10 full days (the day of the test is day 0).</p>
 
-<p>If the test is positive or unclear, you must <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do">self-isolate</a> for 10 full days (the day of the test is day 0).</p>
+  <p class="govuk-body">If the test is unclear, you can choose to take another private test.</p>
 
-<p>If the test is unclear, you can choose to take another private test.</p>
+  <p class="govuk-body">If you haven't received your test result after 13 days, you can end your quarantine (the day you arrive is day 0).</p>
+<% end %>
 
-<p>If you haven't received your test result after 13 days, you can end your quarantine (the day you arrive is day 0).</p>
+<%
+  data = {
+    title: "Travelling to England if you're fully vaccinated",
+    reasons: ['You are fully vaccinated'],
+    content: content
+  }
+%>
+
+<%= render partial: "travel_result_layout", locals: { data: data, calculator: calculator } %>
