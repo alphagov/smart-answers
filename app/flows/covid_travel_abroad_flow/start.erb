@@ -15,7 +15,9 @@
     <li>what you need to do before and after you travel to England</li>
     <li>whether you're exempt from any rules</li>
   </ul>
+<% end %>
 
+<% govspeak_for :post_body do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: "If you're travelling within the UK, Channel Islands and the Isle of Man",
     font_size: "m",
@@ -31,8 +33,5 @@
     <li><a href="https://covid19.gov.im/travel/travel-to-the-isle-of-man">the Isle of Man</a></li>
     <li>the Channel Islands (<a href="https://www.gov.je/Health/Coronavirus/Travel/Pages/CoronavirusTravelAdvice.aspx">Jersey</a> and <a href="https://covid19.gov.gg/guidance/travel">Guernsey</a>)</li>
   </ul>
-<% end %>
-
-<% govspeak_for :post_body do %>
   <p>If you're travelling to England from within the UK, Ireland, the Channel Islands or the Isle of Man and haven't been anywhere else within the 10 days before you arrive, there are no entry requirements for coming into England.</p>
 <% end %>
