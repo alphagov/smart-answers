@@ -15,16 +15,16 @@
   <% else %>
     <ul class="govuk-list govuk-list--bullet">
       <% if calculator.vaccination_status == "none" %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-you-are-not-fully-vaccinated-or-previously-infected" class="govuk-link">people who aren't fully vaccinated</a></li>
+        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link">people who aren't fully vaccinated</a></li>
       <% else %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-you-are-fully-vaccinated" class="govuk-link">fully vaccinated people</a></li>
+        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated" class="govuk-link">fully vaccinated people</a></li>
       <% end %>
 
       <% unless calculator.travelling_with_children == ["none"] %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#requirements-for-children-travelling-to-denmark" class="govuk-link">travelling with children and young people</a></li>
+        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#children-and-young-people" class="govuk-link">travelling with children and young people</a></li>
       <% end %>
 
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link">exemptions</a></li>
+      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#exemptions" class="govuk-link">exemptions</a></li>
     </ul>
 
     <p class="govuk-body">There may be <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link">other requirements for entering <%= country.title %></a> that you need to follow.</p>
