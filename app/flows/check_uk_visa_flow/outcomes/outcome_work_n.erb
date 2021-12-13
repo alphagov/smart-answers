@@ -7,9 +7,9 @@
 
   * invited as an expert in your profession for a ‘Permitted Paid Engagement’
   * visiting for certain business or academic activities, but not working in the UK
-  
-  %You may want to apply for a visa if you have a criminal record or you’ve previously been refused entry into the UK.%
-  
+
+  You must meet the eligibility requirements and only be doing permitted activities.
+
   ##If you’re invited as an expert in your profession
   
   You can stay in the UK for up to 1 month without a visa, but you can only be paid by a UK-based organisation to do certain things, for example:
@@ -18,9 +18,15 @@
   * provide advocacy in legal proceedings
   * take part in arts, entertainment or sporting activities
   
-  Check the list of what you can and cannot be paid to do - it’s the same as [what you can do with a Permitted Paid Engagement visa](/permitted-paid-engagement-visa).
+  Find out what you can and cannot be paid to do if you're [visiting the UK for a Permitted Paid Engagement](/permitted-paid-engagement-visa).
+
+  %You may want to [apply for a Permitted Paid Engagement Visitor visa](/permitted-paid-engagement-visa/apply) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
   ###What you need at the UK border
+
+  <% if calculator.passport_country_in_epassport_gate_list? %>
+    You must go to a border control officer to get a stamp in your passport. Do not use the automatic ePassport gates. You need a stamp to do the activities you came to the UK to do.
+  <% end %>
 
   You must provide a valid passport or travel document. Your passport should be valid for the whole of your stay in the UK.
 
@@ -31,11 +37,9 @@
   * you’ll leave at the end of your visit
   * you’re able to support yourself and your dependents during your trip (or have funding from someone else to support you)
 
-  This is the same information as someone applying for a [Permitted Paid Engagement visa](/permitted-paid-engagement-visa/documents-you-must-provide) would need to provide.
+  Find out more about [visiting the UK for a Permitted Paid Engagement](/permitted-paid-engagement-visa).
 
-  <% if calculator.passport_country_in_epassport_gate_list? %>
-    ^You must go to a border control officer to get a stamp in your passport. Do not use the automatic ePassport gates. You need a stamp to do the activities you came to the UK to do.^
-  <% end %>
+  ^The rules on what you’ll need to enter the UK may be different if you’re [travelling from Ireland, Jersey, Guernsey or the Isle of Man](/guidance/travelling-between-the-uk-and-ireland-isle-of-man-guernsey-or-jersey).
 
   ##If you’re visiting for certain business or academic activities
 
@@ -47,9 +51,11 @@
   * do a work placement or internship
   * sell directly to the public or provide goods and services
 
-  [Check the Visitor Rules](/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities) to see the full list of business and academic activities that you can do as a visitor to the UK.
+  Check the full list of [business activities](/standard-visitor/visit-on-business) and [academic activities](/standard-visitor/visit-as-an-academic) you can do as a Standard Visitor. 
 
-  ^To research certain subjects at postgraduate level or above, you may need an [Academic Technology Approval Scheme (ATAS) certificate](/guidance/find-out-if-you-require-an-atas-certificate). If you do need one, you’ll need to get your ATAS certificate before starting your research.
+  To research certain subjects at postgraduate level or above, you may need an [Academic Technology Approval Scheme (ATAS) certificate](/guidance/find-out-if-you-require-an-atas-certificate). If you do need one, you’ll need to get your ATAS certificate before starting your research.
+
+  %You may want to [apply for a Standard Visitor visa](/standard-visitor/apply-standard-visitor-visa) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
   ###What you need at the UK border
 
@@ -62,23 +68,25 @@
   * you’ll leave at the end of your visit
   * you’re able to support yourself and your dependents during your trip (or have funding from someone else to support you)
 
-  This is the same information as someone applying for a [Standard Visitor visa](/standard-visitor-visa/eligibility) would need to provide.
+  Find out more about [visiting the UK as a Standard Visitor](/standard-visitor).
 
+  ^The rules on what you’ll need to enter the UK may be different if you’re [travelling from Ireland, Jersey, Guernsey or the Isle of Man](/guidance/travelling-between-the-uk-and-ireland-isle-of-man-guernsey-or-jersey).
+ 
   ##If you want to do paid work in the UK
 
   You must apply for a visa if you want to work:
 
-  * as a [volunteer](/temporary-worker-charity-worker-visa)
+  * as [a volunteer](/temporary-worker-charity-worker-visa)
   * in a [work experience role](/government-authorised-exchange)
-  * for a [charity](/temporary-worker-charity-worker-visa)
+  * for [a charity](/temporary-worker-charity-worker-visa)
   * for a [religious organisation](/religious-worker-visa)
   * as a [domestic worker in a private household](/domestic-workers-in-a-private-household-visa)
   * on a [transfer to your employer’s UK branch](/intracompany-transfer-worker-visa)
   * in a [skilled job](/skilled-worker-visa)
   * in [work covered by international law](/international-agreement-worker-visa), for example for a foreign government or as a private servant in a diplomatic household
   * to [provide a service on behalf of a Swiss company](/guidance/apply-for-a-service-providers-from-switzerland-visa)
-  * in [sports](/sportsperson-visa)
   * in [arts or entertainment](/creative-worker-visa)
+  * [in sports](/sportsperson-visa)
 
   ###If you want to work in arts or entertainment for 3 months or less
 
@@ -86,5 +94,7 @@
 
   You must bring a [certificate of sponsorship and evidence of savings](/creative-worker-visa/eligibility) to show officers at the UK border.
 
-  ^ You must see a Border Force officer - do not use the automatic ePassport gates.
+  <% if calculator.passport_country_in_epassport_gate_list? %>
+    ^ You must see a Border Force officer - do not use the automatic ePassport gates.
+  <% end %>
 <% end %>
