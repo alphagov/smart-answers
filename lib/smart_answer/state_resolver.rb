@@ -64,13 +64,11 @@ module SmartAnswer
 
     def transition_state_to_next_node(state, response)
       @flow.node(state.current_node_name).transition(state, response)
-    rescue BaseStateTransitionError => e
+    rescue InvalidResponse => e
       error_state(state, response, e)
     end
 
     def error_state(state, response, error)
-      GovukError.notify(error) if error.is_a?(LoggedError)
-
       state.dup.tap do |new_state|
         new_state.error = error.message
         new_state.current_response = response
