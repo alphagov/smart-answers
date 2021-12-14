@@ -5,6 +5,15 @@ class QuestionBaseTest < ActiveSupport::TestCase
     @question = SmartAnswer::Question::Base.new(nil, :example_question)
   end
 
+  context "#on_response" do
+    should "not allow multiple definitions of on_response" do
+      assert_raises(RuntimeError, "Multiple on_response blocks not allowed") do
+        @question.on_response { |_| nil }
+        @question.on_response { |_| nil }
+      end
+    end
+  end
+
   context "#transition" do
     should "pass input to next_node block" do
       input_was = nil
