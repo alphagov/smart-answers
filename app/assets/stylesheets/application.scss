@@ -31,6 +31,7 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/title";
 @import "govuk_publishing_components/components/warning-text";
 
+@import "components/autocomplete";
 @import "components/result-item";
 @import "components/result-sections";
 @import "components/user-research-banner";

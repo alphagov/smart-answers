@@ -1,0 +1,32 @@
+name: Autocomplete (experimental)
+description: An autocomplete component, built to be accessible.
+body: |
+  This component uses the [Accessible Autocomplete](https://github.com/alphagov/accessible-autocomplete) to enhance an input element (see [Autocomplete examples](https://alphagov.github.io/accessible-autocomplete/examples) here). It depends upon the [label component](https://github.com/component-guide/label).
+
+  Options are provided via a datalist. A user can enter a value outside the list of options.
+
+  If Javascript is disabled, the component provides basic autocomplete functionality for those browsers that support the datalist element.
+accessibility_criteria: |
+  [Accessibility acceptance criteria](https://github.com/alphagov/accessible-autocomplete/blob/master/accessibility-criteria.md)
+examples:
+  default:
+    data:
+      label: 'Countries'
+      options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
+  with_value:
+    data:
+      value: 'France'
+      label: 'Countries'
+      options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
+  with_unique_identifier_and_name:
+    data:
+      id: 'unique-autocomplete'
+      name: 'unique-name'
+      label: 'Countries'
+      options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
+  with_error:
+    data:
+      label: 'Countries'
+      options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
+      error_items:
+        - text: There is a problem with this input
