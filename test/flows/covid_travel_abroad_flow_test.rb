@@ -133,37 +133,9 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
   #   end
 
   #   context "next_node" do
-  #     should "have a next node of countries_within_10_days " \
-  #               "for a 'yes' response " do
-  #       assert_next_node :countries_within_10_days, for_response: "yes"
-  #     end
-
   #     should "have a next node of vaccination_status " \
   #               "for a 'no' response " do
   #       assert_next_node :vaccination_status, for_response: "no"
-  #     end
-  #   end
-  # end
-
-  # context "question: countries_within_10_days" do
-  #   setup do
-  #     testing_node :countries_within_10_days
-  #     add_responses which_country: "spain",
-  #                   any_other_countries_1: "yes",
-  #                   which_1_country: "poland",
-  #                   any_other_countries_2: "no",
-  #                   transit_countries: "none",
-  #                   going_to_countries_within_10_days: "yes"
-  #   end
-
-  #   should "render question" do
-  #     assert_rendered_question
-  #   end
-
-  #   context "next_node" do
-  #     should "have a next node of vaccination_status " \
-  #               "for any response " do
-  #       assert_next_node :vaccination_status, for_response: "none"
   #     end
   #   end
   # end
@@ -259,7 +231,6 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "yes",
-                      countries_within_10_days: "poland",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
       end

@@ -53,20 +53,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "countries_within_10_days=" do
-      should "add a single country" do
-        @calculator.countries_within_10_days = "spain"
-
-        assert_equal %w[spain], @calculator.countries_within_10_days
-      end
-
-      should "add more than one country" do
-        @calculator.countries_within_10_days = "spain,italy"
-
-        assert_equal %w[spain italy], @calculator.countries_within_10_days
-      end
-    end
-
     context "transit_country_options" do
       should "add a single country" do
         @calculator.countries << "spain"
@@ -88,7 +74,6 @@ module SmartAnswer::Calculators
       # should "return true if going to any country on the red list" do
       #   @calculator.countries << "poland"
       #   @calculator.countries << "spain"
-      #   @calculator.countries_within_10_days = "poland"
 
       #   assert_equal true, @calculator.travelling_to_red_list_country?
       # end
