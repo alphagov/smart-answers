@@ -20,10 +20,10 @@
   </div>
 
   <% calculator.travel_rules.each do |country| %>
-    <div class="govuk-grid-row travel-abroad__section">
-      <div class="govuk-grid-column-one-third">
-        <p class="govuk-body">Because you said</p>
-        <ul class="govuk-list govuk-list--bullet">
+    <div class="govuk-grid-row travel-abroad__country">
+      <div class="govuk-grid-column-one-third travel-abroad__reasons">
+        <p class="govuk-body govuk-body-s">Because you said</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
           <% if calculator.transit_countries.include?(country.slug) %>
             <li>You are transiting through <%= country.title %></li>
           <% else %>

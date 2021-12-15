@@ -55,6 +55,14 @@ $govuk-new-link-styles: true;
   }
 }
 
+.travel-abroad__country {
+  margin-bottom: govuk-spacing(7);
+}
+
+.travel-abroad__reasons {
+  margin-bottom: govuk-spacing(6);
+}
+
 // this is temporary until we can migrate this component do not merge
 .app-c-signup-link__link {
   @include govuk-font($size: 19);
