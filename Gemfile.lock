@@ -204,7 +204,7 @@ GEM
     mime-types-data (3.2021.1115)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
-    minitest (5.14.4)
+    minitest (5.15.0)
     minitest-focus (1.2.1)
       minitest (>= 4, < 6)
     mocha (1.11.2)
