@@ -28,7 +28,7 @@
     "extends": "stylelint-config-gds/scss"
   },
   "dependencies": {
-    "accessible-autocomplete": "git://github.com/alphagov/accessible-autocomplete.git"
+    "accessible-autocomplete": "https://github.com/alphagov/accessible-autocomplete.git#935f0d43aea1c606e6b38985e3fe7049ddbe98be"
   },
   "devDependencies": {
     "standardx": "^7.0.0",
