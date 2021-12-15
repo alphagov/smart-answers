@@ -25,7 +25,7 @@
         <p class="govuk-body govuk-body-s">Because you said</p>
         <ul class="govuk-list govuk-list--bullet govuk-body-s">
           <% if calculator.transit_countries.include?(country.slug) %>
-            <li>You are transiting through <%= country.title %></li>
+            <li>You are travelling through <%= country.title %></li>
           <% else %>
             <li>You are travelling to <%= country.title %></li>
           <% end %>
