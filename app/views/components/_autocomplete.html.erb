@@ -1,0 +1,41 @@
+<%
+  id ||= "autocomplete-#{SecureRandom.hex(4)}"
+  name ||= "autocomplete"
+  label ||= nil
+  value ||= nil
+  options ||= []
+
+  error_id = "error-#{SecureRandom.hex(4)}"
+  error_items ||= []
+
+  classes = %w(app-c-autocomplete govuk-form-group)
+  classes << "govuk-form-group--error" if error_items.any?
+%>
+<% if label && options.any? %>
+  <%= tag.div class: classes, data: { module: "autocomplete" } do %>
+    <%= render "govuk_publishing_components/components/label", {
+      text: label,
+      html_for: id,
+    } %>
+
+    <% if error_items.any? %>
+      <%= render "govuk_publishing_components/components/error_message", {
+        id: error_id,
+        items: error_items,
+      } %>
+    <% end %>
+
+    <%= tag.input name: name,
+                  value: value,
+                  id: id,
+                  class: "govuk-input",
+                  list: "#{id}-list",
+                  type: "text" %>
+
+    <%= tag.datalist id: "#{id}-list" do %>
+      <% options.each do |option| %>
+        <%= tag.option(value: option) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

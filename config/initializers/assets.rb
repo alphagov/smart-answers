@@ -11,4 +11,12 @@ Rails.application.config.assets.version = "1.0"
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w[test-dependencies.js]
+Rails.application.config.assets.precompile += %w[
+  test-dependencies.js
+  accessible-autocomplete/dist/accessible-autocomplete.min.js
+  accessible-autocomplete/dist/accessible-autocomplete.min.css
+]
+
+Rails.application.config.assets.paths += %W[
+  #{__dir__}/../../node_modules/
+]

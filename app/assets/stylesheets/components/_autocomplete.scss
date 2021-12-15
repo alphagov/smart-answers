@@ -1,0 +1,7 @@
+@import url(asset-path("accessible-autocomplete/dist/accessible-autocomplete.min.css")); // stylelint-disable function-url-quotes
+
+.app-c-autocomplete {
+  .autocomplete__option {
+    @include govuk-font(19);
+  }
+}
