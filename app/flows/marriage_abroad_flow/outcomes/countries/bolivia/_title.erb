@@ -1,4 +1,6 @@
-<% if calculator.partner_is_same_sex? %>
+<% if calculator.is_civil_partnership? %>
+  Opposite sex civil partnership in Bolivia
+<% elsif calculator.partner_is_same_sex? %>
   Same-sex marriage in Bolivia
 <% else %>
   Marriage in Bolivia
