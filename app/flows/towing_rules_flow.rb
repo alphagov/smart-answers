@@ -68,9 +68,9 @@ class TowingRulesFlow < SmartAnswer::Flow
       next_node do |response|
         case response
         when "licence-issued-before-19-Jan-2013"
-          outcome :limited_trailer_entitlement # A6
+          outcome :limited_trailer_entitlement_before_1997 # A6
         when "licence-issued-after-19-Jan-2013"
-          outcome :limited_trailer_entitlement_2013 # A7
+          outcome :limited_trailer_entitlement_after_1997 # A7
         end
       end
     end
@@ -283,8 +283,8 @@ class TowingRulesFlow < SmartAnswer::Flow
 
     outcome :car_light_vehicle_entitlement # A3
     outcome :full_entitlement # A4
-    outcome :limited_trailer_entitlement # A6
-    outcome :limited_trailer_entitlement_2013 # A7
+    outcome :limited_trailer_entitlement_before_1997 # A6
+    outcome :limited_trailer_entitlement_after_1997 # A7
     outcome :limited_conditional_trailer_entitlement_msv # A10
     outcome :limited_trailer_entitlement_msv # A11
     outcome :included_entitlement_msv # A13
