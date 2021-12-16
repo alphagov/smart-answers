@@ -23,7 +23,6 @@ countries_with_18_outcomes:
   - benin
   - bermuda
   - bhutan
-  - bolivia
   - bonaire-st-eustatius-saba
   - bosnia-and-herzegovina
   - botswana
@@ -188,6 +187,7 @@ countries_with_18_outcomes:
   - yemen
   - zambia
 countries_with_19_outcomes:
+  - bolivia
   - panama
   - vietnam
 countries_with_2_outcomes:

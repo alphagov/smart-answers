@@ -77,9 +77,10 @@ module SmartAnswer::Calculators
     ].freeze
 
     CONSULAR_OPPOSITE_SEX_CIVIL_PARTNERSHIP = %w[
+      bolivia
       japan
-      vietnam
       panama
+      vietnam
     ].freeze
 
     def offers_consular_opposite_sex_civil_partnership?(country_slug)
