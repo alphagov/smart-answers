@@ -564,6 +564,7 @@ module SmartAnswer::Calculators
       "australia",
       "canada",
       "hong-kong",
+      "iceland"
       "japan",
       "monaco",
       "new-zealand",
