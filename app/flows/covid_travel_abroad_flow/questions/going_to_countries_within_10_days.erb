@@ -1,15 +1,13 @@
 <% text_for :title do %>
-  Will you be going to any of these countries within 10 days of your return to England?
+  Will you be going to any red list countries within 10 days before you return to England?
 <% end %>
 
 <% govspeak_for :body do %>
- These are red list countries you said you're going to:
- 
+ These are the red list countries you said you're going to:
+
  <% calculator.red_list_country_options.values.each do |country| %>
    - <%= country.titleize %>
  <% end %>
-
-  Why we're asking this question: Different rules apply if you've been in a red list country within 10 days of travel to England.
 <% end %>
 
 <% options(
