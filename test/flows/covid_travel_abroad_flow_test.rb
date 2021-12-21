@@ -7,4 +7,8 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow CovidTravelAbroadFlow
   end
+
+  should "render start page" do
+    assert_rendered_start_page
+  end
 end
