@@ -1,7 +1,9 @@
 module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     attr_reader :travelling_with_children
-    attr_accessor :countries, :vaccination_status
+    attr_accessor :countries, :vaccination_status, :any_other_countries
+
+    MAX_COUNTRIES = 99
 
     def initialize
       @countries = []

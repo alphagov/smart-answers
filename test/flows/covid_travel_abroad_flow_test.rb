@@ -25,7 +25,61 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of any_other_countries_1 " \
                 "for any response " do
-        assert_next_node :vaccination_status, for_response: "spain"
+        assert_next_node :any_other_countries_1, for_response: "spain"
+      end
+    end
+  end
+
+  context "question: any_other_countries_1" do
+    setup do
+      testing_node :any_other_countries_1
+      add_responses which_country: "spain"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of vaccination_status " \
+                "for a 'no' response " \
+                "when which country is 'spain' " do
+        assert_next_node :vaccination_status, for_response: "no"
+      end
+
+      should "have a next node of which_1_country " \
+                "for a 'yes' response " \
+                "when which country is 'spain' " do
+        assert_next_node :which_1_country, for_response: "yes"
+      end
+    end
+  end
+
+  context "question: which_1_country" do
+    setup do
+      testing_node :which_1_country
+      add_responses which_country: "spain",
+                    any_other_countries_1: "yes"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "validations" do
+      should "be invalid for a country that has already been chosen" do
+        assert_invalid_response "spain"
+      end
+
+      should "be valid for a country that has not already been chosen" do
+        assert_valid_response "italy"
+      end
+    end
+
+    context "next_node" do
+      should "have a next node of any_other_countries_2 " \
+                "for any response " do
+        assert_next_node :any_other_countries_2, for_response: "italy"
       end
     end
   end
@@ -33,7 +87,8 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
   context "question: vaccination_status" do
     setup do
       testing_node :vaccination_status
-      add_responses which_country: "spain"
+      add_responses which_country: "spain",
+                    any_other_countries_1: "no"
     end
 
     should "render question" do
@@ -52,6 +107,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :travelling_with_children
       add_responses which_country: "spain",
+                    any_other_countries_1: "no",
                     vaccination_status: "vaccinated"
     end
 

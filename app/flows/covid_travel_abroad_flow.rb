@@ -12,7 +12,44 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :vaccination_status
+        question "any_other_countries_#{calculator.countries.count}".to_sym
+      end
+    end
+
+    (1..SmartAnswer::Calculators::CovidTravelAbroadCalculator::MAX_COUNTRIES).each do |num|
+      radio "any_other_countries_#{num}".to_sym do
+        template_name "any_other_countries"
+
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.any_other_countries = response
+        end
+
+        next_node do
+          if calculator.any_other_countries == "no"
+            question :vaccination_status
+          else
+            question "which_#{calculator.countries.count}_country".to_sym
+          end
+        end
+      end
+
+      country_select "which_#{num}_country".to_sym, exclude_countries: [] do
+        template_name "which_country"
+
+        on_response do |response|
+          calculator.countries << response
+        end
+
+        validate do
+          calculator.countries.uniq == calculator.countries
+        end
+
+        next_node do
+          question "any_other_countries_#{calculator.countries.count}".to_sym
+        end
       end
     end
 
