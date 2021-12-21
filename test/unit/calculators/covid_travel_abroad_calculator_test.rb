@@ -60,5 +60,20 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "red_list_country_titles" do
+      should "add a single country" do
+        @calculator.countries = %w[spain]
+        @calculator.stubs(:red_list_countries).returns(%w[spain])
+
+        assert_equal %w[Spain], @calculator.red_list_country_titles
+      end
+
+      should "add more than one country" do
+        @calculator.countries = %w[spain italy poland]
+        @calculator.stubs(:red_list_countries).returns(%w[spain italy])
+
+        assert_equal %w[Spain Italy], @calculator.red_list_country_titles
+      end
+    end
   end
 end

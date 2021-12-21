@@ -113,10 +113,47 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
         assert_next_node :vaccination_status, for_response: "none"
       end
 
+      should "have a next node of going_to_countries_within_10_days " \
+                "for a 'none' response " \
+                "if travelling to a red list country" do
+        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+        assert_next_node :going_to_countries_within_10_days, for_response: "none"
+      end
+
       should "have a next node of vaccination_status " \
                 "for a country response " \
                 "if not travelling to a red list country" do
         assert_next_node :vaccination_status, for_response: "spain"
+      end
+
+      should "have a next node of going_to_countries_within_10_days " \
+                "for a country response " \
+                "if travelling to a red list country" do
+        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+        assert_next_node :going_to_countries_within_10_days, for_response: "spain"
+      end
+    end
+  end
+
+  context "question: going_to_countries_within_10_days" do
+    setup do
+      testing_node :going_to_countries_within_10_days
+      add_responses which_country: "spain",
+                    any_other_countries_1: "yes",
+                    which_1_country: "poland",
+                    any_other_countries_2: "no",
+                    transit_countries: "none"
+      SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of vaccination_status " \
+                "for any response " do
+        assert_next_node :vaccination_status, for_response: "no"
       end
     end
   end

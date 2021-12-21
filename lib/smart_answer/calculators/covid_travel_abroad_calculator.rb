@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     attr_reader :transit_countries, :travelling_with_children
-    attr_accessor :countries, :vaccination_status, :any_other_countries
+    attr_accessor :countries, :vaccination_status, :any_other_countries, :going_to_countries_within_10_days
 
     MAX_COUNTRIES = 99
 
@@ -34,6 +34,21 @@ module SmartAnswer::Calculators
       end
 
       transit_country_options
+    end
+
+    def red_list_country_titles
+      red_list_countries.map do |country|
+        location(country).title
+      end
+    end
+
+    def red_list_countries
+      countries.map { |country| country if red_list_country?(country) }.compact
+    end
+
+    def red_list_country?(slug)
+      world_location = location(slug)
+      world_location.covid_status == "red"
     end
   end
 end
