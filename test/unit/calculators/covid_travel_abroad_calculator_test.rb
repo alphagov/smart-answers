@@ -30,5 +30,35 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "transit_countries=" do
+      should "add a single country" do
+        @calculator.transit_countries = "spain"
+
+        assert_equal %w[spain], @calculator.transit_countries
+      end
+
+      should "add more than one country" do
+        @calculator.transit_countries = "spain,italy"
+
+        assert_equal %w[spain italy], @calculator.transit_countries
+      end
+    end
+
+    context "transit_country_options" do
+      should "add a single country" do
+        @calculator.countries = %w[spain]
+        expected = { spain: "Spain" }
+
+        assert_equal expected.with_indifferent_access, @calculator.transit_country_options
+      end
+
+      should "add more than one country" do
+        @calculator.countries = %w[spain italy]
+        expected = { spain: "Spain", italy: "Italy" }
+
+        assert_equal expected.with_indifferent_access, @calculator.transit_country_options
+      end
+    end
+
   end
 end

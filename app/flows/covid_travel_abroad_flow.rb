@@ -29,7 +29,11 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
 
         next_node do
           if calculator.any_other_countries == "no"
-            question :vaccination_status
+            if calculator.countries.count > 1
+              question :transit_countries
+            else
+              question :vaccination_status
+            end
           else
             question "which_#{calculator.countries.count}_country".to_sym
           end
@@ -50,6 +54,18 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
         next_node do
           question "any_other_countries_#{calculator.countries.count}".to_sym
         end
+      end
+    end
+
+    checkbox_question :transit_countries do
+      options { calculator.countries.dup << "none" }
+
+      on_response do |response|
+        calculator.transit_countries = response unless response == "none"
+      end
+
+      next_node do
+          question :vaccination_status
       end
     end
 

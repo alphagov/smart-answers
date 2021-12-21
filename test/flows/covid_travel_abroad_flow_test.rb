@@ -52,6 +52,15 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                 "when which country is 'spain' " do
         assert_next_node :which_1_country, for_response: "yes"
       end
+
+      should "have a next node of transit_countries " \
+               "for a 'no' response " \
+               "when more than one country has been selected " do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "yes",
+                      which_1_country: "italy"
+        assert_next_node :transit_countries, for_response: "no"
+      end
     end
   end
 
@@ -80,6 +89,34 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       should "have a next node of any_other_countries_2 " \
                 "for any response " do
         assert_next_node :any_other_countries_2, for_response: "italy"
+      end
+    end
+  end
+
+  context "question: transit_countries" do
+    setup do
+      testing_node :transit_countries
+      add_responses which_country: "spain",
+                    any_other_countries_1: "yes",
+                    which_1_country: "italy",
+                    any_other_countries_2: "no"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of vaccination_status " \
+                "for a 'none' response " \
+                "if not travelling to a red list country" do
+        assert_next_node :vaccination_status, for_response: "none"
+      end
+
+      should "have a next node of vaccination_status " \
+                "for a country response " \
+                "if not travelling to a red list country" do
+        assert_next_node :vaccination_status, for_response: "spain"
       end
     end
   end
