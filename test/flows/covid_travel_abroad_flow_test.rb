@@ -269,6 +269,35 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "You should read the Poland entry requirements"
       end
     end
+
+    context "content without a red list country" do
+      setup do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+      end
+
+      should "render vaccinated guidance when user is fully vaccinated" do
+        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
+      end
+
+      should "render unvaccinated guidance when user is not fully vaccinated" do
+        add_responses vaccination_status: "none"
+        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
+      end
+
+      should "render travelling with children zero to four guidance when user is travelling with children" do
+        add_responses travelling_with_children: "zero_to_four"
+        assert_rendered_outcome text: "Returning to England with children aged 4 and under"
+      end
+
+      should "render travelling with children five to seventeen guidance when user is travelling with children" do
+        add_responses travelling_with_children: "five_to_seventeen"
+        assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
+      end
     end
   end
 end

@@ -34,4 +34,18 @@
       </div>
     </div>
   <% end %>
+    <% if calculator.vaccination_status == "none" %>
+      <%= render partial: "not_fully_vaxed", locals: { calculator: calculator } %>
+    <% else %>
+      <%= render partial: "fully_vaxed", locals: { calculator: calculator } %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "children_five_to_seventeen" %>
+    <% end %>
+
 <% end %>
