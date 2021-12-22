@@ -62,6 +62,21 @@ class WorldLocation
     value
   end
 
+  def self.travel_rules
+    @travel_rules ||= YAML.load_file(Rails.root.join("config/smart_answers/covid_travel_abroad_data.yml"))
+  end
+
+  def covid_status
+    # Once the world location api returns the covid status, we should be able
+    # to replace this line with:
+    # location.fetch("england_coronavirus_travel", "")
+    rules = self.class.travel_rules["results"].select { |country| country["details"]["slug"] == slug }.first
+
+    return if rules.blank?
+
+    rules["england_coronavirus_travel"]["covid_status"]
+  end
+
   def initialize(location)
     @title = location.fetch("title", "")
     @details = location.fetch("details", {})

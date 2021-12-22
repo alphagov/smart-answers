@@ -1,0 +1,18 @@
+---
+results:
+  - title: Italy
+    details:
+      slug: italy
+    england_coronavirus_travel:
+      covid_status: green
+      next_covid_status:
+      next_covid_status_applies_at:
+      status_out_of_date: false
+  - title: South Africa
+    details:
+      slug: south-africa
+    england_coronavirus_travel:
+      covid_status: red
+      next_covid_status:
+      next_covid_status_applies_at:
+      status_out_of_date: false

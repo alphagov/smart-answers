@@ -272,4 +272,28 @@ class WorldLocationTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "england_coronavirus_travel" do
+    setup do
+      stub_worldwide_api_has_location("italy")
+      WorldLocation.stubs(:travel_rules).returns({
+        "results" => [
+          {
+            "title" => "Italy",
+            "details" => {
+              "slug" => "italy",
+            },
+            "england_coronavirus_travel" => {
+              "covid_status" => "red",
+            },
+          },
+        ],
+      })
+      @location = WorldLocation.find("italy")
+    end
+
+    should "find the covid status for a location" do
+      assert_equal "red", @location.covid_status
+    end
+  end
 end
