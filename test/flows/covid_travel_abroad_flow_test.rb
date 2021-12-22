@@ -293,6 +293,16 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
         add_responses travelling_with_children: "five_to_seventeen"
         assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
       end
+
+      should "render the exempt medical guidance" do
+        assert_rendered_outcome text: "Exemptions for medical reasons"
+      end
+
+      should "render the exempt compassionate guidance" do
+        assert_rendered_outcome text: "Exemptions for compassionate reasons"
+      end
+    end
+
     context "content without a red list country" do
       setup do
         add_responses which_country: "spain",
@@ -320,6 +330,14 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       should "render travelling with children five to seventeen guidance when user is travelling with children" do
         add_responses travelling_with_children: "five_to_seventeen"
         assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
+      end
+
+      should "render the exempt jobs guidance" do
+        assert_rendered_outcome text: "Exemptions because of your job"
+      end
+
+      should "render the arriving for urgent medical treatment guidance" do
+        assert_rendered_outcome text: "Returning to England to receive urgent medical treatment"
       end
     end
   end
