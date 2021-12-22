@@ -196,4 +196,79 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "outcome: results" do
+    setup do
+      testing_node :results
+      add_responses which_country: "poland",
+                    any_other_countries_1: "no",
+                    vaccination_status: "vaccinated",
+                    travelling_with_children: "none"
+    end
+
+    should "render 'travelling to' content" do
+      assert_rendered_outcome text: "You are travelling to"
+    end
+
+    should "render 'travelling through' content if at least one transit stop" do
+      add_responses any_other_countries_1: "yes",
+                    which_1_country: "spain",
+                    any_other_countries_2: "no",
+                    transit_countries: "spain"
+      assert_rendered_outcome text: "You are travelling through"
+    end
+
+    context "country specific content that has had the headers converted" do
+      setup do
+        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:countries_with_content_headers_converted).returns(%w[spain italy])
+        add_responses which_country: "italy"
+      end
+
+      should "render the specific country guidance" do
+        assert_rendered_outcome text: "You should read the following sections of the Italy entry requirements guidance"
+      end
+
+      should "render transiting guidance for transit countries" do
+        add_responses any_other_countries_1: "yes",
+                      which_1_country: "spain",
+                      any_other_countries_2: "no",
+                      transit_countries: "spain"
+        assert_rendered_outcome text: "travelling through Spain"
+      end
+
+      should "render guidance for people who aren't fully vaccinated" do
+        add_responses vaccination_status: "none"
+        assert_rendered_outcome text: "people who aren't fully vaccinated"
+      end
+
+      should "render guidance for people who are fully vaccinated" do
+        assert_rendered_outcome text: "fully vaccinated people"
+      end
+
+      should "render guidance for people travelling with children" do
+        add_responses travelling_with_children: "zero_to_four"
+        assert_rendered_outcome text: "travelling with children and young people"
+      end
+
+      should "render other guidance for entering" do
+        assert_rendered_outcome text: "There may be other requirements for entering"
+      end
+    end
+
+    context "country specific content that has not had the headers converted" do
+      setup do
+        add_responses which_country: "poland",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+      end
+
+      should "render the entry requirements" do
+        assert_rendered_outcome text: "You should read the Poland entry requirements"
+      end
+    end
+    end
+  end
 end

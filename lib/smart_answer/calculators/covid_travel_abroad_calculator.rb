@@ -56,5 +56,9 @@ module SmartAnswer::Calculators
       world_location = location(slug)
       world_location.covid_status == "red"
     end
+
+    def countries_with_content_headers_converted
+      %w[denmark spain]
+    end
   end
 end
