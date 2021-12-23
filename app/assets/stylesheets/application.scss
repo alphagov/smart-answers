@@ -22,6 +22,7 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/radio";
 @import "govuk_publishing_components/components/related-navigation";
 @import "govuk_publishing_components/components/select";
+@import 'govuk_publishing_components/components/signup-link';
 @import "govuk_publishing_components/components/step-by-step-nav";
 @import "govuk_publishing_components/components/step-by-step-nav-header";
 @import "govuk_publishing_components/components/step-by-step-nav-related";
@@ -30,7 +31,6 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/title";
 @import "govuk_publishing_components/components/warning-text";
 
-@import "components/email-link";
 @import "components/result-item";
 @import "components/result-sections";
 @import "components/user-research-banner";
