@@ -16,6 +16,15 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "country_locations" do
+      should "find a country if it exists" do
+        @calculator.countries << "spain"
+        country = @calculator.location("spain")
+
+        assert_equal [country], @calculator.country_locations
+      end
+    end
+
     context "travelling_with_children=" do
       should "add a single response" do
         @calculator.travelling_with_children = "zero_to_four"

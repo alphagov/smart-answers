@@ -15,6 +15,12 @@ module SmartAnswer::Calculators
       WorldLocation.find(slug)
     end
 
+    def country_locations
+      countries.map do |country|
+        location(country)
+      end
+    end
+
     def travelling_with_children=(travelling_with_children)
       travelling_with_children.split(",").each do |response|
         @travelling_with_children << response
