@@ -42,6 +42,10 @@ module SmartAnswer::Calculators
       transit_country_options
     end
 
+    def travelling_to_red_list_country?
+      going_to_countries_within_10_days == "yes"
+    end
+
     def red_list_country_titles
       red_list_countries.map do |country|
         location(country).title

@@ -84,5 +84,19 @@ module SmartAnswer::Calculators
         assert_equal %w[Spain Italy], @calculator.red_list_country_titles
       end
     end
+
+    context "travelling_to_red_list_country?" do
+      should "return true if going to any country on the red list" do
+        @calculator.going_to_countries_within_10_days = "yes"
+
+        assert @calculator.travelling_to_red_list_country?
+      end
+
+      should "return false if not going to any country on the red list" do
+        @calculator.going_to_countries_within_10_days = "no"
+
+        assert_not @calculator.travelling_to_red_list_country?
+      end
+    end
   end
 end

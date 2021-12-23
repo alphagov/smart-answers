@@ -270,6 +270,29 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       end
     end
 
+    context "content with a red list country" do
+      setup do
+        add_responses which_country: "spain",
+                      any_other_countries_1: "no",
+                      going_to_countries_within_10_days: "yes",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+      end
+
+      should "render red list country guidance" do
+        assert_rendered_outcome text: "Returning to England after visiting a red list country"
+      end
+
+      should "render travelling with children zero to four guidance when user is travelling with children" do
+        add_responses travelling_with_children: "zero_to_four"
+        assert_rendered_outcome text: "Returning to England with children aged 4 and under"
+      end
+
+      should "render travelling with children five to seventeen guidance when user is travelling with children" do
+        add_responses travelling_with_children: "five_to_seventeen"
+        assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
+      end
     context "content without a red list country" do
       setup do
         add_responses which_country: "spain",

@@ -34,6 +34,18 @@
       </div>
     </div>
   <% end %>
+
+  <% if calculator.travelling_to_red_list_country? %>
+    <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "red_list_children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "red_list_children_five_to_seventeen" %>
+    <% end %>
+  <% else %>
     <% if calculator.vaccination_status == "none" %>
       <%= render partial: "not_fully_vaxed", locals: { calculator: calculator } %>
     <% else %>
@@ -48,4 +60,5 @@
       <%= render partial: "children_five_to_seventeen" %>
     <% end %>
 
+  <% end %>
 <% end %>
