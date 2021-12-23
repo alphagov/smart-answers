@@ -4,6 +4,16 @@ module SmartAnswer::Calculators
   class CovidTravelAbroadCalculatorTest < ActiveSupport::TestCase
     setup do
       @calculator = CovidTravelAbroadCalculator.new
+
+      stub_worldwide_api_has_locations(%w[spain italy poland])
+    end
+
+    context "location" do
+      should "find a country if it exists" do
+        country = @calculator.location("spain")
+
+        assert_equal "spain", country.slug
+      end
     end
 
     context "travelling_with_children=" do

@@ -10,6 +10,10 @@ module SmartAnswer::Calculators
       @travelling_with_children = []
     end
 
+    def location(slug)
+      WorldLocation.find(slug)
+    end
+
     def travelling_with_children=(travelling_with_children)
       travelling_with_children.split(",").each do |response|
         @travelling_with_children << response
