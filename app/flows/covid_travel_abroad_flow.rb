@@ -5,6 +5,21 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     status :draft
     response_store :query_parameters
 
+    checkbox_question :travelling_with_children do
+      option :zero_to_four
+      option :five_to_seventeen
+      none_option
+
+      on_response do |response|
+        self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
+        calculator.travelling_with_children = response
+      end
+
+      next_node do
+        outcome :results
+      end
+    end
+
     outcome :results
   end
 end
