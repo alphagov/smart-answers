@@ -5,6 +5,17 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
     status :draft
     response_store :query_parameters
 
+    country_select "which_country".to_sym, exclude_countries: [] do
+      on_response do |response|
+        self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
+        calculator.countries << response
+      end
+
+      next_node do
+        question :vaccination_status
+      end
+    end
+
     radio :vaccination_status do
       option :vaccinated
       option :in_trial
@@ -12,7 +23,6 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       option :none
 
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
         calculator.vaccination_status = response
       end
 

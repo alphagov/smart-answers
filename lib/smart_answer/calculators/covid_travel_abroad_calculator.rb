@@ -1,9 +1,10 @@
 module SmartAnswer::Calculators
   class CovidTravelAbroadCalculator
     attr_reader :travelling_with_children
-    attr_accessor :vaccination_status
+    attr_accessor :countries, :vaccination_status
 
     def initialize
+      @countries = []
       @travelling_with_children = []
     end
 
