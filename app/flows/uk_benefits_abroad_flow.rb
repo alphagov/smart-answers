@@ -146,7 +146,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           end
         when "disability_benefits"
           if calculator.eea_country?
-            question :db_claiming_benefits? # Q30 going_abroad and Q29 already_abroad
+            question :worked_in_eea_or_switzerland?
           elsif calculator.going_abroad
             outcome :db_going_abroad_other_outcome # A36 going_abroad
           else
@@ -400,42 +400,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           question :which_country? # Shared question
         when "no"
           outcome :iidb_maybe_outcome # A30 already_abroad and A31 going_abroad
-        end
-      end
-    end
-
-    # Q30 going_abroad and Q29 already_abroad
-    radio :db_claiming_benefits? do
-      option :yes
-      option :no
-
-      next_node do |response|
-        if calculator.going_abroad
-          if response == "yes"
-            case calculator.country
-            when "ireland"
-              question :is_british_or_irish?
-            when "gibraltar"
-              outcome :db_going_abroad_gibraltar_outcome
-            else
-              question :worked_in_eea_or_switzerland? # A37 going_abroad
-            end
-          else
-            outcome :db_going_abroad_other_outcome # A36 going_abroad
-          end
-        elsif calculator.already_abroad
-          if response == "yes"
-            case calculator.country
-            when "ireland"
-              question :is_british_or_irish?
-            when "gibraltar"
-              outcome :db_already_abroad_gibraltar_outcome
-            else
-              question :worked_in_eea_or_switzerland? # A37 going_abroad
-            end
-          else
-            outcome :db_already_abroad_other_outcome # A35 already_abroad
-          end
         end
       end
     end
@@ -742,8 +706,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
     outcome :db_already_abroad_temporary_outcome # A34 already_abroad
     outcome :db_already_abroad_other_outcome # A35 already_abroad
     outcome :db_already_abroad_eea_outcome # A36 already_abroad
-    outcome :db_already_abroad_gibraltar_outcome
-    outcome :db_going_abroad_gibraltar_outcome
     outcome :bb_already_abroad_eea_outcome # A37 already_abroad
     outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
     outcome :bb_already_abroad_other_outcome # A39 already_abroad
