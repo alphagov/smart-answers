@@ -75,6 +75,10 @@ module SmartAnswer::Calculators
       @passport_country == "syria"
     end
 
+    def passport_country_is_india?
+      @passport_country == "india"
+    end
+
     def passport_country_is_israel?
       @passport_country == "israel"
     end

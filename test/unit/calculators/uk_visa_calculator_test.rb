@@ -283,6 +283,20 @@ module SmartAnswer
         end
       end
 
+      context "#passport_country_is_india?" do
+        should 'return true if passport_country is "india"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "india"
+          assert calculator.passport_country_is_india?
+        end
+
+        should 'return false if passport_country is not "india"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "made-up-country"
+          assert_not calculator.passport_country_is_india?
+        end
+      end
+
       context "#passport_country_is_israel?" do
         should 'return true if passport_country is "israel"' do
           calculator = UkVisaCalculator.new
