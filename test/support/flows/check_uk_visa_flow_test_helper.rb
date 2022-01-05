@@ -39,6 +39,13 @@ module CheckUkVisaFlowTestHelper
     end
   end
 
+  def test_india_young_professionals_visa_guidance
+    should "render visa guidance when passport country is India" do
+      add_responses what_passport_do_you_have?: "india"
+      assert_rendered_outcome text: "You may be able to live and work in the UK with an India Young Professionals Scheme visa"
+    end
+  end
+
   def test_country_in_uk_ancestry_visa
     should "render visa country guidance when passport country is in the UK Ancestry Visa list" do
       add_responses what_passport_do_you_have?: "canada"

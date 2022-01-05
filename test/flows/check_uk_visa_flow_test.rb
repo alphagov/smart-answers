@@ -21,6 +21,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
+                                      "india",
                                       "israel",
                                       "ireland",
                                       "estonia",
@@ -764,6 +765,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa
       test_visa_count("canada", 6)
       test_visa_count("china", 4)
@@ -782,6 +784,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_visa_count("canada", 8)
       test_visa_count("china", 6)
       test_visa_count("british-national-overseas", 9)
@@ -799,6 +802,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa_with_business_information
       test_visa_count("canada", 7)
       test_visa_count("china", 5)
@@ -817,6 +821,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa
       test_visa_count("canada", 5)
       test_visa_count("china", 3)
@@ -835,6 +840,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa
       test_visa_count("canada", 7)
       test_visa_count("china", 5)
@@ -853,6 +859,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa
       test_visa_count("canada", 8)
       test_visa_count("china", 6)
@@ -871,6 +878,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
+      test_india_young_professionals_visa_guidance
       test_country_in_uk_ancestry_visa
       test_visa_count("canada", 4)
       test_visa_count("china", 2)

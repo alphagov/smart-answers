@@ -9,6 +9,8 @@
         - name: global_talent_academic
         - name: temporary_worker_government_authorised_exchange_academic
         - name: work_at_multinational_company
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -22,6 +24,8 @@
         - name: global_talent_arts
         - name: temporary_worker_creative_and_sporting_arts
         - name: work_at_multinational_company
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -37,6 +41,8 @@
           number_of_visas: 2
         - name: global_talent_business
         - name: representative_of_overseas_business_business
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -50,6 +56,8 @@
         - name: eligible_skilled_job_digital
         - name: global_talent_digital
         - name: work_at_multinational_company
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -62,6 +70,8 @@
         - name: eligible_skilled_job_health
           number_of_visas: 2
         - name: work_at_multinational_company
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -75,6 +85,8 @@
           condition: passport_country_in_british_national_overseas_list?
         - name: eligible_skilled_job_other
         - name: work_at_multinational_company
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -90,6 +102,8 @@
           condition: passport_country_in_british_national_overseas_list?
         - name: temporary_worker_religious_worker
         - name: minister_of_religion
+        - name: india_young_professionals_scheme
+          condition: passport_country_is_india?
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
