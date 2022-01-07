@@ -18,6 +18,7 @@ module SmartAnswer::Calculators
         "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
         "2019-20-covid-easement": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2021).begins_on,
         "2020-21": ONLINE_FILING_DEADLINE_YEAR.starting_in(2022).begins_on,
+        "2020-21-covid-easement": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2022).begins_on,
       },
       paper_filing_deadline: {
         "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
@@ -86,7 +87,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_payment_date?
-      return true if tax_year == "2019-20"
+      return true if (tax_year == "2019-20") || (tax_year == "2020-21")
 
       filing_date <= payment_date
     end
@@ -151,11 +152,11 @@ module SmartAnswer::Calculators
     end
 
     def interest_accrual_start_date_for_year
-      tax_year == "2019-20" ? payment_date - 1.day : payment_date - 2.days
+      (tax_year == "2019-20") || (tax_year == "2020-21") ? payment_date - 1.day : payment_date - 2.days
     end
 
     def first_late_payment_days
-      tax_year == "2019-20" ? 60 : 30
+      (tax_year == "2019-20") || (tax_year == "2020-21") ? 60 : 30
     end
 
     def total_owed
@@ -198,7 +199,10 @@ module SmartAnswer::Calculators
     end
 
     def filed_during_covid_deadline_easement?
-      tax_year == "2019-20" && filing_date < Date.parse("2021-03-01")
+      covid_easement_first_year = (tax_year == "2019-20" && filing_date < Date.parse("2021-03-01"))
+      covid_easement_second_year = (tax_year == "2020-21" && filing_date < Date.parse("2022-03-01"))
+
+      covid_easement_first_year || covid_easement_second_year
     end
 
     def payment_deadline
@@ -212,10 +216,15 @@ module SmartAnswer::Calculators
     def daily_rate(date)
       # Rate decreased to 2.6% on 7 April 2020
       rate_change_date = Date.new(2020, 4, 7)
-      if date < rate_change_date
-        0.0325 / 365.0
-      else
+      # Rate increased to 2.75% on 4 january 2022
+      second_rate_change_date = Date.new(2022, 1, 4)
+
+      if date >= second_rate_change_date
+        0.0275 / 365.0
+      elsif date >= rate_change_date
         0.026 / 365.0
+      else
+        0.0325 / 365.0
       end
     end
   end
