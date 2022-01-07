@@ -202,9 +202,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.motorcycle?
-          question :drive_business_miles_motorcycle?
-        elsif calculator.working_from_home?
+        if calculator.working_from_home?
           question :hours_work_home?
         elsif calculator.living_on_business_premises?
           question :deduct_from_premises?
@@ -255,11 +253,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.living_on_business_premises?
-          question :deduct_from_premises?
-        else
-          outcome :you_can_use_result
-        end
+        outcome :you_can_use_result
       end
     end
 
