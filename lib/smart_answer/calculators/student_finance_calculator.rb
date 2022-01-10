@@ -80,8 +80,8 @@ module SmartAnswer
         },
         "2022-2023" => {
           "at-home" => 3_597,
-          "away-outside-london" => 4_422,
-          "away-in-london" => 6_166,
+          "away-outside-london" => 4_524,
+          "away-in-london" => 6_308,
         },
       }.freeze
 

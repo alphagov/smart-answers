@@ -669,8 +669,8 @@ module SmartAnswer
                 55_000 => 5540,
                 60_000 => 4845,
                 62_215 => 4538,
-                65_000 => 4422,
-                70_000 => 4422,
+                65_000 => 4524,
+                70_000 => 4524,
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
@@ -682,14 +682,14 @@ module SmartAnswer
               end
             end
 
-            should "cap the reductions and give the minimum loan of £4,422 for high household income students" do
+            should "cap the reductions and give the minimum loan of £4,524 for high household income students" do
               calculator = StudentFinanceCalculator.new(
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal SmartAnswer::Money.new(4422).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(4_524).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -722,7 +722,7 @@ module SmartAnswer
                 65_000 => 7018,
                 69_860 => 6331,
                 70_000 => 6312,
-                75_000 => 6166,
+                75_000 => 6308,
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
@@ -741,7 +741,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal SmartAnswer::Money.new(6166).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(6308).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
