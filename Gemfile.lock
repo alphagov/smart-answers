@@ -123,7 +123,7 @@ GEM
       zendesk_api (~> 1.27)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    govspeak (6.7.7)
+    govspeak (6.7.8)
       actionview (>= 5.0, < 7)
       addressable (>= 2.3.8, < 3)
       govuk_publishing_components (>= 23)
