@@ -1,0 +1,88 @@
+<% content = capture do %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Before you travel to England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">You must:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="https://www.gov.uk/guidance/coronavirus-covid-19-testing-for-people-travelling-to-england" class="govuk-link">take a pre-departure COVID-19 test</a> within the 3 days before you travel to England</li>
+    <li><a href="https://www.gov.uk/find-travel-test-provider" class="govuk-link">book and pay for day 2 and day 8 COVID-19 PCR tests</a> to take after you arrive in England</li>
+    <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> within the 48 hours before you arrive in England</li>
+  </ul>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "When you arrive in England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">You must:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="https://www.gov.uk/guidance/how-to-quarantine-when-you-arrive-in-england" class="govuk-link">quarantine at home or in the place you're staying for 10 days</a></li>
+    <li>take the COVID-19 PCR tests that you booked before travel - take the first test on or before day 2 and the second test on or after day 8 (the day you arrive is day 0)</li>
+  </ul>
+
+  <p class="govuk-body">If you're in England for less than 10 days, you must quarantine for the length of your stay. You must book day 2 and day 8 PCR tests but only need to take them if you are still in England on those days.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "If the test result is positive",
+    heading_level: 4,
+    font_size: "s",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">If your day 2 test is positive, you must <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do" class="govuk-link">self-isolate</a> for 10 days (the day you took the test is day 0). You do not need to take the day 8 test.</p>
+
+  <p class="govuk-body">If your day 8 test is positive, you must <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do" class="govuk-link">self-isolate</a> for 10 days (the day you took the day 8 test is day 0).</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "If the test result is negative",
+    heading_level: 4,
+    font_size: "s",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">If your day 2 test is negative, you must continue to quarantine then take your day 8 test on or after day 8.</p>
+
+  <p class="govuk-body">If your day 8 test is negative and you receive the result before day 10, you must continue to quarantine but can stop on day 10 (the day you arrived in England is day 0).</p>
+
+  <p class="govuk-body">If your day 8 test is negative and you receive the result after day 10, you can stop quarantine when you get the result (the day you arrived in England is day 0).</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "If the test result is unclear",
+    heading_level: 4,
+    font_size: "s",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">If the result of your day 2 test is unclear, you must self-isolate for 10 full days (the day you took the test is day 0).</p>
+
+  <p class="govuk-body">If your day 8 test is unclear, you must self-isolate for 10 full days (the day you took the day 8 test is day 0).</p>
+
+  <p class="govuk-body">You can choose to take another private test. If that test result is negative and you receive the result before day 10, you must continue to quarantine but can stop on day 10 (the day you arrived in England is day 0)you can stop quarantine on day 10. If that test result is negative and you receive the result after day 10, you can stop quarantine when you get the result (the day you arrived in England is day 0).</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Ending quarantine early using Test to Release",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">You may be able to end quarantine early if you pay for a private COVID-19 test through the <a href="https://www.gov.uk/guidance/coronavirus-covid-19-test-to-release-for-international-travel" class="govuk-link">Test to Release</a> scheme.</p>
+<% end %>
+
+<%
+  data = {
+    title: "Returning to England if you're not fully vaccinated",
+    reasons: ['You are not fully vaccinated'],
+    content: content
+  }
+%>
+
+<%= render partial: "travel_result_layout", locals: { data: data, calculator: calculator } %>

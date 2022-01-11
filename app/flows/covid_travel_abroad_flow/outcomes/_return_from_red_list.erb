@@ -1,0 +1,51 @@
+<% content = capture do %>
+  <p class="govuk-body">You've said you'll be in a red list country within 10 days of arriving in England. This means different rules apply for entering England.</p>
+
+  <p class="govuk-body">You will only be allowed to enter the UK if you either:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>are a British or Irish National</li>
+    <li>have residence rights in the UK</li>
+  </ul>
+
+  <p class="govuk-body">If you live in England, you should not travel to countries or territories on the red list.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Before you travel to England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">You must:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>take a COVID-19 test – you must take the test in the 3 days before you travel to England</li>
+    <li><a href="https://www.gov.uk/guidance/booking-and-staying-in-a-quarantine-hotel-when-you-arrive-in-england" class="govuk-link">book a quarantine hotel package, including 2 COVID-19 tests</a></li>
+    <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a></li>
+  </ul>
+
+  <p class="govuk-body">You must do this even if you are fully vaccinated.</p>
+
+  <p class="govuk-body"><a href="https://www.gov.uk/guidance/coronavirus-covid-19-testing-for-people-travelling-to-england" class="govuk-link">Read more about taking a COVID-19 test before you travel to England</a>.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "When you arrive in England",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">When you arrive in England you must <a href="https://www.gov.uk/guidance/booking-and-staying-in-a-quarantine-hotel-when-you-arrive-in-england" class="govuk-link">quarantine in a managed hotel, and take 2 COVID-19 tests</a>.</p>
+
+  <p class="govuk-body">You must do this even if you are fully vaccinated.</p>
+<% end %>
+
+<%
+  data = {
+    title: "Returning to England after visiting a red list country",
+    reasons: ['You will be in a red list country within 10 days of returning to England'],
+    content: content
+  }
+%>
+
+<%= render partial: "travel_result_layout", locals: { data: data, calculator: calculator } %>

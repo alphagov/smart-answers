@@ -1,0 +1,39 @@
+<% outcome = @presenter.current_node %>
+<% content_for :outcome_title do %>
+  <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
+<% end %>
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<div id="result-info" class="outcome">
+  <%= render 'smart_answers/shared/debug' %>
+  <%= render "govuk_publishing_components/components/title", {
+    title: "Information based on your answers",
+    context: @presenter.title + ":",
+    context_inside: true,
+  } %>
+
+  <div class="govuk-!-margin-bottom-6" data-module="track-results" data-flow-name="<%= @name %>">
+    <% if outcome.title.present? %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: outcome.title,
+        margin_bottom: 6
+      } %>
+    <% end %>
+
+    <%= outcome.body %>
+  </div>
+
+  <% if outcome.next_steps.present? %>
+    <div class="govuk-!-margin-bottom-6">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Next steps",
+        margin_bottom: 6
+      } %>
+      <%= outcome.next_steps %>
+    </div>
+  <% end %>
+
+  <%= render 'smart_answers/shared/previous_answers' %>
+</div>

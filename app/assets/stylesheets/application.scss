@@ -36,3 +36,30 @@ $govuk-new-link-styles: true;
 @import "components/result-sections";
 @import "components/user-research-banner";
 @import "smart_answers";
+
+.travel-abroad__heading {
+  padding: govuk-spacing(4) 0;
+  margin-bottom: govuk-spacing(4);
+  border-top: solid 3px $govuk-link-colour;
+  border-bottom: solid 1px $govuk-border-colour;
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-spacing(8);
+  }
+}
+
+.travel-abroad__section {
+  margin-bottom: govuk-spacing(2);
+
+  & + .travel-abroad__heading {
+    margin-top: govuk-spacing(8);
+  }
+}
+
+.travel-abroad__country {
+  margin-bottom: govuk-spacing(7);
+}
+
+.travel-abroad__reasons {
+  margin-bottom: govuk-spacing(6);
+}

@@ -1,0 +1,70 @@
+<% html_for :body do %>
+  <%= render "govuk_publishing_components/components/print_link" %>
+
+  <%= render "govuk_publishing_components/components/signup_link", {
+    heading: "What you need to do may change",
+    link_text: "Sign up for email updates about travel",
+    link_href: "/fix-me",
+    background: true,
+    margin_bottom: 8
+  } %>
+
+  <div class="travel-abroad__heading">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Travelling abroad from England",
+      font_size: "l",
+    } %>
+  </div>
+
+  <% calculator.country_locations.each do |country| %>
+    <div class="govuk-grid-row travel-abroad__country">
+      <div class="govuk-grid-column-one-third travel-abroad__reasons">
+        <p class="govuk-body govuk-body-s">Because you said</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <% if calculator.transit_countries.include?(country.slug) %>
+            <li>You are travelling through <%= country.title %></li>
+          <% else %>
+            <li>You are travelling to <%= country.title %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <%= render partial: "country", locals: { calculator: calculator, country: country } %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if calculator.travelling_to_red_list_country? %>
+    <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "red_list_children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "red_list_children_five_to_seventeen" %>
+    <% end %>
+
+    <%= render partial: "exempt_medical" %>
+    <%= render partial: "exempt_compassionate" %>
+  <% else %>
+    <% if calculator.vaccination_status == "none" %>
+      <%= render partial: "not_fully_vaxed", locals: { calculator: calculator } %>
+    <% else %>
+      <%= render partial: "fully_vaxed", locals: { calculator: calculator } %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("zero_to_four") %>
+      <%= render partial: "children_zero_to_four" %>
+    <% end %>
+
+    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
+      <%= render partial: "children_five_to_seventeen" %>
+    <% end %>
+
+    <%= render partial: "exempt_job" %>
+    <%= render partial: "medical_treatment" %>
+  <% end %>
+  <p class="govuk-body">There may be <a href="https://Jupiter1:Jupiter1@testhostingspace.com/travel-sbfgxq/" class="govuk-link">other things you need to do when travelling abroad</a>.</p>
+<% end %>
