@@ -347,7 +347,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     should "render text if student has a disability" do
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
 
-      assert_rendered_outcome text: "Disabled Students’ Allowances"
+      assert_rendered_outcome text: "Disabled Students’ Allowance"
     end
 
     should "render text if student has low income" do
@@ -425,7 +425,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     should "render text if student has a disability" do
       add_responses do_any_of_the_following_apply_all_uk_students?: "has-disability"
 
-      assert_rendered_outcome text: "Disabled Students’ Allowances"
+      assert_rendered_outcome text: "Disabled Students’ Allowance"
     end
 
     should "render text if student has low income" do
@@ -488,7 +488,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     should "render text if student has a disability" do
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
 
-      assert_rendered_outcome text: "Disabled Students’ Allowances"
+      assert_rendered_outcome text: "Disabled Students’ Allowance"
     end
 
     should "render text if student has children under 17" do
