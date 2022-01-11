@@ -27,6 +27,9 @@
   "stylelint": {
     "extends": "stylelint-config-gds/scss"
   },
+  "dependencies": {
+    "accessible-autocomplete": "^2.0.3"
+  },
   "devDependencies": {
     "standardx": "^7.0.0",
     "stylelint": "^13.13.1",

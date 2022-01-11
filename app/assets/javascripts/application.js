@@ -9,3 +9,4 @@
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require modules/track-responses
 //= require modules/track-results
+//= require components/autocomplete
