@@ -12,12 +12,12 @@
   post_to_rest_of_the_world: £25
 
 - start_date: 2021-03-04
-  end_date: 2022-01-13
+  end_date: 2022-01-16
   post_to_uk: £5 per 1.5kg
   post_to_europe: £15 per 1.5kg
   post_to_rest_of_the_world: £20 per 1.5kg
 
-- start_date: 2022-01-14
+- start_date: 2022-01-17
   end_date: 2999-01-01
   post_to_uk: £5 per 1.5kg
   post_to_europe: £17.50 per 1.5kg
