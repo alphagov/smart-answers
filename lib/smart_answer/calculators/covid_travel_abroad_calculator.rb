@@ -62,7 +62,7 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_content_headers_converted
-      %w[denmark spain]
+      %w[denmark spain germany]
     end
   end
 end
