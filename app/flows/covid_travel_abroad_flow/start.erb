@@ -1,37 +1,36 @@
 <% text_for :title do %>
-  Travelling from and to England during coronavirus (COVID-19): check what you need to do
+  Foreign travel during coronavirus (COVID-19): find out what you need to do
 <% end %>
 
 <% govspeak_for :body do %>
-  <p>If you're a British citizen travelling from and to England during coronavirus (COVID-19), there are things you need to do before you travel and after you arrive.</p>
+  <p>If you're travelling from and to England during coronavirus (COVID-19), there are things you need to do before you travel and after you arrive.</p>
 
   <p>Use this tool to find out:</p>
 
   <ul>
     <li>entry requirements for the country you're going to or travelling through</li>
+    <li>whether a country you’re going to or travelling through is on the red list</li>
     <li>what tests you need to take and when</li>
     <li>when you need to quarantine</li>
     <li>what you need to do to travel with children</li>
-    <li>what you need to do before and after you travel to England</li>
+    <li>what you need to do before and after you return to England</li>
     <li>whether you're exempt from any rules</li>
   </ul>
+
+  <p>You will be asked a series of questions so we can show you information relevant to your journey and circumstances.</p>
+
+  $CTA
+  There are different rules if you're <a href="https://www.gov.scot/publications/coronavirus-covid-19-international-travel-quarantine/">travelling to Scotland</a>, <a href="https://gov.wales/rules-international-travel-and-wales-coronavirus">travelling to Wales</a> or <a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-travel-advice">travelling to Northern Ireland</a>
+  $CTA
 <% end %>
 
 <% govspeak_for :post_body do %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: "If you're travelling within the UK, Channel Islands and the Isle of Man",
+    text: "Travelling to England from within the UK, Channel Islands and the Isle of Man",
     font_size: "m",
     margin_bottom: 4,
   } %>
 
-  <p>Check the rules on travel from England if you're travelling to:</p>
-
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-international-travel-advice">Northern Ireland</a></li>
-    <li><a href="https://www.gov.scot/publications/coronavirus-covid-19-guidance-on-travel-and-transport">Scotland</a></li>
-    <li><a href="https://gov.wales/foreign-travel-and-returning-home">Wales</a></li>
-    <li><a href="https://covid19.gov.im/travel/travel-to-the-isle-of-man">the Isle of Man</a></li>
-    <li>the Channel Islands (<a href="https://www.gov.je/Health/Coronavirus/Travel/Pages/CoronavirusTravelAdvice.aspx">Jersey</a> and <a href="https://covid19.gov.gg/guidance/travel">Guernsey</a>)</li>
-  </ul>
-  <p>If you're travelling to England from within the UK, Ireland, the Channel Islands or the Isle of Man and haven't been anywhere else within the 10 days before you arrive, there are no entry requirements for coming into England.</p>
+  <p>If you’re travelling to England from within the Common Travel Area (England, Scotland, Wales and Northern Ireland, Ireland, the Channel Islands and the Isle of Man) and haven’t been anywhere else within the 10 days before you arrive, there are no entry requirements for coming into England.</p>
+  <p>If you’ve been to a country or territory outside the Common Travel Area within the 10 days before you arrive in England, you must follow the rules for entering England from that country. You can use this tool to find out those rules.</p>
 <% end %>
