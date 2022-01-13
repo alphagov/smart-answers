@@ -5,30 +5,31 @@
   margin_bottom: 4,
 } %>
 
-<% if calculator.countries_with_content_headers_converted.include?(country.slug) %>
+<% foreign_travel_advice = calculator.foreign_travel_advice(country.slug) %>
+<% existing_sections = foreign_travel_advice.existing_sections %>
+
+<p>This tells you which sections are available. But it only tells you that the header exists, not wether or not it has any content.</p>
+<%= existing_sections %>
+
+<% if foreign_travel_advice.complete %>
+  <p>This dumps the actual content.</p>
+  <% content = foreign_travel_advice.content %>
   <p class="govuk-body">You should read the following sections of the <%= country.title %> entry requirements guidance on:</p>
 
-  <% if calculator.transit_countries.include?(country.slug) %>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements#if-youre-transiting-through-<%= country.slug %>" class="govuk-link">travelling through <%= country.title %></a></li>
-    </ul>
-  <% else %>
-    <ul class="govuk-list govuk-list--bullet">
-      <% if calculator.vaccination_status == "none" %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link">people who aren't fully vaccinated</a></li>
-      <% else %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated" class="govuk-link">fully vaccinated people</a></li>
-      <% end %>
+  <% content.each do |header, nodes| %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: header,
+      heading_level: 4,
+      font_size: "m",
+      margin_bottom: 4,
+    } %>
 
-      <% unless calculator.travelling_with_children == ["none"] %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#children-and-young-people" class="govuk-link">travelling with children and young people</a></li>
-      <% end %>
-
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#exemptions" class="govuk-link">exemptions</a></li>
-    </ul>
-
-    <p class="govuk-body">There may be <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link">other requirements for entering <%= country.title %></a> that you need to follow.</p>
+    <% nodes.each do |node| %>
+      <div class="govuk-body"><%= raw node %></div>
+    <% end %>
   <% end %>
+
+  <p class="govuk-body">There may be <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link">other requirements for entering <%= country.title %></a> that you need to follow.</p>
 <% else %>
   <p class="govuk-body">You should read the <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link"><%= country.title %> entry requirements</a>.</p>
 <% end %>

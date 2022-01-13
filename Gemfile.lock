@@ -169,6 +169,9 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     inflection (1.0.0)
@@ -212,6 +215,7 @@ GEM
     minitest-focus (1.2.1)
       minitest (>= 4, < 6)
     mocha (1.11.2)
+    multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
@@ -417,6 +421,7 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_test
   htmlentities
+  httparty
   jasmine
   jasmine_selenium_runner
   json

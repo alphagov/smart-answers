@@ -26,6 +26,9 @@ gem "tilt"
 gem "uglifier"
 gem "uk_postcode"
 
+gem "httparty"
+
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
