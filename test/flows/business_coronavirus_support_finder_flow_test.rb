@@ -225,5 +225,12 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "You can be eligible for both Northern Ireland and UK-wide schemes."
     end
+
+    should "render omicron_hospitality_and_leisure_grant if business_based is set to england and sectors include retail_hospitality_or_leisure" do
+      add_responses sectors?: %w[retail_hospitality_or_leisure],
+                    non_domestic_property?: "not_sure"
+
+      assert_rendered_outcome text: "Omicron Hospitality and Leisure Grant"
+    end
   end
 end

@@ -176,6 +176,27 @@ module SmartAnswer::Calculators
           assert_not @calculator.show?(:council_grants)
         end
       end
+
+      context "omicron_hospitality_and_leisure_grant" do
+        setup do
+          @calculator.business_based = "england"
+          @calculator.sectors = %w[retail_hospitality_or_leisure]
+        end
+
+        should "return true when criteria met" do
+          assert @calculator.show?(:omicron_hospitality_and_leisure_grant)
+        end
+
+        should "return false when in a devolved admininstration" do
+          @calculator.business_based = "scotland"
+          assert_not @calculator.show?(:omicron_hospitality_and_leisure_grant)
+        end
+
+        should "return false when not supported business sectors" do
+          @calculator.sectors = %w[none]
+          assert_not @calculator.show?(:omicron_hospitality_and_leisure_grant)
+        end
+      end
     end
   end
 end

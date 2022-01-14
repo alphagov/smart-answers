@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
           calculator.non_domestic_property != "no" &&
           calculator.sectors.include?("retail_hospitality_or_leisure")
       },
+      omicron_hospitality_and_leisure_grant: lambda { |calculator|
+        calculator.business_based == "england" &&
+          calculator.sectors.include?("retail_hospitality_or_leisure")
+      },
       nursery_support: lambda { |calculator|
         calculator.business_based == "england" &&
           calculator.non_domestic_property != "no" &&
