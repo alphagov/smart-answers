@@ -1,12 +1,13 @@
 <% text_for :title do %>
-  Will you be going to any red list countries within 10 days before you return to England?
+  Will you be going to a red list country in the 10 days before you return to England?
 <% end %>
 
 <% govspeak_for :body do %>
   <%= render "govuk_publishing_components/components/details", {
-    title: "Why we're asking this question:"
+    title: "Why we’re asking this question:"
   } do %>
-    Different rules apply if you've been in a red list country within 10 days of returning to England.
+    You've told us you’re going to a country on the travel red list.
+    Different rules apply if you’ve been in a red list country in the 10 days before you return to England.
   <% end %>
 
   These are the red list countries you said you're going to:
@@ -17,6 +18,6 @@
 <% end %>
 
 <% options(
-  "yes": "Yes",
-  "no": "No",
+  "yes": "Yes, I’m going to a red list country in the 10 days before I return to England",
+  "no": "No, I’m not going to a red list country in the 10 days before I return to England",
 ) %>
