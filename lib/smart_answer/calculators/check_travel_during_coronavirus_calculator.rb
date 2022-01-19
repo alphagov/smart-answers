@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class CovidTravelAbroadCalculator
+  class CheckTravelDuringCoronavirusCalculator
     attr_reader :transit_countries, :travelling_with_children
     attr_accessor :countries, :vaccination_status, :any_other_countries, :going_to_countries_within_10_days
 

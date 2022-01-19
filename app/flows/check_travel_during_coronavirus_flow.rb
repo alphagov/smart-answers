@@ -1,13 +1,13 @@
-class CovidTravelAbroadFlow < SmartAnswer::Flow
+class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
   def define
-    name "covid-travel-abroad"
+    name "check-travel-during-coronavirus"
     content_id "b46df1e7-e770-43ab-8b4c-ce402736420c"
     status :draft
     response_store :query_parameters
 
     country_select "which_country".to_sym, exclude_countries: [] do
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CovidTravelAbroadCalculator.new
+        self.calculator = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new
         calculator.countries << response
       end
 
@@ -16,7 +16,7 @@ class CovidTravelAbroadFlow < SmartAnswer::Flow
       end
     end
 
-    (1..SmartAnswer::Calculators::CovidTravelAbroadCalculator::MAX_COUNTRIES).each do |num|
+    (1..SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator::MAX_COUNTRIES).each do |num|
       radio "any_other_countries_#{num}".to_sym do
         template_name "any_other_countries"
 
