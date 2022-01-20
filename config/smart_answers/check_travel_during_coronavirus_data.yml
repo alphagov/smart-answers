@@ -4,15 +4,23 @@ results:
     details:
       slug: italy
     england_coronavirus_travel:
-      covid_status: green
-      next_covid_status:
-      next_covid_status_applies_at:
+      covid_status: not_red
+      next_covid_status: red
+      next_covid_status_applies_at: "2022-02-20T:02:00.000+00:00"
       status_out_of_date: false
   - title: South Africa
     details:
       slug: south-africa
     england_coronavirus_travel:
       covid_status: red
+      next_covid_status: not_red
+      next_covid_status_applies_at: "2022-02-20T:02:00.000+00:00"
+      status_out_of_date: false
+  - title: Spain
+    details:
+      slug: spain
+    england_coronavirus_travel:
+      covid_status: not_red
       next_covid_status:
       next_covid_status_applies_at:
       status_out_of_date: false
