@@ -13,6 +13,7 @@
 shared_formats = {
   govuk_date: "%-d %B %Y", # '4 December 2009'
   govuk_date_with_day: "%A, %d %B %Y", # 'Friday, 4 December 2009'
+  govuk_time: "%l:%M%P", # '2:30am'
 }
 
 Time::DATE_FORMATS.merge! shared_formats
