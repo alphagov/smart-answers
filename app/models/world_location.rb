@@ -67,14 +67,28 @@ class WorldLocation
   end
 
   def covid_status
-    # Once the world location api returns the covid status, we should be able
+    covid_statuses&.dig("covid_status")
+  end
+
+  def next_covid_status
+    covid_statuses&.dig("next_covid_status")
+  end
+
+  def next_covid_status_applies_at
+    Time.zone.parse(covid_statuses["next_covid_status_applies_at"])
+  rescue NoMethodError, TypeError
+    nil
+  end
+
+  def covid_statuses
+    # Once the world location api returns the covid statuses, we should be able
     # to replace this line with:
     # location.fetch("england_coronavirus_travel", "")
     rules = self.class.travel_rules["results"].select { |country| country["details"]["slug"] == slug }.first
 
     return if rules.blank?
 
-    rules["england_coronavirus_travel"]["covid_status"]
+    rules["england_coronavirus_travel"]
   end
 
   def initialize(location)
