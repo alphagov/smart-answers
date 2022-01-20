@@ -1,9 +1,9 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class CovidTravelAbroadCalculatorTest < ActiveSupport::TestCase
+  class CheckTravelDuringCoronavirusCalculatorTest < ActiveSupport::TestCase
     setup do
-      @calculator = CovidTravelAbroadCalculator.new
+      @calculator = CheckTravelDuringCoronavirusCalculator.new
 
       stub_worldwide_api_has_locations(%w[spain italy poland])
     end

@@ -1,11 +1,11 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
+class CheckTravelDuringCoronavirusTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    testing_flow CovidTravelAbroadFlow
+    testing_flow CheckTravelDuringCoronavirusFlow
     stub_worldwide_api_has_locations(%w[spain italy poland])
   end
 
@@ -116,7 +116,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       should "have a next node of going_to_countries_within_10_days " \
                 "for a 'none' response " \
                 "if travelling to a red list country" do
-        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
         assert_next_node :going_to_countries_within_10_days, for_response: "none"
       end
 
@@ -129,7 +129,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
       should "have a next node of going_to_countries_within_10_days " \
                 "for a country response " \
                 "if travelling to a red list country" do
-        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
         assert_next_node :going_to_countries_within_10_days, for_response: "spain"
       end
     end
@@ -143,7 +143,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                     which_1_country: "poland",
                     any_other_countries_2: "no",
                     transit_countries: "none"
-      SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+      SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
     end
 
     should "render question" do
@@ -220,7 +220,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
 
     context "country specific content that has had the headers converted" do
       setup do
-        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:countries_with_content_headers_converted).returns(%w[spain italy])
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:countries_with_content_headers_converted).returns(%w[spain italy])
         add_responses which_country: "italy"
       end
 
@@ -277,7 +277,7 @@ class CovidTravelAbroadFlowTest < ActiveSupport::TestCase
                       going_to_countries_within_10_days: "yes",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
-        SmartAnswer::Calculators::CovidTravelAbroadCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
       end
 
       should "render red list country guidance" do
