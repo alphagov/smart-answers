@@ -1,0 +1,14 @@
+<%
+  next_status_date = country.next_covid_status_applies_at.strftime("%l:%M %P")
+  next_status_time = country.next_covid_status_applies_at.strftime("%d %B %Y")
+%>
+
+<% if country.next_covid_status == "red" %>
+  <%= render "govuk_publishing_components/components/warning_text", {
+    text: "#{country.title} will move to the red list for travel to England at #{next_status_date} on #{next_status_time}. Until then you should follow the rules below for returning to England."
+  } %>
+<% else %>
+  <%= render "govuk_publishing_components/components/warning_text", {
+    text: "#{country.title} will be removed from the red list for travel to England at #{next_status_date} on #{next_status_time}. Until then you should follow the rules below for returning to England."
+  } %>
+<% end %>
