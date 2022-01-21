@@ -89,19 +89,23 @@ class WorldLocation
   end
 
   def current_covid_status_data
-    current_statuses = covid_status_data_for_location.select do |status|
+    current_statuses = covid_status_data_for_location&.select do |status|
       start_date = Time.zone.parse(status["covid_status_applies_at"])
       start_date.past?
     end
+
+    return if current_statuses.blank?
 
     current_statuses.max_by { |status| status["covid_status_applies_at"] }
   end
 
   def next_covid_status_data
-    future_statuses = covid_status_data_for_location.select do |status|
+    future_statuses = covid_status_data_for_location&.select do |status|
       start_date = Time.zone.parse(status["covid_status_applies_at"])
       start_date.future?
     end
+
+    return if future_statuses.blank?
 
     future_statuses.min_by { |status| status["covid_status_applies_at"] }
   end
