@@ -283,16 +283,20 @@ class WorldLocationTest < ActiveSupport::TestCase
             "details" => {
               "slug" => "italy",
             },
-            "england_coronavirus_travel" => {
-              "covid_status" => "red",
-            },
+            "england_coronavirus_travel" => [
+              {
+                "covid_status" => "red",
+                "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+              },
+            ],
           },
         ],
       })
       @location = WorldLocation.find("italy")
+      travel_to("2022-01-01")
     end
 
-    should "find the covid status for a location" do
+    should "find the current covid status for a location" do
       assert_equal "red", @location.covid_status
     end
   end
