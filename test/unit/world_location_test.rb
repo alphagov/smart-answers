@@ -275,6 +275,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "england_coronavirus_travel" do
     setup do
+      @future_status_date = "2022-02-20T:02:00.000+00:00"
       stub_worldwide_api_has_location("italy")
       WorldLocation.stubs(:travel_rules).returns({
         "results" => [
@@ -288,6 +289,10 @@ class WorldLocationTest < ActiveSupport::TestCase
                 "covid_status" => "red",
                 "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
               },
+              {
+                "covid_status" => "not_red",
+                "covid_status_applies_at" => @future_status_date,
+              },
             ],
           },
         ],
@@ -298,6 +303,14 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     should "find the current covid status for a location" do
       assert_equal "red", @location.covid_status
+    end
+
+    should "find the next covid status for a location" do
+      assert_equal "not_red", @location.next_covid_status
+    end
+
+    should "find the next covid status applies at date for a location" do
+      assert_equal Time.zone.parse(@future_status_date), @location.next_covid_status_applies_at
     end
   end
 end

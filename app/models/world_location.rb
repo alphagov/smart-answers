@@ -78,6 +78,16 @@ class WorldLocation
     current_covid_status_data&.dig("covid_status")
   end
 
+  def next_covid_status
+    next_covid_status_data&.dig("covid_status")
+  end
+
+  def next_covid_status_applies_at
+    Time.zone.parse(next_covid_status_data["covid_status_applies_at"])
+  rescue NoMethodError, TypeError
+    nil
+  end
+
   def current_covid_status_data
     current_statuses = covid_status_data_for_location.select do |status|
       start_date = Time.zone.parse(status["covid_status_applies_at"])
@@ -85,6 +95,15 @@ class WorldLocation
     end
 
     current_statuses.max_by { |status| status["covid_status_applies_at"] }
+  end
+
+  def next_covid_status_data
+    future_statuses = covid_status_data_for_location.select do |status|
+      start_date = Time.zone.parse(status["covid_status_applies_at"])
+      start_date.future?
+    end
+
+    future_statuses.min_by { |status| status["covid_status_applies_at"] }
   end
 
   def covid_status_data_for_location
