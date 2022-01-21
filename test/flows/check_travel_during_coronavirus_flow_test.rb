@@ -1,7 +1,7 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-class CheckTravelDuringCoronavirusTest < ActiveSupport::TestCase
+class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
