@@ -82,6 +82,17 @@ describe('Track responses', function () {
       )
     })
 
+    it('filters out sensitive responses', function () {
+      spyOn(tracker, 'filterLabel').and.returnValue('question-key')
+
+      form.querySelector('input[value="accommodation"]').click()
+      form.dispatchEvent(new Event('submit'))
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: '[FILTERED]' }
+      )
+    })
+
     it('track events sends value of checkbox when no label is set', function () {
       form.querySelector('input[value="furniture"]').click()
       form.dispatchEvent(new Event('submit'))
@@ -173,6 +184,17 @@ describe('Track responses', function () {
       )
     })
 
+    it('filters out sensitive responses', function () {
+      spyOn(tracker, 'filterLabel').and.returnValue('question-key')
+
+      form.querySelector('input[value="accommodation"]').click()
+      form.dispatchEvent(new Event('submit'))
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: '[FILTERED]' }
+      )
+    })
+
     it('track event triggered when no response is made', function () {
       form.dispatchEvent(new Event('submit'))
 
@@ -241,6 +263,17 @@ describe('Track responses', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
         'response_submission', 'question-key', { transport: 'beacon', label: 'Accommodation label' }
+      )
+    })
+
+    it('filters out sensitive responses', function () {
+      spyOn(tracker, 'filterLabel').and.returnValue('question-key')
+
+      form.querySelector('select[name="select_question"]').value = 'accommodation'
+      form.dispatchEvent(new Event('submit'))
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'response_submission', 'question-key', { transport: 'beacon', label: '[FILTERED]' }
       )
     })
 

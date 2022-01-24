@@ -10,14 +10,25 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.$module.addEventListener('submit', this.handleFormSubmit.bind(this))
   }
 
+  TrackResponses.prototype.filterLabel = function () {
+    return 'vaccination-status'
+  }
+
+  TrackResponses.prototype.filterResponse = function (questionKey, label) {
+    var filteredLabel = label
+    if (this.filterLabel() === questionKey) {
+      filteredLabel = '[FILTERED]'
+    }
+    return { transport: 'beacon', label: filteredLabel }
+  }
+
   TrackResponses.prototype.handleFormSubmit = function (event) {
     var submittedForm = event.target
     var questionKey = this.getQuestionKey(submittedForm)
     var responseLabels = this.getResponseLabels(submittedForm)
 
     for (var i = 0; i < responseLabels.length; i++) {
-      var label = responseLabels[i]
-      var options = { transport: 'beacon', label: label }
+      var options = this.filterResponse(questionKey, responseLabels[i])
       GOVUK.analytics.trackEvent('response_submission', questionKey, options)
     }
   }
