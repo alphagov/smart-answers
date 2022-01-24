@@ -66,17 +66,6 @@ class WorldLocation
     @travel_rules ||= YAML.load_file(Rails.root.join("config/smart_answers/check_travel_during_coronavirus_data.yml"))
   end
 
-  def covid_status
-    # Once the world location api returns the covid status, we should be able
-    # to replace this line with:
-    # location.fetch("england_coronavirus_travel", "")
-    rules = self.class.travel_rules["results"].select { |country| country["details"]["slug"] == slug }.first
-
-    return if rules.blank?
-
-    rules["england_coronavirus_travel"]["covid_status"]
-  end
-
   def initialize(location)
     @title = location.fetch("title", "")
     @details = location.fetch("details", {})
@@ -84,6 +73,53 @@ class WorldLocation
   end
 
   alias_method :name, :title
+
+  def covid_status
+    current_covid_status_data&.dig("covid_status")
+  end
+
+  def next_covid_status
+    next_covid_status_data&.dig("covid_status")
+  end
+
+  def next_covid_status_applies_at
+    Time.zone.parse(next_covid_status_data["covid_status_applies_at"])
+  rescue NoMethodError, TypeError
+    nil
+  end
+
+  def current_covid_status_data
+    current_statuses = covid_status_data_for_location&.select do |status|
+      start_date = Time.zone.parse(status["covid_status_applies_at"])
+      start_date.past?
+    end
+
+    return if current_statuses.blank?
+
+    current_statuses.max_by { |status| status["covid_status_applies_at"] }
+  end
+
+  def next_covid_status_data
+    future_statuses = covid_status_data_for_location&.select do |status|
+      start_date = Time.zone.parse(status["covid_status_applies_at"])
+      start_date.future?
+    end
+
+    return if future_statuses.blank?
+
+    future_statuses.min_by { |status| status["covid_status_applies_at"] }
+  end
+
+  def covid_status_data_for_location
+    # Once the world location api returns the covid status, we should be able
+    # to replace this line with:
+    # location.fetch("england_coronavirus_travel", "")
+    rules = self.class.travel_rules["results"].select { |country| country["details"]["slug"] == slug }.first
+
+    return if rules.blank?
+
+    rules["england_coronavirus_travel"]
+  end
 
   def ==(other)
     other.is_a?(self.class) && other.slug == @slug

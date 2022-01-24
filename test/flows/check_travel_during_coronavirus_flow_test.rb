@@ -1,7 +1,7 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-class CheckTravelDuringCoronavirusTest < ActiveSupport::TestCase
+class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
@@ -216,6 +216,89 @@ class CheckTravelDuringCoronavirusTest < ActiveSupport::TestCase
                     any_other_countries_2: "no",
                     transit_countries: "spain"
       assert_rendered_outcome text: "You are travelling through"
+    end
+
+    context "content for countries changing covid status" do
+      should "render 'move to the red list' content for countries moving to the red list" do
+        travel_to("2022-01-01") do
+          WorldLocation.stubs(:travel_rules).returns({
+            "results" => [
+              {
+                "title" => "Poland",
+                "details" => {
+                  "slug" => "poland",
+                },
+                "england_coronavirus_travel" => [
+                  {
+                    "covid_status" => "not_red",
+                    "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+                  },
+                  {
+                    "covid_status" => "red",
+                    "covid_status_applies_at" => "2022-02-20T:02:00.000+00:00",
+                  },
+                ],
+              },
+            ],
+          })
+          assert_rendered_outcome text: "Poland will move to the red list for travel to England"
+        end
+      end
+
+      should "render 'removed from the red list' content for countries moving from the red list" do
+        travel_to("2022-01-01") do
+          WorldLocation.stubs(:travel_rules).returns({
+            "results" => [
+              {
+                "title" => "Poland",
+                "details" => {
+                  "slug" => "poland",
+                },
+                "england_coronavirus_travel" => [
+                  {
+                    "covid_status" => "red",
+                    "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+                  },
+                  {
+                    "covid_status" => "not_red",
+                    "covid_status_applies_at" => "2022-02-20T:02:00.000+00:00",
+                  },
+                ],
+              },
+            ],
+          })
+
+          add_responses going_to_countries_within_10_days: "no"
+          assert_rendered_outcome text: "Poland will be removed from the red list for travel to England"
+        end
+      end
+
+      should "not render changing status content if most recent status is in the past" do
+        travel_to("2022-03-01") do
+          WorldLocation.stubs(:travel_rules).returns({
+            "results" => [
+              {
+                "title" => "Poland",
+                "details" => {
+                  "slug" => "poland",
+                },
+                "england_coronavirus_travel" => [
+                  {
+                    "covid_status" => "red",
+                    "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+                  },
+                  {
+                    "covid_status" => "not_red",
+                    "covid_status_applies_at" => "2022-02-20T:02:00.000+00:00",
+                  },
+                ],
+              },
+            ],
+          })
+
+          assert_no_match "Poland will be removed from the red list for travel to England", @test_flow.outcome_text
+        end
+      end
     end
 
     context "country specific content that has had the headers converted" do

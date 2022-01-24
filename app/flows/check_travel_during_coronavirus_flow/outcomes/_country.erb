@@ -5,6 +5,10 @@
   margin_bottom: 4,
 } %>
 
+<% if country.next_covid_status.present? %>
+  <%= render partial: "country/status_change", locals: { country: country } %>
+<% end %>
+
 <% if calculator.countries_with_content_headers_converted.include?(country.slug) %>
   <p class="govuk-body">You should read the following sections of the <%= country.title %> entry requirements guidance on:</p>
 
