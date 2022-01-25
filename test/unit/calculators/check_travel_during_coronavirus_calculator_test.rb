@@ -16,6 +16,12 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "vaccination_status" do
+      should "have a vaccination_status question" do
+        assert_equal true, @calculator.respond_to?(:vaccination_status)
+      end
+    end
+
     context "country_locations" do
       should "find a country if it exists" do
         @calculator.countries << "spain"
