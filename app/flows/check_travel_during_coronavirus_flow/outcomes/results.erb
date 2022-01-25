@@ -16,6 +16,15 @@
     } %>
   </div>
 
+  <div class="govuk-grid-row travel-abroad__section">
+    <div class="govuk-grid-column-one-third desktop-min-height"></div>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/inset_text", {
+        text: "You should read and understand the entry requirements set by any countries you are travelling to. If you do not follow the rules you may not be allowed to enter."
+      } %>
+    </div>
+  </div>
+
   <% calculator.country_locations.each do |country| %>
     <div class="govuk-grid-row travel-abroad__country">
       <div class="govuk-grid-column-one-third travel-abroad__reasons">
