@@ -25,7 +25,8 @@
       <%= render "govuk_publishing_components/components/meta_tags",
         content_item: content_item,
         strip_dates_pii: true,
-        strip_postcode_pii: true %>
+        strip_postcode_pii: true,
+        strip_vaccination_status_pii: true %>
     <% end %>
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
