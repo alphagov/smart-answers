@@ -355,12 +355,31 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
     context "content with a red list country" do
       setup do
+        WorldLocation.stubs(:travel_rules).returns({
+          "results" => [
+            {
+              "title" => "Spain",
+              "details" => {
+                "slug" => "spain",
+              },
+              "england_coronavirus_travel" => [
+                {
+                  "covid_status" => "red",
+                  "covid_status_applies_at" => "2020-12-20T:02:00.000+00:00",
+                },
+              ],
+            },
+          ],
+        })
         add_responses which_country: "spain",
                       any_other_countries_1: "no",
                       going_to_countries_within_10_days: "yes",
                       vaccination_status: "vaccinated",
                       travelling_with_children: "none"
-        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+      end
+
+      should "render country red list status" do
+        assert_rendered_outcome text: "Spain is on the travel red list."
       end
 
       should "render red list country guidance" do

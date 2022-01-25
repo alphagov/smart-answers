@@ -5,6 +5,10 @@
   margin_bottom: 4,
 } %>
 
+<% if country.on_red_list? %>
+  <p class="govuk-body"><%= country.title %> is on the travel red list.</p>
+<% end %>
+
 <% if country.next_covid_status.present? %>
   <%= render partial: "country/status_change", locals: { country: country } %>
 <% end %>
