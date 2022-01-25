@@ -74,6 +74,10 @@ class WorldLocation
 
   alias_method :name, :title
 
+  def on_red_list?
+    covid_status == "red"
+  end
+
   def covid_status
     current_covid_status_data&.dig("covid_status")
   end
