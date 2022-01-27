@@ -1,18 +1,16 @@
 ---
 results:
-  - title: Italy
+  - title: Portugal
     details:
-      slug: italy
+      slug: portugal
     england_coronavirus_travel:
       - covid_status: not_red
         covid_status_applies_at: "2021-12-20T:02:00.000+00:00"
       - covid_status: red
-        covid_status_applies_at: "2022-02-20T:02:30.000+00:00"
+        covid_status_applies_at: "2022-02-14T:02:30.000+00:00"
   - title: South Africa
     details:
       slug: south-africa
     england_coronavirus_travel:
       - covid_status: red
         covid_status_applies_at: "2021-12-20T:02:00.000+00:00"
-      - covid_status: not_red
-        covid_status_applies_at: "2022-02-20T:16:00.000+00:00"
