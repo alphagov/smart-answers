@@ -3,7 +3,7 @@
 
   <%= render "govuk_publishing_components/components/signup_link", {
     heading: "What you need to do may change",
-    link_text: "Sign up for email updates about travel",
+    link_text: "Send your travel results to your email address",
     link_href: "/fix-me",
     background: true,
     margin_bottom: 8
@@ -14,6 +14,15 @@
       text: "Travelling abroad from England",
       font_size: "l",
     } %>
+  </div>
+
+  <div class="govuk-grid-row travel-abroad__section">
+    <div class="govuk-grid-column-one-third desktop-min-height"></div>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/inset_text", {
+        text: "You should read and understand the entry requirements set by any countries you are travelling to. If you do not follow the rules you may not be allowed to enter."
+      } %>
+    </div>
   </div>
 
   <% calculator.country_locations.each do |country| %>

@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
 
     def red_list_country?(slug)
       world_location = location(slug)
-      world_location.covid_status == "red"
+      world_location.on_red_list?
     end
 
     def countries_with_content_headers_converted

@@ -316,6 +316,10 @@ class WorldLocationTest < ActiveSupport::TestCase
       should "find the next covid status applies at date for a location" do
         assert_equal Time.zone.parse(@future_status_date), @location.next_covid_status_applies_at
       end
+
+      should "return 'true' for on_red_list? if covid status is 'red'" do
+        assert @location.on_red_list?
+      end
     end
 
     context "covid statuses do not exist" do
@@ -334,6 +338,10 @@ class WorldLocationTest < ActiveSupport::TestCase
 
       should "return a next covid status date of nil if covid statuses unknown for location" do
         assert_nil @location.next_covid_status_applies_at
+      end
+
+      should "return 'false' for on_red_list? if covid status is not known" do
+        assert_not @location.on_red_list?
       end
     end
   end

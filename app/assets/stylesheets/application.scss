@@ -16,6 +16,7 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/heading";
 @import "govuk_publishing_components/components/hint";
 @import "govuk_publishing_components/components/input";
+@import "govuk_publishing_components/components/inset-text";
 @import "govuk_publishing_components/components/label";
 @import "govuk_publishing_components/components/phase-banner";
 @import "govuk_publishing_components/components/print-link";
@@ -36,6 +37,12 @@ $govuk-new-link-styles: true;
 @import "components/result-sections";
 @import "components/user-research-banner";
 @import "smart_answers";
+
+.desktop-min-height {
+  @include govuk-media-query($from: tablet) {
+    min-height: 1px;
+  }
+}
 
 .travel-abroad__heading {
   padding: govuk-spacing(4) 0;
