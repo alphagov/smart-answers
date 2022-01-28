@@ -75,5 +75,21 @@
     <%= render partial: "exempt_job" %>
     <%= render partial: "medical_treatment" %>
   <% end %>
-  <p class="govuk-body">There may be <a href="https://Jupiter1:Jupiter1@testhostingspace.com/travel-sbfgxq/" class="govuk-link">other things you need to do when travelling abroad</a>.</p>
+
+  <div class="govuk-grid-row travel-abroad__section">
+    <div class="govuk-grid-column-one-third desktop-min-height"></div>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/inset_text", {
+      } do %>
+        <p class="govuk-body">
+          Find out <a href="https://travel-abroad-coronavirus.herokuapp.com/travel-abroad-step-by-step" class="govuk-link">other things you may need to do to travel abroad</a>. These may include:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>renewing your passport</li>
+          <li>getting travel insurance</li>
+          <li>making sure you have the right driving documents</li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 <% end %>
