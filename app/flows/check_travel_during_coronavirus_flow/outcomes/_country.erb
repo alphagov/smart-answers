@@ -22,7 +22,7 @@
 <% end %>
 
 <% if calculator.countries_with_content_headers_converted.include?(country.slug) %>
-  <p class="govuk-body">You should read the <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link" rel="noreferrer noopener" target="_blank"><%= country.title %> entry requirements guidance (opens in new tab)</a>. Based on your answers, relevant sections are:</p>
+  <p class="govuk-body">You should read the <%= country.title %> entry requirements guidance. Based on your answers, relevant sections are:</p>
 
   <% if calculator.transit_countries.include?(country.slug) %>
     <ul class="govuk-list govuk-list--bullet">

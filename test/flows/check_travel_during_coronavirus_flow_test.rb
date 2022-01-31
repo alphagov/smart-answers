@@ -308,7 +308,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render the specific country guidance" do
-        assert_rendered_outcome text: "You should read the Italy entry requirements guidance (opens in new tab). Based on your answers, relevant sections are:"
+        assert_rendered_outcome text: "You should read the Italy entry requirements guidance. Based on your answers, relevant sections are:"
       end
 
       should "render transiting guidance for transit countries" do
