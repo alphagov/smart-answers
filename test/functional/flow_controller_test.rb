@@ -6,7 +6,7 @@ class FlowControllerTest < ActionController::TestCase
 
   setup do
     setup_fixture_flows
-    Rails.application.config.stubs(:set_http_cache_control_expiry_time).returns(true)
+    enable_page_caching
   end
 
   teardown { teardown_fixture_flows }
@@ -22,7 +22,7 @@ class FlowControllerTest < ActionController::TestCase
       assert_select "meta[name=robots][content=noindex]", count: 0
     end
 
-    should "have cache headers set to 30 mins" do
+    should "have cache headers set to 5 mins" do
       get :landing, params: { id: "radio-sample" }
       assert_cached_response
     end
@@ -197,13 +197,5 @@ class FlowControllerTest < ActionController::TestCase
       assert_redirected_to "/radio-sample/y"
       assert_cached_response
     end
-  end
-
-  def assert_cached_response
-    assert_equal "max-age=1800, public", @response.header["Cache-Control"]
-  end
-
-  def assert_uncached_response
-    assert_equal "no-store", @response.header["Cache-Control"]
   end
 end

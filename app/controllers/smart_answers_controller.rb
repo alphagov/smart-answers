@@ -3,9 +3,7 @@ class SmartAnswersController < ApplicationController
 
   before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_path, only: %w[show]
-  before_action :setup_content_item, except: %w[index]
-
-  attr_accessor :content_item
+  before_action :content_item, except: %w[index]
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -25,9 +23,8 @@ class SmartAnswersController < ApplicationController
   def show
     @title = @presenter.title
 
-    render page_type, formats: [:html]
-
     set_expiry
+    render page_type, formats: [:html]
   end
 
   def visualise
@@ -73,13 +70,16 @@ private
     end
   end
 
-  def set_expiry(duration = 30.minutes)
-    if Rails.configuration.set_http_cache_control_expiry_time
-      expires_in(duration, public: true)
-    end
+  def content_item
+    @content_item ||= ContentItemRetriever.fetch(params[:id])
   end
 
-  def setup_content_item
-    @content_item = ContentItemRetriever.fetch(params[:id])
+  def set_expiry
+    return unless Rails.configuration.set_http_cache_control_expiry_time
+
+    expires_in(
+      content_item.dig("cache_control", "max-age") || 5.minutes.to_i,
+      public: content_item.fetch("cache_control", {}).fetch("public", true),
+    )
   end
 end
