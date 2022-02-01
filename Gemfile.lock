@@ -139,7 +139,7 @@ GEM
       sanitize (~> 6)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (4.2.0)
+    govuk_app_config (4.3.0)
       logstasher (>= 1.2.2, < 2.2.0)
       puma (~> 5.0)
       sentry-rails (~> 4.5.0)
