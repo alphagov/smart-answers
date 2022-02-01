@@ -48,10 +48,12 @@
       <% unless start_node.post_body.blank? %>
         <section>
           <div id="before-you-start">
-            <%= render "govuk_publishing_components/components/heading", {
-              text: "Before you start",
-              padding: true
-            } %>
+            <% unless start_node.node_name == :check_travel_during_coronavirus %>
+              <%= render "govuk_publishing_components/components/heading", {
+                text: "Before you start",
+                padding: true
+              } %>
+            <% end %>
             <%= start_node.post_body %>
           </div>
         </section>
