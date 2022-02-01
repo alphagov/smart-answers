@@ -37,6 +37,17 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
         stub_request(:get, @request_url).to_return(response)
 
         content_item = ContentItemRetriever.fetch(@slug)
+        @content_store_response["cache_control"] = {}
+
+        assert_equal content_item, @content_store_response
+      end
+
+      should "use cache-control header" do
+        response = { status: 200, body: @content_store_response.to_json, headers: { "Cache-Control" => "max-age: 300, public" } }
+        stub_request(:get, @request_url).to_return(response)
+
+        content_item = ContentItemRetriever.fetch(@slug)
+        @content_store_response["cache_control"] = { "max-age" => true, "public" => true }
 
         assert_equal content_item, @content_store_response
       end

@@ -61,11 +61,11 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
           assert_select ".govuk-summary-list", /How much\?\s+£1 per month/
         end
 
-        should "have cache headers set to 30 mins for inner pages" do
+        should "have cache headers set to 5 mins for inner pages" do
           Rails.application.config.stubs(:set_http_cache_control_expiry_time).returns(true)
 
           get :show, params: { id: "salary-sample", started: "y", responses: "1.0-month" }
-          assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+          assert_equal "max-age=300, public", @response.header["Cache-Control"]
         end
       end
     end

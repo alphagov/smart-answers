@@ -79,16 +79,26 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup do
         @content_item = {
           base_path: "/radio-sample",
+          cache_control: {
+            "max-age" => 10.minutes.to_i,
+            "public" => true,
+          },
         }.with_indifferent_access
 
         ContentItemRetriever.stubs(:fetch)
           .returns(@content_item)
+
+        enable_page_caching
 
         get :show, params: { id: "radio-sample" }
       end
 
       should "assign response from content store" do
         assert_equal @content_item, assigns(:content_item)
+      end
+
+      should "set Cache-Control header" do
+        assert_cached_response(age: 10.minutes.to_i, public: true)
       end
     end
 
@@ -153,6 +163,27 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select ".govuk-summary-list__actions a", /Change/ do |link_nodes|
           assert_equal "/radio-sample/y?previous_response=colder", link_nodes.first["href"]
         end
+      end
+    end
+
+    context "when content item is private" do
+      setup do
+        @content_item = {
+          base_path: "/radio-sample",
+          cache_control: {
+            "max-age" => 30.minutes.to_i,
+            "public" => false,
+          },
+        }.with_indifferent_access
+        ContentItemRetriever.stubs(:fetch)
+          .returns(@content_item)
+
+        enable_page_caching
+        get :show, params: { id: "radio-sample", started: "y", responses: "colder" }
+      end
+
+      should "set appropriate cache-control header directives" do
+        assert_equal "max-age=#{30.minutes.to_i}, private", @response.header["Cache-Control"]
       end
     end
 
