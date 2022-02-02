@@ -249,8 +249,8 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
                           db_how_long_abroad?: "permanent"
           end
 
-          should "have a next node of db_claiming_benefits? for any response in EEA country" do
-            assert_next_node :db_claiming_benefits?, for_response: "liechtenstein"
+          should "have a next node of worked_in_eea_or_switzerland? for any EEA country" do
+            assert_next_node :worked_in_eea_or_switzerland?, for_response: "liechtenstein"
           end
 
           should "have a next node of db_going_abroad_other_outcome for any response not in EEA country if going_abroad" do
@@ -671,62 +671,6 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
       end
     end
 
-    context "question: db_claiming_benefits?" do
-      setup do
-        testing_node :db_claiming_benefits?
-        add_responses going_or_already_abroad?: "going_abroad",
-                      which_benefit?: "disability_benefits",
-                      db_how_long_abroad?: "permanent",
-                      which_country?: "liechtenstein"
-      end
-
-      should "render the question" do
-        assert_rendered_question
-      end
-
-      context "next_node" do
-        should "have a next node of is_british_or_irish? for a 'yes' response if country is ireland and going_abroad" do
-          add_responses which_country?: "ireland"
-          assert_next_node :is_british_or_irish?, for_response: "yes"
-        end
-
-        should "have a next node of db_going_abroad_gibraltar_outcome for a 'yes' response if country is gibraltar and going_abroad" do
-          add_responses which_country?: "gibraltar"
-          assert_next_node :db_going_abroad_gibraltar_outcome, for_response: "yes"
-        end
-
-        should "have a next node of worked_in_eea_or_switzerland? for a 'yes' response if country is not ireland or gibraltar and going_abroad" do
-          assert_next_node :worked_in_eea_or_switzerland?, for_response: "yes"
-        end
-
-        should "have a next node of db_going_abroad_other_outcome for a 'no' response and going_abroad" do
-          assert_next_node :db_going_abroad_other_outcome, for_response: "no"
-        end
-
-        should "have a next node of is_british_or_irish? for a 'yes' response if country is ireland if already_abroad" do
-          add_responses going_or_already_abroad?: "already_abroad",
-                        which_country?: "ireland"
-          assert_next_node :is_british_or_irish?, for_response: "yes"
-        end
-
-        should "have a next node of db_already_abroad_gibraltar_outcome for a 'yes' response if country is gibraltar and already_abroad" do
-          add_responses going_or_already_abroad?: "already_abroad",
-                        which_country?: "gibraltar"
-          assert_next_node :db_already_abroad_gibraltar_outcome, for_response: "yes"
-        end
-
-        should "have a next node of worked_in_eea_or_switzerland? for a 'yes' response if country is in EEA and is not ireland or gibraltar and already_abroad" do
-          add_responses going_or_already_abroad?: "already_abroad"
-          assert_next_node :worked_in_eea_or_switzerland?, for_response: "yes"
-        end
-
-        should "have a next node of db_already_abroad_other_outcome for a 'no' response if already_abroad" do
-          add_responses going_or_already_abroad?: "already_abroad"
-          assert_next_node :db_already_abroad_other_outcome, for_response: "no"
-        end
-      end
-    end
-
     context "question: is_claiming_benefits?" do
       setup do
         testing_node :is_claiming_benefits?
@@ -1002,18 +946,16 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
           assert_next_node :esa_already_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
-        should "have a next node of db_going_abroad_eea_outcome for a 'before_jan_2021' response if benefit is disability_benefits and going_abroad" do
+        should "have a next node of db_going_abroad_eea_outcome for a 'before_jan_2021' response going_abroad" do
           add_responses which_benefit?: "disability_benefits",
-                        db_how_long_abroad?: "permanent",
-                        db_claiming_benefits?: "yes"
+                        db_how_long_abroad?: "permanent"
           assert_next_node :db_going_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
-        should "have a next node of db_already_abroad_eea_outcome for a 'before_jan_2021' response if benefit is disability_benefits and already_abroad" do
+        should "have a next node of db_already_abroad_eea_outcome for a 'before_jan_2021' response if already_abroad" do
           add_responses going_or_already_abroad?: "already_abroad",
                         which_benefit?: "disability_benefits",
-                        db_how_long_abroad?: "permanent",
-                        db_claiming_benefits?: "yes"
+                        db_how_long_abroad?: "permanent"
           assert_next_node :db_already_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
@@ -1063,18 +1005,16 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
           assert_next_node :esa_already_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
-        should "have a next node of db_going_abroad_eea_outcome for a 'before_jan_2021' response if benefit is disability_benefits and going_abroad" do
+        should "have a next node of db_going_abroad_eea_outcome for a 'before_jan_2021' response if going_abroad" do
           add_responses which_benefit?: "disability_benefits",
-                        db_how_long_abroad?: "permanent",
-                        db_claiming_benefits?: "yes"
+                        db_how_long_abroad?: "permanent"
           assert_next_node :db_going_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
-        should "have a next node of db_already_abroad_eea_outcome for a 'before_jan_2021' response if benefit is disability_benefits and already_abroad" do
+        should "have a next node of db_already_abroad_eea_outcome for a 'before_jan_2021' response if already_abroad" do
           add_responses going_or_already_abroad?: "already_abroad",
                         which_benefit?: "disability_benefits",
-                        db_how_long_abroad?: "permanent",
-                        db_claiming_benefits?: "yes"
+                        db_how_long_abroad?: "permanent"
           assert_next_node :db_already_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
@@ -1101,18 +1041,16 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
             assert_next_node :esa_already_abroad_other_outcome, for_response: response
           end
 
-          should "have a next node of db_going_abroad_other_outcome for a '#{response}' response if benefit is disability_benefits and going_abroad" do
+          should "have a next node of db_going_abroad_other_outcome for a '#{response}' response if going_abroad" do
             add_responses which_benefit?: "disability_benefits",
-                          db_how_long_abroad?: "permanent",
-                          db_claiming_benefits?: "yes"
+                          db_how_long_abroad?: "permanent"
             assert_next_node :db_going_abroad_other_outcome, for_response: response
           end
 
-          should "have a next node of db_already_abroad_other_outcome for a '#{response}' response if benefit is disability_benefits and already_abroad" do
+          should "have a next node of db_already_abroad_other_outcome for a '#{response}' response if already_abroad" do
             add_responses going_or_already_abroad?: "already_abroad",
                           which_benefit?: "disability_benefits",
-                          db_how_long_abroad?: "permanent",
-                          db_claiming_benefits?: "yes"
+                          db_how_long_abroad?: "permanent"
             assert_next_node :db_already_abroad_other_outcome, for_response: response
           end
         end
@@ -1154,11 +1092,10 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
           assert_next_node :esa_already_abroad_eea_outcome, for_response: "yes"
         end
 
-        should "have a next node of db_going_abroad_ireland_outcome for a 'yes' response if benefit is disability_benefits" do
+        should "have a next node of db_going_abroad_eea_outcome for a 'yes' response" do
           add_responses which_benefit?: "disability_benefits",
-                        db_how_long_abroad?: "permanent",
-                        db_claiming_benefits?: "yes"
-          assert_next_node :db_going_abroad_ireland_outcome, for_response: "yes"
+                        db_how_long_abroad?: "permanent"
+          assert_next_node :db_going_abroad_eea_outcome, for_response: "before_jan_2021"
         end
 
         should "have a next node of worked_in_eea_or_switzerland? for a 'no' response" do
