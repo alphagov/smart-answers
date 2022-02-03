@@ -463,10 +463,6 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       should "render the exempt jobs guidance" do
         assert_rendered_outcome text: "Exemptions because of your job"
       end
-
-      should "render the arriving for urgent medical treatment guidance" do
-        assert_rendered_outcome text: "Returning to England to receive urgent medical treatment"
-      end
     end
   end
 end
