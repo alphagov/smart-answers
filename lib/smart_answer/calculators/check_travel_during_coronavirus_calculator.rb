@@ -48,7 +48,8 @@ module SmartAnswer::Calculators
     end
 
     def travelling_to_red_list_country?
-      going_to_countries_within_10_days == "yes"
+      going_to_countries_within_10_days == "yes" ||
+        countries.length == 1 && red_list_countries.include?(countries.first)
     end
 
     def red_list_country_titles
