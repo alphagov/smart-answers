@@ -1,43 +1,11 @@
 <% content = capture do %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: "Proof of vaccination",
-    heading_level: 3,
-    font_size: "m",
-    margin_bottom: 4,
-  } %>
+  <p class="govuk-body">You do not need to take any COVID-19 tests before you travel to England or after you arrive.</p>
 
   <p class="govuk-body">You must be able to prove that you've been fully vaccinated. If you live in England, you can prove your vaccination status using the <a href="https://www.gov.uk/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>
 
   <p class="govuk-body">If you were vaccinated in another country or territory, see <a href="https://www.gov.uk/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination#countries-with-an-approved-proof-of-vaccination-and-examples-of-proof-required" class="govuk-link">examples of what you can use as proof of vaccination</a>.</p>
 
-  <%= render "govuk_publishing_components/components/heading", {
-    text: "Before you travel to England",
-    heading_level: 3,
-    font_size: "m",
-    margin_bottom: 4,
-  } %>
-
-  <p class="govuk-body">You must:</p>
-
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="https://www.gov.uk/find-travel-test-provider" class="govuk-link">book and pay for a COVID-19 PCR or rapid lateral flow test</a> - you must take it after arrival before the end of day 2</li>
-    <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> - to be completed in the 48 hours before you arrive in England</li>
-  </ul>
-
-  <p class="govuk-body">You will need to enter your COVID-19 test booking reference number on your passenger locator form.</p>
-
-  <%= render "govuk_publishing_components/components/heading", {
-    text: "When you arrive in England",
-    heading_level: 3,
-    font_size: "m",
-    margin_bottom: 4,
-  } %>
-
-  <p class="govuk-body">You must take the COVID-19 test that you booked before travelling. You need to take it within 2 days of arriving (the day you arrive is day 0).</p>
-
-  <p class="govuk-body">If you take a rapid lateral flow test and you test positive, you must take a PCR test.</p>
-
-  <p class="govuk-body">If your PCR test result is positive, you must self-isolate. See guidance on <a href="https://www.gov.uk/guidance/how-to-quarantine-when-you-arrive-in-england#how-to-quarantine-or-self-isolate" class="govuk-link">how to self-isolate after testing positive on your day 2 test</a>.</p>
+  <p class="govuk-body">You must <a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> in the 48 hours before you arrive in England.</p>
 <% end %>
 
 <%
