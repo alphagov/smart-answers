@@ -99,7 +99,24 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :travelling_with_children
+        if calculator.red_list_countries.any?
+          question :travelling_with_children
+        else
+          question :travelling_with_young_people
+        end
+      end
+    end
+
+    radio :travelling_with_young_people do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.travelling_with_young_people = response
+      end
+
+      next_node do
+        outcome :results
       end
     end
 

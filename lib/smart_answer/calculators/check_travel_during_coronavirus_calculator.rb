@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class CheckTravelDuringCoronavirusCalculator
     attr_reader :transit_countries, :travelling_with_children
-    attr_accessor :countries, :vaccination_status, :any_other_countries, :going_to_countries_within_10_days
+    attr_accessor :countries, :vaccination_status, :any_other_countries, :going_to_countries_within_10_days, :travelling_with_young_people
 
     MAX_COUNTRIES = 99
 
@@ -9,6 +9,7 @@ module SmartAnswer::Calculators
       @countries = []
       @transit_countries = []
       @travelling_with_children = []
+      @travelling_with_young_people = nil
     end
 
     def location(slug)
@@ -25,6 +26,10 @@ module SmartAnswer::Calculators
       travelling_with_children.split(",").each do |response|
         @travelling_with_children << response
       end
+    end
+
+    def travelling_with_young_people?
+      travelling_with_young_people == "yes"
     end
 
     def transit_countries=(transit_countries)
