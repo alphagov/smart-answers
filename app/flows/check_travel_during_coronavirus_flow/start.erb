@@ -24,13 +24,11 @@
   $CTA
 <% end %>
 
-<% govspeak_for :post_body do %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: "Travelling to England from within the UK, Channel Islands and the Isle of Man",
-    font_size: "m",
-    margin_bottom: 4,
-  } %>
+<% text_for :post_header do %>
+  Travelling to England from within the UK, Channel Islands and the Isle of Man
+<% end %>
 
+<% govspeak_for :post_body do %>
   <p>If you’re travelling to England from within the Common Travel Area (England, Scotland, Wales and Northern Ireland, Ireland, the Channel Islands and the Isle of Man) and haven’t been anywhere else within the 10 days before you arrive, there are no entry requirements for coming into England.</p>
   <p>If you’ve been to a country or territory outside the Common Travel Area within the 10 days before you arrive in England, you must follow the rules for entering England from that country. You can use this tool to find out those rules.</p>
 <% end %>

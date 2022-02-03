@@ -19,6 +19,11 @@ class StartNodePresenter < NodePresenter
     @renderer.content_for(:body)
   end
 
+  def post_header
+    custom_header_text = @renderer.content_for(:post_header)
+    custom_header_text.presence || "Before you start"
+  end
+
   def post_body
     @renderer.content_for(:post_body)
   end
