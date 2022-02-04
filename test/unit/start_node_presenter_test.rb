@@ -56,5 +56,17 @@ module SmartAnswer
 
       assert_equal "Start now", @presenter.start_button_text
     end
+
+    test "#post_body_header returns custom text when supplied" do
+      @renderer.stubs(:content_for).with(:post_body_header).returns("post-body-header-text")
+
+      assert_equal "post-body-header-text", @presenter.post_body_header
+    end
+
+    test '#post_body_header returns "Before you start" when there is no custom header text' do
+      @renderer.stubs(:content_for).with(:post_body_header).returns("")
+
+      assert_equal "Before you start", @presenter.post_body_header
+    end
   end
 end

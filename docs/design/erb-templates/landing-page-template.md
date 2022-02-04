@@ -51,4 +51,12 @@ Used to generate supplementary content (appearing below the start button). Expec
 <% end %>
 ```
 
+Optionally, it is possible to supply a custom header for this section. If supplied, this will override the default "Before you start" heading and can only be text. Example:
+
+```erb
+<% text_for :post_body_header do %>
+  Travelling to England from within the UK, Channel Islands and the Isle of Man
+<% end %>
+```
+
 [meta-description]: https://moz.com/learn/seo/meta-description
