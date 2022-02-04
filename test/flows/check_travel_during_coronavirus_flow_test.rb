@@ -6,7 +6,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
   setup do
     testing_flow CheckTravelDuringCoronavirusFlow
-    stub_worldwide_api_has_locations(%w[spain italy poland])
+    stub_worldwide_api_has_locations(%w[spain ireland italy poland])
   end
 
   should "render start page" do
@@ -462,6 +462,53 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
       should "render the exempt jobs guidance" do
         assert_rendered_outcome text: "Exemptions because of your job"
+      end
+    end
+
+    context "content for Ireland" do
+      setup do
+        add_responses which_country: "ireland",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+      end
+
+      should "render Ireland country guidance but no other country guidance if user only travelling to Ireland" do
+        assert_rendered_outcome text: "Returning to England from Ireland"
+        assert_no_match "Returning to England if you're fully vaccinated", @test_flow.outcome_text
+      end
+
+      should "render Ireland country guidance and red list guidance if user also travelled to red list country" do
+        add_responses any_other_countries_1: "yes",
+                      which_1_country: "spain",
+                      any_other_countries_2: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "yes"
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
+
+        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "Returning to England after visiting a red list country"
+      end
+
+      should "render Ireland country guidance and other country guidance if user is vaccinated also travelled to other countries" do
+        add_responses any_other_countries_1: "yes",
+                      which_1_country: "spain",
+                      any_other_countries_2: "no"
+
+        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
+      end
+
+      should "render Ireland country guidance and other country guidance if user is not vaccinated also travelled to other countries" do
+        add_responses any_other_countries_1: "yes",
+                      which_1_country: "spain",
+                      any_other_countries_2: "no",
+                      vaccination_status: "none"
+
+        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
       end
     end
   end

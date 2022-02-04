@@ -1,4 +1,8 @@
 <% content = capture do %>
+  <% if calculator.travelling_to_ireland? %>
+    <%= render partial: "return_from_ireland_and_other_countries" %>
+  <% end %>
+
   <%= render "govuk_publishing_components/components/heading", {
     text: "Before you travel to England",
     heading_level: 3,

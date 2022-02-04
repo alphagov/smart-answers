@@ -1,4 +1,8 @@
 <% content = capture do %>
+  <% if calculator.travelling_to_ireland? %>
+    <%= render partial: "return_from_ireland_and_other_countries" %>
+  <% end %>
+
   <p class="govuk-body">You've said you'll be in a red list country within 10 days of arriving in England. This means different rules apply for entering England.</p>
 
   <p class="govuk-body">You will only be allowed to enter the UK if you either:</p>

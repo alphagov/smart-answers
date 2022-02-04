@@ -1,4 +1,8 @@
 <% content = capture do %>
+  <% if calculator.travelling_to_ireland? %>
+    <%= render partial: "return_from_ireland_and_other_countries" %>
+  <% end %>
+
   <p class="govuk-body">You do not need to take any COVID-19 tests before you travel to England or after you arrive.</p>
 
   <p class="govuk-body">You must be able to prove that you've been fully vaccinated. If you live in England, you can prove your vaccination status using the <a href="https://www.gov.uk/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>

@@ -36,7 +36,9 @@
     </div>
   <% end %>
 
-  <% if calculator.travelling_to_red_list_country? %>
+  <% if calculator.travelling_to_ireland? && calculator.single_journey? %>
+    <%= render partial: "return_from_ireland_only", locals: { calculator: calculator } %>
+  <% elsif calculator.travelling_to_red_list_country? %>
     <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>
 
     <% if calculator.travelling_with_children.include?("zero_to_four") %>
