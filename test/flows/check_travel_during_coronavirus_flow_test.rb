@@ -6,7 +6,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
   setup do
     testing_flow CheckTravelDuringCoronavirusFlow
-    stub_worldwide_api_has_locations(%w[spain italy poland])
+    stub_worldwide_api_has_locations(%w[spain ireland italy poland])
   end
 
   should "render start page" do
@@ -462,6 +462,22 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
       should "render the exempt jobs guidance" do
         assert_rendered_outcome text: "Exemptions because of your job"
+      end
+    end
+
+    context "content for Ireland" do
+      setup do
+        add_responses which_country: "ireland",
+                      any_other_countries_1: "no",
+                      transit_countries: "none",
+                      going_to_countries_within_10_days: "no",
+                      vaccination_status: "vaccinated",
+                      travelling_with_children: "none"
+      end
+
+      should "render Ireland country guidance but no other country guidance if user only travelling to Ireland" do
+        assert_rendered_outcome text: "Returning to England from Ireland"
+        assert_no_match "Returning to England if you're fully vaccinated", @test_flow.outcome_text
       end
     end
   end

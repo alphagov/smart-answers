@@ -1,0 +1,23 @@
+<% content = capture do %>
+  <p class="govuk-body">There are no entry requirements if you’re travelling to England from Ireland.</p>
+
+  <p class="govuk-body">You do not need to:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>take any COVID-19 tests before you travel to England or after you arrive</li>
+    <li>quarantine when you arrive</li>
+    <li>complete a passenger locator form</li>
+    <li>show proof of vaccination</li>
+  </ul>
+
+  <p class="govuk-body">This is because England and Ireland are in the <a href="/government/publications/common-travel-area-guidance" class="govuk-link">Common Travel Area</a>.</p>
+<% end %>
+
+<%
+  data = {
+    title: "Returning to England from Ireland",
+    reasons: [],
+    content: content
+  }
+%>
+
+<%= render partial: "travel_result_layout", locals: { data: data, calculator: calculator } %>
