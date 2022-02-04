@@ -161,7 +161,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   context "question: vaccination_status" do
     setup do
       testing_node :vaccination_status
-      add_responses which_country: "spain",
+      add_responses which_country: "poland",
                     any_other_countries_1: "no"
     end
 
@@ -170,8 +170,16 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
+      should "have a next node of travelling_with_young_people " \
+                "if the user is not travelling to a red list country " do
+        assert_next_node :travelling_with_young_people, for_response: "vaccinated"
+      end
+
       should "have a next node of travelling_with_children " \
-                "for any response " do
+                "if the user is travelling to a red list country " do
+        add_responses which_country: "spain",
+                      going_to_countries_within_10_days: "yes"
+        SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
         assert_next_node :travelling_with_children, for_response: "vaccinated"
       end
     end
@@ -182,7 +190,9 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       testing_node :travelling_with_children
       add_responses which_country: "spain",
                     any_other_countries_1: "no",
+                    going_to_countries_within_10_days: "yes",
                     vaccination_status: "vaccinated"
+      SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
     end
 
     should "render question" do
@@ -197,13 +207,33 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: travelling_with_young_people" do
+    setup do
+      testing_node :travelling_with_young_people
+      add_responses which_country: "spain",
+                    any_other_countries_1: "no",
+                    vaccination_status: "vaccinated"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of results " \
+                "for any response " do
+        assert_next_node :results, for_response: "yes"
+      end
+    end
+  end
+
   context "outcome: results" do
     setup do
       testing_node :results
       add_responses which_country: "poland",
                     any_other_countries_1: "no",
                     vaccination_status: "vaccinated",
-                    travelling_with_children: "none"
+                    travelling_with_young_people: "no"
     end
 
     should "render 'travelling to' content" do
@@ -268,7 +298,8 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
             ],
           })
 
-          add_responses going_to_countries_within_10_days: "no"
+          add_responses going_to_countries_within_10_days: "no",
+                        travelling_with_children: "zero_to_four"
           assert_rendered_outcome text: "Poland will be removed from the red list for travel to England"
         end
       end
@@ -329,7 +360,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render guidance for people travelling with children" do
-        add_responses travelling_with_children: "zero_to_four"
+        add_responses travelling_with_young_people: "yes"
         assert_rendered_outcome text: "travelling with children and young people"
       end
 
@@ -345,7 +376,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
                       vaccination_status: "vaccinated",
-                      travelling_with_children: "none"
+                      travelling_with_young_people: "no"
       end
 
       should "render the entry requirements" do
@@ -412,7 +443,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
                       vaccination_status: "vaccinated",
-                      travelling_with_children: "none"
+                      travelling_with_young_people: "no"
       end
 
       should "render vaccinated guidance when user is fully vaccinated" do
@@ -424,22 +455,13 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
       end
 
-      should "render travelling with children zero to four guidance when user is travelling with children" do
-        add_responses travelling_with_children: "zero_to_four"
-        assert_rendered_outcome text: "Returning to England with children aged 4 and under"
-      end
-
-      should "render travelling with children five to seventeen guidance when user is travelling with children" do
-        add_responses travelling_with_children: "five_to_seventeen"
-        assert_rendered_outcome text: "Returning to England with young people aged 5 to 17"
+      should "render travelling with children/young people guidance when user is travelling with children/young people" do
+        add_responses travelling_with_young_people: "yes"
+        assert_rendered_outcome text: "Returning to England with children and young people"
       end
 
       should "render the exempt jobs guidance" do
         assert_rendered_outcome text: "Exemptions because of your job"
-      end
-
-      should "render the arriving for urgent medical treatment guidance" do
-        assert_rendered_outcome text: "Returning to England to receive urgent medical treatment"
       end
     end
   end

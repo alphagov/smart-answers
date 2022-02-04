@@ -56,16 +56,11 @@
       <%= render partial: "fully_vaxed", locals: { calculator: calculator } %>
     <% end %>
 
-    <% if calculator.travelling_with_children.include?("zero_to_four") %>
-      <%= render partial: "children_zero_to_four" %>
-    <% end %>
-
-    <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
-      <%= render partial: "children_five_to_seventeen" %>
+    <% if calculator.travelling_with_young_people? %>
+      <%= render partial: "travelling_with_young_people" %>
     <% end %>
 
     <%= render partial: "exempt_job" %>
-    <%= render partial: "medical_treatment" %>
   <% end %>
 
   <div class="govuk-grid-row travel-abroad__section">

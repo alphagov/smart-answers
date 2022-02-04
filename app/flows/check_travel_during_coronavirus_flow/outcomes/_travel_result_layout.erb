@@ -12,6 +12,9 @@
       <% data[:reasons].each do |reason| %>
         <li><%= reason %></li>
       <% end %>
+      <% if calculator.travelling_with_young_people? %>
+        <li>You are travelling with someone aged 17 and under</li>
+      <% end %>
       <% if calculator.travelling_with_children.include?("zero_to_four") %>
         <li>You are travelling with someone aged 4 and under</li>
       <% end %>

@@ -31,8 +31,6 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
           if calculator.any_other_countries == "no"
             if calculator.countries.count > 1
               question :transit_countries
-            elsif calculator.red_list_countries.any?
-              question :going_to_countries_within_10_days
             else
               question :vaccination_status
             end
@@ -67,7 +65,7 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.red_list_countries.any?
+        if calculator.red_list_countries.any? && calculator.countries.length > 1
           question :going_to_countries_within_10_days
         else
           question :vaccination_status
@@ -99,7 +97,24 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :travelling_with_children
+        if calculator.red_list_countries.any?
+          question :travelling_with_children
+        else
+          question :travelling_with_young_people
+        end
+      end
+    end
+
+    radio :travelling_with_young_people do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.travelling_with_young_people = response
+      end
+
+      next_node do
+        outcome :results
       end
     end
 
