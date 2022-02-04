@@ -52,6 +52,14 @@ module SmartAnswer::Calculators
         countries.length == 1 && red_list_countries.include?(countries.first)
     end
 
+    def travelling_to_ireland?
+      countries.include?("ireland")
+    end
+
+    def single_journey?
+      countries.size == 1
+    end
+
     def red_list_country_titles
       red_list_countries.map do |country|
         location(country).title
