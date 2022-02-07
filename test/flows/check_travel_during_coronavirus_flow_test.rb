@@ -488,7 +488,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       going_to_countries_within_10_days: "yes"
         SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
 
-        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
         assert_rendered_outcome text: "Returning to England after visiting a red list country"
       end
 
@@ -497,7 +497,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       which_1_country: "spain",
                       any_other_countries_2: "no"
 
-        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
         assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
       end
 
@@ -507,7 +507,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       any_other_countries_2: "no",
                       vaccination_status: "none"
 
-        assert_rendered_outcome text: "If you’ve been in Ireland for at 10 days or more before travelling to England"
+        assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
         assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
       end
     end
