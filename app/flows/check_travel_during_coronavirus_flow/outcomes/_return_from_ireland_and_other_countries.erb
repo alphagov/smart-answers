@@ -6,13 +6,7 @@
   } %>
   <p class="govuk-body">There are no entry requirements if you’re travelling to England from Ireland after going to another country and have been in Ireland or anywhere else in the <a href="/government/publications/common-travel-area-guidance" class="govuk-link">Common Travel Area</a> for 10 days or more.</p>
 
-  <p class="govuk-body">You do not need to:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>take any COVID-19 tests before you travel to England or after you arrive</li>
-    <li>quarantine when you arrive</li>
-    <li>complete a passenger locator form</li>
-    <li>show proof of vaccination</li>
-  </ul>
+  <%= render partial: "ireland/exemptions" %>
 
   <%= render "govuk_publishing_components/components/heading", {
     text: "If you’ve been in Ireland for less than 10 days before travelling to England",
