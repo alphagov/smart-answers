@@ -352,11 +352,11 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
       should "render guidance for people who aren't fully vaccinated" do
         add_responses vaccination_status: "9ddc7655bfd0d477"
-        assert_rendered_outcome text: "people who aren't fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
       end
 
       should "render guidance for people who are fully vaccinated" do
-        assert_rendered_outcome text: "fully vaccinated people"
+        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
       end
 
       should "render guidance for people travelling with children" do
