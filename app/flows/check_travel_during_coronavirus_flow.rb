@@ -86,6 +86,10 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
       end
     end
 
+    # ****** Important ******
+    # If you rename this question, please also update:
+    #   * the `strip-query-string-parameters` `meta` tag in app/views/layouts/application.html.erb, and
+    #   * `config.filter_parameters` in config/application.rb
     radio :vaccination_status do
       option "3371ccf8123dfadf".to_sym
       option "e9e286f8822bc330".to_sym
