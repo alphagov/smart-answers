@@ -17,6 +17,10 @@
     </div>
   </div>
 
+  <% if calculator.vaccination_status == "529202127233d442" %>
+    <%= render partial: "exempt_vaccination"  %>
+  <% end %>
+
   <% calculator.country_locations.each do |country| %>
     <div class="govuk-grid-row travel-abroad__country">
       <div class="govuk-grid-column-one-third travel-abroad__reasons">

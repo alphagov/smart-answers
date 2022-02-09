@@ -248,6 +248,12 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You are travelling through"
     end
 
+    should "render 'exempt vaccination content' if exempt from vaccination" do
+      add_responses vaccination_status: "529202127233d442"
+      assert_rendered_outcome text: "It’s up to the country you’re travelling to to decide
+      whether or not people who can’t have a COVID-19 vaccination"
+    end
+
     context "content for countries changing covid status" do
       should "render 'move to the red list' content for countries moving to the red list" do
         travel_to("2022-01-01") do
