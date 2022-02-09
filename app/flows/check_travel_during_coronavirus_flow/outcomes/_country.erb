@@ -32,10 +32,12 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements#all-travellers" class="govuk-link" rel="noreferrer noopener" target="_blank">all travellers (opens in new tab)</a></li>
 
-      <% if calculator.vaccination_status == "none" %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">people who aren't fully vaccinated (opens in new tab)</a></li>
-      <% else %>
+      <% if calculator.vaccination_status == "3371ccf8123dfadf" || calculator.vaccination_status == "e9e286f8822bc330" %>
         <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">fully vaccinated people (opens in new tab)</a></li>
+      <% end %>
+
+      <% if calculator.vaccination_status == "9ddc7655bfd0d477" %>
+        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">people who aren't fully vaccinated (opens in new tab)</a></li>
       <% end %>
 
       <% unless calculator.travelling_with_children == ["none"] %>
