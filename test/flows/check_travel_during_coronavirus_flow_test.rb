@@ -563,6 +563,10 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         assert_no_match "Returning to England if you’re fully vaccinated", @test_flow.outcome_text
       end
 
+      should "not render the summary text if only travelling to irealnd" do
+        assert_no_match "Because you said:", @test_flow.outcome_text
+      end
+
       should "render Ireland country guidance and red list guidance if user also travelled to red list country" do
         add_responses any_other_countries_1: "yes",
                       which_1_country: "spain",

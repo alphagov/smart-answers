@@ -24,14 +24,16 @@
   <% calculator.country_locations.each do |country| %>
     <div class="govuk-grid-row travel-abroad__country">
       <div class="govuk-grid-column-one-third travel-abroad__reasons">
-        <p class="govuk-body govuk-body-s">Because you said</p>
-        <ul class="govuk-list govuk-list--bullet govuk-body-s">
-          <% if calculator.transit_countries.include?(country.slug) %>
-            <li>You are travelling through <%= country.title %></li>
-          <% else %>
-            <li>You are travelling to <%= country.title %></li>
-          <% end %>
-        </ul>
+        <% unless calculator.travelling_to_ireland? && calculator.single_journey? %>
+          <p class="govuk-body govuk-body-s">Because you said:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <% if calculator.transit_countries.include?(country.slug) %>
+              <li>You are travelling through <%= country.title %></li>
+            <% else %>
+              <li>You are travelling to <%= country.title %></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
 
       <div class="govuk-grid-column-two-thirds">

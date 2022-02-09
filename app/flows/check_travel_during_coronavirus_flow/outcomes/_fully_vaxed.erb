@@ -12,17 +12,35 @@
 
   <p class="govuk-body">You do not need to take any COVID-19 tests before you travel to England or after you arrive.</p>
 
-  <p class="govuk-body">You must be able to prove that you’ve been fully vaccinated. If you live in England, you can prove your vaccination status using the <a href="https://www.gov.uk/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>
+  <p class="govuk-body">You must <a href="/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> in the 48 hours before you arrive in England.</p>
 
-  <p class="govuk-body">If you were vaccinated in another country or territory, see <a href="https://www.gov.uk/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination#countries-with-an-approved-proof-of-vaccination-and-examples-of-proof-required" class="govuk-link">examples of what you can use as proof of vaccination</a>.</p>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Proof of vaccination",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
 
-  <p class="govuk-body">You must <a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> in the 48 hours before you arrive in England.</p>
+  <p class="govuk-body">You must be able to prove that you’ve been fully vaccinated against COVID-19. If you live in England, you can prove your vaccination status using the <a href="/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>
+
+  <p class="govuk-body">If you were vaccinated in another country or territory, see <a href="/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination#countries-with-an-approved-proof-of-vaccination-and-examples-of-proof-required" class="govuk-link">examples of what you can use as proof of vaccination</a>.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Proof that you cannot have a COVID-19 vaccination",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-body">If you cannot have a COVID-19 vaccination for a medical reason approved by a clinician, you will need to show proof using your <a href ="/guidance/nhs-covid-pass" class="govuk-link">NHS COVID Pass</a>.</p>
+
+  <p class="govuk-body">If you do not have proof in your NHS COVID Pass, you will need to <a href="/guidance/covid-19-medical-exemptions-proving-you-are-unable-to-get-vaccinated" class="govuk-link">apply using the NHS COVID Pass service on 119</a> and ask for a medical exemptions application form.</p>
 <% end %>
 
 <%
   data = {
-    title: "Returning to England if you’re fully vaccinated",
-    reasons: ['You are fully vaccinated'],
+    title: "Returning to England if you’re fully vaccinated or cannot have a COVID-19 vaccination",
+    reasons: ['You are fully vaccinated or cannot have a COVID-19 vaccination'],
     content: content
   }
 %>
