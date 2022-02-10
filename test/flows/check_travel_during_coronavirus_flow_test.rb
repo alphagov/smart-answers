@@ -563,7 +563,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         assert_no_match "Returning to England if you’re fully vaccinated", @test_flow.outcome_text
       end
 
-      should "not render the summary text if only travelling to irealnd" do
+      should "not render the summary text if only travelling to Ireland" do
         assert_no_match "Because you said:", @test_flow.outcome_text
       end
 

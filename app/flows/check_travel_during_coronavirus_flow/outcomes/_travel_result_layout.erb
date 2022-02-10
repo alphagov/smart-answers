@@ -7,21 +7,14 @@
 
 <div class="govuk-grid-row travel-abroad__section">
   <div class="govuk-grid-column-one-third travel-abroad__reasons">
-    <p class="govuk-body govuk-body-s">Because you said</p>
-    <ul class="govuk-list govuk-list--bullet govuk-body-s">
-      <% data[:reasons].each do |reason| %>
-        <li><%= reason %></li>
-      <% end %>
-      <% if calculator.travelling_with_young_people? %>
-        <li>You are travelling with someone aged 17 and under</li>
-      <% end %>
-      <% if calculator.travelling_with_children.include?("zero_to_four") %>
-        <li>You are travelling with someone aged 4 and under</li>
-      <% end %>
-      <% if calculator.travelling_with_children.include?("five_to_seventeen") %>
-        <li>You are travelling with someone aged 5 to 17</li>
-      <% end %>
-    </ul>
+    <% if calculator.summary_text_fields.any? %>
+      <p class="govuk-body govuk-body-s">Because you said:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-body-s">
+        <% calculator.summary_text_fields.each do |field| %>
+          <li><%= t("check_travel_during_coronavirus.summary_text.#{field}") %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <div class="govuk-grid-column-two-thirds">

@@ -120,5 +120,52 @@ module SmartAnswer::Calculators
       @calculator.countries = %w[spain]
       assert @calculator.single_journey?
     end
+
+    context "summary_text_fields" do
+      should "return an empty array if only travelling to ireland, even with other fields" do
+        @calculator.countries = %w[ireland]
+        @calculator.travelling_with_young_people = "yes"
+
+        assert_equal [], @calculator.summary_text_fields
+      end
+
+      should "not include young person if not travelling_with_young_people?" do
+        @calculator.travelling_with_young_people = "no"
+
+        assert_not @calculator.summary_text_fields.include?("young_person")
+      end
+
+      should "include young person if travelling_with_young_people?" do
+        @calculator.travelling_with_young_people = "yes"
+
+        assert @calculator.summary_text_fields.include?("young_person")
+      end
+
+      should "include responses to the travelling_with_children question" do
+        @calculator.travelling_with_children = "zero_to_four,five_to_seventeen"
+
+        %w[zero_to_four five_to_seventeen].each do |age|
+          assert @calculator.summary_text_fields.include?(age)
+        end
+      end
+
+      should "include the correct vaccination status for unvaccinated users" do
+        @calculator.vaccination_status = "9ddc7655bfd0d477"
+
+        assert @calculator.summary_text_fields.include?("not_vaxed")
+      end
+
+      should "include the correct vaccination status for vaccinated users" do
+        @calculator.vaccination_status = "529202127233d442"
+
+        assert @calculator.summary_text_fields.include?("fully_vaxed")
+      end
+
+      should "include red_list if travelling to a red list country" do
+        @calculator.going_to_countries_within_10_days = "yes"
+
+        assert @calculator.summary_text_fields.include?("red_list")
+      end
+    end
   end
 end
