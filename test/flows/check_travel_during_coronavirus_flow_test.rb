@@ -395,6 +395,59 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "travelling with children and young people"
       end
 
+      should "not render guidance for travelling with young people if not travelling with children or unders 18s" do
+        add_responses travelling_with_young_people: "no"
+        assert_no_match "travelling with children and young people", @test_flow.outcome_text
+      end
+
+      should "render guidance for people travelling with children when travelling to a red list country" do
+        travel_to("2022-02-01") do
+          WorldLocation.stubs(:travel_rules).returns({
+            "results" => [
+              {
+                "title" => "Spain",
+                "details" => {
+                  "slug" => "spain",
+                },
+                "england_coronavirus_travel" => [
+                  {
+                    "covid_status" => "red",
+                    "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+                  },
+                ],
+              },
+            ],
+          })
+          add_responses which_country: "spain",
+                        travelling_with_children: "zero_to_four"
+          assert_rendered_outcome text: "travelling with children and young people"
+        end
+      end
+
+      should "render not guidance for people travelling with children when travelling to a red list country if not travelling with children" do
+        travel_to("2022-02-01") do
+          WorldLocation.stubs(:travel_rules).returns({
+            "results" => [
+              {
+                "title" => "Spain",
+                "details" => {
+                  "slug" => "spain",
+                },
+                "england_coronavirus_travel" => [
+                  {
+                    "covid_status" => "red",
+                    "covid_status_applies_at" => "2021-12-20T:02:00.000+00:00",
+                  },
+                ],
+              },
+            ],
+          })
+          add_responses which_country: "spain",
+                        travelling_with_children: "none"
+          assert_no_match "travelling with children and young people", @test_flow.outcome_text
+        end
+      end
+
       should "render other guidance for entering" do
         assert_rendered_outcome text: "There may also be other requirements for entering"
       end
