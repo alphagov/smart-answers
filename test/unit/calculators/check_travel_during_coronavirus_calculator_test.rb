@@ -39,6 +39,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "travelling_with_children?" do
+      should "be false when not travelling with children" do
+        @calculator.travelling_with_children = "none"
+        assert_not @calculator.travelling_with_children?
+      end
+
+      should "be true when travelling with children" do
+        @calculator.travelling_with_children = "zero_to_four"
+        assert @calculator.travelling_with_children?
+      end
+    end
+
     context "transit_countries=" do
       should "add a single country" do
         @calculator.transit_countries = "spain"
