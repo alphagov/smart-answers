@@ -95,10 +95,7 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
     #   * the `strip-query-string-parameters` `meta` tag in app/views/layouts/application.html.erb, and
     #   * `config.filter_parameters` in config/application.rb
     radio :vaccination_status do
-      option "3371ccf8123dfadf".to_sym
-      option "e9e286f8822bc330".to_sym
-      option "529202127233d442".to_sym
-      option "9ddc7655bfd0d477".to_sym
+      options { calculator.vaccination_option_keys }
 
       on_response do |response|
         calculator.vaccination_status = response

@@ -173,5 +173,11 @@ module SmartAnswer::Calculators
         assert @calculator.vaccination_options.is_a?(Hash)
       end
     end
+
+    context "vaccination_option_keys" do
+      should "return an array of option keys" do
+        assert @calculator.vaccination_option_keys.is_a?(Array)
+      end
+    end
   end
 end

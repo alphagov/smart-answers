@@ -132,6 +132,12 @@ module SmartAnswer::Calculators
       ]
     end
 
+    def vaccination_option_keys
+      vaccination_statuses.map do |status|
+        status["code"]
+      end
+    end
+
     def vaccination_options
       options = {}
       vaccination_statuses.each do |status|
