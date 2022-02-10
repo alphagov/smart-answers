@@ -147,6 +147,11 @@ module SmartAnswer::Calculators
       options
     end
 
+    def vaccination_status_by_name(name)
+      vax_status = vaccination_statuses.select { |status| status["name"] == name }.first
+      vax_status["code"]
+    end
+
   private
 
     def vaccination_statuses

@@ -179,5 +179,11 @@ module SmartAnswer::Calculators
         assert @calculator.vaccination_option_keys.is_a?(Array)
       end
     end
+
+    context "vaccination_status_by_name" do
+      should "return vaccination status code" do
+        assert_equal "e9e286f8822bc330", @calculator.vaccination_status_by_name("vaccine_trial")
+      end
+    end
   end
 end

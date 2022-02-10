@@ -7,6 +7,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow CheckTravelDuringCoronavirusFlow
     stub_worldwide_api_has_locations(%w[spain ireland italy poland])
+    @calculator = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new
   end
 
   should "render start page" do
@@ -182,7 +183,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of travelling_with_young_people " \
                 "if the user is not travelling to a red list country " do
-        assert_next_node :travelling_with_young_people, for_response: "3371ccf8123dfadf"
+        assert_next_node :travelling_with_young_people, for_response: @calculator.vaccination_status_by_name("fully_vaccinated")
       end
 
       should "have a next node of travelling_with_children " \
@@ -190,7 +191,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         add_responses which_country: "spain",
                       going_to_countries_within_10_days: "yes"
         SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
-        assert_next_node :travelling_with_children, for_response: "3371ccf8123dfadf"
+        assert_next_node :travelling_with_children, for_response: @calculator.vaccination_status_by_name("fully_vaccinated")
       end
     end
   end
@@ -201,7 +202,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       add_responses which_country: "spain",
                     any_other_countries_1: "no",
                     going_to_countries_within_10_days: "yes",
-                    vaccination_status: "3371ccf8123dfadf"
+                    vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated")
       SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.any_instance.stubs(:red_list_countries).returns(%w[spain])
     end
 
@@ -222,7 +223,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       testing_node :travelling_with_young_people
       add_responses which_country: "spain",
                     any_other_countries_1: "no",
-                    vaccination_status: "3371ccf8123dfadf"
+                    vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated")
     end
 
     should "render question" do
@@ -242,7 +243,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       testing_node :results
       add_responses which_country: "poland",
                     any_other_countries_1: "no",
-                    vaccination_status: "3371ccf8123dfadf",
+                    vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated"),
                     travelling_with_young_people: "no"
     end
 
@@ -259,7 +260,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
     end
 
     should "render 'exempt vaccination content' if exempt from vaccination" do
-      add_responses vaccination_status: "529202127233d442"
+      add_responses vaccination_status: @calculator.vaccination_status_by_name("exemption_from_vaccination")
       assert_rendered_outcome text: "The country you’re travelling to decides its own rules"
     end
 
@@ -366,32 +367,32 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render link to fully vaccinated people guidance if fully vaccinated" do
-        add_responses vaccination_status: "3371ccf8123dfadf"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated")
         assert_rendered_outcome text: "fully vaccinated people (opens in new tab)"
       end
 
       should "render link to fully vaccinated people guidance if taking part in vaccine trial" do
-        add_responses vaccination_status: "e9e286f8822bc330"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("vaccine_trial")
         assert_rendered_outcome text: "fully vaccinated people (opens in new tab)"
       end
 
       should "render link to people who aren't fully vaccinated guidance if not fully vaccinated" do
-        add_responses vaccination_status: "9ddc7655bfd0d477"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("unvaccinated")
         assert_rendered_outcome text: "people who aren't fully vaccinated (opens in new tab)"
       end
 
       should "not render link to fully vaccinated people guidance if exempt from vaccination" do
-        add_responses vaccination_status: "529202127233d442"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("exemption_from_vaccination")
         assert_no_match "fully vaccinated people (opens in new tab)", @test_flow.outcome_text
       end
 
       should "not render link to people who aren't fully vaccinated guidance if exempt from vaccination" do
-        add_responses vaccination_status: "529202127233d442"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("exemption_from_vaccination")
         assert_no_match "people who aren't fully vaccinated (opens in new tab)", @test_flow.outcome_text
       end
 
       should "render guidance for people who aren't fully vaccinated" do
-        add_responses vaccination_status: "9ddc7655bfd0d477"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("unvaccinated")
         assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
       end
 
@@ -468,7 +469,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
-                      vaccination_status: "3371ccf8123dfadf",
+                      vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated"),
                       travelling_with_young_people: "no"
       end
 
@@ -498,7 +499,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         add_responses which_country: "spain",
                       any_other_countries_1: "no",
                       going_to_countries_within_10_days: "yes",
-                      vaccination_status: "3371ccf8123dfadf",
+                      vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated"),
                       travelling_with_children: "none"
       end
 
@@ -535,7 +536,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
-                      vaccination_status: "3371ccf8123dfadf",
+                      vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated"),
                       travelling_with_young_people: "no"
       end
 
@@ -544,7 +545,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render unvaccinated guidance when user is not fully vaccinated" do
-        add_responses vaccination_status: "9ddc7655bfd0d477"
+        add_responses vaccination_status: @calculator.vaccination_status_by_name("unvaccinated")
         assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
       end
 
@@ -564,7 +565,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       any_other_countries_1: "no",
                       transit_countries: "none",
                       going_to_countries_within_10_days: "no",
-                      vaccination_status: "3371ccf8123dfadf",
+                      vaccination_status: @calculator.vaccination_status_by_name("fully_vaccinated"),
                       travelling_with_children: "none"
       end
 
@@ -602,7 +603,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         add_responses any_other_countries_1: "yes",
                       which_1_country: "spain",
                       any_other_countries_2: "no",
-                      vaccination_status: "9ddc7655bfd0d477"
+                      vaccination_status: @calculator.vaccination_status_by_name("unvaccinated")
 
         assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
         assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
