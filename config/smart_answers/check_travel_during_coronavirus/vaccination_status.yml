@@ -1,0 +1,9 @@
+---
+- code: "3371ccf8123dfadf"
+  option_text: "I will be fully vaccinated using an approved COVID-19 vaccine 14 or more days before I travel"
+- code: "e9e286f8822bc330"
+  option_text: "I’m taking part in an approved COVID-19 vaccine trial"
+- code: "529202127233d442"
+  option_text: "I cannot have a COVID-19 vaccination for a medical reason approved by a clinician"
+- code: "9ddc7655bfd0d477"
+  option_text: "None of the above"

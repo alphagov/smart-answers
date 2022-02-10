@@ -131,5 +131,20 @@ module SmartAnswer::Calculators
         venezuela
       ]
     end
+
+    def vaccination_options
+      options = {}
+      vaccination_statuses.each do |status|
+        options[status["code"]] = status["option_text"]
+      end
+
+      options
+    end
+
+  private
+
+    def vaccination_statuses
+      @vaccination_statuses ||= YAML.load_file(Rails.root.join("config/smart_answers/check_travel_during_coronavirus/vaccination_status.yml"))
+    end
   end
 end

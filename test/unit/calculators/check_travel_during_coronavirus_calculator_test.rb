@@ -167,5 +167,11 @@ module SmartAnswer::Calculators
         assert @calculator.summary_text_fields.include?("red_list")
       end
     end
+
+    context "vaccination_options" do
+      should "return a hash of options" do
+        assert @calculator.vaccination_options.is_a?(Hash)
+      end
+    end
   end
 end

@@ -6,12 +6,7 @@
   Select one of the following options:
 <% end %>
 
-<% options(
-  "3371ccf8123dfadf": "I will be fully vaccinated using an approved COVID-19 vaccine 14 or more days before I travel",
-  "e9e286f8822bc330": "I'm taking part in an approved COVID-19 vaccine trial",
-  "529202127233d442": "I cannot have a COVID-19 vaccination for a medical reason approved by a clinician",
-  "9ddc7655bfd0d477": "None of the above",
-) %>
+<% options(calculator.vaccination_options) %>
 
 <% govspeak_for :post_body do %>
   You do not need a booster vaccine to qualify as fully vaccinated
