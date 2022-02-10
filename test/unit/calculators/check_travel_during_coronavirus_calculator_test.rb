@@ -185,5 +185,33 @@ module SmartAnswer::Calculators
         assert_equal "e9e286f8822bc330", @calculator.vaccination_status_by_name("vaccine_trial")
       end
     end
+
+    context "fully_vaccinated?" do
+      should "be true when vaccination_status code is fully vaccinated" do
+        @calculator.vaccination_status = "3371ccf8123dfadf"
+        assert @calculator.fully_vaccinated?
+      end
+    end
+
+    context "part_of_vaccine_trial?" do
+      should "be true when vaccination_status code is part of vaccine trial" do
+        @calculator.vaccination_status = "e9e286f8822bc330"
+        assert @calculator.part_of_vaccine_trial?
+      end
+    end
+
+    context "exemption_from_vaccination?" do
+      should "be true when vaccination_status code is exemption from vaccination" do
+        @calculator.vaccination_status = "529202127233d442"
+        assert @calculator.exemption_from_vaccination?
+      end
+    end
+
+    context "unvaccinated?" do
+      should "be true when vaccination_status code is fully unvaccinated" do
+        @calculator.vaccination_status = "9ddc7655bfd0d477"
+        assert @calculator.unvaccinated?
+      end
+    end
   end
 end

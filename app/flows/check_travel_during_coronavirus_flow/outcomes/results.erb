@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <% if calculator.vaccination_status == "529202127233d442" %>
+  <% if calculator.exemption_from_vaccination? %>
     <%= render partial: "exempt_vaccination"  %>
   <% end %>
 
@@ -62,7 +62,7 @@
     <%= render partial: "exempt_medical" %>
     <%= render partial: "exempt_compassionate" %>
   <% else %>
-    <% if calculator.vaccination_status == "9ddc7655bfd0d477" %>
+    <% if calculator.unvaccinated? %>
       <%= render partial: "not_fully_vaxed", locals: { calculator: calculator } %>
     <% else %>
       <%= render partial: "fully_vaxed", locals: { calculator: calculator } %>

@@ -27,8 +27,14 @@ module SmartAnswer::Calculators
 
       return fields if travelling_to_ireland? && single_journey?
 
-      fields << (vaccination_status == "9ddc7655bfd0d477" ? "not_vaxed" : "fully_vaxed")
+      fields << if unvaccinated?
+                  "not_vaxed"
+                else
+                  "fully_vaxed"
+                end
+
       fields << "red_list" if travelling_to_red_list_country?
+
       if travelling_with_children?
         fields << travelling_with_children
       elsif travelling_with_young_people?
@@ -130,6 +136,22 @@ module SmartAnswer::Calculators
         usa
         venezuela
       ]
+    end
+
+    def fully_vaccinated?
+      vaccination_status_by_name("fully_vaccinated") == vaccination_status
+    end
+
+    def part_of_vaccine_trial?
+      vaccination_status_by_name("vaccine_trial") == vaccination_status
+    end
+
+    def exemption_from_vaccination?
+      vaccination_status_by_name("exemption_from_vaccination") == vaccination_status
+    end
+
+    def unvaccinated?
+      vaccination_status_by_name("unvaccinated") == vaccination_status
     end
 
     def vaccination_option_keys
