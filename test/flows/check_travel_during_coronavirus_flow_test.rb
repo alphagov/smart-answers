@@ -383,11 +383,11 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
       should "render guidance for people who aren't fully vaccinated" do
         add_responses vaccination_status: "9ddc7655bfd0d477"
-        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
       end
 
       should "render guidance for people who are fully vaccinated" do
-        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re fully vaccinated"
       end
 
       should "render guidance for people travelling with children" do
@@ -478,12 +478,12 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render vaccinated guidance when user is fully vaccinated" do
-        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re fully vaccinated"
       end
 
       should "render unvaccinated guidance when user is not fully vaccinated" do
         add_responses vaccination_status: "9ddc7655bfd0d477"
-        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
       end
 
       should "render travelling with children/young people guidance when user is travelling with children/young people" do
@@ -508,7 +508,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
 
       should "render Ireland country guidance but no other country guidance if user only travelling to Ireland" do
         assert_rendered_outcome text: "Returning to England from Ireland"
-        assert_no_match "Returning to England if you're fully vaccinated", @test_flow.outcome_text
+        assert_no_match "Returning to England if you’re fully vaccinated", @test_flow.outcome_text
       end
 
       should "render Ireland country guidance and red list guidance if user also travelled to red list country" do
@@ -529,7 +529,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       any_other_countries_2: "no"
 
         assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
-        assert_rendered_outcome text: "Returning to England if you're fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re fully vaccinated"
       end
 
       should "render Ireland country guidance and other country guidance if user is not vaccinated also travelled to other countries" do
@@ -539,7 +539,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
                       vaccination_status: "9ddc7655bfd0d477"
 
         assert_rendered_outcome text: "If you’ve been in Ireland for 10 days or more before travelling to England"
-        assert_rendered_outcome text: "Returning to England if you're not fully vaccinated"
+        assert_rendered_outcome text: "Returning to England if you’re not fully vaccinated"
       end
     end
   end
