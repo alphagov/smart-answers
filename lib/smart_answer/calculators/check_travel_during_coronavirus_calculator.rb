@@ -28,6 +28,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def travelling_with_children?
+      travelling_with_children.any? && travelling_with_children != %w[none]
+    end
+
     def travelling_with_young_people?
       travelling_with_young_people == "yes"
     end

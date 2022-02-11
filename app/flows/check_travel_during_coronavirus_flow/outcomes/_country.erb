@@ -40,7 +40,7 @@
         <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">people who aren't fully vaccinated (opens in new tab)</a></li>
       <% end %>
 
-      <% unless calculator.travelling_with_children == ["none"] %>
+      <% if calculator.travelling_with_children? || calculator.travelling_with_young_people? %>
         <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#children-and-young-people" class="govuk-link" rel="noreferrer noopener" target="_blank">travelling with children and young people (opens in new tab)</a></li>
       <% end %>
 
