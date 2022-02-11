@@ -63,7 +63,7 @@ class WorldLocation
   end
 
   def self.travel_rules
-    @travel_rules ||= YAML.load_file(Rails.root.join("config/smart_answers/check_travel_during_coronavirus_data.yml"))
+    @travel_rules ||= YAML.load_file(Rails.root.join("config/smart_answers/check_travel_during_coronavirus/country_data.yml"))
   end
 
   def initialize(location)
