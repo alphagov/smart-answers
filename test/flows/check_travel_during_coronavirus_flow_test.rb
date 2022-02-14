@@ -106,6 +106,16 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       assert_rendered_question
     end
 
+    context "validations" do
+      should "be invalid if all countries are selected" do
+        assert_invalid_response "italy,spain"
+      end
+
+      should "be valid if at least one country is unselected" do
+        assert_valid_response "spain"
+      end
+    end
+
     context "next_node" do
       should "have a next node of vaccination_status " \
                 "for a 'none' response " \

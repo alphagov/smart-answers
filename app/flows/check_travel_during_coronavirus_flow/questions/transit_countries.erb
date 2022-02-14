@@ -10,6 +10,10 @@
   Select all that apply:
 <% end %>
 
+<% text_for :error_no_destination do %>
+  You must leave at least one country unselected
+<% end %>
+
 <% countries = calculator.transit_country_options.dup %>
 <% countries[:none] = "No" %>
 <%= options(countries) %>
