@@ -22,6 +22,22 @@ module SmartAnswer::Calculators
       end
     end
 
+    def summary_text_fields
+      fields = []
+
+      return fields if travelling_to_ireland? && single_journey?
+
+      fields << (vaccination_status == "9ddc7655bfd0d477" ? "not_vaxed" : "fully_vaxed")
+      fields << "red_list" if travelling_to_red_list_country?
+      if travelling_with_children?
+        fields << travelling_with_children
+      elsif travelling_with_young_people?
+        fields << "young_person"
+      end
+
+      fields.flatten
+    end
+
     def travelling_with_children=(travelling_with_children)
       travelling_with_children.split(",").each do |response|
         @travelling_with_children << response
