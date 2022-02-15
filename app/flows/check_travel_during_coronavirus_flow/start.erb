@@ -21,6 +21,15 @@
   </ul>
 
   <p>You will be asked a series of questions so we can show you information relevant to your journey and circumstances.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Before you start",
+    heading_level: 2,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p class="govuk-!-margin-bottom-6">You’ll be asked about your vaccination status. <a href="/guidance/countries-with-approved-covid-19-vaccination-programmes-and-proof-of-vaccination">Check if you qualify as fully vaccinated for travel to England, including approved vaccines</a>.</p>
 <% end %>
 
 <% text_for :post_body_header do %>
