@@ -118,6 +118,9 @@ class WorldLocation
     # Once the world location api returns the covid status, we should be able
     # to replace this line with:
     # location.fetch("england_coronavirus_travel", "")
+
+    return if self.class.travel_rules.blank?
+
     rules = self.class.travel_rules["results"].select { |country| country["details"]["slug"] == slug }.first
 
     return if rules.blank?
