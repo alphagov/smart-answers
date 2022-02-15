@@ -12,8 +12,12 @@
     <div class="govuk-grid-column-one-third desktop-min-height"></div>
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/inset_text", {
-        text: "You should read and understand the entry requirements set by any countries you are travelling to. If you do not follow the rules you may not be allowed to enter."
-      } %>
+      } do %>
+        <div>
+          <p class="govuk-body">You must meet the entry requirements of any country you’re travelling to or through.</p>
+          <p class="govuk-body">You should also check whether the Foreign, Commonwealth and Development Office advises against travelling to or through a country.</p>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -77,7 +81,7 @@
       <%= render "govuk_publishing_components/components/inset_text", {
       } do %>
         <p class="govuk-body">
-          Find out <a href="https://travel-abroad-coronavirus.herokuapp.com/travel-abroad-step-by-step" class="govuk-link">other things you may need to do before you travel abroad</a>. These may include:
+          Find out <a href="/travel-abroad" class="govuk-link">other things you may need to do before you travel abroad</a>. These may include:
         </p>
         <ul class="govuk-list govuk-list--bullet">
           <li>renewing your passport in time</li>
