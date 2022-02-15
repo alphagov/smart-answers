@@ -80,7 +80,35 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_content_headers_converted
-      %w[spain germany]
+      %w[
+        burundi
+        cambodia
+        canada
+        colombia
+        croatia
+        cyprus
+        egypt
+        germany
+        guyana
+        india
+        italy
+        luxembourg
+        malta
+        nepal
+        new-zealand
+        norway
+        poland
+        portugal
+        saudi-arabia
+        singapore
+        slovenia
+        suriname
+        switzerland
+        thailand
+        turkey
+        usa
+        venezuela
+      ]
     end
   end
 end
