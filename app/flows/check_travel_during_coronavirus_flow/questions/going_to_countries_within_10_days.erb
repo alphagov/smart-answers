@@ -3,14 +3,9 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  <%= render "govuk_publishing_components/components/details", {
-    title: "Why we’re asking this question:"
-  } do %>
-    You've told us you’re going to a country on the travel red list.
-    Different rules apply if you’ve been in a red list country in the 10 days before you return to England.
-  <% end %>
+  Different rules apply if you’ve been in a red list country in the 10 days before you return to England.
 
-  These are the red list countries you said you're going to:
+  You've said you’re going to these red list countries:
 
  <% calculator.red_list_country_titles.each do |country| %>
    - <%= country %>
