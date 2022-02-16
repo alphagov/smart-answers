@@ -106,8 +106,11 @@ module SmartAnswer::Calculators
         egypt
         germany
         guyana
+        iceland
         india
+        ireland
         italy
+        latvia
         luxembourg
         malta
         nepal
@@ -115,9 +118,11 @@ module SmartAnswer::Calculators
         norway
         poland
         portugal
+        romania
         saudi-arabia
         singapore
         slovenia
+        spain
         suriname
         switzerland
         thailand
