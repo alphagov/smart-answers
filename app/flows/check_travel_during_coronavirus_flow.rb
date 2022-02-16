@@ -64,6 +64,10 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
         calculator.transit_countries = response unless response == "none"
       end
 
+      validate(:error_no_destination) do
+        calculator.transit_countries.size < calculator.countries.size
+      end
+
       next_node do
         if calculator.red_list_countries.any? && calculator.countries.length > 1
           question :going_to_countries_within_10_days
