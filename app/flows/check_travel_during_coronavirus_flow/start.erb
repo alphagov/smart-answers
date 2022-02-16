@@ -9,10 +9,6 @@
 <% govspeak_for :body do %>
   <p>If you’re travelling from and to England during coronavirus (COVID-19), there are things you need to do before you travel and after you arrive.</p>
 
-  $CTA
-  <p>There are different rules if you’re <a href="https://www.gov.scot/publications/coronavirus-covid-19-international-travel-quarantine/">travelling to Scotland</a>, <a href="https://gov.wales/arriving-wales-overseas">travelling to Wales</a> or <a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-international-travel-advice">travelling to Northern Ireland</a>.</p>
-  $CTA
-
   <p>Use this tool to find out:</p>
 
   <ul>
@@ -25,6 +21,17 @@
   </ul>
 
   <p>You will be asked a series of questions so we can show you information relevant to your journey and circumstances.</p>
+
+  <p>There are different rules if you’re</p>
+
+  <ul>
+    <li><a href="https://www.gov.scot/publications/coronavirus-covid-19-international-travel-quarantine/">travelling to Scotland</a></li>
+    <li><a href="https://gov.wales/arriving-wales-overseas">travelling to Wales</a></li>
+    <li><a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-international-travel-advice">travelling to Northern Ireland</a></li>
+    <li><a href="https://covid19.gov.im/travel/travel-to-the-isle-of-man">travelling to the Isle of Man</a></li>
+    <li><a href="https://www.gov.je/Health/Coronavirus/Travel/Pages/CoronavirusTravelAdvice.aspx">travelling to Jersey</a></li>
+    <li><a href="https://covid19.gov.gg/guidance/travel">travelling to Guernsey</a></li>
+  </ul>
 
   <%= render "govuk_publishing_components/components/heading", {
     text: "Before you start",
@@ -44,4 +51,13 @@
   <p>If you’re travelling to England from within the Common Travel Area (England, Scotland, Wales and Northern Ireland, Ireland, the Channel Islands and the Isle of Man) and haven’t been anywhere else within the 10 days before you arrive, there are no entry requirements for coming into England.</p>
 
   <p>If you’ve been to a country or territory outside the Common Travel Area within the 10 days before you arrive in England, you must follow the rules for entering England from that country. You can use this tool to find out those rules.</p>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Travelling to England from outside the Common Travel Area",
+    heading_level: 3,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p>If you live outside the Common Travel Area (England, Scotland, Wales and Northern Ireland, Ireland, the Channel Islands and the Isle of Man) and are travelling to England, check what you need to do to <a href="/guidance/travel-to-england-from-another-country-during-coronavirus-covid-19">travel to England during coronavirus</a>.</p>
 <% end %>
