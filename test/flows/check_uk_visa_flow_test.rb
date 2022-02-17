@@ -800,10 +800,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa_with_business_information
-      test_visa_count("canada", 7)
-      test_visa_count("china", 5)
-      test_visa_count("british-national-overseas", 8)
-      test_visa_count("stateless-or-refugee", 5)
+      test_visa_count("canada", 6)
+      test_visa_count("china", 4)
+      test_visa_count("british-national-overseas", 7)
+      test_visa_count("stateless-or-refugee", 4)
     end
 
     context "what_type_of_work: digital" do

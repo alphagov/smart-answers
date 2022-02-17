@@ -29,7 +29,7 @@
         - name: representative_of_overseas_business_arts
         - name: work_experience_scheme
     business:
-      title: You need a visa to start or invest in a business
+      title: You need a visa to start a business
       visas:
         - name: country_in_bno_list
           condition: passport_country_in_british_national_overseas_list?
@@ -41,7 +41,6 @@
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
-        - name: investor
     digital:
       title: You need a visa to work in digital technology
       visas:
