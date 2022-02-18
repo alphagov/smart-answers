@@ -167,5 +167,51 @@ module SmartAnswer::Calculators
         assert @calculator.summary_text_fields.include?("red_list")
       end
     end
+
+    context "vaccination_options" do
+      should "return a hash of options" do
+        assert @calculator.vaccination_options.is_a?(Hash)
+      end
+    end
+
+    context "vaccination_option_keys" do
+      should "return an array of option keys" do
+        assert @calculator.vaccination_option_keys.is_a?(Array)
+      end
+    end
+
+    context "vaccination_status_by_name" do
+      should "return vaccination status code" do
+        assert_equal "e9e286f8822bc330", @calculator.vaccination_status_by_name("vaccine_trial")
+      end
+    end
+
+    context "fully_vaccinated?" do
+      should "be true when vaccination_status code is fully vaccinated" do
+        @calculator.vaccination_status = "3371ccf8123dfadf"
+        assert @calculator.fully_vaccinated?
+      end
+    end
+
+    context "part_of_vaccine_trial?" do
+      should "be true when vaccination_status code is part of vaccine trial" do
+        @calculator.vaccination_status = "e9e286f8822bc330"
+        assert @calculator.part_of_vaccine_trial?
+      end
+    end
+
+    context "exemption_from_vaccination?" do
+      should "be true when vaccination_status code is exemption from vaccination" do
+        @calculator.vaccination_status = "529202127233d442"
+        assert @calculator.exemption_from_vaccination?
+      end
+    end
+
+    context "unvaccinated?" do
+      should "be true when vaccination_status code is fully unvaccinated" do
+        @calculator.vaccination_status = "9ddc7655bfd0d477"
+        assert @calculator.unvaccinated?
+      end
+    end
   end
 end
