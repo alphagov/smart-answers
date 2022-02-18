@@ -114,40 +114,7 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_content_headers_converted
-      %w[
-        burundi
-        cambodia
-        canada
-        colombia
-        croatia
-        cyprus
-        egypt
-        germany
-        guyana
-        iceland
-        india
-        ireland
-        italy
-        latvia
-        luxembourg
-        malta
-        nepal
-        new-zealand
-        norway
-        poland
-        portugal
-        romania
-        saudi-arabia
-        singapore
-        slovenia
-        spain
-        suriname
-        switzerland
-        thailand
-        turkey
-        usa
-        venezuela
-      ]
+      countries.map { |country| country if TravelAdviceHeaderCheckRetriever.fetch(country) }.compact
     end
 
     def fully_vaccinated?
