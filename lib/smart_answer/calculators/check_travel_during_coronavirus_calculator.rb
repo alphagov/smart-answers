@@ -82,8 +82,16 @@ module SmartAnswer::Calculators
       countries.include?("ireland")
     end
 
+    def travelling_to_ukraine?
+      countries.include?("ukraine")
+    end
+
     def single_journey?
       countries.size == 1
+    end
+
+    def multiple_journey?
+      countries.size > 1
     end
 
     def red_list_country_titles
