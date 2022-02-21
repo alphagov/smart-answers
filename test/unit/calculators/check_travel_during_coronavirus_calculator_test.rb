@@ -121,6 +121,16 @@ module SmartAnswer::Calculators
       assert @calculator.single_journey?
     end
 
+    should "return true for travelling_to_ukraine? if ukraine has been selected" do
+      @calculator.countries = %w[spain ukraine poland]
+      assert @calculator.travelling_to_ukraine?
+    end
+
+    should "return true for multiple_journey? if travelling to more than one country" do
+      @calculator.countries = %w[spain poland]
+      assert @calculator.multiple_journey?
+    end
+
     context "summary_text_fields" do
       should "return an empty array if only travelling to ireland, even with other fields" do
         @calculator.countries = %w[ireland]
