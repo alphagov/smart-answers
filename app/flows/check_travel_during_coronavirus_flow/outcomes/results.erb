@@ -29,7 +29,7 @@
   <% calculator.country_locations.each do |country| %>
     <div class="govuk-grid-row travel-abroad__country">
       <div class="govuk-grid-column-one-third travel-abroad__reasons">
-        <% unless calculator.travelling_to_ireland? && calculator.single_journey? %>
+        <% unless calculator.only_travelling_to_ireland? %>
           <p class="govuk-body govuk-body-s">Because you said:</p>
           <ul class="govuk-list govuk-list--bullet govuk-body-s">
             <% if calculator.transit_countries.include?(country.slug) %>
@@ -47,7 +47,7 @@
     </div>
   <% end %>
 
-  <% if calculator.travelling_to_ireland? && calculator.single_journey? %>
+  <% if calculator.only_travelling_to_ireland? %>
     <%= render partial: "return_from_ireland_only", locals: { calculator: calculator } %>
   <% elsif calculator.travelling_to_red_list_country? %>
     <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>

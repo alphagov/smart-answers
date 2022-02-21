@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
     def summary_text_fields
       fields = []
 
-      return fields if travelling_to_ireland? && single_journey?
+      return fields if only_travelling_to_ireland?
 
       fields << if unvaccinated?
                   "not_vaxed"
@@ -76,6 +76,10 @@ module SmartAnswer::Calculators
     def travelling_to_red_list_country?
       going_to_countries_within_10_days == "yes" ||
         countries.length == 1 && red_list_countries.include?(countries.first)
+    end
+
+    def only_travelling_to_ireland?
+      travelling_to_ireland? && single_journey?
     end
 
     def travelling_to_ireland?
