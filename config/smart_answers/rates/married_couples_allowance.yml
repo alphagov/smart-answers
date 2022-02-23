@@ -43,3 +43,8 @@
   end_date: 2022-04-05
   maximum_married_couple_allowance: 9125
   minimum_married_couple_allowance: 3530
+
+- start_date: 2022-04-06
+  end_date: 2023-04-05
+  maximum_married_couple_allowance: 9415
+  minimum_married_couple_allowance: 3640
