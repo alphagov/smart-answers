@@ -2,7 +2,7 @@ ARG base_image=ruby:2.7.5-slim-buster
 
 FROM $base_image AS builder
 
-ENV RAILS_ENV=production
+ENV RAILS_ENV=production NODE_ENV=production
 
 # TODO: have a separate build image which already contains the build-only deps.
 RUN apt-get update -qq && \
@@ -28,7 +28,7 @@ RUN yarn install && \
 
 FROM $base_image
 
-ENV RAILS_ENV=production GOVUK_APP_NAME=smart-answers
+ENV RAILS_ENV=production NODE_ENV=production GOVUK_APP_NAME=smart-answers
 
 RUN apt-get update -qy && \
     apt-get upgrade -y && \
