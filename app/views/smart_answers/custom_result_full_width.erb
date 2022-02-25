@@ -1,4 +1,7 @@
 <% outcome = @presenter.current_node %>
+
+<%= outcome.banner %>
+
 <% content_for :outcome_title do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>

@@ -30,6 +30,10 @@ class OutcomePresenter < NodePresenter
     @renderer.content_for(:next_steps)
   end
 
+  def banner
+    @renderer.content_for(:banner)
+  end
+
   def view_template_path
     @node.view_template_path || "smart_answers/result"
   end
