@@ -15,11 +15,12 @@ class WorldLocation
 
   def self.all
     cache_fetch("all") do
-      world_locations = GdsApi.worldwide
-                              .world_locations
-                              .with_subsequent_pages
-                              .select { |r| valid_world_location_format?(r.to_hash) }
-                              .map { |r| new(r.to_hash) }
+      world_locations = WorldwideApi
+                        .endpoint
+                        .world_locations
+                        .with_subsequent_pages
+                        .select { |r| valid_world_location_format?(r.to_hash) }
+                        .map { |r| new(r.to_hash) }
 
       raise NoLocationsFromWorldwideApiError if world_locations.empty?
 
@@ -29,7 +30,9 @@ class WorldLocation
 
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
-      location = GdsApi.worldwide.world_location(location_slug).to_hash
+      location = WorldwideApi
+                 .endpoint
+                 .world_location(location_slug).to_hash
       new(location)
     rescue GdsApi::HTTPNotFound
       nil
