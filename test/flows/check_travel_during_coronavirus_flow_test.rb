@@ -1,11 +1,14 @@
 require "test_helper"
 require "support/flow_test_helper"
+require "support/foreign_travel_advice_helper"
 
 class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include ForeignTravelAdviceHelper
 
   setup do
     testing_flow CheckTravelDuringCoronavirusFlow
+    stub_foreign_travel_advice
     stub_worldwide_api_has_locations(%w[spain ireland italy poland ukraine])
     @calculator = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new
   end
