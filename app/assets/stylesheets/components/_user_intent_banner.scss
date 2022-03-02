@@ -1,4 +1,4 @@
-.app-c-user-research-banner {
+.app-c-user-intent-banner {
   @include govuk-font($size: 16);
   background-color: govuk-colour("light-grey");
   padding: govuk-spacing(3);
@@ -9,7 +9,7 @@
   }
 }
 
-.app-c-user-research-banner__title {
+.app-c-user-intent-banner__title {
   @include govuk-font($size: 16, $weight: bold);
   display: block;
   color: $govuk-text-colour;

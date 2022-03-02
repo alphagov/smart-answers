@@ -63,6 +63,12 @@ module SmartAnswer
       assert_equal "next-steps-html", @presenter.next_steps
     end
 
+    test "#banner returns content rendered for banner block" do
+      @renderer.stubs(:content_for).with(:banner).returns("phase-banner-html")
+
+      assert_equal "phase-banner-html", @presenter.banner
+    end
+
     test "#view_template_path returns default when not set on node" do
       node = stub(view_template_path: nil)
       presenter = OutcomePresenter.new(node, nil, nil, renderer: @renderer)
