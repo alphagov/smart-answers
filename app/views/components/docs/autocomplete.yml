@@ -30,3 +30,9 @@ examples:
       options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
       error_items:
         - text: There is a problem with this input
+  with_margin_bottom:
+    description: The component accepts a number for margin bottom from 0 to 9 (0px to 60px) using the [GOV.UK Frontend spacing scale](https://design-system.service.gov.uk/styles/spacing/#the-responsive-spacing-scale). The default margin bottom is 30px (govuk spacing 6).
+    data:
+      label: 'Countries'
+      options: ['France', 'Germany', 'Sweden', 'Switzerland', 'United Kingdom', 'United States', 'The Separate Customs Territory of Taiwan, Penghu, Kinmen, and Matsu (Chinese Taipei)']
+      margin_bottom: 9

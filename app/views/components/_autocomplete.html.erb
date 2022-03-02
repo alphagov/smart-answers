@@ -4,12 +4,15 @@
   label ||= nil
   value ||= nil
   options ||= []
+  local_assigns[:margin_bottom] ||= 6
+  shared_helper = GovukPublishingComponents::Presenters::SharedHelper.new(local_assigns)
 
   error_id = "error-#{SecureRandom.hex(4)}"
   error_items ||= []
 
   classes = %w(app-c-autocomplete govuk-form-group)
   classes << "govuk-form-group--error" if error_items.any?
+  classes << shared_helper.get_margin_bottom
 
   if !options.any? || !label
     raise ArgumentError, "The autocomplete component needs at least one option and a label in order to render."
