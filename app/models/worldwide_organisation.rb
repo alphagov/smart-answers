@@ -2,7 +2,9 @@ class WorldwideOrganisation
   attr_reader :title, :web_url, :offices, :sponsors, :main_office, :other_offices
 
   def self.for_location(location_slug)
-    organisations = GdsApi.worldwide.organisations_for_world_location(location_slug).map do |response|
+    organisations = WorldwideApi
+                    .endpoint
+                    .organisations_for_world_location(location_slug).map do |response|
       new(response.to_hash) if response.present?
     end
     organisations.compact
