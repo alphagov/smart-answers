@@ -148,5 +148,24 @@ module SmartAnswer
     test "#view_template_path returns the question view template name" do
       assert_equal "smart_answers/question", @presenter.view_template_path
     end
+
+    test "#change_link_track_label filters change link label text for vaccination_status question" do
+      @question = Question::Base.new(nil, :vaccination_status)
+      @presenter = QuestionPresenter.new(@question, nil, nil, renderer: @renderer)
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
+
+      value = :vaccination_status
+
+      assert_equal "#{@presenter.title} / [FILTERED]", @presenter.change_link_track_label(value)
+    end
+
+    test "#change_link_track_label includes response in change link label text for all questions //
+          other than vaccination_status" do
+      @renderer.stubs(:content_for).with(:title).returns("title-text")
+
+      value = :which_country
+
+      assert_equal "#{@presenter.title} / #{@presenter.response_label(value)}", @presenter.change_link_track_label(value)
+    end
   end
 end
