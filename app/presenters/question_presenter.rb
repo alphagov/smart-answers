@@ -72,7 +72,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def change_link_track_label(value)
-    if node_name == :vaccination_status
+    if redacted?
       "#{title} / [FILTERED]"
     else
       "#{title} / #{response_label(value)}"

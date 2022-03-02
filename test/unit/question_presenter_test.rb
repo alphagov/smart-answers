@@ -152,6 +152,7 @@ module SmartAnswer
     test "#change_link_track_label filters change link label text for vaccination_status question" do
       @question = Question::Base.new(nil, :vaccination_status)
       @presenter = QuestionPresenter.new(@question, nil, nil, renderer: @renderer)
+      @presenter.stubs(:redacted?).returns(true)
       @renderer.stubs(:content_for).with(:title).returns("title-text")
 
       value = :vaccination_status
