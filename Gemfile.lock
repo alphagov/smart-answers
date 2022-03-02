@@ -354,7 +354,7 @@ GEM
     simplecov-html (0.12.2)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (16.0.1)
+    slimmer (17.0.0)
       activesupport
       json
       nokogiri (~> 1.7)
