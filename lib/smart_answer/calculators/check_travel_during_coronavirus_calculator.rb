@@ -86,6 +86,10 @@ module SmartAnswer::Calculators
       countries.include?("ireland")
     end
 
+    def only_travelling_to_ukraine?
+      travelling_to_ukraine? && single_journey?
+    end
+
     def travelling_to_ukraine?
       countries.include?("ukraine")
     end

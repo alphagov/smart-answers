@@ -126,6 +126,11 @@ module SmartAnswer::Calculators
       assert @calculator.travelling_to_ukraine?
     end
 
+    should "return true for only_travelling_to_ukraine? if only Ukraine has been selected" do
+      @calculator.countries = %w[ukraine]
+      assert @calculator.only_travelling_to_ukraine?
+    end
+
     should "return true for multiple_journey? if travelling to more than one country" do
       @calculator.countries = %w[spain poland]
       assert @calculator.multiple_journey?

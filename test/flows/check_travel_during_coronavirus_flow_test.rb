@@ -624,8 +624,8 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
       end
 
       should "render country guidance if user only travelling to Ukraine" do
-        assert_rendered_outcome text: "This is because of the political situation in Ukraine."
-        assert_no_match "within the 3 days before you travel to England", @test_flow.outcome_text
+        assert_rendered_outcome text: "Returning to England from Ukraine"
+        assert_rendered_outcome text: "If you started your journey in Ukraine, you do not need to"
       end
 
       should "render country guidance if user travelling to Ukraine and any other country" do
