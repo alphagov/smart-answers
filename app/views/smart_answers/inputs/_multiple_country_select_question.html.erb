@@ -13,15 +13,21 @@
 
 <%# countries = question.current_response ? question.current_response.split("|") : [] %>
 
-
-<% question.select_count.times do |i| %>
-  <% value = countries[i].blank? ? "" : countries[i].gsub("§", "/") %>
-  <%= render "components/autocomplete", {
-    id: "response",
-    name: "response[#{i}]",
-    label: "Countries",
-    error_items: question.error,
-    value: value,
-    options: question.select_options
-  } %>
-<% end %>
+<div data-module="multiple-countries" class="multiple-countries">
+  <div class="js-countries">
+    <% question.select_count.times do |i| %>
+      <% value = countries[i].blank? ? "" : countries[i].gsub("§", "/") %>
+      <div class="js-country multiple-countries__country"> <!-- fixme styles -->
+        <%= render "components/autocomplete", {
+          id: "response",
+          name: "response[#{i}]",
+          label: "Countries",
+          error_items: question.error,
+          value: value,
+          options: question.select_options,
+          margin_bottom: 2,
+        } %>
+      </div>
+    <% end %>
+  </div>
+</div>
