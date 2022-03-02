@@ -29,10 +29,6 @@
     <li><a href="https://www.gov.uk/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> within the 3 days before you arrive in England</li>
   </ul>
 
-  <% if calculator.travelling_to_ukraine? && calculator.single_journey? %>
-    <p class="govuk-body">You do not need to take a pre-departure COVID-19 test before you travel to England. This is because of the political situation in Ukraine.</p>
-  <% end %>
-
   <p class="govuk-body">You will need to enter the booking reference for the PCR test you booked in the passenger locator form.</p>
 
   <%= render "govuk_publishing_components/components/heading", {

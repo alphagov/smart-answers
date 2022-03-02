@@ -628,15 +628,6 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "If you started your journey in Ukraine, you do not need to"
       end
 
-      should "render country guidance if user travelling to Ukraine and any other country" do
-        add_responses any_other_countries_1: "yes",
-                      which_1_country: "spain",
-                      any_other_countries_2: "no"
-
-        assert_rendered_outcome text: "you do not need to take this test if you’re travelling to England from Ukraine"
-        assert_no_match "This is because of the political situation in Ukraine.", @test_flow.outcome_text
-      end
-
       should "render warning if travelling to multiple countries including Ukraine and fully vaccinated" do
         add_responses any_other_countries_1: "yes",
                       which_1_country: "poland",
