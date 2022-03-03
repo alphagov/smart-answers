@@ -97,6 +97,8 @@ class CheckTravelDuringCoronavirusFlow < SmartAnswer::Flow
     radio :vaccination_status do
       options { calculator.vaccination_option_keys }
 
+      redact true
+
       on_response do |response|
         calculator.vaccination_status = response
       end

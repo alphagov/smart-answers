@@ -189,5 +189,15 @@ module SmartAnswer
         assert_equal :done, next_node
       end
     end
+
+    context "#redact" do
+      should "return true if question is redacted" do
+        assert_equal true, @node.redact(true)
+      end
+
+      should "return false if question is not redacted" do
+        assert_equal false, @node.redact
+      end
+    end
   end
 end
