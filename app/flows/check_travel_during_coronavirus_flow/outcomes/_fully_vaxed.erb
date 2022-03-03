@@ -10,6 +10,10 @@
     } %>
   <% end %>
 
+  <% if calculator.travelling_to_ukraine? && calculator.multiple_journey? %>
+    <%= render partial: "ukraine_warning" %>
+  <% end %>
+
   <p class="govuk-body">You do not need to take any COVID-19 tests before you travel to England or after you arrive.</p>
 
   <p class="govuk-body">You must <a href="/provide-journey-contact-details-before-travel-uk" class="govuk-link">complete a passenger locator form</a> within the 3 days before you arrive in England.</p>

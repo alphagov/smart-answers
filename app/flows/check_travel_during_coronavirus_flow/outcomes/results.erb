@@ -53,6 +53,8 @@
 
   <% if calculator.only_travelling_to_ireland? %>
     <%= render partial: "return_from_ireland_only", locals: { calculator: calculator } %>
+  <% elsif calculator.only_travelling_to_ukraine? %>
+    <%= render partial: "return_from_ukraine_only", locals: { calculator: calculator } %>
   <% elsif calculator.travelling_to_red_list_country? %>
     <%= render partial: "return_from_red_list", locals: { calculator: calculator } %>
 
