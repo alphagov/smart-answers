@@ -411,13 +411,14 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
 
     should "render when an employee is not entitled to statutory adoption pay due to insufficient pay" do
       add_responses maternity_adoption_responses(pay_frequency: "weekly",
-                                                 pay_per_frequency: 1,
-                                                 last_normal_payday: "2021-01-01",
-                                                 payday_eight_weeks: "2020-11-01")
+                                                 pay_per_frequency: 120,
+                                                 placement_date: "2022-08-01",
+                                                 last_normal_payday: "2022-04-01",
+                                                 payday_eight_weeks: "2021-02-01")
 
-      # lower limit for 2020 - 2021 is £120
-      assert_rendered_outcome text: "their average weekly earnings (£1) between Monday, 02 November 2020 and " \
-                                    "Friday, 01 January 2021 must be at least £120"
+      # lower limit for 2021 - 2022 is £123
+      assert_rendered_outcome text: "their average weekly earnings (£120) between Tuesday, 02 February 2021 and " \
+                                    "Friday, 01 April 2022 must be at least £123"
     end
   end
 
