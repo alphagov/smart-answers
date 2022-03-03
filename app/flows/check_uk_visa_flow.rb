@@ -18,6 +18,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       next_node do
         if calculator.passport_country_is_israel?
           question :israeli_document_type?
+        elsif calculator.passport_country_is_ukraine?
+          question :are_you_fleeing_conflict?
         elsif calculator.passport_country_is_estonia?
           question :what_sort_of_passport?
         elsif calculator.passport_country_is_latvia?
@@ -76,6 +78,20 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
       next_node do |_|
         question :purpose_of_visit?
+      end
+    end
+
+    # Q1g
+    radio :are_you_fleeing_conflict? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "yes"
+          outcome :outcome_ukraine_family_visa_scheme
+        else
+          question :purpose_of_visit?
+        end
       end
     end
 
@@ -312,6 +328,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_transit_to_the_republic_of_ireland
     outcome :outcome_tourism_n
     outcome :outcome_tourism_visa_partner
+    outcome :outcome_ukraine_family_visa_scheme
     outcome :outcome_visit_waiver
     outcome :outcome_visit_waiver_taiwan
     outcome :outcome_work_m

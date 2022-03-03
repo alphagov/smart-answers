@@ -28,6 +28,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "hong-kong",
                                       "macao",
                                       "taiwan",
+                                      "ukraine",
                                       "venezuela",
                                       @electronic_visa_waiver_country,
                                       @direct_airside_transit_visa_country,
@@ -73,6 +74,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
       should "have a next node of outcome_no_visa_needed_ireland for an 'ireland' response" do
         assert_next_node :outcome_no_visa_needed_ireland, for_response: "ireland"
+      end
+
+      should "have a next node of are_you_fleeing_conflict for an 'Ukraine' response" do
+        assert_next_node :are_you_fleeing_conflict?, for_response: "ukraine"
       end
 
       should "have a next node of purpose_of_visit? for a different country" do
@@ -128,6 +133,27 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of purpose_of_visit?" do
         assert_next_node :purpose_of_visit?, for_response: "passport"
+      end
+    end
+  end
+
+  context "question: are_you_fleeing_conflict?" do
+    setup do
+      testing_node :are_you_fleeing_conflict?
+      add_responses what_passport_do_you_have?: "ukraine"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have an outcome of outcome_ukraine_family_visa_scheme? if answered yes" do
+        assert_next_node :outcome_ukraine_family_visa_scheme, for_response: "yes"
+      end
+
+      should "have a next node of purpose_of_visit? if answered no" do
+        assert_next_node :purpose_of_visit?, for_response: "no"
       end
     end
   end
