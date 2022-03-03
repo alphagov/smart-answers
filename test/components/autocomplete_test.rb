@@ -71,4 +71,25 @@ class AutocompleteTest < ComponentTestCase
     assert_select ".app-c-autocomplete .govuk-form-group--error"
     assert_select ".govuk-error-message", text: "There is a problem with this input"
   end
+
+  tests "has the default bottom margin" do
+    render_component(
+      id: "basic-autocomplete",
+      label: "Countries",
+      options: ["United Kingdom", "United States"],
+    )
+
+    assert_select ".app-c-autocomplete.govuk-\!-margin-bottom-6"
+  end
+
+  tests "accepts a different bottom margin" do
+    render_component(
+      id: "basic-autocomplete",
+      label: "Countries",
+      options: ["United Kingdom", "United States"],
+      margin_bottom: 9,
+    )
+
+    assert_select ".app-c-autocomplete.govuk-\!-margin-bottom-9"
+  end
 end
