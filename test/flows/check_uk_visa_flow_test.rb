@@ -28,6 +28,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "hong-kong",
                                       "macao",
                                       "taiwan",
+                                      "ukraine",
                                       "venezuela",
                                       @electronic_visa_waiver_country,
                                       @direct_airside_transit_visa_country,
@@ -73,6 +74,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
       should "have a next node of outcome_no_visa_needed_ireland for an 'ireland' response" do
         assert_next_node :outcome_no_visa_needed_ireland, for_response: "ireland"
+      end
+
+      should "have a next node of outcome_temporary_guidance_for_leaving_ukraine for an 'ukraine' response" do
+        assert_next_node :outcome_temporary_guidance_for_leaving_ukraine, for_response: "ukraine"
       end
 
       should "have a next node of purpose_of_visit? for a different country" do

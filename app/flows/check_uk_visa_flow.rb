@@ -18,6 +18,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       next_node do
         if calculator.passport_country_is_israel?
           question :israeli_document_type?
+        elsif calculator.passport_country_is_ukraine?
+          outcome :outcome_temporary_guidance_for_leaving_ukraine
         elsif calculator.passport_country_is_estonia?
           question :what_sort_of_passport?
         elsif calculator.passport_country_is_latvia?
@@ -303,6 +305,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_study_waiver_taiwan
     outcome :outcome_study_no_visa_needed
     outcome :outcome_study_y
+    outcome :outcome_temporary_guidance_for_leaving_ukraine
     outcome :outcome_transit_leaving_airport
     outcome :outcome_transit_leaving_airport_direct_airside_transit_visa
     outcome :outcome_transit_not_leaving_airport
