@@ -18,4 +18,8 @@ class NodePresenter
   def view_template_path
     @node.view_template_path
   end
+
+  def redacted?
+    @node.redact
+  end
 end

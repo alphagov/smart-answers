@@ -98,6 +98,10 @@ module SmartAnswer
       next_node.to_sym
     end
 
+    def redact(filter = false) # rubocop:disable Style/OptionalBooleanParameter
+      @redact ||= filter
+    end
+
   private
 
     def next_node_block
