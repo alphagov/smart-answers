@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     setup do
       @calculator = CheckTravelDuringCoronavirusCalculator.new
 
-      stub_worldwide_api_has_locations(%w[spain italy poland])
+      stub_worldwide_api_has_locations(%w[spain italy poland south-africa])
     end
 
     context "location" do
@@ -180,6 +180,43 @@ module SmartAnswer::Calculators
         @calculator.going_to_countries_within_10_days = "yes"
 
         assert @calculator.summary_text_fields.include?("red_list")
+      end
+    end
+
+    context "plf_exempt_countries_visited" do
+      setup do
+        @plf_countries = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator::PASSENGER_LOCATOR_FORM_EXEMPT_COUNTRIES
+        @random_plf_country = @plf_countries.sample
+        @non_plf_countries = %w[poland south-africa]
+      end
+
+      should "return one country when only one plf exempt country is visited" do
+        @calculator.countries = @non_plf_countries + [@random_plf_country]
+        assert_equal @calculator.plf_exempt_countries_visited, [@random_plf_country]
+      end
+
+      should "return a list of all plf countries visited when more than one is visited" do
+        @calculator.countries = @plf_countries
+        assert_equal @calculator.plf_exempt_countries_visited, @plf_countries
+      end
+
+      should "return an empty array when no plf country is visited" do
+        @calculator.countries = @non_plf_countries
+        assert_equal @calculator.plf_exempt_countries_visited, []
+      end
+    end
+
+    context "country_phrase" do
+      should "return a sorted human readable country name when given one country" do
+        assert_equal @calculator.country_phrase(%w[south-africa]), "South Africa"
+      end
+
+      should "return a sorted human readable country list separated by 'or' when given two countries" do
+        assert_equal @calculator.country_phrase(%w[south-africa spain]), "South Africa or Spain"
+      end
+
+      should "return a sorted human readable country list separated by commas and 'or' when given three or more countries" do
+        assert_equal @calculator.country_phrase(%w[south-africa italy spain]), "Italy, South Africa or Spain"
       end
     end
 

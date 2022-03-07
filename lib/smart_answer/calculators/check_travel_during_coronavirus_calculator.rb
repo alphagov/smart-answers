@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
     attr_accessor :countries, :vaccination_status, :any_other_countries, :going_to_countries_within_10_days, :travelling_with_young_people
 
     MAX_COUNTRIES = 99
+    PASSENGER_LOCATOR_FORM_EXEMPT_COUNTRIES = %w[russia ukraine].sort.freeze
 
     def initialize
       @countries = []
@@ -84,6 +85,33 @@ module SmartAnswer::Calculators
 
     def travelling_to?(country)
       countries.include?(country)
+    end
+
+    def plf_exempt_countries_visited
+      PASSENGER_LOCATOR_FORM_EXEMPT_COUNTRIES & countries
+    end
+
+    def travelling_to_plf_exempt_country?
+      plf_exempt_countries_visited.any?
+    end
+
+    def single_journey_to_plf_exempt_country?
+      travelling_to_plf_exempt_country? && single_journey?
+    end
+
+    def plf_exempt_visited_countries_phrase
+      country_phrase(plf_exempt_countries_visited)
+    end
+
+    def all_plf_exempt_countries_phrase
+      country_phrase(PASSENGER_LOCATOR_FORM_EXEMPT_COUNTRIES)
+    end
+
+    def country_phrase(countries)
+      countries = countries.map do |slug|
+        WorldLocation.find(slug).title
+      end
+      countries.sort.to_sentence(last_word_connector: " or ", two_words_connector: " or ")
     end
 
     def single_journey?
