@@ -111,24 +111,24 @@ module SmartAnswer::Calculators
       end
     end
 
-    should "return true for travelling_to_ireland? if ireland has been selected" do
+    should "return true for travelling_to?('ireland') if ireland has been selected" do
       @calculator.countries = %w[spain ireland poland]
-      assert @calculator.travelling_to_ireland?
+      assert @calculator.travelling_to?("ireland")
     end
 
-    should "return true for only_travelling_to_ireland? if only ireland has been selected" do
+    should "return true for only_travelling_to?('ireland') if only ireland has been selected" do
       @calculator.countries = %w[ireland]
-      assert @calculator.only_travelling_to_ireland?
+      assert @calculator.only_travelling_to?("ireland")
     end
 
-    should "return true for travelling_to_ukraine? if ukraine has been selected" do
+    should "return true for travelling_to?('ukraine') if ukraine has been selected" do
       @calculator.countries = %w[spain ukraine poland]
-      assert @calculator.travelling_to_ukraine?
+      assert @calculator.travelling_to?("ukraine")
     end
 
-    should "return true for only_travelling_to_ukraine? if only Ukraine has been selected" do
+    should "return true for only_travelling_to?('ukraine') if only Ukraine has been selected" do
       @calculator.countries = %w[ukraine]
-      assert @calculator.only_travelling_to_ukraine?
+      assert @calculator.only_travelling_to?("ukraine")
     end
 
     should "return true for multiple_journey? if travelling to more than one country" do
