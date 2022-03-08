@@ -1,6 +1,6 @@
 <div class="travel-abroad__heading">
   <%= render "govuk_publishing_components/components/heading", {
-    text: "Returning to England from Ukraine",
+    text: "Returning to England from #{calculator.country_locations.first.title}",
     font_size: "l",
   } %>
 </div>
@@ -17,7 +17,7 @@
   </div>
   <div class="govuk-grid-column-one-third desktop-min-height"></div>
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body">If you started your journey in Ukraine, you do not need to:</p>
+    <p class="govuk-body">If you started your journey in <%= calculator.country_locations.first.title %>, you do not need to:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>complete a passenger locator form</li>
       <li>take a COVID-19 test before or after travel to England</li>

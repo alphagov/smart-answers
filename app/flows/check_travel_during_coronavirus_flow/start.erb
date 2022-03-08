@@ -20,7 +20,7 @@
     <li>whether a country you’re going to or travelling through is on the red list</li>
   </ul>
 
-  <%= render "outcomes/ukraine_warning" %>
+  <%= render partial: "outcomes/plf_exempt_warning", locals: { country_phrase: SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new.all_plf_exempt_countries_phrase } %>
 
   <p>You will be asked a series of questions so we can show you information relevant to your journey and circumstances.</p>
 

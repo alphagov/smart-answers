@@ -9,7 +9,7 @@ class CheckTravelDuringCoronavirusFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow CheckTravelDuringCoronavirusFlow
     stub_foreign_travel_advice
-    stub_worldwide_api_has_locations(%w[spain ireland italy poland ukraine])
+    stub_worldwide_api_has_locations(%w[spain ireland italy poland ukraine russia])
     @calculator = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new
   end
 
