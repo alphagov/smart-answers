@@ -26,29 +26,29 @@
 
   <% if calculator.transit_countries.include?(country.slug) %>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements#if-youre-transiting-through-<%= country.slug %>" class="govuk-link" rel="noreferrer noopener" target="_blank">travelling through <%= country.title %> (opens in new tab)</a></li>
+      <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements#if-youre-transiting-through-<%= country.slug %>" class="govuk-link" rel="noreferrer noopener" target="_blank">travelling through <%= country.title %> (opens in new tab)</a></li>
     </ul>
   <% else %>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements#all-travellers" class="govuk-link" rel="noreferrer noopener" target="_blank">all travellers (opens in new tab)</a></li>
+      <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements#all-travellers" class="govuk-link" rel="noreferrer noopener" target="_blank">all travellers (opens in new tab)</a></li>
 
       <% if calculator.fully_vaccinated? || calculator.part_of_vaccine_trial? %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">fully vaccinated people (opens in new tab)</a></li>
+        <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">fully vaccinated people (opens in new tab)</a></li>
       <% end %>
 
       <% if calculator.unvaccinated? %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">people who aren't fully vaccinated (opens in new tab)</a></li>
+        <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements/#if-youre-not-fully-vaccinated" class="govuk-link" rel="noreferrer noopener" target="_blank">people who aren't fully vaccinated (opens in new tab)</a></li>
       <% end %>
 
       <% if calculator.travelling_with_children? || calculator.travelling_with_young_people? %>
-        <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#children-and-young-people" class="govuk-link" rel="noreferrer noopener" target="_blank">travelling with children and young people (opens in new tab)</a></li>
+        <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements/#children-and-young-people" class="govuk-link" rel="noreferrer noopener" target="_blank">travelling with children and young people (opens in new tab)</a></li>
       <% end %>
 
-      <li><a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements/#exemptions" class="govuk-link" rel="noreferrer noopener" target="_blank">exemptions (opens in new tab)</a></li>
+      <li><a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements/#exemptions" class="govuk-link" rel="noreferrer noopener" target="_blank">exemptions (opens in new tab)</a></li>
     </ul>
 
-    <p class="govuk-body">There may also be <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link" rel="noreferrer noopener" target="_blank">other requirements for entering <%= country.title %> (opens in new tab)</a> that you need to follow.</p>
+    <p class="govuk-body">There may also be <a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link" rel="noreferrer noopener" target="_blank">other requirements for entering <%= country.title %> (opens in new tab)</a> that you need to follow.</p>
   <% end %>
 <% else %>
-  <p class="govuk-body">You should read the <a href="https://www.gov.uk/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link" rel="noreferrer noopener" target="_blank"><%= country.title %> entry requirements guidance (opens in new tab)</a>.</p>
+  <p class="govuk-body">You should read the <a href="/foreign-travel-advice/<%= country.slug %>/entry-requirements" class="govuk-link" rel="noreferrer noopener" target="_blank"><%= country.title %> entry requirements guidance (opens in new tab)</a>.</p>
 <% end %>
