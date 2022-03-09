@@ -53,3 +53,8 @@
   end_date: 2022-04-05
   lower_earning_limit_rate: 120
   ssp_weekly_rate: 96.35
+
+- start_date: 2022-04-06
+  end_date: 2023-04-05
+  lower_earning_limit_rate: 123
+  ssp_weekly_rate: 99.35
