@@ -161,7 +161,7 @@ class BusinessCoronavirusSupportFinderFlowTest < ActiveSupport::TestCase
     end
 
     should "render statutory_sick_rebate if paye_scheme? is yes and business_size is 0_to_249" do
-      assert_rendered_outcome text: "Statutory Sick Pay rebate"
+      assert_rendered_outcome text: "Statutory Sick Pay"
     end
 
     should "render kickstart_scheme if business_based is not set to northern_ireland" do
