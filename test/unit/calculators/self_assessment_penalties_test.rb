@@ -483,6 +483,17 @@ module SmartAnswer::Calculators
       setup do
         @calculator.submission_method = "paper"
       end
+
+      context "filed during Covid easement" do
+        setup do
+          @calculator.filing_date = Date.parse("2021-01-28")
+        end
+
+        should "not benefit from the extended deadline" do
+          assert_not @calculator.paid_on_time?
+        end
+      end
+
       context "filed and paid on time" do
         setup do
           @calculator.filing_date = Date.parse("2014-10-30")
