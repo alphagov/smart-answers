@@ -216,7 +216,7 @@ module SmartAnswer::Calculators
       travel_to("2022-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
 
-        assert_equal 12_500, calculator.personal_allowance
+        assert_equal 12_570, calculator.personal_allowance
         assert_equal 31_400.0, calculator.income_limit_for_personal_allowances
         assert_equal 9415, calculator.maximum_mca
         assert_equal 3640, calculator.minimum_mca
