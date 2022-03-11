@@ -61,3 +61,13 @@
   higher_allowance_1: 12500
   higher_allowance_2: 12500
   income_limit_for_personal_allowances: 30400.0
+
+- start_date: 2022-04-06
+  end_date: 2023-04-05
+  personal_allowance: 12570
+  higher_allowance_1: 12570
+  higher_allowance_2: 12570
+  income_limit_for_personal_allowances: 31400.0
+
+  # Note: higher_allowance_1 and higher_allowance_2 were dropped in 2016
+  # use the personal_allowance value to populate those figures
