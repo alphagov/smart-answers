@@ -546,6 +546,48 @@ module SmartAnswer::Calculators
           assert_equal 6.00, @calculator.free_accommodation_rate
         end
       end
+
+      context "from 1 Apr 2022" do
+        setup do
+          @calculator = MinimumWageCalculator.new(date: Date.parse("2022-04-01"))
+        end
+
+        should "be correct for those under 18" do
+          [0, 17].each do |age|
+            @calculator.age = age
+            assert_equal 4.81, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should "be correct for 18 to 20 year olds" do
+          [18, 20].each do |age|
+            @calculator.age = age
+            assert_equal 6.83, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should "be correct for 21 to 22 year olds" do
+          [21, 22].each do |age|
+            @calculator.age = age
+            assert_equal 9.18, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should "be correct for those aged 23 and over" do
+          [23, 100].each do |age|
+            @calculator.age = age
+            assert_equal 9.50, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should "have correct apprentice rate" do
+          assert_equal 4.81, @calculator.apprentice_rate
+        end
+
+        should "have correct accommodation rate" do
+          assert_equal 8.7, @calculator.free_accommodation_rate
+        end
+      end
     end
 
     context "accommodation adjustment" do
