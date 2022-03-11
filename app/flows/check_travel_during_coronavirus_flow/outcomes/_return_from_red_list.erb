@@ -1,5 +1,5 @@
 <% content = capture do %>
-  <% if calculator.travelling_to_ireland? %>
+  <% if calculator.travelling_to?("ireland") %>
     <%= render partial: "return_from_ireland_and_other_countries" %>
   <% end %>
 
