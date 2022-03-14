@@ -12,6 +12,8 @@
 
   <% if calculator.travelling_to_plf_exempt_country? && calculator.multiple_journey? %>
     <%= render partial: "plf_exempt_warning", locals: { country_phrase: calculator.plf_exempt_visited_countries_phrase } %>
+  <% else %>
+    <%= render partial: "restrictions_ending" %>
   <% end %>
 
   <p class="govuk-body">You do not need to take any COVID-19 tests before you travel to England or after you arrive.</p>
