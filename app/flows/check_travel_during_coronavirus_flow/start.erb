@@ -20,7 +20,9 @@
     <li>whether a country you’re going to or travelling through is on the red list</li>
   </ul>
 
-  <%= render partial: "outcomes/plf_exempt_warning", locals: { country_phrase: SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new.all_plf_exempt_countries_phrase } %>
+  <%= render "govuk_publishing_components/components/inset_text", {
+    text: "From 4am 18 March, if you’re returning to England you will not need to get any COVID-19 tests, fill in a passenger locator form, or quarantine."
+  } %>
 
   <p>You will be asked a series of questions so we can show you information relevant to your journey and circumstances.</p>
 
@@ -34,6 +36,17 @@
     <li><a href="https://www.gov.je/Health/Coronavirus/Travel/Pages/CoronavirusTravelAdvice.aspx">travelling to Jersey</a></li>
     <li><a href="https://covid19.gov.gg/guidance/travel">travelling to Guernsey</a></li>
   </ul>
+
+  <% plf_exempt_visited_countries_phrase = SmartAnswer::Calculators::CheckTravelDuringCoronavirusCalculator.new.all_plf_exempt_countries_phrase %>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "If you started your journey in #{plf_exempt_visited_countries_phrase}",
+    heading_level: 2,
+    font_size: "m",
+    margin_bottom: 4,
+  } %>
+
+  <p>You do not need to complete a passenger locator form or take any COVID-19 tests before or after travel to England if your journey started in <%=plf_exempt_visited_countries_phrase%>.</p>
 
   <%= render "govuk_publishing_components/components/heading", {
     text: "Before you start",
