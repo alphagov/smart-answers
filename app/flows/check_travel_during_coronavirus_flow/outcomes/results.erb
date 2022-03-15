@@ -85,18 +85,20 @@
   <div class="govuk-grid-row travel-abroad__section">
     <div class="govuk-grid-column-one-third desktop-min-height"></div>
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/inset_text", {
-        margin_top: 0
-      } do %>
-        <p class="govuk-body">
-          Find out <a href="/travel-abroad" class="govuk-link">other things you may need to do before you travel abroad</a>. These may include:
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>renewing your passport in time</li>
-          <li>getting travel insurance</li>
-          <li>checking you have the right driving documents</li>
-        </ul>
-      <% end %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Other things you need to do before you travel abroad",
+        heading_level: 3,
+        font_size: "m",
+        margin_bottom: 4,
+      } %>
+      <p class="govuk-body">
+        Find out <a href="/travel-abroad" class="govuk-link">other things you may need to do before you travel abroad</a>. These may include:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>renewing your passport in time</li>
+        <li>getting travel insurance</li>
+        <li>checking you have the right driving documents</li>
+      </ul>
     </div>
   </div>
 <% end %>
