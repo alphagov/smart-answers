@@ -44,7 +44,7 @@ module SmartAnswers
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += %i[password vaccination_status]
+    config.filter_parameters += %i[password]
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "/assets/smartanswers"
