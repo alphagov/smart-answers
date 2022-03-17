@@ -66,10 +66,10 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new(116)
       when 2019
         SmartAnswer::Money.new(118)
-      when 2020
+      when 2020, 2021
         SmartAnswer::Money.new(120)
       else
-        SmartAnswer::Money.new(120)
+        SmartAnswer::Money.new(123)
       end
     end
 

@@ -673,11 +673,15 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     end
 
     should "render when an employee is not entitled to pay due to earning below lower limit" do
-      add_responses paternity_responses(pay_per_frequency: 1, due_date: "2021-01-01")
+      add_responses paternity_responses(pay_frequency: "weekly",
+                                        pay_per_frequency: 120,
+                                        due_date: "2022-08-01",
+                                        last_normal_payday: "2022-04-01",
+                                        payday_eight_weeks: "2021-02-01")
 
-      # lower limit for 2020 - 2021 is £120,
-      assert_rendered_outcome text: "their average weekly earnings (£1) between Thursday, 02 July 2020 and " \
-                                    "Tuesday, 01 September 2020 must be at least £120"
+      # lower limit for 2021 - 2022 is £123
+      assert_rendered_outcome text: "their average weekly earnings (£120) between Tuesday, 02 February 2021 and " \
+                                    "Friday, 01 April 2022 must be at least £123"
     end
 
     context "when an employee is entitled to pay" do

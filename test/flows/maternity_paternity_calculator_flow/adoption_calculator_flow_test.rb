@@ -393,13 +393,13 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     end
 
     should "render when an employee is entitled to statutory adoption pay" do
-      add_responses maternity_adoption_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, placement_date: "2021-05-01")
+      add_responses maternity_adoption_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, placement_date: "2022-05-01")
 
       assert_rendered_outcome text: "The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP)"
 
-      # 90% of 1000 a week for 6 weeks + (39 - 6) * 151.97 statutory (rate for 2021)
-      # = 900 * 6 + 33 * 151.97
-      assert_match(/Total SAP:\s*£10,415.01/, @test_flow.outcome_text)
+      # 90% of 1000 a week for 6 weeks + (39 - 6) * 156.66 statutory (rate for 2022)
+      # = 900 * 6 + 33 * 156.66
+      assert_match(/Total SAP:\s*£10,569.78/, @test_flow.outcome_text)
     end
 
     should "render when an employee is not entitled to statutory adoption pay due to no payroll" do
@@ -411,13 +411,14 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
 
     should "render when an employee is not entitled to statutory adoption pay due to insufficient pay" do
       add_responses maternity_adoption_responses(pay_frequency: "weekly",
-                                                 pay_per_frequency: 1,
-                                                 last_normal_payday: "2021-01-01",
-                                                 payday_eight_weeks: "2020-11-01")
+                                                 pay_per_frequency: 120,
+                                                 placement_date: "2022-08-01",
+                                                 last_normal_payday: "2022-04-01",
+                                                 payday_eight_weeks: "2021-02-01")
 
-      # lower limit for 2020 - 2021 is £120
-      assert_rendered_outcome text: "their average weekly earnings (£1) between Monday, 02 November 2020 and " \
-                                    "Friday, 01 January 2021 must be at least £120"
+      # lower limit for 2021 - 2022 is £123
+      assert_rendered_outcome text: "their average weekly earnings (£120) between Tuesday, 02 February 2021 and " \
+                                    "Friday, 01 April 2022 must be at least £123"
     end
   end
 
