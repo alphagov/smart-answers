@@ -1,9 +1,0 @@
-en:
-  check_travel_during_coronavirus:
-    summary_text:
-      fully_vaxed: You are fully vaccinated or cannot have a COVID-19 vaccination
-      not_vaxed: You are not fully vaccinated
-      red_list: You will be in a red list country within 10 days of returning to England
-      young_person: You are travelling with someone aged 17 and under
-      zero_to_four: You are travelling with someone aged 4 and under
-      five_to_seventeen: You are travelling with someone aged 5 to 17
