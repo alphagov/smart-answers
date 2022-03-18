@@ -49,7 +49,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_age_for_living_wage?(age)
-      age.to_i >= 25
+      (age.to_i >= 23 && date >= Date.parse("2021-04-01")) ||
+        age.to_i >= 25
     end
 
     def basic_rate
