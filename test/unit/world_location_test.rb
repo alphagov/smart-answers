@@ -80,7 +80,7 @@ class WorldLocationTest < ActiveSupport::TestCase
           end
         end
 
-        travel_to(1.week.from_now + 1.hour) do
+        travel_to(1.week.from_now + 2.hours) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.all
           end
@@ -178,7 +178,7 @@ class WorldLocationTest < ActiveSupport::TestCase
           end
         end
 
-        travel_to(1.week.from_now + 1.hour) do
+        travel_to(1.week.from_now + 2.hours) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.find("rohan")
           end
