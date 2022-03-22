@@ -40,6 +40,12 @@ module SmartAnswer::Calculators
       },
     }.freeze
 
+    INTEREST_RATES = [
+      { start_date: "2020-04-07", end_date: "2022-01-03", value: 0.026 },
+      { start_date: "2022-01-04", end_date: "2022-02-20", value: 0.0275 },
+      { start_date: "2022-02-21", end_date: "2100-01-01", value: 0.03 },
+    ].freeze
+
     def tax_year_range
       case tax_year
       when "2014-15"
@@ -202,7 +208,7 @@ module SmartAnswer::Calculators
       covid_easement_first_year = (tax_year == "2019-20" && filing_date < Date.parse("2021-03-01"))
       covid_easement_second_year = (tax_year == "2020-21" && filing_date < Date.parse("2022-03-01"))
 
-      covid_easement_first_year || covid_easement_second_year
+      (covid_easement_first_year || covid_easement_second_year) && submission_method == "online"
     end
 
     def payment_deadline
@@ -214,15 +220,12 @@ module SmartAnswer::Calculators
     end
 
     def daily_rate(date)
-      # Rate decreased to 2.6% on 7 April 2020
-      rate_change_date = Date.new(2020, 4, 7)
-      # Rate increased to 2.75% on 4 january 2022
-      second_rate_change_date = Date.new(2022, 1, 4)
+      rate_for_date = INTEREST_RATES.find do |rate|
+        date >= Time.zone.parse(rate[:start_date]) && date <= Time.zone.parse(rate[:end_date])
+      end
 
-      if date >= second_rate_change_date
-        0.0275 / 365.0
-      elsif date >= rate_change_date
-        0.026 / 365.0
+      if rate_for_date.present?
+        rate_for_date[:value] / 365.0
       else
         0.0325 / 365.0
       end

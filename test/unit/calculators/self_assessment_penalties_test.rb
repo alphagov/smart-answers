@@ -423,18 +423,18 @@ module SmartAnswer::Calculators
 
               @calculator.payment_date = Date.parse("2022-02-28")
               assert_equal 0, @calculator.late_payment_penalty
-              assert_equal 21.1, @calculator.interest.to_f
+              assert_equal 21.58, @calculator.interest.to_f
 
               @calculator.payment_date = Date.parse("2022-04-01")
               assert_equal 0, @calculator.late_payment_penalty
-              assert_equal 45.21, @calculator.interest.to_f
+              assert_equal 47.88, @calculator.interest.to_f
             end
           end
 
           should "the user should have a late payment penalty as they are beyond the new deadline of 1st of April" do
             @calculator.payment_date = Date.parse("2022-04-02")
             assert_equal 500, @calculator.late_payment_penalty
-            assert_equal 45.96, @calculator.interest.to_f
+            assert_equal 48.70, @calculator.interest.to_f
           end
         end
 
@@ -483,6 +483,17 @@ module SmartAnswer::Calculators
       setup do
         @calculator.submission_method = "paper"
       end
+
+      context "filed during Covid easement" do
+        setup do
+          @calculator.filing_date = Date.parse("2021-01-28")
+        end
+
+        should "not benefit from the extended deadline" do
+          assert_not @calculator.paid_on_time?
+        end
+      end
+
       context "filed and paid on time" do
         setup do
           @calculator.filing_date = Date.parse("2014-10-30")
