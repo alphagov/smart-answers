@@ -49,3 +49,8 @@
   end_date: 2022-04-05
   only_child: 21.15
   additional_child: 14.00
+"2022":
+  start_date: 2022-04-06
+  end_date: 2023-04-05
+  only_child: 21.80
+  additional_child: 14.45

@@ -372,6 +372,76 @@ module SmartAnswer::Calculators
             assert_equal 1533.8, calculator.benefits_claimed_amount.round(2)
           end
         end
+
+        context "for the tax year 2022" do
+          should "give the total amount received for the full tax year for one child" do
+            assert_equal 1133.6, ChildBenefitTaxCalculator.new(
+              tax_year: "2022",
+              children_count: 1,
+            ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount received for the full tax year for more than one child" do
+            assert_equal 1885.0, ChildBenefitTaxCalculator.new(
+              tax_year: "2022",
+              children_count: 2,
+            ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2022",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+            calculator.part_year_claim_dates = {
+              "1" => {
+                start_date: Date.parse("2023-01-06"),
+                end_date: Date.parse("2023-04-05"),
+              },
+            }
+            assert_equal 283.4, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for more than one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2022",
+              children_count: 2,
+              part_year_children_count: 2,
+            )
+
+            calculator.part_year_claim_dates = {
+              "1" => { # 18 weeks/Mondays
+                start_date: Date.parse("2022-11-28"),
+                end_date: Date.parse("2023-04-03"),
+              },
+              "2" => { # 13 weeks/Mondays
+                start_date: Date.parse("2023-01-02"),
+                end_date: Date.parse("2023-04-03"),
+              },
+            }
+            assert_equal 616.5, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for three children, two of which are partial tax years" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2022",
+              children_count: 3,
+              part_year_children_count: 2,
+            )
+            calculator.part_year_claim_dates = {
+              "1" => { # 18 weeks/Mondays
+                start_date: Date.parse("2022-11-28"),
+                end_date: Date.parse("2023-04-03"),
+              },
+              "2" => { # 13 weeks/Mondays
+                start_date: Date.parse("2023-01-02"),
+                end_date: Date.parse("2023-04-03"),
+              },
+            }
+            assert_equal 1610.45, calculator.benefits_claimed_amount.round(2)
+          end
+        end
       end
 
       context "calculating adjusted net income" do
