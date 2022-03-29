@@ -117,7 +117,7 @@ GEM
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
     ffi (1.13.1)
-    gds-api-adapters (79.1.0)
+    gds-api-adapters (79.1.1)
       addressable
       link_header
       null_logger
@@ -383,7 +383,7 @@ GEM
     uk_postcode (2.1.5)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.1)
     unicode-display_width (2.1.0)
     unicorn (5.8.0)
       kgio (~> 2.6)
