@@ -10,7 +10,11 @@
   <% if calculator.potential_underpayment? %>
     If you have had money taken from your pay for things you need for your job or not been paid for any additional time you work outside of your shift you might have been underpaid. You can contact Acas or make a complaint to HMRC.
   <% else %>
-    Read the guidance on the [National Minimum Wage](/national-minimum-wage) and [how the National Minimum Wage is calculated](/minimum-wage-different-types-work).
+    <% if calculator.eligible_for_living_wage? %>
+      Read the guidance on the [National Minimum and Living Wage](/national-minimum-wage).
+    <% else %>
+      Read the guidance on the [National Minimum Wage](/national-minimum-wage) and [how the National Minimum Wage is calculated](/minimum-wage-different-types-work).
+    <% end %>
   <% end %>
 
   <%= render partial: 'shared/minimum_wage_flow/acas_information' %>
