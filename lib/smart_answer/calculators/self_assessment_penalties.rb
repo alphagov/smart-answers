@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
     INTEREST_RATES = [
       { start_date: "2020-04-07", end_date: "2022-01-03", value: 0.026 },
       { start_date: "2022-01-04", end_date: "2022-02-20", value: 0.0275 },
-      { start_date: "2022-02-21", end_date: "2100-01-01", value: 0.03 },
+      { start_date: "2022-02-21", end_date: "2022-04-04", value: 0.03 },
     ].freeze
 
     def tax_year_range
