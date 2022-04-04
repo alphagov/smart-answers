@@ -431,10 +431,18 @@ module SmartAnswer::Calculators
             end
           end
 
-          should "the user should have a late payment penalty as they are beyond the new deadline of 1st of April" do
-            @calculator.payment_date = Date.parse("2022-04-02")
-            assert_equal 500, @calculator.late_payment_penalty
-            assert_equal 48.70, @calculator.interest.to_f
+          context "late payment penalties after April 1st" do
+            should "before April 5th, the user should have a late payment penalty of 3%" do
+              @calculator.payment_date = Date.parse("2022-04-02")
+              assert_equal 500, @calculator.late_payment_penalty
+              assert_equal 48.70, @calculator.interest.to_f
+            end
+
+            should "after April 5th, the user should have a late payment penalty of 3.25%" do
+              @calculator.payment_date = Date.parse("2022-04-05")
+              assert_equal 500, @calculator.late_payment_penalty
+              assert_equal 51.23, @calculator.interest.to_f
+            end
           end
         end
 
