@@ -45,6 +45,11 @@
   lower_weekly_rate: 80.45
 
 - start_date: 2021-04-12
-  end_date: 2100-04-13
+  end_date: 2022-04-10
   weekly_rate: 137.60
   lower_weekly_rate: 82.45
+
+- start_date: 2022-04-11
+  end_date: 2100-04-13
+  weekly_rate: 141.85
+  lower_weekly_rate: 85.00
