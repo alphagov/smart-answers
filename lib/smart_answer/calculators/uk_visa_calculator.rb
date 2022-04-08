@@ -7,7 +7,8 @@ module SmartAnswer::Calculators
                 :travelling_to_cta_answer,
                 :passing_through_uk_border_control_answer,
                 :travel_document_type,
-                :travelling_visiting_partner_family_member_answer
+                :travelling_visiting_partner_family_member_answer,
+                :length_of_stay
 
     attr_accessor :what_type_of_work
 
@@ -189,6 +190,14 @@ module SmartAnswer::Calculators
       elsif work_visit?
         "work"
       end
+    end
+
+    def staying_for_over_six_months?
+      @length_of_stay == "longer_than_six_months"
+    end
+
+    def staying_for_six_months_or_less?
+      @length_of_stay == "six_months_or_less"
     end
 
     EXCLUDE_COUNTRIES = %w[
