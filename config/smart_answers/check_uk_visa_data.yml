@@ -82,6 +82,8 @@
         - name: temporary_worker_government_authorised_exchange
         - name: temporary_worker_international_agreement_service
         - name: temporary_worker_international_agreement_work
+        - name: secondment_worker_visa
+          condition: eligible_for_secondment_visa?
     religious:
       title: You need a visa as a religious worker
       visas:

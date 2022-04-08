@@ -200,6 +200,10 @@ module SmartAnswer::Calculators
       @length_of_stay == "six_months_or_less"
     end
 
+    def eligible_for_secondment_visa?
+      work_visit? && staying_for_over_six_months? && @what_type_of_work == "other"
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
