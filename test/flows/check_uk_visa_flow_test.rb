@@ -854,10 +854,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa
-      test_visa_count("canada", 8)
-      test_visa_count("china", 6)
-      test_visa_count("british-national-overseas", 9)
-      test_visa_count("stateless-or-refugee", 6)
+      test_visa_count("canada", 9)
+      test_visa_count("china", 7)
+      test_visa_count("british-national-overseas", 10)
+      test_visa_count("stateless-or-refugee", 7)
     end
 
     context "what_type_of_work: religious" do

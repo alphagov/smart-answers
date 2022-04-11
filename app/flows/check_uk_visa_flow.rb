@@ -182,15 +182,18 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       option :six_months_or_less
       option :longer_than_six_months
 
-      next_node do |response|
-        case response
-        when "longer_than_six_months"
+      on_response do |response|
+        calculator.length_of_stay = response
+      end
+
+      next_node do
+        if calculator.staying_for_over_six_months?
           if calculator.study_visit?
             outcome :outcome_study_y # outcome 2 study y
           elsif calculator.work_visit?
             question :what_type_of_work?
           end
-        when "six_months_or_less"
+        elsif calculator.staying_for_six_months_or_less?
           if calculator.study_visit?
             if calculator.passport_country_in_electronic_visa_waiver_list?
               outcome :outcome_study_waiver

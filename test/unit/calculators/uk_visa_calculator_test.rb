@@ -523,6 +523,66 @@ module SmartAnswer
             assert_not calculator.travelling_to_elsewhere?
           end
         end
+
+        context "#staying_for_over_six_months?" do
+          should "return true if the applicant is staying for over 6 months" do
+            calculator = UkVisaCalculator.new
+            calculator.length_of_stay = "longer_than_six_months"
+            assert calculator.staying_for_over_six_months?
+          end
+          should "return false if the applicant is staying for less than 6 months" do
+            calculator = UkVisaCalculator.new
+            calculator.length_of_stay = "six_months_or_less"
+            assert_not calculator.staying_for_over_six_months?
+          end
+        end
+
+        context "#staying_for_six_months_or_less?" do
+          should "return true if the applicant is staying for 6 months or less" do
+            calculator = UkVisaCalculator.new
+            calculator.length_of_stay = "six_months_or_less"
+            assert calculator.staying_for_six_months_or_less?
+          end
+          should "return false if the applicant is staying for more than 6 months" do
+            calculator = UkVisaCalculator.new
+            calculator.length_of_stay = "longer_than_six_months"
+            assert_not calculator.staying_for_six_months_or_less?
+          end
+        end
+
+        context "eligible_for_secondment_visa?" do
+          should "return true if visiting for work, for longer than six months and doing 'other' work " do
+            calculator = UkVisaCalculator.new
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "other"
+            assert calculator.eligible_for_secondment_visa?
+          end
+
+          should "return false if not visiting for work" do
+            calculator = UkVisaCalculator.new
+            calculator.purpose_of_visit_answer = "study"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "other"
+            assert_not calculator.eligible_for_secondment_visa?
+          end
+
+          should "return false if visiting for less than six months" do
+            calculator = UkVisaCalculator.new
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "six_months_or_less"
+            calculator.what_type_of_work = "other"
+            assert_not calculator.eligible_for_secondment_visa?
+          end
+
+          should "return false if not doing 'other' work " do
+            calculator = UkVisaCalculator.new
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "health"
+            assert_not calculator.eligible_for_secondment_visa?
+          end
+        end
       end
     end
   end
