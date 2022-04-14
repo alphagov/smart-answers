@@ -41,6 +41,12 @@ class SupportTicket
   end
 
   def send
-    self.class.client.ticket.create!(payload)
+    self.class.client.ticket.create!({
+      subject: subject,
+      priority: PRIORITY,
+      requester: REQUESTER.merge(email: requester_email),
+      tags: TAGS,
+      comment: { body: body },
+    })
   end
 end

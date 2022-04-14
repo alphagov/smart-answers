@@ -33,7 +33,7 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
                    countries_with_2_outcomes
                    countries_with_6_outcomes
                    countries_with_18_outcomes]
-    all_types.sum { |t| countries_list(t) }
+    all_types.sum([]) { |t| countries_list(t) }
   end
 
   def random_country(type = nil)

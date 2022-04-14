@@ -130,7 +130,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
           self.leave_end_date = calculator.leave_end_date
           self.pay_start_date = calculator.pay_start_date
           self.pay_end_date = calculator.pay_end_date
-          self.a_notice_leave = calculator.a_notice_leave.to_s(:govuk_date) if calculator.a_notice_leave
+          self.a_notice_leave = calculator.a_notice_leave.to_fs(:govuk_date) if calculator.a_notice_leave
           self.overseas_adoption_leave_employment_threshold = calculator.overseas_adoption_leave_employment_threshold
         end
 
