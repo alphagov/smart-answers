@@ -39,3 +39,7 @@ updates:
         dependency-type: direct
       - dependency-name: stylelint
         dependency-type: direct
+      - dependency-name: jasmine-browser-runner
+        dependency-type: direct
+      - dependency-name: jasmine-core
+        dependency-type: direct
