@@ -1,4 +1,4 @@
-FROM ruby:2.7.6
+ARG base_image=ruby:2.7.6-slim-buster
 
 FROM $base_image AS builder
 
