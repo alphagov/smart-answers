@@ -2,7 +2,8 @@
   "srcDir": "public/assets",
   "srcFiles": [
     "**/*.js",
-    "!express/**/*.js"
+    "!express/**/*.js",
+    "!**/visualise-*.js"
   ],
   "specDir": "spec/javascripts",
   "specFiles": [
