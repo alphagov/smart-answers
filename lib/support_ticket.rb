@@ -18,8 +18,8 @@ class SupportTicket
                 end
   end
 
-  def self.send(*args)
-    new(*args).send
+  def self.send(subject:, body:, requester_email:)
+    new(subject: subject, body: body, requester_email: requester_email).send
   end
 
   attr_reader :subject, :body, :requester_email
@@ -41,12 +41,6 @@ class SupportTicket
   end
 
   def send
-    self.class.client.ticket.create!({
-      subject: subject,
-      priority: PRIORITY,
-      requester: REQUESTER.merge(email: requester_email),
-      tags: TAGS,
-      comment: { body: body },
-    })
+    self.class.client.zendesk_client.tickets.create!(payload)
   end
 end

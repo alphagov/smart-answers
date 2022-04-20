@@ -130,7 +130,7 @@ GEM
       null_logger
       plek (>= 1.9.0)
       rest-client (~> 2.0)
-    gds_zendesk (3.2.0)
+    gds_zendesk (3.3.0)
       null_logger (~> 0)
       zendesk_api (~> 1.27)
     globalid (1.0.0)
