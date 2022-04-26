@@ -1,7 +1,9 @@
+//= link accessible-autocomplete/dist/accessible-autocomplete.min.css
 //= link application.css
 //= link print.css
 //= link joint.css
 //= link visualise.css
+//= link accessible-autocomplete/dist/accessible-autocomplete.min.js
 //= link application.js
 //= link dagre.js
 //= link joint.layout.DirectedGraph.js
