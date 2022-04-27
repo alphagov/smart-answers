@@ -128,7 +128,7 @@ GEM
       zendesk_api (~> 1.27)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    govspeak (6.8.1)
+    govspeak (6.8.2)
       actionview (>= 6)
       addressable (>= 2.3.8, < 3)
       govuk_publishing_components (>= 23)
@@ -189,7 +189,7 @@ GEM
     json-schema (2.8.1)
       addressable (>= 2.4)
     kgio (2.11.4)
-    kramdown (2.3.1)
+    kramdown (2.3.2)
       rexml
     launchy (2.5.0)
       addressable (~> 2.7)
