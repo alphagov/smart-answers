@@ -59,18 +59,6 @@ module SmartAnswers
     # when router is proxying to this app but asset proxying isn't set up.
     config.asset_host = ENV["ASSET_HOST"]
 
-    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w[
-      joint.patch.js
-      joint.js
-      joint.layout.DirectedGraph.js
-      joint.css
-      print.css
-      dagre.js
-      visualise.js
-      visualise.css
-    ]
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = "1.0"
 
