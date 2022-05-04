@@ -176,16 +176,6 @@ GEM
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     inflection (1.0.0)
-    jasmine (3.99.0)
-      jasmine-core (= 3.99.0)
-      phantomjs
-      rack (>= 2.1.4)
-      rake
-      webrick
-    jasmine-core (3.99.0)
-    jasmine_selenium_runner (3.0.0)
-      jasmine (~> 3.0)
-      selenium-webdriver (~> 3.8)
     json (2.6.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
@@ -229,7 +219,6 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    phantomjs (2.1.1.0)
     plek (4.0.0)
     prometheus_exporter (2.0.2)
       webrick
@@ -423,8 +412,6 @@ DEPENDENCIES
   govuk_test
   htmlentities
   httparty
-  jasmine
-  jasmine_selenium_runner
   json
   launchy
   listen
