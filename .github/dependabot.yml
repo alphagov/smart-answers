@@ -35,6 +35,10 @@ updates:
       - dependency-name: stylelint-config-gds
         dependency-type: direct
       # Framework packages
+      - dependency-name: jasmine-browser-runner
+        dependency-type: direct
+      - dependency-name: jasmine-core
+        dependency-type: direct
       - dependency-name: standardx
         dependency-type: direct
       - dependency-name: stylelint
