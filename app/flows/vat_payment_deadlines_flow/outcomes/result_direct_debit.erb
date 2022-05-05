@@ -3,9 +3,9 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  The last date you can set up a direct debit is <%= calculator.last_payment_date.to_s(:govuk_date) %>.
+  The last date you can set up a direct debit is <%= calculator.last_payment_date.to_fs(:govuk_date) %>.
 
-  The date the money will be taken from your account is <%= calculator.funds_received_by.to_s(:govuk_date) %>.
+  The date the money will be taken from your account is <%= calculator.funds_received_by.to_fs(:govuk_date) %>.
 
   ^You must set up your direct debit before you submit your next VAT online return.^
 

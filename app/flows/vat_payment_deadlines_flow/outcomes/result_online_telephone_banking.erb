@@ -3,7 +3,7 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  The last date you can pay is <%= calculator.last_payment_date.to_s(:govuk_date) %>.
+  The last date you can pay is <%= calculator.last_payment_date.to_fs(:govuk_date) %>.
 
   You need your VAT registration number as the payment reference.
 

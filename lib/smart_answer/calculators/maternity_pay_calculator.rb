@@ -112,11 +112,11 @@ module SmartAnswer::Calculators
     end
 
     def format_date(date)
-      date.to_s(:govuk_date) if date
+      date.to_fs(:govuk_date) if date
     end
 
     def format_date_day(date)
-      date.to_s(:govuk_date_with_day) if date
+      date.to_fs(:govuk_date_with_day) if date
     end
 
     def payday_offset
