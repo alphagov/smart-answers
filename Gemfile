@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "6.1.5.1"
+gem "rails", "7.0.2.4"
 
 gem "ast"
 gem "gds-api-adapters"
