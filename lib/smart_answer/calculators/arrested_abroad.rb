@@ -4,7 +4,6 @@ module SmartAnswer::Calculators
     attr_reader :country
 
     PRISONER_PACKS = YAML.load_file(Rails.root.join("config/smart_answers/prisoner_packs.yml")).freeze
-    COUNTRIES_WITH_REGIONS = %w[cyprus].freeze
     COUNTRIES_WITHOUT_TRANFSERS_BACK = %w[austria
                                           belgium
                                           croatia
@@ -38,8 +37,10 @@ module SmartAnswer::Calculators
       output.join("\n")
     end
 
-    def get_country_regions
-      country_data["regions"]
+    def generate_url_for_lawyer_translator_interpreter(text, url)
+      return "" unless country_data && country_data["lawyer"]
+
+      "- [#{text}](#{url})"
     end
 
     def location
@@ -86,23 +87,17 @@ module SmartAnswer::Calculators
     end
 
     def lawyer
-      generate_url_for_download("lawyer", "English speaking lawyers and translators/interpreters in #{country_name}")
+      generate_url_for_lawyer_translator_interpreter("Find English speaking lawyers in #{country_name}", "https://find-a-professional-service-abroad.service.csd.fcdo.gov.uk/find?serviceType=lawyers")
+    end
+
+    def translator_interpreter
+      generate_url_for_lawyer_translator_interpreter("Find English speaking translators/interpreters in #{country_name}", "/government/collections/lists-of-translators-and-interpreters")
     end
 
     def has_extra_downloads
       extra_downloads = [police, judicial, consul, prison, lawyer, benefits, doc, pdf]
 
-      extra_downloads.any?(&:present?) || COUNTRIES_WITH_REGIONS.include?(country)
-    end
-
-    def region_downloads
-      return "" unless COUNTRIES_WITH_REGIONS.include?(country)
-
-      links = get_country_regions.values.map do |region|
-        "- [#{region['url_text']}](#{region['link']})"
-      end
-
-      links.join("\n")
+      extra_downloads.any?(&:present?)
     end
 
     def transfer_back
