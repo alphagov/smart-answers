@@ -5,9 +5,9 @@
 <% govspeak_for :body do %>
   You can only pay by cheque if you’re exempt from submitting online VAT returns. If you need to pay by cheque for any other reason, pay by Bank Giro.
 
-  The last day you can post your cheque is <%= calculator.last_payment_date.to_s(:govuk_date) %>.
+  The last day you can post your cheque is <%= calculator.last_payment_date.to_fs(:govuk_date) %>.
 
-  Your cheque must have cleared by <%= calculator.funds_received_by.to_s(:govuk_date) %>.
+  Your cheque must have cleared by <%= calculator.funds_received_by.to_fs(:govuk_date) %>.
 
   ^The date your cheque clears is the day when your payment reach HRMC’s account. It’s not the day when they get your cheque in the post.^
 

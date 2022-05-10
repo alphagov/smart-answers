@@ -30,6 +30,8 @@ class ActiveSupport::TestCase
   include ActionDispatch::Assertions
   parallelize workers: :number_of_processors
 
+  SmartAnswers::Application.load_tasks
+
   teardown do
     WorldLocation.reset_cache
   end
