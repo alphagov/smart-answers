@@ -96,6 +96,10 @@ module SmartAnswer::Calculators
       @passport_country == "china"
     end
 
+    def passport_country_is_el_salvador?
+      @passport_country == "el-salvador"
+    end
+
     def passport_country_is_estonia?
       @passport_country == "estonia" || @passport_country == "estonia-alien-passport"
     end
@@ -313,7 +317,6 @@ module SmartAnswer::Calculators
       costa-rica
       curacao
       dominica
-      el-salvador
       grenada
       guatemala
       honduras
@@ -434,6 +437,7 @@ module SmartAnswer::Calculators
       cyprus-north
       democratic-republic-of-the-congo
       egypt
+      el-salvador
       eritrea
       estonia-alien-passport
       eswatini
