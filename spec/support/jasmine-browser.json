@@ -8,14 +8,5 @@
   "specFiles": [
     "**/*[sS]pec.js"
   ],
-  "helpers": [
-    "helpers/*.js",
-    "vendor/*.js"
-  ],
-  "env": {
-    "stopSpecOnExpectationFailure": false,
-    "stopOnSpecFailure": false,
-    "random": false
-  },
   "browser": "headlessChrome"
 }
