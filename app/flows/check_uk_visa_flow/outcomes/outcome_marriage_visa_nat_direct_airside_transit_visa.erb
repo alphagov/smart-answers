@@ -9,12 +9,24 @@
 
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
-  If you want to live in the UK permanently, you must apply for a [family visa](/join-family-in-uk) if your partner:
+  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
+    If you want to live in the UK permanently, you must apply for a [family visa](/uk-family-visa) if your partner is any of the following:
 
-  + is a British citizen
-  + is settled in the UK (called having ‘indefinite leave to remain’)
-  + has settled or pre-settled status under the EU Settlement Scheme
-  + has a Turkish worker or businessperson visa
+    + a British citizen
+    + settled in the UK
+    + someone with humanitarian protection, for example if they have refugee status
+
+    ^
+    If you want to convert a civil partnership into a marriage, you’ll need to apply for an [electronic visa waiver (EVW)](/get-electronic-visa-waiver) or a [Standard Visitor visa](/standard-visitor).
+    ^
+  <% else %>
+    If you want to live in the UK permanently, you must apply for a [family visa](/join-family-in-uk) if your partner:
+
+    + is a British citizen
+    + is settled in the UK (called having ‘indefinite leave to remain’)
+    + has settled or pre-settled status under the EU Settlement Scheme
+    + has a Turkish worker or businessperson visa
+  <% end %>
 
   <% if calculator.passport_country_is_el_salvador? %>
     ##If you want to convert a civil partnership into a marriage

@@ -1,11 +1,22 @@
 <% text_for :title do %>
-  You’ll need a visa to study in the UK
+  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
+    You’ll need an electronic visa waiver (EVW) or a visitor visa
+  <% else %>
+    You’ll need a visa to come to the UK
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
-  Apply for a [Standard Visitor visa](/standard-visitor) if you're studying for 6 months or less.
+  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
+    You must either apply for:
+
+    + an [EVW](/get-electronic-visa-waiver) - you can apply from 1 June 2022
+    + a [Standard Visitor visa](/standard-visitor) if you’re studying for 6 months or less
+  <% else %>
+    Apply for a [Standard Visitor visa](/standard-visitor) if you're studying for 6 months or less.
+  <% end %>
 
   <% if calculator.passport_country_is_el_salvador? %>
     ##If you're arriving in the UK before 9 June 2022
