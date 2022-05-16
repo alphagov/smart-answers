@@ -12,7 +12,7 @@ namespace :links do
     Rails.logger.info "Sending broken link report"
 
     SupportTicket.send(
-      subject: "Smart Answers Broken Link Report: #{Time.zone.today.to_s(:govuk_date)}",
+      subject: "Smart Answers Broken Link Report: #{Time.zone.today.to_fs(:govuk_date)}",
       body: BrokenLinkReport.for_erb_files_at(SMART_ANSWER_FLOW_PATH),
       requester_email: args.requester_email,
     )
