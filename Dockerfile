@@ -28,7 +28,7 @@ RUN yarn install && \
 
 FROM $base_image
 
-ENV RAILS_ENV=production NODE_ENV=production GOVUK_APP_NAME=smartanswers
+ENV GOVUK_PROMETHEUS_EXPORTER=true RAILS_ENV=production NODE_ENV=production GOVUK_APP_NAME=smartanswers
 
 RUN apt-get update -qy && \
     apt-get upgrade -y && \
