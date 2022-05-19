@@ -1,8 +1,12 @@
+.dockerignore
 .git
 .gitignore
+Dockerfile
 Jenkinsfile
+Procfile
 README.md
 docs
 log
 spec
+test
 tmp
