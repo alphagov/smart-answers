@@ -1,9 +1,21 @@
 <% text_for :title do %>
-  You’ll need a visa to visit the UK
+  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
+    You’ll need an electronic visa waiver (EVW) or a visitor visa
+  <% else %>
+    You’ll need a visa to visit the UK
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
-  You should apply for a [Standard Visitor visa](/standard-visitor).
+  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
+    You must either apply for:
+
+    + an [electronic visa waiver](/get-electronic-visa-waiver) - you can apply from 1 June 2022
+    + a [Standard Visitor visa](/standard-visitor)
+
+  <% else %>
+    You should apply for a [Standard Visitor visa](/standard-visitor).
+  <% end %>
 
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
