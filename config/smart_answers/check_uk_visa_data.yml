@@ -13,6 +13,7 @@
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
+        - name: high_potential_individual
     arts:
       title: You need a visa to work in arts or culture
       visas:
@@ -28,6 +29,7 @@
           condition: passport_country_in_uk_ancestry_visa_list?
         - name: representative_of_overseas_business_arts
         - name: work_experience_scheme
+        - name: high_potential_individual
     business:
       title: You need a visa to start a business
       visas:
@@ -41,6 +43,7 @@
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
+        - name: high_potential_individual
     digital:
       title: You need a visa to work in digital technology
       visas:
@@ -53,6 +56,7 @@
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
+        - name: high_potential_individual
     health:
       title: You need a visa to work in health and care
       visas:
@@ -67,6 +71,7 @@
           condition: passport_country_in_uk_ancestry_visa_list?
         - name: temporary_worker_government_authorised_exchange_health
         - name: work_experience_scheme
+        - name: high_potential_individual
     other:
       title: You need a visa to work in the UK
       visas:
@@ -84,6 +89,7 @@
         - name: temporary_worker_international_agreement_work
         - name: secondment_worker_visa
           condition: eligible_for_secondment_visa?
+        - name: high_potential_individual
     religious:
       title: You need a visa as a religious worker
       visas:
