@@ -147,7 +147,7 @@ GEM
       sanitize (~> 6)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (4.6.0)
+    govuk_app_config (4.6.1)
       logstasher (~> 2.1)
       prometheus_exporter (~> 2.0)
       puma (~> 5.6)
