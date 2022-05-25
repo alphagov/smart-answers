@@ -7,5 +7,9 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow CheckBenefitsSupportFlow
   end
+
+  should "render a start page" do
+    assert_rendered_start_page
+  end
   end
 end
