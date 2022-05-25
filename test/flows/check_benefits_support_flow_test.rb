@@ -103,4 +103,28 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: carer_disability_or_health_condition" do
+    setup do
+      testing_node :carer_disability_or_health_condition
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of children_living_with_you if not an unpaid carer" do
+        assert_next_node :children_living_with_you, for_response: "no"
+      end
+
+      should "have a next node of unpaid_care_hours if an unpaid carer" do
+        assert_next_node :unpaid_care_hours, for_response: "yes"
+      end
+    end
+  end
 end

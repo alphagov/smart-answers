@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
                   :over_state_pension_age,
                   :are_you_working,
                   :disability_or_health_condition,
-                  :disability_affecting_work
+                  :disability_affecting_work,
+                  :carer_disability_or_health_condition
   end
 end

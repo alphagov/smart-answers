@@ -77,5 +77,22 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         question :carer_disability_or_health_condition
       end
     end
+
+    radio :carer_disability_or_health_condition do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.carer_disability_or_health_condition = response
+      end
+
+      next_node do
+        if calculator.carer_disability_or_health_condition == "yes"
+          question :unpaid_care_hours
+        else
+          question :children_living_with_you
+        end
+      end
+    end
   end
 end
