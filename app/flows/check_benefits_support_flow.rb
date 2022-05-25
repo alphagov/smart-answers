@@ -32,5 +32,19 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         question :are_you_working
       end
     end
+
+    radio :are_you_working do
+      option :yes_over_16_hours_per_week
+      option :yes_under_16_hours_per_week
+      option :no
+
+      on_response do |response|
+        calculator.are_you_working = response
+      end
+
+      next_node do
+        question :disability_or_health_condition
+      end
+    end
   end
 end
