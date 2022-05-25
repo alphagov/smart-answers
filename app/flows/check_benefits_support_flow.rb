@@ -124,5 +124,23 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         end
       end
     end
+
+    checkbox_question :age_of_children do
+      option :"1_or_under"
+      option :"2"
+      option :"3_to_4"
+      option :"5_to_11"
+      option :"12_to_15"
+      option :"16_to_17"
+      option :"18_and_over"
+
+      on_response do |response|
+        calculator.age_of_children = response
+      end
+
+      next_node do
+        question :children_with_disability
+      end
+    end
   end
 end

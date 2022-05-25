@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
                   :disability_affecting_work,
                   :carer_disability_or_health_condition,
                   :unpaid_care_hours,
-                  :children_living_with_you
+                  :children_living_with_you,
+                  :age_of_children
   end
 end
