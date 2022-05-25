@@ -158,7 +158,7 @@ GEM
     govuk_personalisation (0.11.2)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (29.9.0)
+    govuk_publishing_components (29.10.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -241,7 +241,7 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     plek (4.0.0)
-    prometheus_exporter (2.0.2)
+    prometheus_exporter (2.0.3)
       webrick
     pry (0.14.1)
       coderay (~> 1.1)
