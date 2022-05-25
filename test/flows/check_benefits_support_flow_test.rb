@@ -220,4 +220,28 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: assets_and_savings" do
+    setup do
+      testing_node :assets_and_savings
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_11",
+                    children_with_disability: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of results" do
+        assert_next_node :results, for_response: "under_16000"
+      end
+    end
+  end
 end

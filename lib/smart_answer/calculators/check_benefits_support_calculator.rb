@@ -9,6 +9,7 @@ module SmartAnswer::Calculators
                   :unpaid_care_hours,
                   :children_living_with_you,
                   :age_of_children,
-                  :children_with_disability
+                  :children_with_disability,
+                  :assets_and_savings
   end
 end
