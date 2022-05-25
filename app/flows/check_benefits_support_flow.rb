@@ -107,5 +107,22 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         question :children_living_with_you
       end
     end
+
+    radio :children_living_with_you do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.children_living_with_you = response
+      end
+
+      next_node do
+        if calculator.children_living_with_you == "yes"
+          question :age_of_children
+        else
+          question :assets_and_savings
+        end
+      end
+    end
   end
 end
