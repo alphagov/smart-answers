@@ -168,5 +168,7 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         outcome :results
       end
     end
+
+    outcome :results
   end
 end
