@@ -19,5 +19,18 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         question :over_state_pension_age
       end
     end
+
+    radio :over_state_pension_age do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.over_state_pension_age = response
+      end
+
+      next_node do
+        question :are_you_working
+      end
+    end
   end
 end

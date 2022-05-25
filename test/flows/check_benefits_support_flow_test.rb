@@ -25,4 +25,21 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: over_state_pension_age" do
+    setup do
+      testing_node :over_state_pension_age
+      add_responses where_do_you_live: "england"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of are_you_working" do
+        assert_next_node :are_you_working, for_response: "yes"
+      end
+    end
+  end
 end
