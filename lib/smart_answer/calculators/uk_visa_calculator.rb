@@ -124,10 +124,6 @@ module SmartAnswer::Calculators
       @passport_country == "turkey"
     end
 
-    def passport_country_is_saudi_arabia_or_bahrain?
-      %w[saudi-arabia bahrain].include?(@passport_country)
-    end
-
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
