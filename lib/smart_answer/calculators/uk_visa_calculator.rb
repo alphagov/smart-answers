@@ -523,9 +523,11 @@ module SmartAnswer::Calculators
     ].freeze
 
     COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w[
+      bahrain
       kuwait
       oman
       qatar
+      saudi-arabia
       united-arab-emirates
     ].freeze
 
