@@ -39,6 +39,8 @@ updates:
         dependency-type: direct
       - dependency-name: jasmine-core
         dependency-type: direct
+      - dependency-name: postcss
+        dependency-type: direct
       - dependency-name: standardx
         dependency-type: direct
       - dependency-name: stylelint
