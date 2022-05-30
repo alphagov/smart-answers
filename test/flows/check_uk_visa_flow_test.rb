@@ -765,10 +765,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa
-      test_visa_count("canada", 6)
-      test_visa_count("china", 4)
-      test_visa_count("british-national-overseas", 7)
-      test_visa_count("stateless-or-refugee", 4)
+      test_visa_count("canada", 7)
+      test_visa_count("china", 5)
+      test_visa_count("british-national-overseas", 8)
+      test_visa_count("stateless-or-refugee", 5)
     end
 
     context "what_type_of_work: arts" do
@@ -782,10 +782,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_stateless_or_refugee_outcome_guidance
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
-      test_visa_count("canada", 8)
-      test_visa_count("china", 6)
-      test_visa_count("british-national-overseas", 9)
-      test_visa_count("stateless-or-refugee", 6)
+      test_visa_count("canada", 9)
+      test_visa_count("china", 7)
+      test_visa_count("british-national-overseas", 10)
+      test_visa_count("stateless-or-refugee", 7)
     end
 
     context "what_type_of_work: business" do
@@ -800,10 +800,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa_with_business_information
-      test_visa_count("canada", 6)
-      test_visa_count("china", 4)
-      test_visa_count("british-national-overseas", 7)
-      test_visa_count("stateless-or-refugee", 4)
+      test_visa_count("canada", 7)
+      test_visa_count("china", 5)
+      test_visa_count("british-national-overseas", 8)
+      test_visa_count("stateless-or-refugee", 5)
     end
 
     context "what_type_of_work: digital" do
@@ -818,10 +818,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa
-      test_visa_count("canada", 5)
-      test_visa_count("china", 3)
-      test_visa_count("british-national-overseas", 6)
-      test_visa_count("stateless-or-refugee", 3)
+      test_visa_count("canada", 6)
+      test_visa_count("china", 4)
+      test_visa_count("british-national-overseas", 7)
+      test_visa_count("stateless-or-refugee", 4)
     end
 
     context "what_type_of_work: health" do
@@ -836,10 +836,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa
-      test_visa_count("canada", 7)
-      test_visa_count("china", 5)
-      test_visa_count("british-national-overseas", 8)
-      test_visa_count("stateless-or-refugee", 5)
+      test_visa_count("canada", 8)
+      test_visa_count("china", 6)
+      test_visa_count("british-national-overseas", 9)
+      test_visa_count("stateless-or-refugee", 6)
     end
 
     context "what_type_of_work: other" do
@@ -854,10 +854,10 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_bno_outcome_guidance
       test_country_in_youth_mobility_outcome_guidance
       test_country_in_uk_ancestry_visa
-      test_visa_count("canada", 9)
-      test_visa_count("china", 7)
-      test_visa_count("british-national-overseas", 10)
-      test_visa_count("stateless-or-refugee", 7)
+      test_visa_count("canada", 10)
+      test_visa_count("china", 8)
+      test_visa_count("british-national-overseas", 11)
+      test_visa_count("stateless-or-refugee", 8)
     end
 
     context "what_type_of_work: religious" do
