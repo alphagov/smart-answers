@@ -94,5 +94,18 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         end
       end
     end
+
+    radio :unpaid_care_hours do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.unpaid_care_hours = response
+      end
+
+      next_node do
+        question :children_living_with_you
+      end
+    end
   end
 end
