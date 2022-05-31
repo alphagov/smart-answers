@@ -197,4 +197,27 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: children_with_disability" do
+    setup do
+      testing_node :children_with_disability
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_11"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of assets_and_savings" do
+        assert_next_node :assets_and_savings, for_response: "yes"
+      end
+    end
+  end
 end

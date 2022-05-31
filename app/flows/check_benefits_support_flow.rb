@@ -142,5 +142,18 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         question :children_with_disability
       end
     end
+
+    checkbox_question :children_with_disability do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.children_with_disability = response
+      end
+
+      next_node do
+        question :assets_and_savings
+      end
+    end
   end
 end
