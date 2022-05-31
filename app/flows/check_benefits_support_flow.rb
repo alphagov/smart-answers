@@ -63,5 +63,19 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
         end
       end
     end
+
+    radio :disability_affecting_work do
+      option :yes_unable_to_work
+      option :yes_limits_work
+      option :no
+
+      on_response do |response|
+        calculator.disability_affecting_work = response
+      end
+
+      next_node do
+        question :carer_disability_or_health_condition
+      end
+    end
   end
 end
