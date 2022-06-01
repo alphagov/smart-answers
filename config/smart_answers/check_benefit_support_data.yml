@@ -1,13 +1,39 @@
 ---
   benefits_for_outcome:
-    supporting_your_income:
-      benefits:
-        - name: employment_and_support_allowance
-          condition: eligible_for_employment_and_support_allowance?
-        - name: jobseekers_allowance
-        - name: pension_credit
-        - name: access_to_work
-        - name: universal_credit
-        - name: child_benefit
-        - name: carers_allowance
-        - name: universal_credit_advance
+    - name: employment_and_support_allowance
+      condition: eligible_for_employment_and_support_allowance?
+      title: "New Style Employment and Support Allowance (ESA)"
+      description:
+      url:
+      group: "Supporting your income"
+      hierarchy_order: 1
+    - name: jobseekers_allowance
+      group: "Supporting your income"
+      title: "New Style Jobseeker's Allowance (JSA)"
+      description:
+      url:
+      hierarchy_order: 2
+    - name: pension_credit
+      group: "Supporting your income"
+      title: "Pension Credit"
+      description:
+      url:
+      hierarchy_order: 2
+    - name: housing_benefit
+      group: "Housing support"
+      title: "Housing Benefit"
+      description:
+      url:
+      hierarchy_order: 2
+    - name: access_to_work
+      group: "Supporting your income"
+      title: "Access to Work"
+      description:
+      url:
+      hierarchy_order: 1
+    - name: universal_credit
+      group: "Supporting your income"
+      title: "Universal Credit"
+      description:
+      url:
+      hierarchy_order: 9

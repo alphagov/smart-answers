@@ -15,13 +15,14 @@ module SmartAnswer::Calculators
     OUTCOME_DATA = YAML.load_file(Rails.root.join("config/smart_answers/check_benefit_support_data.yml")).freeze
 
     def benefits_for_outcome
-      OUTCOME_DATA.dig("benefits_for_outcome", "supporting_your_income", "benefits").select { |benefit|
+      OUTCOME_DATA.dig("benefits_for_outcome").select { |benefit|
         benefit["condition"].nil? || send(benefit["condition"])
       }.compact
     end
 
     def benefit_types_for_outcome
-      benefits_for_outcome.map { |benefit| benefit["name"] }
+      benefits_for_outcome.sort_by { |benefit| benefit["hierarchy_order"] }
+                          .map { |benefit| benefit["name"] }
     end
 
     def eligible_for_employment_and_support_allowance?
