@@ -3,6 +3,7 @@
     supporting_your_income:
       benefits:
         - name: employment_and_support_allowance
+          condition: eligible_for_employment_and_support_allowance?
         - name: jobseekers_allowance
         - name: pension_credit
         - name: access_to_work

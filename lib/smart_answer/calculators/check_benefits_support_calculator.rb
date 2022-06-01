@@ -16,12 +16,18 @@ module SmartAnswer::Calculators
 
     def benefits_for_outcome
       OUTCOME_DATA.dig("benefits_for_outcome", "supporting_your_income", "benefits").select { |benefit|
-        benefit
+        benefit["condition"].nil? || send(benefit["condition"])
       }.compact
     end
 
     def benefit_types_for_outcome
       benefits_for_outcome.map { |benefit| benefit["name"] }
+    end
+
+    def eligible_for_employment_and_support_allowance?
+      @over_state_pension_age == "no" &&
+      @disability_or_health_condition == "yes" &&
+      (@disability_affecting_work == "yes_unable_to_work" || @disability_affecting_work == "yes_limits_work")
     end
   end
 end
