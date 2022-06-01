@@ -1,8 +1,6 @@
 <% text_for :title do %>
   <% if calculator.passport_country_is_taiwan? %>
     You will not need a visa if your passport has a personal ID number on the bio data page.
-  <% elsif calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-    You’ll need an electronic visa waiver (EVW) or a Standard Visitor visa to pass through the UK (unless you’re exempt)
   <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
     You’ll need an electronic visa waiver (EVW) or a Standard Visitor visa
   <% else %>
@@ -18,12 +16,6 @@
     [Check what documents you need to bring](/government/publications/visitor-visa-guide-to-supporting-documents) to show officers at the UK border.
 
     If your passport does not have a personal ID number on the bio data page you’ll usually need to apply for a [Standard Visitor visa](/standard-visitor).
-  <% elsif calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-
-    You must either apply for:
-
-    - an [electronic visa waiver](/get-electronic-visa-waiver) - you can apply for this from 1 June 2022
-    - a [Standard Visitor visa](/standard-visitor)
   <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
 
     You must either apply for:
@@ -35,15 +27,9 @@
     You’ll usually need to apply for a [Standard Visitor visa](/standard-visitor).
   <% end %>
 
-  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-    ##Transiting without an EVW or a visa
+  ##Transiting without a visa
 
-    You may be eligible to transit without an EVW or a visa if:
-  <% else %>
-    ##Transiting without a visa
-
-    You may be eligible to transit without a visa if:
-  <% end %>
+  You may be eligible to transit without a visa if:
 
   - you arrive and depart by air
   - have a confirmed onward flight that leaves on the day you arrive or before midnight on the day after you arrive

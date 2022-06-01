@@ -1,39 +1,20 @@
 <% text_for :title do %>
-  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-    You'll need to apply to do business, academic research or work in the UK
-  <% else %>
-    You'll need a visa to work, do business or academic research in the UK
-  <% end %>
+  You'll need a visa to work, do business or academic research in the UK
 <% end %>
 
 <% govspeak_for :body do %>
-  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-    What you need to apply for depends on your circumstances.
-  <% else %>
-    The visa you need to apply for depends on your circumstances.
-  <% end %>
+  The visa you need to apply for depends on your circumstances.
 
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   <%= render partial: 'estonia_or_latvia', locals: {calculator: calculator} %>
 
-  <% if calculator.passport_country_is_saudi_arabia_or_bahrain? %>
-    ##Business and academic visits
+  ##Business or academic visits
 
-    You can apply for:
+  You can apply:
 
-    + a [Standard Visitor visa](/standard-visitor) - if you’re coming to the UK for business activities like conferences, meetings, training, academic research or a sabbatical
-    + a [permitted paid engagement](/permitted-paid-engagement-visitor) visa if you’ve been invited as an expert in your profession - you can only stay for up to 1 month
-
-    ^You will not need a visa if you hold a valid [electronic visa waiver (EVW)](/get-electronic-visa-waiver). You can apply for an EVW from 1 June 2022.^
-  <% else %>
-    ##Business or academic visits
-
-    You can apply:
-
-    + for a [Standard Visitor visa](/standard-visitor) - for example if you're coming to the UK for conferences, meetings, training, academic research or a sabbatical
-    + as a visitor doing a '[permitted paid engagement](/permitted-paid-engagement-visa)' (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
-  <% end %>
+  + for a [Standard Visitor visa](/standard-visitor) - for example if you're coming to the UK for conferences, meetings, training, academic research or a sabbatical
+  + as a visitor doing a '[permitted paid engagement](/permitted-paid-engagement-visa)' (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
   ##Working in the UK
 
