@@ -22,7 +22,6 @@ module SmartAnswer::Calculators
 
     def benefit_types_for_outcome
       benefits_for_outcome.sort_by { |benefit| benefit["hierarchy_order"] }
-                          .map { |benefit| benefit["name"] }
     end
 
     def eligible_for_employment_and_support_allowance?

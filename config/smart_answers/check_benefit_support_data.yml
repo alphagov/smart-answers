@@ -3,37 +3,37 @@
     - name: employment_and_support_allowance
       condition: eligible_for_employment_and_support_allowance?
       title: "New Style Employment and Support Allowance (ESA)"
-      description:
-      url:
+      description: "Employment and Support allowance further info"
+      url: "/"
       group: "Supporting your income"
       hierarchy_order: 1
     - name: jobseekers_allowance
       group: "Supporting your income"
       title: "New Style Jobseeker's Allowance (JSA)"
       description:
-      url:
+      url: "/"
       hierarchy_order: 2
     - name: pension_credit
       group: "Supporting your income"
       title: "Pension Credit"
-      description:
-      url:
+      description: Info on pension credit
+      url: "/"
       hierarchy_order: 2
     - name: housing_benefit
       group: "Housing support"
       title: "Housing Benefit"
       description:
-      url:
+      url: "/"
       hierarchy_order: 2
     - name: access_to_work
       group: "Supporting your income"
       title: "Access to Work"
       description:
-      url:
+      url: "/"
       hierarchy_order: 1
     - name: universal_credit
       group: "Supporting your income"
       title: "Universal Credit"
       description:
-      url:
+      url: "/"
       hierarchy_order: 9

@@ -1,7 +1,6 @@
 <% govspeak_for :body do %>
   Results!
   <% calculator.benefit_types_for_outcome.each do |benefit| %>
-    <p><%= render partial: "benefit_types/#{benefit}", locals: {calculator: calculator} %></p>
+    <%= render "components/result-item", { title: benefit["title"], url: benefit["url"], description: benefit["description"] } %>
   <% end %>
 <% end %>
-
