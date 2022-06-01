@@ -1,0 +1,12 @@
+---
+  benefits_for_outcome:
+    supporting_your_income:
+      benefits:
+        - name: employment_and_support_allowance
+        - name: jobseekers_allowance
+        - name: pension_credit
+        - name: access_to_work
+        - name: universal_credit
+        - name: child_benefit
+        - name: carers_allowance
+        - name: universal_credit_advance
