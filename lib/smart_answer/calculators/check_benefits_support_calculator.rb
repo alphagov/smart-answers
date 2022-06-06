@@ -19,5 +19,11 @@ module SmartAnswer::Calculators
     def benefits_for_outcome
       benefit_data["benefits"].select { |benefit| benefit }.compact
     end
+
+    def eligible_for_employment_and_support_allowance?
+      @over_state_pension_age == "no" &&
+        @disability_or_health_condition == "yes" &&
+        disability_affecting_work != "no"
+    end
   end
 end

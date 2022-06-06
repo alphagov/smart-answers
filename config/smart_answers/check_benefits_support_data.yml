@@ -3,6 +3,7 @@
     - name: employment_and_support_allowance
       title: Employment and Support Allowance (ESA)
       description:
+      condition: eligible_for_employment_and_support_allowance?
       url: /employment-support-allowance
       url_text: Anchor link text
       group: Supporting your income
