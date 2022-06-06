@@ -129,6 +129,7 @@
     - name: attendance_allowance
       title: Attendance Allowance
       description:
+      condition: eligible_for_attendance_allowance?
       url: /attendance-allowance
       url_text: Anchor link text
       group: Supporting your income

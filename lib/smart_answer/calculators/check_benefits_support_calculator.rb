@@ -128,5 +128,9 @@ module SmartAnswer::Calculators
     def eligible_for_personal_independence_payment?
       @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
     end
+
+    def eligible_for_attendance_allowance?
+      @over_state_pension_age == "no" && disability_or_health_condition == "yes"
+    end
   end
 end
