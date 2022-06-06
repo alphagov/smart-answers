@@ -24,6 +24,7 @@
     - name: access_to_work
       title: Access to Work
       description:
+      condition: eligible_for_access_to_work?
       url: /access-to-work
       url_text: Anchor link text
       group: Supporting your income

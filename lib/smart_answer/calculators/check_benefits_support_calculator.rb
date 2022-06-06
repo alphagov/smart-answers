@@ -36,5 +36,11 @@ module SmartAnswer::Calculators
     def eligible_for_pension_credit?
       @over_state_pension_age == "no"
     end
+
+    def eligible_for_access_to_work?
+      @where_do_you_live != "northern-ireland" &&
+        @disability_or_health_condition == "yes" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
   end
 end

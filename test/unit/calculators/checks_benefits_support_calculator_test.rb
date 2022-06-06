@@ -63,6 +63,33 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_pension_credit?
         end
       end
+
+      context "#eligible_for_access_to_work?" do
+        should "return true if eligible for Access to Work" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "wales"
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "no"
+          assert calculator.eligible_for_access_to_work?
+
+          calculator.disability_affecting_work = "yes_limits_work"
+          assert calculator.eligible_for_access_to_work?
+        end
+
+        should "return false if not eligible for Access to Work" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          assert_not calculator.eligible_for_access_to_work?
+
+          calculator.where_do_you_live = "wales"
+          calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_access_to_work?
+
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "yes_unable_to_work"
+          assert_not calculator.eligible_for_access_to_work?
+        end
+      end
     end
   end
 end
