@@ -110,6 +110,20 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_universal_credit?
         end
       end
+
+      context "#eligible_for_housing_benefit?" do
+        should "return true if eligible for Housing Benefit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "yes"
+          assert calculator.eligible_for_housing_benefit?
+        end
+
+        should "return false if not eligible for Housing Benefit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          assert_not calculator.eligible_for_housing_benefit?
+        end
+      end
     end
   end
 end

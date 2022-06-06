@@ -38,6 +38,7 @@
     - name: housing_benefit
       title: Housing Benefit
       description:
+      condition: eligible_for_housing_benefit?
       url: /housing-benefit
       url_text: Anchor link text
       group: Housing support
