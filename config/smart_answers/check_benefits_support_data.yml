@@ -52,6 +52,7 @@
     - name: free_childcare_2yr_olds
       title: Free childcare 2yr olds
       description:
+      condition: eligible_for_free_childcare_2yr_olds?
       url: /help-with-childcare-costs/free-childcare-2-year-olds
       url_text: Anchor link text
       group: Help with childcare costs

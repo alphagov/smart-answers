@@ -57,5 +57,11 @@ module SmartAnswer::Calculators
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
     end
+
+    def eligible_for_free_childcare_2yr_olds?
+      @where_do_you_live == "england" &&
+        @children_living_with_you == "yes" &&
+        @age_of_children.split(",").any?("2")
+    end
   end
 end
