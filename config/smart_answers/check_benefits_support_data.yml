@@ -101,6 +101,7 @@
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description:
+      condition: eligible_for_disability_living_allowance_for_children?
       url: /disability-living-allowance-children
       url_text: Anchor link text
       group: Help with childcare costs
