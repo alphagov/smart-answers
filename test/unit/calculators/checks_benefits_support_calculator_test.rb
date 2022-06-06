@@ -3,6 +3,30 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class CheckBenefitsSupportCalculatorTest < ActiveSupport::TestCase
     context CheckBenefitsSupportCalculator do
+      context "#benefits_for_outcome" do
+        should "return array of eligible and non-conditional benefits" do
+          stubbed_benefit_data = {
+            "benefits" => [{ "title" => "eligible_benefit",
+                             "condition" => "eligible_for_employment_and_support_allowance?" },
+                           { "title" => "unconditional_benefit" },
+                           { "title" => "ineligile_benefit",
+                             "condition" => "eligible_for_jobseekers_allowance?" }],
+          }
+          expected_benefits = [
+            { "title" => "eligible_benefit",
+              "condition" => "eligible_for_employment_and_support_allowance?" },
+            { "title" => "unconditional_benefit" },
+          ]
+
+          YAML.stubs(:load_file).returns(stubbed_benefit_data)
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.stubs(:eligible_for_employment_and_support_allowance?).returns(true)
+          calculator.stubs(:eligible_for_jobseekers_allowance?).returns(false)
+
+          assert_equal calculator.benefits_for_outcome, expected_benefits
+        end
+      end
+
       context "#eligible_for_employment_and_support_allowance?" do
         should "return true if eligible for Employment and Support Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
