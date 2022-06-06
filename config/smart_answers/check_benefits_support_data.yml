@@ -162,6 +162,7 @@
     - name: nhs_low_income_scheme
       title: NHS Low Income Scheme (LIS)
       description:
+      condition: eligible_for_nhs_low_income_scheme?
       url: https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
       url_text: Anchor link text
       group: Healthcare support

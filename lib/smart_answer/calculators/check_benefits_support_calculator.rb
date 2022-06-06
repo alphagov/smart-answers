@@ -140,5 +140,9 @@ module SmartAnswer::Calculators
     def eligible_for_universal_credit_advance?
       @over_state_pension_age == "no" && @assets_and_savings == "under_16000"
     end
+
+    def eligible_for_nhs_low_income_scheme?
+      @where_do_you_live != "northern-ireland"
+    end
   end
 end
