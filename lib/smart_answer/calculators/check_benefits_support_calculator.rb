@@ -63,5 +63,12 @@ module SmartAnswer::Calculators
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("2")
     end
+
+    def eligible_for_childcare_3_4yr_olds_wales?
+      @where_do_you_live == "wales" &&
+        @are_you_working == "yes_under_16_hours_per_week" &&
+        @children_living_with_you == "yes" &&
+        @age_of_children.split(",").any?("3_to_4")
+    end
   end
 end

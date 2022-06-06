@@ -59,6 +59,7 @@
     - name: childcare_3_4yr_olds_wales
       title: Childcare 3 and 4 year olds Wales
       description:
+      condition: eligible_for_childcare_3_4yr_olds_wales?
       url: https://gov.wales/childcare-3-and-4-year-olds
       url_text: Anchor link text
       group: Help with childcare costs
