@@ -367,20 +367,6 @@ module SmartAnswer
         end
       end
 
-      context "#passport_country_is_el_salvador?" do
-        should 'return true if passport_country is "El Salvador"' do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "el-salvador"
-          assert calculator.passport_country_is_el_salvador?
-        end
-
-        should 'return false if passport_country is not "El Salvador"' do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_is_el_salvador?
-        end
-      end
-
       context "#passport_country_is_estonia?" do
         should "return true if passport_country is Estonia" do
           calculator = UkVisaCalculator.new
