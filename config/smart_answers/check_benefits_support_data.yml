@@ -94,6 +94,7 @@
     - name: child_benefit
       title: Child Benefit
       description:
+      condition: eligible_for_child_benefit?
       url: /child-benefit
       url_text: Anchor link text
       group: Supporting your income

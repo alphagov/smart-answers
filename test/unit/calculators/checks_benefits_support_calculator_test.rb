@@ -307,6 +307,20 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_2yr_old_childcare_scotland?
         end
       end
+
+      context "#eligible_for_child_benefit?" do
+        should "return true if eligible for Child Benefit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.children_living_with_you = "yes"
+          assert calculator.eligible_for_child_benefit?
+        end
+
+        should "return false if not eligible for Child Benefit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.children_living_with_you = "no"
+          assert_not calculator.eligible_for_child_benefit?
+        end
+      end
     end
   end
 end

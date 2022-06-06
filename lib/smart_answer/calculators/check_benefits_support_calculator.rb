@@ -94,5 +94,9 @@ module SmartAnswer::Calculators
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("2")
     end
+
+    def eligible_for_child_benefit?
+      @children_living_with_you == "yes"
+    end
   end
 end
