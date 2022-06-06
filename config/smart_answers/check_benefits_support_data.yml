@@ -10,6 +10,7 @@
     - name: jobseekers_allowance
       title: Jobseeker's Allowance (JSA)
       description:
+      condition: eligible_for_jobseekers_allowance?
       url: /jobseekers-allowance
       url_text: Anchor link text
       group: Supporting your income

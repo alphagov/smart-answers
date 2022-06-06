@@ -25,5 +25,12 @@ module SmartAnswer::Calculators
         @disability_or_health_condition == "yes" &&
         disability_affecting_work != "no"
     end
+
+    def eligible_for_jobseekers_allowance?
+      @where_do_you_live != "northern-ireland" &&
+        @over_state_pension_age == "no" &&
+        @are_you_working != "yes_over_16_hours_per_week" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
   end
 end
