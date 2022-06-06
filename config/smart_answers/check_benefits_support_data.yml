@@ -66,6 +66,7 @@
     - name: 15hrs_free_childcare_3_4yr_olds
       title: 15hrs free childcare for 3 and 4yrs
       description:
+      condition: eligible_for_15hrs_free_childcare_3_4yr_olds?
       url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
       url_text: Anchor link text
       group: Help with childcare costs
