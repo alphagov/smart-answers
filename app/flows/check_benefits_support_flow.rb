@@ -143,7 +143,7 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
       end
     end
 
-    checkbox_question :children_with_disability do
+    radio :children_with_disability do
       option :yes
       option :no
 
