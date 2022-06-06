@@ -118,5 +118,11 @@ module SmartAnswer::Calculators
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
         @children_with_disability == "yes"
     end
+
+    def eligible_for_carers_allowance?
+      @where_do_you_live != "northern-ireland" &&
+        @carer_disability_or_health_condition == "yes" &&
+        @unpaid_care_hours == "yes"
+    end
   end
 end

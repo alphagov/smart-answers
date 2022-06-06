@@ -115,6 +115,7 @@
     - name: carers_allowance
       title: Carer's Allowance
       description:
+      condition: eligible_for_carers_allowance?
       url: /carers-allowance
       url_text: Anchor link text
       group: Supporting your income
