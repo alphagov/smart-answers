@@ -226,6 +226,33 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
         end
       end
+
+      context "#eligible_for_30hrs_free_childcare_3_4yrs?" do
+        should "return true if eligible for 30 Hours Free Childcare for 3 and 4 Year Olds" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.are_you_working = "yes_over_16_hours_per_week"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "3_to_4"
+          assert calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+        end
+
+        should "return false if not eligible for 30 Hours Free Childcare for 3 and 4 Year Olds" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.are_you_working = "no"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "3_to_4"
+          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+
+          calculator.are_you_working = "yes"
+          calculator.children_living_with_you = "no"
+          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+
+          calculator.are_you_working = "yes"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "1_or_under,2,18_and_over"
+          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+        end
+      end
     end
   end
 end

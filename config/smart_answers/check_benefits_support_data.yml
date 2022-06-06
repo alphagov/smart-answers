@@ -73,6 +73,7 @@
     - name: 30hrs_free_childcare_3_4yrs
       title: 30hrs free childcare for 3 and 4yrs
       description:
+      condition: eligible_for_30hrs_free_childcare_3_4yrs?
       url: /30-hours-free-childcare
       url_text: Anchor link text
       group: Help with childcare costs

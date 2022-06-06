@@ -76,5 +76,11 @@ module SmartAnswer::Calculators
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("3_to_4")
     end
+
+    def eligible_for_30hrs_free_childcare_3_4yrs?
+      @are_you_working == "yes_over_16_hours_per_week" &&
+        @children_living_with_you == "yes" &&
+        @age_of_children.split(",").any?("3_to_4")
+    end
   end
 end
