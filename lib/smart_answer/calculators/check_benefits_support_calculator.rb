@@ -132,5 +132,9 @@ module SmartAnswer::Calculators
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "no" && disability_or_health_condition == "yes"
     end
+
+    def eligible_for_free_tv_licence?
+      @over_state_pension_age == "yes"
+    end
   end
 end

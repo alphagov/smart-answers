@@ -142,6 +142,7 @@
     - name: free_tv_licence
       title: Free TV licence
       description:
+      condition: eligible_for_free_tv_licence?
       url: /free-discount-tv-licence
       url_text: Anchor link text
       group: Help with your bills
