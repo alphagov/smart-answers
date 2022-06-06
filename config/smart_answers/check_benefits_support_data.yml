@@ -108,6 +108,7 @@
     - name: child_disability_payment_scotland
       title: Child Disability Payment (Scotland)
       description:
+      condition: eligible_for_child_disability_payment_scotland?
       url: https://www.mygov.scot/child-disability-payment
       url_text: Anchor link text
       group: Help with childcare costs
