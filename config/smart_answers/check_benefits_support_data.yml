@@ -122,6 +122,7 @@
     - name: personal_independence_payment
       title: Personal Independence Payment
       description:
+      condition: eligible_for_personal_independence_payment?
       url: /pip
       url_text: Anchor link text
       group: Supporting your income

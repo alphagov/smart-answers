@@ -124,5 +124,9 @@ module SmartAnswer::Calculators
         @carer_disability_or_health_condition == "yes" &&
         @unpaid_care_hours == "yes"
     end
+
+    def eligible_for_personal_independence_payment?
+      @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
+    end
   end
 end

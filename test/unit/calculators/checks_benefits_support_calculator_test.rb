@@ -413,6 +413,30 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#eligible_for_personal_independence_payment?" do
+        should "return true if eligible for Personal Independence Payment" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "yes"
+          assert calculator.eligible_for_personal_independence_payment?
+        end
+
+        should "return false if not eligible for Personal Independence Payment" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_personal_independence_payment?
+
+          calculator.over_state_pension_age = "yes"
+          calculator.disability_or_health_condition = "yes"
+          assert_not calculator.eligible_for_personal_independence_payment?
+
+          calculator.over_state_pension_age = "yes"
+          calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_personal_independence_payment?
+        end
+      end
     end
   end
 end
