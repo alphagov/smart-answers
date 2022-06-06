@@ -475,6 +475,26 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_free_tv_licence?
         end
       end
+
+      context "#eligible_for_universal_credit_advance?" do
+        should "return true if eligible for Universal Credit Advance" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "under_16000"
+          assert calculator.eligible_for_universal_credit_advance?
+        end
+
+        should "return false if not eligible for Universal Credit Advance" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "yes"
+          calculator.assets_and_savings = "under_16000"
+          assert_not calculator.eligible_for_universal_credit_advance?
+
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "over_16000"
+          assert_not calculator.eligible_for_universal_credit_advance?
+        end
+      end
     end
   end
 end

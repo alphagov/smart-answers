@@ -155,6 +155,7 @@
     - name: universal_credit_advance
       title: Universal credit advance
       description:
+      condition: eligible_for_universal_credit_advance?
       url: /guidance/universal-credit-advances
       url_text: Anchor link text
       group: Supporting your income

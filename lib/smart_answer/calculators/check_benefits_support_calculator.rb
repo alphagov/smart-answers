@@ -136,5 +136,9 @@ module SmartAnswer::Calculators
     def eligible_for_free_tv_licence?
       @over_state_pension_age == "yes"
     end
+
+    def eligible_for_universal_credit_advance?
+      @over_state_pension_age == "no" && @assets_and_savings == "under_16000"
+    end
   end
 end
