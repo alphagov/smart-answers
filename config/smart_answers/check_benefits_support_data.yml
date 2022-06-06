@@ -80,6 +80,7 @@
     - name: 30hrs_free_childcare_3_4yrs_scotland
       title: 30hrs free childcare for 3 and 4yrs (Scotland)
       description:
+      condition: eligible_for_30hrs_free_childcare_3_4yrs_scotland?
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Anchor link text
       group: Help with childcare costs
