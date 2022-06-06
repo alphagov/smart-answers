@@ -11,5 +11,13 @@ module SmartAnswer::Calculators
                   :age_of_children,
                   :children_with_disability,
                   :assets_and_savings
+
+    def benefit_data
+      YAML.load_file(Rails.root.join("config/smart_answers/check_benefits_support_data.yml")).freeze
+    end
+
+    def benefits_for_outcome
+      benefit_data["benefits"].select { |benefit| benefit }.compact
+    end
   end
 end

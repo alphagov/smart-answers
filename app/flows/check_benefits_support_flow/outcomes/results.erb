@@ -1,3 +1,7 @@
 <% govspeak_for :body do %>
-  Results!
+  <% calculator.benefits_for_outcome.each do |benefit| %>
+   <%= render "components/result-item", { title: benefit["title"], url: benefit["url"] } %>
+
+    ---
+  <% end %>
 <% end %>
