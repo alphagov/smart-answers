@@ -49,6 +49,20 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_jobseekers_allowance?
         end
       end
+
+      context "#eligible_for_pension_credit?" do
+        should "return true if eligible for Pension Credit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          assert calculator.eligible_for_pension_credit?
+        end
+
+        should "return false if not eligible for Pension Credit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "yes"
+          assert_not calculator.eligible_for_pension_credit?
+        end
+      end
     end
   end
 end

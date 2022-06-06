@@ -32,5 +32,9 @@ module SmartAnswer::Calculators
         @are_you_working != "yes_over_16_hours_per_week" &&
         @disability_affecting_work != "yes_unable_to_work"
     end
+
+    def eligible_for_pension_credit?
+      @over_state_pension_age == "no"
+    end
   end
 end

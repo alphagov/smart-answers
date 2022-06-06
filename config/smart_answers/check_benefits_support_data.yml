@@ -17,6 +17,7 @@
     - name: pension_credit
       title: Pension Credit
       description:
+      condition: eligible_for_pension_credit?
       url: /pension-credit
       url_text: Anchor link text
       group: Supporting your income
