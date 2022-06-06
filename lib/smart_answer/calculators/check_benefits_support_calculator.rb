@@ -42,5 +42,9 @@ module SmartAnswer::Calculators
         @disability_or_health_condition == "yes" &&
         @disability_affecting_work != "yes_unable_to_work"
     end
+
+    def eligible_for_universal_credit?
+      @over_state_pension_age == "no" && @assets_and_savings == "under_16000"
+    end
   end
 end

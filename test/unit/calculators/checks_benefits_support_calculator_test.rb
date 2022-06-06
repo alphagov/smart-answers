@@ -90,6 +90,26 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_access_to_work?
         end
       end
+
+      context "#eligible_for_universal_credit?" do
+        should "return true if eligible for Universal Credit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "under_16000"
+
+          assert calculator.eligible_for_universal_credit?
+        end
+
+        should "return false if not eligible for Universal Credit" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.over_state_pension_age = "yes"
+          assert_not calculator.eligible_for_universal_credit?
+
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "over_16000"
+          assert_not calculator.eligible_for_universal_credit?
+        end
+      end
     end
   end
 end
