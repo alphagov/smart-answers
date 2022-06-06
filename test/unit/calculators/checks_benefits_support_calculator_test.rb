@@ -280,6 +280,33 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
         end
       end
+
+      context "#eligible_for_2yr_old_childcare_scotland?" do
+        should "return true if eligible for 2 Year Old Childcare Scotland" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "scotland"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "2"
+          assert calculator.eligible_for_2yr_old_childcare_scotland?
+        end
+
+        should "return false if not eligible for 2 Year Old Childcare Scotland" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "england"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "2"
+          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+
+          calculator.where_do_you_live = "scotland"
+          calculator.children_living_with_you = "no"
+          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+
+          calculator.where_do_you_live = "scotland"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "1_or_under,3_to_4,18_and_over"
+          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+        end
+      end
     end
   end
 end

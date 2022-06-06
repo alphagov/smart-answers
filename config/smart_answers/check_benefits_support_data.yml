@@ -87,6 +87,7 @@
     - name: 2yr_old_childcare_Scotland
       title: 2yr old childcare (Scotland)
       description:
+      condition: eligible_for_2yr_old_childcare_scotland?
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Anchor link text
       group: Help with childcare costs
