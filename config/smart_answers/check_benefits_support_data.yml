@@ -45,6 +45,7 @@
     - name: tax_free_childcare
       title: Tax-free childcare
       description:
+      condition: eligible_for_tax_free_childcare?
       url: /tax-free-childcare
       url_text: Anchor link text
       group: Help with childcare costs

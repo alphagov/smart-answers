@@ -124,6 +124,31 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_housing_benefit?
         end
       end
+
+      context "#eligible_for_tax_free_childcare?" do
+        should "return true if eligible for Tax Free Childcare" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.are_you_working = "yes"
+          calculator.children_living_with_you = "yes"
+          %w[1_or_under 2 3_to_4 5_to_11].each do |age|
+            calculator.age_of_children = age
+            assert calculator.eligible_for_tax_free_childcare?
+          end
+        end
+
+        should "return false if not eligible for Tax Free Childcare" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.are_you_working = "no"
+          assert_not calculator.eligible_for_tax_free_childcare?
+
+          calculator.are_you_working = "yes"
+          calculator.children_living_with_you = "yes"
+          %w[12_to_15 16_to_17 18_and_over].each do |age|
+            calculator.age_of_children = age
+            assert_not calculator.eligible_for_tax_free_childcare?
+          end
+        end
+      end
     end
   end
 end
