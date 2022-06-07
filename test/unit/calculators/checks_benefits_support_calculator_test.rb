@@ -27,6 +27,16 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#number_of_benefits" do
+        should "return the number of benefits for outcome" do
+          number_of_results = rand(1..10)
+          CheckBenefitsSupportCalculator.any_instance
+            .stubs(:benefits_for_outcome).returns(Array.new(number_of_results, {}))
+          calculator = CheckBenefitsSupportCalculator.new
+          assert_equal calculator.number_of_benefits, number_of_results
+        end
+      end
+
       context "#eligible_for_employment_and_support_allowance?" do
         should "return true if eligible for Employment and Support Allowance" do
           calculator = CheckBenefitsSupportCalculator.new

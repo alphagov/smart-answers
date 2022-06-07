@@ -1,4 +1,10 @@
 <% govspeak_for :body do %>
+  <% if calculator.number_of_benefits > 0 %>
+    Based on your answers you may be eligible to apply for these <%= calculator.number_of_benefits %> things.
+  <% else %>
+    Based on your answers you are not eligible to apply for any benefits.
+  <% end %>
+
   <% calculator.benefits_for_outcome.each do |benefit| %>
    <%= render "components/result-item", { title: benefit["title"], url: benefit["url"] } %>
 

@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       }.compact
     end
 
+    def number_of_benefits
+      benefits_for_outcome.size
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @disability_or_health_condition == "yes" &&
