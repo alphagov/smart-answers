@@ -310,6 +310,67 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Housing Benefit"
       end
     end
+
+    context "group: Help with childcare costs" do
+      should "render Tax-free childcare when eligible" do
+        assert_rendered_outcome text: "Tax-free childcare"
+      end
+
+      should "render free childcare for 2 year olds when eligible" do
+        add_responses age_of_children: "2"
+
+        assert_rendered_outcome text: "Free childcare 2yr olds"
+      end
+
+      should "render free childcare 3 and 4 year olds Wales when eligible" do
+        add_responses where_do_you_live: "wales",
+                      are_you_working: "yes_under_16_hours_per_week",
+                      age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "Childcare 3 and 4 year olds Wales"
+      end
+
+      should "render 15 hours free childcare for 3 and 4 year olds when eligible" do
+        add_responses age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "15hrs free childcare for 3 and 4yrs"
+      end
+
+      should "render 30 hours free childcare for 3 and 4 year olds when eligible" do
+        add_responses age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "30hrs free childcare for 3 and 4yrs"
+      end
+
+      should "render 30 hours free childcare for 3 and 4 year olds Scotland when eligible" do
+        add_responses where_do_you_live: "scotland",
+                      age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "30hrs free childcare for 3 and 4yrs (Scotland)"
+      end
+
+      should "render free childcare for 2 year olds Scotland when eligible" do
+        add_responses where_do_you_live: "scotland",
+                      age_of_children: "2"
+
+        assert_rendered_outcome text: "2yr old childcare (Scotland)"
+      end
+
+      should "render Disability Living Allowance for children when eligible" do
+        add_responses carer_disability_or_health_condition: "yes",
+                      age_of_children: "2"
+
+        assert_rendered_outcome text: "Disability Living Allowance (DLA) for children"
+      end
+
+      should "render Child Disability Payment Scotland when eligible" do
+        add_responses where_do_you_live: "scotland",
+                      carer_disability_or_health_condition: "yes",
+                      age_of_children: "2"
+
+        assert_rendered_outcome text: "Child Disability Payment (Scotland)"
+      end
+    end
     end
   end
 end
