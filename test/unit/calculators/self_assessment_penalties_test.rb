@@ -3,7 +3,7 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class SelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     def setup
-      @calculator = SelfAssessmentPenalties.new(
+      @calculator = SmartAnswer::Calculators::SelfAssessmentPenalties.new(
         submission_method: "online",
         filing_date: Date.parse("2016-01-10"),
         payment_date: Date.parse("2016-03-10"),
@@ -438,10 +438,16 @@ module SmartAnswer::Calculators
               assert_equal 48.70, @calculator.interest.to_f
             end
 
-            should "after April 5th, the user should have a late payment penalty of 3.25%" do
+            should "after April 5th but before May 24th, the user should have a late payment penalty of 3.25%" do
               @calculator.payment_date = Date.parse("2022-04-05")
               assert_equal 500, @calculator.late_payment_penalty
               assert_equal 51.23, @calculator.interest.to_f
+            end
+
+            should "after May 24th, the user should have a late payment penalty of 3.5%" do
+              @calculator.payment_date = Date.parse("2022-05-24")
+              assert_equal 500, @calculator.late_payment_penalty
+              assert_equal 94.86, @calculator.interest.to_f
             end
           end
         end

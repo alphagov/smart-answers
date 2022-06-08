@@ -44,6 +44,8 @@ module SmartAnswer::Calculators
       { start_date: "2020-04-07", end_date: "2022-01-03", value: 0.026 },
       { start_date: "2022-01-04", end_date: "2022-02-20", value: 0.0275 },
       { start_date: "2022-02-21", end_date: "2022-04-04", value: 0.03 },
+      { start_date: "2022-04-05", end_date: "2022-05-23", value: 0.0325 },
+      { start_date: "2022-05-24", end_date: "2100-04-04", value: 0.035 },
     ].freeze
 
     def tax_year_range
