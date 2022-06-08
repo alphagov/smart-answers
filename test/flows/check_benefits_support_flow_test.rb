@@ -235,6 +235,75 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
     should "render the results outcome with number of eligible benefits" do
       assert_rendered_outcome text: "Based on your answers you may be eligible to apply for these 7 things."
     end
+
+    context "group: Supporting your income" do
+      setup do
+        testing_node :results
+        add_responses where_do_you_live: "england",
+                      over_state_pension_age: "no",
+                      are_you_working: "no",
+                      disability_or_health_condition: "no",
+                      carer_disability_or_health_condition: "no",
+                      children_living_with_you: "no",
+                      assets_and_savings: "under_16000"
+      end
+
+      should "render Employment and Support Allowance when eligible" do
+        add_responses disability_or_health_condition: "yes",
+                      disability_affecting_work: "yes_limits_work"
+
+        assert_rendered_outcome text: "Employment and Support Allowance (ESA)"
+      end
+
+      should "render Job Seekers Allowance when eligible" do
+        assert_rendered_outcome text: "Jobseeker's Allowance (JSA)"
+      end
+
+      should "render Pension Credit when eligible" do
+        # Aware that this logic needs updating...
+        assert_rendered_outcome text: "Pension Credit"
+      end
+
+      should "render Access to Work when eligible" do
+        add_responses disability_or_health_condition: "yes",
+                      disability_affecting_work: "yes_limits_work"
+
+        assert_rendered_outcome text: "Access to Work"
+      end
+
+      should "render Universal Credit when eligible" do
+        assert_rendered_outcome text: "Universal Credit"
+      end
+
+      should "render Child Benefit when eligible" do
+        add_responses children_living_with_you: "yes"
+        assert_rendered_outcome text: "Child Benefit"
+      end
+
+      should "render Carer's Allowance when eligible" do
+        add_responses carer_disability_or_health_condition: "yes"
+
+        assert_rendered_outcome text: "Carer's Allowance"
+      end
+
+      should "render Personal Independence Payment when eligible" do
+        add_responses disability_or_health_condition: "yes",
+                      disability_affecting_work: "yes_limits_work"
+
+        assert_rendered_outcome text: "Personal Independence Payment"
+      end
+
+      should "render Attendance Allowance when eligible" do
+        add_responses disability_or_health_condition: "yes",
+                      disability_affecting_work: "yes_limits_work"
+
+        assert_rendered_outcome text: "Attendance Allowance"
+      end
+
+      should "render Universal Credit Advance when eligible" do
+        assert_rendered_outcome text: "Universal credit advance"
+      end
+    end
     end
   end
 end
