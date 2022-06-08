@@ -259,8 +259,8 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
                     assets_and_savings: "under_16000"
     end
 
-    should "render the results outcome" do
-      assert_rendered_outcome text: "Results!"
+    should "render the results outcome with number of eligible benefits" do
+      assert_rendered_outcome text: "Based on your answers you may be eligible to apply for these 6 things."
     end
   end
 end

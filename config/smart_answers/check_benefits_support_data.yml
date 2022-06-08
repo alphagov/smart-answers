@@ -1,0 +1,168 @@
+---
+  benefits:
+    - name: employment_and_support_allowance
+      title: Employment and Support Allowance (ESA)
+      description:
+      condition: eligible_for_employment_and_support_allowance?
+      url: /employment-support-allowance
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: jobseekers_allowance
+      title: Jobseeker's Allowance (JSA)
+      description:
+      condition: eligible_for_jobseekers_allowance?
+      url: /jobseekers-allowance
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: pension_credit
+      title: Pension Credit
+      description:
+      condition: eligible_for_pension_credit?
+      url: /pension-credit
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: access_to_work
+      title: Access to Work
+      description:
+      condition: eligible_for_access_to_work?
+      url: /access-to-work
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: universal_credit
+      title: Universal Credit
+      description:
+      condition: eligible_for_universal_credit?
+      url: /universal-credit
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: housing_benefit
+      title: Housing Benefit
+      description:
+      condition: eligible_for_housing_benefit?
+      url: /housing-benefit
+      url_text: Anchor link text
+      group: Housing support
+    - name: tax_free_childcare
+      title: Tax-free childcare
+      description:
+      condition: eligible_for_tax_free_childcare?
+      url: /tax-free-childcare
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: free_childcare_2yr_olds
+      title: Free childcare 2yr olds
+      description:
+      condition: eligible_for_free_childcare_2yr_olds?
+      url: /help-with-childcare-costs/free-childcare-2-year-olds
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: childcare_3_4yr_olds_wales
+      title: Childcare 3 and 4 year olds Wales
+      description:
+      condition: eligible_for_childcare_3_4yr_olds_wales?
+      url: https://gov.wales/childcare-3-and-4-year-olds
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: 15hrs_free_childcare_3_4yr_olds
+      title: 15hrs free childcare for 3 and 4yrs
+      description:
+      condition: eligible_for_15hrs_free_childcare_3_4yr_olds?
+      url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: 30hrs_free_childcare_3_4yrs
+      title: 30hrs free childcare for 3 and 4yrs
+      description:
+      condition: eligible_for_30hrs_free_childcare_3_4yrs?
+      url: /30-hours-free-childcare
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: 30hrs_free_childcare_3_4yrs_scotland
+      title: 30hrs free childcare for 3 and 4yrs (Scotland)
+      description:
+      condition: eligible_for_30hrs_free_childcare_3_4yrs_scotland?
+      url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: 2yr_old_childcare_Scotland
+      title: 2yr old childcare (Scotland)
+      description:
+      condition: eligible_for_2yr_old_childcare_scotland?
+      url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: child_benefit
+      title: Child Benefit
+      description:
+      condition: eligible_for_child_benefit?
+      url: /child-benefit
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: disability_living_allowance_for_children
+      title: Disability Living Allowance (DLA) for children
+      description:
+      condition: eligible_for_disability_living_allowance_for_children?
+      url: /disability-living-allowance-children
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: child_disability_payment_scotland
+      title: Child Disability Payment (Scotland)
+      description:
+      condition: eligible_for_child_disability_payment_scotland?
+      url: https://www.mygov.scot/child-disability-payment
+      url_text: Anchor link text
+      group: Help with childcare costs
+    - name: carers_allowance
+      title: Carer's Allowance
+      description:
+      condition: eligible_for_carers_allowance?
+      url: /carers-allowance
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: personal_independence_payment
+      title: Personal Independence Payment
+      description:
+      condition: eligible_for_personal_independence_payment?
+      url: /pip
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: attendance_allowance
+      title: Attendance Allowance
+      description:
+      condition: eligible_for_attendance_allowance?
+      url: /attendance-allowance
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: council_tax_reduction
+      title: Council Tax reduction
+      description:
+      url: /apply-council-tax-reduction
+      url_text: Anchor link text
+      group: Help with your bills
+    - name: free_tv_licence
+      title: Free TV licence
+      description:
+      condition: eligible_for_free_tv_licence?
+      url: /free-discount-tv-licence
+      url_text: Anchor link text
+      group: Help with your bills
+    - name: budgeting_loan
+      title: Budgeting Loan
+      description:
+      url: /budgeting-help-benefits/eligibility
+      url_text: Anchor link text
+      group: Help with your bills
+    - name: universal_credit_advance
+      title: Universal credit advance
+      description:
+      condition: eligible_for_universal_credit_advance?
+      url: /guidance/universal-credit-advances
+      url_text: Anchor link text
+      group: Supporting your income
+    - name: nhs_low_income_scheme
+      title: NHS Low Income Scheme (LIS)
+      description:
+      condition: eligible_for_nhs_low_income_scheme?
+      url: https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
+      url_text: Anchor link text
+      group: Healthcare support
