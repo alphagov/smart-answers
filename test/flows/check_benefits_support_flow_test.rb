@@ -304,6 +304,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Universal credit advance"
       end
     end
+
+    context "group: Housing support" do
+      should "render Housing Benefit when eligible" do
+        assert_rendered_outcome text: "Housing Benefit"
+      end
+    end
     end
   end
 end
