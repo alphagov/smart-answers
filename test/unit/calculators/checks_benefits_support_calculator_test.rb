@@ -162,7 +162,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_tax_free_childcare?" do
         should "return true if eligible for Tax Free Childcare" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.are_you_working = "yes"
+          calculator.are_you_working = "yes_under_16_hours_per_week"
           calculator.children_living_with_you = "yes"
           %w[1_or_under 2 3_to_4 5_to_11].each do |age|
             calculator.age_of_children = age
@@ -175,7 +175,7 @@ module SmartAnswer::Calculators
           calculator.are_you_working = "no"
           assert_not calculator.eligible_for_tax_free_childcare?
 
-          calculator.are_you_working = "yes"
+          calculator.are_you_working = "yes_under_16_hours_per_week"
           calculator.children_living_with_you = "yes"
           %w[12_to_15 16_to_17 18_to_19].each do |age|
             calculator.age_of_children = age
@@ -277,11 +277,11 @@ module SmartAnswer::Calculators
           calculator.age_of_children = "3_to_4"
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
 
-          calculator.are_you_working = "yes"
+          calculator.are_you_working = "yes_under_16_hours_per_week"
           calculator.children_living_with_you = "no"
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
 
-          calculator.are_you_working = "yes"
+          calculator.are_you_working = "yes_over_16_hours_per_week"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "1_or_under,2,18_to_19"
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
