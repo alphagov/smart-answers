@@ -371,6 +371,25 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Child Disability Payment (Scotland)"
       end
     end
+
+    context "group: Help with your bills" do
+      should "render Council Tax Reduction when eligible" do
+        assert_rendered_outcome text: "Council Tax reduction"
+      end
+
+      should "render Free TV License when eligible" do
+        assert_rendered_outcome text: "Free TV licence"
+      end
+
+      should "render Budgeting Loan when eligible" do
+        assert_rendered_outcome text: "Budgeting Loan"
+      end
+    end
+
+    context "group: Healthcare support" do
+      should "render NHS Low Income Scheme when eligible" do
+        assert_rendered_outcome text: "NHS Low Income Scheme (LIS)"
+      end
     end
   end
 end
