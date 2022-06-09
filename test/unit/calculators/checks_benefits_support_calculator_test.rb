@@ -128,14 +128,18 @@ module SmartAnswer::Calculators
       context "#eligible_for_universal_credit?" do
         should "return true if eligible for Universal Credit" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
-          calculator.assets_and_savings = "under_16000"
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            calculator.assets_and_savings = "under_16000"
 
-          assert calculator.eligible_for_universal_credit?
+            assert calculator.eligible_for_universal_credit?
+          end
         end
 
         should "return false if not eligible for Universal Credit" do
           calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
           calculator.over_state_pension_age = "yes"
           assert_not calculator.eligible_for_universal_credit?
 
