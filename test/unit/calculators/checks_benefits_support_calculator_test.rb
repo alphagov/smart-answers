@@ -469,6 +469,42 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_personal_independence_payment_northern_ireland?" do
+        should "return true if eligible for Personal Independence Payment (NI) (scenario 1)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "no"
+          calculator.children_living_with_you = "yes"
+          %w[16_to_17 18_to_19].each do |age|
+            calculator.age_of_children = age
+            assert calculator.eligible_for_personal_independence_payment_northern_ireland?
+          end
+        end
+
+        should "return true if eligible for Personal Independence Payment (NI) (scenario 2)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "yes"
+          assert calculator.eligible_for_personal_independence_payment_northern_ireland?
+        end
+
+        should "return false if not eligible for Personal Independence Payment (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "no"
+            calculator.children_living_with_you = "yes"
+            %w[16_to_17 18_to_19].each do |age|
+              calculator.age_of_children = age
+              assert_not calculator.eligible_for_personal_independence_payment_northern_ireland?
+            end
+          end
+        end
+      end
+
       context "#eligible_for_attendance_allowance?" do
         should "return true if eligible for Attendance Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
