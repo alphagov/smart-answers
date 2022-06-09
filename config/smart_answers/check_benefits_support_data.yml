@@ -91,13 +91,6 @@
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Anchor link text
       group: Help with childcare costs
-    - name: child_benefit
-      title: Child Benefit
-      description:
-      condition: eligible_for_child_benefit?
-      url: /child-benefit
-      url_text: Anchor link text
-      group: Supporting your income
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description:
@@ -154,6 +147,13 @@
       url: https://www.nidirect.gov.uk/rates-help
       url_text: Anchor link text
       group: Help with your bills
+    - name: child_benefit
+      title: Child Benefit
+      description:
+      condition: eligible_for_child_benefit?
+      url: /child-benefit
+      url_text: Anchor link text
+      group: Supporting your income
     - name: free_tv_licence
       title: Free TV licence
       description:
