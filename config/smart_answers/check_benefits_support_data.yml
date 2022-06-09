@@ -21,13 +21,6 @@
       url: /pension-credit
       url_text: Anchor link text
       group: Supporting your income
-    - name: access_to_work
-      title: Access to Work
-      description:
-      condition: eligible_for_access_to_work?
-      url: /access-to-work
-      url_text: Anchor link text
-      group: Supporting your income
     - name: housing_benefit
       title: Housing Benefit
       description:
@@ -35,6 +28,13 @@
       url: /housing-benefit
       url_text: Anchor link text
       group: Housing support
+    - name: access_to_work
+      title: Access to Work
+      description:
+      condition: eligible_for_access_to_work?
+      url: /access-to-work
+      url_text: Anchor link text
+      group: Supporting your income
     - name: access_to_work_ni
       title: Access to Work (NI)
       description:
