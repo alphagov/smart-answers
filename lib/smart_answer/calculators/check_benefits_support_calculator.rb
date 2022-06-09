@@ -49,7 +49,9 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_universal_credit?
-      @over_state_pension_age == "no" && @assets_and_savings == "under_16000"
+      @where_do_you_live != "northern-ireland" &&
+        @over_state_pension_age == "no" &&
+        @assets_and_savings == "under_16000"
     end
 
     def eligible_for_housing_benefit?

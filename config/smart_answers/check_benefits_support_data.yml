@@ -28,13 +28,6 @@
       url: /access-to-work
       url_text: Anchor link text
       group: Supporting your income
-    - name: universal_credit
-      title: Universal Credit
-      description:
-      condition: eligible_for_universal_credit?
-      url: /universal-credit
-      url_text: Anchor link text
-      group: Supporting your income
     - name: housing_benefit
       title: Housing Benefit
       description:
@@ -42,6 +35,13 @@
       url: /housing-benefit
       url_text: Anchor link text
       group: Housing support
+    - name: universal_credit
+      title: Universal Credit
+      description:
+      condition: eligible_for_universal_credit?
+      url: /universal-credit
+      url_text: Anchor link text
+      group: Supporting your income
     - name: tax_free_childcare
       title: Tax-free childcare
       description:
