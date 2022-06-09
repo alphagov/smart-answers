@@ -149,6 +149,38 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_universal_credit_ni?" do
+        should "return true if eligible for Universal Credit (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "under_16000"
+          assert calculator.eligible_for_universal_credit_ni?
+        end
+
+        should "return false if not eligible for Universal Credit (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            assert_not calculator.eligible_for_universal_credit_ni?
+
+            calculator.over_state_pension_age = "no"
+            calculator.assets_and_savings = "over_16000"
+            assert_not calculator.eligible_for_universal_credit_ni?
+          end
+
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "yes"
+          assert_not calculator.eligible_for_universal_credit_ni?
+
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.assets_and_savings = "over_16000"
+          assert_not calculator.eligible_for_universal_credit_ni?
+        end
+      end
+
       context "#eligible_for_housing_benefit?" do
         should "return true if eligible for Housing Benefit" do
           calculator = CheckBenefitsSupportCalculator.new
