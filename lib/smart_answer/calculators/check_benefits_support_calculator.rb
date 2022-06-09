@@ -134,7 +134,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_attendance_allowance?
-      @over_state_pension_age == "no" && disability_or_health_condition == "yes"
+      @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
     end
 
     def eligible_for_council_tax_reduction?
