@@ -325,57 +325,32 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_30hrs_free_childcare_3_4yrs_scotland?" do
-        should "return true if eligible for 30 Hours Free Childcare for 3 and 4 Year Olds Scotland" do
+      context "# eligible_for_funded_early_learning_and_childcare?" do
+        should "return true if eligible for Funded Early Learning and Childcare" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "3_to_4"
-          assert calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
+          %w[2 3_to_4].each do |age|
+            calculator.age_of_children = age
+            assert calculator.eligible_for_funded_early_learning_and_childcare?
+          end
         end
 
-        should "return false if not eligible for 30 Hours Free Childcare for 3 and 4 Year Olds Scotland" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "3_to_4"
-          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
-
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
-
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,2,18_to_19"
-          assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
-        end
-      end
-
-      context "#eligible_for_2yr_old_childcare_scotland?" do
-        should "return true if eligible for 2 Year Old Childcare Scotland" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2"
-          assert calculator.eligible_for_2yr_old_childcare_scotland?
-        end
-
-        should "return false if not eligible for 2 Year Old Childcare Scotland" do
+        should "return false if not eligible for Funded Early Learning and Childcare" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "england"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "2"
-          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
 
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
 
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,3_to_4,18_to_19"
-          assert_not calculator.eligible_for_2yr_old_childcare_scotland?
+          calculator.age_of_children = "1_or_under,18_to_19"
+          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
         end
       end
 

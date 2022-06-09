@@ -70,17 +70,10 @@
       url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
       url_text: Anchor link text
       group: Help with childcare costs
-    - name: 30hrs_free_childcare_3_4yrs_scotland
-      title: 30hrs free childcare for 3 and 4yrs (Scotland)
+    - name: funded_early_learning_and_childcare
+      title: Funded Early Learning and Childcare
       description:
-      condition: eligible_for_30hrs_free_childcare_3_4yrs_scotland?
-      url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
-      url_text: Anchor link text
-      group: Help with childcare costs
-    - name: 2yr_old_childcare_Scotland
-      title: 2yr old childcare (Scotland)
-      description:
-      condition: eligible_for_2yr_old_childcare_scotland?
+      condition: eligible_for_funded_early_learning_and_childcare?
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Anchor link text
       group: Help with childcare costs
