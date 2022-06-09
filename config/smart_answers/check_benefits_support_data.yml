@@ -14,6 +14,13 @@
       url: /jobseekers-allowance
       url_text: Anchor link text
       group: Supporting your income
+    - name: jobseekers_allowance_northern_ireland
+      title: Jobseeker's Allowance (JSA)
+      description:
+      condition: eligible_for_jobseekers_allowance_northern_ireland?
+      url: https://docs.google.com/spreadsheets/d/1sXjNndB1QSHmVMZVAyIvrnEsjLQJwAnfp7oZpXEfBpc/edit#gid=0
+      url_text: Anchor link text
+      group: Supporting your income
     - name: pension_credit
       title: Pension Credit
       description:
