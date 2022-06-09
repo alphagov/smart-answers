@@ -133,6 +133,16 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
     end
 
+    def eligible_for_personal_independence_payment_northern_ireland?
+      return unless @where_do_you_live == "northern-ireland" && @over_state_pension_age == "no"
+
+      return true if @disability_or_health_condition == "yes"
+
+      eligible_child_ages = %w[16_to_17 18_to_19]
+      @children_living_with_you == "yes" &&
+        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+    end
+
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "yes" && disability_or_health_condition == "yes"
     end

@@ -126,6 +126,13 @@
       url: /pip
       url_text: Anchor link text
       group: Supporting your income
+    - name: personal_independence_payment_northern_ireland
+      title: Personal Independence Payment (NI)
+      description:
+      condition: eligible_for_personal_independence_payment_northern_ireland?
+      url: https://www.nidirect.gov.uk/articles/personal-independence-payment-pip
+      url_text: Anchor link text
+      group: Supporting your income
     - name: attendance_allowance
       title: Attendance Allowance
       description:
