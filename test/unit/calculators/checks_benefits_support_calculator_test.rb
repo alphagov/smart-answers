@@ -177,7 +177,7 @@ module SmartAnswer::Calculators
 
           calculator.are_you_working = "yes"
           calculator.children_living_with_you = "yes"
-          %w[12_to_15 16_to_17 18_and_over].each do |age|
+          %w[12_to_15 16_to_17 18_to_19].each do |age|
             calculator.age_of_children = age
             assert_not calculator.eligible_for_tax_free_childcare?
           end
@@ -256,7 +256,7 @@ module SmartAnswer::Calculators
 
           calculator.where_do_you_live = "england"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2, 18_and_over"
+          calculator.age_of_children = "2, 18_to_19"
           assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
         end
       end
@@ -283,7 +283,7 @@ module SmartAnswer::Calculators
 
           calculator.are_you_working = "yes"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,2,18_and_over"
+          calculator.age_of_children = "1_or_under,2,18_to_19"
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
         end
       end
@@ -310,7 +310,7 @@ module SmartAnswer::Calculators
 
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,2,18_and_over"
+          calculator.age_of_children = "1_or_under,2,18_to_19"
           assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs_scotland?
         end
       end
@@ -337,7 +337,7 @@ module SmartAnswer::Calculators
 
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,3_to_4,18_and_over"
+          calculator.age_of_children = "1_or_under,3_to_4,18_to_19"
           assert_not calculator.eligible_for_2yr_old_childcare_scotland?
         end
       end
@@ -427,7 +427,6 @@ module SmartAnswer::Calculators
           %w[england wales scotland].each do |country|
             calculator.where_do_you_live = country
             calculator.carer_disability_or_health_condition = "yes"
-            calculator.unpaid_care_hours = "yes"
             assert calculator.eligible_for_carers_allowance?
           end
         end
@@ -436,13 +435,11 @@ module SmartAnswer::Calculators
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "northern-ireland"
           calculator.carer_disability_or_health_condition = "yes"
-          calculator.unpaid_care_hours = "yes"
           assert_not calculator.eligible_for_carers_allowance?
 
           %w[england wales scotland].each do |country|
             calculator.where_do_you_live = country
-            calculator.carer_disability_or_health_condition = "yes"
-            calculator.unpaid_care_hours = "no"
+            calculator.carer_disability_or_health_condition = "no"
             assert_not calculator.eligible_for_carers_allowance?
           end
         end

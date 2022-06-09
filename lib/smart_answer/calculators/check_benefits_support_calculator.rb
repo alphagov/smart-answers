@@ -6,7 +6,6 @@ module SmartAnswer::Calculators
                   :disability_or_health_condition,
                   :disability_affecting_work,
                   :carer_disability_or_health_condition,
-                  :unpaid_care_hours,
                   :children_living_with_you,
                   :age_of_children,
                   :children_with_disability,
@@ -127,8 +126,7 @@ module SmartAnswer::Calculators
 
     def eligible_for_carers_allowance?
       @where_do_you_live != "northern-ireland" &&
-        @carer_disability_or_health_condition == "yes" &&
-        @unpaid_care_hours == "yes"
+        @carer_disability_or_health_condition == "yes"
     end
 
     def eligible_for_personal_independence_payment?

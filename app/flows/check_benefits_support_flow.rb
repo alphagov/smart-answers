@@ -87,23 +87,6 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.carer_disability_or_health_condition == "yes"
-          question :unpaid_care_hours
-        else
-          question :children_living_with_you
-        end
-      end
-    end
-
-    radio :unpaid_care_hours do
-      option :yes
-      option :no
-
-      on_response do |response|
-        calculator.unpaid_care_hours = response
-      end
-
-      next_node do
         question :children_living_with_you
       end
     end
@@ -132,7 +115,7 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
       option :"5_to_11"
       option :"12_to_15"
       option :"16_to_17"
-      option :"18_and_over"
+      option :"18_to_19"
 
       on_response do |response|
         calculator.age_of_children = response
