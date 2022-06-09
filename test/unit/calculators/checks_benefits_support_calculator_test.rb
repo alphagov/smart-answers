@@ -418,24 +418,14 @@ module SmartAnswer::Calculators
       context "#eligible_for_carers_allowance?" do
         should "return true if eligible for Carer's Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.carer_disability_or_health_condition = "yes"
-            assert calculator.eligible_for_carers_allowance?
-          end
+          calculator.carer_disability_or_health_condition = "yes"
+          assert calculator.eligible_for_carers_allowance?
         end
 
         should "return false if not eligible for Carer's Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.carer_disability_or_health_condition = "yes"
+          calculator.carer_disability_or_health_condition = "no"
           assert_not calculator.eligible_for_carers_allowance?
-
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.carer_disability_or_health_condition = "no"
-            assert_not calculator.eligible_for_carers_allowance?
-          end
         end
       end
 

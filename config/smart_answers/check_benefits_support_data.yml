@@ -91,6 +91,13 @@
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Anchor link text
       group: Help with childcare costs
+    - name: carers_allowance
+      title: Carer's Allowance
+      description:
+      condition: eligible_for_carers_allowance?
+      url: /carers-allowance
+      url_text: Anchor link text
+      group: Supporting your income
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description:
@@ -105,13 +112,6 @@
       url: https://www.mygov.scot/child-disability-payment
       url_text: Anchor link text
       group: Help with childcare costs
-    - name: carers_allowance
-      title: Carer's Allowance
-      description:
-      condition: eligible_for_carers_allowance?
-      url: /carers-allowance
-      url_text: Anchor link text
-      group: Supporting your income
     - name: personal_independence_payment
       title: Personal Independence Payment
       description:

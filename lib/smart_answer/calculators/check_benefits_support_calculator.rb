@@ -123,8 +123,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_carers_allowance?
-      @where_do_you_live != "northern-ireland" &&
-        @carer_disability_or_health_condition == "yes"
+      @carer_disability_or_health_condition == "yes"
     end
 
     def eligible_for_personal_independence_payment?
