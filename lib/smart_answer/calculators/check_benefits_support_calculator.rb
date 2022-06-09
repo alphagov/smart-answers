@@ -64,7 +64,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_free_childcare_2yr_olds?
-      @where_do_you_live == "england" &&
+      @where_do_you_live != "scotland" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("2")
     end
