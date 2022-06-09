@@ -148,5 +148,9 @@ module SmartAnswer::Calculators
     def eligible_for_nhs_low_income_scheme?
       @where_do_you_live != "northern-ireland"
     end
+
+    def eligible_for_nhs_low_income_scheme_northern_ireland?
+      @where_do_you_live == "northern-ireland"
+    end
   end
 end
