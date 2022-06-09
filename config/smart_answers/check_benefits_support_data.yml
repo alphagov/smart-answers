@@ -152,6 +152,13 @@
       url: /budgeting-help-benefits/eligibility
       url_text: Anchor link text
       group: Help with your bills
+    - name: social_fund_budgeting_loan
+      title: Social Fund Budgeting Loan
+      description:
+      condition: eligible_for_social_fund_budgeting_loan?
+      url: https://www.nidirect.gov.uk/articles/social-fund-budgeting-loan
+      url_text: Anchor link text
+      group: Help with your bills
     - name: nhs_low_income_scheme
       title: NHS Low Income Scheme (LIS)
       description:
