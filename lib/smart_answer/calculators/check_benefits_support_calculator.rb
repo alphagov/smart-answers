@@ -57,10 +57,15 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare?
-      eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11]
-      @are_you_working == "yes" &&
-        @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+      return unless @are_you_working != "no" && @children_living_with_you == "yes"
+
+      eligible_child_ages = if @children_with_disability == "yes"
+                              %w[1_or_under 2 3_to_4 5_to_11 12_to_15 16_to_17]
+                            else
+                              %w[1_or_under 2 3_to_4 5_to_11]
+                            end
+
+      @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
     end
 
     def eligible_for_free_childcare_2yr_olds?
