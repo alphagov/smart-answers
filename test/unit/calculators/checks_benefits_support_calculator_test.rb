@@ -125,6 +125,40 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_access_to_work_northern_ireland??" do
+        should "return true if eligible for Access to Work (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "no"
+          assert calculator.eligible_for_access_to_work_northern_ireland?
+
+          calculator.disability_affecting_work = "yes_limits_work"
+          assert calculator.eligible_for_access_to_work_northern_ireland?
+        end
+
+        should "return false if not eligible for Access to Work (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.disability_or_health_condition = "yes"
+            calculator.disability_affecting_work = "no"
+            assert_not calculator.eligible_for_access_to_work_northern_ireland?
+
+            calculator.disability_affecting_work = "yes_limits_work"
+            assert_not calculator.eligible_for_access_to_work_northern_ireland?
+          end
+
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_access_to_work_northern_ireland?
+
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "yes_unable_to_work"
+          assert_not calculator.eligible_for_access_to_work_northern_ireland?
+        end
+      end
+
       context "#eligible_for_universal_credit?" do
         should "return true if eligible for Universal Credit" do
           calculator = CheckBenefitsSupportCalculator.new
