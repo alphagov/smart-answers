@@ -427,7 +427,6 @@ module SmartAnswer::Calculators
           %w[england wales scotland].each do |country|
             calculator.where_do_you_live = country
             calculator.carer_disability_or_health_condition = "yes"
-            calculator.unpaid_care_hours = "yes"
             assert calculator.eligible_for_carers_allowance?
           end
         end
@@ -436,13 +435,11 @@ module SmartAnswer::Calculators
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "northern-ireland"
           calculator.carer_disability_or_health_condition = "yes"
-          calculator.unpaid_care_hours = "yes"
           assert_not calculator.eligible_for_carers_allowance?
 
           %w[england wales scotland].each do |country|
             calculator.where_do_you_live = country
-            calculator.carer_disability_or_health_condition = "yes"
-            calculator.unpaid_care_hours = "no"
+            calculator.carer_disability_or_health_condition = "no"
             assert_not calculator.eligible_for_carers_allowance?
           end
         end
