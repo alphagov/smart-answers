@@ -115,7 +115,7 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
       option :"5_to_11"
       option :"12_to_15"
       option :"16_to_17"
-      option :"18_and_over"
+      option :"18_to_19"
 
       on_response do |response|
         calculator.age_of_children = response
