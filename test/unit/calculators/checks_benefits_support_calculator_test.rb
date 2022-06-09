@@ -160,11 +160,22 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_tax_free_childcare?" do
-        should "return true if eligible for Tax Free Childcare" do
+        should "return true if eligible for Tax Free Childcare without a disabled child" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.are_you_working = "yes"
+          calculator.are_you_working = "yes_over_16_hours_per_week"
           calculator.children_living_with_you = "yes"
           %w[1_or_under 2 3_to_4 5_to_11].each do |age|
+            calculator.age_of_children = age
+            assert calculator.eligible_for_tax_free_childcare?
+          end
+        end
+
+        should "return true if eligible for Tax Free Childcare with a disabled child" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.are_you_working = "yes_over_16_hours_per_week"
+          calculator.children_living_with_you = "yes"
+          calculator.children_with_disability = "yes"
+          %w[1_or_under 2 3_to_4 5_to_11 12_to_15 16_to_17].each do |age|
             calculator.age_of_children = age
             assert calculator.eligible_for_tax_free_childcare?
           end
