@@ -31,6 +31,13 @@ module SmartAnswer::Calculators
         disability_affecting_work != "no"
     end
 
+    def eligible_for_employment_and_support_allowance_northern_ireland?
+      @where_do_you_live == "northern-ireland" &&
+        @over_state_pension_age == "no" &&
+        @disability_or_health_condition == "yes" &&
+        disability_affecting_work != "no"
+    end
+
     def eligible_for_jobseekers_allowance?
       @where_do_you_live != "northern-ireland" &&
         @over_state_pension_age == "no" &&

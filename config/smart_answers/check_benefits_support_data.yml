@@ -7,6 +7,13 @@
       url: /employment-support-allowance
       url_text: Anchor link text
       group: Supporting your income
+    - name: employment_and_support_allowance_northern_ireland
+      title: Employment and Support Allowance (ESA) (NI)
+      description:
+      condition: eligible_for_employment_and_support_allowance_northern_ireland?
+      url: https://www.nidirect.gov.uk/articles/employment-and-support-allowance
+      url_text: Anchor link text
+      group: Supporting your income
     - name: jobseekers_allowance
       title: Jobseeker's Allowance (JSA)
       description:

@@ -58,6 +58,47 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_employment_and_support_allowance_northern_ireland?" do
+        should "return true if eligible for Employment and Support Allowance (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "yes"
+          %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
+            calculator.disability_affecting_work = affecting_work
+            assert calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+          end
+        end
+
+        should "return false if not eligible for Employment and Support Allowance" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "no"
+          assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+
+          calculator.over_state_pension_age = "yes"
+          calculator.disability_or_health_condition = "yes"
+          calculator.disability_affecting_work = "yes_limits_work"
+          assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+
+          calculator.over_state_pension_age = "no"
+          calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "yes"
+            %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
+              calculator.disability_affecting_work = affecting_work
+              assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+            end
+          end
+        end
+      end
+
       context "#eligible_for_jobseekers_allowance?" do
         should "return true if eligible for Jobseeker's Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
