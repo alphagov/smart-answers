@@ -166,6 +166,13 @@
       url: https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
       url_text: Anchor link text
       group: Healthcare support
+    - name: eligible_for_help_with_health_costs
+      title: Help With Health Costs
+      description:
+      condition: eligible_for_help_with_health_costs?
+      url: https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs
+      url_text: Anchor link text
+      group: Healthcare support
     - name: nhs_low_income_scheme_northern_ireland
       title: NHS Low Income Scheme (LIS) (NI)
       description:
