@@ -35,6 +35,13 @@
       url: /housing-benefit
       url_text: Anchor link text
       group: Housing support
+    - name: access_to_work_ni
+      title: Access to Work (NI)
+      description:
+      condition: eligible_for_access_to_work_northern_ireland?
+      url: https://www.nidirect.gov.uk/articles/employment-support-information
+      url_text: Anchor link text
+      group: Supporting your income
     - name: universal_credit
       title: Universal Credit
       description:

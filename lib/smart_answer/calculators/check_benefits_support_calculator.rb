@@ -48,6 +48,12 @@ module SmartAnswer::Calculators
         @disability_affecting_work != "yes_unable_to_work"
     end
 
+    def eligible_for_access_to_work_northern_ireland?
+      @where_do_you_live == "northern-ireland" &&
+        @disability_or_health_condition == "yes" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
+
     def eligible_for_universal_credit?
       @where_do_you_live != "northern-ireland" &&
         @over_state_pension_age == "no" &&
