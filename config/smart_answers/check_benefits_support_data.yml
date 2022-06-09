@@ -136,6 +136,7 @@
     - name: council_tax_reduction
       title: Council Tax reduction
       description:
+      condition: eligible_for_council_tax_reduction?
       url: /apply-council-tax-reduction
       url_text: Anchor link text
       group: Help with your bills
