@@ -146,7 +146,8 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_nhs_low_income_scheme?
-      @where_do_you_live != "northern-ireland"
+      %w[england wales].include?(@where_do_you_live) &&
+        @assets_and_savings == "under_16000"
     end
 
     def eligible_for_help_with_health_costs?
