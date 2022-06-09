@@ -141,6 +141,10 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes"
     end
 
+    def eligible_for_social_fund_budgeting_loan?
+      @where_do_you_live == "northern-ireland"
+    end
+
     def eligible_for_nhs_low_income_scheme?
       %w[england wales].include?(@where_do_you_live) &&
         @assets_and_savings == "under_16000"
