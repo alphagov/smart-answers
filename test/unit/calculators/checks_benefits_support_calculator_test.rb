@@ -209,7 +209,7 @@ module SmartAnswer::Calculators
         should "return true if eligible for Childcare 3 and 4 Year Olds Wales" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_under_16_hours_per_week"
+          calculator.are_you_working = "yes_over_16_hours_per_week"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "3_to_4"
           assert calculator.eligible_for_childcare_3_4yr_olds_wales?
@@ -225,13 +225,15 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
 
           calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_over_16_hours_per_week"
+          calculator.are_you_working = "yes_under_16_hours_per_week"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "3_to_4"
           assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
 
           calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_under_16_hours_per_week"
+          calculator.are_you_working = "yes_over_16_hours_per_week"
           calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under, 3_to_4"
+          calculator.age_of_children = "1_or_under"
           assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
         end
       end
