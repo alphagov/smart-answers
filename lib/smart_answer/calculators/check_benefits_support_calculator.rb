@@ -149,6 +149,10 @@ module SmartAnswer::Calculators
       @where_do_you_live != "northern-ireland"
     end
 
+    def eligible_for_help_with_health_costs?
+      @where_do_you_live == "scotland"
+    end
+
     def eligible_for_nhs_low_income_scheme_northern_ireland?
       @where_do_you_live == "northern-ireland"
     end

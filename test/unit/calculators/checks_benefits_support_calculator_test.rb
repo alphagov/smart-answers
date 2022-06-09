@@ -543,6 +543,22 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_help_with_help_costs?" do
+        should "return true if eligible for Help With Health Costs" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "scotland"
+          assert calculator.eligible_for_help_with_health_costs?
+        end
+
+        should "return false if not eligible for Help With Health Costs" do
+          %w[england wales northern-ireland].each do |country|
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = country
+            assert_not calculator.eligible_for_help_with_health_costs?
+          end
+        end
+      end
+
       context "#eligible_for_nhs_low_income_scheme_northern_ireland?" do
         should "return true if eligible for NHS Low Income Scheme Northern Ireland" do
           calculator = CheckBenefitsSupportCalculator.new
