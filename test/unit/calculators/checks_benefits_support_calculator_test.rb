@@ -507,6 +507,22 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_budgeting_loan?" do
+        should "return true if eligible for Budgeting Loan" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            assert calculator.eligible_for_budgeting_loan?
+          end
+        end
+
+        should "return false if not eligible for Budgeting Loan" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          assert_not calculator.eligible_for_budgeting_loan?
+        end
+      end
+
       context "#social_fund_budgeting_loan?" do
         should "return true if eligible for Social Fund Budgeting Loan" do
           calculator = CheckBenefitsSupportCalculator.new

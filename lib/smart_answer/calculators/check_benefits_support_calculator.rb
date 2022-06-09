@@ -141,6 +141,10 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes"
     end
 
+    def eligible_for_budgeting_loan?
+      @where_do_you_live != "northern-ireland"
+    end
+
     def eligible_for_social_fund_budgeting_loan?
       @where_do_you_live == "northern-ireland"
     end
