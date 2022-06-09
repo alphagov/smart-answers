@@ -89,16 +89,11 @@ module SmartAnswer::Calculators
         @age_of_children.split(",").any?("3_to_4")
     end
 
-    def eligible_for_30hrs_free_childcare_3_4yrs_scotland?
+    def eligible_for_funded_early_learning_and_childcare?
+      eligible_child_ages = %w[2 3_to_4]
       @where_do_you_live == "scotland" &&
         @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
-    end
-
-    def eligible_for_2yr_old_childcare_scotland?
-      @where_do_you_live == "scotland" &&
-        @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("2")
+        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
     end
 
     def eligible_for_child_benefit?
