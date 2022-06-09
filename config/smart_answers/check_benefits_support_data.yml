@@ -149,6 +149,7 @@
     - name: budgeting_loan
       title: Budgeting Loan
       description:
+      condition: eligible_for_budgeting_loan?
       url: /budgeting-help-benefits/eligibility
       url_text: Anchor link text
       group: Help with your bills
