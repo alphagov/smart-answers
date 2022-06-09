@@ -1,0 +1,29 @@
+.app-c-result-card {
+  position: relative;
+  padding: govuk-spacing(3) govuk-spacing(4) govuk-spacing(5);
+  border: 1px solid $govuk-border-colour;
+  margin-bottom: govuk-spacing(4);
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 7px;
+    background: govuk-colour('blue');
+  }
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(4) govuk-spacing(6) govuk-spacing(6);
+    margin-bottom: govuk-spacing(6);
+  }
+}
+
+.app-c-result-card__description {
+  margin-bottom: govuk-spacing(6);
+}
+
+.app-c-result-card__link {
+  @include govuk-font($size: 19, $weight: bold);
+}
