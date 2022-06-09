@@ -21,6 +21,13 @@
       url: /pension-credit
       url_text: Anchor link text
       group: Supporting your income
+    - name: pension_credit_northern_ireland
+      title: Pension Credit (NI)
+      description:
+      condition: eligible_for_pension_credit_northern_ireland?
+      url: https://www.nidirect.gov.uk/articles/understanding-pension-credit
+      url_text: Anchor link text
+      group: Supporting your income
     - name: housing_benefit
       title: Housing Benefit
       description:

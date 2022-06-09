@@ -98,6 +98,28 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_pension_credit_northern_ireland?" do
+        should "return true if eligible for Pension Credit (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "yes"
+          assert calculator.eligible_for_pension_credit_northern_ireland?
+        end
+
+        should "return false if not eligible for Pension Credit (NI)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "no"
+          assert_not calculator.eligible_for_pension_credit_northern_ireland?
+
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            assert_not calculator.eligible_for_pension_credit_northern_ireland?
+          end
+        end
+      end
+
       context "#eligible_for_access_to_work?" do
         should "return true if eligible for Access to Work" do
           calculator = CheckBenefitsSupportCalculator.new
