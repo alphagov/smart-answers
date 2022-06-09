@@ -394,7 +394,6 @@ module SmartAnswer::Calculators
         should "return true if eligible for Child Disability Payment Scotland" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "scotland"
-          calculator.carer_disability_or_health_condition = "yes"
           calculator.children_living_with_you = "yes"
           calculator.children_with_disability = "yes"
           %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
@@ -406,14 +405,12 @@ module SmartAnswer::Calculators
         should "return false if not eligible for Child Disability Payment Scotland" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "wales"
-          calculator.carer_disability_or_health_condition = "yes"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "1_or_under"
           calculator.children_with_disability = "yes"
           assert_not calculator.eligible_for_child_disability_payment_scotland?
 
           calculator.where_do_you_live = "scotland"
-          calculator.carer_disability_or_health_condition = "yes"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "1_or_under"
           calculator.children_with_disability = "no"

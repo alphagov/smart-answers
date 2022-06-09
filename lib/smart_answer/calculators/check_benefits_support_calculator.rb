@@ -118,7 +118,6 @@ module SmartAnswer::Calculators
       eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11 12_to_15]
 
       @where_do_you_live == "scotland" &&
-        @carer_disability_or_health_condition == "yes" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
         @children_with_disability == "yes"
