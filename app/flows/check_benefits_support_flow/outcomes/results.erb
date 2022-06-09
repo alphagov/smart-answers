@@ -6,7 +6,7 @@
   <% end %>
 
   <% calculator.benefits_for_outcome.each do |benefit| %>
-   <%= render "components/result-item", { title: benefit["title"], url: benefit["url"] } %>
+   <%= render "components/result-card", { title: benefit["title"], description: benefit["description"], url: benefit["url"], url_text: benefit["url_text"] } %>
 
     ---
   <% end %>
