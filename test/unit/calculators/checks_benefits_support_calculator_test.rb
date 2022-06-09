@@ -542,6 +542,22 @@ module SmartAnswer::Calculators
           assert_not calculator.eligible_for_nhs_low_income_scheme?
         end
       end
+
+      context "#eligible_for_nhs_low_income_scheme_northern_ireland?" do
+        should "return true if eligible for NHS Low Income Scheme Northern Ireland" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          assert calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+        end
+
+        should "return false if not eligible for NHS Low Income Scheme Northern Ireland" do
+          %w[england wales scotland].each do |country|
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = country
+            assert_not calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+          end
+        end
+      end
     end
   end
 end
