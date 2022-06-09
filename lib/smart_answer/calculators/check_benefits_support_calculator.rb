@@ -107,8 +107,7 @@ module SmartAnswer::Calculators
     def eligible_for_disability_living_allowance_for_children?
       eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11 12_to_15]
 
-      %w[england wales].include?(@where_do_you_live) &&
-        @carer_disability_or_health_condition == "yes" &&
+      @where_do_you_live != "scotland" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
         @children_with_disability == "yes"
