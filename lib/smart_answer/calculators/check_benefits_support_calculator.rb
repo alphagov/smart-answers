@@ -137,6 +137,10 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "no" && disability_or_health_condition == "yes"
     end
 
+    def eligible_for_rate_relief?
+      @where_do_you_live == "northern-ireland"
+    end
+
     def eligible_for_free_tv_licence?
       @over_state_pension_age == "yes"
     end

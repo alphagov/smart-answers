@@ -139,6 +139,13 @@
       url: /apply-council-tax-reduction
       url_text: Anchor link text
       group: Help with your bills
+    - name: rate_relief
+      title: Rate Relief
+      description:
+      condition: eligible_for_rate_relief?
+      url: https://www.nidirect.gov.uk/rates-help
+      url_text: Anchor link text
+      group: Help with your bills
     - name: free_tv_licence
       title: Free TV licence
       description:
