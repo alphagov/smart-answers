@@ -472,7 +472,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_attendance_allowance?" do
         should "return true if eligible for Attendance Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
+          calculator.over_state_pension_age = "yes"
           calculator.disability_or_health_condition = "yes"
           assert calculator.eligible_for_attendance_allowance?
         end
@@ -483,7 +483,7 @@ module SmartAnswer::Calculators
           calculator.disability_or_health_condition = "no"
           assert_not calculator.eligible_for_attendance_allowance?
 
-          calculator.over_state_pension_age = "yes"
+          calculator.over_state_pension_age = "no"
           calculator.disability_or_health_condition = "yes"
           assert_not calculator.eligible_for_attendance_allowance?
 
