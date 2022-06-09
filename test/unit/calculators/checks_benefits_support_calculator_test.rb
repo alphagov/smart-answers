@@ -61,26 +61,46 @@ module SmartAnswer::Calculators
       context "#eligible_for_jobseekers_allowance?" do
         should "return true if eligible for Jobseeker's Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          calculator.over_state_pension_age = "no"
-          calculator.are_you_working = "no"
-          calculator.disability_affecting_work = "yes_limits_work"
-          assert calculator.eligible_for_jobseekers_allowance?
-
-          calculator.where_do_you_live = "england"
-          assert calculator.eligible_for_jobseekers_allowance?
-
-          calculator.disability_affecting_work = nil
-          assert calculator.eligible_for_jobseekers_allowance?
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            %w[no yes_under_16_hours_per_week].each do |working_hours|
+              calculator.are_you_working = working_hours
+              assert calculator.eligible_for_jobseekers_allowance?
+              %w[no yes_limits_work].each do |affecting_work|
+                calculator.disability_affecting_work = affecting_work
+                assert calculator.eligible_for_jobseekers_allowance?
+              end
+            end
+          end
         end
 
         should "return false if not eligible for Jobseeker's Allowance" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "yes"
-          calculator.are_you_working = "yes_over_16_hours_per_week"
-          calculator.disability_affecting_work = "yes_unable_to_work"
-          assert_not calculator.eligible_for_jobseekers_allowance?
+          calculator.over_state_pension_age = "no"
+          %w[no yes_under_16_hours_per_week].each do |working_hours|
+            calculator.are_you_working = working_hours
+            assert_not calculator.eligible_for_jobseekers_allowance?
+            %w[no yes_limits_work].each do |affecting_work|
+              calculator.disability_affecting_work = affecting_work
+              assert_not calculator.eligible_for_jobseekers_allowance?
+            end
+          end
+
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            assert_not calculator.eligible_for_jobseekers_allowance?
+
+            calculator.over_state_pension_age = "no"
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+
+            calculator.over_state_pension_age = "no"
+            calculator.are_you_working = "yes_under_16_hours_per_week"
+            calculator.disability_affecting_work = "yes_unable_to_work"
+            assert_not calculator.eligible_for_jobseekers_allowance?
+          end
         end
       end
 
