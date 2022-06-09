@@ -529,17 +529,29 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_nhs_low_income_scheme?" do
         should "return true if eligible for NHS Low Income Scheme" do
-          %w[england wales scotland].each do |country|
+          %w[england wales].each do |country|
             calculator = CheckBenefitsSupportCalculator.new
             calculator.where_do_you_live = country
+            calculator.assets_and_savings = "under_16000"
             assert calculator.eligible_for_nhs_low_income_scheme?
           end
         end
 
         should "return false if not eligible for NHS Low Income Scheme" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          assert_not calculator.eligible_for_nhs_low_income_scheme?
+          %w[england wales].each do |country|
+            calculator.where_do_you_live = country
+            calculator.assets_and_savings = "over_16000"
+            assert_not calculator.eligible_for_nhs_low_income_scheme?
+          end
+
+          %w[scotland northern-ireland].each do |country|
+            calculator.where_do_you_live = country
+            %w[under_16000 over_16000].each do |assets|
+              calculator.assets_and_savings = assets
+              assert_not calculator.eligible_for_nhs_low_income_scheme?
+            end
+          end
         end
       end
 
