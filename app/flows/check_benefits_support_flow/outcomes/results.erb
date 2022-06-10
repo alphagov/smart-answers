@@ -1,13 +1,39 @@
-<% govspeak_for :body do %>
+<% text_for :body do %>
   <% if calculator.number_of_benefits > 0 %>
-    Based on your answers you may be eligible to apply for these <%= calculator.number_of_benefits %> things.
+    <p class="govuk-body">Based on your answers, you may be eligible for the following <span style="font-weight: bold"><%= calculator.number_of_benefits %> things</span>.</p>
   <% else %>
-    Based on your answers, you may not be eligible for any benefits.
+    <p class="govuk-body">Based on your answers, you may not be eligible for any benefits.</p>
   <% end %>
 
-  <% calculator.benefits_for_outcome.each do |benefit| %>
-   <%= render "components/result-card", { title: benefit["title"], description: benefit["description"], url: benefit["url"], url_text: benefit["url_text"] } %>
+  <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-9">
+    <% calculator.benefits_for_outcome.each do |benefit| %>
+      <%= render "components/result-card", { title: benefit["title"], description: benefit["description"], url: benefit["url"], url_text: benefit["url_text"] } %>
+    <% end %>
+  </div>
 
-    ---
-  <% end %>
+  <%= render "govuk_publishing_components/components/inset_text", {
+    text: "At the moment, not all payments and help you might be able to claim have been included."
+  } %>
+
+  <div class="govuk-!-margin-bottom-9">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Other benefits and financial support",
+      heading_level: 2,
+      margin_bottom: 4,
+      font_size: "m"
+    } %>
+
+    <p class="govuk-body">If you're getting certain benefits or tax credits you may be <a class="govuk-link" href="/guidance/cost-of-living-payment">eligible for a cost of living payment</a>. You do not need to apply. If you’re eligible, you’ll be paid automatically.</p>
+
+    <p class="govuk-body">You can also find out more by:</p>
+
+    <%= render "govuk_publishing_components/components/list", {
+    visible_counters: true,
+    items: [
+      sanitize("browsing <a class=\"govuk-link\" href=\"/browse/benefits\">information on benefits</a>"),
+      sanitize("reading about <a class=\"govuk-link\" href=\"https://costoflivingsupport.campaign.gov.uk/\">what the government is doing to support people with the cost of living</a>"),
+      sanitize("<a class=\"govuk-link\" href=\"/benefits-calculators\">using a benefits calculator</a>"),
+    ]
+    } %>
+  </div>
 <% end %>
