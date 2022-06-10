@@ -22,6 +22,10 @@
 
 .app-c-result-card__description {
   margin-bottom: govuk-spacing(6);
+
+  p:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .app-c-result-card__link {
