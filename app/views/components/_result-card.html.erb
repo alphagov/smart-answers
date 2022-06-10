@@ -12,9 +12,9 @@
     font_size: "m"
   } %>
 
-  <p class="govuk-body app-c-result-card__description">
-    <%= description %>
-  </p>
+  <div class="govuk-body app-c-result-card__description">
+    <%= sanitize(description) %>
+  </div>
 
   <%= link_to url_text, url,
   class: "govuk-link app-c-result-card__link",

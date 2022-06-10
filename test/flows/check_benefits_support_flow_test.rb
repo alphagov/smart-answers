@@ -233,7 +233,7 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers you may be eligible to apply for these 9 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 9 things."
     end
   end
 end
