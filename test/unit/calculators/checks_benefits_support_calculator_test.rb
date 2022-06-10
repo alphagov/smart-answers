@@ -376,24 +376,31 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_pension_credit?" do
-        should "return true if eligible for Pension Credit" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.over_state_pension_age = "yes"
-            assert calculator.eligible_for_pension_credit?
+        context "when eligible" do
+          should "be true if country is not NI and over state pension age" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.over_state_pension_age = "yes"
+              assert calculator.eligible_for_pension_credit?
+            end
           end
         end
 
-        should "return false if not eligible for Pension Credit" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "yes"
-          assert_not calculator.eligible_for_pension_credit?
+        context "when ineligible" do
+          should "be false if country is not NI and UNDER state pension age" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.over_state_pension_age = "no"
+              assert_not calculator.eligible_for_pension_credit?
+            end
+          end
 
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.over_state_pension_age = "no"
+          should "be false if country is NI " do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "yes"
             assert_not calculator.eligible_for_pension_credit?
           end
         end
