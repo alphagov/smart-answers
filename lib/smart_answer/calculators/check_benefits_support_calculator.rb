@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
 
     def benefits_for_outcome
       @benefits_for_outcome ||= benefit_data["benefits"].select { |benefit|
-        benefit["condition"].nil? || send(benefit["condition"])
+        benefit
       }.compact
     end
 
