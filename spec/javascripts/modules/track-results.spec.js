@@ -13,6 +13,7 @@ describe('Track results', function () {
       container.innerHTML = '<div data-module="track-results" data-flow-name="My Flow">' +
                               '<a class="govuk-link" href="/internal-link">Internal link</a>' +
                               '<a class="govuk-link" href="https://github.com">External link</a>' +
+                              '<a class="govuk-link" href="/internal-link" data-track-category="custom category" data-track-action="custom action" data-track-label="custom label">Internal link (using track click gem)</a>' +
                             '</div>'
       document.body.appendChild(container)
       container.addEventListener('click', function (e) {
@@ -61,6 +62,20 @@ describe('Track results', function () {
       window.GOVUK.triggerEvent(externalLink, 'click')
 
       expect(GOVUK.analytics.trackEvent).not.toHaveBeenCalled()
+    })
+
+    it('use data tracking attributes included on a link', function () {
+      var internalLinkUsingTrackClickGem = container.querySelectorAll('a')[2]
+      tracker = new GOVUK.Modules.TrackResults(element)
+      tracker.init()
+
+      spyOn(GOVUK.analytics, 'trackEvent')
+
+      window.GOVUK.triggerEvent(internalLinkUsingTrackClickGem, 'click')
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'custom category', 'custom action', { transport: 'beacon', label: 'custom label' }
+      )
     })
   })
 })

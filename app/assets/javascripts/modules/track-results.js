@@ -25,7 +25,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   TrackResults.prototype.trackInternalLinks = function () {
     var currentHost = document.location.protocol + '//' + document.location.hostname
     var internalLinkSelector = 'a[href^="' + currentHost + '"], a[href^="/"]'
-    var internalResultLinks = document.querySelectorAll(internalLinkSelector)
+    var internalResultLinks = this.$module.querySelectorAll(internalLinkSelector)
 
     for (var i = 0; i < internalResultLinks.length; i++) {
       internalResultLinks[i].addEventListener('click', this.trackClickEvent.bind(this))
@@ -37,11 +37,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var options = { transport: 'beacon' }
     var href = $link.getAttribute('href')
     var linkText = $link.innerText.trim()
+    var linkTrackCategory = $link.getAttribute('data-track-category') || 'Internal Link Clicked'
+    var linkTrackAction = $link.getAttribute('data-track-action') || href
+    var linkTrackLabel = $link.getAttribute('data-track-label')
 
-    if (linkText) {
+    if (linkTrackLabel) {
+      options.label = linkTrackLabel
+    } else if (linkText) {
       options.label = linkText
     }
-    GOVUK.analytics.trackEvent('Internal Link Clicked', href, options)
+    GOVUK.analytics.trackEvent(linkTrackCategory, linkTrackAction, options)
   }
 
   Modules.TrackResults = TrackResults
