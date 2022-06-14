@@ -12,7 +12,7 @@
       description: You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work.
       condition: eligible_for_employment_and_support_allowance_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/employment-and-support-allowance
-      url_text: Check if you’re eligible for New Style Employment and Support Allowance
+      url_text: Check if you’re eligible for New Style Employment and Support Allowance on the nidirect website
       group: Supporting your income
     - name: jobseekers_allowance
       title: New Style Jobseeker's Allowance (JSA)
@@ -26,21 +26,21 @@
       description: You could apply for 'new style' Jobseeker’s Allowance (JSA) to help you when you’re looking for work.
       condition: eligible_for_jobseekers_allowance_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/jobseekers-allowance
-      url_text: Check if you’re eligible for New Style Jobseeker’s Allowance
+      url_text: Check if you’re eligible for New Style Jobseeker’s Allowance on the nidirect website
       group: Supporting your income
     - name: pension_credit
       title: Pension Credit
-      description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you must both be over State Pension age. If you live with a partner who is under State Pension age, you might be able to get Universal Credit instead.
+      description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you may be able to get Pension Credit if you’ve both reached State Pension age, or one of you is getting Housing Benefit for people over State Pension age.
       condition: eligible_for_pension_credit?
       url: /pension-credit/eligibility
       url_text: Check if you’re eligible for Pension Credit
       group: Supporting your income
     - name: pension_credit_northern_ireland
       title: Pension Credit
-      description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you must both be over State Pension age.
+      description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you may be able to get Pension Credit if you’ve both reached State Pension age, or one of you is getting Housing Benefit for people over State Pension age.
       condition: eligible_for_pension_credit_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/understanding-pension-credit
-      url_text: Check if you’re eligible for Pension Credit
+      url_text: Check if you’re eligible for Pension Credit on the nidirect website
       group: Supporting your income
     - name: housing_benefit
       title: Housing Benefit
@@ -61,13 +61,13 @@
       description: You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.
       condition: eligible_for_access_to_work_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/employment-support-information
-      url_text: Check if you’re eligible for Access to Work
+      url_text: Check if you’re eligible for Access to Work on the nidirect website
       group: Supporting your income
     - name: universal_credit
       title: Universal Credit
       description: |
-        <p>You may be able to get help to pay your living costs if you’re on a low income and not already claiming any benefits.</p>
-        <p>You should check if you’ll actually be better off claiming Universal Credit before you stop any existing benefits.</p>
+        <p>You may be able to get help to pay your living costs if you’re on a low income. You could be working (including self-employed or part time) or out of work.</p>
+        <p>If you're already getting certain benefits, you should check if you’ll be better off claiming Universal Credit before you apply, and any existing benefits end.</p>
       condition: eligible_for_universal_credit?
       url: /universal-credit/eligibility
       url_text: Check if you’re eligible for Universal Credit
@@ -75,11 +75,11 @@
     - name: universal_credit_ni
       title: Universal Credit
       description: |
-        <p>You may be able to get help to pay your living costs if you’re on a low income and not already claiming any benefits.</p>
-        <p>You should check if you’ll actually be better off claiming Universal Credit before you stop any existing benefits.</p>
+        <p>You may be able to get help to pay your living costs if you’re on a low income. You could be working (including self-employed or part time) or out of work.</p>
+        <p>If you're already getting certain benefits, you should check if you’ll be better off claiming Universal Credit before you apply, and any existing benefits end. </p>
       condition: eligible_for_universal_credit_ni?
       url: https://www.nidirect.gov.uk/campaigns/universal-credit
-      url_text: Check if you’re eligible for Universal Credit
+      url_text: Check if you’re eligible for Universal Credit on the nidirect website
       group: Supporting your income
     - name: tax_free_childcare
       title: Tax-free childcare
@@ -100,7 +100,7 @@
       description: You may be able to get up to 30 hours a week of free early education and childcare.
       condition: eligible_for_childcare_3_4yr_olds_wales?
       url: https://gov.wales/childcare-3-and-4-year-olds
-      url_text: Find out how much free childcare you can get
+      url_text: Find out how much free childcare you can get on the GOV.WALES website
       group: Help with childcare costs
     - name: 15hrs_free_childcare_3_4yr_olds
       title: 15 hours of free childcare for 3 and 4-year-olds
@@ -156,7 +156,7 @@
       description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
       condition: eligible_for_personal_independence_payment_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/personal-independence-payment-pip
-      url_text: Check if you’re eligible for Personal Independence Payment
+      url_text: Check if you’re eligible for Personal Independence Payment on the nidirect website
       group: Supporting your income
     - name: attendance_allowance
       title: Attendance Allowance
@@ -177,7 +177,7 @@
       description: You may be able to get Rate Relief if you’re on a low income or claim benefits.
       condition: eligible_for_rate_relief?
       url: https://www.nidirect.gov.uk/rates-help
-      url_text: Check if you’re eligible for Rate Relief
+      url_text: Check if you’re eligible for Rate Relief on the nidirect website
       group: Help with your bills
     - name: child_benefit
       title: Child Benefit
@@ -205,7 +205,7 @@
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
       condition: eligible_for_social_fund_budgeting_loan?
       url: https://www.nidirect.gov.uk/articles/social-fund-budgeting-loan
-      url_text: Check if you’re eligible for a Budgeting Loan
+      url_text: Check if you’re eligible for a Budgeting Loan on the nidirect website
       group: Help with your bills
     - name: nhs_low_income_scheme
       title: NHS Low Income Scheme
@@ -226,5 +226,5 @@
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
       condition: eligible_for_nhs_low_income_scheme_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/help-health-costs
-      url_text: Check if you’re eligible for the NHS Low Income Scheme on the NHS website
+      url_text: Check if you’re eligible for the NHS Low Income Scheme on the nidirect website
       group: Healthcare support
