@@ -1002,33 +1002,56 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_disability_living_allowance_for_children?" do
-        should "return true if eligible for Disability Living Allowance for Children" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales northern-ireland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.children_living_with_you = "yes"
-            calculator.children_with_disability = "yes"
-            %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
-              calculator.age_of_children = age
-              assert calculator.eligible_for_disability_living_allowance_for_children?
+        context "when eligible" do
+          should "be true if country is not Scotland, living with child with disability aged under 15" do
+            %w[england wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.children_with_disability = "yes"
+              %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+                calculator.age_of_children = age
+                assert calculator.eligible_for_disability_living_allowance_for_children?
+              end
             end
           end
         end
 
-        should "return false if not eligible for Disability Living Allowance for Children" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          assert_not calculator.eligible_for_disability_living_allowance_for_children?
+        context "when ineligible" do
+          should "be false if country is Scotland, living with child with disability aged under 15" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "scotland"
+            calculator.children_living_with_you = "yes"
+            calculator.children_with_disability = "yes"
+            %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+              calculator.age_of_children = age
+              assert_not calculator.eligible_for_disability_living_allowance_for_children?
+            end
+          end
 
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under"
-          calculator.children_with_disability = "no"
-          assert_not calculator.eligible_for_disability_living_allowance_for_children?
+          should "be false if country is not Scotland, living with child with disability aged 18 to 19" do
+            %w[england wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.children_with_disability = "yes"
+              calculator.age_of_children = "18_to_19"
+              assert_not calculator.eligible_for_disability_living_allowance_for_children?
+            end
+          end
 
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_disability_living_allowance_for_children?
+          should "be false if country is not Scotland, living with child WITHOUT disability aged under 15" do
+            %w[england wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.children_with_disability = "no"
+              %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+                calculator.age_of_children = age
+                assert_not calculator.eligible_for_disability_living_allowance_for_children?
+              end
+            end
+          end
         end
       end
 
