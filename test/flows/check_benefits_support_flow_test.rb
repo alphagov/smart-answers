@@ -235,5 +235,37 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
     should "render the results outcome with number of eligible benefits" do
       assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 9 things."
     end
+
+    should "render Employment and Support Allowance when eligible" do
+      %w[england scotland wales].each do |country|
+        %w[no yes_under_16_hours_per_week].each do |work_hours|
+          %w[yes_limits_work yes_unable_to_work].each do |work_limits|
+            add_responses where_do_you_live: country,
+                          over_state_pension_age: "no",
+                          are_you_working: work_hours,
+                          disability_or_health_condition: "yes",
+                          disability_affecting_work: work_limits
+
+            assert_rendered_outcome text: "Employment and Support Allowance (ESA)"
+            assert_rendered_outcome text: "You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work."
+          end
+        end
+      end
+    end
+
+    should "render Employment and Support Allowance (NI) when eligible" do
+      %w[no yes_under_16_hours_per_week].each do |work_hours|
+        %w[yes_limits_work yes_unable_to_work].each do |work_limits|
+          add_responses where_do_you_live: "northern-ireland",
+                        over_state_pension_age: "no",
+                        are_you_working: work_hours,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Employment and Support Allowance (ESA)"
+          assert_rendered_outcome text: "You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work."
+        end
+      end
+    end
   end
 end
