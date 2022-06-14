@@ -777,33 +777,38 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "# eligible_for_free_childcare_2yr_olds?" do
-        should "return true if eligible for Free Childcare 2 Year Olds" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales].each do |country|
-            calculator.where_do_you_live = country
-            calculator.children_living_with_you = "yes"
-            calculator.age_of_children = "2"
-            assert calculator.eligible_for_free_childcare_2yr_olds?
+      context "#eligible_for_free_childcare_2yr_olds?" do
+        context "when eligible" do
+          should "be true if country is England or Wales, with a child aged 2" do
+            %w[england wales].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.age_of_children = "2"
+              assert calculator.eligible_for_free_childcare_2yr_olds?
+            end
           end
         end
 
-        should "return false if not eligible for Free Childcare 2 Year Olds" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2"
-          assert_not calculator.eligible_for_free_childcare_2yr_olds?
+        context "when ineligible" do
+          should "be false if country is England or Wales with a child that is not 2" do
+            %w[england wales].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.age_of_children = "1,3_to_4"
+              assert_not calculator.eligible_for_free_childcare_2yr_olds?
+            end
+          end
 
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2"
-          assert_not calculator.eligible_for_free_childcare_2yr_olds?
-
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,3_to_4"
-          assert_not calculator.eligible_for_free_childcare_2yr_olds?
+          should "be false if country is Scotland or Northern Ireland with a child aged 2" do
+            %w[scotland northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.age_of_children = "2"
+              assert_not calculator.eligible_for_free_childcare_2yr_olds?
+            end
+          end
         end
       end
 
