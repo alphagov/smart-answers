@@ -43,10 +43,13 @@ module SmartAnswer::Calculators
           %w[england wales scotland].each do |country|
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
-            calculator.disability_or_health_condition = "yes"
-            %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-              calculator.disability_affecting_work = affecting_work
-              assert calculator.eligible_for_employment_and_support_allowance?
+            %w[no yes_under_16_hours_per_week].each do |working_hours|
+              calculator.are_you_working = working_hours
+              calculator.disability_or_health_condition = "yes"
+              %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
+                calculator.disability_affecting_work = affecting_work
+                assert calculator.eligible_for_employment_and_support_allowance?
+              end
             end
           end
         end
@@ -76,6 +79,10 @@ module SmartAnswer::Calculators
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_employment_and_support_allowance?
+
+            calculator.over_state_pension_age = "no"
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
           end
         end
       end
@@ -85,10 +92,13 @@ module SmartAnswer::Calculators
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "northern-ireland"
           calculator.over_state_pension_age = "no"
-          calculator.disability_or_health_condition = "yes"
-          %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-            calculator.disability_affecting_work = affecting_work
-            assert calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+          %w[no yes_under_16_hours_per_week].each do |working_hours|
+            calculator.are_you_working = working_hours
+            calculator.disability_or_health_condition = "yes"
+            %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
+              calculator.disability_affecting_work = affecting_work
+              assert calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+            end
           end
         end
 
@@ -107,6 +117,10 @@ module SmartAnswer::Calculators
 
           calculator.over_state_pension_age = "no"
           calculator.disability_or_health_condition = "no"
+          assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+
+          calculator.over_state_pension_age = "no"
+          calculator.are_you_working = "yes_over_16_hours_per_week"
           assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
 
           %w[england wales scotland].each do |country|
