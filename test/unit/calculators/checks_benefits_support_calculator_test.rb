@@ -390,14 +390,20 @@ module SmartAnswer::Calculators
       context "#eligible_for_housing_benefit?" do
         should "return true if eligible for Housing Benefit" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "yes"
-          assert calculator.eligible_for_housing_benefit?
+          %w[england wales].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_housing_benefit?
+          end
         end
 
         should "return false if not eligible for Housing Benefit" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
-          assert_not calculator.eligible_for_housing_benefit?
+          %w[scotland northern-ireland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_housing_benefit?
+          end
         end
       end
 

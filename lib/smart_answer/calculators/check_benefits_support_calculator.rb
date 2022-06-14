@@ -90,7 +90,8 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_housing_benefit?
-      @over_state_pension_age == "yes"
+      %w[england wales].include?(@where_do_you_live) &&
+        @over_state_pension_age == "yes"
     end
 
     def eligible_for_tax_free_childcare?
