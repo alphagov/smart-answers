@@ -948,31 +948,38 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_funded_early_learning_and_childcare?" do
-        should "return true if eligible for Funded Early Learning and Childcare" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          %w[2 3_to_4].each do |age|
-            calculator.age_of_children = age
-            assert calculator.eligible_for_funded_early_learning_and_childcare?
+        context "when eligible" do
+          should "be true if country is Scotland, with child aged 2 or 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "scotland"
+            calculator.children_living_with_you = "yes"
+            %w[2 3_to_4].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_funded_early_learning_and_childcare?
+            end
           end
         end
 
-        should "return false if not eligible for Funded Early Learning and Childcare" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2"
-          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
+        context "when ineligible" do
+          should "be false if country is Scotland, with child not aged 2 or 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "scotland"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "5_to_11"
+            assert_not calculator.eligible_for_funded_early_learning_and_childcare?
+          end
 
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
-
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under,18_to_19"
-          assert_not calculator.eligible_for_funded_early_learning_and_childcare?
+          should "be false is country is not Scotland with child aged 2 or 3 to 4" do
+            %w[england wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              %w[2 3_to_4].each do |age|
+                calculator.age_of_children = age
+                assert_not calculator.eligible_for_funded_early_learning_and_childcare?
+              end
+            end
+          end
         end
       end
 
