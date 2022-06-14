@@ -482,37 +482,46 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_access_to_work_northern_ireland??" do
-        should "return true if eligible for Access to Work (NI)" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.disability_or_health_condition = "yes"
-          calculator.disability_affecting_work = "no"
-          assert calculator.eligible_for_access_to_work_northern_ireland?
-
-          calculator.disability_affecting_work = "yes_limits_work"
-          assert calculator.eligible_for_access_to_work_northern_ireland?
+      context "#eligible_for_access_to_work_northern_ireland?" do
+        context "when eligible" do
+          should "be true if country is NI, with healh condition that does not prevent work" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.disability_or_health_condition = "yes"
+            %w[no yes_limits_work].each do |affecting_work|
+              calculator.disability_affecting_work = affecting_work
+              assert calculator.eligible_for_access_to_work_northern_ireland?
+            end
+          end
         end
 
-        should "return false if not eligible for Access to Work (NI)" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.disability_or_health_condition = "yes"
-            calculator.disability_affecting_work = "no"
-            assert_not calculator.eligible_for_access_to_work_northern_ireland?
+        context "when ineligible" do
+          should "be false if the country is not NI, with health condition that does not prevent work" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.disability_or_health_condition = "yes"
+              %w[no yes_limits_work].each do |affecting_work|
+                calculator.disability_affecting_work = affecting_work
+                assert_not calculator.eligible_for_access_to_work_northern_ireland?
+              end
+            end
+          end
 
-            calculator.disability_affecting_work = "yes_limits_work"
+          should "return false if country is NI, without a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_access_to_work_northern_ireland?
           end
 
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.disability_or_health_condition = "no"
-          assert_not calculator.eligible_for_access_to_work_northern_ireland?
-
-          calculator.disability_or_health_condition = "yes"
-          calculator.disability_affecting_work = "yes_unable_to_work"
-          assert_not calculator.eligible_for_access_to_work_northern_ireland?
+          should "return false if country is NI, with a health condition that DOES prevent work" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.disability_or_health_condition = "yes"
+            calculator.disability_affecting_work = "yes_unable_to_work"
+            assert_not calculator.eligible_for_access_to_work_northern_ireland?
+          end
         end
       end
 
