@@ -407,6 +407,24 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_housing_benefit_scotland?" do
+        should "return true if eligible for Housing Benefit (Scotland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "scotland"
+          calculator.over_state_pension_age = "yes"
+          assert calculator.eligible_for_housing_benefit_scotland?
+        end
+
+        should "return false if not eligible for Housing Benefit (Scotland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales northern-ireland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_housing_benefit_scotland?
+          end
+        end
+      end
+
       context "#eligible_for_tax_free_childcare?" do
         should "return true if eligible for Tax Free Childcare without a disabled child" do
           calculator = CheckBenefitsSupportCalculator.new
