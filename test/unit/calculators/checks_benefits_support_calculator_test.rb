@@ -859,27 +859,41 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_15hrs_free_childcare_3_4yr_olds?" do
-        should "return true if eligible for 15 Hours Free Childcare for 3 and 4 Year Olds" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "3_to_4"
-          assert calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+        context "when eligible" do
+          should "be true if country is England, with child aged 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "england"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "1,3_to_4"
+            assert calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+          end
         end
 
-        should "return false if not eligible for Childcare 3 and 4 Year Olds Wales" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+        context "when ineligible" do
+          should "be false if country is not England with child aged 3 to 4" do
+            %w[scotland wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.children_living_with_you = "yes"
+              calculator.age_of_children = "1,3_to_4"
+              assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+            end
+          end
 
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+          should "be false if country is England without children" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "england"
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+          end
 
-          calculator.where_do_you_live = "england"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "2, 18_to_19"
-          assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+          should "be false if country is England with child not aged 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "england"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "1,5_to_11"
+            assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
+          end
         end
       end
 
