@@ -299,5 +299,21 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Pension Credit when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Pension Credit"
+        assert_rendered_outcome text: "Check if you’re eligible for Pension Credit"
+      end
+    end
+
+    should "render Pension Credit (NI) when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Pension Credit"
+      assert_rendered_outcome text: "Check if you’re eligible for Pension Credit on the nidirect website"
+    end
   end
 end
