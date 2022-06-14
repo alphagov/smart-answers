@@ -813,35 +813,48 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_childcare_3_4yr_olds_wales??" do
-        should "return true if eligible for Childcare 3 and 4 Year Olds Wales" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_over_16_hours_per_week"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "3_to_4"
-          assert calculator.eligible_for_childcare_3_4yr_olds_wales?
+        context "when eligible" do
+          should "be true if country is Wales, working over 16 hours with child aged 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "wales"
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "3_to_4"
+            assert calculator.eligible_for_childcare_3_4yr_olds_wales?
+          end
         end
 
-        should "return false if not eligible for Childcare 3 and 4 Year Olds Wales" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+        context "when ineligible" do
+          should "be false if country is not Wales, working over 16 hours with child aged 3 to 4" do
+            %w[england scotland northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.are_you_working = "yes_over_16_hours_per_week"
+              calculator.children_living_with_you = "yes"
+              calculator.age_of_children = "3_to_4"
+              assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+            end
+          end
 
-          calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "no"
-          assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+          should "be false if country is Wales working under 16 hours with child aged 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "wales"
+            %w[no yes_under_16_hours_per_week].each do |working_hours|
+              calculator.are_you_working = working_hours
+              calculator.children_living_with_you = "yes"
+              calculator.age_of_children = "3_to_4"
+              assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+            end
+          end
 
-          calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_under_16_hours_per_week"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "3_to_4"
-          assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
-
-          calculator.where_do_you_live = "wales"
-          calculator.are_you_working = "yes_over_16_hours_per_week"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under"
-          assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+          should "be false if country is Wales working over 16 hours without child aged 3 to 4" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "wales"
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "1,5_to_11"
+            assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+          end
         end
       end
 
