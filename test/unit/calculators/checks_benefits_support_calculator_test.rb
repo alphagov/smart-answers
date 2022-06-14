@@ -1316,18 +1316,22 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_council_tax_reduction?" do
-        should "return true if eligible for Council Tax Reduction" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            assert calculator.eligible_for_council_tax_reduction?
+        context "when eligible" do
+          should "be true if country is not Northern Ireland" do
+            calculator = CheckBenefitsSupportCalculator.new
+            %w[england wales scotland].each do |country|
+              calculator.where_do_you_live = country
+              assert calculator.eligible_for_council_tax_reduction?
+            end
           end
-        end
 
-        should "return false if not eligible for Council Tax Reduction" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          assert_not calculator.eligible_for_council_tax_reduction?
+          context "ineligible" do
+            should "be false if country is Northern Ireland" do
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = "northern-ireland"
+              assert_not calculator.eligible_for_council_tax_reduction?
+            end
+          end
         end
       end
 
