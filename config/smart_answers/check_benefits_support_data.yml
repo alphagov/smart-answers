@@ -125,7 +125,7 @@
       group: Help with childcare costs
     - name: carers_allowance
       title: Carer's Allowance
-      description: You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week.
+      description: You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.
       condition: eligible_for_carers_allowance?
       url: /carers-allowance/eligiblity
       url_text: Check if you’re eligible for Carer’s Allowance
