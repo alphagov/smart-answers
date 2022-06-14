@@ -1282,26 +1282,36 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_attendance_allowance?" do
-        should "return true if eligible for Attendance Allowance" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "yes"
-          calculator.disability_or_health_condition = "yes"
-          assert calculator.eligible_for_attendance_allowance?
+        context "when eligible" do
+          should "be true if over state pension age with a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.disability_or_health_condition = "yes"
+            assert calculator.eligible_for_attendance_allowance?
+          end
         end
 
-        should "return false if not eligible for Attendance Allowance" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
-          calculator.disability_or_health_condition = "no"
-          assert_not calculator.eligible_for_attendance_allowance?
+        context "when ineligible" do
+          should "be false if over state pension age WITHOUT a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.disability_or_health_condition = "no"
+            assert_not calculator.eligible_for_attendance_allowance?
+          end
 
-          calculator.over_state_pension_age = "no"
-          calculator.disability_or_health_condition = "yes"
-          assert_not calculator.eligible_for_attendance_allowance?
+          should "be false if UNDER state pension age with a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "yes"
+            assert_not calculator.eligible_for_attendance_allowance?
+          end
 
-          calculator.over_state_pension_age = "yes"
-          calculator.disability_or_health_condition = "no"
-          assert_not calculator.eligible_for_attendance_allowance?
+          should "be false if UNDER state pension age WIHTOUT a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "no"
+            assert_not calculator.eligible_for_attendance_allowance?
+          end
         end
       end
 
