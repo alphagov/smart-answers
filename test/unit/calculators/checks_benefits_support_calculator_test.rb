@@ -1336,17 +1336,21 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_rate_relief?" do
-        should "return true if eligible for Rate Relief" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          assert calculator.eligible_for_rate_relief?
+        context "when eligible" do
+          should "be true if country is Northern Ireland" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            assert calculator.eligible_for_rate_relief?
+          end
         end
 
-        should "return false if not eligible for Rate Relief" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            assert_not calculator.eligible_for_rate_relief?
+        context "when ineligible" do
+          should "be false if country is not Northern Ireland" do
+            calculator = CheckBenefitsSupportCalculator.new
+            %w[england wales scotland].each do |country|
+              calculator.where_do_you_live = country
+              assert_not calculator.eligible_for_rate_relief?
+            end
           end
         end
       end
