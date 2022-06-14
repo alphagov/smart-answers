@@ -984,16 +984,20 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_child_benefit?" do
-        should "return true if eligible for Child Benefit" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.children_living_with_you = "yes"
-          assert calculator.eligible_for_child_benefit?
+        context "when eligible" do
+          should "be true if living with child" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            assert calculator.eligible_for_child_benefit?
+          end
         end
 
-        should "return false if not eligible for Child Benefit" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.children_living_with_you = "no"
-          assert_not calculator.eligible_for_child_benefit?
+        context "when ineligible" do
+          should "be false if not living with child" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_child_benefit?
+          end
         end
       end
 
