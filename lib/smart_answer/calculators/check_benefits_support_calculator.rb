@@ -123,7 +123,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
-      %w[england northern-ireland].include?(@where_do_you_live) &&
+      @where_do_you_live == "england" &&
         @are_you_working != "no" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("3_to_4")
