@@ -284,5 +284,20 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Job Seekers Allowance (NI) when eligible" do
+      %w[no yes_under_16_hours_per_week].each do |work_hours|
+        %w[yes_limits_work no].each do |work_limits|
+          add_responses where_do_you_live: "northern-ireland",
+                        over_state_pension_age: "no",
+                        are_you_working: work_hours,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Jobseeker's Allowance (JSA)"
+          assert_rendered_outcome text: "Check if you’re eligible for New Style Jobseeker’s Allowance on the nidirect website"
+        end
+      end
+    end
   end
 end
