@@ -1356,16 +1356,20 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_free_tv_licence?" do
-        should "return true if eligible for Free TV Licence" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "yes"
-          assert calculator.eligible_for_free_tv_licence?
+        context "when eligible" do
+          should "be true if over state pension age" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_free_tv_licence?
+          end
         end
 
-        should "return false if not eligible for Free TV Licence" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
-          assert_not calculator.eligible_for_free_tv_licence?
+        context "when ineligible" do
+          should "be false if under state pension age" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_free_tv_licence?
+          end
         end
       end
 
