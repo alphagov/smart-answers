@@ -99,6 +99,11 @@ module SmartAnswer::Calculators
         @over_state_pension_age == "yes"
     end
 
+    def eligible_for_housing_benefit_northern_ireland?
+      @where_do_you_live == "northern-ireland" &&
+        @over_state_pension_age == "yes"
+    end
+
     def eligible_for_tax_free_childcare?
       return unless @are_you_working != "no" && @children_living_with_you == "yes"
 
