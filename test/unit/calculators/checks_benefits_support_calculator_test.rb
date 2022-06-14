@@ -1414,61 +1414,76 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_nhs_low_income_scheme?" do
-        should "return true if eligible for NHS Low Income Scheme" do
-          %w[england wales].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
-            calculator.where_do_you_live = country
-            calculator.assets_and_savings = "under_16000"
-            assert calculator.eligible_for_nhs_low_income_scheme?
+        context "when eligible" do
+          should "be true if country is England or Wales with under 16000 assets" do
+            %w[england wales].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.assets_and_savings = "under_16000"
+              assert calculator.eligible_for_nhs_low_income_scheme?
+            end
           end
         end
 
-        should "return false if not eligible for NHS Low Income Scheme" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales].each do |country|
-            calculator.where_do_you_live = country
-            calculator.assets_and_savings = "over_16000"
-            assert_not calculator.eligible_for_nhs_low_income_scheme?
+        context "when ineligible" do
+          should "be false if country is England or Wales with OVER 1600 assets" do
+            %w[england wales].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.assets_and_savings = "over_16000"
+              assert_not calculator.eligible_for_nhs_low_income_scheme?
+            end
           end
 
-          %w[scotland northern-ireland].each do |country|
-            calculator.where_do_you_live = country
-            %w[under_16000 over_16000].each do |assets|
-              calculator.assets_and_savings = assets
-              assert_not calculator.eligible_for_nhs_low_income_scheme?
+          should "be false country is not England or Wales with assets above OR below 16000" do
+            %w[scotland northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              %w[under_16000 over_16000].each do |assets|
+                calculator.assets_and_savings = assets
+                assert_not calculator.eligible_for_nhs_low_income_scheme?
+              end
             end
           end
         end
       end
 
-      context "#eligible_for_help_with_help_costs?" do
-        should "return true if eligible for Help With Health Costs" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          assert calculator.eligible_for_help_with_health_costs?
+      context "#eligible_for_help_with_health_costs?" do
+        context "when eligible" do
+          should "be true if country is Scotland" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "scotland"
+            assert calculator.eligible_for_help_with_health_costs?
+          end
         end
 
-        should "return false if not eligible for Help With Health Costs" do
-          %w[england wales northern-ireland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
-            calculator.where_do_you_live = country
-            assert_not calculator.eligible_for_help_with_health_costs?
+        context "when ineligible" do
+          should "be false if country is not Scotland" do
+            %w[england wales northern-ireland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              assert_not calculator.eligible_for_help_with_health_costs?
+            end
           end
         end
       end
 
       context "#eligible_for_nhs_low_income_scheme_northern_ireland?" do
-        should "return true if eligible for NHS Low Income Scheme Northern Ireland" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          assert calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+        context "when eligible" do
+          should "be true if country is Northern Ireland" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            assert calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+          end
         end
 
-        should "return false if not eligible for NHS Low Income Scheme Northern Ireland" do
-          %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
-            calculator.where_do_you_live = country
-            assert_not calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+        context "when ineligible" do
+          should "be false if country is not Northern Ireland" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              assert_not calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
+            end
           end
         end
       end
