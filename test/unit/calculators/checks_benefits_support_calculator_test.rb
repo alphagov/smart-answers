@@ -1098,42 +1098,92 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_personal_independence_payment?" do
-        should "return true if eligible for Personal Independence Payment (scenario 1)" do
-          calculator = CheckBenefitsSupportCalculator.new
+        context "when eligible" do
+          should "be true if country is not NI, under state pension age, without health condition and with child aged 16 to 19 with a health condition" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.over_state_pension_age = "no"
+              calculator.disability_or_health_condition = "no"
+              calculator.children_living_with_you = "yes"
+              %w[16_to_17 18_to_19].each do |age|
+                calculator.age_of_children = age
+                calculator.children_with_disability = "yes"
+                assert calculator.eligible_for_personal_independence_payment?
+              end
+            end
+          end
+
+          should "be true if country is not NI, under state pension age and with a health condition" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.over_state_pension_age = "no"
+              calculator.disability_or_health_condition = "yes"
+              assert calculator.eligible_for_personal_independence_payment?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if county is NI, under state pension age, without health condition and with child aged 16 to 19" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "no"
+            calculator.children_living_with_you = "yes"
+            %w[16_to_17 18_to_19].each do |age|
+              calculator.age_of_children = age
+              assert_not calculator.eligible_for_personal_independence_payment?
+            end
+          end
+
+          should "be false if country is NI, under state pension age and with a health condition" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "yes"
+            assert_not calculator.eligible_for_personal_independence_payment?
+          end
+        end
+
+        should "be false if country is not NI, OVER state pension age, without health condition and with child aged 16 to 19" do
           %w[england wales scotland].each do |country|
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            calculator.disability_or_health_condition = "no"
+            calculator.children_living_with_you = "yes"
+            %w[16_to_17 18_to_19].each do |age|
+              calculator.age_of_children = age
+              assert_not calculator.eligible_for_personal_independence_payment?
+            end
+          end
+        end
+
+        should "be false if country is not NI, under state pension age, without health condition and with child aged 16 to 19 without a health condition" do
+          %w[england wales scotland].each do |country|
+            calculator = CheckBenefitsSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
             calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               calculator.age_of_children = age
-              calculator.children_with_disability = "yes"
-              assert calculator.eligible_for_personal_independence_payment?
+              calculator.children_with_disability = "no"
+              assert_not calculator.eligible_for_personal_independence_payment?
             end
           end
         end
 
-        should "return true if eligible for Personal Independence Payment (scenario 2)" do
-          calculator = CheckBenefitsSupportCalculator.new
+        should "be false if country is not NI, under state pension age, without health condition and with child not aged 16 to 19" do
           %w[england wales scotland].each do |country|
+            calculator = CheckBenefitsSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
-            calculator.disability_or_health_condition = "yes"
-            assert calculator.eligible_for_personal_independence_payment?
-          end
-        end
-
-        should "return false if not eligible for Personal Independence Payment" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "no"
-          calculator.disability_or_health_condition = "yes"
-          assert_not calculator.eligible_for_personal_independence_payment?
-          calculator.disability_or_health_condition = "no"
-          calculator.children_living_with_you = "yes"
-          %w[16_to_17 18_to_19].each do |age|
-            calculator.age_of_children = age
-            calculator.children_with_disability = "no"
+            calculator.disability_or_health_condition = "no"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "5_to_11"
             assert_not calculator.eligible_for_personal_independence_payment?
           end
         end
