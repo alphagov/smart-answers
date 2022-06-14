@@ -390,14 +390,56 @@ module SmartAnswer::Calculators
       context "#eligible_for_housing_benefit?" do
         should "return true if eligible for Housing Benefit" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "yes"
-          assert calculator.eligible_for_housing_benefit?
+          %w[england wales].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_housing_benefit?
+          end
         end
 
         should "return false if not eligible for Housing Benefit" do
           calculator = CheckBenefitsSupportCalculator.new
-          calculator.over_state_pension_age = "no"
-          assert_not calculator.eligible_for_housing_benefit?
+          %w[scotland northern-ireland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_housing_benefit?
+          end
+        end
+      end
+
+      context "#eligible_for_housing_benefit_scotland?" do
+        should "return true if eligible for Housing Benefit (Scotland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "scotland"
+          calculator.over_state_pension_age = "yes"
+          assert calculator.eligible_for_housing_benefit_scotland?
+        end
+
+        should "return false if not eligible for Housing Benefit (Scotland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales northern-ireland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_housing_benefit_scotland?
+          end
+        end
+      end
+
+      context "#eligible_for_housing_benefit_northern_ireland?" do
+        should "return true if eligible for Housing Benefit (Northern Ireland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.over_state_pension_age = "yes"
+          assert calculator.eligible_for_housing_benefit_northern_ireland?
+        end
+
+        should "return false if not eligible for Housing Benefit (Northern Ireland)" do
+          calculator = CheckBenefitsSupportCalculator.new
+          %w[england wales scotland].each do |country|
+            calculator.where_do_you_live = country
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_housing_benefit_northern_ireland?
+          end
         end
       end
 
