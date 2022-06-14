@@ -571,34 +571,42 @@ module SmartAnswer::Calculators
       end
 
       context "#eligible_for_universal_credit_ni?" do
-        should "return true if eligible for Universal Credit (NI)" do
-          calculator = CheckBenefitsSupportCalculator.new
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "no"
-          calculator.assets_and_savings = "under_16000"
-          assert calculator.eligible_for_universal_credit_ni?
+        context "when eligible" do
+          should "be true if country is NI, under state pension and under 16000 assets" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "no"
+            calculator.assets_and_savings = "under_16000"
+            assert calculator.eligible_for_universal_credit_ni?
+          end
         end
 
-        should "return false if not eligible for Universal Credit (NI)" do
-          calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales scotland].each do |country|
-            calculator.where_do_you_live = country
-            calculator.over_state_pension_age = "yes"
-            assert_not calculator.eligible_for_universal_credit_ni?
+        context "when ineligible" do
+          should "be false if country in not NI, under state pension age and under 16000 assets" do
+            %w[england wales scotland].each do |country|
+              calculator = CheckBenefitsSupportCalculator.new
+              calculator.where_do_you_live = country
+              calculator.over_state_pension_age = "no"
+              calculator.assets_and_savings = "over_16000"
+              assert_not calculator.eligible_for_universal_credit_ni?
+            end
+          end
 
+          should "be false if country is NI, over state pension age and under 16000 assets" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "yes"
+            calculator.assets_and_savings = "under_16000"
+            assert_not calculator.eligible_for_universal_credit_ni?
+          end
+
+          should "be false if country is NI, under state pension age and over 16000 assets" do
+            calculator = CheckBenefitsSupportCalculator.new
+            calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "over_16000"
             assert_not calculator.eligible_for_universal_credit_ni?
           end
-
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "yes"
-          assert_not calculator.eligible_for_universal_credit_ni?
-
-          calculator.where_do_you_live = "northern-ireland"
-          calculator.over_state_pension_age = "no"
-          calculator.assets_and_savings = "over_16000"
-          assert_not calculator.eligible_for_universal_credit_ni?
         end
       end
 
