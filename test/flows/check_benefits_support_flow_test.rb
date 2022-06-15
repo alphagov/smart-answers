@@ -362,5 +362,25 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for Access to Work on the nidirect website"
       end
     end
+
+    should "render Tax-free childcare when eligible without a disabled child" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_with_disability: "no"
+
+        assert_rendered_outcome text: "Tax-free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+      end
+    end
+
+    should "render Tax Free childcare when eligible with a disabled child" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      age_of_children: "16_to_17"
+
+        assert_rendered_outcome text: "Tax-free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+      end
+    end
   end
 end
