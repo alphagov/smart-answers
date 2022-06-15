@@ -482,7 +482,7 @@ module SmartAnswer::Calculators
       context "# eligible_for_free_childcare_2yr_olds?" do
         should "return true if eligible for Free Childcare 2 Year Olds" do
           calculator = CheckBenefitsSupportCalculator.new
-          %w[england wales northern-ireland].each do |country|
+          %w[england wales].each do |country|
             calculator.where_do_you_live = country
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "2"
@@ -493,6 +493,12 @@ module SmartAnswer::Calculators
         should "return false if not eligible for Free Childcare 2 Year Olds" do
           calculator = CheckBenefitsSupportCalculator.new
           calculator.where_do_you_live = "scotland"
+          calculator.children_living_with_you = "yes"
+          calculator.age_of_children = "2"
+          assert_not calculator.eligible_for_free_childcare_2yr_olds?
+
+          calculator.where_do_you_live = "northern-ireland"
+          calculator.children_living_with_you = "yes"
           calculator.age_of_children = "2"
           assert_not calculator.eligible_for_free_childcare_2yr_olds?
 
