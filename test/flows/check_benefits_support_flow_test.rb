@@ -338,5 +338,29 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Housing Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the NI Housing Executive website"
     end
+
+    should "render Access to Work when eligible" do
+      %w[england scotland wales].each do |country|
+        %w[yes_limits_work no].each do |work_limits|
+          add_responses where_do_you_live: country,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Access to Work"
+          assert_rendered_outcome text: "Check if you’re eligible for Access to Work"
+        end
+      end
+    end
+
+    should "render Access to Work (Northern Ireland) when eligible" do
+      %w[yes_limits_work no].each do |work_limits|
+        add_responses where_do_you_live: "northern-ireland",
+                      disability_or_health_condition: "yes",
+                      disability_affecting_work: work_limits
+
+        assert_rendered_outcome text: "Access to Work"
+        assert_rendered_outcome text: "Check if you’re eligible for Access to Work on the nidirect website"
+      end
+    end
   end
 end
