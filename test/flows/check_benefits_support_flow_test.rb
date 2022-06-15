@@ -315,5 +315,28 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Pension Credit"
       assert_rendered_outcome text: "Check if you’re eligible for Pension Credit on the nidirect website"
     end
+
+    should "render Housing Benefit when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Housing Benefit"
+        assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit"
+      end
+    end
+
+    should "render Housing Benefit (Scotland) when eligible" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "Housing Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the mygov.scot website"
+    end
+
+    should "render Housing Benefit (Northern Ireland) when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Housing Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the NI Housing Executive website"
+    end
   end
 end
