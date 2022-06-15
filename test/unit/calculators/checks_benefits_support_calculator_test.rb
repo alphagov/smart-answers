@@ -749,6 +749,7 @@ module SmartAnswer::Calculators
             calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               calculator.age_of_children = age
+              calculator.children_with_disability = "yes"
               assert calculator.eligible_for_personal_independence_payment?
             end
           end
@@ -774,6 +775,7 @@ module SmartAnswer::Calculators
           calculator.children_living_with_you = "yes"
           %w[16_to_17 18_to_19].each do |age|
             calculator.age_of_children = age
+            calculator.children_with_disability = "no"
             assert_not calculator.eligible_for_personal_independence_payment?
           end
         end

@@ -182,7 +182,8 @@ module SmartAnswer::Calculators
 
       eligible_child_ages = %w[16_to_17 18_to_19]
       @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
+        @children_with_disability == "yes"
     end
 
     def eligible_for_personal_independence_payment_northern_ireland?
