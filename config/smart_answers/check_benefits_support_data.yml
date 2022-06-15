@@ -80,7 +80,7 @@
     - name: universal_credit
       title: Universal Credit
       description: |
-        <p>You may be able to get help to pay your living costs if you’re on a low income. You could be working (including self-employed or part time) or out of work.</p>
+        <p>You may be able to get help to pay your living costs if you’re on a low income. You could get Universal Credit if you’re working (including self-employed or part time), out of work or cannot work.</p>
         <p>If you're already getting certain benefits, you should check if you’ll be better off claiming Universal Credit before you apply, and any existing benefits end.</p>
       condition: eligible_for_universal_credit?
       url: /universal-credit/eligibility
@@ -89,7 +89,7 @@
     - name: universal_credit_ni
       title: Universal Credit
       description: |
-        <p>You may be able to get help to pay your living costs if you’re on a low income. You could be working (including self-employed or part time) or out of work.</p>
+        <p>You may be able to get help to pay your living costs if you’re on a low income. You could get Universal Credit if you’re working (including self-employed or part time), out of work or cannot work.</p>
         <p>If you're already getting certain benefits, you should check if you’ll be better off claiming Universal Credit before you apply, and any existing benefits end. </p>
       condition: eligible_for_universal_credit_ni?
       url: https://www.nidirect.gov.uk/campaigns/universal-credit
