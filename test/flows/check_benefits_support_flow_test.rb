@@ -363,6 +363,17 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
+    should "render Universal Credit when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country,
+                      over_state_pension_age: "no",
+                      assets_and_savings: "under_16000"
+
+        assert_rendered_outcome text: "Universal Credit"
+        assert_rendered_outcome text: "Check if you’re eligible for Universal Credit"
+      end
+    end
+
     should "render Tax-free childcare when eligible without a disabled child" do
       %w[england scotland wales northern-ireland].each do |country|
         add_responses where_do_you_live: country,
