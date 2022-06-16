@@ -518,5 +518,31 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Personal Independence Payment (PIP) (Northern Ireland) when eligible with a health condition" do
+      %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
+        add_responses where_do_you_live: "northern-ireland",
+                      over_state_pension_age: "no",
+                      disability_or_health_condition: "yes",
+                      disability_affecting_work: affecting_work
+
+        assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+        assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
+      end
+    end
+
+    should "render Personal Independence Payment (PIP) (Northern Ireland) when eligible with a child with a health condition" do
+      %w[16_to_17 18_to_19].each do |age|
+        add_responses where_do_you_live: "northern-ireland",
+                      over_state_pension_age: "no",
+                      disability_or_health_condition: "no",
+                      children_living_with_you: "yes",
+                      age_of_children: age,
+                      children_with_disability: "yes"
+
+        assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+        assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
+      end
+    end
   end
 end
