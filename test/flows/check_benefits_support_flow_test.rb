@@ -432,5 +432,16 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "15 hours of free childcare for 3 and 4-year-olds"
       assert_rendered_outcome text: "Find out how to get free childcare for 3 and 4-year-olds"
     end
+
+    should "render Funded early learning and childcare when eligible" do
+      %w[2,3_to_4].each do |age|
+        add_responses where_do_you_live: "scotland",
+                      children_living_with_you: "yes",
+                      age_of_children: age
+
+        assert_rendered_outcome text: "Funded early learning and childcare"
+        assert_rendered_outcome text: "Find out how much free childcare you can get on mygov.scot"
+      end
+    end
   end
 end
