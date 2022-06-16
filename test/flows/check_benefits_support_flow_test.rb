@@ -476,5 +476,17 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Child Disability Payment when eligible" do
+      %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+        add_responses where_do_you_live: "scotland",
+                      children_living_with_you: "yes",
+                      age_of_children: age,
+                      children_with_disability: "yes"
+
+        assert_rendered_outcome text: "Child Disability Payment"
+        assert_rendered_outcome text: "Check if you’re eligible for Child Disability Payment on mygov.scot"
+      end
+    end
   end
 end
