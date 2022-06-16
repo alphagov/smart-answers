@@ -413,5 +413,15 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
       end
     end
+
+    should "render Childcare 3 and 4 year olds Wales when eligible" do
+      add_responses where_do_you_live: "wales",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4"
+
+      assert_rendered_outcome text: "Childcare 3 and 4 year olds"
+      assert_rendered_outcome text: "Find out how much free childcare you can get on the GOV.WALES website"
+    end
   end
 end
