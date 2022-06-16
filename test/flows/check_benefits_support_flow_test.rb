@@ -581,5 +581,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Child Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Child Benefit"
     end
+
+    should "render Free TV Licence when eligible" do
+      add_responses over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Get a free or discounted TV licence"
+      assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+    end
   end
 end
