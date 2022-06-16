@@ -614,5 +614,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the NHS website"
       end
     end
+
+    should "render Help With Health Costs Loan when eligible" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "Help With Health Costs"
+      assert_rendered_outcome text: "Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website"
+    end
   end
 end
