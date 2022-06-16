@@ -544,5 +544,19 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
       end
     end
+
+    should "render Attendance Allowance when eligible" do
+      %w[england scotland wales northern-ireland].each do |country|
+        %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
+          add_responses where_do_you_live: country,
+                        over_state_pension_age: "yes",
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: affecting_work
+
+          assert_rendered_outcome text: "Attendance Allowance"
+          assert_rendered_outcome text: "Check if you’re eligible for Attendance Allowance"
+        end
+      end
+    end
   end
 end
