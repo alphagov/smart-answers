@@ -597,5 +597,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan"
       end
     end
+
+    should "render Social Fund Budgeting Loan when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Social Fund Budgeting Loan"
+      assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
+    end
   end
 end
