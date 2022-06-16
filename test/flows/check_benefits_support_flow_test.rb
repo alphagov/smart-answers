@@ -558,5 +558,14 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Council Tax Reduction when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Council Tax Reduction"
+        assert_rendered_outcome text: "Check if you’re eligible for Council Tax Reduction"
+      end
+    end
   end
 end
