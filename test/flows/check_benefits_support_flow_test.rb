@@ -604,5 +604,15 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Social Fund Budgeting Loan"
       assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
     end
+
+    should "render NHS Low Income Scheme when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      assets_and_savings: "under_16000"
+
+        assert_rendered_outcome text: "NHS Low Income Scheme"
+        assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the NHS website"
+      end
+    end
   end
 end
