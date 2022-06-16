@@ -455,5 +455,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for 30 hours free childcare"
       end
     end
+
+    should "render Carer’s Allowance when eligible" do
+      add_responses carer_disability_or_health_condition: "yes"
+
+      assert_rendered_outcome text: "Carer’s Allowance"
+      assert_rendered_outcome text: "Check if you’re eligible for Carer’s Allowance"
+    end
   end
 end
