@@ -462,5 +462,19 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Carer’s Allowance"
       assert_rendered_outcome text: "Check if you’re eligible for Carer’s Allowance"
     end
+
+    should "render Disability Living Allowance (DLA) for children when eligible" do
+      %w[england northern-ireland wales].each do |country|
+        %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+          add_responses where_do_you_live: country,
+                        children_living_with_you: "yes",
+                        age_of_children: age,
+                        children_with_disability: "yes"
+
+          assert_rendered_outcome text: "Disability Living Allowance (DLA) for children"
+          assert_rendered_outcome text: "Check if you’re eligible for Disability Living Allowance (DLA) for children"
+        end
+      end
+    end
   end
 end
