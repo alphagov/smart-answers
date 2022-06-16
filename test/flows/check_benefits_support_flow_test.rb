@@ -574,5 +574,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Rate Relief"
       assert_rendered_outcome text: "Check if you’re eligible for Rate Relief on the nidirect website"
     end
+
+    should "render Child Benefit when eligible" do
+      add_responses children_living_with_you: "yes"
+
+      assert_rendered_outcome text: "Child Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Child Benefit"
+    end
   end
 end
