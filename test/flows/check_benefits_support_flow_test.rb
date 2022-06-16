@@ -443,5 +443,17 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Find out how much free childcare you can get on mygov.scot"
       end
     end
+
+    should "render 30 hours of free childcare when eligible" do
+      %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
+        add_responses where_do_you_live: "england",
+                      are_you_working: working_hours,
+                      children_living_with_you: "yes",
+                      age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "30 hours of free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for 30 hours free childcare"
+      end
+    end
   end
 end
