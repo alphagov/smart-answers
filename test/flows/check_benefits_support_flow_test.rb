@@ -567,5 +567,12 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for Council Tax Reduction"
       end
     end
+
+    should "render Rate Relief when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Rate Relief"
+      assert_rendered_outcome text: "Check if you’re eligible for Rate Relief on the nidirect website"
+    end
   end
 end
