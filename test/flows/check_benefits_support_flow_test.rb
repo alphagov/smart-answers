@@ -588,5 +588,14 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Get a free or discounted TV licence"
       assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
     end
+
+    should "render Budgeting Loan when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Budgeting Loan"
+        assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan"
+      end
+    end
   end
 end
