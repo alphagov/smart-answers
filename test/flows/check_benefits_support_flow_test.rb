@@ -402,5 +402,16 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
       end
     end
+
+    should "render Free childcare 2 yr olds when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "2"
+
+        assert_rendered_outcome text: "Free childcare for 2-year-olds"
+        assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
+      end
+    end
   end
 end
