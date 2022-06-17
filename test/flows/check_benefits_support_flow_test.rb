@@ -235,5 +235,398 @@ class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
     should "render the results outcome with number of eligible benefits" do
       assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 9 things."
     end
+
+    should "render Employment and Support Allowance when eligible" do
+      %w[england scotland wales].each do |country|
+        %w[no yes_under_16_hours_per_week].each do |work_hours|
+          %w[yes_limits_work yes_unable_to_work].each do |work_limits|
+            add_responses where_do_you_live: country,
+                          over_state_pension_age: "no",
+                          are_you_working: work_hours,
+                          disability_or_health_condition: "yes",
+                          disability_affecting_work: work_limits
+
+            assert_rendered_outcome text: "Employment and Support Allowance (ESA)"
+            assert_rendered_outcome text: "You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work."
+          end
+        end
+      end
+    end
+
+    should "render Employment and Support Allowance (NI) when eligible" do
+      %w[no yes_under_16_hours_per_week].each do |work_hours|
+        %w[yes_limits_work yes_unable_to_work].each do |work_limits|
+          add_responses where_do_you_live: "northern-ireland",
+                        over_state_pension_age: "no",
+                        are_you_working: work_hours,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Employment and Support Allowance (ESA)"
+          assert_rendered_outcome text: "You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work."
+        end
+      end
+    end
+
+    should "render Job Seekers Allowance when eligible" do
+      %w[england scotland wales].each do |country|
+        %w[no yes_under_16_hours_per_week].each do |work_hours|
+          %w[yes_limits_work no].each do |work_limits|
+            add_responses where_do_you_live: country,
+                          over_state_pension_age: "no",
+                          are_you_working: work_hours,
+                          disability_or_health_condition: "yes",
+                          disability_affecting_work: work_limits
+
+            assert_rendered_outcome text: "Jobseeker's Allowance (JSA)"
+            assert_rendered_outcome text: "Check if you’re eligible for New Style Jobseeker’s Allowance"
+          end
+        end
+      end
+    end
+
+    should "render Job Seekers Allowance (NI) when eligible" do
+      %w[no yes_under_16_hours_per_week].each do |work_hours|
+        %w[yes_limits_work no].each do |work_limits|
+          add_responses where_do_you_live: "northern-ireland",
+                        over_state_pension_age: "no",
+                        are_you_working: work_hours,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Jobseeker's Allowance (JSA)"
+          assert_rendered_outcome text: "Check if you’re eligible for New Style Jobseeker’s Allowance on the nidirect website"
+        end
+      end
+    end
+
+    should "render Pension Credit when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Pension Credit"
+        assert_rendered_outcome text: "Check if you’re eligible for Pension Credit"
+      end
+    end
+
+    should "render Pension Credit (NI) when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Pension Credit"
+      assert_rendered_outcome text: "Check if you’re eligible for Pension Credit on the nidirect website"
+    end
+
+    should "render Housing Benefit when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Housing Benefit"
+        assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit"
+      end
+    end
+
+    should "render Housing Benefit (Scotland) when eligible" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "Housing Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the mygov.scot website"
+    end
+
+    should "render Housing Benefit (Northern Ireland) when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Housing Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the NI Housing Executive website"
+    end
+
+    should "render Access to Work when eligible" do
+      %w[england scotland wales].each do |country|
+        %w[yes_limits_work no].each do |work_limits|
+          add_responses where_do_you_live: country,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: work_limits
+
+          assert_rendered_outcome text: "Access to Work"
+          assert_rendered_outcome text: "Check if you’re eligible for Access to Work"
+        end
+      end
+    end
+
+    should "render Access to Work (Northern Ireland) when eligible" do
+      %w[yes_limits_work no].each do |work_limits|
+        add_responses where_do_you_live: "northern-ireland",
+                      disability_or_health_condition: "yes",
+                      disability_affecting_work: work_limits
+
+        assert_rendered_outcome text: "Access to Work"
+        assert_rendered_outcome text: "Check if you’re eligible for Access to Work on the nidirect website"
+      end
+    end
+
+    should "render Universal Credit when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country,
+                      over_state_pension_age: "no",
+                      assets_and_savings: "under_16000"
+
+        assert_rendered_outcome text: "Universal Credit"
+        assert_rendered_outcome text: "Check if you’re eligible for Universal Credit"
+      end
+    end
+
+    should "render Universal Credit (Northern Ireland) when eligible" do
+      add_responses where_do_you_live: "northern-ireland",
+                    over_state_pension_age: "no",
+                    assets_and_savings: "under_16000"
+
+      assert_rendered_outcome text: "Universal Credit"
+      assert_rendered_outcome text: "Check if you’re eligible for Universal Credit on the nidirect website"
+    end
+
+    should "render Tax-free childcare when eligible without a disabled child" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_with_disability: "no"
+
+        assert_rendered_outcome text: "Tax-free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+      end
+    end
+
+    should "render Tax Free childcare when eligible with a disabled child" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      age_of_children: "16_to_17"
+
+        assert_rendered_outcome text: "Tax-free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+      end
+    end
+
+    should "render Free childcare 2 yr olds when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "2"
+
+        assert_rendered_outcome text: "Free childcare for 2-year-olds"
+        assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
+      end
+    end
+
+    should "render Childcare 3 and 4 year olds Wales when eligible" do
+      add_responses where_do_you_live: "wales",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4"
+
+      assert_rendered_outcome text: "Childcare 3 and 4 year olds"
+      assert_rendered_outcome text: "Find out how much free childcare you can get on the GOV.WALES website"
+    end
+
+    should "render 15 hours of free childcare for 3 and 4-year-olds when eligible" do
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4"
+
+      assert_rendered_outcome text: "15 hours of free childcare for 3 and 4-year-olds"
+      assert_rendered_outcome text: "Find out how to get free childcare for 3 and 4-year-olds"
+    end
+
+    should "render Funded early learning and childcare when eligible" do
+      %w[2,3_to_4].each do |age|
+        add_responses where_do_you_live: "scotland",
+                      children_living_with_you: "yes",
+                      age_of_children: age
+
+        assert_rendered_outcome text: "Funded early learning and childcare"
+        assert_rendered_outcome text: "Find out how much free childcare you can get on mygov.scot"
+      end
+    end
+
+    should "render 30 hours of free childcare when eligible" do
+      %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
+        add_responses where_do_you_live: "england",
+                      are_you_working: working_hours,
+                      children_living_with_you: "yes",
+                      age_of_children: "3_to_4"
+
+        assert_rendered_outcome text: "30 hours of free childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for 30 hours free childcare"
+      end
+    end
+
+    should "render Carer’s Allowance when eligible" do
+      add_responses carer_disability_or_health_condition: "yes"
+
+      assert_rendered_outcome text: "Carer’s Allowance"
+      assert_rendered_outcome text: "Check if you’re eligible for Carer’s Allowance"
+    end
+
+    should "render Disability Living Allowance (DLA) for children when eligible" do
+      %w[england northern-ireland wales].each do |country|
+        %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+          add_responses where_do_you_live: country,
+                        children_living_with_you: "yes",
+                        age_of_children: age,
+                        children_with_disability: "yes"
+
+          assert_rendered_outcome text: "Disability Living Allowance (DLA) for children"
+          assert_rendered_outcome text: "Check if you’re eligible for Disability Living Allowance (DLA) for children"
+        end
+      end
+    end
+
+    should "render Child Disability Payment when eligible" do
+      %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+        add_responses where_do_you_live: "scotland",
+                      children_living_with_you: "yes",
+                      age_of_children: age,
+                      children_with_disability: "yes"
+
+        assert_rendered_outcome text: "Child Disability Payment"
+        assert_rendered_outcome text: "Check if you’re eligible for Child Disability Payment on mygov.scot"
+      end
+    end
+
+    should "render Personal Independence Payment (PIP) when eligible with a health condition" do
+      %w[england scotland wales].each do |country|
+        %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
+          add_responses where_do_you_live: country,
+                        over_state_pension_age: "no",
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: affecting_work
+
+          assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+          assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment"
+        end
+      end
+    end
+
+    should "render Personal Independence Payment (PIP) when eligible with a child with a health condition" do
+      %w[england scotland wales].each do |country|
+        %w[16_to_17 18_to_19].each do |age|
+          add_responses where_do_you_live: country,
+                        over_state_pension_age: "no",
+                        disability_or_health_condition: "no",
+                        children_living_with_you: "yes",
+                        age_of_children: age,
+                        children_with_disability: "yes"
+
+          assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+          assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment"
+        end
+      end
+    end
+
+    should "render Personal Independence Payment (PIP) (Northern Ireland) when eligible with a health condition" do
+      %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
+        add_responses where_do_you_live: "northern-ireland",
+                      over_state_pension_age: "no",
+                      disability_or_health_condition: "yes",
+                      disability_affecting_work: affecting_work
+
+        assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+        assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
+      end
+    end
+
+    should "render Personal Independence Payment (PIP) (Northern Ireland) when eligible with a child with a health condition" do
+      %w[16_to_17 18_to_19].each do |age|
+        add_responses where_do_you_live: "northern-ireland",
+                      over_state_pension_age: "no",
+                      disability_or_health_condition: "no",
+                      children_living_with_you: "yes",
+                      age_of_children: age,
+                      children_with_disability: "yes"
+
+        assert_rendered_outcome text: "Personal Independence Payment (PIP)"
+        assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
+      end
+    end
+
+    should "render Attendance Allowance when eligible" do
+      %w[england scotland wales northern-ireland].each do |country|
+        %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
+          add_responses where_do_you_live: country,
+                        over_state_pension_age: "yes",
+                        disability_or_health_condition: "yes",
+                        disability_affecting_work: affecting_work
+
+          assert_rendered_outcome text: "Attendance Allowance"
+          assert_rendered_outcome text: "Check if you’re eligible for Attendance Allowance"
+        end
+      end
+    end
+
+    should "render Council Tax Reduction when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Council Tax Reduction"
+        assert_rendered_outcome text: "Check if you’re eligible for Council Tax Reduction"
+      end
+    end
+
+    should "render Rate Relief when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Rate Relief"
+      assert_rendered_outcome text: "Check if you’re eligible for Rate Relief on the nidirect website"
+    end
+
+    should "render Child Benefit when eligible" do
+      add_responses children_living_with_you: "yes"
+
+      assert_rendered_outcome text: "Child Benefit"
+      assert_rendered_outcome text: "Check if you’re eligible for Child Benefit"
+    end
+
+    should "render Free TV Licence when eligible" do
+      add_responses over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Get a free or discounted TV licence"
+      assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+    end
+
+    should "render Budgeting Loan when eligible" do
+      %w[england scotland wales].each do |country|
+        add_responses where_do_you_live: country
+
+        assert_rendered_outcome text: "Budgeting Loan"
+        assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan"
+      end
+    end
+
+    should "render Social Fund Budgeting Loan when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Social Fund Budgeting Loan"
+      assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
+    end
+
+    should "render NHS Low Income Scheme when eligible" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      assets_and_savings: "under_16000"
+
+        assert_rendered_outcome text: "NHS Low Income Scheme"
+        assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the NHS website"
+      end
+    end
+
+    should "render Help With Health Costs Loan when eligible" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "Help With Health Costs"
+      assert_rendered_outcome text: "Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website"
+    end
+
+    should "render NHS Low Income Scheme (Northern Ireland) when eligible" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "NHS Low Income Scheme"
+      assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the nidirect website"
+    end
   end
 end
