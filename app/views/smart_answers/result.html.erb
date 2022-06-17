@@ -15,26 +15,28 @@
       context_inside: true,
     } %>
 
-    <div class="govuk-!-margin-bottom-6" data-module="track-results" data-flow-name="<%= @name %>">
-      <% if outcome.title.present? %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: outcome.title,
-          margin_bottom: 6
-        } %>
-      <% end %>
-
-      <%= outcome.body %>
-    </div>
-
-    <% if outcome.next_steps.present? %>
+    <div data-module="track-results" data-flow-name="<%= @name %>">
       <div class="govuk-!-margin-bottom-6">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Next steps",
-          margin_bottom: 6
-        } %>
-        <%= outcome.next_steps %>
+        <% if outcome.title.present? %>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: outcome.title,
+            margin_bottom: 6
+          } %>
+        <% end %>
+
+        <%= outcome.body %>
       </div>
-    <% end %>
+
+      <% if outcome.next_steps.present? %>
+        <div class="govuk-!-margin-bottom-6">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: "Next steps",
+            margin_bottom: 6
+          } %>
+          <%= outcome.next_steps %>
+        </div>
+      <% end %>
+    </div>
 
     <%= render 'smart_answers/shared/previous_answers' %>
   </div>
