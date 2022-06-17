@@ -1,11 +1,11 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-class CheckBenefitsSupportFlowTest < ActiveSupport::TestCase
+class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    testing_flow CheckBenefitsSupportFlow
+    testing_flow CheckBenefitsFinancialSupportFlow
   end
 
   should "render a start page" do

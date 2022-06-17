@@ -1,8 +1,8 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class CheckBenefitsSupportCalculatorTest < ActiveSupport::TestCase
-    context CheckBenefitsSupportCalculator do
+  class CheckBenefitsFinancialSupportCalculatorTest < ActiveSupport::TestCase
+    context CheckBenefitsFinancialSupportCalculator do
       context "#benefits_for_outcome" do
         should "return array of eligible and non-conditional benefits" do
           stubbed_benefit_data = {
@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
           ]
 
           YAML.stubs(:load_file).returns(stubbed_benefit_data)
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           calculator.stubs(:eligible_for_employment_and_support_allowance?).returns(true)
           calculator.stubs(:eligible_for_jobseekers_allowance?).returns(false)
 
@@ -30,9 +30,9 @@ module SmartAnswer::Calculators
       context "#number_of_benefits" do
         should "return the number of benefits for outcome" do
           number_of_results = rand(1..10)
-          CheckBenefitsSupportCalculator.any_instance
+          CheckBenefitsFinancialSupportCalculator.any_instance
             .stubs(:benefits_for_outcome).returns(Array.new(number_of_results, {}))
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           assert_equal calculator.number_of_benefits, number_of_results
         end
       end
@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is not NI, under state pension age, working under 16 hours, with a health issue that affects work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is NI" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "yes"
@@ -70,7 +70,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, under state pension age, working under 16 hours, with a health condition that DOES NOT affect work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -84,7 +84,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, OVER state pension age, working under 16 hours, with a health condition that affects work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -98,7 +98,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, under state pension age, working under 16 hours, WITHOUT a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -111,7 +111,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, under state pension age, working over 16 hours, with a health issue that affects work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.are_you_working = "yes_over_16_hours_per_week"
@@ -128,7 +128,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_employment_and_support_allowance_northern_ireland?" do
         context "when eligible" do
           should "be true if country is NI, under state pension age, working under 16 hours, with a health issue that affects work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -145,7 +145,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not NI" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -160,7 +160,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age, working under 16 hours per week, with a health condition that DOES NOT affect work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -172,7 +172,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age, working OVER 16 hours per week, with a health condition that affects work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.are_you_working = "yes_over_16_hours_per_week"
@@ -184,7 +184,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, OVER state pension age, working under 16 hours, with a health condition that affects work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -196,7 +196,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age, WITHOUT a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -211,7 +211,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_jobseekers_allowance?" do
         context "when eligible" do
           should "be true if country is not NI, under pension age, working under 16 hours" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
@@ -223,7 +223,7 @@ module SmartAnswer::Calculators
           end
 
           should "be true if country is not NI, under pension age, working under 16 hours and a health condition does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
@@ -240,7 +240,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is NI, under pension age, working under 16 hours" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -250,7 +250,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under pension age, working under 16 hours and a health condition does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -264,7 +264,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is not NI, OVER state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
@@ -279,7 +279,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is not NI, under state pension age and working OVER 16 hours" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
@@ -292,7 +292,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is not NI, under state pension age, working under 16 hours, and with a health condition that prevents work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
@@ -309,7 +309,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_jobseekers_allowance_northern_ireland?" do
         context "when eligible" do
           should "be true if country is NI, under state pension age, working under 16 hours, and a health condition that does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -324,7 +324,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is NI, OVER state pension age, working under 16 hours, and a health condition that does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -337,7 +337,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age, working OVER 16 hours, and a health condition that does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.are_you_working = "yes_over_16_hours_per_week"
@@ -348,7 +348,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age, working under 16 hours, and a health condition that prevents work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -360,7 +360,7 @@ module SmartAnswer::Calculators
 
           should "be false if the country is not NI" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               %w[no yes_under_16_hours_per_week].each do |working_hours|
@@ -379,7 +379,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is not NI and over state pension age" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               assert calculator.eligible_for_pension_credit?
@@ -390,7 +390,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not NI and UNDER state pension age" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               assert_not calculator.eligible_for_pension_credit?
@@ -398,7 +398,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI " do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             assert_not calculator.eligible_for_pension_credit?
@@ -409,7 +409,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_pension_credit_northern_ireland?" do
         context "when eligible" do
           should "be true if country is NI and over state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             assert calculator.eligible_for_pension_credit_northern_ireland?
@@ -418,7 +418,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is NI and UNDER state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             assert_not calculator.eligible_for_pension_credit_northern_ireland?
@@ -426,7 +426,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               assert_not calculator.eligible_for_pension_credit_northern_ireland?
@@ -439,7 +439,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "return true if country is not NI, with a health condition that does not prevent work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.disability_or_health_condition = "yes"
               %w[no yes_limits_work].each do |affecting_work|
@@ -452,7 +452,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "return false if country is NI" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.disability_or_health_condition = "yes"
             %w[no yes_limits_work].each do |affecting_work|
@@ -463,7 +463,7 @@ module SmartAnswer::Calculators
 
           should "return false if country is not NI, without a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.disability_or_health_condition = "no"
               assert_not calculator.eligible_for_access_to_work?
@@ -472,7 +472,7 @@ module SmartAnswer::Calculators
 
           should "return false if country is not NI, with a health condition that DOES prevent work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.disability_or_health_condition = "yes"
               calculator.disability_affecting_work = "yes_unable_to_work"
@@ -485,7 +485,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_access_to_work_northern_ireland?" do
         context "when eligible" do
           should "be true if country is NI, with healh condition that does not prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.disability_or_health_condition = "yes"
             %w[no yes_limits_work].each do |affecting_work|
@@ -498,7 +498,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if the country is not NI, with health condition that does not prevent work" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.disability_or_health_condition = "yes"
               %w[no yes_limits_work].each do |affecting_work|
@@ -509,14 +509,14 @@ module SmartAnswer::Calculators
           end
 
           should "return false if country is NI, without a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_access_to_work_northern_ireland?
           end
 
           should "return false if country is NI, with a health condition that DOES prevent work" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.disability_or_health_condition = "yes"
             calculator.disability_affecting_work = "yes_unable_to_work"
@@ -529,7 +529,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is not NI, under state pension age with under 16000 assets" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.assets_and_savings = "under_16000"
@@ -541,7 +541,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is NI, under state pension age with under 16000 in assets" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "over_16000"
@@ -551,7 +551,7 @@ module SmartAnswer::Calculators
 
         should "be false if country is not NI, OVER state pension age with under 16000 in assets" do
           %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "yes"
             calculator.assets_and_savings = "under_16000"
@@ -561,7 +561,7 @@ module SmartAnswer::Calculators
 
         should "be false if country is not NI, under state pension age with OVER 16000 in assets" do
           %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "over_16000"
@@ -573,7 +573,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_universal_credit_ni?" do
         context "when eligible" do
           should "be true if country is NI, under state pension and under 16000 assets" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "under_16000"
@@ -584,7 +584,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country in not NI, under state pension age and under 16000 assets" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.assets_and_savings = "over_16000"
@@ -593,7 +593,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, over state pension age and under 16000 assets" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             calculator.assets_and_savings = "under_16000"
@@ -601,7 +601,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age and over 16000 assets" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "over_16000"
@@ -614,7 +614,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is England or Wales and over state pension age" do
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               assert calculator.eligible_for_housing_benefit?
@@ -624,9 +624,9 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is England or Wales and UNDER state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               assert_not calculator.eligible_for_housing_benefit?
@@ -634,9 +634,9 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is not England or Wales" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               %w[yes no].each do |pension_age|
                 calculator.over_state_pension_age = pension_age
@@ -650,7 +650,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_housing_benefit_scotland?" do
         context "when eligible" do
           should "be true if country is Scotland and over state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             calculator.over_state_pension_age = "yes"
             assert calculator.eligible_for_housing_benefit_scotland?
@@ -660,7 +660,7 @@ module SmartAnswer::Calculators
         context "when false" do
           should "be false if country is not Scotland" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               assert_not calculator.eligible_for_housing_benefit_scotland?
@@ -668,7 +668,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Scotland and under state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             calculator.over_state_pension_age = "no"
             assert_not calculator.eligible_for_housing_benefit_scotland?
@@ -679,7 +679,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_housing_benefit_northern_ireland?" do
         context "when eligible" do
           should "be true if country is Northern Ireland and over state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             assert calculator.eligible_for_housing_benefit_northern_ireland?
@@ -689,7 +689,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not Northern Ireland" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "yes"
               assert_not calculator.eligible_for_housing_benefit_northern_ireland?
@@ -697,7 +697,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Northern Ireland and under state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             assert_not calculator.eligible_for_housing_benefit_northern_ireland?
@@ -708,7 +708,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_tax_free_childcare?" do
         context "when eligible" do
           should "be true if working, with children between 1 and 11" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -720,7 +720,7 @@ module SmartAnswer::Calculators
           end
 
           should "be true if working, with a disabled child and children between 1 and 17" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -735,7 +735,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if not working with children between 1 and 11" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.are_you_working = "no"
             %w[1_or_under 2 3_to_4 5_to_11].each do |age|
               calculator.age_of_children = age
@@ -744,7 +744,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if working with children aged between 12 and 19" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -756,7 +756,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if working without children" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "no"
@@ -765,7 +765,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if working with a disabled child and children aged 18 to 19" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -781,7 +781,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is England or Wales, with a child aged 2" do
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.age_of_children = "2"
@@ -793,7 +793,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is England or Wales with a child that is not 2" do
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.age_of_children = "1,3_to_4"
@@ -803,7 +803,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is Scotland or Northern Ireland with a child aged 2" do
             %w[scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.age_of_children = "2"
               assert_not calculator.eligible_for_free_childcare_2yr_olds?
@@ -815,7 +815,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_childcare_3_4yr_olds_wales??" do
         context "when eligible" do
           should "be true if country is Wales, working over 16 hours with child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "wales"
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
@@ -827,7 +827,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not Wales, working over 16 hours with child aged 3 to 4" do
             %w[england scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.are_you_working = "yes_over_16_hours_per_week"
               calculator.children_living_with_you = "yes"
@@ -837,7 +837,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Wales working under 16 hours with child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "wales"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
@@ -848,7 +848,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Wales working over 16 hours without child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "wales"
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
@@ -861,7 +861,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_15hrs_free_childcare_3_4yr_olds?" do
         context "when eligible" do
           should "be true if country is England, with child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,3_to_4"
@@ -872,7 +872,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not England with child aged 3 to 4" do
             %w[scotland wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.age_of_children = "1,3_to_4"
@@ -881,14 +881,14 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is England without children" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "no"
             assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
           end
 
           should "be false if country is England with child not aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,5_to_11"
@@ -900,7 +900,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_30hrs_free_childcare_3_4yrs?" do
         context "when eligible" do
           should "be true if country is England, working, with child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
@@ -913,7 +913,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is England, working, with child not aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
@@ -924,7 +924,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is England, not working, with child aged 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "england"
             calculator.are_you_working = "no"
             calculator.children_living_with_you = "yes"
@@ -934,7 +934,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not England, working, with child aged 3 to 4" do
             %w[wales northern-ireland scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
                 calculator.are_you_working = working_hours
@@ -950,7 +950,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_funded_early_learning_and_childcare?" do
         context "when eligible" do
           should "be true if country is Scotland, with child aged 2 or 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             %w[2 3_to_4].each do |age|
@@ -962,7 +962,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is Scotland, with child not aged 2 or 3 to 4" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "5_to_11"
@@ -971,7 +971,7 @@ module SmartAnswer::Calculators
 
           should "be false is country is not Scotland with child aged 2 or 3 to 4" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               %w[2 3_to_4].each do |age|
@@ -986,7 +986,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_child_benefit?" do
         context "when eligible" do
           should "be true if living with child" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
             assert calculator.eligible_for_child_benefit?
           end
@@ -994,7 +994,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if not living with child" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "no"
             assert_not calculator.eligible_for_child_benefit?
           end
@@ -1005,7 +1005,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is not Scotland, living with child with disability aged under 15" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.children_with_disability = "yes"
@@ -1019,7 +1019,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is Scotland, living with child with disability aged under 15" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             calculator.children_with_disability = "yes"
@@ -1031,7 +1031,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not Scotland, living with child with disability aged 18 to 19" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.children_with_disability = "yes"
@@ -1042,7 +1042,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not Scotland, living with child WITHOUT disability aged under 15" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.children_living_with_you = "yes"
               calculator.children_with_disability = "no"
@@ -1057,7 +1057,7 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_child_disability_payment_scotland?" do
         should "return true if eligible for Child Disability Payment Scotland" do
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           calculator.where_do_you_live = "scotland"
           calculator.children_living_with_you = "yes"
           calculator.children_with_disability = "yes"
@@ -1068,7 +1068,7 @@ module SmartAnswer::Calculators
         end
 
         should "return false if not eligible for Child Disability Payment Scotland" do
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           calculator.where_do_you_live = "wales"
           calculator.children_living_with_you = "yes"
           calculator.age_of_children = "1_or_under"
@@ -1085,13 +1085,13 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_carers_allowance?" do
         should "return true if eligible for Carer's Allowance" do
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           calculator.carer_disability_or_health_condition = "yes"
           assert calculator.eligible_for_carers_allowance?
         end
 
         should "return false if not eligible for Carer's Allowance" do
-          calculator = CheckBenefitsSupportCalculator.new
+          calculator = CheckBenefitsFinancialSupportCalculator.new
           calculator.carer_disability_or_health_condition = "no"
           assert_not calculator.eligible_for_carers_allowance?
         end
@@ -1101,7 +1101,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is not NI, under state pension age, without health condition and with child aged 16 to 19 with a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.disability_or_health_condition = "no"
@@ -1116,7 +1116,7 @@ module SmartAnswer::Calculators
 
           should "be true if country is not NI, under state pension age and with a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.disability_or_health_condition = "yes"
@@ -1127,7 +1127,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if county is NI, under state pension age, without health condition and with child aged 16 to 19" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1139,7 +1139,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is NI, under state pension age and with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "yes"
@@ -1149,7 +1149,7 @@ module SmartAnswer::Calculators
 
         should "be false if country is not NI, OVER state pension age, without health condition and with child aged 16 to 19" do
           %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "yes"
             calculator.disability_or_health_condition = "no"
@@ -1163,7 +1163,7 @@ module SmartAnswer::Calculators
 
         should "be false if country is not NI, under state pension age, without health condition and with child aged 16 to 19 without a health condition" do
           %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1178,7 +1178,7 @@ module SmartAnswer::Calculators
 
         should "be false if country is not NI, under state pension age, without health condition and with child not aged 16 to 19" do
           %w[england wales scotland].each do |country|
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = country
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1192,7 +1192,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_personal_independence_payment_northern_ireland?" do
         context "when eligible" do
           should "be true if country is Northern Ireland, under state pension age, no health condition and a child aged 16 to 19 with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1205,7 +1205,7 @@ module SmartAnswer::Calculators
           end
 
           should "be true if country is Northern Ireland, under state pension age, with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "yes"
@@ -1215,7 +1215,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is Northern Ireland, under state pension age, no health condition and a child not aged 16 to 19" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1225,7 +1225,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Northern Ireland, OVER state pension age, no health condition and a child aged 16 to 19 wth a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             calculator.disability_or_health_condition = "no"
@@ -1239,7 +1239,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Northern Ireland, under state pension age, without a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
@@ -1247,7 +1247,7 @@ module SmartAnswer::Calculators
           end
 
           should "be false if country is Northern Ireland, over state pension age, with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "yes"
             calculator.disability_or_health_condition = "yes"
@@ -1256,7 +1256,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, under state pension age, no health condition and a child aged 16 to 19 with a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.disability_or_health_condition = "no"
@@ -1271,7 +1271,7 @@ module SmartAnswer::Calculators
 
           should "be false if country is not NI, under state pension age and with a health condition" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.over_state_pension_age = "no"
               calculator.disability_or_health_condition = "yes"
@@ -1284,7 +1284,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_attendance_allowance?" do
         context "when eligible" do
           should "be true if over state pension age with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
             calculator.disability_or_health_condition = "yes"
             assert calculator.eligible_for_attendance_allowance?
@@ -1293,21 +1293,21 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if over state pension age WITHOUT a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
             calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_attendance_allowance?
           end
 
           should "be false if UNDER state pension age with a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "yes"
             assert_not calculator.eligible_for_attendance_allowance?
           end
 
           should "be false if UNDER state pension age WIHTOUT a health condition" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_attendance_allowance?
@@ -1318,7 +1318,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_council_tax_reduction?" do
         context "when eligible" do
           should "be true if country is not Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               assert calculator.eligible_for_council_tax_reduction?
@@ -1327,7 +1327,7 @@ module SmartAnswer::Calculators
 
           context "ineligible" do
             should "be false if country is Northern Ireland" do
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = "northern-ireland"
               assert_not calculator.eligible_for_council_tax_reduction?
             end
@@ -1338,7 +1338,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_rate_relief?" do
         context "when eligible" do
           should "be true if country is Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             assert calculator.eligible_for_rate_relief?
           end
@@ -1346,7 +1346,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is not Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               assert_not calculator.eligible_for_rate_relief?
@@ -1358,7 +1358,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_free_tv_licence?" do
         context "when eligible" do
           should "be true if over state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
             assert calculator.eligible_for_free_tv_licence?
           end
@@ -1366,7 +1366,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if under state pension age" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
             assert_not calculator.eligible_for_free_tv_licence?
           end
@@ -1376,7 +1376,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_budgeting_loan?" do
         context "when eligible" do
           should "be true if country is not Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               assert calculator.eligible_for_budgeting_loan?
@@ -1386,7 +1386,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             assert_not calculator.eligible_for_budgeting_loan?
           end
@@ -1396,7 +1396,7 @@ module SmartAnswer::Calculators
       context "#social_fund_budgeting_loan?" do
         context "when eligible" do
           should "be true if country is Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             assert calculator.eligible_for_social_fund_budgeting_loan?
           end
@@ -1404,7 +1404,7 @@ module SmartAnswer::Calculators
 
         context "when ineligible" do
           should "be false if country is not Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[england wales scotland].each do |country|
               calculator.where_do_you_live = country
               assert_not calculator.eligible_for_social_fund_budgeting_loan?
@@ -1417,7 +1417,7 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is England or Wales with under 16000 assets" do
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.assets_and_savings = "under_16000"
               assert calculator.eligible_for_nhs_low_income_scheme?
@@ -1428,7 +1428,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is England or Wales with OVER 1600 assets" do
             %w[england wales].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               calculator.assets_and_savings = "over_16000"
               assert_not calculator.eligible_for_nhs_low_income_scheme?
@@ -1437,7 +1437,7 @@ module SmartAnswer::Calculators
 
           should "be false country is not England or Wales with assets above OR below 16000" do
             %w[scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               %w[under_16000 over_16000].each do |assets|
                 calculator.assets_and_savings = assets
@@ -1451,7 +1451,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_help_with_health_costs?" do
         context "when eligible" do
           should "be true if country is Scotland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "scotland"
             assert calculator.eligible_for_help_with_health_costs?
           end
@@ -1460,7 +1460,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not Scotland" do
             %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               assert_not calculator.eligible_for_help_with_health_costs?
             end
@@ -1471,7 +1471,7 @@ module SmartAnswer::Calculators
       context "#eligible_for_nhs_low_income_scheme_northern_ireland?" do
         context "when eligible" do
           should "be true if country is Northern Ireland" do
-            calculator = CheckBenefitsSupportCalculator.new
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.where_do_you_live = "northern-ireland"
             assert calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
           end
@@ -1480,7 +1480,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if country is not Northern Ireland" do
             %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsSupportCalculator.new
+              calculator = CheckBenefitsFinancialSupportCalculator.new
               calculator.where_do_you_live = country
               assert_not calculator.eligible_for_nhs_low_income_scheme_northern_ireland?
             end

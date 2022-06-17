@@ -1,4 +1,4 @@
-class CheckBenefitsSupportFlow < SmartAnswer::Flow
+class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
   def define
     name "check-benefits-financial-support"
     content_id "2de3ab4d-e2af-4803-b2e4-9972da293b00"
@@ -11,7 +11,7 @@ class CheckBenefitsSupportFlow < SmartAnswer::Flow
       option :"northern-ireland"
 
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CheckBenefitsSupportCalculator.new
+        self.calculator = SmartAnswer::Calculators::CheckBenefitsFinancialSupportCalculator.new
         calculator.where_do_you_live = response
       end
 
