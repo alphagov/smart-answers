@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class CheckBenefitsSupportCalculator
+  class CheckBenefitsFinancialSupportCalculator
     attr_accessor :where_do_you_live,
                   :over_state_pension_age,
                   :are_you_working,
@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
                   :assets_and_savings
 
     def benefit_data
-      @benefit_data ||= YAML.load_file(Rails.root.join("config/smart_answers/check_benefits_support_data.yml")).freeze
+      @benefit_data ||= YAML.load_file(Rails.root.join("config/smart_answers/check_benefits_financial_support_data.yml")).freeze
     end
 
     def benefits_for_outcome
