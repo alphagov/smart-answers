@@ -16,9 +16,9 @@
 }
 
 .app-c-result-item--highlighted {
-  @include govuk-responsive-margin(6, 'bottom');
-  background-color: govuk-colour('light-grey');
-  border-left: 5px solid govuk-colour('blue');
+  @include govuk-responsive-margin(6, "bottom");
+  background-color: govuk-colour("light-grey");
+  border-left: 5px solid govuk-colour("blue");
   padding: govuk-spacing(3);
 
   &:first-child {

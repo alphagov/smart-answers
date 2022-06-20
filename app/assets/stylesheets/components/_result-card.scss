@@ -11,7 +11,7 @@
     left: -1px;
     right: -1px;
     height: 5px;
-    background: govuk-colour('blue');
+    background: govuk-colour("blue");
   }
 
   @include govuk-media-query($from: tablet) {
