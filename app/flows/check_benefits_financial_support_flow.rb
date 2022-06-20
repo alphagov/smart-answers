@@ -2,7 +2,7 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
   def define
     name "check-benefits-financial-support"
     content_id "2de3ab4d-e2af-4803-b2e4-9972da293b00"
-    status :draft
+    status :published
 
     radio :where_do_you_live do
       option :england
