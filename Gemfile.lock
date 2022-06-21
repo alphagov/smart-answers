@@ -124,7 +124,7 @@ GEM
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
     ffi (1.15.5)
-    gds-api-adapters (79.2.0)
+    gds-api-adapters (80.0.0)
       addressable
       link_header
       null_logger
@@ -175,7 +175,7 @@ GEM
     hashie (5.0.0)
     htmlentities (4.3.4)
     http-accept (1.7.0)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     httparty (0.20.0)
       mime-types (~> 3.0)
@@ -396,7 +396,7 @@ GEM
     uk_postcode (2.1.7)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.1)
+    unf_ext (0.0.8.2)
     unicode-display_width (2.1.0)
     unicorn (6.1.0)
       kgio (~> 2.6)
