@@ -1,5 +1,5 @@
 ARG ruby_version=2.7.6
-ARG base_image=ruby:$ruby_version-slim-buster
+ARG base_image=ruby:$ruby_version-slim
 
 FROM $base_image AS builder
 
