@@ -3,6 +3,18 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class ArrestedAbroadCalculatorTest < ActiveSupport::TestCase
     context ArrestedAbroad do
+      context "#english_speaking?" do
+        should "return true for english speaking countries" do
+          calculator = ArrestedAbroad.new("usa")
+          assert calculator.english_speaking?
+        end
+
+        should "return false for non-english speaking countries" do
+          calculator = ArrestedAbroad.new("italy")
+          assert_not calculator.english_speaking?
+        end
+      end
+
       context "generating a URL" do
         should "not error if the country doesn't exist" do
           assert_nothing_raised do

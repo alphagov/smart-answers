@@ -45,8 +45,10 @@
     <%= calculator.prison %>
     <%= calculator.police %>
     <%= calculator.consul %>
-    <%= calculator.lawyer %>
-    <%= calculator.translator_interpreter %>
+    <% unless calculator.english_speaking? %>
+      <%= calculator.lawyer %>
+      <%= calculator.translator_interpreter %>
+    <% end %>
   <% end %>
 
   <% if calculator.country_name == "Iran" %>
