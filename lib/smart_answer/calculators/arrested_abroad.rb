@@ -16,6 +16,40 @@ module SmartAnswer::Calculators
                                           malta
                                           netherlands
                                           slovakia].freeze
+    ENGLISH_SPEAKING_COUNTRIES = %w[antigua-and-barbuda
+                                    australia
+                                    bahamas
+                                    barbados
+                                    belize
+                                    botswana
+                                    brunei
+                                    canada
+                                    dominica
+                                    fiji
+                                    the-gambia
+                                    ghana
+                                    grenada
+                                    ireland
+                                    jamaica
+                                    kenya
+                                    malawi
+                                    maldives
+                                    malta
+                                    mauritius
+                                    new-zealand
+                                    nigeria
+                                    papua-new-guinea
+                                    seychelles
+                                    sierra-leone
+                                    solomon-islands
+                                    sri-lanka
+                                    st-kitts-and-nevis
+                                    st-vincent-and-the-grenadines
+                                    trinidad-and-tobago
+                                    uganda
+                                    usa
+                                    zambia
+                                    zimbabwe].freeze
 
     def initialize(country)
       @country = country
@@ -56,6 +90,10 @@ module SmartAnswer::Calculators
 
     def country_name
       location.name
+    end
+
+    def english_speaking?
+      ENGLISH_SPEAKING_COUNTRIES.include?(country)
     end
 
     def pdf
