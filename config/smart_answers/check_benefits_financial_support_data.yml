@@ -18,7 +18,7 @@
       title: New Style Jobseeker's Allowance (JSA)
       description: You could apply for 'new style' Jobseeker’s Allowance (JSA) to help you when you’re looking for work.
       condition: eligible_for_jobseekers_allowance?
-      url: /jobseekers-allowance/eligiblity
+      url: /jobseekers-allowance/eligibility
       url_text: Check if you’re eligible for New Style Jobseeker’s Allowance
       group: Supporting your income
     - name: jobseekers_allowance_northern_ireland
@@ -141,7 +141,7 @@
       title: Carer’s Allowance
       description: You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.
       condition: eligible_for_carers_allowance?
-      url: /carers-allowance/eligiblity
+      url: /carers-allowance/eligibility
       url_text: Check if you’re eligible for Carer’s Allowance
       group: Supporting your income
     - name: disability_living_allowance_for_children
@@ -162,7 +162,7 @@
       title: Personal Independence Payment (PIP)
       description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
       condition: eligible_for_personal_independence_payment?
-      url: /pip/eligiblity
+      url: /pip/eligibility
       url_text: Check if you’re eligible for Personal Independence Payment
       group: Supporting your income
     - name: personal_independence_payment_northern_ireland
