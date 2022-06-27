@@ -4,6 +4,8 @@ class FlowController < ApplicationController
   before_action :set_cache_headers
   before_action :redirect_path_based_flows, except: :landing
 
+  rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
+
   def landing
     @presenter = FlowPresenter.new(flow, nil)
     @title = @presenter.title

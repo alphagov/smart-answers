@@ -35,6 +35,11 @@ class FlowControllerTest < ActionController::TestCase
         end
       end
     end
+
+    should "respond 404 if flow isn't found" do
+      get :landing, params: { id: "non-existent-flow" }
+      assert_response :missing
+    end
   end
 
   context "GET /<id>/start" do
