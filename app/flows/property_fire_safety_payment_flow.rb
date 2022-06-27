@@ -18,8 +18,22 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     radio :own_freehold? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "no"
+          question :own_more_than_3_properties?
+        else
+          outcome :have_to_pay
+        end
+      end
+    end
+
+    radio :own_more_than_3_properties? do
     end
 
     outcome :unlikely_to_need_fixing
+    outcome :have_to_pay
   end
 end

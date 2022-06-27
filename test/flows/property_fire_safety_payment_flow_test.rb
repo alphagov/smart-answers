@@ -30,6 +30,26 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: own_freehold?" do
+    setup do
+      testing_node :own_freehold?
+      add_responses building_over_11_metres?: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of own_more_than_3_properties? if no" do
+        assert_next_node :own_more_than_3_properties?, for_response: "no"
+      end
+
+      should "have an outcome of have_to_pay if yes" do
+        assert_next_node :have_to_pay, for_response: "yes"
+      end
+    end
+  end
 
   context "outcomes" do
     context "when building is under 11 metres" do
@@ -40,6 +60,18 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
 
       should "render outcome text" do
         assert_rendered_outcome text: "Your building is unlikely to need fixing"
+      end
+    end
+
+    context "when building is over 11 metres and user owns freehold" do
+      setup do
+        testing_node :have_to_pay
+        add_responses building_over_11_metres?: "yes",
+                      own_freehold?: "yes"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "You have to pay"
       end
     end
   end
