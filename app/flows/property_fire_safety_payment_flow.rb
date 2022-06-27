@@ -31,6 +31,22 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     radio :own_more_than_3_properties? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "yes"
+          question :main_home_february_2022?
+        else
+          question :year_of_purchase?
+        end
+      end
+    end
+
+    radio :main_home_february_2022? do
+    end
+
+    value_question :year_of_purchase?, parse: Integer do
     end
 
     outcome :unlikely_to_need_fixing

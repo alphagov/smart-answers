@@ -51,6 +51,28 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: own_more_than_3_properties?" do
+    setup do
+      testing_node :own_more_than_3_properties?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of main_home_february_2022? if yes" do
+        assert_next_node :main_home_february_2022?, for_response: "yes"
+      end
+
+      should "have a next node of year_of_purchase? if no" do
+        assert_next_node :year_of_purchase?, for_response: "no"
+      end
+    end
+  end
+
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
