@@ -73,6 +73,29 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: main_home_february_2022?" do
+    setup do
+      testing_node :main_home_february_2022?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no",
+                    own_more_than_3_properties?: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of year_of_purchase? if yes" do
+        assert_next_node :year_of_purchase?, for_response: "yes"
+      end
+
+      should "have an outcome of have_to_pay if no" do
+        assert_next_node :have_to_pay, for_response: "no"
+      end
+    end
+  end
+
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
@@ -90,6 +113,20 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         testing_node :have_to_pay
         add_responses building_over_11_metres?: "yes",
                       own_freehold?: "yes"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "You have to pay"
+      end
+    end
+
+    context "when building is over 11 metres, user doesn't own freehold, user has over 3 propeties and wasn't main home in Feb 2022" do
+      setup do
+        testing_node :have_to_pay
+        add_responses building_over_11_metres?: "yes",
+                      own_freehold?: "yes",
+                      own_more_than_3_properties?: "yes",
+                      main_home_february_2022?: "no"
       end
 
       should "render outcome text" do

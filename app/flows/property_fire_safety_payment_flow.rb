@@ -44,6 +44,16 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     radio :main_home_february_2022? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "yes"
+          question :year_of_purchase?
+        else
+          outcome :have_to_pay
+        end
+      end
     end
 
     value_question :year_of_purchase?, parse: Integer do
