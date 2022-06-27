@@ -57,6 +57,21 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     value_question :year_of_purchase?, parse: Integer do
+      on_response do |response|
+        self.calculator = SmartAnswer::Calculators::PropertyFireSafetyPaymentCalculator.new
+        calculator.year_of_purchase = response.to_i
+      end
+
+      validate(:valid_year_of_purchase?) do
+        calculator.valid_year_of_purchase?
+      end
+
+      next_node do
+        question :value_of_property?
+      end
+    end
+
+    money_question :value_of_property? do
     end
 
     outcome :unlikely_to_need_fixing

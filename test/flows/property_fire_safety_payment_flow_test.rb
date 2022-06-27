@@ -96,6 +96,30 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: year_of_purchase?" do
+    setup do
+      testing_node :year_of_purchase?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no",
+                    own_more_than_3_properties?: "yes",
+                    main_home_february_2022?: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of value_of_property if year between 1945 and 2022 given" do
+        assert_next_node :value_of_property?, for_response: "2019"
+      end
+
+      should "have an invalid response if year outside 1945 - 2022 given" do
+        assert_invalid_response("2023")
+      end
+    end
+  end
+
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
