@@ -7,4 +7,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow PropertyFireSafetyPaymentFlow
   end
+
+  should "render a start page" do
+    assert_rendered_start_page
+  end
 end
