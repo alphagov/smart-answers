@@ -35,30 +35,13 @@ module SmartAnswer::Calculators
 
     def leaseholder_costs
       if uprated_value_of_property.between?(OUTSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "no"
-        if @shared_ownership == "yes"
-          @percentage_owned * TEN_THOUSAND
-        else
-          TEN_THOUSAND
-        end
+        shared_ownership_costs(TEN_THOUSAND)
       elsif uprated_value_of_property.between?(INSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "yes"
-        if @shared_ownership == "yes"
-          @percentage_owned * FIFTEEN_THOUSAND
-        else
-          FIFTEEN_THOUSAND
-        end
+        shared_ownership_costs(FIFTEEN_THOUSAND)
       elsif uprated_value_of_property >= TWO_MILLION
-        if @shared_ownership == "yes"
-          @percentage_owned * ONE_HUNDRED_THOUSAND
-        else
-          ONE_HUNDRED_THOUSAND
-        end
-      else
-        uprated_value_of_property >= ONE_MILLION
-        if @shared_ownership == "yes"
-          @percentage_owned * FIFTY_THOUSAND
-        else
-          FIFTY_THOUSAND
-        end
+        shared_ownership_costs(ONE_HUNDRED_THOUSAND)
+      elsif uprated_value_of_property >= ONE_MILLION
+        shared_ownership_costs(FIFTY_THOUSAND)
       end
     end
 
@@ -74,6 +57,10 @@ module SmartAnswer::Calculators
 
     def under_valuation_limit_living_outside_london
       uprated_value_of_property <= INSIDE_LONDON_VALUATION_LIMIT && live_in_london == "yes"
+    end
+
+    def shared_ownership_costs(basic_cost)
+      @shared_ownership == "yes" ? @percentage_owned * basic_cost : basic_cost
     end
   end
 end
