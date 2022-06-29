@@ -108,6 +108,23 @@ module SmartAnswer::Calculators
           assert_equal @calculator.leaseholder_costs, 7_500
         end
       end
+
+      context "uprated value is over one million" do
+        setup do
+          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::ONE_MILLION)
+        end
+
+        should "return fifteen thousand if not shared ownership" do
+          @calculator.shared_ownership = "no"
+          assert_equal @calculator.leaseholder_costs, 50_000
+        end
+
+        should "return percentage owned multipled by fifteen thousand if shared ownership" do
+          @calculator.shared_ownership = "yes"
+          @calculator.percentage_owned = 0.50
+          assert_equal @calculator.leaseholder_costs, 25_000
+        end
+      end
     end
   end
 end

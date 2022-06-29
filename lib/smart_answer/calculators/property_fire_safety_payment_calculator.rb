@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
     ONE_MILLION = 1_000_000
     TEN_THOUSAND = 10_000
     FIFTEEN_THOUSAND = 15_000
+    FIFTY_THOUSAND = 50_000
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
@@ -42,6 +43,12 @@ module SmartAnswer::Calculators
           @percentage_owned * FIFTEEN_THOUSAND
         else
           FIFTEEN_THOUSAND
+        end
+      elsif uprated_value_of_property >= ONE_MILLION
+        if @shared_ownership == "yes"
+          @percentage_owned * FIFTY_THOUSAND
+        else
+          FIFTY_THOUSAND
         end
       end
     end
