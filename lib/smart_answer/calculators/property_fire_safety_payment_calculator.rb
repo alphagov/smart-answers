@@ -10,6 +10,8 @@ module SmartAnswer::Calculators
     LAST_VALID_YEAR = 2022
     OUTSIDE_LONDON_VALUATION_LIMIT = 175_000
     INSIDE_LONDON_VALUATION_LIMIT = 325_000
+    ONE_MILLION = 1_000_000
+    TEN_THOUSAND = 10_000
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
@@ -25,6 +27,16 @@ module SmartAnswer::Calculators
 
     def fully_protected_from_costs?
       under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
+    end
+
+    def leaseholder_costs
+      if uprated_value_of_property.between?(OUTSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "no"
+        if @shared_ownership == "yes"
+          @percentage_owned * TEN_THOUSAND
+        else
+          TEN_THOUSAND
+        end
+      end
     end
 
   private

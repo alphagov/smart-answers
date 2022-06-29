@@ -71,5 +71,25 @@ module SmartAnswer::Calculators
         assert_not @calculator.fully_protected_from_costs?
       end
     end
+
+    context "#leaseholder_costs" do
+      context "not living in London with value between outer London limit and one million" do
+        setup do
+          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
+          @calculator.live_in_london = "no"
+        end
+
+        should "return ten thousand if not shared ownership" do
+          @calculator.shared_ownership = "no"
+          assert_equal @calculator.leaseholder_costs, 10_000
+        end
+
+        should "return percentage owned multipled by ten thousand if shared ownership" do
+          @calculator.shared_ownership = "yes"
+          @calculator.percentage_owned = 0.50
+          assert_equal @calculator.leaseholder_costs, 5_000
+        end
+      end
+    end
   end
 end
