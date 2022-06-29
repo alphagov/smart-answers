@@ -8,6 +8,8 @@ module SmartAnswer::Calculators
 
     FIRST_VALID_YEAR = 1945
     LAST_VALID_YEAR = 2022
+    OUTSIDE_LONDON_VALUATION_LIMIT = 175_000
+    INSIDE_LONDON_VALUATION_LIMIT = 325_000
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
@@ -21,10 +23,22 @@ module SmartAnswer::Calculators
       (property_uprating_values.fetch(@year_of_purchase, default_uprating_value) * @value_of_property.to_f).ceil
     end
 
+    def fully_protected_from_costs?
+      under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
+    end
+
   private
 
     def default_uprating_value
       property_uprating_values["default"]
+    end
+
+    def under_valuation_limit_living_inside_london
+      uprated_value_of_property <= OUTSIDE_LONDON_VALUATION_LIMIT && live_in_london == "no"
+    end
+
+    def under_valuation_limit_living_outside_london
+      uprated_value_of_property <= INSIDE_LONDON_VALUATION_LIMIT && live_in_london == "yes"
     end
   end
 end

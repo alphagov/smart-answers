@@ -45,5 +45,31 @@ module SmartAnswer::Calculators
         assert_equal @calculator.uprated_value_of_property, 1_000_010
       end
     end
+
+    context "#fully_protected_from_costs?" do
+      should "be true if uprated value is under outer London limit and not living in London" do
+        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.live_in_london = "no"
+        assert @calculator.fully_protected_from_costs?
+      end
+
+      should "be true if uprated value is under inner London lower limit and living in London" do
+        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.live_in_london = "yes"
+        assert @calculator.fully_protected_from_costs?
+      end
+
+      should "be false if uprated value is over 175k and not living in London" do
+        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.live_in_london = "no"
+        assert_not @calculator.fully_protected_from_costs?
+      end
+
+      should "be true if uprated value is over 325k and living in London" do
+        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.live_in_london = "yes"
+        assert_not @calculator.fully_protected_from_costs?
+      end
+    end
   end
 end
