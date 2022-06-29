@@ -82,6 +82,19 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     radio :live_in_london? do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.live_in_london = response
+      end
+
+      next_node do
+        question :shared_ownership?
+      end
+    end
+
+    radio :shared_ownership? do
     end
 
     outcome :unlikely_to_need_fixing

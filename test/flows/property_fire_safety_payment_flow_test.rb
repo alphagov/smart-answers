@@ -141,6 +141,28 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: live_in_london?" do
+    setup do
+      testing_node :live_in_london?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no",
+                    own_more_than_3_properties?: "yes",
+                    main_home_february_2022?: "yes",
+                    year_of_purchase?: "2019",
+                    value_of_property?: "100000"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of shared_ownership" do
+        assert_next_node :shared_ownership?, for_response: "yes"
+      end
+    end
+  end
+
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
