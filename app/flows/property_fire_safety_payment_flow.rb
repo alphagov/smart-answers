@@ -112,6 +112,15 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     value_question :percentage_owned?, parse: :to_f do
+      on_response do |response|
+        calculator.percentage_owned = response / 100
+      end
+
+      next_node do |response|
+        raise SmartAnswer::InvalidResponse unless response.between?(0, 100)
+
+        outcome :payment_amount
+      end
     end
 
     outcome :unlikely_to_need_fixing

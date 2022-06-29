@@ -190,6 +190,38 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: percentage_owned?" do
+    setup do
+      testing_node :percentage_owned?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no",
+                    own_more_than_3_properties?: "yes",
+                    main_home_february_2022?: "yes",
+                    year_of_purchase?: "2019",
+                    value_of_property?: "100000",
+                    live_in_london?: "yes",
+                    shared_ownership?: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have an outcome of payment_amount" do
+        assert_next_node :payment_amount, for_response: "50.4"
+      end
+
+      should "have an invalid response if percentage is over 100" do
+        assert_invalid_response("101")
+      end
+
+      should "have an invalid response if percentage is under 0" do
+        assert_invalid_response("-1")
+      end
+    end
+  end
+
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do

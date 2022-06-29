@@ -1,6 +1,10 @@
 module SmartAnswer::Calculators
   class PropertyFireSafetyPaymentCalculator
-    attr_accessor :year_of_purchase, :value_of_property, :live_in_london, :shared_ownership
+    attr_accessor :year_of_purchase,
+                  :value_of_property,
+                  :live_in_london,
+                  :shared_ownership,
+                  :percentage_owned
 
     FIRST_VALID_YEAR = 1945
     LAST_VALID_YEAR = 2022
