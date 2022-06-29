@@ -259,5 +259,42 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "You have to pay"
       end
     end
+
+    context "when a user has a level of ownership and valuation that protects them from costs" do
+      setup do
+        testing_node :payment_amount
+        add_responses building_over_11_metres?: "yes",
+                      own_freehold?: "no",
+                      own_more_than_3_properties?: "no",
+                      main_home_february_2022?: "yes",
+                      year_of_purchase?: "2019",
+                      value_of_property?: "100000",
+                      live_in_london?: "yes",
+                      shared_ownership?: "yes",
+                      percentage_owned?: "5"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "You are fully protected from costs"
+      end
+    end
+
+    context "when a user has a level of ownership and valuation that means they have to pay costs" do
+      setup do
+        testing_node :payment_amount
+        add_responses building_over_11_metres?: "yes",
+                      own_freehold?: "no",
+                      own_more_than_3_properties?: "no",
+                      main_home_february_2022?: "yes",
+                      year_of_purchase?: "2019",
+                      value_of_property?: "2000000",
+                      live_in_london?: "yes",
+                      shared_ownership?: "no"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "Leaseholder costs capped at £100,000"
+      end
+    end
   end
 end
