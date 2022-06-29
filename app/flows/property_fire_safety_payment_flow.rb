@@ -72,6 +72,16 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     money_question :value_of_property? do
+      on_response do |response|
+        calculator.value_of_property = response
+      end
+
+      next_node do
+        question :live_in_london?
+      end
+    end
+
+    radio :live_in_london? do
     end
 
     outcome :unlikely_to_need_fixing
