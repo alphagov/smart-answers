@@ -90,6 +90,24 @@ module SmartAnswer::Calculators
           assert_equal @calculator.leaseholder_costs, 5_000
         end
       end
+
+      context "living in London with value between inner London limit and one million" do
+        setup do
+          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT)
+          @calculator.live_in_london = "yes"
+        end
+
+        should "return fifteen thousand if not shared ownership" do
+          @calculator.shared_ownership = "no"
+          assert_equal @calculator.leaseholder_costs, 15_000
+        end
+
+        should "return percentage owned multipled by fifteen thousand if shared ownership" do
+          @calculator.shared_ownership = "yes"
+          @calculator.percentage_owned = 0.50
+          assert_equal @calculator.leaseholder_costs, 7_500
+        end
+      end
     end
   end
 end

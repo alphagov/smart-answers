@@ -12,6 +12,7 @@ module SmartAnswer::Calculators
     INSIDE_LONDON_VALUATION_LIMIT = 325_000
     ONE_MILLION = 1_000_000
     TEN_THOUSAND = 10_000
+    FIFTEEN_THOUSAND = 15_000
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
@@ -35,6 +36,12 @@ module SmartAnswer::Calculators
           @percentage_owned * TEN_THOUSAND
         else
           TEN_THOUSAND
+        end
+      elsif uprated_value_of_property.between?(INSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "yes"
+        if @shared_ownership == "yes"
+          @percentage_owned * FIFTEEN_THOUSAND
+        else
+          FIFTEEN_THOUSAND
         end
       end
     end
