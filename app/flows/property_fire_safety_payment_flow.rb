@@ -95,9 +95,27 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     radio :shared_ownership? do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.shared_ownership = response
+      end
+
+      next_node do |response|
+        if response == "yes"
+          question :percentage_owned?
+        else
+          outcome :payment_amount
+        end
+      end
+    end
+
+    value_question :percentage_owned?, parse: :to_f do
     end
 
     outcome :unlikely_to_need_fixing
     outcome :have_to_pay
+    outcome :payment_amount
   end
 end
