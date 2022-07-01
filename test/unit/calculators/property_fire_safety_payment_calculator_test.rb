@@ -143,5 +143,12 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "#annual_leaseholder_costs" do
+      should "return one tenth of the leaseholder_costs" do
+        @calculator.stubs(:leaseholder_costs).returns(100_000)
+        assert_equal @calculator.annual_leaseholder_costs, 10_000
+      end
+    end
   end
 end

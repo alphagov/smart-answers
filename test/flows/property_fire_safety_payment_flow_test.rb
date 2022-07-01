@@ -294,6 +294,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
 
       should "render outcome text" do
         assert_rendered_outcome text: "Leaseholder costs capped at £100,000"
+        assert_rendered_outcome text: "Annual repayment capped at £10,000"
       end
     end
   end

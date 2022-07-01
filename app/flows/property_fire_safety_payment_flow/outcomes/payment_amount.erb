@@ -7,5 +7,7 @@
     You are fully protected from costs
   <% else %>
     Leaseholder costs capped at <%= number_to_currency(calculator.leaseholder_costs, unit: "£") %>
+
+    Annual repayment capped at <%= number_to_currency(calculator.annual_leaseholder_costs, unit: "£") %>
   <% end%>
 <% end %>
