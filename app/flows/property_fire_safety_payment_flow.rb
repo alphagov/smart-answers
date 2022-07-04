@@ -12,7 +12,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
         if response == "yes"
           question :own_freehold?
         else
-          outcome :unlikely_to_need_fixing
+          outcome :unlikely_to_need_to_pay
         end
       end
     end
@@ -136,7 +136,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
       end
     end
 
-    outcome :unlikely_to_need_fixing
+    outcome :unlikely_to_need_to_pay
     outcome :have_to_pay
     outcome :payment_amount
   end

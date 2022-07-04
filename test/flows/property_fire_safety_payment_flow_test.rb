@@ -24,8 +24,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_next_node :own_freehold?, for_response: "yes"
       end
 
-      should "have an outcome of unlikely_to_need_fixing if no" do
-        assert_next_node :unlikely_to_need_fixing, for_response: "no"
+      should "have an outcome of unlikely_to_need_to_pay if no" do
+        assert_next_node :unlikely_to_need_to_pay, for_response: "no"
       end
     end
   end
@@ -250,12 +250,12 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
-        testing_node :unlikely_to_need_fixing
+        testing_node :unlikely_to_need_to_pay
         add_responses building_over_11_metres?: "no"
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "Your building is unlikely to need fixing"
+        assert_rendered_outcome text: "You're unlikely to need to pay for major fire safety work"
       end
     end
 
