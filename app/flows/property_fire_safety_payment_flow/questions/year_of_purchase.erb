@@ -1,0 +1,8 @@
+<% text_for :title do %>
+  What year did you buy your property?
+<% end %>
+
+
+<% text_for :error_message do %>
+  Please enter a year between <%= SmartAnswer::Calculators::PropertyFireSafetyPaymentCalculator::FIRST_VALID_YEAR %> and <%= SmartAnswer::Calculators::PropertyFireSafetyPaymentCalculator::LAST_VALID_YEAR %>
+<% end %>
