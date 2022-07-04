@@ -155,10 +155,10 @@ GEM
       sentry-ruby (~> 5.3)
       statsd-ruby (~> 1.5)
       unicorn (~> 6.1)
-    govuk_personalisation (0.11.2)
+    govuk_personalisation (0.12.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (29.12.0)
+    govuk_publishing_components (29.13.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -250,8 +250,8 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3.1)
-    rack-test (2.0.1)
+    rack (2.2.4)
+    rack-test (2.0.2)
       rack (>= 1.3)
     rack_strip_client_ip (0.0.2)
     rails (7.0.2.4)
@@ -377,7 +377,7 @@ GEM
       plek (>= 1.1.0)
       rack
       rest-client
-    sprockets (4.0.3)
+    sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
