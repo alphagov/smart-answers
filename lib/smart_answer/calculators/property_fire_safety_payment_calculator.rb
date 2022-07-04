@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
                   :shared_ownership,
                   :percentage_owned
 
-    FIRST_VALID_YEAR = 1945
+    FIRST_VALID_YEAR = 1900
     LAST_VALID_YEAR = 2022
     OUTSIDE_LONDON_VALUATION_LIMIT = 175_000
     INSIDE_LONDON_VALUATION_LIMIT = 325_000

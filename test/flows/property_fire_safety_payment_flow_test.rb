@@ -131,11 +131,11 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of value_of_property if year between 1945 and 2022 given" do
+      should "have a next node of value_of_property if year between 1900 and 2022 given" do
         assert_next_node :value_of_property?, for_response: "2019"
       end
 
-      should "have an invalid response if year outside 1945 - 2022 given" do
+      should "have an invalid response if year outside 1900 - 2022 given" do
         assert_invalid_response("2023")
       end
     end
