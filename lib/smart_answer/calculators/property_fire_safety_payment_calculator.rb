@@ -19,6 +19,7 @@ module SmartAnswer::Calculators
     FIFTEEN_THOUSAND = 15_000
     FIFTY_THOUSAND = 50_000
     ONE_HUNDRED_THOUSAND = 100_000
+    ANNUAL_COST_OFFSET = 10
 
     def purchased_before_feb_2022?
       @purchased_pre_or_post_february_2022 == "pre_feb_2022"
@@ -57,7 +58,7 @@ module SmartAnswer::Calculators
     end
 
     def annual_leaseholder_costs
-      leaseholder_costs / 10
+      leaseholder_costs / ANNUAL_COST_OFFSET
     end
 
   private
