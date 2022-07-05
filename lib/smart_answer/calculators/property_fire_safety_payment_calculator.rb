@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
 
     FIRST_VALID_YEAR = 1900
     LAST_VALID_YEAR = 2022
+    MIN_PERCENTAGE_LIMIT = 0.1
+    MAX_PERCENTAGE_LIMIT = 1
     OUTSIDE_LONDON_VALUATION_LIMIT = 175_000
     INSIDE_LONDON_VALUATION_LIMIT = 325_000
     ONE_MILLION = 1_000_000
@@ -24,6 +26,10 @@ module SmartAnswer::Calculators
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
+    end
+
+    def valid_percentage_owned?
+      @percentage_owned.between?(MIN_PERCENTAGE_LIMIT, MAX_PERCENTAGE_LIMIT)
     end
 
     def property_uprating_values

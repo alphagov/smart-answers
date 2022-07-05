@@ -124,14 +124,16 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
       end
     end
 
-    value_question :percentage_owned?, parse: :to_f do
+    value_question :percentage_owned?, parse: Float do
       on_response do |response|
         calculator.percentage_owned = response / 100
       end
 
-      next_node do |response|
-        raise SmartAnswer::InvalidResponse unless response.between?(10, 100)
+      validate(:valid_percentage_owned?) do
+        calculator.valid_percentage_owned?
+      end
 
+      next_node do
         outcome :payment_amount
       end
     end

@@ -23,6 +23,23 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "#valid_percentage_owned?" do
+      should "be valid if percentage owned is between minimum and maximum percentage limit" do
+        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MIN_PERCENTAGE_LIMIT
+        assert @calculator.valid_percentage_owned?
+      end
+
+      should "be invalid if percentage owned is over max percentage limit " do
+        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MAX_PERCENTAGE_LIMIT + 1
+        assert_not @calculator.valid_percentage_owned?
+      end
+
+      should "be invalid if year of purchase isless than minimum percentage" do
+        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MIN_PERCENTAGE_LIMIT - 1
+        assert_not @calculator.valid_percentage_owned?
+      end
+    end
+
     context "#uprated_value_of_property" do
       setup do
         stubbed_uprating_data = {
