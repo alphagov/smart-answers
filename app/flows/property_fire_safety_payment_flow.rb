@@ -130,7 +130,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        raise SmartAnswer::InvalidResponse unless response.between?(0, 100)
+        raise SmartAnswer::InvalidResponse unless response.between?(10, 100)
 
         outcome :payment_amount
       end

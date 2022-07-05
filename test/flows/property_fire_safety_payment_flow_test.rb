@@ -241,8 +241,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_invalid_response("101")
       end
 
-      should "have an invalid response if percentage is under 0" do
-        assert_invalid_response("-1")
+      should "have an invalid response if percentage is under 10" do
+        assert_invalid_response("9")
       end
     end
   end
@@ -297,7 +297,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                       value_of_property?: "100000",
                       live_in_london?: "yes",
                       shared_ownership?: "yes",
-                      percentage_owned?: "5"
+                      percentage_owned?: "15"
       end
 
       should "render outcome text" do
