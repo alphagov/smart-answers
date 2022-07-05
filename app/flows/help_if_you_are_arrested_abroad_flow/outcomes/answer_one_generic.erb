@@ -47,7 +47,9 @@
     <%= calculator.consul %>
     <%= calculator.lawyer %>
 
-    <%= calculator.region_downloads %>
+    <% unless calculator.english_speaking? %>
+      <%= calculator.translator_interpreter %>
+    <% end %>
   <% end %>
 
   <% if calculator.country_name == "Iran" %>

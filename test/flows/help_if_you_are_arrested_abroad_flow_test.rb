@@ -53,7 +53,7 @@ class HelpIfYouAreArrestedAbroadFlowTest < ActiveSupport::TestCase
     end
 
     should "render the extra dowloads if there are any for that country" do
-      assert_rendered_outcome text: "English speaking lawyers and translators/interpreters in France"
+      assert_rendered_outcome text: "Find English speaking lawyers in France"
     end
 
     should "render the transfer back option if it is a country with transfers back" do

@@ -134,20 +134,8 @@
   lawyer: /government/publications/cuba-list-of-lawyers
 - slug: curacao
 - slug: cyprus
-  regions:
-    north:
-      link: /government/publications/cyprus-north-prisoner-pack
-      url_text: Prisoner pack for the north of Cyprus
-    north_lawyer:
-      link: /government/publications/cyprus-north-list-of-lawyers
-      url_text: English speaking lawyers and translators/interpreters in North Cyprus
-    republic:
-      link: /government/publications/cyprus-prisoner-pack
-      url_text: Prisoner pack for people who have been imprisoned at Nicosia Central Prison or held on remand at a police station in the Republic of Cyprus
-    republic_lawyers:
-      link: /government/publications/cyprus-list-of-lawyers
-      url_text: English speaking lawyers and translators/interpreters in the Republic of Cyprus
-
+  pdf: /government/publications/cyprus-prisoner-pack
+  lawyer: /government/publications/cyprus-list-of-lawyers
 - slug: czech-republic
   pdf: /government/publications/czech-republic-prisoner-pack
   lawyer: /government/publications/czech-republic-list-of-lawyers

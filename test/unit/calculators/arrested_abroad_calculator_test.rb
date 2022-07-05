@@ -3,6 +3,18 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class ArrestedAbroadCalculatorTest < ActiveSupport::TestCase
     context ArrestedAbroad do
+      context "#english_speaking?" do
+        should "return true for english speaking countries" do
+          calculator = ArrestedAbroad.new("usa")
+          assert calculator.english_speaking?
+        end
+
+        should "return false for non-english speaking countries" do
+          calculator = ArrestedAbroad.new("italy")
+          assert_not calculator.english_speaking?
+        end
+      end
+
       context "generating a URL" do
         should "not error if the country doesn't exist" do
           assert_nothing_raised do
@@ -41,43 +53,6 @@ module SmartAnswer::Calculators
           calc = ArrestedAbroad.new("australia")
           calc.stubs(:country_name).returns("Australia")
           assert calc.has_extra_downloads
-        end
-      end
-
-      context "region downloads" do
-        should "return list of region links for countries with regions" do
-          calc = ArrestedAbroad.new("cyprus")
-          calc.stubs(:get_country_regions).returns({
-            "a": { "url_text" => "Text 1", "link" => "link1" },
-            "b": { "url_text" => "Text 2", "link" => "link2" },
-          })
-          assert_equal calc.region_downloads, "- [Text 1](link1)\n- [Text 2](link2)"
-        end
-
-        should "return empty for countries without regions" do
-          calc = ArrestedAbroad.new("bermuda")
-          assert_equal calc.region_downloads, ""
-        end
-      end
-
-      context "countries with regions" do
-        should "pull out regions of the YML for Cyprus" do
-          calc = ArrestedAbroad.new("cyprus")
-          resp = calc.get_country_regions
-          assert resp["north"]
-          assert resp["north_lawyer"]
-          assert resp["republic"]
-          assert resp["republic_lawyers"]
-        end
-
-        should "pull the regions out of the YML for Cyprus" do
-          calc = ArrestedAbroad.new("cyprus")
-          resp = calc.get_country_regions["north"]
-          expected = {
-            "link" => "/government/publications/cyprus-north-prisoner-pack",
-            "url_text" => "Prisoner pack for the north of Cyprus",
-          }
-          assert_equal expected, resp
         end
       end
     end
