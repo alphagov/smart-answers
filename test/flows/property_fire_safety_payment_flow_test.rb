@@ -320,8 +320,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "Leaseholder costs capped at £100,000"
-        assert_rendered_outcome text: "Annual repayment capped at £10,000"
+        assert_rendered_outcome text: "You might have to pay £100,000 maximum"
+        assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can only charge you up to £10,000 of this total in a year."
       end
     end
   end
