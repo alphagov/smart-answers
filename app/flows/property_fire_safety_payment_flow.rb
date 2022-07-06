@@ -10,14 +10,14 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
 
       next_node do |response|
         if response == "yes"
-          question :own_freehold?
+          question :owned_by_leaseholders?
         else
           outcome :unlikely_to_need_to_pay
         end
       end
     end
 
-    radio :own_freehold? do
+    radio :owned_by_leaseholders? do
       option :yes
       option :no
 
@@ -25,7 +25,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
         if response == "no"
           question :own_more_than_3_properties?
         else
-          outcome :have_to_pay
+          outcome :have_to_pay_owned_by_leaseholders
         end
       end
     end
@@ -139,6 +139,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
     end
 
     outcome :unlikely_to_need_to_pay
+    outcome :have_to_pay_owned_by_leaseholders
     outcome :have_to_pay
     outcome :payment_amount
   end

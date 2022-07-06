@@ -20,8 +20,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of own_freehold? if yes" do
-        assert_next_node :own_freehold?, for_response: "yes"
+      should "have a next node of owned_by_leaseholders? if yes" do
+        assert_next_node :owned_by_leaseholders?, for_response: "yes"
       end
 
       should "have an outcome of unlikely_to_need_to_pay if no" do
@@ -30,9 +30,9 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "question: own_freehold?" do
+  context "question: owned_by_leaseholders?" do
     setup do
-      testing_node :own_freehold?
+      testing_node :owned_by_leaseholders?
       add_responses building_over_11_metres?: "yes"
     end
 
@@ -45,8 +45,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_next_node :own_more_than_3_properties?, for_response: "no"
       end
 
-      should "have an outcome of have_to_pay if yes" do
-        assert_next_node :have_to_pay, for_response: "yes"
+      should "have an outcome of have_to_pay_owned_by_leaseholders if yes" do
+        assert_next_node :have_to_pay_owned_by_leaseholders, for_response: "yes"
       end
     end
   end
@@ -55,7 +55,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :own_more_than_3_properties?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no"
+                    owned_by_leaseholders?: "no"
     end
 
     should "render the question" do
@@ -77,7 +77,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :main_home_february_2022?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes"
     end
 
@@ -100,7 +100,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :purchased_pre_or_post_february_2022?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes"
     end
@@ -120,7 +120,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :year_of_purchase?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
                     purchased_pre_or_post_february_2022?: "pre_feb_2022"
@@ -145,7 +145,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :value_of_property?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
                     purchased_pre_or_post_february_2022?: "pre_feb_2022",
@@ -167,7 +167,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :live_in_london?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
                     purchased_pre_or_post_february_2022?: "pre_feb_2022",
@@ -190,7 +190,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :shared_ownership?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
                     purchased_pre_or_post_february_2022?: "pre_feb_2022",
@@ -218,7 +218,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :percentage_owned?
       add_responses building_over_11_metres?: "yes",
-                    own_freehold?: "no",
+                    owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
                     purchased_pre_or_post_february_2022?: "pre_feb_2022",
@@ -261,13 +261,13 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
 
     context "when building is over 11 metres and user owns freehold" do
       setup do
-        testing_node :have_to_pay
+        testing_node :have_to_pay_owned_by_leaseholders
         add_responses building_over_11_metres?: "yes",
-                      own_freehold?: "yes"
+                      owned_by_leaseholders?: "yes"
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You have to pay"
+        assert_rendered_outcome text: "You might have to pay to fix fire safety problems or replace cladding."
       end
     end
 
@@ -275,7 +275,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
       setup do
         testing_node :have_to_pay
         add_responses building_over_11_metres?: "yes",
-                      own_freehold?: "yes",
+                      owned_by_leaseholders?: "yes",
                       own_more_than_3_properties?: "yes",
                       main_home_february_2022?: "no"
       end
@@ -289,7 +289,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
       setup do
         testing_node :payment_amount
         add_responses building_over_11_metres?: "yes",
-                      own_freehold?: "no",
+                      owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
                       purchased_pre_or_post_february_2022?: "pre_feb_2022",
@@ -309,7 +309,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
       setup do
         testing_node :payment_amount
         add_responses building_over_11_metres?: "yes",
-                      own_freehold?: "no",
+                      owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
                       purchased_pre_or_post_february_2022?: "pre_feb_2022",
