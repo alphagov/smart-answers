@@ -3,10 +3,7 @@ $govuk-use-legacy-palette: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/component_support";
-@import "govuk_publishing_components/components/button";
-@import "govuk_publishing_components/components/feedback";
 @import "govuk_publishing_components/components/table";
-@import "govuk_publishing_components/components/title";
 @import "govuk_publishing_components/components/warning-text";
 
 .visualisation {
