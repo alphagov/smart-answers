@@ -90,8 +90,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_next_node :purchased_pre_or_post_february_2022?, for_response: "yes"
       end
 
-      should "have an outcome of have_to_pay if no" do
-        assert_next_node :have_to_pay, for_response: "no"
+      should "have an outcome of have_to_pay_not_main_home if no" do
+        assert_next_node :have_to_pay_not_main_home, for_response: "no"
       end
     end
   end
@@ -273,15 +273,15 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
 
     context "when building is over 11 metres, user doesn't own freehold, user has over 3 propeties and wasn't main home in Feb 2022" do
       setup do
-        testing_node :have_to_pay
+        testing_node :have_to_pay_not_main_home
         add_responses building_over_11_metres?: "yes",
-                      owned_by_leaseholders?: "yes",
+                      owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "yes",
                       main_home_february_2022?: "no"
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You have to pay"
+        assert_rendered_outcome text: "You might have to pay to fix fire safety problems or replace cladding."
       end
     end
 

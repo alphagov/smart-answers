@@ -51,7 +51,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
         if response == "yes"
           question :purchased_pre_or_post_february_2022?
         else
-          outcome :have_to_pay
+          outcome :have_to_pay_not_main_home
         end
       end
     end
@@ -140,7 +140,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
 
     outcome :unlikely_to_need_to_pay
     outcome :have_to_pay_owned_by_leaseholders
-    outcome :have_to_pay
+    outcome :have_to_pay_not_main_home
     outcome :payment_amount
   end
 end
