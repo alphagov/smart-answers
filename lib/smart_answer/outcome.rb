@@ -7,7 +7,7 @@ module SmartAnswer
     end
 
     def transition(*_args)
-      raise InvalidNode
+      raise InvalidTransition, "can't transition once an outcome has been reached"
     end
   end
 end
