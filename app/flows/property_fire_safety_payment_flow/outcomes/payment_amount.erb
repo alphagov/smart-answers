@@ -1,11 +1,25 @@
-<% text_for :title do %>
-  Thank you
-<% end %>
+<% if calculator.fully_protected_from_costs?%>
+  <% text_for :title do %>
+    You do not have to pay to fix fire safety problems or replace cladding.
+  <% end %>
 
-<% govspeak_for :body do %>
-  <% if calculator.fully_protected_from_costs?%>
-    You are fully protected from costs
-  <% else %>
+  <% govspeak_for :body do %>
+    You do not have to pay anything towards the cost of fixing:
+
+    + any fault from last 30 years that is a fire safety risk
+
+    + products that are not suitable or do not work
+
+    + poor workmanship
+
+    [Find out more about what fire safety problems are covered]().
+  <% end %>
+<% else %>
+  <% text_for :title do %>
+    Thank you
+  <% end %>
+
+  <% govspeak_for :body do %>
     Leaseholder costs capped at <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %>
 
     Annual repayment capped at <%= number_to_currency(calculator.annual_leaseholder_costs, unit: "£", precision: 0) %>
