@@ -24,8 +24,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_next_node :own_freehold?, for_response: "yes"
       end
 
-      should "have an outcome of unlikely_to_need_fixing if no" do
-        assert_next_node :unlikely_to_need_fixing, for_response: "no"
+      should "have an outcome of unlikely_to_need_to_pay if no" do
+        assert_next_node :unlikely_to_need_to_pay, for_response: "no"
       end
     end
   end
@@ -67,8 +67,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_next_node :main_home_february_2022?, for_response: "yes"
       end
 
-      should "have a next node of year_of_purchase? if no" do
-        assert_next_node :year_of_purchase?, for_response: "no"
+      should "have a next node of purchased_pre_or_post_february_2022? if no" do
+        assert_next_node :purchased_pre_or_post_february_2022?, for_response: "no"
       end
     end
   end
@@ -86,8 +86,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of year_of_purchase? if yes" do
-        assert_next_node :year_of_purchase?, for_response: "yes"
+      should "have a next node of purchased_pre_or_post_february_2022? if yes" do
+        assert_next_node :purchased_pre_or_post_february_2022?, for_response: "yes"
       end
 
       should "have an outcome of have_to_pay if no" do
@@ -96,9 +96,9 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "question: year_of_purchase?" do
+  context "question: purchased_pre_or_post_february_2022?" do
     setup do
-      testing_node :year_of_purchase?
+      testing_node :purchased_pre_or_post_february_2022?
       add_responses building_over_11_metres?: "yes",
                     own_freehold?: "no",
                     own_more_than_3_properties?: "yes",
@@ -110,11 +110,32 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of value_of_property if year between 1945 and 2022 given" do
+      should "have a next node of year_of_purchase?" do
+        assert_next_node :year_of_purchase?, for_response: "post_feb_2022"
+      end
+    end
+  end
+
+  context "question: year_of_purchase?" do
+    setup do
+      testing_node :year_of_purchase?
+      add_responses building_over_11_metres?: "yes",
+                    own_freehold?: "no",
+                    own_more_than_3_properties?: "yes",
+                    main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of value_of_property if year between 1900 and 2022 given" do
         assert_next_node :value_of_property?, for_response: "2019"
       end
 
-      should "have an invalid response if year outside 1945 - 2022 given" do
+      should "have an invalid response if year outside 1900 - 2022 given" do
         assert_invalid_response("2023")
       end
     end
@@ -127,6 +148,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                     own_freehold?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022",
                     year_of_purchase?: "2019"
     end
 
@@ -148,6 +170,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                     own_freehold?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022",
                     year_of_purchase?: "2019",
                     value_of_property?: "100000"
     end
@@ -170,6 +193,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                     own_freehold?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022",
                     year_of_purchase?: "2019",
                     value_of_property?: "100000",
                     live_in_london?: "yes"
@@ -197,6 +221,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                     own_freehold?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022",
                     year_of_purchase?: "2019",
                     value_of_property?: "100000",
                     live_in_london?: "yes",
@@ -216,8 +241,8 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
         assert_invalid_response("101")
       end
 
-      should "have an invalid response if percentage is under 0" do
-        assert_invalid_response("-1")
+      should "have an invalid response if percentage is under 10" do
+        assert_invalid_response("9")
       end
     end
   end
@@ -225,12 +250,12 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
   context "outcomes" do
     context "when building is under 11 metres" do
       setup do
-        testing_node :unlikely_to_need_fixing
+        testing_node :unlikely_to_need_to_pay
         add_responses building_over_11_metres?: "no"
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "Your building is unlikely to need fixing"
+        assert_rendered_outcome text: "You're unlikely to need to pay for major fire safety work"
       end
     end
 
@@ -267,11 +292,12 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                       own_freehold?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
+                      purchased_pre_or_post_february_2022?: "pre_feb_2022",
                       year_of_purchase?: "2019",
                       value_of_property?: "100000",
                       live_in_london?: "yes",
                       shared_ownership?: "yes",
-                      percentage_owned?: "5"
+                      percentage_owned?: "15"
       end
 
       should "render outcome text" do
@@ -286,6 +312,7 @@ class PropertyFireSafetyPaymentFlowTest < ActiveSupport::TestCase
                       own_freehold?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
+                      purchased_pre_or_post_february_2022?: "pre_feb_2022",
                       year_of_purchase?: "2019",
                       value_of_property?: "2000000",
                       live_in_london?: "yes",

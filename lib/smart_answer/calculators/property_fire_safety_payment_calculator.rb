@@ -1,13 +1,16 @@
 module SmartAnswer::Calculators
   class PropertyFireSafetyPaymentCalculator
-    attr_accessor :year_of_purchase,
+    attr_accessor :purchased_pre_or_post_february_2022,
+                  :year_of_purchase,
                   :value_of_property,
                   :live_in_london,
                   :shared_ownership,
                   :percentage_owned
 
-    FIRST_VALID_YEAR = 1945
+    FIRST_VALID_YEAR = 1900
     LAST_VALID_YEAR = 2022
+    MIN_PERCENTAGE_LIMIT = 0.1
+    MAX_PERCENTAGE_LIMIT = 1
     OUTSIDE_LONDON_VALUATION_LIMIT = 175_000
     INSIDE_LONDON_VALUATION_LIMIT = 325_000
     ONE_MILLION = 1_000_000
@@ -16,9 +19,18 @@ module SmartAnswer::Calculators
     FIFTEEN_THOUSAND = 15_000
     FIFTY_THOUSAND = 50_000
     ONE_HUNDRED_THOUSAND = 100_000
+    ANNUAL_COST_OFFSET = 10
+
+    def purchased_before_feb_2022?
+      @purchased_pre_or_post_february_2022 == "pre_feb_2022"
+    end
 
     def valid_year_of_purchase?
       @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
+    end
+
+    def valid_percentage_owned?
+      @percentage_owned.between?(MIN_PERCENTAGE_LIMIT, MAX_PERCENTAGE_LIMIT)
     end
 
     def property_uprating_values
@@ -46,7 +58,7 @@ module SmartAnswer::Calculators
     end
 
     def annual_leaseholder_costs
-      leaseholder_costs / 10
+      leaseholder_costs / ANNUAL_COST_OFFSET
     end
 
   private

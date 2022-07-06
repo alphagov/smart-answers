@@ -1,3 +1,17 @@
-<% text_for :title do %>
-  How much did you pay for your property?
-<% end %>
+<% if calculator.purchased_before_feb_2022? %>
+  <% text_for :title do %>
+   How much did you pay for your property?
+  <% end %>
+
+  <% text_for :hint do %>
+    You'll get a more accurate answer if you enter the exact value.
+  <% end %>
+<% else %>
+  <% text_for :title do %>
+    What was the value of your property the last time it was sold before 14 February 2022?
+  <% end %>
+
+  <% text_for :hint do %>
+    Check the leaseholder certificate you got when you bought the property. You'll get a more accurate answer if you enter the exact value.
+  <% end %>
+<% end%>

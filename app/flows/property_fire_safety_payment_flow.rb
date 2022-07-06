@@ -12,7 +12,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
         if response == "yes"
           question :own_freehold?
         else
-          outcome :unlikely_to_need_fixing
+          outcome :unlikely_to_need_to_pay
         end
       end
     end
@@ -38,7 +38,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
         if response == "yes"
           question :main_home_february_2022?
         else
-          question :year_of_purchase?
+          question :purchased_pre_or_post_february_2022?
         end
       end
     end
@@ -49,16 +49,29 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
 
       next_node do |response|
         if response == "yes"
-          question :year_of_purchase?
+          question :purchased_pre_or_post_february_2022?
         else
           outcome :have_to_pay
         end
       end
     end
 
-    value_question :year_of_purchase?, parse: Integer do
+    radio :purchased_pre_or_post_february_2022? do
+      option :pre_feb_2022
+      option :post_feb_2022
+
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::PropertyFireSafetyPaymentCalculator.new
+        calculator.purchased_pre_or_post_february_2022 = response
+      end
+
+      next_node do
+        question :year_of_purchase?
+      end
+    end
+
+    value_question :year_of_purchase?, parse: Integer do
+      on_response do |response|
         calculator.year_of_purchase = response.to_i
       end
 
@@ -111,19 +124,21 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
       end
     end
 
-    value_question :percentage_owned?, parse: :to_f do
+    value_question :percentage_owned?, parse: Float do
       on_response do |response|
         calculator.percentage_owned = response / 100
       end
 
-      next_node do |response|
-        raise SmartAnswer::InvalidResponse unless response.between?(0, 100)
+      validate(:valid_percentage_owned?) do
+        calculator.valid_percentage_owned?
+      end
 
+      next_node do
         outcome :payment_amount
       end
     end
 
-    outcome :unlikely_to_need_fixing
+    outcome :unlikely_to_need_to_pay
     outcome :have_to_pay
     outcome :payment_amount
   end
