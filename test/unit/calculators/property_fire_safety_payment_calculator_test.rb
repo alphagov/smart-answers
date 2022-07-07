@@ -89,22 +89,22 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "#leaseholder_costs" do
+    context "#presented_leaseholder_costs" do
       context "not living in London with value between outer London limit and one million" do
         setup do
           @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
           @calculator.live_in_london = "no"
         end
 
-        should "return ten thousand if not shared ownership" do
+        should "return £10,000 if not shared ownership" do
           @calculator.shared_ownership = "no"
-          assert_equal @calculator.leaseholder_costs, 10_000
+          assert_equal @calculator.presented_leaseholder_costs, "£10,000"
         end
 
         should "return percentage owned multipled by ten thousand if shared ownership" do
           @calculator.shared_ownership = "yes"
           @calculator.percentage_owned = 0.50
-          assert_equal @calculator.leaseholder_costs, 5_000
+          assert_equal @calculator.presented_leaseholder_costs, "£5,000"
         end
       end
 
@@ -114,15 +114,15 @@ module SmartAnswer::Calculators
           @calculator.live_in_london = "yes"
         end
 
-        should "return fifteen thousand if not shared ownership" do
+        should "return £15,000 if not shared ownership" do
           @calculator.shared_ownership = "no"
-          assert_equal @calculator.leaseholder_costs, 15_000
+          assert_equal @calculator.presented_leaseholder_costs, "£15,000"
         end
 
         should "return percentage owned multipled by fifteen thousand if shared ownership" do
           @calculator.shared_ownership = "yes"
           @calculator.percentage_owned = 0.50
-          assert_equal @calculator.leaseholder_costs, 7_500
+          assert_equal @calculator.presented_leaseholder_costs, "£7,500"
         end
       end
 
@@ -131,15 +131,15 @@ module SmartAnswer::Calculators
           @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::ONE_MILLION)
         end
 
-        should "return fifteen thousand if not shared ownership" do
+        should "return £50,000 if not shared ownership" do
           @calculator.shared_ownership = "no"
-          assert_equal @calculator.leaseholder_costs, 50_000
+          assert_equal @calculator.presented_leaseholder_costs, "£50,000"
         end
 
-        should "return percentage owned multipled by fifteen thousand if shared ownership" do
+        should "return percentage owned multipled by fifty thousand if shared ownership" do
           @calculator.shared_ownership = "yes"
           @calculator.percentage_owned = 0.50
-          assert_equal @calculator.leaseholder_costs, 25_000
+          assert_equal @calculator.presented_leaseholder_costs, "£25,000"
         end
       end
 
@@ -148,23 +148,23 @@ module SmartAnswer::Calculators
           @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::TWO_MILLION)
         end
 
-        should "return fifteen thousand if not shared ownership" do
+        should "return £100,000 if not shared ownership" do
           @calculator.shared_ownership = "no"
-          assert_equal @calculator.leaseholder_costs, 100_000
+          assert_equal @calculator.presented_leaseholder_costs, "£100,000"
         end
 
-        should "return percentage owned multipled by fifteen thousand if shared ownership" do
+        should "return percentage owned multipled by one hunderd thousand if shared ownership" do
           @calculator.shared_ownership = "yes"
           @calculator.percentage_owned = 0.50
-          assert_equal @calculator.leaseholder_costs, 50_000
+          assert_equal @calculator.presented_leaseholder_costs, "£50,000"
         end
       end
     end
 
-    context "#annual_leaseholder_costs" do
-      should "return one tenth of the leaseholder_costs" do
+    context "#presented_annual_leaseholder_costs" do
+      should "return one tenth of the leaseholder_costs as a pound value" do
         @calculator.stubs(:leaseholder_costs).returns(100_000)
-        assert_equal @calculator.annual_leaseholder_costs, 10_000
+        assert_equal @calculator.presented_annual_leaseholder_costs, "£10,000"
       end
     end
   end
