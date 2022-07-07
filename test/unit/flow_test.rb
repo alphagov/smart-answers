@@ -115,6 +115,20 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal Date.parse("2014-01-01"), s.questions.first.to
   end
 
+  test "Can build year question nodes" do
+    s = SmartAnswer::Flow.build do
+      year_question :what_year_were_you_born? do
+        on_response do |response|
+          self.year_of_birth = response
+        end
+      end
+    end
+
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal :what_year_were_you_born?, s.questions.first.name
+  end
+
   test "Can build value question nodes" do
     s = SmartAnswer::Flow.build do
       value_question :what_colour_are_the_bottles? do

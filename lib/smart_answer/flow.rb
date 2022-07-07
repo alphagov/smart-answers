@@ -79,6 +79,10 @@ module SmartAnswer
       add_node Question::Date.new(self, name, &block)
     end
 
+    def year_question(name, &block)
+      add_node Question::Year.new(self, name, &block)
+    end
+
     def value_question(name, options = {}, &block)
       add_node Question::Value.new(self, name, options, &block)
     end
