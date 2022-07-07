@@ -16,13 +16,13 @@
   <% end %>
 <% else %>
   <% text_for :title do %>
-    You might have to pay up to <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %>
+    You might have to pay up to <%= calculator.presented_leaseholder_costs %>
   <% end %>
 
   <% govspeak_for :body do %>
     You do not have to pay to replace cladding on your building.
 
-    The maximum you'll have to pay to fix other fire safety problems is <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %>. The freeholder or 'landlord' (whoever is responsible for fixing problems with the building) can only charge you up to <%= number_to_currency(calculator.annual_leaseholder_costs, unit: "£", precision: 0) %> of this total in a year.
+    The maximum you'll have to pay to fix other fire safety problems is <%= calculator.presented_leaseholder_costs %>. The freeholder or 'landlord' (whoever is responsible for fixing problems with the building) can only charge you up to <%= calculator.presented_annual_leaseholder_costs %> of this total in a year.
 
     Any costs you've already paid since 2017 are taken off this total.
 
@@ -32,7 +32,7 @@
 
     ##Fire safety problems the cap applies to
 
-    The <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %> cap applies to the cost of fixing:
+    The <%= calculator.presented_leaseholder_costs %> cap applies to the cost of fixing:
 
     - any fault from last 30 years that is a fire safety risk
 

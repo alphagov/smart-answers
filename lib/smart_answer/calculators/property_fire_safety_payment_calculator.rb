@@ -1,5 +1,7 @@
 module SmartAnswer::Calculators
   class PropertyFireSafetyPaymentCalculator
+    include ActionView::Helpers::NumberHelper
+
     attr_accessor :purchased_pre_or_post_february_2022,
                   :year_of_purchase,
                   :value_of_property,
@@ -45,20 +47,12 @@ module SmartAnswer::Calculators
       under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
     end
 
-    def leaseholder_costs
-      @leaseholder_costs ||= if uprated_value_of_property.between?(OUTSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "no"
-                               shared_ownership_costs(TEN_THOUSAND)
-                             elsif uprated_value_of_property.between?(INSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "yes"
-                               shared_ownership_costs(FIFTEEN_THOUSAND)
-                             elsif uprated_value_of_property >= TWO_MILLION
-                               shared_ownership_costs(ONE_HUNDRED_THOUSAND)
-                             elsif uprated_value_of_property >= ONE_MILLION
-                               shared_ownership_costs(FIFTY_THOUSAND)
-                             end
+    def presented_leaseholder_costs
+      @presented_leaseholder_costs ||= cost_as_currency(leaseholder_costs)
     end
 
-    def annual_leaseholder_costs
-      leaseholder_costs / ANNUAL_COST_OFFSET
+    def presented_annual_leaseholder_costs
+      @presented_annual_leaseholder_costs ||= cost_as_currency(annual_leaseholder_costs)
     end
 
   private
@@ -75,8 +69,28 @@ module SmartAnswer::Calculators
       uprated_value_of_property <= INSIDE_LONDON_VALUATION_LIMIT && live_in_london == "yes"
     end
 
+    def leaseholder_costs
+      @leaseholder_costs ||= if uprated_value_of_property.between?(OUTSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "no"
+                               shared_ownership_costs(TEN_THOUSAND)
+                             elsif uprated_value_of_property.between?(INSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "yes"
+                               shared_ownership_costs(FIFTEEN_THOUSAND)
+                             elsif uprated_value_of_property >= TWO_MILLION
+                               shared_ownership_costs(ONE_HUNDRED_THOUSAND)
+                             elsif uprated_value_of_property >= ONE_MILLION
+                               shared_ownership_costs(FIFTY_THOUSAND)
+                             end
+    end
+
     def shared_ownership_costs(basic_cost)
       @shared_ownership == "yes" ? @percentage_owned * basic_cost : basic_cost
+    end
+
+    def annual_leaseholder_costs
+      leaseholder_costs / ANNUAL_COST_OFFSET
+    end
+
+    def cost_as_currency(costs)
+      number_to_currency(costs, unit: "£", precision: 0)
     end
   end
 end
