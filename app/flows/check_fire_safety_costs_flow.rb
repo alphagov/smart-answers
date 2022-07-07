@@ -1,6 +1,6 @@
-class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
+class CheckFireSafetyCostsFlow < SmartAnswer::Flow
   def define
-    name "property-fire-safety-payment"
+    name "check-fire-safety-costs"
     content_id "29355604-e9a1-499a-9b0c-18abd833f02e"
     status :draft
 
@@ -61,7 +61,7 @@ class PropertyFireSafetyPaymentFlow < SmartAnswer::Flow
       option :post_feb_2022
 
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::PropertyFireSafetyPaymentCalculator.new
+        self.calculator = SmartAnswer::Calculators::CheckFireSafetyCostsCalculator.new
         calculator.purchased_pre_or_post_february_2022 = response
       end
 

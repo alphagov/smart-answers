@@ -1,41 +1,41 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class PropertyFireSafetyPaymentCalculatorTest < ActiveSupport::TestCase
+  class CheckFireSafetyCostsCalculatorTest < ActiveSupport::TestCase
     setup do
-      @calculator = PropertyFireSafetyPaymentCalculator.new
+      @calculator = CheckFireSafetyCostsCalculator.new
     end
 
     context "#valid_year_of_purchase?" do
       should "be valid if year of purchase is between first valid year and last valid year" do
-        @calculator.year_of_purchase = PropertyFireSafetyPaymentCalculator::LAST_VALID_YEAR - 1
+        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::LAST_VALID_YEAR - 1
         assert @calculator.valid_year_of_purchase?
       end
 
       should "be invalid if year of purchase is later than last valid " do
-        @calculator.year_of_purchase = PropertyFireSafetyPaymentCalculator::LAST_VALID_YEAR + 1
+        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::LAST_VALID_YEAR + 1
         assert_not @calculator.valid_year_of_purchase?
       end
 
       should "be invalid if year of purchase is earlier than first valid year " do
-        @calculator.year_of_purchase = PropertyFireSafetyPaymentCalculator::FIRST_VALID_YEAR - 1
+        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::FIRST_VALID_YEAR - 1
         assert_not @calculator.valid_year_of_purchase?
       end
     end
 
     context "#valid_percentage_owned?" do
       should "be valid if percentage owned is between minimum and maximum percentage limit" do
-        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MIN_PERCENTAGE_LIMIT
+        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT
         assert @calculator.valid_percentage_owned?
       end
 
       should "be invalid if percentage owned is over max percentage limit " do
-        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MAX_PERCENTAGE_LIMIT + 1
+        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MAX_PERCENTAGE_LIMIT + 1
         assert_not @calculator.valid_percentage_owned?
       end
 
       should "be invalid if year of purchase isless than minimum percentage" do
-        @calculator.percentage_owned = PropertyFireSafetyPaymentCalculator::MIN_PERCENTAGE_LIMIT - 1
+        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT - 1
         assert_not @calculator.valid_percentage_owned?
       end
     end
@@ -65,25 +65,25 @@ module SmartAnswer::Calculators
 
     context "#fully_protected_from_costs?" do
       should "be true if uprated value is under outer London limit and not living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
         @calculator.live_in_london = "no"
         assert @calculator.fully_protected_from_costs?
       end
 
       should "be true if uprated value is under inner London lower limit and living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT)
         @calculator.live_in_london = "yes"
         assert @calculator.fully_protected_from_costs?
       end
 
       should "be false if uprated value is over 175k and not living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT + 1)
         @calculator.live_in_london = "no"
         assert_not @calculator.fully_protected_from_costs?
       end
 
       should "be true if uprated value is over 325k and living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT + 1)
         @calculator.live_in_london = "yes"
         assert_not @calculator.fully_protected_from_costs?
       end
@@ -92,7 +92,7 @@ module SmartAnswer::Calculators
     context "#presented_leaseholder_costs" do
       context "not living in London with value between outer London limit and one million" do
         setup do
-          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
+          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
           @calculator.live_in_london = "no"
         end
 
@@ -110,7 +110,7 @@ module SmartAnswer::Calculators
 
       context "living in London with value between inner London limit and one million" do
         setup do
-          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::INSIDE_LONDON_VALUATION_LIMIT)
+          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT)
           @calculator.live_in_london = "yes"
         end
 
@@ -128,7 +128,7 @@ module SmartAnswer::Calculators
 
       context "uprated value is over one million" do
         setup do
-          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::ONE_MILLION)
+          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::ONE_MILLION)
         end
 
         should "return £50,000 if not shared ownership" do
@@ -145,7 +145,7 @@ module SmartAnswer::Calculators
 
       context "uprated value is over two million" do
         setup do
-          @calculator.stubs(:uprated_value_of_property).returns(PropertyFireSafetyPaymentCalculator::TWO_MILLION)
+          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::TWO_MILLION)
         end
 
         should "return £100,000 if not shared ownership" do
