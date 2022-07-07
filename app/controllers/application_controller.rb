@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
+  rescue_from SmartAnswer::FlowRegistry::NotFound, SmartAnswer::InvalidTransition, with: :error_404
 
   if ENV["BASIC_AUTH_USERNAME"] && ENV["BASIC_AUTH_PASSWORD"]
     http_basic_authenticate_with(

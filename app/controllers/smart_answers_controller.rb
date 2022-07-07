@@ -5,8 +5,6 @@ class SmartAnswersController < ApplicationController
   before_action :redirect_response_to_canonical_path, only: %w[show]
   before_action :content_item, except: %w[index]
 
-  rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
-
   content_security_policy only: :visualise do |p|
     # The script used to render the visualise tool requires eval execution
     # unfortunately

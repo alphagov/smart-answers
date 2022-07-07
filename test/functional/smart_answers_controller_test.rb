@@ -136,6 +136,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select ".outcome"
     end
 
+    should "return a 404 when providing more responses than accepted" do
+      get :show, params: { id: "radio-sample", started: "y", responses: "colder/no/extra-response" }
+      assert_response :missing
+    end
+
     should "have meta robots noindex on question pages" do
       get :show, params: { id: "radio-sample", started: "y" }
       assert_select "head meta[name=robots][content=noindex]"
