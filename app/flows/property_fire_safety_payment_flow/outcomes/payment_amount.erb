@@ -16,7 +16,7 @@
   <% end %>
 <% else %>
   <% text_for :title do %>
-    You might have to pay <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %> maximum
+    You might have to pay up to <%= number_to_currency(calculator.leaseholder_costs, unit: "£", precision: 0) %>
   <% end %>
 
   <% govspeak_for :body do %>
