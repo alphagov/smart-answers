@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class PropertyFireSafetyPaymentCalculator
+  class CheckFireSafetyCostsCalculator
     include ActionView::Helpers::NumberHelper
 
     attr_accessor :purchased_pre_or_post_february_2022,
@@ -36,7 +36,7 @@ module SmartAnswer::Calculators
     end
 
     def property_uprating_values
-      @property_uprating_values ||= YAML.load_file(Rails.root.join("config/smart_answers/property_fire_safety_payment_data.yml")).freeze
+      @property_uprating_values ||= YAML.load_file(Rails.root.join("config/smart_answers/check_fire_safety_costs_data.yml")).freeze
     end
 
     def uprated_value_of_property
