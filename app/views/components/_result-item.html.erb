@@ -10,10 +10,10 @@
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s">
-    <%= link_to title, url,
+    <%= link_to (title + " (opens in new tab)" if title.present?), url,
     class: "govuk-link",
     target: "_blank",
-    rel: "noopener noreferrer",
+    rel: "noreferrer noopener",
     data: {
       module: "gem-track-click",
       "track-action": "#{group_index}.#{result_index}",
