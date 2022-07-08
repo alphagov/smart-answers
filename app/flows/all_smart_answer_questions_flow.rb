@@ -21,6 +21,21 @@ class AllSmartAnswerQuestionsFlow < SmartAnswer::Flow
 
     country_select :which_country?, additional_countries: additional_countries do
       next_node do
+        question :which_year?
+      end
+    end
+
+    year_question :which_year? do
+      next_node do
+        question :which_year_in_range?
+      end
+    end
+
+    year_question :which_year_in_range? do
+      from { Time.zone.now.year - 1 }
+      to { Time.zone.now.year + 1 }
+
+      next_node do
         question :which_date?
       end
     end
