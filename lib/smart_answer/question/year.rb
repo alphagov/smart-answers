@@ -5,6 +5,14 @@ module SmartAnswer
     class Year < Base
       PRESENTER_CLASS = YearQuestionPresenter
 
+      def from(&block)
+        if block_given?
+          @from_func = block
+        else
+          @from_func && @from_func.call
+        end
+      end
+
       def parse_input(raw_input)
         date = case raw_input
                when Hash, ActiveSupport::HashWithIndifferentAccess
@@ -21,12 +29,21 @@ module SmartAnswer
                else
                  raise InvalidResponse, "Bad date", caller
                end
+        validate_input(date)
         date.year
       rescue ArgumentError => e
         if e.message =~ /invalid date/
           raise InvalidResponse, "Bad date: #{input.inspect}", caller
         else
           raise
+        end
+      end
+
+    private
+
+      def validate_input(date)
+        if from && date.year < from
+          raise InvalidResponse, "Provided year is out of range: #{date}", caller
         end
       end
     end
