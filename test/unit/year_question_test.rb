@@ -141,5 +141,19 @@ module SmartAnswer
       new_state = question.transition(@initial_state, "2014")
       assert @initial_state != new_state
     end
+
+    test "raises an error when year validation is misconfigured to block flow progression" do
+      question = Question::Year.new(nil, :example) do
+        to { 2015 }
+        from { 2015 }
+        next_node { outcome :done }
+      end
+
+      exception = assert_raise RuntimeError do
+        question.transition(@initial_state, "2015")
+      end
+
+      assert "from date must not be after the to date", exception.message
+    end
   end
 end

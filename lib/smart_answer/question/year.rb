@@ -50,6 +50,8 @@ module SmartAnswer
     private
 
       def validate_input(date)
+        raise "from year must not be after the to year" if from && to && from >= to
+
         if (from && date.year < from) || (to && date.year > to)
           raise InvalidResponse, "Provided year is out of range: #{date}", caller
         end
