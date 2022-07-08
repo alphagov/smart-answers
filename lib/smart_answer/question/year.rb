@@ -13,6 +13,14 @@ module SmartAnswer
         end
       end
 
+      def to(&block)
+        if block_given?
+          @to_func = block
+        else
+          @to_func && @to_func.call
+        end
+      end
+
       def parse_input(raw_input)
         date = case raw_input
                when Hash, ActiveSupport::HashWithIndifferentAccess
@@ -42,7 +50,7 @@ module SmartAnswer
     private
 
       def validate_input(date)
-        if from && date.year < from
+        if (from && date.year < from) || (to && date.year > to)
           raise InvalidResponse, "Provided year is out of range: #{date}", caller
         end
       end

@@ -110,5 +110,36 @@ module SmartAnswer
       new_state = question.transition(@initial_state, "2016")
       assert @initial_state != new_state
     end
+
+    test "rejects years after a specified to date" do
+      question = Question::Year.new(nil, :example) do
+        to { 2015 }
+        next_node { outcome :done }
+      end
+
+      assert_raises(InvalidResponse) do
+        question.transition(@initial_state, "2016")
+      end
+    end
+
+    test "accepts years equal to the specified to date" do
+      question = Question::Year.new(nil, :example) do
+        to { 2015 }
+        next_node { outcome :done }
+      end
+
+      new_state = question.transition(@initial_state, "2015")
+      assert @initial_state != new_state
+    end
+
+    test "accepts years less than the specified to date" do
+      question = Question::Year.new(nil, :example) do
+        to { 2015 }
+        next_node { outcome :done }
+      end
+
+      new_state = question.transition(@initial_state, "2014")
+      assert @initial_state != new_state
+    end
   end
 end
