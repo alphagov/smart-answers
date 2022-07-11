@@ -7,7 +7,8 @@ module SmartAnswer::Calculators
                   :value_of_property,
                   :live_in_london,
                   :shared_ownership,
-                  :percentage_owned
+                  :percentage_owned,
+                  :amount_already_paid
 
     FIRST_VALID_YEAR = 1900
     LAST_VALID_YEAR = 2022

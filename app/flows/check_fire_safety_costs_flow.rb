@@ -131,7 +131,7 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
         if response == "yes"
           question :percentage_owned?
         else
-          outcome :payment_amount
+          question :amount_already_paid?
         end
       end
     end
@@ -143,6 +143,16 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
 
       validate(:valid_percentage_owned?) do
         calculator.valid_percentage_owned?
+      end
+
+      next_node do
+        question :amount_already_paid?
+      end
+    end
+
+    money_question :amount_already_paid? do
+      on_response do |response|
+        calculator.amount_already_paid = response
       end
 
       next_node do

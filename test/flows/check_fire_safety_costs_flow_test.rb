@@ -241,8 +241,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
         assert_next_node :percentage_owned?, for_response: "yes"
       end
 
-      should "have an outcome of payment_amount if no" do
-        assert_next_node :payment_amount, for_response: "no"
+      should "have next node of amoount_already_paid if no" do
+        assert_next_node :amount_already_paid?, for_response: "no"
       end
     end
   end
@@ -267,8 +267,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have an outcome of payment_amount" do
-        assert_next_node :payment_amount, for_response: "50.4"
+      should "have next node of amount_already_paid" do
+        assert_next_node :amount_already_paid?, for_response: "50.4"
       end
 
       should "have an invalid response if percentage is over 100" do
@@ -277,6 +277,33 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
 
       should "have an invalid response if percentage is under 10" do
         assert_invalid_response("9")
+      end
+    end
+  end
+
+  context "question: amount_already_paid?" do
+    setup do
+      testing_node :amount_already_paid?
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
+                    owned_by_leaseholders?: "no",
+                    own_more_than_3_properties?: "yes",
+                    main_home_february_2022?: "yes",
+                    purchased_pre_or_post_february_2022?: "pre_feb_2022",
+                    year_of_purchase?: "2019",
+                    value_of_property?: "100000",
+                    live_in_london?: "yes",
+                    shared_ownership?: "yes",
+                    percentage_owned?: "20"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have an outcome of payment_amount" do
+        assert_next_node :payment_amount, for_response: "2000"
       end
     end
   end
@@ -346,7 +373,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
                       value_of_property?: "100000",
                       live_in_london?: "yes",
                       shared_ownership?: "yes",
-                      percentage_owned?: "15"
+                      percentage_owned?: "15",
+                      amount_already_paid?: "100"
       end
 
       should "render outcome text" do
@@ -366,7 +394,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
                       year_of_purchase?: "2019",
                       value_of_property?: "2000000",
                       live_in_london?: "yes",
-                      shared_ownership?: "no"
+                      shared_ownership?: "no",
+                      amount_already_paid?: "100"
       end
 
       should "render outcome text" do
