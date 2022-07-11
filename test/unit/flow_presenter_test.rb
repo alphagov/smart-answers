@@ -21,6 +21,12 @@ class FlowPresenterTest < ActiveSupport::TestCase
     @flow_presenter = FlowPresenter.new(@flow, state)
   end
 
+  test "#presenter_for returns presenter for Year question" do
+    question = @flow.year_question(:question_key).last
+    node_presenter = @flow_presenter.presenter_for(question)
+    assert_instance_of YearQuestionPresenter, node_presenter
+  end
+
   test "#presenter_for returns presenter for Date question" do
     question = @flow.date_question(:question_key).last
     node_presenter = @flow_presenter.presenter_for(question)

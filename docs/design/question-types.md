@@ -20,6 +20,11 @@
   * Validation: Must be a valid date.
   * Response: `Date` object.
 
+## `year_question`
+  * User input: Choose a single year.
+  * Validation: Must be a valid date in format YYYY that can be parsed as a valid date.
+  * Response: String of year extracted from `Date` object.
+
 ## `money_question`
   * User input: Enter a money amount.
   * Validation: Must be a number.
