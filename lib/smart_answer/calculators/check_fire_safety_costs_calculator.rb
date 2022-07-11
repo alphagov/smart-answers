@@ -27,10 +27,6 @@ module SmartAnswer::Calculators
       @purchased_pre_or_post_february_2022 == "pre_feb_2022"
     end
 
-    def valid_year_of_purchase?
-      @year_of_purchase.between?(FIRST_VALID_YEAR, LAST_VALID_YEAR)
-    end
-
     def valid_percentage_owned?
       @percentage_owned.between?(MIN_PERCENTAGE_LIMIT, MAX_PERCENTAGE_LIMIT)
     end
