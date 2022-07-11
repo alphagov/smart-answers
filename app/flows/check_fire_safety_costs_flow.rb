@@ -4,6 +4,19 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
     content_id "29355604-e9a1-499a-9b0c-18abd833f02e"
     status :draft
 
+    radio :developer_agreed_to_pay? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "yes"
+          outcome :developers_pay
+        else
+          question :building_over_11_metres?
+        end
+      end
+    end
+
     radio :building_over_11_metres? do
       option :yes
       option :no
@@ -137,6 +150,7 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
       end
     end
 
+    outcome :developers_pay
     outcome :unlikely_to_need_to_pay
     outcome :have_to_pay_owned_by_leaseholders
     outcome :have_to_pay_not_main_home

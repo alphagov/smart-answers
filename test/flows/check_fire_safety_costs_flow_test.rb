@@ -12,8 +12,29 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     assert_rendered_start_page
   end
 
+  context "question: developer_agreed_to_pay?" do
+    setup { testing_node :developer_agreed_to_pay? }
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have an outcome of developers_pay? if yes" do
+        assert_next_node :developers_pay, for_response: "yes"
+      end
+
+      should "have an outcome of building_over_11_metres if no" do
+        assert_next_node :building_over_11_metres?, for_response: "no"
+      end
+    end
+  end
+
   context "question: building_over_11_metres?" do
-    setup { testing_node :building_over_11_metres? }
+    setup do
+      testing_node :building_over_11_metres?
+      add_responses developer_agreed_to_pay?: "no"
+    end
 
     should "render the question" do
       assert_rendered_question
@@ -33,7 +54,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: owned_by_leaseholders?" do
     setup do
       testing_node :owned_by_leaseholders?
-      add_responses building_over_11_metres?: "yes"
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes"
     end
 
     should "render the question" do
@@ -54,7 +76,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: own_more_than_3_properties?" do
     setup do
       testing_node :own_more_than_3_properties?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no"
     end
 
@@ -76,7 +99,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: main_home_february_2022?" do
     setup do
       testing_node :main_home_february_2022?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes"
     end
@@ -99,7 +123,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: purchased_pre_or_post_february_2022?" do
     setup do
       testing_node :purchased_pre_or_post_february_2022?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes"
@@ -119,7 +144,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: year_of_purchase?" do
     setup do
       testing_node :year_of_purchase?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
@@ -148,7 +174,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: value_of_propety?" do
     setup do
       testing_node :value_of_property?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
@@ -170,7 +197,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: live_in_london?" do
     setup do
       testing_node :live_in_london?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
@@ -193,7 +221,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: shared_ownership?" do
     setup do
       testing_node :shared_ownership?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
@@ -221,7 +250,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   context "question: percentage_owned?" do
     setup do
       testing_node :percentage_owned?
-      add_responses building_over_11_metres?: "yes",
+      add_responses developer_agreed_to_pay?: "no",
+                    building_over_11_metres?: "yes",
                     owned_by_leaseholders?: "no",
                     own_more_than_3_properties?: "yes",
                     main_home_february_2022?: "yes",
@@ -252,10 +282,22 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
   end
 
   context "outcomes" do
+    context "when developers have agreed to pay" do
+      setup do
+        testing_node :developers_pay
+        add_responses developer_agreed_to_pay?: "yes"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "Your developer will pay"
+      end
+    end
+
     context "when building is under 11 metres" do
       setup do
         testing_node :unlikely_to_need_to_pay
-        add_responses building_over_11_metres?: "no"
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "no"
       end
 
       should "render outcome text" do
@@ -266,7 +308,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     context "when building is over 11 metres and user owns freehold" do
       setup do
         testing_node :have_to_pay_owned_by_leaseholders
-        add_responses building_over_11_metres?: "yes",
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
                       owned_by_leaseholders?: "yes"
       end
 
@@ -278,7 +321,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     context "when building is over 11 metres, user doesn't own freehold, user has over 3 propeties and wasn't main home in Feb 2022" do
       setup do
         testing_node :have_to_pay_not_main_home
-        add_responses building_over_11_metres?: "yes",
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
                       owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "yes",
                       main_home_february_2022?: "no"
@@ -292,7 +336,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     context "when a user has a level of ownership and valuation that protects them from costs" do
       setup do
         testing_node :payment_amount
-        add_responses building_over_11_metres?: "yes",
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
                       owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
@@ -312,7 +357,8 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
     context "when a user has a level of ownership and valuation that means they have to pay costs" do
       setup do
         testing_node :payment_amount
-        add_responses building_over_11_metres?: "yes",
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
                       owned_by_leaseholders?: "no",
                       own_more_than_3_properties?: "no",
                       main_home_february_2022?: "yes",
