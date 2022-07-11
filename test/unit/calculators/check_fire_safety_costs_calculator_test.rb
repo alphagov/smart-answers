@@ -6,23 +6,6 @@ module SmartAnswer::Calculators
       @calculator = CheckFireSafetyCostsCalculator.new
     end
 
-    context "#valid_year_of_purchase?" do
-      should "be valid if year of purchase is between first valid year and last valid year" do
-        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::LAST_VALID_YEAR - 1
-        assert @calculator.valid_year_of_purchase?
-      end
-
-      should "be invalid if year of purchase is later than last valid " do
-        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::LAST_VALID_YEAR + 1
-        assert_not @calculator.valid_year_of_purchase?
-      end
-
-      should "be invalid if year of purchase is earlier than first valid year " do
-        @calculator.year_of_purchase = CheckFireSafetyCostsCalculator::FIRST_VALID_YEAR - 1
-        assert_not @calculator.valid_year_of_purchase?
-      end
-    end
-
     context "#valid_percentage_owned?" do
       should "be valid if percentage owned is between minimum and maximum percentage limit" do
         @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT

@@ -70,13 +70,12 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
       end
     end
 
-    value_question :year_of_purchase?, parse: Integer do
+    year_question :year_of_purchase? do
+      from { SmartAnswer::Calculators::CheckFireSafetyCostsCalculator::FIRST_VALID_YEAR }
+      to { SmartAnswer::Calculators::CheckFireSafetyCostsCalculator::LAST_VALID_YEAR }
+
       on_response do |response|
         calculator.year_of_purchase = response.to_i
-      end
-
-      validate(:valid_year_of_purchase?) do
-        calculator.valid_year_of_purchase?
       end
 
       next_node do

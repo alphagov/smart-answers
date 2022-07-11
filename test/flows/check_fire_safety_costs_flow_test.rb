@@ -135,7 +135,11 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
         assert_next_node :value_of_property?, for_response: "2019"
       end
 
-      should "have an invalid response if year outside 1900 - 2022 given" do
+      should "have an invalid response if year before 1900 given" do
+        assert_invalid_response("1899")
+      end
+
+      should "have an invalid response if year after 2022 given" do
         assert_invalid_response("2023")
       end
     end
