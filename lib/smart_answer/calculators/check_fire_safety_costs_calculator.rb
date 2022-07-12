@@ -64,6 +64,10 @@ module SmartAnswer::Calculators
       remaining_costs.to_f <= annual_leaseholder_costs
     end
 
+    def fully_repaid?
+      remaining_costs <= 0
+    end
+
   private
 
     def default_uprating_value
