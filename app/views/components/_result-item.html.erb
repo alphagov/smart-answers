@@ -9,19 +9,19 @@
   css_classes << "app-c-result-item--highlighted" if highlighted
 %>
 <%= tag.div class: css_classes do %>
-  <h4 class="govuk-heading-s">
+  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
     <%= link_to (title + " (opens in new tab)" if title.present?), url,
-    class: "govuk-link",
-    target: "_blank",
-    rel: "noreferrer noopener",
-    data: {
-      module: "gem-track-click",
-      "track-action": "#{group_index}.#{result_index}",
-      "track-category": "SmartAnswerClicked",
-      "track-label": url
+      class: "govuk-link",
+      target: "_blank",
+      rel: "noreferrer noopener",
+      data: {
+        module: "gem-track-click",
+        "track-action": "#{group_index}.#{result_index}",
+        "track-category": "SmartAnswerClicked",
+        "track-label": url
     } %>
   </h4>
-  <p class="govuk-body">
+  <p class="govuk-body govuk-!-margin-bottom-1">
     <%= description %>
   </p>
 <% end %>
