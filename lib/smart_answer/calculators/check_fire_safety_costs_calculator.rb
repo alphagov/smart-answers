@@ -60,6 +60,10 @@ module SmartAnswer::Calculators
       remaining_costs.to_f > annual_leaseholder_costs
     end
 
+    def remaining_costs_less_than_annual_leaseholder_costs?
+      remaining_costs.to_f <= annual_leaseholder_costs
+    end
+
   private
 
     def default_uprating_value

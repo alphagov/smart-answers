@@ -172,5 +172,19 @@ module SmartAnswer::Calculators
         assert_not @calculator.remaining_costs_more_than_annual_leaseholder_costs?
       end
     end
+
+    context "remaining_costs_less_than_annual_leaseholder_costs" do
+      should "be true if remaining_costs is less than annual_leaseholder costs" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "50000"
+        assert @calculator.remaining_costs_less_than_annual_leaseholder_costs?
+      end
+
+      should "be false if remaining_costs is more than annual_leaseholder" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "1"
+        assert_not @calculator.remaining_costs_less_than_annual_leaseholder_costs?
+      end
+    end
   end
 end
