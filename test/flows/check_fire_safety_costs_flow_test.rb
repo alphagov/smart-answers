@@ -403,5 +403,27 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can only charge you up to £10,000 of this total in a year."
       end
     end
+
+    context "when a user has to pay costs,and they have already repaid the full amount" do
+      setup do
+        testing_node :payment_amount
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
+                      owned_by_leaseholders?: "no",
+                      own_more_than_3_properties?: "no",
+                      main_home_february_2022?: "yes",
+                      purchased_pre_or_post_february_2022?: "pre_feb_2022",
+                      year_of_purchase?: "2019",
+                      value_of_property?: "2000000",
+                      live_in_london?: "yes",
+                      shared_ownership?: "no",
+                      amount_already_paid?: "100100"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "You do not have to pay anything more to fix building safety problems or replace cladding"
+        assert_rendered_outcome text: "Because you’ve already paid £100,100, you do not have to pay anything towards the cost of fixing"
+      end
+    end
   end
 end

@@ -2,4 +2,6 @@
   <%= render partial: "fully_protected_from_costs" %>
 <% elsif calculator.remaining_costs_more_than_annual_leaseholder_costs? %>
   <%= render partial: "remaining_costs_leaseholder_annual_cap", locals: {calculator: calculator} %>
+<% elsif calculator.fully_repaid? %>
+  <%= render partial: "fully_repaid", locals: {calculator: calculator} %>
 <% end %>
