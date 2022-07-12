@@ -382,7 +382,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
     end
 
-    context "when a user has a level of ownership and valuation that means they have to pay costs" do
+    context "when a user has to pay costs, and the amount owing is more than the annual leaseholder costs" do
       setup do
         testing_node :payment_amount
         add_responses developer_agreed_to_pay?: "no",
@@ -395,11 +395,11 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
                       value_of_property?: "2000000",
                       live_in_london?: "yes",
                       shared_ownership?: "no",
-                      amount_already_paid?: "100"
+                      amount_already_paid?: "15000"
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You might have to pay up to £100,000"
+        assert_rendered_outcome text: "You might have to pay up to £85,000"
         assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can only charge you up to £10,000 of this total in a year."
       end
     end
