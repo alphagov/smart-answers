@@ -159,6 +159,13 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "#presented_amount_already_paid" do
+      should "return the amount already paid as currency, rounded up" do
+        @calculator.amount_already_paid = "50000.01"
+        assert_equal @calculator.presented_amount_already_paid, "£50,000"
+      end
+    end
+
     context "remaining_costs_more_than_annual_leaseholder_costs" do
       should "be true if remaining_costs is more than annual_leaseholder costs" do
         @calculator.stubs(:leaseholder_costs).returns(15_000)
