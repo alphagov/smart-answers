@@ -425,5 +425,27 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Because you’ve already paid £100,100, you do not have to pay anything towards the cost of fixing"
       end
     end
+
+    context "when a user has to pay costs, and the amount owing is less than the annual leaseholder costs" do
+      setup do
+        testing_node :payment_amount
+        add_responses developer_agreed_to_pay?: "no",
+                      building_over_11_metres?: "yes",
+                      owned_by_leaseholders?: "no",
+                      own_more_than_3_properties?: "no",
+                      main_home_february_2022?: "yes",
+                      purchased_pre_or_post_february_2022?: "pre_feb_2022",
+                      year_of_purchase?: "2019",
+                      value_of_property?: "2000000",
+                      live_in_london?: "yes",
+                      shared_ownership?: "no",
+                      amount_already_paid?: "95000"
+      end
+
+      should "render outcome text" do
+        assert_rendered_outcome text: "You might have to pay up to £5,000"
+        assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can charge you this amount in one go"
+      end
+    end
   end
 end
