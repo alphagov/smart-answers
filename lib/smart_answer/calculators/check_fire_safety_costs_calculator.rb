@@ -56,6 +56,10 @@ module SmartAnswer::Calculators
       @presented_remaining_costs ||= cost_as_currency(remaining_costs)
     end
 
+    def remaining_costs_more_than_annual_leaseholder_costs?
+      remaining_costs.to_f > annual_leaseholder_costs
+    end
+
   private
 
     def default_uprating_value
