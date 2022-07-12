@@ -1,18 +1,6 @@
 .app-c-result-item {
   @include govuk-font($size: 19);
   padding-top: govuk-spacing(6);
-
-  &:first-child {
-    padding-top: 0;
-  }
-
-  .govuk-heading-s {
-    margin-bottom: govuk-spacing(2);
-  }
-
-  .govuk-body {
-    margin-bottom: govuk-spacing(6);
-  }
 }
 
 .app-c-result-item--highlighted {
@@ -20,12 +8,4 @@
   background-color: govuk-colour("light-grey");
   border-left: 5px solid govuk-colour("blue");
   padding: govuk-spacing(3);
-
-  &:first-child {
-    padding-top: govuk-spacing(3);
-  }
-
-  .govuk-body:last-child {
-    margin-bottom: govuk-spacing(1);
-  }
 }
