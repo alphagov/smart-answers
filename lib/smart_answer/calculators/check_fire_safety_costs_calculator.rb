@@ -52,6 +52,10 @@ module SmartAnswer::Calculators
       @presented_annual_leaseholder_costs ||= cost_as_currency(annual_leaseholder_costs)
     end
 
+    def presented_remaining_costs
+      @presented_remaining_costs ||= cost_as_currency(remaining_costs)
+    end
+
   private
 
     def default_uprating_value
@@ -84,6 +88,10 @@ module SmartAnswer::Calculators
 
     def annual_leaseholder_costs
       leaseholder_costs / ANNUAL_COST_OFFSET
+    end
+
+    def remaining_costs
+      (leaseholder_costs - @amount_already_paid.to_f).ceil
     end
 
     def cost_as_currency(costs)

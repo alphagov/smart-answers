@@ -150,5 +150,13 @@ module SmartAnswer::Calculators
         assert_equal @calculator.presented_annual_leaseholder_costs, "£10,000"
       end
     end
+
+    context "#presented_remaining_costs" do
+      should "return the leaseholder costs minus the amount already paid, rounded up" do
+        @calculator.stubs(:leaseholder_costs).returns(100_000)
+        @calculator.amount_already_paid = "50000.01"
+        assert_equal @calculator.presented_remaining_costs, "£50,000"
+      end
+    end
   end
 end
