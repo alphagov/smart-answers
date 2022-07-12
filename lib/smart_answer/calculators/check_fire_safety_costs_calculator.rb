@@ -44,10 +44,6 @@ module SmartAnswer::Calculators
       under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
     end
 
-    def presented_leaseholder_costs
-      @presented_leaseholder_costs ||= cost_as_currency(leaseholder_costs)
-    end
-
     def presented_annual_leaseholder_costs
       @presented_annual_leaseholder_costs ||= cost_as_currency(annual_leaseholder_costs)
     end
