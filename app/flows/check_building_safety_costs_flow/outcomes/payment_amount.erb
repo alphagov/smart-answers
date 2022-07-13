@@ -1,9 +1,7 @@
 <% if calculator.fully_protected_from_costs?%>
   <%= render partial: "fully_protected_from_costs", locals: {calculator: calculator} %>
-<% elsif calculator.remaining_costs_more_than_annual_leaseholder_costs? %>
-  <%= render partial: "remaining_costs_leaseholder_annual_cap", locals: {calculator: calculator} %>
 <% elsif calculator.fully_repaid? %>
   <%= render partial: "fully_repaid", locals: {calculator: calculator} %>
-<% elsif calculator.remaining_costs_less_than_annual_leaseholder_costs? %>
-  <%= render partial: "remaining_costs_no_annual_cap", locals: {calculator: calculator} %>
+<% else %>
+  <%= render partial: "remaining_costs", locals: {calculator: calculator} %>
 <% end %>
