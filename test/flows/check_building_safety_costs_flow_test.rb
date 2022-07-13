@@ -1,11 +1,11 @@
 require "test_helper"
 require "support/flow_test_helper"
 
-class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
+class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    testing_flow CheckFireSafetyCostsFlow
+    testing_flow CheckBuildingSafetyCostsFlow
   end
 
   should "render a start page" do
@@ -316,7 +316,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "Your developer will pay"
+        assert_rendered_outcome text: "You do not have to pay to fix building safety problems or replace cladding"
       end
     end
 
@@ -328,7 +328,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You're unlikely to need to pay for major fire safety work"
+        assert_rendered_outcome text: "Your building is not likely to need major safety work"
       end
     end
 
@@ -341,7 +341,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You might have to pay to fix fire safety problems or replace cladding."
+        assert_rendered_outcome text: "You might have to pay to fix building safety problems or replace cladding."
       end
     end
 
@@ -356,7 +356,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You might have to pay to fix fire safety problems or replace cladding."
+        assert_rendered_outcome text: "You might have to pay to fix building safety problems or replace cladding."
       end
     end
 
@@ -378,7 +378,7 @@ class CheckFireSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You do not have to pay to fix fire safety problems or replace cladding."
+        assert_rendered_outcome text: "You do not have to pay to fix building safety problems or replace cladding."
       end
     end
 

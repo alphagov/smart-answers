@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class CheckFireSafetyCostsCalculator
+  class CheckBuildingSafetyCostsCalculator
     include ActionView::Helpers::NumberHelper
 
     attr_accessor :purchased_pre_or_post_february_2022,
@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
     end
 
     def property_uprating_values
-      @property_uprating_values ||= YAML.load_file(Rails.root.join("config/smart_answers/check_fire_safety_costs_data.yml")).freeze
+      @property_uprating_values ||= YAML.load_file(Rails.root.join("config/smart_answers/check_building_safety_costs_data.yml")).freeze
     end
 
     def uprated_value_of_property
@@ -54,6 +54,15 @@ module SmartAnswer::Calculators
 
     def presented_amount_already_paid
       @presented_amount_already_paid ||= cost_as_currency(@amount_already_paid)
+    end
+
+    def presented_valuation_limit
+      @presented_valuation_limit ||=
+        if @live_in_london == "yes"
+          cost_as_currency(INSIDE_LONDON_VALUATION_LIMIT)
+        else
+          cost_as_currency(OUTSIDE_LONDON_VALUATION_LIMIT)
+        end
     end
 
     def remaining_costs_more_than_annual_leaseholder_costs?

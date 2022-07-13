@@ -1,6 +1,6 @@
-class CheckFireSafetyCostsFlow < SmartAnswer::Flow
+class CheckBuildingSafetyCostsFlow < SmartAnswer::Flow
   def define
-    name "check-fire-safety-costs"
+    name "check-building-safety-costs"
     content_id "29355604-e9a1-499a-9b0c-18abd833f02e"
     status :draft
 
@@ -74,7 +74,7 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
       option :post_feb_2022
 
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CheckFireSafetyCostsCalculator.new
+        self.calculator = SmartAnswer::Calculators::CheckBuildingSafetyCostsCalculator.new
         calculator.purchased_pre_or_post_february_2022 = response
       end
 
@@ -84,8 +84,8 @@ class CheckFireSafetyCostsFlow < SmartAnswer::Flow
     end
 
     year_question :year_of_purchase? do
-      from { SmartAnswer::Calculators::CheckFireSafetyCostsCalculator::FIRST_VALID_YEAR }
-      to { SmartAnswer::Calculators::CheckFireSafetyCostsCalculator::LAST_VALID_YEAR }
+      from { SmartAnswer::Calculators::CheckBuildingSafetyCostsCalculator::FIRST_VALID_YEAR }
+      to { SmartAnswer::Calculators::CheckBuildingSafetyCostsCalculator::LAST_VALID_YEAR }
 
       on_response do |response|
         calculator.year_of_purchase = response.to_i

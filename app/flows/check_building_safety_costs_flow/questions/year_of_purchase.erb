@@ -1,0 +1,17 @@
+<% if calculator.purchased_before_feb_2022? %>
+  <% text_for :title do %>
+    In what year did you buy your property?
+  <% end %>
+<% else %>
+  <% text_for :title do %>
+    In what year was your property last sold before 14 February 2022?
+  <% end %>
+
+ <% text_for :hint do %>
+    Check the leaseholder certificate you got with the property or <a href="https://www.gov.uk/search-house-prices" class="govuk-link" rel="noreferrer noopener" target="_blank">search sold property prices</a> to find the year it was sold.
+  <% end %>
+<% end%>
+
+<% text_for :error_message do %>
+  Enter a year between <%= SmartAnswer::Calculators::CheckBuildingSafetyCostsCalculator::FIRST_VALID_YEAR %> and <%= SmartAnswer::Calculators::CheckBuildingSafetyCostsCalculator::LAST_VALID_YEAR %>
+<% end %>
