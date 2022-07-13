@@ -44,8 +44,8 @@ module SmartAnswer::Calculators
       under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
     end
 
-    def presented_annual_leaseholder_costs
-      @presented_annual_leaseholder_costs ||= cost_as_currency(annual_leaseholder_costs)
+    def presented_annual_price_cap
+      @presented_annual_price_cap ||= cost_as_currency(annual_price_cap)
     end
 
     def presented_remaining_costs
@@ -65,12 +65,12 @@ module SmartAnswer::Calculators
         end
     end
 
-    def remaining_costs_more_than_annual_leaseholder_costs?
-      remaining_costs.to_f > annual_leaseholder_costs
+    def remaining_costs_more_than_annual_price_cap?
+      remaining_costs.to_f > annual_price_cap
     end
 
-    def remaining_costs_less_than_annual_leaseholder_costs?
-      remaining_costs.to_f <= annual_leaseholder_costs
+    def remaining_costs_less_than_annual_price_cap?
+      remaining_costs.to_f <= annual_price_cap
     end
 
     def fully_repaid?
@@ -107,7 +107,7 @@ module SmartAnswer::Calculators
       @shared_ownership == "yes" ? @percentage_owned * basic_cost : basic_cost
     end
 
-    def annual_leaseholder_costs
+    def annual_price_cap
       leaseholder_costs / ANNUAL_COST_OFFSET
     end
 
