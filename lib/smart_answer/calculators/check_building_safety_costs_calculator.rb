@@ -69,10 +69,6 @@ module SmartAnswer::Calculators
       remaining_costs.to_f > annual_price_cap
     end
 
-    def remaining_costs_less_than_annual_price_cap?
-      remaining_costs.to_f <= annual_price_cap
-    end
-
     def fully_repaid?
       remaining_costs <= 0
     end
