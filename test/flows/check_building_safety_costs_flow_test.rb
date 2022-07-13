@@ -328,7 +328,7 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You're unlikely to need to pay for major fire safety work"
+        assert_rendered_outcome text: "Your building is not likely to need major safety work"
       end
     end
 
