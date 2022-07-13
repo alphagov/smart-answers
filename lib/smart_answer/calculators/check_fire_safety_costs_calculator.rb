@@ -7,7 +7,8 @@ module SmartAnswer::Calculators
                   :value_of_property,
                   :live_in_london,
                   :shared_ownership,
-                  :percentage_owned
+                  :percentage_owned,
+                  :amount_already_paid
 
     FIRST_VALID_YEAR = 1900
     LAST_VALID_YEAR = 2022
@@ -43,12 +44,28 @@ module SmartAnswer::Calculators
       under_valuation_limit_living_inside_london || under_valuation_limit_living_outside_london
     end
 
-    def presented_leaseholder_costs
-      @presented_leaseholder_costs ||= cost_as_currency(leaseholder_costs)
-    end
-
     def presented_annual_leaseholder_costs
       @presented_annual_leaseholder_costs ||= cost_as_currency(annual_leaseholder_costs)
+    end
+
+    def presented_remaining_costs
+      @presented_remaining_costs ||= cost_as_currency(remaining_costs)
+    end
+
+    def presented_amount_already_paid
+      @presented_amount_already_paid ||= cost_as_currency(@amount_already_paid)
+    end
+
+    def remaining_costs_more_than_annual_leaseholder_costs?
+      remaining_costs.to_f > annual_leaseholder_costs
+    end
+
+    def remaining_costs_less_than_annual_leaseholder_costs?
+      remaining_costs.to_f <= annual_leaseholder_costs
+    end
+
+    def fully_repaid?
+      remaining_costs <= 0
     end
 
   private
@@ -83,6 +100,10 @@ module SmartAnswer::Calculators
 
     def annual_leaseholder_costs
       leaseholder_costs / ANNUAL_COST_OFFSET
+    end
+
+    def remaining_costs
+      (leaseholder_costs - @amount_already_paid.to_f).ceil
     end
 
     def cost_as_currency(costs)

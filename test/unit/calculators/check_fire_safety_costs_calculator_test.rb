@@ -72,82 +72,67 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "#presented_leaseholder_costs" do
-      context "not living in London with value between outer London limit and one million" do
-        setup do
-          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
-          @calculator.live_in_london = "no"
-        end
-
-        should "return £10,000 if not shared ownership" do
-          @calculator.shared_ownership = "no"
-          assert_equal @calculator.presented_leaseholder_costs, "£10,000"
-        end
-
-        should "return percentage owned multipled by ten thousand if shared ownership" do
-          @calculator.shared_ownership = "yes"
-          @calculator.percentage_owned = 0.50
-          assert_equal @calculator.presented_leaseholder_costs, "£5,000"
-        end
-      end
-
-      context "living in London with value between inner London limit and one million" do
-        setup do
-          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT)
-          @calculator.live_in_london = "yes"
-        end
-
-        should "return £15,000 if not shared ownership" do
-          @calculator.shared_ownership = "no"
-          assert_equal @calculator.presented_leaseholder_costs, "£15,000"
-        end
-
-        should "return percentage owned multipled by fifteen thousand if shared ownership" do
-          @calculator.shared_ownership = "yes"
-          @calculator.percentage_owned = 0.50
-          assert_equal @calculator.presented_leaseholder_costs, "£7,500"
-        end
-      end
-
-      context "uprated value is over one million" do
-        setup do
-          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::ONE_MILLION)
-        end
-
-        should "return £50,000 if not shared ownership" do
-          @calculator.shared_ownership = "no"
-          assert_equal @calculator.presented_leaseholder_costs, "£50,000"
-        end
-
-        should "return percentage owned multipled by fifty thousand if shared ownership" do
-          @calculator.shared_ownership = "yes"
-          @calculator.percentage_owned = 0.50
-          assert_equal @calculator.presented_leaseholder_costs, "£25,000"
-        end
-      end
-
-      context "uprated value is over two million" do
-        setup do
-          @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::TWO_MILLION)
-        end
-
-        should "return £100,000 if not shared ownership" do
-          @calculator.shared_ownership = "no"
-          assert_equal @calculator.presented_leaseholder_costs, "£100,000"
-        end
-
-        should "return percentage owned multipled by one hunderd thousand if shared ownership" do
-          @calculator.shared_ownership = "yes"
-          @calculator.percentage_owned = 0.50
-          assert_equal @calculator.presented_leaseholder_costs, "£50,000"
-        end
-      end
-    end
-
     context "#presented_annual_leaseholder_costs" do
       should "return one tenth of the leaseholder_costs as a pound value" do
         @calculator.stubs(:leaseholder_costs).returns(100_000)
         assert_equal @calculator.presented_annual_leaseholder_costs, "£10,000"
+      end
+    end
+
+    context "#presented_remaining_costs" do
+      should "return the leaseholder costs minus the amount already paid, rounded up" do
+        @calculator.stubs(:leaseholder_costs).returns(100_000)
+        @calculator.amount_already_paid = "50000.01"
+        assert_equal @calculator.presented_remaining_costs, "£50,000"
+      end
+    end
+
+    context "#presented_amount_already_paid" do
+      should "return the amount already paid as currency, rounded up" do
+        @calculator.amount_already_paid = "50000.01"
+        assert_equal @calculator.presented_amount_already_paid, "£50,000"
+      end
+    end
+
+    context "remaining_costs_more_than_annual_leaseholder_costs" do
+      should "be true if remaining_costs is more than annual_leaseholder costs" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "1"
+        assert @calculator.remaining_costs_more_than_annual_leaseholder_costs?
+      end
+
+      should "be false if remaining_costs is less than annual_leaseholder" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "50000"
+        assert_not @calculator.remaining_costs_more_than_annual_leaseholder_costs?
+      end
+    end
+
+    context "remaining_costs_less_than_annual_leaseholder_costs" do
+      should "be true if remaining_costs is less than annual_leaseholder costs" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "50000"
+        assert @calculator.remaining_costs_less_than_annual_leaseholder_costs?
+      end
+
+      should "be false if remaining_costs is more than annual_leaseholder" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "1"
+        assert_not @calculator.remaining_costs_less_than_annual_leaseholder_costs?
+      end
+    end
+
+    context "fully_repaid?" do
+      should "be true if remaining_costs is 0" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "50000"
+        assert @calculator.fully_repaid?
+      end
+
+      should "be false if remaining_costs is more than 0" do
+        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.amount_already_paid = "1"
+        assert_not @calculator.fully_repaid?
       end
     end
   end
