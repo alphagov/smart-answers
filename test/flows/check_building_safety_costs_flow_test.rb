@@ -400,7 +400,7 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
 
       should "render outcome text" do
         assert_rendered_outcome text: "You might have to pay up to £85,000"
-        assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can only charge you up to £10,000 of this total in a year."
+        assert_rendered_outcome text: "The freeholder or ‘landlord’ can only charge you up to £10,000 of this total in a year."
       end
     end
 

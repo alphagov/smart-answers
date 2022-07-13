@@ -1,9 +1,19 @@
 <% text_for :title do %>
-  You might have to pay up to <%= calculator.presented_remaining_costs %>
+  You do not have to pay to replace cladding on your building.
 <% end %>
 
 <% govspeak_for :body do %>
-  You do not have to pay to replace cladding on your building.
+  If the freeholder or landlord (whoever is responsible for fixing problems with the building) wants to charge you to fix other building safety problems, they must show you a certificate proving that both:
+
+  + they were not responsible for causing the problem - for example because they built the building
+
+  + they do not make enough money to pass a ['landlord wealth test'](/)
+
+  They will also need to show there is no other way to pay for the work, for example by claiming on a warranty.
+
+  If they cannot prove this they will have to fix the building safety problems themselves.
+
+  ##You might have to pay up to <%= calculator.presented_remaining_costs %>
 
   The maximum you'll have to pay to fix other building safety problems is <%= calculator.presented_remaining_costs %>. The freeholder or 'landlord' (whoever is responsible for fixing problems with the building) can charge you this amount in one go.
 
@@ -20,16 +30,4 @@
   - poor workmanship
 
   [Find out more about what building safety problems are covered by the cap]().
-
-  ##Responsibilities of the freeholder or landlord
-
-  If they want to charge you to fix building safety problems, the freeholder or landlord must show you a certificate proving that they:
-
-  + were not responsible for causing the problem 
-
-  + do not make enough money to pass a ['landlord wealth test'](/)
-
-  They will also need to show there is no other way to pay for the work, for example by claiming on a warranty.
-
-  If they cannot prove this they will have to fix the building safety problems themselves.
 <% end%>
