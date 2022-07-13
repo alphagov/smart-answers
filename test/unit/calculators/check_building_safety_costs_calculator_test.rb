@@ -1,24 +1,24 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class CheckFireSafetyCostsCalculatorTest < ActiveSupport::TestCase
+  class CheckBuildingSafetyCostsCalculatorTest < ActiveSupport::TestCase
     setup do
-      @calculator = CheckFireSafetyCostsCalculator.new
+      @calculator = CheckBuildingSafetyCostsCalculator.new
     end
 
     context "#valid_percentage_owned?" do
       should "be valid if percentage owned is between minimum and maximum percentage limit" do
-        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT
+        @calculator.percentage_owned = CheckBuildingSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT
         assert @calculator.valid_percentage_owned?
       end
 
       should "be invalid if percentage owned is over max percentage limit " do
-        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MAX_PERCENTAGE_LIMIT + 1
+        @calculator.percentage_owned = CheckBuildingSafetyCostsCalculator::MAX_PERCENTAGE_LIMIT + 1
         assert_not @calculator.valid_percentage_owned?
       end
 
       should "be invalid if year of purchase isless than minimum percentage" do
-        @calculator.percentage_owned = CheckFireSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT - 1
+        @calculator.percentage_owned = CheckBuildingSafetyCostsCalculator::MIN_PERCENTAGE_LIMIT - 1
         assert_not @calculator.valid_percentage_owned?
       end
     end
@@ -48,25 +48,25 @@ module SmartAnswer::Calculators
 
     context "#fully_protected_from_costs?" do
       should "be true if uprated value is under outer London limit and not living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckBuildingSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT)
         @calculator.live_in_london = "no"
         assert @calculator.fully_protected_from_costs?
       end
 
       should "be true if uprated value is under inner London lower limit and living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckBuildingSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT)
         @calculator.live_in_london = "yes"
         assert @calculator.fully_protected_from_costs?
       end
 
       should "be false if uprated value is over 175k and not living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckBuildingSafetyCostsCalculator::OUTSIDE_LONDON_VALUATION_LIMIT + 1)
         @calculator.live_in_london = "no"
         assert_not @calculator.fully_protected_from_costs?
       end
 
       should "be true if uprated value is over 325k and living in London" do
-        @calculator.stubs(:uprated_value_of_property).returns(CheckFireSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT + 1)
+        @calculator.stubs(:uprated_value_of_property).returns(CheckBuildingSafetyCostsCalculator::INSIDE_LONDON_VALUATION_LIMIT + 1)
         @calculator.live_in_london = "yes"
         assert_not @calculator.fully_protected_from_costs?
       end
