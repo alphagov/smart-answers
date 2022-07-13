@@ -56,6 +56,15 @@ module SmartAnswer::Calculators
       @presented_amount_already_paid ||= cost_as_currency(@amount_already_paid)
     end
 
+    def presented_valuation_limit
+      @presented_valuation_limit ||=
+        if @live_in_london == "yes"
+          cost_as_currency(INSIDE_LONDON_VALUATION_LIMIT)
+        else
+          cost_as_currency(OUTSIDE_LONDON_VALUATION_LIMIT)
+        end
+    end
+
     def remaining_costs_more_than_annual_leaseholder_costs?
       remaining_costs.to_f > annual_leaseholder_costs
     end

@@ -94,6 +94,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "#presented_valuation_limit" do
+      should "return the inside London valuation limit as currency if living in London" do
+        @calculator.live_in_london = "yes"
+        assert_equal @calculator.presented_valuation_limit, "£325,000"
+      end
+
+      should "return the outside London valuation limit as currency if iving outside London" do
+        @calculator.live_in_london = "no"
+        assert_equal @calculator.presented_valuation_limit, "£175,000"
+      end
+    end
+
     context "remaining_costs_more_than_annual_leaseholder_costs" do
       should "be true if remaining_costs is more than annual_leaseholder costs" do
         @calculator.stubs(:leaseholder_costs).returns(15_000)
