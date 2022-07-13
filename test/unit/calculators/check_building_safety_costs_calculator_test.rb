@@ -73,15 +73,15 @@ module SmartAnswer::Calculators
     end
 
     context "#presented_annual_price_cap" do
-      should "return one tenth of the leaseholder_costs as a pound value" do
-        @calculator.stubs(:leaseholder_costs).returns(100_000)
+      should "return one tenth of the maximum_cost as a pound value" do
+        @calculator.stubs(:maximum_cost).returns(100_000)
         assert_equal @calculator.presented_annual_price_cap, "£10,000"
       end
     end
 
     context "#presented_remaining_costs" do
       should "return the leaseholder costs minus the amount already paid, rounded up" do
-        @calculator.stubs(:leaseholder_costs).returns(100_000)
+        @calculator.stubs(:maximum_cost).returns(100_000)
         @calculator.amount_already_paid = "50000.01"
         assert_equal @calculator.presented_remaining_costs, "£50,000"
       end
@@ -108,13 +108,13 @@ module SmartAnswer::Calculators
 
     context "remaining_costs_more_than_annual_price_cap" do
       should "be true if remaining_costs is more than annual_leaseholder costs" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "1"
         assert @calculator.remaining_costs_more_than_annual_price_cap?
       end
 
       should "be false if remaining_costs is less than annual_leaseholder" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "50000"
         assert_not @calculator.remaining_costs_more_than_annual_price_cap?
       end
@@ -122,13 +122,13 @@ module SmartAnswer::Calculators
 
     context "remaining_costs_less_than_annual_price_cap" do
       should "be true if remaining_costs is less than annual_leaseholder costs" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "50000"
         assert @calculator.remaining_costs_less_than_annual_price_cap?
       end
 
       should "be false if remaining_costs is more than annual_leaseholder" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "1"
         assert_not @calculator.remaining_costs_less_than_annual_price_cap?
       end
@@ -136,13 +136,13 @@ module SmartAnswer::Calculators
 
     context "fully_repaid?" do
       should "be true if remaining_costs is 0" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "50000"
         assert @calculator.fully_repaid?
       end
 
       should "be false if remaining_costs is more than 0" do
-        @calculator.stubs(:leaseholder_costs).returns(15_000)
+        @calculator.stubs(:maximum_cost).returns(15_000)
         @calculator.amount_already_paid = "1"
         assert_not @calculator.fully_repaid?
       end
