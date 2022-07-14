@@ -426,8 +426,8 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You do not have to pay anything more to fix building safety problems or replace cladding"
-        assert_rendered_outcome text: "Because you’ve already paid £100,100, you do not have to pay anything towards the cost of fixing"
+        assert_rendered_outcome text: "You do not have to pay anything more to fix building safety problems, including replacing cladding"
+        assert_rendered_outcome text: "Because you’ve already paid £100,100, you do not have to pay anything towards the cost of fixing faults"
       end
     end
 
