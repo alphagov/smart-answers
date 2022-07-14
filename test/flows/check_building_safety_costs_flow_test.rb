@@ -27,6 +27,10 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
       should "have an outcome of building_over_11_metres if no" do
         assert_next_node :building_over_11_metres?, for_response: "no"
       end
+
+      should "have an outcome of building_over_11_metres if dont_know" do
+        assert_next_node :building_over_11_metres?, for_response: "dont_know"
+      end
     end
   end
 
