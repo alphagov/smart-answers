@@ -92,9 +92,9 @@ module SmartAnswer::Calculators
                           shared_ownership_costs(TEN_THOUSAND)
                         elsif uprated_value_of_property.between?(INSIDE_LONDON_VALUATION_LIMIT, ONE_MILLION) && live_in_london == "yes"
                           shared_ownership_costs(FIFTEEN_THOUSAND)
-                        elsif uprated_value_of_property >= TWO_MILLION
+                        elsif uprated_value_of_property > TWO_MILLION
                           shared_ownership_costs(ONE_HUNDRED_THOUSAND)
-                        elsif uprated_value_of_property >= ONE_MILLION
+                        elsif uprated_value_of_property > ONE_MILLION
                           shared_ownership_costs(FIFTY_THOUSAND)
                         end
     end
