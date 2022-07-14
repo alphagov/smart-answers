@@ -80,11 +80,11 @@ module SmartAnswer::Calculators
     end
 
     def under_valuation_limit_living_inside_london
-      uprated_value_of_property <= OUTSIDE_LONDON_VALUATION_LIMIT && live_in_london == "no"
+      uprated_value_of_property < OUTSIDE_LONDON_VALUATION_LIMIT && live_in_london == "no"
     end
 
     def under_valuation_limit_living_outside_london
-      uprated_value_of_property <= INSIDE_LONDON_VALUATION_LIMIT && live_in_london == "yes"
+      uprated_value_of_property < INSIDE_LONDON_VALUATION_LIMIT && live_in_london == "yes"
     end
 
     def maximum_cost
