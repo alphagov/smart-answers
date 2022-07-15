@@ -7,6 +7,7 @@ class CheckBuildingSafetyCostsFlow < SmartAnswer::Flow
     radio :developer_agreed_to_pay? do
       option :yes
       option :no
+      option :dont_know
 
       next_node do |response|
         if response == "yes"
