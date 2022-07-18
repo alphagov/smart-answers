@@ -1,8 +1,9 @@
 require_relative "../test_helper"
+require "govuk_schemas/assert_matchers"
 
 module SmartAnswer
   class ContentItemPresenterPresenterTest < ActiveSupport::TestCase
-    include GovukContentSchemaTestHelpers::TestUnit
+    include GovukSchemas::AssertMatchers
 
     setup do
       setup_fixture_flows
@@ -16,7 +17,7 @@ module SmartAnswer
     test "#payload returns a valid content-item" do
       content_item = ContentItemPresenter.new(@flow)
 
-      assert_valid_against_schema(content_item.payload, "smart_answer")
+      assert_valid_against_publisher_schema(content_item.payload, "smart_answer")
     end
 
     test "#payload includes flow specific data" do
