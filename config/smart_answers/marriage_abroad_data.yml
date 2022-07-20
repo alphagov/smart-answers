@@ -195,7 +195,6 @@ countries_with_2_outcomes:
   - croatia
   - cyprus
   - egypt
-  - france
   - india
   - ireland
   - luxembourg
@@ -224,6 +223,7 @@ countries_with_ceremony_location_outcomes:
   - finland
   - iceland
 countries_with_1_outcome:
+  - france
   - french-guiana
   - french-polynesia
   - guadeloupe
