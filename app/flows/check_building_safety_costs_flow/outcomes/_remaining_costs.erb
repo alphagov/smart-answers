@@ -16,9 +16,9 @@
   ##You might have to pay up to <%= calculator.presented_remaining_costs %>
 
   <% if calculator.remaining_costs_more_than_annual_price_cap? %>
-    The maximum you'll have to pay to fix other building safety problems is <%= calculator.presented_remaining_costs %>. The freeholder or 'landlord' can only charge you up to <%= calculator.presented_annual_price_cap%> of this total in a year.
+    Your freeholder or landlord may be able to charge you up to <%= calculator.presented_remaining_costs %> to fix other building safety problems. They can only charge you up to <%= calculator.presented_annual_price_cap%> of this total in a year.
   <%else %>
-    The maximum you'll have to pay to fix other building safety problems is <%= calculator.presented_remaining_costs %>. The freeholder or 'landlord' (whoever is responsible for fixing problems with the building) can charge you this amount in one go.
+    Your freeholder or landlord may be able to charge you up to <%= calculator.presented_remaining_costs %> to fix other building safety problems. They can charge you this amount in one go.
   <% end%>
 
   If you sell the property, the person who buys it will have to pay what's left of the total.
