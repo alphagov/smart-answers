@@ -404,8 +404,8 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You might have to pay up to £85,000"
-        assert_rendered_outcome text: "The freeholder or ‘landlord’ can only charge you up to £10,000 of this total in a year."
+        assert_rendered_outcome text: "Your freeholder or landlord may be able to charge you up to £85,000"
+        assert_rendered_outcome text: "They can only charge you up to £10,000 of this total in a year."
       end
     end
 
@@ -448,8 +448,8 @@ class CheckBuildingSafetyCostsFlowTest < ActiveSupport::TestCase
       end
 
       should "render outcome text" do
-        assert_rendered_outcome text: "You might have to pay up to £5,000"
-        assert_rendered_outcome text: "The freeholder or ‘landlord’ (whoever is responsible for fixing problems with the building) can charge you this amount in one go"
+        assert_rendered_outcome text: "Your freeholder or landlord may be able to charge you up to £5,000"
+        assert_rendered_outcome text: "They can charge you this amount in one go"
       end
     end
   end
