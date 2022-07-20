@@ -210,8 +210,6 @@ countries_with_3_outcomes:
   - japan
 countries_with_2_outcomes_marriage_or_pacs:
   - monaco
-  - new-caledonia
-  - wallis-and-futuna
 countries_with_6_outcomes:
   - congo
   - greece
@@ -229,5 +227,7 @@ countries_with_1_outcome:
   - guadeloupe
   - martinique
   - mayotte
+  - new-caledonia
   - reunion
   - st-pierre-and-miquelon
+  - wallis-and-futuna
