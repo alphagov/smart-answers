@@ -90,29 +90,49 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
   end
 
   context "question: legal_residency?" do
-    setup do
-      testing_node :legal_residency?
-      stub_worldwide_api(all_countries_list)
-      add_responses country_of_ceremony?: random_country(:countries_with_18_outcomes)
-    end
-
-    should "render question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next_node of outcome_marriage_abroad_in_country for a ceremony location country" do
-        add_responses country_of_ceremony?: random_country(:countries_with_ceremony_location_outcomes)
-        assert_next_node :outcome_marriage_abroad_in_country, for_response: "uk"
+    context "hungary" do
+      setup do
+        testing_node :legal_residency?
+        stub_worldwide_api(all_countries_list)
+        add_responses country_of_ceremony?: "hungary", partner_opposite_or_same_sex?: "opposite_sex"
       end
 
-      should "have a next_node of partner_opposite_or_same_sex? for a 6 outcome country" do
-        add_responses country_of_ceremony?: random_country(:countries_with_6_outcomes)
-        assert_next_node :partner_opposite_or_same_sex?, for_response: "uk"
+      should "render question" do
+        assert_rendered_question
       end
 
-      should "have a next_node of what_is_your_partners_nationality? for other countries" do
-        assert_next_node :what_is_your_partners_nationality?, for_response: "uk"
+      context "next_node" do
+        should "have a next_node of outcome_marriage_abroad_in_country" do
+          assert_next_node :outcome_marriage_abroad_in_country, for_response: "uk"
+        end
+      end
+    end
+
+    context "not hungary" do
+      setup do
+        testing_node :legal_residency?
+        stub_worldwide_api(all_countries_list)
+        add_responses country_of_ceremony?: random_country(:countries_with_18_outcomes)
+      end
+
+      should "render question" do
+        assert_rendered_question
+      end
+
+      context "next_node" do
+        should "have a next_node of outcome_marriage_abroad_in_country for a ceremony location country" do
+          add_responses country_of_ceremony?: random_country(:countries_with_ceremony_location_outcomes)
+          assert_next_node :outcome_marriage_abroad_in_country, for_response: "uk"
+        end
+
+        should "have a next_node of partner_opposite_or_same_sex? for a 6 outcome country" do
+          add_responses country_of_ceremony?: random_country(:countries_with_6_outcomes)
+          assert_next_node :partner_opposite_or_same_sex?, for_response: "uk"
+        end
+
+        should "have a next_node of what_is_your_partners_nationality? for other countries" do
+          assert_next_node :what_is_your_partners_nationality?, for_response: "uk"
+        end
       end
     end
   end
@@ -155,29 +175,49 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
   end
 
   context "question: partner_opposite_or_same_sex?" do
-    setup do
-      testing_node :partner_opposite_or_same_sex?
-      stub_worldwide_api(all_countries_list)
-      add_responses country_of_ceremony?: random_country(:countries_with_18_outcomes),
-                    legal_residency?: "uk",
-                    what_is_your_partners_nationality?: "partner_british"
-    end
-
-    should "render question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next_node of partner_opposite_or_same_sex? for a known country" do
-        assert_next_node :outcome_marriage_abroad_in_country, for_response: "opposite_sex"
+    context "hungary" do
+      setup do
+        testing_node :partner_opposite_or_same_sex?
+        stub_worldwide_api(all_countries_list)
+        add_responses country_of_ceremony?: "hungary"
       end
 
-      should "raise an error for an unknown country" do
-        stub_worldwide_api(%w[narnia])
-        add_responses country_of_ceremony?: "narnia"
-        assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-          add_response "opposite_sex"
-          @test_flow.state
+      should "render question" do
+        assert_rendered_question
+      end
+
+      context "next_node" do
+        should "have a next_node of legal_residency? for hungary" do
+          assert_next_node :legal_residency?, for_response: "opposite_sex"
+        end
+      end
+    end
+
+    context "not hungary" do
+      setup do
+        testing_node :partner_opposite_or_same_sex?
+        stub_worldwide_api(all_countries_list)
+        add_responses country_of_ceremony?: random_country(:countries_with_18_outcomes),
+                      legal_residency?: "uk",
+                      what_is_your_partners_nationality?: "partner_british"
+      end
+
+      should "render question" do
+        assert_rendered_question
+      end
+
+      context "next_node" do
+        should "have a next_node of partner_opposite_or_same_sex? for a known country" do
+          assert_next_node :outcome_marriage_abroad_in_country, for_response: "opposite_sex"
+        end
+
+        should "raise an error for an unknown country" do
+          stub_worldwide_api(%w[narnia])
+          add_responses country_of_ceremony?: "narnia"
+          assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+            add_response "opposite_sex"
+            @test_flow.state
+          end
         end
       end
     end
