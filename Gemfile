@@ -9,7 +9,6 @@ gem "gds-api-adapters"
 gem "gds_zendesk"
 gem "govspeak"
 gem "govuk_app_config"
-gem "govuk-content-schema-test-helpers"
 gem "govuk_publishing_components"
 gem "htmlentities"
 gem "httparty"
@@ -36,6 +35,7 @@ end
 
 group :development, :test do
   gem "byebug"
+  gem "govuk_schemas"
   gem "govuk_test"
   gem "pry"
   gem "rubocop-govuk", require: false

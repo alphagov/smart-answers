@@ -145,8 +145,6 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (~> 6)
-    govuk-content-schema-test-helpers (1.6.1)
-      json-schema (~> 2.8.0)
     govuk_app_config (4.6.3)
       logstasher (~> 2.1)
       prometheus_exporter (~> 2.0)
@@ -166,6 +164,8 @@ GEM
       rails (>= 6)
       rouge
       sprockets (>= 3)
+    govuk_schemas (4.4.0)
+      json-schema (~> 2.8.0)
     govuk_test (3.0.1)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -431,9 +431,9 @@ DEPENDENCIES
   gds-api-adapters
   gds_zendesk
   govspeak
-  govuk-content-schema-test-helpers
   govuk_app_config
   govuk_publishing_components
+  govuk_schemas
   govuk_test
   htmlentities
   httparty
