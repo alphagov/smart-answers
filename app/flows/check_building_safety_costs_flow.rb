@@ -2,7 +2,7 @@ class CheckBuildingSafetyCostsFlow < SmartAnswer::Flow
   def define
     name "check-building-safety-costs"
     content_id "29355604-e9a1-499a-9b0c-18abd833f02e"
-    status :draft
+    status :published
 
     radio :developer_agreed_to_pay? do
       option :yes
