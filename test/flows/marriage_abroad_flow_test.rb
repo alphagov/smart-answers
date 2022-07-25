@@ -71,6 +71,10 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
         assert_next_node :partner_opposite_or_same_sex?, for_response: random_country(:countries_with_2_outcomes)
       end
 
+      should "have a next_node of partner_opposite_or_same_sex? for hungary" do
+        assert_next_node :partner_opposite_or_same_sex?, for_response: "hungary"
+      end
+
       should "have a next_node of marriage_or_pacs? for a marriage or pacs country" do
         assert_next_node :marriage_or_pacs?, for_response: random_country(:countries_with_2_outcomes_marriage_or_pacs)
       end
