@@ -9,7 +9,15 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<div id="result-info" class="outcome">
+<div
+  id="result-info"
+  class="outcome"
+  data-module="auto-track-event"
+  data-track-category="Smart Answer"
+  data-track-action="Completed"
+  data-track-label="<%= @name %>"
+  data-track-options='{"nonInteraction": true}'
+>
   <%= render 'smart_answers/shared/debug' %>
   <%= render "govuk_publishing_components/components/title", {
     title: "Information based on your answers",
@@ -17,7 +25,13 @@
     context_inside: true,
   } %>
 
-  <div data-module="track-results" data-flow-name="<%= @name %>">
+  <div 
+    data-flow-name="<%= @name %>"
+    data-module="gem-track-click"
+    data-track-category="Internal Link Clicked"
+    data-track-action="<%= @name %> results"
+    data-track-links-only
+  >
     <div class="govuk-!-margin-bottom-6">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
