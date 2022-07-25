@@ -164,7 +164,7 @@ GEM
       rails (>= 6)
       rouge
       sprockets (>= 3)
-    govuk_schemas (4.4.0)
+    govuk_schemas (4.4.1)
       json-schema (~> 2.8.0)
     govuk_test (3.0.1)
       brakeman (>= 5.0.2)
