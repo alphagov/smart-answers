@@ -30,8 +30,6 @@ module SmartAnswer::Calculators
 
     CEREMONY_COUNTRIES_OFFERING_PACS = %w[
       monaco
-      new-caledonia
-      wallis-and-futuna
     ].freeze
 
     DUTCH_CARIBBEAN_ISLANDS = %w[

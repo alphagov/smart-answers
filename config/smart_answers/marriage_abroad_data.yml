@@ -195,7 +195,6 @@ countries_with_2_outcomes:
   - croatia
   - cyprus
   - egypt
-  - france
   - india
   - ireland
   - luxembourg
@@ -211,8 +210,6 @@ countries_with_3_outcomes:
   - japan
 countries_with_2_outcomes_marriage_or_pacs:
   - monaco
-  - new-caledonia
-  - wallis-and-futuna
 countries_with_6_outcomes:
   - congo
   - greece
@@ -224,10 +221,13 @@ countries_with_ceremony_location_outcomes:
   - finland
   - iceland
 countries_with_1_outcome:
+  - france
   - french-guiana
   - french-polynesia
   - guadeloupe
   - martinique
   - mayotte
+  - new-caledonia
   - reunion
   - st-pierre-and-miquelon
+  - wallis-and-futuna
