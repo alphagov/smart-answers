@@ -19,6 +19,17 @@
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 <% end %>
 
+<% if start_node && start_node.recruitment_survey_url %>
+  <div class="banner-container">
+      <%= render "govuk_publishing_components/components/intervention", {
+        suggestion_text: "Help improve GOV.UK",
+        suggestion_link_text: "Take part in user research",
+        suggestion_link_url: start_node.recruitment_survey_url,
+        new_tab: true,
+      } %>
+  </div>
+<% end %>
+
 <% content_for :breadcrumbs do %>
   <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item %>
 <% end %>
