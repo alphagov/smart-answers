@@ -265,7 +265,7 @@ module SmartAnswer::Calculators
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
-              %w[1_or_under 2 3_to_4 5_to_11].each do |age|
+              %w[1_or_under 2 3_to_4 5_to_7 8_to_11].each do |age|
                 calculator.age_of_children = age
                 assert calculator.eligible_for_tax_free_childcare?
               end
@@ -278,7 +278,7 @@ module SmartAnswer::Calculators
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
               calculator.children_with_disability = "yes"
-              %w[1_or_under 2 3_to_4 5_to_11 12_to_15 16_to_17].each do |age|
+              %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17].each do |age|
                 calculator.age_of_children = age
                 assert calculator.eligible_for_tax_free_childcare?
               end
@@ -290,7 +290,7 @@ module SmartAnswer::Calculators
           should "be false if not working with children between 1 and 11" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.are_you_working = "no"
-            %w[1_or_under 2 3_to_4 5_to_11].each do |age|
+            %w[1_or_under 2 3_to_4 5_to_7 8_to_11].each do |age|
               calculator.age_of_children = age
               assert_not calculator.eligible_for_tax_free_childcare?
             end
@@ -383,7 +383,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
-            calculator.age_of_children = "1,5_to_11"
+            calculator.age_of_children = "1,5_to_7"
             assert_not calculator.eligible_for_childcare_3_4yr_olds?
           end
         end
@@ -409,7 +409,7 @@ module SmartAnswer::Calculators
           should "be false if child not aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
-            calculator.age_of_children = "1,5_to_11"
+            calculator.age_of_children = "1,5_to_7"
             assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
           end
         end
@@ -434,7 +434,7 @@ module SmartAnswer::Calculators
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "1,5_to_11"
+              calculator.age_of_children = "1,5_to_7"
               assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
             end
           end
@@ -465,7 +465,7 @@ module SmartAnswer::Calculators
           should "be false if child not aged 2 or 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
-            calculator.age_of_children = "5_to_11"
+            calculator.age_of_children = "5_to_7"
             assert_not calculator.eligible_for_funded_early_learning_and_childcare?
           end
 
@@ -501,7 +501,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
             calculator.children_with_disability = "yes"
-            %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+            %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
               calculator.age_of_children = age
               assert calculator.eligible_for_child_disability_support?
             end
@@ -521,7 +521,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
             calculator.children_with_disability = "no"
-            %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+            %w[1_or_under 2 3_to_4 5_to_7 12_to_15].each do |age|
               calculator.age_of_children = age
               assert_not calculator.eligible_for_child_disability_support?
             end
@@ -581,7 +581,7 @@ module SmartAnswer::Calculators
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
             calculator.children_living_with_you = "yes"
-            calculator.age_of_children = "5_to_11"
+            calculator.age_of_children = "5_to_7"
             assert_not calculator.eligible_for_personal_independence_payment?
           end
         end
