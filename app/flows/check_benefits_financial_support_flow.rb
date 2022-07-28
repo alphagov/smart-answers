@@ -109,6 +109,7 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
     end
 
     checkbox_question :age_of_children do
+      option :pregnant
       option :"1_or_under"
       option :"2"
       option :"3_to_4"
