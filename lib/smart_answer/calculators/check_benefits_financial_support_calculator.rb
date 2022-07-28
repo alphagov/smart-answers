@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
 
     def eligible_for_universal_credit?
       @over_state_pension_age == "no" &&
-        @assets_and_savings == "under_16000"
+        %w[under_16000 none_16000].include?(@assets_and_savings)
     end
 
     def eligible_for_housing_benefit?
@@ -134,7 +134,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_nhs_low_income_scheme?
-      @assets_and_savings == "under_16000"
+      %w[under_16000 none_16000].include?(@assets_and_savings)
     end
   end
 end

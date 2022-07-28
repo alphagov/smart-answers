@@ -212,8 +212,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of results" do
+      should "have a next node of results for under_16000" do
         assert_next_node :results, for_response: "under_16000"
+      end
+
+      should "have a next node of results for none" do
+        assert_next_node :results, for_response: "none_16000"
       end
     end
   end
