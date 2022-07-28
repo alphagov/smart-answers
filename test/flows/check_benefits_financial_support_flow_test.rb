@@ -166,7 +166,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of children_with_disability" do
-        assert_next_node :children_with_disability, for_response: "5_to_11"
+        assert_next_node :children_with_disability, for_response: "5_to_7"
       end
     end
   end
@@ -180,7 +180,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11"
+                    age_of_children: "5_to_7"
     end
 
     should "render the question" do
@@ -203,7 +203,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11",
+                    age_of_children: "5_to_7",
                     children_with_disability: "yes"
     end
 
@@ -227,7 +227,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11",
+                    age_of_children: "5_to_7",
                     children_with_disability: "yes",
                     assets_and_savings: "under_16000"
     end
@@ -465,7 +465,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Disability Living Allowance (DLA) for children when eligible" do
       %w[england northern-ireland wales].each do |country|
-        %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+        %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
           add_responses where_do_you_live: country,
                         children_living_with_you: "yes",
                         age_of_children: age,
@@ -478,7 +478,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Child Disability Payment when eligible" do
-      %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+      %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
         add_responses where_do_you_live: "scotland",
                       children_living_with_you: "yes",
                       age_of_children: age,
