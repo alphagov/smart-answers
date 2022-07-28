@@ -480,12 +480,12 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
                   outcome :outcome_birth_nothing
                 end
               end
-            end
-          elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
-            if calculator.mother_earnings_employment?
-              outcome :outcome_mat_allowance
-            elsif !calculator.mother_earnings_employment?
-              outcome :outcome_birth_nothing
+            else
+              if calculator.mother_earnings_employment?
+                outcome :outcome_mat_allowance
+              else
+                outcome :outcome_birth_nothing
+              end
             end
           elsif !calculator.partner_continuity?
             case calculator.employment_status_of_mother
