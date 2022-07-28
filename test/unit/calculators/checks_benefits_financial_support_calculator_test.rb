@@ -47,170 +47,61 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_employment_and_support_allowance?" do
         context "when eligible" do
-          should "be true if country is not NI, under state pension age, working under 16 hours, with a health issue that affects work" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              %w[no yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.disability_or_health_condition = "yes"
-                %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-                  calculator.disability_affecting_work = affecting_work
-                  assert calculator.eligible_for_employment_and_support_allowance?
-                end
-              end
-            end
-          end
-        end
-
-        context "when ineligible" do
-          should "be false if country is NI" do
+          should "be true if under state pension age, working under 16 hours, with a health issue that affects work" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
-            calculator.over_state_pension_age = "no"
-            calculator.disability_or_health_condition = "yes"
-            %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-              calculator.disability_affecting_work = affecting_work
-              assert_not calculator.eligible_for_employment_and_support_allowance?
-            end
-          end
-
-          should "be false if country is not NI, under state pension age, working under 16 hours, with a health condition that DOES NOT affect work" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              %w[no yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.disability_or_health_condition = "yes"
-                calculator.disability_affecting_work = "no"
-                assert_not calculator.eligible_for_employment_and_support_allowance?
-              end
-            end
-          end
-
-          should "be false if country is not NI, OVER state pension age, working under 16 hours, with a health condition that affects work" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "yes"
-              %w[no yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.disability_or_health_condition = "yes"
-                calculator.disability_affecting_work = "yes_limits_work"
-                assert_not calculator.eligible_for_employment_and_support_allowance?
-              end
-            end
-          end
-
-          should "be false if country is not NI, under state pension age, working under 16 hours, WITHOUT a health condition" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              %w[no yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.disability_or_health_condition = "no"
-                assert_not calculator.eligible_for_employment_and_support_allowance?
-              end
-            end
-          end
-
-          should "be false if country is not NI, under state pension age, working over 16 hours, with a health issue that affects work" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              calculator.are_you_working = "yes_over_16_hours_per_week"
-              calculator.disability_or_health_condition = "yes"
-              %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-                calculator.disability_affecting_work = affecting_work
-                assert_not calculator.eligible_for_employment_and_support_allowance?
-              end
-            end
-          end
-        end
-      end
-
-      context "#eligible_for_employment_and_support_allowance_northern_ireland?" do
-        context "when eligible" do
-          should "be true if country is NI, under state pension age, working under 16 hours, with a health issue that affects work" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.disability_or_health_condition = "yes"
               %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
                 calculator.disability_affecting_work = affecting_work
-                assert calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+                assert calculator.eligible_for_employment_and_support_allowance?
               end
             end
           end
         end
 
         context "when ineligible" do
-          should "be false if country is not NI" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              %w[no yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.disability_or_health_condition = "yes"
-                %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
-                  calculator.disability_affecting_work = affecting_work
-                  assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
-                end
-              end
-            end
-          end
-
-          should "be false if country is NI, under state pension age, working under 16 hours per week, with a health condition that DOES NOT affect work" do
+          should "be false if under state pension age, working under 16 hours, with a health condition that DOES NOT affect work" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.disability_or_health_condition = "yes"
               calculator.disability_affecting_work = "no"
-              assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+              assert_not calculator.eligible_for_employment_and_support_allowance?
             end
           end
 
-          should "be false if country is NI, under state pension age, working OVER 16 hours per week, with a health condition that affects work" do
+          should "be false if OVER state pension age, working under 16 hours, with a health condition that affects work" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
+            calculator.over_state_pension_age = "yes"
+            %w[no yes_under_16_hours_per_week].each do |working_hours|
+              calculator.are_you_working = working_hours
+              calculator.disability_or_health_condition = "yes"
+              calculator.disability_affecting_work = "yes_limits_work"
+              assert_not calculator.eligible_for_employment_and_support_allowance?
+            end
+          end
+
+          should "be false if under state pension age, working under 16 hours, WITHOUT a health condition" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            %w[no yes_under_16_hours_per_week].each do |working_hours|
+              calculator.are_you_working = working_hours
+              calculator.disability_or_health_condition = "no"
+              assert_not calculator.eligible_for_employment_and_support_allowance?
+            end
+          end
+
+          should "be false if under state pension age, working over 16 hours, with a health issue that affects work" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.disability_or_health_condition = "yes"
             %w[yes_unable_to_work yes_limits_work].each do |affecting_work|
               calculator.disability_affecting_work = affecting_work
-              assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
-            end
-          end
-
-          should "be false if country is NI, OVER state pension age, working under 16 hours, with a health condition that affects work" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
-            calculator.over_state_pension_age = "yes"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              calculator.are_you_working = working_hours
-              calculator.disability_or_health_condition = "yes"
-              calculator.disability_affecting_work = "no"
-              assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
-            end
-          end
-
-          should "be false if country is NI, under state pension age, WITHOUT a health condition" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
-            calculator.over_state_pension_age = "no"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              calculator.are_you_working = working_hours
-              calculator.disability_or_health_condition = "no"
-              assert_not calculator.eligible_for_employment_and_support_allowance_northern_ireland?
+              assert_not calculator.eligible_for_employment_and_support_allowance?
             end
           end
         end

@@ -14,7 +14,7 @@
     - name: employment_and_support_allowance_northern_ireland
       title: New Style Employment and Support Allowance (ESA)
       description: You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work.
-      condition: eligible_for_employment_and_support_allowance_northern_ireland?
+      condition: eligible_for_employment_and_support_allowance?
       url: https://www.nidirect.gov.uk/articles/employment-and-support-allowance
       url_text: Check if you’re eligible for New Style Employment and Support Allowance on the nidirect website
       group: Supporting your income
