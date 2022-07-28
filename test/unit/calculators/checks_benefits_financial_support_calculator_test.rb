@@ -217,9 +217,10 @@ module SmartAnswer::Calculators
           should "be true if under state pension age with under 16000 assets" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
-            calculator.assets_and_savings = "under_16000"
-
-            assert calculator.eligible_for_universal_credit?
+            %w[none_16000 under_16000].each do |assets|
+              calculator.assets_and_savings = assets
+              assert calculator.eligible_for_universal_credit?
+            end
           end
         end
 
@@ -643,8 +644,10 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if under 16000 assets" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.assets_and_savings = "under_16000"
-            assert calculator.eligible_for_nhs_low_income_scheme?
+            %w[none_16000 under_16000].each do |assets|
+              calculator.assets_and_savings = assets
+              assert calculator.eligible_for_nhs_low_income_scheme?
+            end
           end
         end
 

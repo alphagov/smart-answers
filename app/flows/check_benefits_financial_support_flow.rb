@@ -143,6 +143,7 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
     radio :assets_and_savings do
       option :over_16000
       option :under_16000
+      option :none_16000
 
       on_response do |response|
         calculator.assets_and_savings = response
