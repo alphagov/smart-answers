@@ -102,7 +102,7 @@
     - name: access_to_work_northern-ireland
       title: Access to Work
       description: You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.
-      condition: eligible_for_access_to_work_northern_ireland?
+      condition: eligible_for_access_to_work?
       url: https://www.nidirect.gov.uk/articles/employment-support-information
       url_text: Check if you’re eligible for Access to Work on the nidirect website
       group: Supporting your income
