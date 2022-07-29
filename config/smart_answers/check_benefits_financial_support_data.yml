@@ -259,7 +259,6 @@
     - name: council_tax_reduction
       title: Council Tax Reduction
       description: You may be able to get Council Tax Reduction if you’re on a low income or claim benefits.
-      condition: eligible_for_council_tax_reduction?
       url: /apply-council-tax-reduction
       url_text: Check if you’re eligible for Council Tax Reduction
       group: Help with your bills
@@ -270,7 +269,6 @@
     - name: rate_relief
       title: Rate Relief
       description: You may be able to get Rate Relief if you’re on a low income or claim benefits.
-      condition: eligible_for_rate_relief?
       url: https://www.nidirect.gov.uk/rates-help
       url_text: Check if you’re eligible for Rate Relief on the nidirect website
       group: Help with your bills
@@ -291,7 +289,6 @@
     - name: free_tv_licence
       title: Get a free or discounted TV licence
       description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit.
-      condition: eligible_for_free_tv_licence?
       url: /free-discount-tv-licence
       url_text: Check if you’re eligible for a free or discounted TV licence
       group: Help with your bills
@@ -303,7 +300,6 @@
     - name: budgeting_loan
       title: Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
-      condition: eligible_for_budgeting_loan?
       url: /budgeting-help-benefits
       url_text: Check if you’re eligible for a Budgeting Loan
       group: Help with your bills
@@ -314,7 +310,6 @@
     - name: social_fund_budgeting_loan_northern_ireland
       title: Social Fund Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
-      condition: eligible_for_social_fund_budgeting_loan?
       url: https://www.nidirect.gov.uk/articles/social-fund-budgeting-loan
       url_text: Check if you’re eligible for a Budgeting Loan on the nidirect website
       group: Help with your bills
@@ -333,7 +328,6 @@
     - name: eligible_for_help_with_health_costs_scotland
       title: Help With Health Costs
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
-      condition: eligible_for_help_with_health_costs?
       url: https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs
       url_text: Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website
       group: Healthcare support
@@ -342,7 +336,6 @@
     - name: nhs_low_income_scheme_northern_ireland
       title: NHS Low Income Scheme
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
-      condition: eligible_for_nhs_low_income_scheme_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/help-health-costs
       url_text: Check if you’re eligible for the NHS Low Income Scheme on the nidirect website
       group: Healthcare support

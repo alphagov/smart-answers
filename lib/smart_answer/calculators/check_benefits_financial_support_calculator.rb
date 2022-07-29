@@ -203,37 +203,9 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
     end
 
-    def eligible_for_council_tax_reduction?
-      @where_do_you_live != "northern-ireland"
-    end
-
-    def eligible_for_rate_relief?
-      @where_do_you_live == "northern-ireland"
-    end
-
-    def eligible_for_free_tv_licence?
-      @over_state_pension_age == "yes"
-    end
-
-    def eligible_for_budgeting_loan?
-      @where_do_you_live != "northern-ireland"
-    end
-
-    def eligible_for_social_fund_budgeting_loan?
-      @where_do_you_live == "northern-ireland"
-    end
-
     def eligible_for_nhs_low_income_scheme?
       %w[england wales].include?(@where_do_you_live) &&
         @assets_and_savings == "under_16000"
-    end
-
-    def eligible_for_help_with_health_costs?
-      @where_do_you_live == "scotland"
-    end
-
-    def eligible_for_nhs_low_income_scheme_northern_ireland?
-      @where_do_you_live == "northern-ireland"
     end
   end
 end
