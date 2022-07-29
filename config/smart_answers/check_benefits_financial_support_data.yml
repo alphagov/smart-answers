@@ -236,7 +236,7 @@
     - name: personal_independence_payment_northern_ireland
       title: Personal Independence Payment (PIP)
       description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
-      condition: eligible_for_personal_independence_payment_northern_ireland?
+      condition: eligible_for_personal_independence_payment?
       url: https://www.nidirect.gov.uk/articles/personal-independence-payment-pip
       url_text: Check if you’re eligible for Personal Independence Payment on the nidirect website
       group: Supporting your income
