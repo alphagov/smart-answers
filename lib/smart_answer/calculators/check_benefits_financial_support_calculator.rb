@@ -17,6 +17,8 @@ module SmartAnswer::Calculators
 
     def benefits_for_outcome
       @benefits_for_outcome ||= benefit_data["benefits"].select { |benefit|
+        next unless benefit["countries"].include?(@where_do_you_live)
+
         benefit["condition"].nil? || send(benefit["condition"])
       }.compact
     end

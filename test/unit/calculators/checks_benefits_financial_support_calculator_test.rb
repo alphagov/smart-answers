@@ -7,19 +7,27 @@ module SmartAnswer::Calculators
         should "return array of eligible and non-conditional benefits" do
           stubbed_benefit_data = {
             "benefits" => [{ "title" => "eligible_benefit",
-                             "condition" => "eligible_for_employment_and_support_allowance?" },
-                           { "title" => "unconditional_benefit" },
+                             "condition" => "eligible_for_employment_and_support_allowance?",
+                             "countries" => %w[england wales scotland] },
+                           { "title" => "unconditional_benefit",
+                             "countries" => %w[england] },
+                           { "title" => "unconditional_benefit_wales",
+                             "countries" => %w[wales] },
                            { "title" => "ineligile_benefit",
-                             "condition" => "eligible_for_jobseekers_allowance?" }],
+                             "condition" => "eligible_for_jobseekers_allowance?",
+                             "countries" => %w[england] }],
           }
           expected_benefits = [
             { "title" => "eligible_benefit",
-              "condition" => "eligible_for_employment_and_support_allowance?" },
-            { "title" => "unconditional_benefit" },
+              "condition" => "eligible_for_employment_and_support_allowance?",
+              "countries" => %w[england wales scotland] },
+            { "title" => "unconditional_benefit",
+              "countries" => %w[england] },
           ]
 
           YAML.stubs(:load_file).returns(stubbed_benefit_data)
           calculator = CheckBenefitsFinancialSupportCalculator.new
+          calculator.where_do_you_live = "england"
           calculator.stubs(:eligible_for_employment_and_support_allowance?).returns(true)
           calculator.stubs(:eligible_for_jobseekers_allowance?).returns(false)
 

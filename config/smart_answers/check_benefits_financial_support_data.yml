@@ -7,6 +7,10 @@
       url: /employment-support-allowance
       url_text: Check if you’re eligible for New Style Employment and Support Allowance
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
     - name: employment_and_support_allowance_northern_ireland
       title: New Style Employment and Support Allowance (ESA)
       description: You may be able to apply for 'new style' Employment and Support Allowance (ESA) if you have a disability or health condition that affects how much you can work.
@@ -14,6 +18,8 @@
       url: https://www.nidirect.gov.uk/articles/employment-and-support-allowance
       url_text: Check if you’re eligible for New Style Employment and Support Allowance on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: jobseekers_allowance
       title: New Style Jobseeker's Allowance (JSA)
       description: You could apply for 'new style' Jobseeker’s Allowance (JSA) to help you when you’re looking for work.
@@ -21,6 +27,10 @@
       url: /jobseekers-allowance
       url_text: Check if you’re eligible for New Style Jobseeker’s Allowance
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
     - name: jobseekers_allowance_northern_ireland
       title: New Style Jobseeker's Allowance (JSA)
       description: You could apply for 'new style' Jobseeker’s Allowance (JSA) to help you when you’re looking for work.
@@ -28,6 +38,8 @@
       url: https://www.nidirect.gov.uk/articles/jobseekers-allowance
       url_text: Check if you’re eligible for New Style Jobseeker’s Allowance on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: pension_credit
       title: Pension Credit
       description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you may be able to get Pension Credit if you’ve both reached State Pension age, or one of you is getting Housing Benefit for people over State Pension age.
@@ -35,6 +47,10 @@
       url: /pension-credit
       url_text: Check if you’re eligible for Pension Credit
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
     - name: pension_credit_northern_ireland
       title: Pension Credit
       description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you may be able to get Pension Credit if you’ve both reached State Pension age, or one of you is getting Housing Benefit for people over State Pension age.
@@ -42,6 +58,8 @@
       url: https://www.nidirect.gov.uk/articles/understanding-pension-credit
       url_text: Check if you’re eligible for Pension Credit on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: housing_benefit
       title: Housing Benefit
       description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing. You will not get Housing Benefit if your savings are over £16,000 - unless you get the Guarantee Credit element of Pension Credit.
@@ -49,6 +67,9 @@
       url: /housing-benefit
       url_text: Check if you’re eligible for Housing Benefit
       group: Housing support
+      countries:
+        - england
+        - wales
     - name: housing_benefit_scotland
       title: Housing Benefit
       description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing. You will not get Housing Benefit if your savings are over £16,000 - unless you get the Guarantee Credit element of Pension Credit.
@@ -56,6 +77,8 @@
       url: https://www.mygov.scot/claim-housing-benefit
       url_text: Check if you’re eligible for Housing Benefit on the mygov.scot website
       group: Housing support
+      countries:
+        - scotland
     - name: housing_benefit_northern_ireland
       title: Housing Benefit
       description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing.
@@ -63,6 +86,8 @@
       url: https://www.nihe.gov.uk/Housing-Help/Housing-Benefit/Making-a-claim-for-Housing-Benefit
       url_text: Check if you’re eligible for Housing Benefit on the NI Housing Executive website
       group: Housing support
+      countries:
+        - northern-ireland
     - name: access_to_work
       title: Access to Work
       description: You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.
@@ -70,13 +95,19 @@
       url: /access-to-work
       url_text: Check if you’re eligible for Access to Work
       group: Supporting your income
-    - name: access_to_work_ni
+      countries:
+        - england
+        - wales
+        - scotland
+    - name: access_to_work_northern-ireland
       title: Access to Work
       description: You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.
       condition: eligible_for_access_to_work_northern_ireland?
       url: https://www.nidirect.gov.uk/articles/employment-support-information
       url_text: Check if you’re eligible for Access to Work on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: universal_credit
       title: Universal Credit
       description: |
@@ -86,7 +117,11 @@
       url: /universal-credit
       url_text: Check if you’re eligible for Universal Credit
       group: Supporting your income
-    - name: universal_credit_ni
+      countries:
+        - england
+        - wales
+        - scotland
+    - name: universal_credit_northern_ireland
       title: Universal Credit
       description: |
         <p>You may be able to get help to pay your living costs if you’re on a low income. You could get Universal Credit if you’re working (including self-employed or part time), out of work or cannot work.</p>
@@ -95,6 +130,8 @@
       url: https://www.nidirect.gov.uk/campaigns/universal-credit
       url_text: Check if you’re eligible for Universal Credit on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: tax_free_childcare
       title: Tax-free childcare
       description: You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare.
@@ -102,6 +139,11 @@
       url: /tax-free-childcare
       url_text: Check if you’re eligible for Tax-Free childcare
       group: Help with childcare costs
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: free_childcare_2yr_olds
       title: Free childcare for 2-year-olds
       description: You may be able to get free childcare for your 2-year-old if you get certain benefits or if your child is eligible.
@@ -109,6 +151,9 @@
       url: /help-with-childcare-costs/free-childcare-2-year-olds
       url_text: Check if you’re eligible for free childcare for 2-year-olds
       group: Help with childcare costs
+      countries:
+        - wales
+        - england
     - name: childcare_3_4yr_olds_wales
       title: Childcare 3 and 4 year olds
       description: You may be able to get up to 30 hours a week of free early education and childcare.
@@ -116,27 +161,35 @@
       url: https://gov.wales/childcare-3-and-4-year-olds
       url_text: Find out how much free childcare you can get on the GOV.WALES website
       group: Help with childcare costs
-    - name: 15hrs_free_childcare_3_4yr_olds
+      countries:
+        - wales
+    - name: 15hrs_free_childcare_3_4yr_olds_england
       title: 15 hours of free childcare for 3 and 4-year-olds
       description: You can get 570 hours of free childcare per year with an approved childcare provider if your child is 3 or 4 years old.
       condition: eligible_for_15hrs_free_childcare_3_4yr_olds?
       url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
       url_text: Find out how to get free childcare for 3 and 4-year-olds
       group: Help with childcare costs
-    - name: funded_early_learning_and_childcare
+      countries:
+        - england
+    - name: funded_early_learning_and_childcare_scotland
       title: Funded early learning and childcare
       description: You may be able to get up to 30 hours a week of free early education and childcare during term time if your child is 3 or 4 years old. You may also be able to get funded childcare for your 2-year-old.
       condition: eligible_for_funded_early_learning_and_childcare?
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Find out how much free childcare you can get on mygov.scot
       group: Help with childcare costs
-    - name: 30hrs_free_childcare_3_4yrs
+      countries:
+        - scotland
+    - name: 30hrs_free_childcare_3_4yrs_england
       title: 30 hours of free childcare
       description: You may be able to get 30 hours of free childcare with an approved childcare provider if you’re working and your child is 3 or 4 years old.
       condition: eligible_for_30hrs_free_childcare_3_4yrs?
       url: /30-hours-free-childcare
       url_text: Check if you’re eligible for 30 hours free childcare
       group: Help with childcare costs
+      countries:
+        - england
     - name: carers_allowance
       title: Carer’s Allowance
       description: You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.
@@ -144,6 +197,11 @@
       url: /carers-allowance
       url_text: Check if you’re eligible for Carer’s Allowance
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.
@@ -151,6 +209,10 @@
       url: /disability-living-allowance-children
       url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children
       group: Help with childcare costs
+      countries:
+        - england
+        - wales
+        - northern-ireland
     - name: child_disability_payment_scotland
       title: Child Disability Payment
       description: You can apply for Child Disability Payment if you’re responsible for a child under 16 who lives in Scotland.
@@ -158,6 +220,8 @@
       url: https://www.mygov.scot/child-disability-payment
       url_text: Check if you’re eligible for Child Disability Payment on mygov.scot
       group: Help with childcare costs
+      countries:
+        - scotland
     - name: personal_independence_payment
       title: Personal Independence Payment (PIP)
       description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
@@ -165,6 +229,10 @@
       url: /pip
       url_text: Check if you’re eligible for Personal Independence Payment
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
     - name: personal_independence_payment_northern_ireland
       title: Personal Independence Payment (PIP)
       description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
@@ -172,6 +240,8 @@
       url: https://www.nidirect.gov.uk/articles/personal-independence-payment-pip
       url_text: Check if you’re eligible for Personal Independence Payment on the nidirect website
       group: Supporting your income
+      countries:
+        - northern-ireland
     - name: attendance_allowance
       title: Attendance Allowance
       description: |
@@ -181,6 +251,11 @@
       url: /attendance-allowance
       url_text: Check if you’re eligible for Attendance Allowance
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: council_tax_reduction
       title: Council Tax Reduction
       description: You may be able to get Council Tax Reduction if you’re on a low income or claim benefits.
@@ -188,6 +263,10 @@
       url: /apply-council-tax-reduction
       url_text: Check if you’re eligible for Council Tax Reduction
       group: Help with your bills
+      countries:
+        - england
+        - wales
+        - scotland
     - name: rate_relief
       title: Rate Relief
       description: You may be able to get Rate Relief if you’re on a low income or claim benefits.
@@ -195,6 +274,8 @@
       url: https://www.nidirect.gov.uk/rates-help
       url_text: Check if you’re eligible for Rate Relief on the nidirect website
       group: Help with your bills
+      countries:
+        - northern-ireland
     - name: child_benefit
       title: Child Benefit
       description: You will usually get Child Benefit if you’re responsible for a child under 16 (or under 20 if they stay in approved education or training) and you live in the UK.
@@ -202,6 +283,11 @@
       url: /child-benefit
       url_text: Check if you’re eligible for Child Benefit
       group: Supporting your income
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: free_tv_licence
       title: Get a free or discounted TV licence
       description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit.
@@ -209,6 +295,11 @@
       url: /free-discount-tv-licence
       url_text: Check if you’re eligible for a free or discounted TV licence
       group: Help with your bills
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: budgeting_loan
       title: Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
@@ -216,13 +307,19 @@
       url: /budgeting-help-benefits
       url_text: Check if you’re eligible for a Budgeting Loan
       group: Help with your bills
-    - name: social_fund_budgeting_loan
+      countries:
+        - england
+        - wales
+        - scotland
+    - name: social_fund_budgeting_loan_northern_ireland
       title: Social Fund Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
       condition: eligible_for_social_fund_budgeting_loan?
       url: https://www.nidirect.gov.uk/articles/social-fund-budgeting-loan
       url_text: Check if you’re eligible for a Budgeting Loan on the nidirect website
       group: Help with your bills
+      countries:
+        - northern-ireland
     - name: nhs_low_income_scheme
       title: NHS Low Income Scheme
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
@@ -230,13 +327,18 @@
       url: https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
       url_text: Check if you’re eligible for the NHS Low Income Scheme on the NHS website
       group: Healthcare support
-    - name: eligible_for_help_with_health_costs
+      countries:
+        - england
+        - wales
+    - name: eligible_for_help_with_health_costs_scotland
       title: Help With Health Costs
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
       condition: eligible_for_help_with_health_costs?
       url: https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs
       url_text: Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website
       group: Healthcare support
+      countries:
+        - scotland
     - name: nhs_low_income_scheme_northern_ireland
       title: NHS Low Income Scheme
       description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
@@ -244,3 +346,5 @@
       url: https://www.nidirect.gov.uk/articles/help-health-costs
       url_text: Check if you’re eligible for the NHS Low Income Scheme on the nidirect website
       group: Healthcare support
+      countries:
+        - northern-ireland
