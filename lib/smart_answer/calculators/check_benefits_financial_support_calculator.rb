@@ -41,13 +41,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_pension_credit?
-      @where_do_you_live != "northern-ireland" &&
-        @over_state_pension_age == "yes"
-    end
-
-    def eligible_for_pension_credit_northern_ireland?
-      @where_do_you_live == "northern-ireland" &&
-        @over_state_pension_age == "yes"
+      @over_state_pension_age == "yes"
     end
 
     def eligible_for_access_to_work?

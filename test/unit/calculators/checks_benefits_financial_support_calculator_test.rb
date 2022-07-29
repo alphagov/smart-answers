@@ -168,60 +168,18 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_pension_credit?" do
         context "when eligible" do
-          should "be true if country is not NI and over state pension age" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "yes"
-              assert calculator.eligible_for_pension_credit?
-            end
+          should "be true if over state pension age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_pension_credit?
           end
         end
 
         context "when ineligible" do
-          should "be false if country is not NI and UNDER state pension age" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "no"
-              assert_not calculator.eligible_for_pension_credit?
-            end
-          end
-
-          should "be false if country is NI " do
+          should "be false if UNDER state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
-            calculator.over_state_pension_age = "yes"
-            assert_not calculator.eligible_for_pension_credit?
-          end
-        end
-      end
-
-      context "#eligible_for_pension_credit_northern_ireland?" do
-        context "when eligible" do
-          should "be true if country is NI and over state pension age" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
-            calculator.over_state_pension_age = "yes"
-            assert calculator.eligible_for_pension_credit_northern_ireland?
-          end
-        end
-
-        context "when ineligible" do
-          should "be false if country is NI and UNDER state pension age" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "northern-ireland"
             calculator.over_state_pension_age = "no"
-            assert_not calculator.eligible_for_pension_credit_northern_ireland?
-          end
-
-          should "be false if country is not NI" do
-            %w[england wales scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.over_state_pension_age = "yes"
-              assert_not calculator.eligible_for_pension_credit_northern_ireland?
-            end
+            assert_not calculator.eligible_for_pension_credit?
           end
         end
       end

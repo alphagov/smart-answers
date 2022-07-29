@@ -54,7 +54,7 @@
     - name: pension_credit_northern_ireland
       title: Pension Credit
       description: You may be able to get extra money if you’re over State Pension age and on a low income. If you live with a partner, you may be able to get Pension Credit if you’ve both reached State Pension age, or one of you is getting Housing Benefit for people over State Pension age.
-      condition: eligible_for_pension_credit_northern_ireland?
+      condition: eligible_for_pension_credit?
       url: https://www.nidirect.gov.uk/articles/understanding-pension-credit
       url_text: Check if you’re eligible for Pension Credit on the nidirect website
       group: Supporting your income
