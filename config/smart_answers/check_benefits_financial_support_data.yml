@@ -34,7 +34,7 @@
     - name: jobseekers_allowance_northern_ireland
       title: New Style Jobseeker's Allowance (JSA)
       description: You could apply for 'new style' Jobseeker’s Allowance (JSA) to help you when you’re looking for work.
-      condition: eligible_for_jobseekers_allowance_northern_ireland?
+      condition: eligible_for_jobseekers_allowance?
       url: https://www.nidirect.gov.uk/articles/jobseekers-allowance
       url_text: Check if you’re eligible for New Style Jobseeker’s Allowance on the nidirect website
       group: Supporting your income
