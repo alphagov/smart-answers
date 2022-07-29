@@ -73,7 +73,7 @@
     - name: housing_benefit_scotland
       title: Housing Benefit
       description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing. You will not get Housing Benefit if your savings are over £16,000 - unless you get the Guarantee Credit element of Pension Credit.
-      condition: eligible_for_housing_benefit_scotland?
+      condition: eligible_for_housing_benefit?
       url: https://www.mygov.scot/claim-housing-benefit
       url_text: Check if you’re eligible for Housing Benefit on the mygov.scot website
       group: Housing support
@@ -82,7 +82,7 @@
     - name: housing_benefit_northern_ireland
       title: Housing Benefit
       description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing.
-      condition: eligible_for_housing_benefit_northern_ireland?
+      condition: eligible_for_housing_benefit?
       url: https://www.nihe.gov.uk/Housing-Help/Housing-Benefit/Making-a-claim-for-Housing-Benefit
       url_text: Check if you’re eligible for Housing Benefit on the NI Housing Executive website
       group: Housing support
