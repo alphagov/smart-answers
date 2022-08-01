@@ -76,7 +76,6 @@ countries_with_18_outcomes:
   - haiti
   - honduras
   - hong-kong
-  - hungary
   - indonesia
   - iran
   - iraq
@@ -213,6 +212,7 @@ countries_with_2_outcomes_marriage_or_pacs:
 countries_with_6_outcomes:
   - congo
   - greece
+  - hungary
   - italy
   - poland
   - spain
