@@ -787,81 +787,59 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_free_childcare_2yr_olds?" do
         context "when eligible" do
-          should "be true if country is England or Wales, with a child aged 2" do
-            %w[england wales].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "2"
-              assert calculator.eligible_for_free_childcare_2yr_olds?
-            end
+          should "be true if child living with you and aged 2" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            assert calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
 
         context "when ineligible" do
-          should "be false if country is England or Wales with a child that is not 2" do
-            %w[england wales].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "1,3_to_4"
-              assert_not calculator.eligible_for_free_childcare_2yr_olds?
-            end
+          should "be false if child that is not 2" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "1,3_to_4"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
           end
 
-          should "be false if country is Scotland or Northern Ireland with a child aged 2" do
-            %w[scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.age_of_children = "2"
-              assert_not calculator.eligible_for_free_childcare_2yr_olds?
-            end
+          should "be false if child is not living with you" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "no"
+            calculator.age_of_children = "2"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
       end
 
-      context "#eligible_for_childcare_3_4yr_olds_wales??" do
+      context "#eligible_for_childcare_3_4yr_olds?" do
         context "when eligible" do
-          should "be true if country is Wales, working over 16 hours with child aged 3 to 4" do
+          should "be true if working over 16 hours with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "wales"
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "3_to_4"
-            assert calculator.eligible_for_childcare_3_4yr_olds_wales?
+            assert calculator.eligible_for_childcare_3_4yr_olds?
           end
         end
 
         context "when ineligible" do
-          should "be false if country is not Wales, working over 16 hours with child aged 3 to 4" do
-            %w[england scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.are_you_working = "yes_over_16_hours_per_week"
-              calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "3_to_4"
-              assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
-            end
-          end
-
-          should "be false if country is Wales working under 16 hours with child aged 3 to 4" do
+          should "be false working under 16 hours with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "wales"
             %w[no yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
               calculator.age_of_children = "3_to_4"
-              assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+              assert_not calculator.eligible_for_childcare_3_4yr_olds?
             end
           end
 
-          should "be false if country is Wales working over 16 hours without child aged 3 to 4" do
+          should "be false if working over 16 hours without child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "wales"
             calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,5_to_11"
-            assert_not calculator.eligible_for_childcare_3_4yr_olds_wales?
+            assert_not calculator.eligible_for_childcare_3_4yr_olds?
           end
         end
       end
@@ -870,7 +848,6 @@ module SmartAnswer::Calculators
         context "when eligible" do
           should "be true if country is England, with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,3_to_4"
             assert calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
@@ -878,26 +855,14 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false if country is not England with child aged 3 to 4" do
-            %w[scotland wales northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "1,3_to_4"
-              assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
-            end
-          end
-
-          should "be false if country is England without children" do
+          should "be false if without children" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "no"
             assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
           end
 
-          should "be false if country is England with child not aged 3 to 4" do
+          should "be false if child not aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,5_to_11"
             assert_not calculator.eligible_for_15hrs_free_childcare_3_4yr_olds?
@@ -907,9 +872,8 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_30hrs_free_childcare_3_4yrs?" do
         context "when eligible" do
-          should "be true if country is England, working, with child aged 3 to 4" do
+          should "be true if working, with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -920,9 +884,8 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false if country is England, working, with child not aged 3 to 4" do
+          should "be false if working, with child not aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
               calculator.children_living_with_you = "yes"
@@ -931,35 +894,20 @@ module SmartAnswer::Calculators
             end
           end
 
-          should "be false if country is England, not working, with child aged 3 to 4" do
+          should "be false if not working, with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "england"
             calculator.are_you_working = "no"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "3_to_4"
             assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
-          end
-
-          should "be false if country is not England, working, with child aged 3 to 4" do
-            %w[wales northern-ireland scotland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
-                calculator.are_you_working = working_hours
-                calculator.children_living_with_you = "yes"
-                calculator.age_of_children = "3_to_4"
-                assert_not calculator.eligible_for_30hrs_free_childcare_3_4yrs?
-              end
-            end
           end
         end
       end
 
       context "#eligible_for_funded_early_learning_and_childcare?" do
         context "when eligible" do
-          should "be true if country is Scotland, with child aged 2 or 3 to 4" do
+          should "be true if child aged 2 or 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             %w[2 3_to_4].each do |age|
               calculator.age_of_children = age
@@ -969,24 +917,17 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false if country is Scotland, with child not aged 2 or 3 to 4" do
+          should "be false if child not aged 2 or 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "5_to_11"
             assert_not calculator.eligible_for_funded_early_learning_and_childcare?
           end
 
-          should "be false is country is not Scotland with child aged 2 or 3 to 4" do
-            %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              %w[2 3_to_4].each do |age|
-                calculator.age_of_children = age
-                assert_not calculator.eligible_for_funded_early_learning_and_childcare?
-              end
-            end
+          should "be false if not living with child" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_funded_early_learning_and_childcare?
           end
         end
       end
@@ -1325,35 +1266,18 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_nhs_low_income_scheme?" do
         context "when eligible" do
-          should "be true if country is England or Wales with under 16000 assets" do
-            %w[england wales].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.assets_and_savings = "under_16000"
-              assert calculator.eligible_for_nhs_low_income_scheme?
-            end
+          should "be true if under 16000 assets" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.assets_and_savings = "under_16000"
+            assert calculator.eligible_for_nhs_low_income_scheme?
           end
         end
 
         context "when ineligible" do
-          should "be false if country is England or Wales with OVER 1600 assets" do
-            %w[england wales].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.assets_and_savings = "over_16000"
-              assert_not calculator.eligible_for_nhs_low_income_scheme?
-            end
-          end
-
-          should "be false country is not England or Wales with assets above OR below 16000" do
-            %w[scotland northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              %w[under_16000 over_16000].each do |assets|
-                calculator.assets_and_savings = assets
-                assert_not calculator.eligible_for_nhs_low_income_scheme?
-              end
-            end
+          should "be false if OVER 1600 assets" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.assets_and_savings = "over_16000"
+            assert_not calculator.eligible_for_nhs_low_income_scheme?
           end
         end
       end

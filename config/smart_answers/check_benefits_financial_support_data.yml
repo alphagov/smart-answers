@@ -157,7 +157,7 @@
     - name: childcare_3_4yr_olds_wales
       title: Childcare 3 and 4 year olds
       description: You may be able to get up to 30 hours a week of free early education and childcare.
-      condition: eligible_for_childcare_3_4yr_olds_wales?
+      condition: eligible_for_childcare_3_4yr_olds?
       url: https://gov.wales/childcare-3-and-4-year-olds
       url_text: Find out how much free childcare you can get on the GOV.WALES website
       group: Help with childcare costs

@@ -119,35 +119,30 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_free_childcare_2yr_olds?
-      %w[england wales].include?(@where_do_you_live) &&
-        @children_living_with_you == "yes" &&
+      @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("2")
     end
 
-    def eligible_for_childcare_3_4yr_olds_wales?
-      @where_do_you_live == "wales" &&
-        @are_you_working == "yes_over_16_hours_per_week" &&
+    def eligible_for_childcare_3_4yr_olds?
+      @are_you_working == "yes_over_16_hours_per_week" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("3_to_4")
     end
 
     def eligible_for_15hrs_free_childcare_3_4yr_olds?
-      @where_do_you_live == "england" &&
-        @children_living_with_you == "yes" &&
+      @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("3_to_4")
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
-      @where_do_you_live == "england" &&
-        @are_you_working != "no" &&
+      @are_you_working != "no" &&
         @children_living_with_you == "yes" &&
         @age_of_children.split(",").any?("3_to_4")
     end
 
     def eligible_for_funded_early_learning_and_childcare?
       eligible_child_ages = %w[2 3_to_4]
-      @where_do_you_live == "scotland" &&
-        @children_living_with_you == "yes" &&
+      @children_living_with_you == "yes" &&
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
     end
 
@@ -204,8 +199,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_nhs_low_income_scheme?
-      %w[england wales].include?(@where_do_you_live) &&
-        @assets_and_savings == "under_16000"
+      @assets_and_savings == "under_16000"
     end
   end
 end
