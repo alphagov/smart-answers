@@ -13,20 +13,20 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit "/maternity-paternity-pay-leave"
 
     assert page.has_css?(".gem-c-intervention")
-    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/61ec38b742396bc23d00104953ffb17d")
+    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
   end
 
   should "not display Recruitment Banner on non-landing pages of the specific smart answer" do
     visit "/maternity-paternity-pay-leave/y"
 
     assert_not page.has_css?(".gem-c-intervention")
-    assert_not page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/61ec38b742396bc23d00104953ffb17d")
+    assert_not page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
   end
 
   should "not display Recruitment Banner unless survey URL is specified for the base path" do
     visit "/bridge-of-death"
 
     assert_not page.has_css?(".gem-c-intervention")
-    assert_not page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/61ec38b742396bc23d00104953ffb17d")
+    assert_not page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
   end
 end
