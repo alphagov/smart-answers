@@ -102,20 +102,10 @@ module SmartAnswer::Calculators
       @children_living_with_you == "yes"
     end
 
-    def eligible_for_disability_living_allowance_for_children?
+    def eligible_for_child_disability_support?
       eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11 12_to_15]
 
-      @where_do_you_live != "scotland" &&
-        @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
-        @children_with_disability == "yes"
-    end
-
-    def eligible_for_child_disability_payment_scotland?
-      eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11 12_to_15]
-
-      @where_do_you_live == "scotland" &&
-        @children_living_with_you == "yes" &&
+      @children_living_with_you == "yes" &&
         @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
         @children_with_disability == "yes"
     end

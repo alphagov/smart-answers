@@ -495,99 +495,37 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_disability_living_allowance_for_children?" do
+      context "#eligible_for_child_disability_support?" do
         context "when eligible" do
-          should "be true if country is not Scotland, living with child with disability aged under 15" do
-            %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.children_with_disability = "yes"
-              %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
-                calculator.age_of_children = age
-                assert calculator.eligible_for_disability_living_allowance_for_children?
-              end
+          should "be true if living with child with disability aged under 15" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.children_with_disability = "yes"
+            %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_child_disability_support?
             end
           end
         end
 
         context "when ineligible" do
-          should "be false if country is Scotland, living with child with disability aged under 15" do
+          should "be false if living with child with disability aged 18 to 19" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.where_do_you_live = "scotland"
             calculator.children_living_with_you = "yes"
             calculator.children_with_disability = "yes"
+            calculator.age_of_children = "18_to_19"
+            assert_not calculator.eligible_for_child_disability_support?
+          end
+
+          should "be false if living with child WITHOUT disability aged under 15" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.children_with_disability = "no"
             %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
               calculator.age_of_children = age
-              assert_not calculator.eligible_for_disability_living_allowance_for_children?
+              assert_not calculator.eligible_for_child_disability_support?
             end
           end
-
-          should "be false if country is not Scotland, living with child with disability aged 18 to 19" do
-            %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.children_with_disability = "yes"
-              calculator.age_of_children = "18_to_19"
-              assert_not calculator.eligible_for_disability_living_allowance_for_children?
-            end
-          end
-
-          should "be false if country is not Scotland, living with child WITHOUT disability aged under 15" do
-            %w[england wales northern-ireland].each do |country|
-              calculator = CheckBenefitsFinancialSupportCalculator.new
-              calculator.where_do_you_live = country
-              calculator.children_living_with_you = "yes"
-              calculator.children_with_disability = "no"
-              %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
-                calculator.age_of_children = age
-                assert_not calculator.eligible_for_disability_living_allowance_for_children?
-              end
-            end
-          end
-        end
-      end
-
-      context "#eligible_for_child_disability_payment_scotland?" do
-        should "return true if eligible for Child Disability Payment Scotland" do
-          calculator = CheckBenefitsFinancialSupportCalculator.new
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.children_with_disability = "yes"
-          %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
-            calculator.age_of_children = age
-            assert calculator.eligible_for_child_disability_payment_scotland?
-          end
-        end
-
-        should "return false if not eligible for Child Disability Payment Scotland" do
-          calculator = CheckBenefitsFinancialSupportCalculator.new
-          calculator.where_do_you_live = "wales"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under"
-          calculator.children_with_disability = "yes"
-          assert_not calculator.eligible_for_child_disability_payment_scotland?
-
-          calculator.where_do_you_live = "scotland"
-          calculator.children_living_with_you = "yes"
-          calculator.age_of_children = "1_or_under"
-          calculator.children_with_disability = "no"
-          assert_not calculator.eligible_for_child_disability_payment_scotland?
-        end
-      end
-
-      context "#eligible_for_carers_allowance?" do
-        should "return true if eligible for Carer's Allowance" do
-          calculator = CheckBenefitsFinancialSupportCalculator.new
-          calculator.carer_disability_or_health_condition = "yes"
-          assert calculator.eligible_for_carers_allowance?
-        end
-
-        should "return false if not eligible for Carer's Allowance" do
-          calculator = CheckBenefitsFinancialSupportCalculator.new
-          calculator.carer_disability_or_health_condition = "no"
-          assert_not calculator.eligible_for_carers_allowance?
         end
       end
 

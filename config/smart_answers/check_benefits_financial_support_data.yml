@@ -205,7 +205,7 @@
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.
-      condition: eligible_for_disability_living_allowance_for_children?
+      condition: eligible_for_child_disability_support?
       url: /disability-living-allowance-children
       url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children
       group: Help with childcare costs
@@ -216,7 +216,7 @@
     - name: child_disability_payment_scotland
       title: Child Disability Payment
       description: You can apply for Child Disability Payment if you’re responsible for a child under 16 who lives in Scotland.
-      condition: eligible_for_child_disability_payment_scotland?
+      condition: eligible_for_child_disability_support?
       url: https://www.mygov.scot/child-disability-payment
       url_text: Check if you’re eligible for Child Disability Payment on mygov.scot
       group: Help with childcare costs
