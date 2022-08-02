@@ -63,6 +63,13 @@ module SmartAnswer::Calculators
       general_child_benefit_eligibility?(skip_benefit_list, age_groups)
     end
 
+    def best_start_foods_scotland?
+      skip_benefit_list = []
+      age_groups = %w[pregnant 1_or_under 2]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&

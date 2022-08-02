@@ -741,5 +741,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "If you’re getting certain benefits and are more than 10 weeks pregnant"
       end
     end
+
+    should "render Best Start Food for eligible countries" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "1_or_under",
+                    on_benefits: "dont_know"
+
+      assert_rendered_outcome text: "Best Start Foods"
+      assert_rendered_outcome text: "If you’re getting certain benefits and are pregnant or have a child under 3"
+    end
   end
 end
