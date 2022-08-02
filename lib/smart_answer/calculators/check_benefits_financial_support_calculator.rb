@@ -36,10 +36,16 @@ module SmartAnswer::Calculators
     def eligible_for_maternity_allowance?
       return unless @children_living_with_you == "yes"
 
-      eligible_child_ages = %w[pregnant 1_or_under]
+      age_groups = %w[pregnant 1_or_under]
 
-      @over_state_pension_age == "no" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+      @over_state_pension_age == "no" && eligible_child_ages?(age_groups)
+    end
+
+    def eligible_for_sure_start_maternity_grant?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[pregnant 1_or_under]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
     end
 
     def eligible_for_employment_and_support_allowance?
@@ -153,6 +159,22 @@ module SmartAnswer::Calculators
 
     def eligible_child_ages?(age_groups)
       @age_of_children.split(",").any? { |age| age_groups.include?(age) }
+    end
+
+    def general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+      return if @children_living_with_you == "no"
+      return unless eligible_child_ages?(age_groups)
+      return if @on_benefits == "no"
+
+      permitted_benefits?(skip_benefit_list)
+    end
+
+    def permitted_benefits?(skip_benefit_list)
+      return true if @on_benefits == "dont_know"
+
+      @current_benefits.split(",").none? do |benefit|
+        skip_benefit_list.include?(benefit)
+      end
     end
   end
 end
