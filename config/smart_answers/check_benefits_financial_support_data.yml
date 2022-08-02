@@ -342,3 +342,14 @@
       group: Healthcare support
       countries:
         - northern-ireland
+    - name: maternity_allowance
+      title: Maternity Allowance
+      description: You may be eligible to get Maternity Allowance for 39 weeks if you’re employed but cannot get Statutory Maternity Pay (SMP), or are registered self-employed. You may still qualify if you’ve recently stopped working.
+      condition: eligible_for_maternity_allowance?
+      url_text: Check if you’re eligible for Maternity Allowance
+      url: https://www.gov.uk/maternity-allowance
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
