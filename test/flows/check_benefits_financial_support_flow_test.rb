@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 9 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 10 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -751,6 +751,50 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Best Start Foods"
       assert_rendered_outcome text: "If you’re getting certain benefits and are pregnant or have a child under 3"
+    end
+
+    should "render Free school meals [England] for eligible countries" do
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
     end
   end
 end
