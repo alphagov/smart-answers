@@ -729,5 +729,17 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Pregnancy and Baby Payment"
       assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment"
     end
+
+    should "render Healthy Start for eligible countries" do
+      %w[england wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "1_or_under",
+                      on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Healthy Start"
+        assert_rendered_outcome text: "If you’re getting certain benefits and are more than 10 weeks pregnant"
+      end
+    end
   end
 end
