@@ -389,3 +389,35 @@
       url: https://www.mygov.scot/best-start-grant-best-start-foods
       countries:
         - scotland
+    - name: free_school_meals_england
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council.
+      condition: eligible_for_free_school_meals?
+      url_text: Check if your child can get free school meals
+      url: https://www.gov.uk/apply-free-school-meals
+      countries:
+        - england
+    - name: free_school_meals_scotland
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals.
+      condition: eligible_for_free_school_meals_scotland?
+      url_text: Check if your child can get free school meals on the mygov.scot website
+      url: https://www.mygov.scot/school-meals
+      countries:
+        - scotland
+    - name: free_school_meals_wales
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals.
+      condition: eligible_for_free_school_meals?
+      url_text: Check if your child can get free school meals on the GOV.WALES website
+      url: https://gov.wales/find-out-about-free-school-meals
+      countries:
+        - wales
+    - name: free_school_meals_northern_ireland
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals.
+      condition: eligible_for_free_school_meals?
+      url_text: Check if your child can get free school meals on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/nutrition-and-school-lunches
+      countries:
+        - northern-ireland
