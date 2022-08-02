@@ -48,6 +48,13 @@ module SmartAnswer::Calculators
       general_child_benefit_eligibility?(skip_benefit_list, age_groups)
     end
 
+    def eligible_for_pregnancy_and_baby_payment_scotland?
+      skip_benefit_list = []
+      age_groups = %w[pregnant 1_or_under]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&
