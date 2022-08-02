@@ -818,5 +818,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Uniform Grant"
       assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
     end
+
+    should "render Pupil Development Grant [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Pupil Development Grant"
+      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+    end
   end
 end
