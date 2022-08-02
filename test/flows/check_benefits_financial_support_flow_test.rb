@@ -718,5 +718,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment of £500"
       end
     end
+
+    should "render Pregnancy and Baby Payment [Scotland] for eligible countries" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "1_or_under",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Pregnancy and Baby Payment"
+      assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment"
+    end
   end
 end
