@@ -96,6 +96,66 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_sure_start_maternity_grant?" do
+        context "when eligible" do
+          should "be true if under state pension age, living with eligible age children / claiming permitted benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "universal_credit"
+            %w[pregnant 1_or_under].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_sure_start_maternity_grant?
+            end
+          end
+
+          should "be true if under state pension age, children living with eligible age / don't know benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.on_benefits = "dont_know"
+            %w[pregnant 1_or_under].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_sure_start_maternity_grant?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if child not living with you" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_sure_start_maternity_grant?
+          end
+
+          should "be false if child age not eligible" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.on_benefits = "dont_know"
+            %w[2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17 18_to_19].each do |age|
+              calculator.age_of_children = age
+              assert_not calculator.eligible_for_sure_start_maternity_grant?
+            end
+          end
+
+          should "be false if not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "pregnant"
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_sure_start_maternity_grant?
+          end
+
+          should "be false if already selected relevant benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "pregnant"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            assert_not calculator.eligible_for_sure_start_maternity_grant?
+          end
+        end
+      end
+
       context "#eligible_for_employment_and_support_allowance?" do
         context "when eligible" do
           should "be true if under state pension age, working under 16 hours, with a health issue that affects work" do

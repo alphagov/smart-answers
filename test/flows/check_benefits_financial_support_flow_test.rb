@@ -705,5 +705,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "You may be eligible to get Maternity Allowance for 39 weeks if you’re employed"
       end
     end
+
+    should "render Sure Start Maternity Grant for eligible countries" do
+      %w[england wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "1_or_under",
+                      on_benefits: "yes",
+                      current_benefits: "universal_credit"
+
+        assert_rendered_outcome text: "Sure Start Maternity Grant"
+        assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment of £500"
+      end
+    end
   end
 end
