@@ -353,3 +353,13 @@
         - wales
         - scotland
         - northern-ireland
+    - name: sure_start_maternity_grant
+      title: Sure Start Maternity Grant
+      description: If you or your partner get certain benefits you could get a one-off payment of £500 to help towards the costs of having a child. You must usually have no other children under 16.
+      condition: eligible_for_sure_start_maternity_grant?
+      url_text: Check if you’re eligible for a Sure Start Maternity Grant
+      url: https://www.gov.uk/sure-start-maternity-grant
+      countries:
+        - england
+        - wales
+        - northern-ireland
