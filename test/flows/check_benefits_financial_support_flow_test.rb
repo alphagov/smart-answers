@@ -693,5 +693,17 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "NHS Low Income Scheme"
       assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the nidirect website"
     end
+
+    should "render maternity allowance for eligible countries" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      over_state_pension_age: "no",
+                      age_of_children: "1_or_under"
+
+        assert_rendered_outcome text: "Maternity Allowance"
+        assert_rendered_outcome text: "You may be eligible to get Maternity Allowance for 39 weeks if you’re employed"
+      end
+    end
   end
 end

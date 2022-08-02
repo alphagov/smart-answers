@@ -33,6 +33,15 @@ module SmartAnswer::Calculators
       @current_benefits != "none"
     end
 
+    def eligible_for_maternity_allowance?
+      return unless @children_living_with_you == "yes"
+
+      eligible_child_ages = %w[pregnant 1_or_under]
+
+      @over_state_pension_age == "no" &&
+        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&

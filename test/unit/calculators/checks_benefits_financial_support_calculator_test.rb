@@ -59,6 +59,43 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_maternity_allowance?" do
+        context "when eligible" do
+          should "be true if under state pension age, children living with eligible age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.children_living_with_you = "yes"
+            %w[pregnant 1_or_under].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_maternity_allowance?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if over state pension age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            assert_not calculator.eligible_for_maternity_allowance?
+          end
+
+          should "be false if child age not eligible" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "5_to_7"
+            assert_not calculator.eligible_for_maternity_allowance?
+          end
+
+          should "be false if child not living with you" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_maternity_allowance?
+          end
+        end
+      end
+
       context "#eligible_for_employment_and_support_allowance?" do
         context "when eligible" do
           should "be true if under state pension age, working under 16 hours, with a health issue that affects work" do
