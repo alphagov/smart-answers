@@ -397,3 +397,11 @@
       url: https://www.gov.uk/apply-free-school-meals
       countries:
         - england
+    - name: free_school_meals_scotland
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals.
+      condition: eligible_for_free_school_meals_scotland?
+      url_text: Check if your child can get free school meals on the mygov.scot website
+      url: https://www.mygov.scot/school-meals
+      countries:
+        - scotland
