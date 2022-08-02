@@ -437,3 +437,11 @@
       url: https://www.eani.org.uk/financial-help/free-school-meals-uniform-grants
       countries:
         - northern-ireland
+    - name: pupil_development_grant_wales
+      title: Pupil Development Grant
+      description: If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms.
+      condition: eligible_for_pupil_development_grant_wales?
+      url_text: Check if you can get help with school uniform costs on the GOV.WALES website
+      url: https://gov.wales/pupil-development-grant-access
+      countries:
+        - wales
