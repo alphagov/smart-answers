@@ -421,3 +421,11 @@
       url: https://www.nidirect.gov.uk/articles/nutrition-and-school-lunches
       countries:
         - northern-ireland
+    - name: school_clothing_grant_scotland
+      title: School Clothing Grant
+      description: If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms.
+      condition: eligible_for_school_clothing_grant_scotland?
+      url_text: Check if you can get help with school uniform costs on the mygov.scot website
+      url: https://www.mygov.scot/clothing-grants
+      countries:
+        - scotland
