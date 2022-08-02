@@ -784,5 +784,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Free school meals"
       assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
     end
+
+    should "render Free school meals [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
   end
 end
