@@ -389,3 +389,11 @@
       url: https://www.mygov.scot/best-start-grant-best-start-foods
       countries:
         - scotland
+    - name: free_school_meals_england
+      title: Free school meals
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council.
+      condition: eligible_for_free_school_meals?
+      url_text: Check if your child can get free school meals
+      url: https://www.gov.uk/apply-free-school-meals
+      countries:
+        - england
