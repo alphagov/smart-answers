@@ -226,6 +226,14 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes"
     end
 
+    def eligible_for_support_for_mortgage_interest?
+      return if @on_benefits == "no"
+
+      skip_benefit_list = %w[tax_credits housing_benefit]
+
+      permitted_benefits?(skip_benefit_list)
+    end
+
     def eligible_for_nhs_low_income_scheme?
       %w[under_16000 none_16000].include?(@assets_and_savings)
     end

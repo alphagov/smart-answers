@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -915,6 +915,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Apply for a disabled person's bus pass"
       assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the nidirect website"
+    end
+
+    should "render Support for Mortgage Interest (SMI)" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Support for Mortgage Interest (SMI)"
+        assert_rendered_outcome text: "If you’re a homeowner, you might be able to get help towards interest payments on your mortgage"
+      end
     end
   end
 end
