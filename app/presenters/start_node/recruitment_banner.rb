@@ -2,6 +2,7 @@ module StartNode
   module RecruitmentBanner
     SURVEY_URLS = {
       "/maternity-paternity-pay-leave" => "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6",
+      "/check-uk-visa" => "https://surveys.publishing.service.gov.uk/s/0DZCPX/",
     }.freeze
 
     def recruitment_survey_url
