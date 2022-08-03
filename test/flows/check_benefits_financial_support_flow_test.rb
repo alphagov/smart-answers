@@ -879,5 +879,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
       end
     end
+
+    should "render Apply for a disabled person's bus pass" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country,
+                      disability_or_health_condition: "yes",
+                      disability_affecting_work: "no"
+
+        assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+        assert_rendered_outcome text: "You can get free travel on buses if you’re eligible."
+      end
+    end
   end
 end

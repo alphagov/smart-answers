@@ -488,3 +488,14 @@
         - wales
         - scotland
         - northern-ireland
+    - name: apply_for_a_disabled_persons_bus_pass
+      title: Apply for a disabled person's bus pass
+      description: You can get free travel on buses if you’re eligible.
+      condition: eligible_for_a_disabled_persons_bus_pass?
+      url_text: Find out how to apply for a disabled person’s bus pass
+      url: https://www.gov.uk/apply-for-disabled-bus-pass
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
