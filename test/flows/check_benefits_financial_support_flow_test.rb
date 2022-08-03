@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 11 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -870,6 +870,51 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Home to school transport"
       assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
+    end
+
+    should "render Apply for an older person's bus pass" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
+
+        assert_rendered_outcome text: "Apply for an older person's bus pass"
+        assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
+      end
+    end
+
+    should "render Apply for a disabled person's bus pass" do
+      add_responses where_do_you_live: "england",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "no"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "You can get free travel on buses if you’re eligible."
+    end
+
+    should "render Apply for a disabled person's bus pass Wales" do
+      add_responses where_do_you_live: "wales",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_limits_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the GOV.WALES website"
+    end
+
+    should "render Apply for a disabled person's bus pass Scotland" do
+      add_responses where_do_you_live: "scotland",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_unable_to_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the mygov.scot website"
+    end
+
+    should "render Apply for a disabled person's bus pass NI" do
+      add_responses where_do_you_live: "northern-ireland",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_unable_to_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the nidirect website"
     end
   end
 end
