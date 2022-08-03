@@ -445,3 +445,12 @@
       url: https://gov.wales/pupil-development-grant-access
       countries:
         - wales
+    - name: home_to_school_transport
+      title: Home to school transport
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      condition: eligible_for_school_transport?
+      url_text: Check if your child is eligible for help with the cost of home to school transport
+      url: https://www.gov.uk/help-home-school-transport
+      countries:
+        - england
+        - wales

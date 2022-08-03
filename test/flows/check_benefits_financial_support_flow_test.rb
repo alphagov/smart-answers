@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 10 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 11 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -827,6 +827,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Pupil Development Grant"
       assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+    end
+
+    should "render Home to school transport for eligible countries" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "18_to_19",
+                      on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Home to school transport"
+        assert_rendered_outcome text: "You may be able to get help with the cost of home to school transport through your local council."
+      end
     end
   end
 end
