@@ -370,6 +370,42 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_an_older_persons_bus_pass?" do
+        context "when eligible" do
+          should "be true if over state pension age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_an_older_persons_bus_pass?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if UNDER state pension age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_an_older_persons_bus_pass?
+          end
+        end
+      end
+
+      context "#eligible_for_a_disabled_persons_bus_pass?" do
+        context "when eligible" do
+          should "be true if with health condition" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.disability_or_health_condition = "yes"
+            assert calculator.eligible_for_a_disabled_persons_bus_pass?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if without health condition" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.disability_or_health_condition = "no"
+            assert_not calculator.eligible_for_a_disabled_persons_bus_pass?
+          end
+        end
+      end
+
       context "#eligible_for_tax_free_childcare?" do
         context "when eligible" do
           should "be true if working, with children between 1 and 11" do

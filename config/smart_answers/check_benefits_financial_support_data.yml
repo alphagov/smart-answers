@@ -477,3 +477,46 @@
       url: https://www.eani.org.uk/help-available/home-to-school-transport
       countries:
         - northern-ireland
+    - name: apply_for_an_older_persons_bus_pass
+      title: Apply for an older person's bus pass
+      description: In England you can get a bus pass for free travel when you reach the State Pension age. In Wales, Scotland and Northern Ireland you can get a pass at 60.
+      condition: eligible_for_an_older_persons_bus_pass?
+      url_text: Find out how to apply for an older person’s bus pass
+      url: https://www.gov.uk/apply-for-elderly-person-bus-pass
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
+    - name: apply_for_a_disabled_persons_bus_pass
+      title: Apply for a disabled person's bus pass
+      description: You can get free travel on buses if you’re eligible.
+      condition: eligible_for_a_disabled_persons_bus_pass?
+      url_text: Find out how to apply for a disabled person’s bus pass
+      url: https://www.gov.uk/apply-for-disabled-bus-pass
+      countries:
+        - england
+    - name: apply_for_a_disabled_persons_bus_pass_wales
+      title: Apply for a disabled person's bus pass
+      description: You can get free travel on buses if you’re eligible.
+      condition: eligible_for_a_disabled_persons_bus_pass?
+      url_text: Find out how to apply for a disabled person’s bus pass on the GOV.WALES website
+      url: https://gov.wales/apply-bus-pass
+      countries:
+        - wales
+    - name: apply_for_a_disabled_persons_bus_pass_scotland
+      title: Apply for a disabled person's bus pass
+      description: You can get free travel on buses if you’re eligible.
+      condition: eligible_for_a_disabled_persons_bus_pass?
+      url_text: Find out how to apply for a disabled person’s bus pass on the mygov.scot website
+      url: https://www.mygov.scot/disabled-bus-pass
+      countries:
+        - scotland
+    - name: apply_for_a_disabled_persons_bus_pass_ni
+      title: Apply for a disabled person's bus pass
+      description: You can get free or half-price travel on buses if you’re eligible.
+      condition: eligible_for_a_disabled_persons_bus_pass?
+      url_text: Find out how to apply for a disabled person’s bus pass on the nidirect website
+      url: https://www.nidirect.gov.uk/information-and-services/bus-and-coach-travel/free-bus-travel-and-concessions
+      countries:
+        - northern-ireland

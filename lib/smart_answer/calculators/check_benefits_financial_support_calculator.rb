@@ -110,6 +110,14 @@ module SmartAnswer::Calculators
       @children_living_with_you == "yes" && eligible_child_ages?(age_groups)
     end
 
+    def eligible_for_an_older_persons_bus_pass?
+      @over_state_pension_age == "yes"
+    end
+
+    def eligible_for_a_disabled_persons_bus_pass?
+      @disability_or_health_condition == "yes"
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&
