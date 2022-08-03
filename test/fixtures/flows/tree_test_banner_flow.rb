@@ -1,4 +1,4 @@
-class BannerTestingFlow < SmartAnswer::Flow
+class TreeTestBannerFlow < SmartAnswer::Flow
   def define
     name "maternity-paternity-pay-leave"
     status :published
