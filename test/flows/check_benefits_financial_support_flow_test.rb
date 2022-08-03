@@ -850,5 +850,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Free school transport"
       assert_rendered_outcome text: "You may be able to get help with the cost of home to school transport through your local council."
     end
+
+    should "render Home to school transport [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "18_to_19",
+                    on_benefits: "dont_know"
+
+      assert_rendered_outcome text: "Home to school transport"
+      assert_rendered_outcome text: "You may be able to get help with the cost of home to school transport through your local council."
+    end
   end
 end
