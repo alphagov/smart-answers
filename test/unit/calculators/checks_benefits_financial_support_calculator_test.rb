@@ -814,6 +814,32 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_support_for_mortgage_interest?" do
+        context "when eligible" do
+          should "be true if not already claiming associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "income_support"
+            assert calculator.eligible_for_support_for_mortgage_interest?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if already selected associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "tax_credits"
+            assert_not calculator.eligible_for_support_for_mortgage_interest?
+          end
+
+          should "be false if not claiming benefits benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_support_for_mortgage_interest?
+          end
+        end
+      end
+
       context "#eligible_for_nhs_low_income_scheme?" do
         context "when eligible" do
           should "be true if under 16000 assets" do

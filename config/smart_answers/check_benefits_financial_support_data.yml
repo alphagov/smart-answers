@@ -499,3 +499,14 @@
         - wales
         - scotland
         - northern-ireland
+    - name: support_for_mortgage_interest_(smi)
+      title: Support for Mortgage Interest (SMI)
+      description: If you’re a homeowner, you might be able to get help towards interest payments on your mortgage or certain loans taken out on your home.
+      condition: eligible_for_support_for_mortgage_interest?
+      url_text: Check if you’re eligible for Support for Mortgage Interest
+      url: https://www.gov.uk/support-for-mortgage-interest
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
