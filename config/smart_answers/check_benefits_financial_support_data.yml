@@ -445,3 +445,28 @@
       url: https://gov.wales/pupil-development-grant-access
       countries:
         - wales
+    - name: home_to_school_transport
+      title: Home to school transport
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      condition: eligible_for_school_transport?
+      url_text: Check if your child is eligible for help with the cost of home to school transport
+      url: https://www.gov.uk/help-home-school-transport
+      countries:
+        - england
+        - wales
+    - name: free_school_transport_scotland
+      title: Free school transport
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      condition: eligible_for_school_transport?
+      url_text: Check if your child is eligible for help with the cost of home to school transport on the mygov.scot website
+      url: https://www.mygov.scot/free-school-transport
+      countries:
+        - scotland
+    - name: home_to_school_transport_northern_ireland
+      title: Home to school transport
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      condition: eligible_for_school_transport?
+      url_text: Check if your child is eligible for help with the cost of home to school transport on the Education Authority NI website
+      url: https://www.eani.org.uk/help-available/home-to-school-transport
+      countries:
+        - northern-ireland
