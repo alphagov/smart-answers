@@ -205,6 +205,10 @@ module SmartAnswer::Calculators
         @children_with_disability == "yes"
     end
 
+    def eligible_for_adult_disability_payment_scotland?
+      @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
+    end
+
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
     end

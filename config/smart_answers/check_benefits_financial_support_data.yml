@@ -232,6 +232,13 @@
       countries:
         - england
         - wales
+    - name: adult_disability_payment_scotland
+      title: Adult Disability Payment
+      description: You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.
+      condition: eligible_for_adult_disability_payment_scotland?
+      url_text: Check if you’re eligible for Adult Disability Payment on the mygov.scot website
+      url: https://www.mygov.scot/adult-disability-payment
+      countries:
         - scotland
     - name: personal_independence_payment_northern_ireland
       title: Personal Independence Payment (PIP)
