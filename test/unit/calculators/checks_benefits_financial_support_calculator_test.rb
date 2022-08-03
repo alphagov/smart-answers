@@ -699,6 +699,33 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_adult_disability_payment_scotland?" do
+        context "when eligible" do
+          should "be true if under state pension age, with health condition" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "yes"
+            assert calculator.eligible_for_adult_disability_payment_scotland?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if OVER state pension age" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.disability_or_health_condition = "yes"
+            assert_not calculator.eligible_for_adult_disability_payment_scotland?
+          end
+
+          should "be false if under state pension age, without health condition" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.disability_or_health_condition = "no"
+            assert_not calculator.eligible_for_adult_disability_payment_scotland?
+          end
+        end
+      end
+
       context "#eligible_for_attendance_allowance?" do
         context "when eligible" do
           should "be true if over state pension age with a health condition" do

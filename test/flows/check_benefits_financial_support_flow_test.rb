@@ -555,7 +555,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Personal Independence Payment (PIP) when eligible with a health condition" do
-      %w[england scotland wales].each do |country|
+      %w[england wales].each do |country|
         %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
           add_responses where_do_you_live: country,
                         over_state_pension_age: "no",
@@ -569,7 +569,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Personal Independence Payment (PIP) when eligible with a child with a health condition" do
-      %w[england scotland wales].each do |country|
+      %w[england wales].each do |country|
         %w[16_to_17 18_to_19].each do |age|
           add_responses where_do_you_live: country,
                         over_state_pension_age: "no",
@@ -608,6 +608,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Personal Independence Payment (PIP)"
         assert_rendered_outcome text: "Check if you’re eligible for Personal Independence Payment on the nidirect website"
       end
+    end
+
+    should "render Adult Disability Payment [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    over_state_pension_age: "no",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "no"
+
+      assert_rendered_outcome text: "Adult Disability Payment"
+      assert_rendered_outcome text: "You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability."
     end
 
     should "render Attendance Allowance when eligible" do
