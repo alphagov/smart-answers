@@ -133,7 +133,9 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_pension_credit?
-      @over_state_pension_age == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "no" || permitted_benefits?(%w[pension_credit])
     end
 
     def eligible_for_access_to_work?
@@ -142,12 +144,16 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_universal_credit?
-      @over_state_pension_age == "no" &&
-        %w[under_16000 none_16000].include?(@assets_and_savings)
+      return if @over_state_pension_age == "yes"
+      return if @assets_and_savings == "over_16000"
+
+      @on_benefits == "no" || permitted_benefits?(%w[universal_credit])
     end
 
     def eligible_for_housing_benefit?
-      @over_state_pension_age == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
 
     def eligible_for_tax_free_childcare?
@@ -224,6 +230,14 @@ module SmartAnswer::Calculators
 
     def eligible_for_free_tv_licence?
       @over_state_pension_age == "yes"
+    end
+
+    def eligible_for_budgeting_loan?
+      return if @on_benefits == "no"
+
+      skip_benefit_list = %w[universal_credit tax_credits housing_benefit]
+
+      permitted_benefits?(skip_benefit_list)
     end
 
     def eligible_for_support_for_mortgage_interest?

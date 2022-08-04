@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -367,7 +367,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Pension Credit when eligible" do
       %w[england scotland wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Pension Credit"
         assert_rendered_outcome text: "Check if you’re eligible for Pension Credit"
@@ -375,7 +375,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Pension Credit (NI) when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Pension Credit"
       assert_rendered_outcome text: "Check if you’re eligible for Pension Credit on the nidirect website"
@@ -383,7 +383,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Housing Benefit when eligible" do
       %w[england wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Housing Benefit"
         assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit"
@@ -391,14 +391,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Housing Benefit (Scotland) when eligible" do
-      add_responses where_do_you_live: "scotland"
+      add_responses where_do_you_live: "scotland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Housing Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the mygov.scot website"
     end
 
     should "render Housing Benefit (Northern Ireland) when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Housing Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the NI Housing Executive website"
@@ -432,7 +432,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       %w[england scotland wales].each do |country|
         add_responses where_do_you_live: country,
                       over_state_pension_age: "no",
-                      assets_and_savings: "under_16000"
+                      assets_and_savings: "under_16000",
+                      on_benefits: "no"
 
         assert_rendered_outcome text: "Universal Credit"
         assert_rendered_outcome text: "Check if you’re eligible for Universal Credit"
@@ -442,7 +443,9 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Universal Credit (Northern Ireland) when eligible" do
       add_responses where_do_you_live: "northern-ireland",
                     over_state_pension_age: "no",
-                    assets_and_savings: "under_16000"
+                    assets_and_savings: "under_16000",
+                    on_benefits: "yes",
+                    current_benefits: "housing_benefit"
 
       assert_rendered_outcome text: "Universal Credit"
       assert_rendered_outcome text: "Check if you’re eligible for Universal Credit on the nidirect website"
@@ -665,15 +668,17 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Free TV Licence when eligible" do
-      add_responses over_state_pension_age: "yes"
+      %w[england scotland wales northern-ireland].each do |_country|
+        add_responses over_state_pension_age: "yes"
 
-      assert_rendered_outcome text: "Get a free or discounted TV licence"
-      assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+        assert_rendered_outcome text: "Get a free or discounted TV licence"
+        assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+      end
     end
 
     should "render Budgeting Loan when eligible" do
       %w[england scotland wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, on_benefits: "dont_know"
 
         assert_rendered_outcome text: "Budgeting Loan"
         assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan"
@@ -681,7 +686,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Social Fund Budgeting Loan when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", on_benefits: "yes", current_benefits: "pension_credit"
 
       assert_rendered_outcome text: "Social Fund Budgeting Loan"
       assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
