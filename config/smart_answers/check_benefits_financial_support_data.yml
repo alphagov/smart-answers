@@ -289,6 +289,7 @@
     - name: free_tv_licence
       title: Get a free or discounted TV licence
       description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit.
+      condition: eligible_for_free_tv_licence?
       url: /free-discount-tv-licence
       url_text: Check if you’re eligible for a free or discounted TV licence
       group: Help with your bills
