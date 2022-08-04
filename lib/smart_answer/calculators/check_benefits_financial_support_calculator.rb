@@ -129,6 +129,10 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
     end
 
+    def eligible_for_free_tv_licence?
+      @over_state_pension_age == "yes"
+    end
+
     def eligible_for_nhs_low_income_scheme?
       @assets_and_savings == "under_16000"
     end
