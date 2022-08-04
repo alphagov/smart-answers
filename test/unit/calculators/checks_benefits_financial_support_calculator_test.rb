@@ -282,6 +282,15 @@ module SmartAnswer::Calculators
           should "be true if over state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "tax_credits"
+            assert calculator.eligible_for_pension_credit?
+          end
+
+          should "be true if over state pension age and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "no"
             assert calculator.eligible_for_pension_credit?
           end
         end
@@ -290,6 +299,15 @@ module SmartAnswer::Calculators
           should "be false if UNDER state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_pension_credit?
+          end
+
+          should "be false if over state pension age but already claiming associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "pension_credit"
             assert_not calculator.eligible_for_pension_credit?
           end
         end
@@ -328,10 +346,17 @@ module SmartAnswer::Calculators
           should "be true if under state pension age with under 16000 assets" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
-            %w[none_16000 under_16000].each do |assets|
-              calculator.assets_and_savings = assets
-              assert calculator.eligible_for_universal_credit?
-            end
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            calculator.assets_and_savings = "none"
+          end
+
+          should "be true if under state pension age with under 16000 assets and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.on_benefits = "no"
+            calculator.assets_and_savings = "under_1600"
+            assert calculator.eligible_for_universal_credit?
           end
         end
 
@@ -340,6 +365,8 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
             calculator.assets_and_savings = "over_16000"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
             assert_not calculator.eligible_for_universal_credit?
           end
 
@@ -347,6 +374,17 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
             calculator.assets_and_savings = "under_16000"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            assert_not calculator.eligible_for_universal_credit?
+          end
+
+          should "be false if over state pension age but already claiming associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            calculator.assets_and_savings = "none"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit,universal_credit"
             assert_not calculator.eligible_for_universal_credit?
           end
         end
@@ -357,6 +395,15 @@ module SmartAnswer::Calculators
           should "be true if over state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "pension_credit"
+            assert calculator.eligible_for_housing_benefit?
+          end
+
+          should "be true if over state pension age and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "no"
             assert calculator.eligible_for_housing_benefit?
           end
         end
@@ -365,6 +412,15 @@ module SmartAnswer::Calculators
           should "be false if UNDER state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_housing_benefit?
+          end
+
+          should "be false if over state pension age but already claiming associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
             assert_not calculator.eligible_for_housing_benefit?
           end
         end
@@ -836,6 +892,32 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.on_benefits = "no"
             assert_not calculator.eligible_for_support_for_mortgage_interest?
+          end
+        end
+      end
+
+      context "#eligible_for_budgeting_loan?" do
+        context "when eligible" do
+          should "be true if not already claiming associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "income_support"
+            assert calculator.eligible_for_budgeting_loan?
+          end
+
+          should "be true if dont know current benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "dont_know"
+            assert calculator.eligible_for_budgeting_loan?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if already selected associated benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "universal_credit"
+            assert_not calculator.eligible_for_budgeting_loan?
           end
         end
       end

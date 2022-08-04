@@ -316,6 +316,7 @@
     - name: budgeting_loan
       title: Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
+      condition: eligible_for_budgeting_loan?
       url: /budgeting-help-benefits
       url_text: Check if you’re eligible for a Budgeting Loan
       group: Help with your bills
@@ -326,6 +327,7 @@
     - name: social_fund_budgeting_loan_northern_ireland
       title: Social Fund Budgeting Loan
       description: You may be eligible for a Budgeting Loan if you’ve been on certain benefits for 6 months.
+      condition: eligible_for_budgeting_loan?
       url: https://www.nidirect.gov.uk/articles/social-fund-budgeting-loan
       url_text: Check if you’re eligible for a Budgeting Loan on the nidirect website
       group: Help with your bills
