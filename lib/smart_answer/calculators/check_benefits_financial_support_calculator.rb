@@ -67,41 +67,37 @@ module SmartAnswer::Calculators
     def eligible_for_tax_free_childcare?
       return unless @are_you_working != "no" && @children_living_with_you == "yes"
 
-      eligible_child_ages = if @children_with_disability == "yes"
-                              %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
-                            else
-                              %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
-                            end
+      age_groups = if @children_with_disability == "yes"
+                     %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+                   else
+                     %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
+                   end
 
-      @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+      eligible_child_ages?(age_groups)
     end
 
     def eligible_for_free_childcare_2yr_olds?
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("2")
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[2])
     end
 
     def eligible_for_childcare_3_4yr_olds?
       @are_you_working == "yes_over_16_hours_per_week" &&
         @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+        eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_15hrs_free_childcare_3_4yr_olds?
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
       @are_you_working != "no" &&
         @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+        eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_funded_early_learning_and_childcare?
-      eligible_child_ages = %w[2 3_to_4]
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[2 3_to_4])
     end
 
     def eligible_for_child_benefit?
@@ -109,10 +105,10 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_child_disability_support?
-      eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15]
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15]
 
       @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
+        eligible_child_ages?(age_groups) &&
         @children_with_disability == "yes"
     end
 
@@ -125,9 +121,10 @@ module SmartAnswer::Calculators
 
       return true if @disability_or_health_condition == "yes"
 
-      eligible_child_ages = %w[16_to_17 18_to_19]
+      age_groups = %w[16_to_17 18_to_19]
+
       @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
+        eligible_child_ages?(age_groups) &&
         @children_with_disability == "yes"
     end
 
@@ -141,6 +138,12 @@ module SmartAnswer::Calculators
 
     def eligible_for_nhs_low_income_scheme?
       %w[under_16000 none_16000].include?(@assets_and_savings)
+    end
+
+  private
+
+    def eligible_child_ages?(age_groups)
+      @age_of_children.split(",").any? { |age| age_groups.include?(age) }
     end
   end
 end
