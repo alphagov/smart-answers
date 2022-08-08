@@ -143,8 +143,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_next_node :age_of_children, for_response: "yes"
       end
 
-      should "have a next node of assets_and_savings if there are not children living with you" do
-        assert_next_node :assets_and_savings, for_response: "no"
+      should "have a next node of on_benefits if there are not children living with you" do
+        assert_next_node :on_benefits, for_response: "no"
       end
     end
   end
@@ -188,8 +188,65 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of assets_and_savings" do
-        assert_next_node :assets_and_savings, for_response: "yes"
+      should "have a next node of on_benefits" do
+        assert_next_node :on_benefits, for_response: "yes"
+      end
+    end
+  end
+
+  context "question: on_benefits" do
+    setup do
+      testing_node :on_benefits
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_7",
+                    children_with_disability: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of current_benefits for yes" do
+        assert_next_node :current_benefits, for_response: "yes"
+      end
+
+      should "have a next node of assets_and_savings for no" do
+        assert_next_node :assets_and_savings, for_response: "no"
+      end
+
+      should "have a next node of assets_and_savings for dont_know" do
+        assert_next_node :assets_and_savings, for_response: "dont_know"
+      end
+    end
+  end
+
+  context "question: current_benefits" do
+    setup do
+      testing_node :current_benefits
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_7",
+                    children_with_disability: "yes",
+                    on_benefits: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of assets_and_savings for universal_credit" do
+        assert_next_node :assets_and_savings, for_response: "universal_credit"
       end
     end
   end
@@ -204,7 +261,9 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
                     age_of_children: "5_to_7",
-                    children_with_disability: "yes"
+                    children_with_disability: "yes",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
     end
 
     should "render the question" do
@@ -233,6 +292,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     children_living_with_you: "yes",
                     age_of_children: "5_to_7",
                     children_with_disability: "yes",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit",
                     assets_and_savings: "under_16000"
     end
 
