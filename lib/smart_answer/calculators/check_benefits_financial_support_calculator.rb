@@ -29,6 +29,10 @@ module SmartAnswer::Calculators
       benefits_for_outcome.size
     end
 
+    def benefits_selected?
+      @current_benefits != "none"
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&

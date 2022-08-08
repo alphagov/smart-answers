@@ -172,6 +172,10 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
         calculator.current_benefits = response
       end
 
+      validate :error_message do
+        calculator.benefits_selected?
+      end
+
       next_node do
         outcome :assets_and_savings
       end

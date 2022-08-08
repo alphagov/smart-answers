@@ -45,6 +45,20 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#benefits_selected?" do
+        should "return true if benefits are present" do
+          calculator = CheckBenefitsFinancialSupportCalculator.new
+          calculator.current_benefits = "universal_credit"
+          assert calculator.benefits_selected?
+        end
+
+        should "return false if benefits are empty" do
+          calculator = CheckBenefitsFinancialSupportCalculator.new
+          calculator.current_benefits = "none"
+          assert_not calculator.benefits_selected?
+        end
+      end
+
       context "#eligible_for_employment_and_support_allowance?" do
         context "when eligible" do
           should "be true if under state pension age, working under 16 hours, with a health issue that affects work" do
