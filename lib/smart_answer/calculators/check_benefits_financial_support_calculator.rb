@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
                   :children_living_with_you,
                   :age_of_children,
                   :children_with_disability,
+                  :on_benefits,
+                  :current_benefits,
                   :assets_and_savings
 
     def benefit_data

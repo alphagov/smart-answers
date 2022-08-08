@@ -103,7 +103,7 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
         if calculator.children_living_with_you == "yes"
           question :age_of_children
         else
-          question :assets_and_savings
+          question :on_benefits
         end
       end
     end
@@ -137,7 +137,43 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :assets_and_savings
+        question :on_benefits
+      end
+    end
+
+    radio :on_benefits do
+      option :yes
+      option :no
+      option :dont_know
+
+      on_response do |response|
+        calculator.on_benefits = response
+      end
+
+      next_node do |response|
+        if response == "yes"
+          question :current_benefits
+        else
+          outcome :assets_and_savings
+        end
+      end
+    end
+
+    checkbox_question :current_benefits do
+      option :universal_credit
+      option :jobseekers_allowance
+      option :employment_and_support_allowance
+      option :pension_credit
+      option :tax_credits
+      option :income_support
+      option :housing_benefit
+
+      on_response do |response|
+        calculator.current_benefits = response
+      end
+
+      next_node do
+        outcome :assets_and_savings
       end
     end
 
@@ -151,7 +187,7 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
       end
 
       next_node do
-        outcome :results
+        question :results
       end
     end
 
