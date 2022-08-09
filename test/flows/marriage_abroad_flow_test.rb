@@ -84,7 +84,9 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
       end
 
       should "have a next_node of legal_residency? for other countries" do
-        assert_next_node :legal_residency?, for_response: random_country(:countries_with_6_outcomes)
+        country_list = countries_list(:countries_with_6_outcomes).clone
+        country_list.delete("hungary")
+        assert_next_node :legal_residency?, for_response: country_list.sample
       end
     end
   end
@@ -125,8 +127,10 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_marriage_abroad_in_country, for_response: "uk"
         end
 
-        should "have a next_node of partner_opposite_or_same_sex? for a 6 outcome country" do
-          add_responses country_of_ceremony?: random_country(:countries_with_6_outcomes)
+        should "have a next_node of partner_opposite_or_same_sex? for a 6 outcome country (except hungary)" do
+          country_list = countries_list(:countries_with_6_outcomes).clone
+          country_list.delete("hungary")
+          add_responses country_of_ceremony?: country_list.sample
           assert_next_node :partner_opposite_or_same_sex?, for_response: "uk"
         end
 
