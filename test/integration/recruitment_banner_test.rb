@@ -3,7 +3,7 @@ require_relative "../integration_test_helper"
 class RecruitmentBannerTest < ActionDispatch::IntegrationTest
   def tree_test_banner
     {
-      URL: "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d",
+      URL: "https://GDSUserResearch.optimalworkshop.com/treejack/8f1yr1fj",
       path: "/maternity-paternity-pay-leave",
     }
   end
