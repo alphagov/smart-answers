@@ -248,7 +248,7 @@ module SmartAnswer::Calculators
       permitted_benefits?(skip_benefit_list)
     end
 
-    def eligible_for_nhs_low_income_scheme?
+    def eligible_for_nhs_help_with_health_costs?
       %w[under_16000 none_16000].include?(@assets_and_savings)
     end
 
