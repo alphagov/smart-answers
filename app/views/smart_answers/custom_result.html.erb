@@ -37,7 +37,19 @@
         } %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/print_link" %>
+    <%= render 'govuk_publishing_components/components/print_link', {
+      data_attributes: {
+        module: "ga4-event-tracker",
+        ga4: {
+          event_name: 'print_page',
+          type: 'Print this page',
+          index: 1,
+          index_total: 1,
+          section: 'Footer',
+        },
+      },
+    } %>
+
     <%= render 'smart_answers/shared/debug' %>
   </div>
 </div>
