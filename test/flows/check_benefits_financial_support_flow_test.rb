@@ -670,6 +670,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Free TV Licence when eligible" do
       %w[england scotland wales northern-ireland].each do |_country|
         add_responses over_state_pension_age: "yes"
+        add_responses on_benefits: "dont_know"
 
         assert_rendered_outcome text: "Get a free or discounted TV licence"
         assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"

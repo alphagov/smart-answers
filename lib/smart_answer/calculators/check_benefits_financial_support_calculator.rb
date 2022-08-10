@@ -114,6 +114,13 @@ module SmartAnswer::Calculators
       @over_state_pension_age == "yes"
     end
 
+    def eligible_for_free_tv_license?
+      return true if @disability_or_health_condition == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "dont_know" || @current_benefits.include?("pension_credit")
+    end
+
     def eligible_for_a_disabled_persons_bus_pass?
       @disability_or_health_condition == "yes"
     end
@@ -225,10 +232,6 @@ module SmartAnswer::Calculators
 
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
-    end
-
-    def eligible_for_free_tv_licence?
-      @over_state_pension_age == "yes"
     end
 
     def eligible_for_budgeting_loan?
