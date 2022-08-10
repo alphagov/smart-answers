@@ -39,3 +39,7 @@
   end_date: 2022-04-05
   max: "16,980"
   rate: 566
+- start_date: 2022-04-06
+  end_date: 2023-04-05
+  max: "17,820"
+  rate: 594
