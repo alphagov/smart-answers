@@ -426,12 +426,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_an_older_persons_bus_pass?" do
+      context "#eligible_for_over_state_pension_benefits?" do
         context "when eligible" do
           should "be true if over state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
-            assert calculator.eligible_for_an_older_persons_bus_pass?
+            assert calculator.eligible_for_over_state_pension_benefits?
           end
         end
 
@@ -439,7 +439,7 @@ module SmartAnswer::Calculators
           should "be false if UNDER state pension age" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "no"
-            assert_not calculator.eligible_for_an_older_persons_bus_pass?
+            assert_not calculator.eligible_for_over_state_pension_benefits?
           end
         end
       end
@@ -848,24 +848,6 @@ module SmartAnswer::Calculators
             calculator.over_state_pension_age = "no"
             calculator.disability_or_health_condition = "no"
             assert_not calculator.eligible_for_attendance_allowance?
-          end
-        end
-      end
-
-      context "#eligible_for_free_tv_licence?" do
-        context "when eligible" do
-          should "be true if over state pension age" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.over_state_pension_age = "yes"
-            assert calculator.eligible_for_free_tv_licence?
-          end
-        end
-
-        context "when ineligible" do
-          should "be false if under state pension age" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.over_state_pension_age = "no"
-            assert_not calculator.eligible_for_free_tv_licence?
           end
         end
       end

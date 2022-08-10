@@ -296,7 +296,7 @@
     - name: free_tv_licence
       title: Get a free or discounted TV licence
       description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit.
-      condition: eligible_for_free_tv_licence?
+      condition: eligible_for_over_state_pension_benefits?
       url: /free-discount-tv-licence
       url_text: Check if you’re eligible for a free or discounted TV licence
       group: Help with your bills
@@ -482,7 +482,7 @@
     - name: apply_for_an_older_persons_bus_pass
       title: Apply for an older person's bus pass
       description: In England you can get a bus pass for free travel when you reach the State Pension age. In Wales, Scotland and Northern Ireland you can get a pass at 60.
-      condition: eligible_for_an_older_persons_bus_pass?
+      condition: eligible_for_over_state_pension_benefits?
       url_text: Find out how to apply for an older person’s bus pass
       url: https://www.gov.uk/apply-for-elderly-person-bus-pass
       countries:

@@ -111,7 +111,7 @@ module SmartAnswer::Calculators
       @children_living_with_you == "yes" && eligible_child_ages?(age_groups)
     end
 
-    def eligible_for_an_older_persons_bus_pass?
+    def eligible_for_over_state_pension_benefits?
       @over_state_pension_age == "yes"
     end
 
@@ -226,10 +226,6 @@ module SmartAnswer::Calculators
 
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
-    end
-
-    def eligible_for_free_tv_licence?
-      @over_state_pension_age == "yes"
     end
 
     def eligible_for_budgeting_loan?
