@@ -899,5 +899,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "If you’re a homeowner, you might be able to get help towards interest payments on your mortgage"
       end
     end
+
+    should "render Education Maintenance Allowance NI" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17"
+
+      assert_rendered_outcome text: "Education Maintenance Allowance"
+      assert_rendered_outcome text: "You may be able to get Education Maintenance Allowance (EMA) of £30"
+    end
   end
 end

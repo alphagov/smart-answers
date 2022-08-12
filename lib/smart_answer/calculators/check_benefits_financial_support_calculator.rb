@@ -238,6 +238,10 @@ module SmartAnswer::Calculators
       %w[under_16000 none_16000].include?(@assets_and_savings)
     end
 
+    def eligible_for_education_maintenance_allowance_ni?
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
+    end
+
   private
 
     def eligible_child_ages?(age_groups)
