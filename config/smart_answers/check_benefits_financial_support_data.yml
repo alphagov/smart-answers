@@ -531,3 +531,11 @@
         - wales
         - scotland
         - northern-ireland
+    - name: education_maintenance_allowance_ni
+      title: Education Maintenance Allowance
+      description: You may be able to get Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education.
+      condition: eligible_for_education_maintenance_allowance_ni?
+      url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
+      countries:
+        - northern-ireland
