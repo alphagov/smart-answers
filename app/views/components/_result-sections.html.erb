@@ -2,6 +2,11 @@
   highlighted ||= true
   group_index ||= 1
   result_index ||= 1
+  topics ||= []
+
+  if !topics.any?
+    raise ArgumentError, "The result section component requires topics data"
+  end
 %>
 <div class="app-c-result-sections">
   <% topics.each do |topic, results| %>
