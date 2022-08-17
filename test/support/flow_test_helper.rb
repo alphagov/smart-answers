@@ -68,6 +68,14 @@ module FlowTestHelper
     assert_not_empty test_flow.question_title
   end
 
+  def assert_rendered_question_hint
+    assert_not_empty test_flow.question_hint
+  end
+
+  def assert_not_rendered_question_hint
+    assert_nil test_flow.question_hint
+  end
+
   def assert_rendered_outcome(text: nil)
     ensure_valid_and_correct_node
 
@@ -144,6 +152,12 @@ module FlowTestHelper
       raise "#{state.current_node_name} is not a question" unless current_node_type == :question
 
       QuestionPresenter.new(flow.node(state.current_node_name), nil, state).title
+    end
+
+    def question_hint
+      raise "#{state.current_node_name} is not a question" unless current_node_type == :question
+
+      QuestionPresenter.new(flow.node(state.current_node_name), nil, state).hint
     end
 
     def outcome_body
