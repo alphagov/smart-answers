@@ -9,6 +9,7 @@
         - name: global_talent_academic
         - name: temporary_worker_government_authorised_exchange_academic
         - name: work_at_multinational_company
+        - name: scale_up_academic
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -28,6 +29,7 @@
         - name: uk_ancestry_visa
           condition: passport_country_in_uk_ancestry_visa_list?
         - name: representative_of_overseas_business_arts
+        - name: scale_up_arts
         - name: work_experience_scheme
         - name: high_potential_individual
     business:
@@ -52,6 +54,7 @@
         - name: eligible_skilled_job_digital
         - name: global_talent_digital
         - name: work_at_multinational_company
+        - name: scale_up_digital
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
@@ -72,6 +75,7 @@
         - name: temporary_worker_government_authorised_exchange_health
         - name: work_experience_scheme
         - name: high_potential_individual
+        - name: scale_up_health
     other:
       title: You need a visa to work in the UK
       visas:
@@ -79,6 +83,7 @@
           condition: passport_country_in_british_national_overseas_list?
         - name: eligible_skilled_job_other
         - name: work_at_multinational_company
+        - name: scale_up_other
         - name: country_in_youth_mobility_scheme
           condition: passport_country_in_youth_mobility_scheme_list?
         - name: uk_ancestry_visa
