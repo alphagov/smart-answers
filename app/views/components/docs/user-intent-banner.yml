@@ -1,9 +1,0 @@
-name: User research banner
-description: Allows users to sign up for user research sessions
-shared_accessibility_criteria:
-  - link
-examples:
-  default:
-    data:
-      title: Help improve GOV.UK
-      message: <a href="#" class="govuk-link" target="_blank" rel="noopener noreferrer">Sign up to take part in user research (opens in a new tab)</a>
