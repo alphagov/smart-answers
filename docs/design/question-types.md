@@ -36,6 +36,12 @@
   * Response: String containing the chosen option.
   * Can remove options.
 
+## `radio_with_intro`
+  * User input: Choose a single option from a list of options.
+  * Validation: Must be in the list of options.
+  * Response: String containing the chosen option.
+  * Can remove options.
+
 ## `postcode_question`
   * User input: Enter a postcode.
   * Validation: Must be a valid postcode.

@@ -94,6 +94,24 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within "#current-question" do
+        within("h1.govuk-heading-l") { assert_page_has_content "Colour options" }
+        assert_page_has_content "Colours include"
+
+        within ".govuk-fieldset__legend" do
+          assert_page_has_content "Do you want to select any of these?"
+        end
+
+        assert page.has_field?("Yes", type: "radio", with: "yes", visible: false)
+        assert page.has_field?("No", type: "radio", with: "no", visible: false)
+        # Assert they're in the correct order
+        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+        assert_equal %w[Yes No], options
+      end
+
+      choose("Yes", visible: false)
+      click_on "Continue"
+
+      within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your favorite colour?"
         end
@@ -109,7 +127,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       choose("Blue", visible: false)
       click_on "Continue"
 
-      assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
+      assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/yes/blue"
 
       assert page.has_link?("Start again", href: "/bridge-of-death")
       within ".govuk-summary-list__row:nth-child(1)" do
@@ -128,10 +146,17 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       end
       within ".govuk-summary-list__row:nth-child(3)" do
         within ".govuk-summary-list__key" do
+          assert_page_has_content "Colour options"
+        end
+        within(".govuk-summary-list__value") { assert_page_has_content "Yes" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=yes") }
+      end
+      within ".govuk-summary-list__row:nth-child(4)" do
+        within ".govuk-summary-list__key" do
           assert_page_has_content "What...is your favorite colour?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Blue" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/yes?previous_response=blue") }
       end
 
       within "#result-info" do

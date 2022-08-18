@@ -22,7 +22,7 @@ class BridgeOfDeathFlow < SmartAnswer::Flow
         if your_name =~ /robin/i && response == "to_seek_the_holy_grail"
           question :what_is_the_capital_of_assyria?
         else
-          question :what_is_your_favorite_colour?
+          question :colour_options?
         end
       end
     end
@@ -34,6 +34,20 @@ class BridgeOfDeathFlow < SmartAnswer::Flow
 
       next_node do
         outcome :auuuuuuuugh
+      end
+    end
+
+    radio_with_intro :colour_options? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        case response
+        when "yes"
+          question :what_is_your_favorite_colour?
+        when "no"
+          outcome :done
+        end
       end
     end
 

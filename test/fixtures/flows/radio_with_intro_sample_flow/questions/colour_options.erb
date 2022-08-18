@@ -1,0 +1,25 @@
+<% text_for :title do %>
+  Colour options
+<% end %>
+
+<% govspeak_for :body do %>
+  Colours include:
+
+  * red
+  * yellow
+  * blue
+  * green
+
+  Teal is classed as blue, not green.
+
+  Purple and pink are not currently supported but will be soon.
+<% end %>
+
+<% text_for :radio_heading do %>
+  Do you want to select any of these?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No",
+) %>

@@ -1,0 +1,16 @@
+<%= render "smart_answers/inputs/caption", question: question %>
+<h1 class="govuk-heading-l">
+  <%= question.title %>
+</h1>
+
+<%= question.body %>
+
+<%= render "govuk_publishing_components/components/radio", {
+  name: "response",
+  heading: question.radio_heading,
+  heading_size: "m",
+  heading_level: 2,
+  id_prefix: "response",
+  error_message: question.error,
+  items: question.radio_buttons
+} %>
