@@ -6,3 +6,9 @@
   "yes": "Yes",
   "no": "No"
 ) %>
+
+<% if calculator.hint_needed_for_half_relations? %>
+  <% text_for :hint do %>
+    This does not include half-aunts or half-uncles
+  <% end %>
+<% end %>

@@ -55,5 +55,9 @@ module SmartAnswer::Calculators
     def more_than_one_child?
       more_than_one_child == "yes"
     end
+
+    def hint_needed_for_half_relations?
+      region == "england-and-wales"
+    end
   end
 end

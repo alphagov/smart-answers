@@ -250,6 +250,26 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
       assert_rendered_question
     end
 
+    context "in england-and-wales" do
+      should "render a hint" do
+        assert_rendered_question_hint
+      end
+    end
+
+    context "in scotland" do
+      should "not render a hint" do
+        add_responses region?: "scotland"
+        assert_not_rendered_question_hint
+      end
+    end
+
+    context "in northern-ireland" do
+      should "not render a hint" do
+        add_responses region?: "northern-ireland"
+        assert_not_rendered_question_hint
+      end
+    end
+
     context "next_node" do
       should "have a next node of outcome_4 for a 'yes' response if region is england-and-wales" do
         assert_next_node :outcome_4, for_response: "yes"
@@ -409,6 +429,28 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
 
     should "render the question" do
       assert_rendered_question
+    end
+
+    context "in england-and-wales" do
+      should "render a hint" do
+        add_responses region?: "england-and-wales",
+                      half_siblings?: "no",
+                      grandparents?: "no"
+        assert_rendered_question_hint
+      end
+    end
+
+    context "in scotland" do
+      should "not render a hint" do
+        assert_not_rendered_question_hint
+      end
+    end
+
+    context "in northern-ireland" do
+      should "not render a hint" do
+        add_responses region?: "northern-ireland"
+        assert_not_rendered_question_hint
+      end
     end
 
     context "next_node" do
