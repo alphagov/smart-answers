@@ -7,6 +7,10 @@
   result_index ||= 1
   css_classes = %w(app-c-result-item)
   css_classes << "app-c-result-item--highlighted" if highlighted
+
+  if !title || !url || !description
+    raise ArgumentError, "The result item component requires a title, url and description"
+  end
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
