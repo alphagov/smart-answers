@@ -3720,7 +3720,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     should "render _mat_allowance partial weekly rate for 2022" do
       add_responses due_date: "2022-1-1"
-      assert_rendered_outcome text: "£156.66 or 90%"
+      assert_rendered_outcome text: "£156.66"
     end
   end
 
