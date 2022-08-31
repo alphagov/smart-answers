@@ -93,10 +93,10 @@ accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
-accessible-autocomplete@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-2.0.3.tgz#3ed8d529b227b77e99ab509eec5d2c8d1b8bea8b"
-  integrity sha512-bUswBs/mDH17dUFRAJMTtcGafJ++w1YLPPFjdfJj3lnuBsLpByAw2gmr8qxXX8oc7tzoKS3Ay5FKOPM+WMBxIw==
+accessible-autocomplete@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-2.0.4.tgz#e295256c8d268b97c5ab456a1cb084b553ed3eb0"
+  integrity sha512-2p0txrSpvs5wXFUeQJHMheDPTZVSEmiUHWlEPb7vJnv2Dd1xPfoLnBQQMfNbTSit2pL/9sSQYESuD2Yyohd4Yw==
   dependencies:
     preact "^8.3.1"
 
