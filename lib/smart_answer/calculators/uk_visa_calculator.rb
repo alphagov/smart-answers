@@ -32,6 +32,10 @@ module SmartAnswer::Calculators
       visas_for_outcome.map { |visa| visa["number_of_visas"] || 1 }.sum
     end
 
+    def visa_attribute_statement(attribute_title)
+      OUTCOME_DATA.dig("consts", attribute_title)
+    end
+
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
     end

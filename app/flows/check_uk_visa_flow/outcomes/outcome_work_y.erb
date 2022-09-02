@@ -3,17 +3,20 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  Based on your answers, you have <span style="font-weight: bold"><%= calculator.number_of_visas_for_outcome %></span> visa <%= "option".pluralize(calculator.number_of_visas_for_outcome) %>.
+  Based on your answers, you might be eligible for <span class="govuk-!-font-weight-bold"><%= calculator.number_of_visas_for_outcome %> <%= "visa".pluralize(calculator.number_of_visas_for_outcome) %></span>.
 
   <%= render partial: "stateless_or_refugee", locals: {calculator: calculator} %>
+<% end %>
 
-  ----
-
-  <% calculator.visa_types_for_outcome.each do |visa| %>
-    <%= render partial: "visa_types/#{visa}", locals: {calculator: calculator} %>
-
-    ----
-
+<% html_for :body do %>
+  <% calculator.visas_for_outcome.each do |visa| %>
+    <%= render "components/check_uk_visa/result-card", { 
+      title: visa["title"],
+      type: visa["type"],
+      description: visa["description"],
+      attributes: visa["attributes"],
+      url: visa["url"],
+      calculator: calculator } 
+    %>
   <% end %>
-
 <% end %>
