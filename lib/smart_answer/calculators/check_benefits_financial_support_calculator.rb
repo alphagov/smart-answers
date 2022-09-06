@@ -185,8 +185,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_childcare_3_4yr_olds?
-      @are_you_working == "yes_over_16_hours_per_week" &&
-        @children_living_with_you == "yes" &&
+      @children_living_with_you == "yes" &&
         eligible_child_ages?(%w[3_to_4])
     end
 

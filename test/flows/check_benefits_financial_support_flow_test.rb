@@ -491,7 +491,6 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Childcare 3 and 4 year olds Wales when eligible" do
       add_responses where_do_you_live: "wales",
-                    are_you_working: "yes_over_16_hours_per_week",
                     children_living_with_you: "yes",
                     age_of_children: "3_to_4"
 

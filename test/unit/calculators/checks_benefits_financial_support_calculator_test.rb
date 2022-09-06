@@ -599,9 +599,8 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_childcare_3_4yr_olds?" do
         context "when eligible" do
-          should "be true if working over 16 hours with child aged 3 to 4" do
+          should "be true if with child aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "3_to_4"
             assert calculator.eligible_for_childcare_3_4yr_olds?
@@ -609,19 +608,14 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false working under 16 hours with child aged 3 to 4" do
+          should "be false if no children" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              calculator.are_you_working = working_hours
-              calculator.children_living_with_you = "yes"
-              calculator.age_of_children = "3_to_4"
-              assert_not calculator.eligible_for_childcare_3_4yr_olds?
-            end
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_childcare_3_4yr_olds?
           end
 
-          should "be false if working over 16 hours without child aged 3 to 4" do
+          should "be false if child not aged 3 to 4" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.are_you_working = "yes_over_16_hours_per_week"
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "1,5_to_7"
             assert_not calculator.eligible_for_childcare_3_4yr_olds?
