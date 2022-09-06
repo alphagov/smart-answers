@@ -475,23 +475,10 @@ module SmartAnswer::Calculators
               end
             end
           end
-
-          should "be true if working, with a disabled child and children between 1 and 17" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
-              calculator.are_you_working = working_hours
-              calculator.children_living_with_you = "yes"
-              calculator.children_with_disability = "yes"
-              %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17].each do |age|
-                calculator.age_of_children = age
-                assert calculator.eligible_for_tax_free_childcare?
-              end
-            end
-          end
         end
 
         context "when ineligible" do
-          should "be false if not working with children between 1 and 11" do
+          should "be false if not working, with children between 1 and 11" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.are_you_working = "no"
             %w[1_or_under 2 3_to_4 5_to_7 8_to_11].each do |age|
@@ -500,7 +487,7 @@ module SmartAnswer::Calculators
             end
           end
 
-          should "be false if working with children aged between 12 and 19" do
+          should "be false if working, with children aged between 12 and 19" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
             %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
               calculator.are_you_working = working_hours
@@ -520,16 +507,52 @@ module SmartAnswer::Calculators
               assert_not calculator.eligible_for_tax_free_childcare?
             end
           end
+        end
+      end
 
-          should "be false if working with a disabled child and children aged 18 to 19" do
+      context "#eligible_for_tax_free_childcare_with_disability?" do
+        context "when eligible" do
+          should "be true if working, with a disabled child and child between 1 and 17" do
             calculator = CheckBenefitsFinancialSupportCalculator.new
-            %w[yes_over_16_hours_per_week yes_under_16_hours_per_week].each do |working_hours|
-              calculator.are_you_working = working_hours
-              calculator.children_living_with_you = "yes"
-              calculator.children_with_disability = "yes"
-              calculator.age_of_children = "18_to_19"
-              assert_not calculator.eligible_for_tax_free_childcare?
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "yes"
+            calculator.children_with_disability = "yes"
+            %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_tax_free_childcare_with_disability?
             end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not working" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.are_you_working = "no"
+            assert_not calculator.eligible_for_tax_free_childcare_with_disability?
+          end
+
+          should "be false if working, without children" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_tax_free_childcare_with_disability?
+          end
+
+          should "be false if working, without children with a disability" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "no"
+            calculator.children_with_disability = "no"
+            assert_not calculator.eligible_for_tax_free_childcare_with_disability?
+          end
+
+          should "be false if working, with children with a disablity between 18 and 19" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.are_you_working = "yes_over_16_hours_per_week"
+            calculator.children_living_with_you = "yes"
+            calculator.children_with_disability = "yes"
+            calculator.age_of_children = "18_to_19"
+            assert_not calculator.eligible_for_tax_free_childcare_with_disability?
           end
         end
       end

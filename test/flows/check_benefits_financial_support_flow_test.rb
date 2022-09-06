@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -466,8 +466,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: country,
                       age_of_children: "16_to_17"
 
-        assert_rendered_outcome text: "Tax-free childcare"
-        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+        assert_rendered_outcome text: "Tax-Free Childcare"
+        assert_rendered_outcome text: "up to £4000 if a child is disabled."
       end
     end
 
