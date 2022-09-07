@@ -469,14 +469,21 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Free childcare 2 yr olds when eligible" do
-      %w[england wales].each do |country|
-        add_responses where_do_you_live: country,
-                      children_living_with_you: "yes",
-                      age_of_children: "2"
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "2"
 
-        assert_rendered_outcome text: "Free childcare for 2-year-olds"
-        assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
-      end
+      assert_rendered_outcome text: "Free childcare for 2-year-olds"
+      assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
+    end
+
+    should "render Free childcare 2 yr olds when eligible [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "2"
+
+      assert_rendered_outcome text: "Free childcare for 2-year-olds"
+      assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
     end
 
     should "render Childcare 3 and 4 year olds Wales when eligible" do
