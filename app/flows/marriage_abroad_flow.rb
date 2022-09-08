@@ -28,6 +28,8 @@ class MarriageAbroadFlow < SmartAnswer::Flow
       next_node do
         if calculator.one_question_country?
           outcome :outcome_marriage_abroad_in_country
+        elsif calculator.ceremony_country == "malaysia"
+          question :what_is_your_partners_nationality?
         elsif calculator.ceremony_country == "hungary" || calculator.two_questions_country?
           question :partner_opposite_or_same_sex?
         elsif calculator.ceremony_country_offers_pacs?
