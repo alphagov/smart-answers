@@ -4,8 +4,6 @@ module SmartAnswer
       class PeriodOfIncapacityForWork < DateRange
         MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
         MINIMUM_NUMBER_OF_DAYS = 4
-        CORONAVIRUS_SSP_START_DATE = Time.zone.local(2020, 3, 13)
-        CORONAVIRUS_SHIELDING_START_DATE = Time.zone.local(2020, 4, 16)
 
         def qualifying_days(pattern)
           dates = begins_on..ends_on
@@ -29,10 +27,6 @@ module SmartAnswer
                     :days_of_the_week_worked,
                     :other_pay_types_received,
                     :enough_notice_of_absence,
-                    :coronavirus_related,
-                    :coronavirus_gp_letter,
-                    :has_coronavirus,
-                    :cohabitant_has_coronavirus,
                     :has_linked_sickness,
                     :linked_sickness_start_date,
                     :linked_sickness_end_date,
@@ -67,20 +61,7 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_not_in_linked_piw
-        shielding_start_date = PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE.to_date
-        ssp_start_date = PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE.to_date
-
-        if coronavirus_related && coronavirus_gp_letter && before_coronavirus_shield_date? && ends_after_coronavirus_shield_date?
-          [0, coronavirus_related_unpaid_workdays_missed(shielding_start_date, current_piw.begins_on).length].max
-        elsif coronavirus_related && cohabitant_has_coronavirus && ends_after_coronavirus_entitlement_date?
-          [0, coronavirus_related_unpaid_workdays_missed(ssp_start_date, current_piw.begins_on).length].max
-        elsif coronavirus_related && coronavirus_gp_letter && !before_coronavirus_shield_date?
-          0
-        elsif coronavirus_related && !before_coronavirus_entitlement_date?
-          0
-        else
-          [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
-        end
+        [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
       end
 
       def pattern_days
@@ -299,35 +280,6 @@ module SmartAnswer
         else
           current_day.end_of_year
         end
-      end
-
-      def before_coronavirus_entitlement_date?
-        current_piw.begins_on < PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE
-      end
-
-      def ends_after_coronavirus_entitlement_date?
-        current_piw.ends_on > PeriodOfIncapacityForWork::CORONAVIRUS_SSP_START_DATE
-      end
-
-      def before_coronavirus_shield_date?
-        current_piw.begins_on < PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
-      end
-
-      def ends_after_coronavirus_shield_date?
-        current_piw.ends_on >= PeriodOfIncapacityForWork::CORONAVIRUS_SHIELDING_START_DATE
-      end
-
-      def not_entitled_due_to_shielding_before_date?
-        coronavirus_related &&
-          coronavirus_gp_letter &&
-          before_coronavirus_shield_date? &&
-          !ends_after_coronavirus_shield_date?
-      end
-
-      def coronavirus_related_unpaid_workdays_missed(coronavirus_period_start_date, piw_startdate)
-        coronavirus_period_start_date -= 1 # We want to count to the date prior
-        dates = piw_startdate..coronavirus_period_start_date
-        dates.map { |d| d if days_of_the_week_worked.include?(d.wday.to_s) }.compact
       end
 
     private

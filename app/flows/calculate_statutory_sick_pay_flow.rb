@@ -23,63 +23,12 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
         if calculator.already_getting_maternity_pay?
           outcome :already_getting_maternity
         else
-          question :coronavirus_related?
+          question :employee_tell_within_limit?
         end
       end
     end
 
     # Question 2
-    radio :coronavirus_related? do
-      option :yes
-      option :no
-
-      on_response do |response|
-        calculator.coronavirus_related = response == "yes"
-      end
-
-      next_node do
-        if calculator.coronavirus_related
-          question :coronavirus_gp_letter?
-        else
-          question :employee_tell_within_limit?
-        end
-      end
-    end
-
-    # Question 2.1
-    radio :coronavirus_gp_letter? do
-      option :yes
-      option :no
-
-      on_response do |response|
-        calculator.coronavirus_gp_letter = response == "yes"
-      end
-
-      next_node do
-        if calculator.coronavirus_gp_letter
-          question :employee_tell_within_limit?
-        else
-          question :coronavirus_self_or_cohabitant?
-        end
-      end
-    end
-
-    # Question 2.2
-    radio :coronavirus_self_or_cohabitant? do
-      option :self
-      option :cohabitant
-
-      on_response do |response|
-        calculator.has_coronavirus = response == "self"
-        calculator.cohabitant_has_coronavirus = response == "cohabitant"
-      end
-
-      next_node do
-        question :employee_tell_within_limit?
-      end
-    end
-
-    # Question 3
     radio :employee_tell_within_limit? do
       option :yes
       option :no
@@ -93,7 +42,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 4
+    # Question 3
     radio :employee_work_different_days? do
       option :yes
       option :no
@@ -108,7 +57,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 5
+    # Question 4
     date_question :first_sick_day? do
       from { Date.new(2011, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -122,7 +71,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 6
+    # Question 5
     date_question :last_sick_day? do
       from { Date.new(2011, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -144,7 +93,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 7
+    # Question 6
     radio :has_linked_sickness? do
       option :yes
       option :no
@@ -167,7 +116,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 7.1
+    # Question 6.1
     date_question :linked_sickness_start_date? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -185,7 +134,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 7.2
+    # Question 6.2
     date_question :linked_sickness_end_date? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -211,7 +160,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 8.1
+    # Question 7.1
     radio :paid_at_least_8_weeks? do
       option :eight_weeks_more
       option :eight_weeks_less
@@ -232,7 +181,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 8.2
+    # Question 7.2
     radio :how_often_pay_employee_pay_patterns? do
       option :weekly
       option :fortnightly
@@ -253,7 +202,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 9
+    # Question 8
     date_question :last_payday_before_sickness? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -271,7 +220,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 9.1
+    # Question 8.1
     date_question :last_payday_before_offset? do
       from { Date.new(2010, 1, 1) }
       to { SmartAnswer::Calculators::StatutorySickPayCalculator.year_of_sickness }
@@ -289,7 +238,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 9.2
+    # Question 8.2
     money_question :total_employee_earnings? do
       on_response do |response|
         calculator.total_employee_earnings = response
@@ -300,7 +249,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 10
+    # Question 9
     money_question :pay_amount_if_not_sick? do
       on_response do |response|
         calculator.relevant_contractual_pay = response
@@ -311,7 +260,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 10.1
+    # Question 9.1
     value_question :contractual_days_covered_by_earnings? do
       on_response do |response|
         calculator.contractual_days_covered_by_earnings = response
@@ -326,7 +275,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 11
+    # Question 10
     money_question :total_earnings_before_sick_period? do
       on_response do |response|
         calculator.total_earnings_before_sick_period = response
@@ -337,7 +286,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 11.1
+    # Question 10.1
     value_question :days_covered_by_earnings? do
       on_response do |response|
         calculator.days_covered_by_earnings = response.to_i
@@ -348,7 +297,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
     end
 
-    # Question 12
+    # Question 11
     checkbox_question :usual_work_days? do
       %w[1 2 3 4 5 6 0].each { |n| option n.to_s }
 
