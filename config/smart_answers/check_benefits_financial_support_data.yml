@@ -62,7 +62,10 @@
         - northern-ireland
     - name: housing_benefit
       title: Housing Benefit
-      description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing. You will not get Housing Benefit if your savings are over £16,000 - unless you get the Guarantee Credit element of Pension Credit.
+      description: |
+        <p>You could get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing.</p>
+
+        <p>You will not get Housing Benefit if your savings are over £16,000 (unless you get the Guarantee Credit element of Pension Credit) or if you live with a partner below State Pension age. You should apply for Universal Credit instead.</p>
       condition: eligible_for_housing_benefit?
       url: /housing-benefit
       url_text: Check if you’re eligible for Housing Benefit
@@ -72,7 +75,10 @@
         - wales
     - name: housing_benefit_scotland
       title: Housing Benefit
-      description: You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing. You will not get Housing Benefit if your savings are over £16,000 - unless you get the Guarantee Credit element of Pension Credit.
+      description: |
+        <p>You could get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing.</p>
+
+        <p>You will not get Housing Benefit if your savings are over £16,000 (unless you get the Guarantee Credit element of Pension Credit) or if you live with a partner below State Pension age. You should apply for Universal Credit instead.</p>
       condition: eligible_for_housing_benefit?
       url: https://www.mygov.scot/claim-housing-benefit
       url_text: Check if you’re eligible for Housing Benefit on the mygov.scot website
@@ -133,11 +139,11 @@
       countries:
         - northern-ireland
     - name: tax_free_childcare
-      title: Tax-free childcare
+      title: Tax-Free Childcare
       description: You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare.
       condition: eligible_for_tax_free_childcare?
       url: /tax-free-childcare
-      url_text: Check if you’re eligible for Tax-Free childcare
+      url_text: Check if you’re eligible for Tax-Free Childcare
       group: Help with childcare costs
       countries:
         - england
@@ -176,7 +182,7 @@
         - wales
     - name: childcare_3_4yr_olds_wales
       title: Childcare 3 and 4 year olds
-      description: You may be able to get up to 30 hours a week of free early education and childcare.
+      description: You may be able to get up to 30 hours a week of free early education and childcare if your child has not started school full-time.
       condition: eligible_for_childcare_3_4yr_olds?
       url: https://gov.wales/childcare-3-and-4-year-olds
       url_text: Find out how much free childcare you can get on the GOV.WALES website
@@ -185,7 +191,7 @@
         - wales
     - name: 15hrs_free_childcare_3_4yr_olds_england
       title: 15 hours of free childcare for 3 and 4-year-olds
-      description: You can get 570 hours of free childcare per year with an approved childcare provider if your child is 3 or 4 years old.
+      description: You can get 570 hours of free childcare per year with an approved childcare provider if your child is 3 or 4 years old and has not started school full-time.
       condition: eligible_for_15hrs_free_childcare_3_4yr_olds?
       url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
       url_text: Find out how to get free childcare for 3 and 4-year-olds
@@ -194,7 +200,7 @@
         - england
     - name: funded_early_learning_and_childcare_scotland
       title: Funded early learning and childcare
-      description: You may be able to get up to 30 hours a week of free early education and childcare during term time if your child is 3 or 4 years old. You may also be able to get funded childcare for your 2-year-old.
+      description: You may be able to get up to 30 hours a week of free early education and childcare during term time if your child is 3 or 4 years old and has not started school full-time. You may also be able to get funded childcare for your 2-year-old.
       condition: eligible_for_funded_early_learning_and_childcare?
       url: https://www.mygov.scot/childcare-costs-help/funded-early-learning-and-childcare
       url_text: Find out how much free childcare you can get on mygov.scot
@@ -203,7 +209,7 @@
         - scotland
     - name: 30hrs_free_childcare_3_4yrs_england
       title: 30 hours of free childcare
-      description: You may be able to get 30 hours of free childcare with an approved childcare provider if you’re working and your child is 3 or 4 years old.
+      description: You may be able to get 30 hours of free childcare with an approved childcare provider if you’re working and your child is 3 or 4 years old and has not started school full-time.
       condition: eligible_for_30hrs_free_childcare_3_4yrs?
       url: /30-hours-free-childcare
       url_text: Check if you’re eligible for 30 hours free childcare
@@ -315,8 +321,8 @@
         - northern-ireland
     - name: free_tv_licence
       title: Get a free or discounted TV licence
-      description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit.
-      condition: eligible_for_free_tv_licence?
+      description: You may be able to get a free TV licence if you’re 75 or older and get Pension Credit. You can get a discounted TV licence if you’re registered blind or in residential care.
+      condition: eligible_for_free_tv_license?
       url: /free-discount-tv-licence
       url_text: Check if you’re eligible for a free or discounted TV licence
       group: Help with your bills
@@ -354,19 +360,19 @@
       countries:
         - england
         - wales
-    - name: eligible_for_help_with_health_costs_scotland
+    - name: help_with_health_costs_scotland
       title: Help With Health Costs
-      description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
-      url: https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs
-      url_text: Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website
+      description: You may be able to get help with dental care, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits. All prescriptions in Scotland are free.
+      url: https://www.gov.scot/publications/hcs1/
+      url_text: Check if you’re eligible for help with health costs on the Scottish Government website
       group: Healthcare support
       countries:
         - scotland
-    - name: nhs_low_income_scheme_northern_ireland
-      title: NHS Low Income Scheme
-      description: If you have a low income, you may be able to get help with prescriptions, dental care and other health costs.
+    - name: nhs_help_with_health_costs_northern_ireland
+      title: NHS Help with health costs
+      description: You may be able to get help with prescriptions, dental care, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits.
       url: https://www.nidirect.gov.uk/articles/help-health-costs
-      url_text: Check if you’re eligible for the NHS Low Income Scheme on the nidirect website
+      url_text: Check if you’re eligible for help with health costs on the nidirect website
       group: Healthcare support
       countries:
         - northern-ireland
@@ -401,10 +407,13 @@
         - scotland
     - name: healthy_start
       title: Healthy Start
-      description: If you’re getting certain benefits and are more than 10 weeks pregnant or have a child under 4, you may be entitled to get help to buy healthy food and milk.
+      description: |
+        <p>If you’re getting certain benefits and are more than 10 weeks pregnant or have a child under 4, you may be entitled to get help to buy healthy food and milk.</p>
+
+        <p>If you’re pregnant and under 18 you can get help even if you do not receive any benefits.</p>
       condition: eligible_for_healthy_start?
       url_text: Check if you’re eligible for help from Healthy Start
-      url: https://www.gov.uk/healthy-start
+      url: https://www.healthystart.nhs.uk/
       countries:
         - england
         - wales
@@ -419,7 +428,7 @@
         - scotland
     - name: free_school_meals_england
       title: Free school meals
-      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council.
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council. Your child will automatically get free school meals if they’re in a government-funded school and in reception class, year 1 or year 2.
       condition: eligible_for_free_school_meals?
       url_text: Check if your child can get free school meals
       url: https://www.gov.uk/apply-free-school-meals
@@ -427,7 +436,7 @@
         - england
     - name: free_school_meals_scotland
       title: Free school meals
-      description: If you’re on certain benefits your child may be able to get free school meals.
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council. Your child will automatically get free school meals if they’re in a government-funded school and in primary years 1 to 5.
       condition: eligible_for_free_school_meals_scotland?
       url_text: Check if your child can get free school meals on the mygov.scot website
       url: https://www.mygov.scot/school-meals
@@ -435,7 +444,7 @@
         - scotland
     - name: free_school_meals_wales
       title: Free school meals
-      description: If you’re on certain benefits your child may be able to get free school meals.
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council.
       condition: eligible_for_free_school_meals?
       url_text: Check if your child can get free school meals on the GOV.WALES website
       url: https://gov.wales/find-out-about-free-school-meals
@@ -443,7 +452,7 @@
         - wales
     - name: free_school_meals_northern_ireland
       title: Free school meals
-      description: If you’re on certain benefits your child may be able to get free school meals.
+      description: If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through the Northern Ireland Education Authority.
       condition: eligible_for_free_school_meals?
       url_text: Check if your child can get free school meals on the nidirect website
       url: https://www.nidirect.gov.uk/articles/nutrition-and-school-lunches
@@ -475,16 +484,16 @@
         - wales
     - name: home_to_school_transport
       title: Home to school transport
-      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school. There is separate support if your child is 16 or over.
       condition: eligible_for_school_transport?
       url_text: Check if your child is eligible for help with the cost of home to school transport
-      url: https://www.gov.uk/help-home-school-transport
+      url: https://www.gov.uk/free-school-transport
       countries:
         - england
         - wales
     - name: free_school_transport_scotland
       title: Free school transport
-      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible because of the distance to the school, your child has additional support needs or you’re on a low income.
       condition: eligible_for_school_transport?
       url_text: Check if your child is eligible for help with the cost of home to school transport on the mygov.scot website
       url: https://www.mygov.scot/free-school-transport
@@ -492,7 +501,7 @@
         - scotland
     - name: home_to_school_transport_northern_ireland
       title: Home to school transport
-      description: You may be able to get help with the cost of home to school transport through your local council. You may be eligible if you’re on a low income, your child has Special Educational Needs (SEN) or because of the distance to the school.
+      description: You may be able to get help with the cost of home to school transport through the Education Authority. You may be eligible because of distance to the school or if a transport need is specified on your child's Special Educational Needs (SEN) statement.
       condition: eligible_for_school_transport?
       url_text: Check if your child is eligible for help with the cost of home to school transport on the Education Authority NI website
       url: https://www.eani.org.uk/help-available/home-to-school-transport
@@ -554,7 +563,7 @@
         - northern-ireland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
-      description: You may be able to get Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education.
+      description: You may be able to get Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.
       condition: eligible_for_education_maintenance_allowance_ni?
       url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained

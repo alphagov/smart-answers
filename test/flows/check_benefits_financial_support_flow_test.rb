@@ -456,8 +456,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: country,
                       children_with_disability: "no"
 
-        assert_rendered_outcome text: "Tax-free childcare"
-        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+        assert_rendered_outcome text: "Tax-Free Childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free Childcare"
       end
     end
 
@@ -691,13 +691,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
     end
 
-    should "render NHS Low Income Scheme when eligible" do
+    should "render NHS Help with health costs when eligible" do
       %w[england wales].each do |country|
-        add_responses where_do_you_live: country,
-                      assets_and_savings: "under_16000"
+        add_responses where_do_you_live: country
 
-        assert_rendered_outcome text: "NHS Low Income Scheme"
-        assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the NHS website"
+        assert_rendered_outcome text: "NHS Help with health costs"
+        assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
       end
     end
 
@@ -705,14 +704,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       add_responses where_do_you_live: "scotland"
 
       assert_rendered_outcome text: "Help With Health Costs"
-      assert_rendered_outcome text: "Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website"
+      assert_rendered_outcome text: "Check if you’re eligible for help with health costs"
     end
 
-    should "render NHS Low Income Scheme (Northern Ireland) when eligible" do
+    should "render NHS Help with health costs (Northern Ireland) when eligible" do
       add_responses where_do_you_live: "northern-ireland"
 
-      assert_rendered_outcome text: "NHS Low Income Scheme"
-      assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the nidirect website"
+      assert_rendered_outcome text: "NHS Help with health costs"
+      assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
     end
 
     should "render maternity allowance for eligible countries" do
