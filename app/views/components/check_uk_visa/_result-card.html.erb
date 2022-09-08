@@ -18,28 +18,26 @@
     <div class="app-c-result-card__attributes">
       <div class="govuk-grid-row">
         <% attributes.each do |attribute| %>
-          <div class="govuk-grid-column-one-half">
-            <div class="app-c-result-card__attribute">
-              <%= render "govuk_publishing_components/components/heading", {
-                text: calculator.visa_attribute_statement(attribute&.first),
-                heading_level: 3,
-                font_size: "s"
-              } %>
+          <div class="govuk-grid-column-one-half app-c-result-card__attribute">
+            <%= render "govuk_publishing_components/components/heading", {
+              text: calculator.visa_attribute_statement(attribute&.first),
+              heading_level: 3,
+              font_size: "s"
+            } %>
 
-              <% attribute.each do |k| %>
-                <% if k["answer"] %>
-                  <p class="govuk-body-l">
-                    <%= k["answer"] %>
-                  </p>
-                <% end %>
-
-                <% if k["description"] %>
-                  <p class="govuk-body-s">
-                    <%= k["description"] %>
-                  </p>
-                <% end %>
+            <% attribute.each do |k| %>
+              <% if k["answer"] %>
+                <p class="govuk-body-l">
+                  <%= k["answer"] %>
+                </p>
               <% end %>
-            </div>
+
+              <% if k["description"] %>
+                <p class="govuk-body-s">
+                  <%= k["description"] %>
+                </p>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
