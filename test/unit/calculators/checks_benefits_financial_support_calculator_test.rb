@@ -985,26 +985,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_nhs_low_income_scheme?" do
-        context "when eligible" do
-          should "be true if under 16000 assets" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            %w[none_16000 under_16000].each do |assets|
-              calculator.assets_and_savings = assets
-              assert calculator.eligible_for_nhs_low_income_scheme?
-            end
-          end
-        end
-
-        context "when ineligible" do
-          should "be false if OVER 1600 assets" do
-            calculator = CheckBenefitsFinancialSupportCalculator.new
-            calculator.assets_and_savings = "over_16000"
-            assert_not calculator.eligible_for_nhs_low_income_scheme?
-          end
-        end
-      end
-
       context "#education_maintenance_allowance_ni?" do
         context "when eligible" do
           should "be true if living with children and eligible ages" do
