@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
     end
 
     def previous_period_start_date
-      data.previous_period(date: date)[:start_date]
+      data.previous_period(date:)[:start_date]
     end
 
     def valid_age?(age)
