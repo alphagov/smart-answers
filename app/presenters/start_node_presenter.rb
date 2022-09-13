@@ -4,6 +4,7 @@ class StartNodePresenter < NodePresenter
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory,
       template_name: "start",
+      helpers: [SmartAnswer::RateDatesHelper],
     )
   end
 
