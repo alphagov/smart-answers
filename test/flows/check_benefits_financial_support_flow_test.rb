@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -527,6 +527,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
         assert_rendered_outcome text: "30 hours of free childcare"
         assert_rendered_outcome text: "Check if you’re eligible for 30 hours free childcare"
+      end
+    end
+
+    should "render Winter Fuel Payment" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
+
+        assert_rendered_outcome text: "Winter Fuel Payment"
+        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you’re getting the State Pension."
       end
     end
 

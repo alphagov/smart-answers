@@ -210,6 +210,17 @@
       group: Help with childcare costs
       countries:
         - england
+    - name: winter_fuel_payment
+      title: Winter Fuel Payment
+      description: You'll automatically get a Winter Fuel Payment if you’re getting the State Pension. You may have to apply if you've reached State Pension age but are not getting your State Pension, for example because you deferred it. The amount you’ll get will include a ‘Pensioner Cost of Living Payment’.
+      condition: eligible_for_winter_fuel_payment?
+      url: /winter-fuel-payment
+      url_text: Check if you're eligible and whether you need to apply for a Winter Fuel Payment
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
     - name: carers_allowance
       title: Carer’s Allowance
       description: You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.

@@ -215,6 +215,10 @@ module SmartAnswer::Calculators
         @children_with_disability == "yes"
     end
 
+    def eligible_for_winter_fuel_payment?
+      @over_state_pension_age == "yes"
+    end
+
     def eligible_for_carers_allowance?
       @carer_disability_or_health_condition == "yes"
     end

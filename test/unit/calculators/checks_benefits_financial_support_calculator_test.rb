@@ -814,6 +814,24 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_winter_fuel_payment?" do
+        context "when eligible" do
+          should "be true if eligible for state pension" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "yes"
+            assert calculator.eligible_for_winter_fuel_payment?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if ineligible for state pension" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.over_state_pension_age = "no"
+            assert_not calculator.eligible_for_winter_fuel_payment?
+          end
+        end
+      end
+
       context "#eligible_for_personal_independence_payment?" do
         context "when eligible" do
           should "be true if under state pension age, without health condition and with child aged 16 to 19 with a health condition" do
