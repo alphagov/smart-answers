@@ -71,6 +71,10 @@ module SmartAnswer
       add_node Question::Radio.new(self, name, &block)
     end
 
+    def radio_with_intro(name, &block)
+      add_node Question::RadioWithIntro.new(self, name, &block)
+    end
+
     def country_select(name, options = {}, &block)
       add_node Question::CountrySelect.new(self, name, options, &block)
     end

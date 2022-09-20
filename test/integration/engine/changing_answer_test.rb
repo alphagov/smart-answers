@@ -104,6 +104,10 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("To seek the Holy Grail", visible: false)
       click_on "Continue"
 
+      within("#current-question") { assert_page_has_content "Do you want to select any of these?" }
+      choose("Yes", visible: false)
+      click_on "Continue"
+
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
       choose("Blue", visible: false)
       click_on "Continue"
@@ -120,6 +124,10 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within("#current-question") { assert_page_has_content "What...is your quest?" }
       choose("To seek the Holy Grail", visible: false)
+      click_on "Continue"
+
+      within("#current-question") { assert_page_has_content "Do you want to select any of these?" }
+      choose("Yes", visible: false)
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
@@ -140,11 +148,14 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
 
+      choose("Yes", visible: false)
+      click_on "Continue"
+
       choose("Blue", visible: false)
       click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
-      within(".govuk-summary-list__row:nth-child(3)") { click_on "Change" }
+      within(".govuk-summary-list__row:nth-child(4)") { click_on "Change" }
 
       within "#current-question" do
         assert page.has_checked_field?("Blue", visible: false)
@@ -155,7 +166,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Red", visible: false)
       click_on "Continue"
 
-      assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/red"
+      assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/yes/red"
     end
 
     should "be able to change checkbox answers" do

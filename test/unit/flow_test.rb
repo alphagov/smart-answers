@@ -89,6 +89,28 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1, s.questions.size
   end
 
+  test "Can build radio with intro question nodes" do
+    s = SmartAnswer::Flow.build do
+      radio_with_intro :do_you_like_chocolate? do
+        option :yes
+        option :no
+        next_node do |response|
+          case response
+          when "yes" then outcome :sweet_tooth
+          when "no" then outcome :savoury_tooth
+          end
+        end
+      end
+
+      outcome :sweet_tooth
+      outcome :savoury_tooth
+    end
+
+    assert_equal 3, s.nodes.size
+    assert_equal 2, s.outcomes.size
+    assert_equal 1, s.questions.size
+  end
+
   test "Can build country select question nodes" do
     stub_worldwide_api_has_locations(%w[afghanistan])
 
