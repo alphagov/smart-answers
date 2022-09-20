@@ -117,8 +117,9 @@ module SmartAnswer::Calculators
     def eligible_for_free_tv_license?
       return true if @disability_or_health_condition == "yes"
       return if @over_state_pension_age == "no"
+      return false if @on_benefits == "no"
 
-      @on_benefits == "dont_know" || @current_benefits.include?("pension_credit")
+      @on_benefits == "dont_know" || !permitted_benefits?(%w[pension_credit])
     end
 
     def eligible_for_a_disabled_persons_bus_pass?
