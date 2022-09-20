@@ -748,7 +748,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.over_state_pension_age = "yes"
             calculator.on_benefits = "yes"
-            calculator.current_benefits = "pension_credit"
+            calculator.current_benefits = "pension_credit,tax_credits"
 
             assert calculator.eligible_for_free_tv_license?
           end
