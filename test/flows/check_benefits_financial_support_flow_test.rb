@@ -143,8 +143,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_next_node :age_of_children, for_response: "yes"
       end
 
-      should "have a next node of assets_and_savings if there are not children living with you" do
-        assert_next_node :assets_and_savings, for_response: "no"
+      should "have a next node of on_benefits if there are not children living with you" do
+        assert_next_node :on_benefits, for_response: "no"
       end
     end
   end
@@ -166,7 +166,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of children_with_disability" do
-        assert_next_node :children_with_disability, for_response: "5_to_11"
+        assert_next_node :children_with_disability, for_response: "5_to_7"
       end
     end
   end
@@ -180,7 +180,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11"
+                    age_of_children: "5_to_7"
     end
 
     should "render the question" do
@@ -188,8 +188,65 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of assets_and_savings" do
-        assert_next_node :assets_and_savings, for_response: "yes"
+      should "have a next node of on_benefits" do
+        assert_next_node :on_benefits, for_response: "yes"
+      end
+    end
+  end
+
+  context "question: on_benefits" do
+    setup do
+      testing_node :on_benefits
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_7",
+                    children_with_disability: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of current_benefits for yes" do
+        assert_next_node :current_benefits, for_response: "yes"
+      end
+
+      should "have a next node of assets_and_savings for no" do
+        assert_next_node :assets_and_savings, for_response: "no"
+      end
+
+      should "have a next node of assets_and_savings for dont_know" do
+        assert_next_node :assets_and_savings, for_response: "dont_know"
+      end
+    end
+  end
+
+  context "question: current_benefits" do
+    setup do
+      testing_node :current_benefits
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes_over_16_hours_per_week",
+                    disability_or_health_condition: "no",
+                    carer_disability_or_health_condition: "no",
+                    children_living_with_you: "yes",
+                    age_of_children: "5_to_7",
+                    children_with_disability: "yes",
+                    on_benefits: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of assets_and_savings for universal_credit" do
+        assert_next_node :assets_and_savings, for_response: "universal_credit"
       end
     end
   end
@@ -203,8 +260,10 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11",
-                    children_with_disability: "yes"
+                    age_of_children: "5_to_7",
+                    children_with_disability: "yes",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
     end
 
     should "render the question" do
@@ -212,8 +271,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of results" do
+      should "have a next node of results for under_16000" do
         assert_next_node :results, for_response: "under_16000"
+      end
+
+      should "have a next node of results for none" do
+        assert_next_node :results, for_response: "none_16000"
       end
     end
   end
@@ -227,13 +290,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
-                    age_of_children: "5_to_11",
+                    age_of_children: "5_to_7",
                     children_with_disability: "yes",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit",
                     assets_and_savings: "under_16000"
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 9 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -302,7 +367,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Pension Credit when eligible" do
       %w[england scotland wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Pension Credit"
         assert_rendered_outcome text: "Check if you’re eligible for Pension Credit"
@@ -310,7 +375,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Pension Credit (NI) when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Pension Credit"
       assert_rendered_outcome text: "Check if you’re eligible for Pension Credit on the nidirect website"
@@ -318,7 +383,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Housing Benefit when eligible" do
       %w[england wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Housing Benefit"
         assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit"
@@ -326,14 +391,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Housing Benefit (Scotland) when eligible" do
-      add_responses where_do_you_live: "scotland"
+      add_responses where_do_you_live: "scotland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Housing Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the mygov.scot website"
     end
 
     should "render Housing Benefit (Northern Ireland) when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
 
       assert_rendered_outcome text: "Housing Benefit"
       assert_rendered_outcome text: "Check if you’re eligible for Housing Benefit on the NI Housing Executive website"
@@ -367,7 +432,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       %w[england scotland wales].each do |country|
         add_responses where_do_you_live: country,
                       over_state_pension_age: "no",
-                      assets_and_savings: "under_16000"
+                      assets_and_savings: "under_16000",
+                      on_benefits: "no"
 
         assert_rendered_outcome text: "Universal Credit"
         assert_rendered_outcome text: "Check if you’re eligible for Universal Credit"
@@ -377,7 +443,9 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Universal Credit (Northern Ireland) when eligible" do
       add_responses where_do_you_live: "northern-ireland",
                     over_state_pension_age: "no",
-                    assets_and_savings: "under_16000"
+                    assets_and_savings: "under_16000",
+                    on_benefits: "yes",
+                    current_benefits: "housing_benefit"
 
       assert_rendered_outcome text: "Universal Credit"
       assert_rendered_outcome text: "Check if you’re eligible for Universal Credit on the nidirect website"
@@ -388,8 +456,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: country,
                       children_with_disability: "no"
 
-        assert_rendered_outcome text: "Tax-free childcare"
-        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+        assert_rendered_outcome text: "Tax-Free Childcare"
+        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free Childcare"
       end
     end
 
@@ -398,29 +466,35 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: country,
                       age_of_children: "16_to_17"
 
-        assert_rendered_outcome text: "Tax-free childcare"
-        assert_rendered_outcome text: "Check if you’re eligible for Tax-Free childcare"
+        assert_rendered_outcome text: "Tax-Free Childcare"
+        assert_rendered_outcome text: "up to £4000 if a child is disabled."
       end
     end
 
     should "render Free childcare 2 yr olds when eligible" do
-      %w[england wales].each do |country|
-        add_responses where_do_you_live: country,
-                      children_living_with_you: "yes",
-                      age_of_children: "2"
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "2"
 
-        assert_rendered_outcome text: "Free childcare for 2-year-olds"
-        assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
-      end
+      assert_rendered_outcome text: "Free childcare for 2-year-olds"
+      assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
+    end
+
+    should "render Free childcare 2 yr olds when eligible [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "2"
+
+      assert_rendered_outcome text: "Free childcare for 2-year-olds"
+      assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
     end
 
     should "render Childcare 3 and 4 year olds Wales when eligible" do
       add_responses where_do_you_live: "wales",
-                    are_you_working: "yes_over_16_hours_per_week",
                     children_living_with_you: "yes",
                     age_of_children: "3_to_4"
 
-      assert_rendered_outcome text: "Childcare 3 and 4 year olds"
+      assert_rendered_outcome text: "Childcare for 3 and 4-year-olds"
       assert_rendered_outcome text: "Find out how much free childcare you can get on the GOV.WALES website"
     end
 
@@ -456,6 +530,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
+    should "render Winter Fuel Payment" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
+
+        assert_rendered_outcome text: "Winter Fuel Payment"
+        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you’re getting the State Pension."
+      end
+    end
+
     should "render Carer’s Allowance when eligible" do
       add_responses carer_disability_or_health_condition: "yes"
 
@@ -465,7 +548,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     should "render Disability Living Allowance (DLA) for children when eligible" do
       %w[england northern-ireland wales].each do |country|
-        %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+        %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
           add_responses where_do_you_live: country,
                         children_living_with_you: "yes",
                         age_of_children: age,
@@ -478,7 +561,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Child Disability Payment when eligible" do
-      %w[1_or_under 2 3_to_4 5_to_11 12_to_15].each do |age|
+      %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
         add_responses where_do_you_live: "scotland",
                       children_living_with_you: "yes",
                       age_of_children: age,
@@ -490,7 +573,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Personal Independence Payment (PIP) when eligible with a health condition" do
-      %w[england scotland wales].each do |country|
+      %w[england wales].each do |country|
         %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
           add_responses where_do_you_live: country,
                         over_state_pension_age: "no",
@@ -504,7 +587,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Personal Independence Payment (PIP) when eligible with a child with a health condition" do
-      %w[england scotland wales].each do |country|
+      %w[england wales].each do |country|
         %w[16_to_17 18_to_19].each do |age|
           add_responses where_do_you_live: country,
                         over_state_pension_age: "no",
@@ -545,6 +628,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
+    should "render Adult Disability Payment [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    over_state_pension_age: "no",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "no"
+
+      assert_rendered_outcome text: "Adult Disability Payment"
+      assert_rendered_outcome text: "You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability."
+    end
+
     should "render Attendance Allowance when eligible" do
       %w[england scotland wales northern-ireland].each do |country|
         %w[no yes_limits_work yes_unable_to_work].each do |affecting_work|
@@ -583,15 +676,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Free TV Licence when eligible" do
-      add_responses over_state_pension_age: "yes"
+      %w[england scotland wales northern-ireland].each do |_country|
+        add_responses over_state_pension_age: "yes"
+        add_responses on_benefits: "dont_know"
 
-      assert_rendered_outcome text: "Get a free or discounted TV licence"
-      assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+        assert_rendered_outcome text: "Get a free or discounted TV licence"
+        assert_rendered_outcome text: "Check if you’re eligible for a free or discounted TV licence"
+      end
     end
 
     should "render Budgeting Loan when eligible" do
       %w[england scotland wales].each do |country|
-        add_responses where_do_you_live: country
+        add_responses where_do_you_live: country, on_benefits: "dont_know"
 
         assert_rendered_outcome text: "Budgeting Loan"
         assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan"
@@ -599,34 +695,264 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Social Fund Budgeting Loan when eligible" do
-      add_responses where_do_you_live: "northern-ireland"
+      add_responses where_do_you_live: "northern-ireland", on_benefits: "yes", current_benefits: "pension_credit"
 
       assert_rendered_outcome text: "Social Fund Budgeting Loan"
       assert_rendered_outcome text: "Check if you’re eligible for a Budgeting Loan on the nidirect website"
     end
 
-    should "render NHS Low Income Scheme when eligible" do
+    should "render NHS Help with health costs when eligible" do
       %w[england wales].each do |country|
-        add_responses where_do_you_live: country,
-                      assets_and_savings: "under_16000"
+        add_responses where_do_you_live: country
 
-        assert_rendered_outcome text: "NHS Low Income Scheme"
-        assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the NHS website"
+        assert_rendered_outcome text: "NHS Help with health costs"
+        assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
       end
     end
 
     should "render Help With Health Costs Loan when eligible" do
       add_responses where_do_you_live: "scotland"
 
-      assert_rendered_outcome text: "Help With Health Costs"
-      assert_rendered_outcome text: "Check if you’re eligible for help with health costs on the NHS Inform (Scotland) website"
+      assert_rendered_outcome text: "Help with health costs"
+      assert_rendered_outcome text: "Check if you’re eligible for help with health costs"
     end
 
-    should "render NHS Low Income Scheme (Northern Ireland) when eligible" do
+    should "render NHS Help with health costs (Northern Ireland) when eligible" do
       add_responses where_do_you_live: "northern-ireland"
 
-      assert_rendered_outcome text: "NHS Low Income Scheme"
-      assert_rendered_outcome text: "Check if you’re eligible for the NHS Low Income Scheme on the nidirect website"
+      assert_rendered_outcome text: "NHS Help with health costs"
+      assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
+    end
+
+    should "render maternity allowance for eligible countries" do
+      %w[england scotland wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      over_state_pension_age: "no",
+                      age_of_children: "1_or_under"
+
+        assert_rendered_outcome text: "Maternity Allowance"
+        assert_rendered_outcome text: "You may be eligible to get Maternity Allowance for 39 weeks if you’re employed"
+      end
+    end
+
+    should "render Sure Start Maternity Grant for eligible countries" do
+      %w[england wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "1_or_under",
+                      on_benefits: "yes",
+                      current_benefits: "universal_credit"
+
+        assert_rendered_outcome text: "Sure Start Maternity Grant"
+        assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment of £500"
+      end
+    end
+
+    should "render Pregnancy and Baby Payment [Scotland] for eligible countries" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "1_or_under",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Pregnancy and Baby Payment"
+      assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment"
+    end
+
+    should "render Healthy Start for eligible countries" do
+      %w[england wales northern-ireland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "1_or_under",
+                      on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Healthy Start"
+        assert_rendered_outcome text: "If you’re getting certain benefits and are more than 10 weeks pregnant"
+      end
+    end
+
+    should "render Best Start Food for eligible countries" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "1_or_under",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Best Start Foods"
+      assert_rendered_outcome text: "If you’re getting certain benefits and are pregnant or have a child under 3"
+    end
+
+    should "render Free school meals [England] for eligible countries" do
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render Free school meals [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "3_to_4",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Free school meals"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+    end
+
+    should "render School Clothing Grant [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "18_to_19",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "School Clothing Grant"
+      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+    end
+
+    should "render Uniform Grant [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Uniform Grant"
+      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+    end
+
+    should "render Pupil Development Grant [Wales]" do
+      add_responses where_do_you_live: "wales",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17",
+                    on_benefits: "yes",
+                    current_benefits: "universal_credit"
+
+      assert_rendered_outcome text: "Pupil Development Grant"
+      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+    end
+
+    should "render Home to school transport for eligible countries" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "18_to_19",
+                      on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Home to school transport"
+        assert_rendered_outcome text: "You may be able to get help with the cost of home to school transport through your local council."
+      end
+    end
+
+    should "render Free school transport [Scotland]" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "18_to_19",
+                    on_benefits: "dont_know"
+
+      assert_rendered_outcome text: "Free school transport"
+      assert_rendered_outcome text: "You may be able to get help with the cost of home to school transport through your local council."
+    end
+
+    should "render Home to school transport [NI]" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "18_to_19",
+                    on_benefits: "dont_know"
+
+      assert_rendered_outcome text: "Home to school transport"
+      assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
+    end
+
+    should "render Apply for an older person's bus pass" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, over_state_pension_age: "yes"
+
+        assert_rendered_outcome text: "Apply for an older person's bus pass"
+        assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
+      end
+    end
+
+    should "render Apply for a disabled person's bus pass" do
+      add_responses where_do_you_live: "england",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "no"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "You can get free travel on buses if you’re eligible."
+    end
+
+    should "render Apply for a disabled person's bus pass Wales" do
+      add_responses where_do_you_live: "wales",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_limits_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the GOV.WALES website"
+    end
+
+    should "render Apply for a disabled person's bus pass Scotland" do
+      add_responses where_do_you_live: "scotland",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_unable_to_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the mygov.scot website"
+    end
+
+    should "render Apply for a disabled person's bus pass NI" do
+      add_responses where_do_you_live: "northern-ireland",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_work: "yes_unable_to_work"
+
+      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the nidirect website"
+    end
+
+    should "render Support for Mortgage Interest (SMI)" do
+      %w[england wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country, on_benefits: "dont_know"
+
+        assert_rendered_outcome text: "Support for Mortgage Interest (SMI)"
+        assert_rendered_outcome text: "If you’re a homeowner, you might be able to get help towards interest payments on your mortgage"
+      end
+    end
+
+    should "render Education Maintenance Allowance NI" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17"
+
+      assert_rendered_outcome text: "Education Maintenance Allowance"
+      assert_rendered_outcome text: "You may be able to get Education Maintenance Allowance (EMA) of £30"
     end
   end
 end

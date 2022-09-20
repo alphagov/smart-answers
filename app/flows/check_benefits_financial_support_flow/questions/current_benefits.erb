@@ -1,0 +1,21 @@
+<% text_for :title do %>
+  Select everything you are getting at the moment
+<% end %>
+
+<% text_for :hint do %>
+  Income-based JSA and ESA do not include 'new style' JSA and ESA (these are contribution-based benefits).
+<% end %>
+
+<% options(
+  universal_credit: "Universal Credit",
+  jobseekers_allowance: "Income-based Jobseeker's Allowance (JSA)",
+  employment_and_support_allowance: "Income-related Employment and Support Allowance (ESA)",
+  pension_credit: "Pension Credit",
+  tax_credits: "Tax credits",
+  income_support: "Income Support",
+  housing_benefit: "Housing Benefit",
+) %>
+
+<% text_for :error_message do %>
+  Select the benefits you're getting.
+<% end %>

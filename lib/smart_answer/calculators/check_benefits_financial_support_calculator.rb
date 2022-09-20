@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
                   :children_living_with_you,
                   :age_of_children,
                   :children_with_disability,
+                  :on_benefits,
+                  :current_benefits,
                   :assets_and_savings
 
     def benefit_data
@@ -27,6 +29,102 @@ module SmartAnswer::Calculators
       benefits_for_outcome.size
     end
 
+    def benefits_selected?
+      @current_benefits != "none"
+    end
+
+    def eligible_for_maternity_allowance?
+      return unless @children_living_with_you == "yes"
+
+      age_groups = %w[pregnant 1_or_under]
+
+      @over_state_pension_age == "no" && eligible_child_ages?(age_groups)
+    end
+
+    def eligible_for_sure_start_maternity_grant?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[pregnant 1_or_under]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_pregnancy_and_baby_payment_scotland?
+      skip_benefit_list = []
+      age_groups = %w[pregnant 1_or_under]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_healthy_start?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[pregnant 1_or_under 2 3_to_4]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def best_start_foods_scotland?
+      skip_benefit_list = %w[pension_credit housing_benefit]
+      age_groups = %w[pregnant 1_or_under 2]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_free_school_meals?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_free_school_meals_scotland?
+      skip_benefit_list = []
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_school_clothing_grant_scotland?
+      skip_benefit_list = []
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17 18_to_19]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_uniform_grant_northern_ireland?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_pupil_development_grant_wales?
+      skip_benefit_list = %w[housing_benefit]
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+
+      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+    end
+
+    def eligible_for_school_transport?
+      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17 18_to_19]
+
+      @children_living_with_you == "yes" && eligible_child_ages?(age_groups)
+    end
+
+    def eligible_for_an_older_persons_bus_pass?
+      @over_state_pension_age == "yes"
+    end
+
+    def eligible_for_free_tv_license?
+      return true if @disability_or_health_condition == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "dont_know" || @current_benefits.include?("pension_credit")
+    end
+
+    def eligible_for_a_disabled_persons_bus_pass?
+      @disability_or_health_condition == "yes"
+    end
+
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
         @are_you_working != "yes_over_16_hours_per_week" &&
@@ -41,7 +139,9 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_pension_credit?
-      @over_state_pension_age == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "no" || permitted_benefits?(%w[pension_credit])
     end
 
     def eligible_for_access_to_work?
@@ -50,52 +150,57 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_universal_credit?
-      @over_state_pension_age == "no" &&
-        @assets_and_savings == "under_16000"
+      return if @over_state_pension_age == "yes"
+      return if @assets_and_savings == "over_16000"
+
+      @on_benefits == "no" || permitted_benefits?(%w[universal_credit])
     end
 
     def eligible_for_housing_benefit?
-      @over_state_pension_age == "yes"
+      return if @over_state_pension_age == "no"
+
+      @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
 
     def eligible_for_tax_free_childcare?
-      return unless @are_you_working != "no" && @children_living_with_you == "yes"
+      return false if @are_you_working == "no"
+      return false if @children_living_with_you == "no"
+      return false if @children_with_disability == "yes"
 
-      eligible_child_ages = if @children_with_disability == "yes"
-                              %w[1_or_under 2 3_to_4 5_to_11 12_to_15 16_to_17]
-                            else
-                              %w[1_or_under 2 3_to_4 5_to_11]
-                            end
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
+      eligible_child_ages?(age_groups)
+    end
 
-      @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+    def eligible_for_tax_free_childcare_with_disability?
+      return if @are_you_working == "no"
+      return if @children_living_with_you == "no"
+      return if @children_with_disability == "no"
+
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
+      eligible_child_ages?(age_groups)
     end
 
     def eligible_for_free_childcare_2yr_olds?
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("2")
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[2])
     end
 
     def eligible_for_childcare_3_4yr_olds?
-      @are_you_working == "yes_over_16_hours_per_week" &&
-        @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+      @children_living_with_you == "yes" &&
+        eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_15hrs_free_childcare_3_4yr_olds?
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
       @are_you_working != "no" &&
         @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any?("3_to_4")
+        eligible_child_ages?(%w[3_to_4])
     end
 
     def eligible_for_funded_early_learning_and_childcare?
-      eligible_child_ages = %w[2 3_to_4]
-      @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) }
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[2 3_to_4])
     end
 
     def eligible_for_child_benefit?
@@ -103,11 +208,15 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_child_disability_support?
-      eligible_child_ages = %w[1_or_under 2 3_to_4 5_to_11 12_to_15]
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15]
 
       @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
+        eligible_child_ages?(age_groups) &&
         @children_with_disability == "yes"
+    end
+
+    def eligible_for_winter_fuel_payment?
+      @over_state_pension_age == "yes"
     end
 
     def eligible_for_carers_allowance?
@@ -119,22 +228,61 @@ module SmartAnswer::Calculators
 
       return true if @disability_or_health_condition == "yes"
 
-      eligible_child_ages = %w[16_to_17 18_to_19]
+      age_groups = %w[16_to_17 18_to_19]
+
       @children_living_with_you == "yes" &&
-        @age_of_children.split(",").any? { |age| eligible_child_ages.include?(age) } &&
+        eligible_child_ages?(age_groups) &&
         @children_with_disability == "yes"
+    end
+
+    def eligible_for_adult_disability_payment_scotland?
+      @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
     end
 
     def eligible_for_attendance_allowance?
       @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
     end
 
-    def eligible_for_free_tv_licence?
-      @over_state_pension_age == "yes"
+    def eligible_for_budgeting_loan?
+      return if @on_benefits == "no"
+
+      skip_benefit_list = %w[universal_credit tax_credits housing_benefit]
+
+      permitted_benefits?(skip_benefit_list)
     end
 
-    def eligible_for_nhs_low_income_scheme?
-      @assets_and_savings == "under_16000"
+    def eligible_for_support_for_mortgage_interest?
+      return if @on_benefits == "no"
+
+      skip_benefit_list = %w[tax_credits housing_benefit]
+
+      permitted_benefits?(skip_benefit_list)
+    end
+
+    def eligible_for_education_maintenance_allowance_ni?
+      @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
+    end
+
+  private
+
+    def eligible_child_ages?(age_groups)
+      @age_of_children.split(",").any? { |age| age_groups.include?(age) }
+    end
+
+    def general_child_benefit_eligibility?(skip_benefit_list, age_groups)
+      return if @children_living_with_you == "no"
+      return unless eligible_child_ages?(age_groups)
+      return if @on_benefits == "no"
+
+      permitted_benefits?(skip_benefit_list)
+    end
+
+    def permitted_benefits?(skip_benefit_list)
+      return true if @on_benefits == "dont_know"
+
+      @current_benefits.split(",").none? do |benefit|
+        skip_benefit_list.include?(benefit)
+      end
     end
   end
 end
