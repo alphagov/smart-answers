@@ -50,7 +50,6 @@ countries_with_18_outcomes:
   - curacao
   - czech-republic
   - democratic-republic-of-the-congo
-  - denmark
   - djibouti
   - dominica
   - dominican-republic
@@ -218,6 +217,7 @@ countries_with_6_outcomes:
   - spain
   - switzerland
 countries_with_ceremony_location_outcomes:
+  - denmark
   - finland
   - iceland
 countries_with_1_outcome:
