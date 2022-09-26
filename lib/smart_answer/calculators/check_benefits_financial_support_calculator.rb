@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_maternity_allowance?
-      return unless @children_living_with_you == "yes"
+      return false unless @children_living_with_you == "yes"
 
       age_groups = %w[pregnant 1_or_under]
 
@@ -116,7 +116,7 @@ module SmartAnswer::Calculators
 
     def eligible_for_free_tv_license?
       return true if @disability_or_health_condition == "yes"
-      return if @over_state_pension_age == "no"
+      return false if @over_state_pension_age == "no"
       return false if @on_benefits == "no"
 
       @on_benefits == "dont_know" || !permitted_benefits?(%w[pension_credit])
@@ -140,7 +140,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_pension_credit?
-      return if @over_state_pension_age == "no"
+      return false if @over_state_pension_age == "no"
 
       @on_benefits == "no" || permitted_benefits?(%w[pension_credit])
     end
@@ -151,14 +151,14 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_universal_credit?
-      return if @over_state_pension_age == "yes"
-      return if @assets_and_savings == "over_16000"
+      return false if @over_state_pension_age == "yes"
+      return false if @assets_and_savings == "over_16000"
 
       @on_benefits == "no" || permitted_benefits?(%w[universal_credit])
     end
 
     def eligible_for_housing_benefit?
-      return if @over_state_pension_age == "no"
+      return false if @over_state_pension_age == "no"
 
       @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
@@ -173,9 +173,9 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare_with_disability?
-      return if @are_you_working == "no"
-      return if @children_living_with_you == "no"
-      return if @children_with_disability == "no"
+      return false if @are_you_working == "no"
+      return false if @children_living_with_you == "no"
+      return false if @children_with_disability == "no"
 
       age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
       eligible_child_ages?(age_groups)
@@ -225,7 +225,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_personal_independence_payment?
-      return unless @over_state_pension_age == "no"
+      return false unless @over_state_pension_age == "no"
 
       return true if @disability_or_health_condition == "yes"
 
@@ -245,7 +245,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_budgeting_loan?
-      return if @on_benefits == "no"
+      return false if @on_benefits == "no"
 
       skip_benefit_list = %w[universal_credit tax_credits housing_benefit]
 
@@ -253,7 +253,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_support_for_mortgage_interest?
-      return if @on_benefits == "no"
+      return false if @on_benefits == "no"
 
       skip_benefit_list = %w[tax_credits housing_benefit]
 
@@ -271,9 +271,9 @@ module SmartAnswer::Calculators
     end
 
     def general_child_benefit_eligibility?(skip_benefit_list, age_groups)
-      return if @children_living_with_you == "no"
-      return unless eligible_child_ages?(age_groups)
-      return if @on_benefits == "no"
+      return false if @children_living_with_you == "no"
+      return false unless eligible_child_ages?(age_groups)
+      return false if @on_benefits == "no"
 
       permitted_benefits?(skip_benefit_list)
     end
