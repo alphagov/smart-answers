@@ -1,25 +1,6 @@
 # How to retire a Smart Answer
 
-The process to retire a published Smart Answer involves
-[removing the code](#remove-smart-answer-code) for the Smart Answer and then
-using an [unpublish task](#removing-from-govuk) to update GOV.UK the content
-item that represents the Smart Answer flow.
-
-## Remove Smart Answer code
-
-Remove all the files and directories associated with the individual Smart
-Answer and their associated tests, examples of common files:
-
-- Flow class files
-  - app/flows/<\smart-answer>\_flow.rb
-- ERB templates directory
-  - app/flows/<\smart-answer>\_flow
-- YAML files
-  - config/smart_answers/rates/<\smart-answer>.yml
-  - config/smart_answers/<\smart-answer>.yml
-- Calculators, data query and other ruby files
-  - lib/smart_answer/calculators/<\smart-answer>\_calculator.rb
-  - lib/smart_answer/calculators/<\smart-answer>\_data_query.rb
+The process to retire a published Smart Answer involves using a [rake task](#removing-the-content-item) to update on GOV.UK the content item that represents the Smart Answer flow, and then [removing the code](#remove-smart-answer-code) for the Smart Answer.
 
 ## Removing the content item
 
@@ -30,6 +11,8 @@ is being retired. For redirecting or replacing a Smart Answer you will also
 need to know the paths of these pages these are based off the `name` attribute
 of the `app/flows/<\smart-answer>_flow.rb` file. For example, for
 the Marriage Abroad Smart Answer the path is `/marriage-abroad`.
+
+> NOTE: These URLs are usually cached, so you may need to wait 5-10 minutes to see the effect of these rake tasks.
 
 ### Redirecting users to a different URL
 
@@ -92,3 +75,20 @@ the Smart Answer page previously used.
 > by a new document type as Publisher is still reserving the slug. [You will need to delete
 > the old artefact]https://github.com/alphagov/publisher/pull/1474/files), once confirmed
 > it is no longer needed.
+
+
+## Remove Smart Answer code
+
+Remove all the files and directories associated with the individual Smart
+Answer and their associated tests, examples of common files:
+
+- Flow class files
+  - app/flows/<\smart-answer>\_flow.rb
+- ERB templates directory
+  - app/flows/<\smart-answer>\_flow
+- YAML files
+  - config/smart_answers/rates/<\smart-answer>.yml
+  - config/smart_answers/<\smart-answer>.yml
+- Calculators, data query and other ruby files
+  - lib/smart_answer/calculators/<\smart-answer>\_calculator.rb
+  - lib/smart_answer/calculators/<\smart-answer>\_data_query.rb
