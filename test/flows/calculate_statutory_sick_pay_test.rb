@@ -22,70 +22,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
         assert_next_node :already_getting_maternity, for_response: "statutory_maternity_pay"
       end
 
-      should "have a next node of coronavirus_related? for a 'statutory_maternity_pay' response" do
-        assert_next_node :coronavirus_related?, for_response: "statutory_adoption_pay"
-      end
-    end
-  end
-
-  context "question: coronavirus_related?" do
-    setup do
-      testing_node :coronavirus_related?
-      add_responses is_your_employee_getting?: "statutory_adoption_pay"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of coronavirus_gp_letter? for 'yes' response" do
-        assert_next_node :coronavirus_gp_letter?, for_response: "yes"
-      end
-
-      should "have a next node of employee_tell_within_limit? for 'no' response" do
-        assert_next_node :employee_tell_within_limit?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: coronavirus_gp_letter?" do
-    setup do
-      testing_node :coronavirus_gp_letter?
-      add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "yes"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of employee_tell_within_limit? for 'yes' response" do
-        assert_next_node :employee_tell_within_limit?, for_response: "yes"
-      end
-
-      should "have a next node of coronavirus_self_or_cohabitant? for 'no' response" do
-        assert_next_node :coronavirus_self_or_cohabitant?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: coronavirus_self_or_cohabitant?" do
-    setup do
-      testing_node :coronavirus_self_or_cohabitant?
-      add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "yes",
-                    coronavirus_gp_letter?: "no"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of employee_tell_within_limit? for any response" do
-        assert_next_node :employee_tell_within_limit?, for_response: "self"
+      should "have a next node of employee_tell_within_limit? for a 'statutory_maternity_pay' response" do
+        assert_next_node :employee_tell_within_limit?, for_response: "statutory_adoption_pay"
       end
     end
   end
@@ -93,8 +31,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   context "question: employee_tell_within_limit?" do
     setup do
       testing_node :employee_tell_within_limit?
-      add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no"
+      add_responses is_your_employee_getting?: "statutory_adoption_pay"
     end
 
     should "render the question" do
@@ -112,7 +49,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :employee_work_different_days?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes"
     end
 
@@ -135,7 +71,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :first_sick_day?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no"
     end
@@ -165,7 +100,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :last_sick_day?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01"
@@ -204,7 +138,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :has_linked_sickness?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -230,7 +163,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :linked_sickness_start_date?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -267,7 +199,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :linked_sickness_end_date?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -313,7 +244,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :paid_at_least_8_weeks?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -346,7 +276,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :how_often_pay_employee_pay_patterns?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -377,7 +306,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :last_payday_before_sickness?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -418,7 +346,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :last_payday_before_offset?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -460,7 +387,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :total_employee_earnings?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -489,7 +415,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :pay_amount_if_not_sick?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -516,7 +441,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :contractual_days_covered_by_earnings?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -550,7 +474,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :total_earnings_before_sick_period?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -576,7 +499,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :days_covered_by_earnings?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -603,7 +525,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :usual_work_days?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "yes",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
@@ -656,7 +577,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup do
       testing_node :entitled_to_sick_pay
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
-                    coronavirus_related?: "no",
                     employee_tell_within_limit?: "no",
                     employee_work_different_days?: "no",
                     first_sick_day?: "2020-01-01",
