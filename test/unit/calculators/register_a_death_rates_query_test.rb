@@ -6,31 +6,20 @@ module SmartAnswer::Calculators
       @rates_query = RatesQuery.from_file("register_a_death")
     end
 
-    context "for 2015/16" do
+    context "The current and last dates in the file" do
       setup do
-        @rates = @rates_query.rates(Date.parse("2015-04-06"))
+        @rate_array = [
+          @rates_query.rates,
+          @rates_query.rates(Date.parse("2999-01-01")),
+        ]
       end
 
-      should "be £105 for registering a death" do
-        assert_equal 105, @rates.register_a_death
+      should "respond_to #register_a_death" do
+        @rate_array.each { |r| assert_respond_to(r, :register_a_death) }
       end
 
-      should "be £65 for a copy of the death registration certificate" do
-        assert_equal 65, @rates.copy_of_death_registration_certificate
-      end
-    end
-
-    context "for 2016/17" do
-      setup do
-        @rates = @rates_query.rates(Date.parse("2016-04-06"))
-      end
-
-      should "be £150 for registering a death" do
-        assert_equal 150, @rates.register_a_death
-      end
-
-      should "be £50 for a copy of the death registration certificate" do
-        assert_equal 50, @rates.copy_of_death_registration_certificate
+      should "respond_to #copy_of_death_registration_certificate" do
+        @rate_array.each { |r| assert_respond_to(r, :copy_of_death_registration_certificate) }
       end
     end
   end

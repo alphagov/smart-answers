@@ -1,22 +1,8 @@
+# Only the current date is used, so this file should only have
+# at most 2 items (current and future when uprating is coming),
+# and usually 1. The last item in the file should have an end
+# date of 2999-01-01
 ---
-- start_date: 2014-01-01 # This is an arbitrary date, it's not know when's the last time the rates changed
-  end_date: 2015-07-31
-  post_to_uk: £4.50
-  post_to_europe: £12.50
-  post_to_rest_of_the_world: £22
-
-- start_date: 2015-08-01
-  end_date: 2021-03-03
-  post_to_uk: £5.50
-  post_to_europe: £14.50
-  post_to_rest_of_the_world: £25
-
-- start_date: 2021-03-04
-  end_date: 2022-01-16
-  post_to_uk: £5 per 1.5kg
-  post_to_europe: £15 per 1.5kg
-  post_to_rest_of_the_world: £20 per 1.5kg
-
 - start_date: 2022-01-17
   end_date: 2999-01-01
   post_to_uk: £5 per 1.5kg
