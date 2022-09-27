@@ -1,55 +1,9 @@
+# Only the current date is used, so this file should only have
+# at most 2 items (current and future when uprating is coming),
+# and usually 1. The last item in the file should have an end
+# date of 2999-01-01
 ---
-- start_date: 2012-04-06
-  end_date: 2013-04-05
-  weekly_rate: 107.45
-  # lower_weekly_rate unknown
-
-- start_date: 2013-04-06
-  end_date: 2014-04-05
-  weekly_rate: 110.15
-  # lower_weekly_rate unknown
-
-- start_date: 2014-04-06
-  end_date: 2015-04-05
-  weekly_rate: 113.10
-  lower_weekly_rate: 67.80
-
-- start_date: 2014-04-06
-  end_date: 2015-04-05
-  weekly_rate: 115.95
-  lower_weekly_rate: 69.50
-
-- start_date: 2016-04-06
-  end_date: 2017-04-09
-  weekly_rate: 119.30
-  lower_weekly_rate: 71.50
-
-- start_date: 2017-04-10
-  end_date: 2018-04-08
-  weekly_rate: 122.30
-  lower_weekly_rate: 73.30
-
-- start_date: 2018-04-09
-  end_date: 2019-04-07
-  weekly_rate: 125.95
-  lower_weekly_rate: 75.50
-
-- start_date: 2019-04-08
-  end_date: 2020-04-05
-  weekly_rate: 129.20
-  lower_weekly_rate: 77.45
-
-- start_date: 2020-04-06
-  end_date: 2021-04-11
-  weekly_rate: 134.25
-  lower_weekly_rate: 80.45
-
-- start_date: 2021-04-12
-  end_date: 2022-04-10
-  weekly_rate: 137.60
-  lower_weekly_rate: 82.45
-
 - start_date: 2022-04-11
-  end_date: 2100-04-13
+  end_date: 2999-01-01
   weekly_rate: 141.85
   lower_weekly_rate: 85.00
