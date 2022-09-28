@@ -4,7 +4,6 @@ module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
     setup do
       @income_limit = 27_000
-      @age_related_allowance = 12_000
       @personal_allowance = 9000
     end
 
@@ -24,7 +23,6 @@ module SmartAnswer::Calculators
         minimum_mca: 3010,
         income_limit_for_personal_allowances: @income_limit,
         personal_allowance: @personal_allowance,
-        age_related_allowance: @age_related_allowance,
       )
     end
 
@@ -34,12 +32,11 @@ module SmartAnswer::Calculators
         minimum_mca: 2800,
         income_limit_for_personal_allowances: 24_000,
         personal_allowance: 7475,
-        age_related_allowance: 10_090,
         calculate_adjusted_net_income: 29_600,
       )
 
       result = hmrc_example_calculator.calculate_allowance
-      assert_equal SmartAnswer::Money.new("711"), result
+      assert_equal SmartAnswer::Money.new("449.50"), result
     end
 
     # add one for 2013-14 when the worked example is released
@@ -49,12 +46,11 @@ module SmartAnswer::Calculators
         minimum_mca: 2960,
         income_limit_for_personal_allowances: 25_400,
         personal_allowance: 8105,
-        age_related_allowance: 10_660,
         calculate_adjusted_net_income: 31_500,
       )
 
       result = hmrc_example_calculator.calculate_allowance
-      assert_equal SmartAnswer::Money.new("721"), result
+      assert_equal SmartAnswer::Money.new("465.50"), result
     end
 
     test "allow an income less than 1" do
@@ -79,8 +75,7 @@ module SmartAnswer::Calculators
     end
 
     test "maximum allowance when income is greater than income limit but not enough to reduce personal allowance" do
-      maximum_reduction = @age_related_allowance - @personal_allowance
-      test_income = @income_limit + (maximum_reduction - 100)
+      test_income = @income_limit - 100
       calculator = default_calculator
       calculator.stubs(:calculate_adjusted_net_income).returns(test_income)
       result = calculator.calculate_allowance

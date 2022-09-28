@@ -35,24 +35,13 @@ module SmartAnswer::Calculators
       mca_entitlement = maximum_mca
 
       if income > income_limit_for_personal_allowances
-        attempted_reduction = (income - income_limit_for_personal_allowances) / 2
-
-        # \/ this reduction actually applies across the board for personal allowances,
-        # but extracting that was more than required for this piece of work. Please see
-        # note in PersonalAllowanceCalculator
-        maximum_reduction_of_allowances = age_related_allowance(birth_date) - personal_allowance
-        remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
-
-        if remaining_reduction > 0 # rubocop:disable Style/NumericPredicate
-          reduced_mca = maximum_mca - remaining_reduction
-          mca_entitlement = if reduced_mca > minimum_mca
-                              reduced_mca
-                            else
-                              minimum_mca
-                            end
-        else
-          mca_entitlement = maximum_mca
-        end
+        reduction = (income - income_limit_for_personal_allowances) / 2
+        reduced_mca = maximum_mca - reduction
+        mca_entitlement = if reduced_mca > minimum_mca
+                            reduced_mca
+                          else
+                            minimum_mca
+                          end
       end
 
       mca = mca_entitlement * 0.1
@@ -73,10 +62,6 @@ module SmartAnswer::Calculators
 
     def personal_allowance
       @personal_allowance_calculator.personal_allowance
-    end
-
-    def age_related_allowance(birth_date)
-      @personal_allowance_calculator.age_related_allowance(birth_date)
     end
 
     def married_couples_allowance_rates
