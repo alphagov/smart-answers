@@ -19,55 +19,40 @@ module SmartAnswer::Calculators
     end
 
     context "amounts for the redundancy date" do
-      should "vary the rate per year" do
-        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 1)).rate
-        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 31)).rate
-        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2013, 2, 1)).rate
-        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 5)).rate
-        assert_equal 464, RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 6)).rate
-        assert_equal 475, RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 6)).rate
-        assert_equal 479, RedundancyCalculator.redundancy_rates(Date.new(2016, 4, 6)).rate
-        assert_equal 489, RedundancyCalculator.redundancy_rates(Date.new(2017, 4, 6)).rate
-        assert_equal 508, RedundancyCalculator.redundancy_rates(Date.new(2018, 4, 6)).rate
-        assert_equal 525, RedundancyCalculator.redundancy_rates(Date.new(2019, 4, 6)).rate
-        assert_equal 538, RedundancyCalculator.redundancy_rates(Date.new(2020, 4, 6)).rate
+      should "have max and rate for last 4 tax years" do
+        (0..4).each do |i|
+          date = (Time.zone.now - i.years).beginning_of_year
+          calculator = RedundancyCalculator.redundancy_rates(date)
+          assert calculator.start_date < date, "Config file missing redundancy rates for #{date.year - 1}-#{date.year}"
+          assert calculator.rate.is_a?(Numeric)
+          assert calculator.max.present?
+        end
       end
 
-      should "vary the max amount per year" do
-        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 1)).max
-        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 31)).max
-        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2013, 2, 1)).max
-        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 5)).max
-        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 6)).max
-        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 5)).max
-        assert_equal "14,250", RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 6)).max
-        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(2016, 4, 6)).max
-        assert_equal "14,670", RedundancyCalculator.redundancy_rates(Date.new(2017, 4, 6)).max
-        assert_equal "15,240", RedundancyCalculator.redundancy_rates(Date.new(2018, 4, 6)).max
-        assert_equal "15,750", RedundancyCalculator.redundancy_rates(Date.new(2019, 4, 6)).max
-        assert_equal "16,140", RedundancyCalculator.redundancy_rates(Date.new(2020, 4, 6)).max
-        assert_equal "16,320", RedundancyCalculator.redundancy_rates(Date.new(2021, 4, 6)).max
-        assert_equal "17,130", RedundancyCalculator.redundancy_rates(Date.new(Time.zone.today.year, 12, 31)).max
-      end
-
-      should "use the most recent rate for far future dates" do
-        future_calculator = RedundancyCalculator.redundancy_rates(5.years.from_now.to_date)
-        assert future_calculator.rate.is_a?(Numeric)
-        assert future_calculator.max.present?
+      should "have max and rate for the current tax year" do
+        calculator = RedundancyCalculator.redundancy_rates(Time.zone.now)
+        assert calculator.end_date > Time.zone.now, "Config file missing current redundancy rates"
+        assert calculator.rate.is_a?(Numeric)
+        assert calculator.max.present?
       end
     end
 
     context "Northern Ireland amounts for the redundancy date" do
-      should "vary the rate per year" do
-        assert_equal 547, RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2019, 4, 6)).rate
-        assert_equal 560, RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2020, 4, 6)).rate
-        assert_equal 594, RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2022, 4, 6)).rate
+      should "have max and rate for last 4 tax years" do
+        (0..4).each do |i|
+          date = (Time.zone.now - i.years).beginning_of_year
+          calculator = RedundancyCalculator.northern_ireland_redundancy_rates(date)
+          assert calculator.start_date < date, "Config file missing NI redundancy rates for #{date.year - 1}-#{date.year}"
+          assert calculator.rate.is_a?(Numeric)
+          assert calculator.max.present?
+        end
       end
 
-      should "vary the max amount per year" do
-        assert_equal "16,410", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2019, 4, 6)).max
-        assert_equal "16,800", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(2020, 4, 6)).max
-        assert_equal "17,820", RedundancyCalculator.northern_ireland_redundancy_rates(Date.new(Time.zone.today.year, 12, 31)).max
+      should "have max and rate for the current tax year" do
+        calculator = RedundancyCalculator.northern_ireland_redundancy_rates(Time.zone.now)
+        assert calculator.end_date > Time.zone.now, "Config file missing current NI redundancy rates"
+        assert calculator.rate.is_a?(Numeric)
+        assert calculator.max.present?
       end
     end
 
