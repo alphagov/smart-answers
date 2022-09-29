@@ -4,6 +4,10 @@
   description ||= nil
   attributes ||= []
   url ||= nil
+
+  if !type || !title || !url || !attributes.any? || !calculator
+    raise ArgumentError, "The result card component requires a type, title, url, attributes data and calculator"
+  end
 %>
 
 <div class="app-c-result-card">
@@ -12,8 +16,12 @@
     <%= title %>
   </h2>
 
-  <%= render_govspeak(description) %>
-  
+  <% if description %>
+    <div class="govuk-body app-c-result-card__description">
+      <%= render_govspeak(description) %>
+    </div>
+  <% end %>
+
   <% attributes&.each_slice(2) do |attributes| %>
     <div class="app-c-result-card__attributes">
       <div class="govuk-grid-row">
@@ -44,15 +52,9 @@
     </div>
   <% end %>
 
-  <% if url %>
-    <p class="govuk-body govuk-!-margin-bottom-0">
-      <%= link_to "Find out more about the #{type}", url, 
-        class: "govuk-link app-c-result-card__link",
-        data: {
-          "track-category": "SmartAnswerClicked",
-          "track-action": "Check if you need a UK visa results",
-          "track-label": url
-      } %>
-    </p>
-  <% end %>
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    <%= link_to "Find out more about the #{type}", url, 
+      class: "govuk-link app-c-result-card__link"
+    %>
+  </p>
 </div>
