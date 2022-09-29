@@ -15,11 +15,21 @@ module SmartAnswer::Calculators
     OUTCOME_DATA = YAML.load_file(Rails.root.join("config/smart_answers/check_uk_visa_data.yml")).freeze
 
     def outcome_title
-      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "title")
+      OUTCOME_DATA.dig("work_types", @what_type_of_work, "title")
+    end
+
+    def potential_visas
+      visa_names = OUTCOME_DATA.dig("work_types", @what_type_of_work, "potential_visas")
+
+      visa_names.flat_map do |name|
+        OUTCOME_DATA["visas"].select do |visa|
+          visa["name"] == name
+        end
+      end
     end
 
     def visas_for_outcome
-      OUTCOME_DATA.dig("visas_for_outcome", @what_type_of_work, "visas").select { |visa|
+      potential_visas.select { |visa|
         visa["condition"].nil? || send(visa["condition"])
       }.compact
     end
@@ -29,7 +39,7 @@ module SmartAnswer::Calculators
     end
 
     def number_of_visas_for_outcome
-      visas_for_outcome.map { |visa| visa["number_of_visas"] || 1 }.sum
+      @number_of_visas_for_outcome ||= visas_for_outcome.count
     end
 
     def visa_attribute_statement(attribute_title)
