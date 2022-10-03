@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-library("govuk")
+library("govuk@docker-accounts")
 
 node {
   govuk.buildProject(
