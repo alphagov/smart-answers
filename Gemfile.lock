@@ -242,7 +242,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
-    plek (4.0.0)
+    plek (4.1.0)
     prometheus_exporter (2.0.3)
       webrick
     pry (0.14.1)
