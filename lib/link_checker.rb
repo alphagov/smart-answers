@@ -49,7 +49,7 @@ private
 
   def link_checker_api
     @link_checker_api ||= GdsApi::LinkCheckerApi.new(
-      Plek.current.find("link-checker-api"),
+      Plek.new.find("link-checker-api"),
       bearer_token: ENV["LINK_CHECKER_API_BEARER_TOKEN"],
     )
   end
