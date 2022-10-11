@@ -4,7 +4,6 @@ module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
     setup do
       @income_limit = 27_000
-      @age_related_allowance = 12_000
       @personal_allowance = 9000
     end
 
@@ -24,7 +23,6 @@ module SmartAnswer::Calculators
         minimum_mca: 3010,
         income_limit_for_personal_allowances: @income_limit,
         personal_allowance: @personal_allowance,
-        age_related_allowance: @age_related_allowance,
       )
     end
 
@@ -34,12 +32,11 @@ module SmartAnswer::Calculators
         minimum_mca: 2800,
         income_limit_for_personal_allowances: 24_000,
         personal_allowance: 7475,
-        age_related_allowance: 10_090,
         calculate_adjusted_net_income: 29_600,
       )
 
       result = hmrc_example_calculator.calculate_allowance
-      assert_equal SmartAnswer::Money.new("711"), result
+      assert_equal SmartAnswer::Money.new("449.50"), result
     end
 
     # add one for 2013-14 when the worked example is released
@@ -49,12 +46,11 @@ module SmartAnswer::Calculators
         minimum_mca: 2960,
         income_limit_for_personal_allowances: 25_400,
         personal_allowance: 8105,
-        age_related_allowance: 10_660,
         calculate_adjusted_net_income: 31_500,
       )
 
       result = hmrc_example_calculator.calculate_allowance
-      assert_equal SmartAnswer::Money.new("721"), result
+      assert_equal SmartAnswer::Money.new("465.50"), result
     end
 
     test "allow an income less than 1" do
@@ -79,8 +75,7 @@ module SmartAnswer::Calculators
     end
 
     test "maximum allowance when income is greater than income limit but not enough to reduce personal allowance" do
-      maximum_reduction = @age_related_allowance - @personal_allowance
-      test_income = @income_limit + (maximum_reduction - 100)
+      test_income = @income_limit - 100
       calculator = default_calculator
       calculator.stubs(:calculate_adjusted_net_income).returns(test_income)
       result = calculator.calculate_allowance
@@ -111,105 +106,6 @@ module SmartAnswer::Calculators
 
       result = calculator.calculate_adjusted_net_income
       assert_equal SmartAnswer::Money.new("28250"), result
-    end
-
-    test "rate values for year 2013" do
-      travel_to("2013-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 9440, calculator.personal_allowance
-        assert_equal 26_100.0, calculator.income_limit_for_personal_allowances
-        assert_equal 7915, calculator.maximum_mca
-        assert_equal 3040, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for year 2014" do
-      travel_to("2014-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 10_000, calculator.personal_allowance
-        assert_equal 27_000.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8165, calculator.maximum_mca
-        assert_equal 3140, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for year 2015" do
-      travel_to("2015-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 10_600, calculator.personal_allowance
-        assert_equal 27_700.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8355, calculator.maximum_mca
-        assert_equal 3220, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for year 2016" do
-      travel_to("2016-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 11_000, calculator.personal_allowance
-        assert_equal 27_700.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8355, calculator.maximum_mca
-        assert_equal 3220, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for year 2017" do
-      travel_to("2017-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 11_000, calculator.personal_allowance
-        assert_equal 28_000.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8445, calculator.maximum_mca
-        assert_equal 3260, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for 2018/19" do
-      travel_to("2018-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 11_850, calculator.personal_allowance
-        assert_equal 28_900.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8695, calculator.maximum_mca
-        assert_equal 3360, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for 2019/20" do
-      travel_to("2019-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 12_500, calculator.personal_allowance
-        assert_equal 29_600.0, calculator.income_limit_for_personal_allowances
-        assert_equal 8915, calculator.maximum_mca
-        assert_equal 3450, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for 2020/21" do
-      travel_to("2020-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 12_500, calculator.personal_allowance
-        assert_equal 30_200, calculator.income_limit_for_personal_allowances
-        assert_equal 9075, calculator.maximum_mca
-        assert_equal 3510, calculator.minimum_mca
-      end
-    end
-
-    test "rate values for 2021/22" do
-      travel_to("2021-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 12_500, calculator.personal_allowance
-        assert_equal 30_400.0, calculator.income_limit_for_personal_allowances
-        assert_equal 9125, calculator.maximum_mca
-        assert_equal 3530, calculator.minimum_mca
-      end
     end
 
     test "rate values for 2022/23" do

@@ -40,6 +40,9 @@ module SmartAnswer::Calculators
       RatesQuery.from_file("redundancy_pay_northern_ireland").rates(date)
     end
 
+    # If you change these two functions, make sure to update
+    # the config file and tests to ensure the right amount of
+    # historical rates data is available.
     def self.first_selectable_date
       if between_january_and_august?
         four_years_ago

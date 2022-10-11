@@ -1,3 +1,5 @@
+# Uses historical data at the moment, so only add items
+# to this, do not remove them.
 ---
 "2012":
   start_date: 2012-04-06

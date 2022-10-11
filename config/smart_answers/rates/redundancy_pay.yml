@@ -1,24 +1,8 @@
+# This Smart Answer can use rates from the start of year (this year - 4),
+# so to keep it tidy please delete anything earlier than that, but make
+# sure you keep (in practise) the 6 most recent entries, or whatever covers
+# the required period.
 ---
-- start_date: 2012-01-01
-  end_date: 2013-01-31
-  max: "12,900"
-  rate: 430
-- start_date: 2013-02-01
-  end_date: 2014-04-05
-  max: "13,500"
-  rate: 450
-- start_date: 2014-04-06
-  end_date: 2015-04-05
-  max: "13,920"
-  rate: 464
-- start_date: 2015-04-06
-  end_date: 2016-04-05
-  max: "14,250"
-  rate: 475
-- start_date: 2016-04-06
-  end_date: 2017-04-05
-  max: "14,370"
-  rate: 479
 - start_date: 2017-04-06
   end_date: 2018-04-05
   max: "14,670"

@@ -1,50 +1,9 @@
+# Only the current date is used, so this file should only have
+# at most 2 items (current and future when uprating is coming),
+# and usually 1. The last item in the file should have an end
+# date of 2999-01-01
 ---
-- start_date: 2013-04-06
-  end_date: 2014-04-05
-  maximum_married_couple_allowance: 7915
-  minimum_married_couple_allowance: 3040
-
-- start_date: 2014-04-06
-  end_date: 2015-04-05
-  maximum_married_couple_allowance: 8165
-  minimum_married_couple_allowance: 3140
-
-- start_date: 2015-04-06
-  end_date: 2016-04-05
-  maximum_married_couple_allowance: 8355
-  minimum_married_couple_allowance: 3220
-
-- start_date: 2016-04-06
-  end_date: 2017-04-05
-  maximum_married_couple_allowance: 8355
-  minimum_married_couple_allowance: 3220
-
-- start_date: 2017-04-06
-  end_date: 2018-04-05
-  maximum_married_couple_allowance: 8445
-  minimum_married_couple_allowance: 3260
-
-- start_date: 2018-04-06
-  end_date: 2019-04-05
-  maximum_married_couple_allowance: 8695
-  minimum_married_couple_allowance: 3360
-
-- start_date: 2019-04-06
-  end_date: 2020-04-05
-  maximum_married_couple_allowance: 8915
-  minimum_married_couple_allowance: 3450
-
-- start_date: 2020-04-06
-  end_date: 2021-04-05
-  maximum_married_couple_allowance: 9075
-  minimum_married_couple_allowance: 3510
-
-- start_date: 2021-04-06
-  end_date: 2022-04-05
-  maximum_married_couple_allowance: 9125
-  minimum_married_couple_allowance: 3530
-
 - start_date: 2022-04-06
-  end_date: 2023-04-05
+  end_date: 2999-01-01
   maximum_married_couple_allowance: 9415
   minimum_married_couple_allowance: 3640
