@@ -474,7 +474,9 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Free childcare 2 yr olds when eligible" do
       add_responses where_do_you_live: "england",
                     children_living_with_you: "yes",
-                    age_of_children: "2"
+                    age_of_children: "2",
+                    on_benefits: "yes",
+                    current_benefits: "pension_credit"
 
       assert_rendered_outcome text: "Free childcare for 2-year-olds"
       assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
@@ -483,7 +485,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Free childcare 2 yr olds when eligible [Wales]" do
       add_responses where_do_you_live: "wales",
                     children_living_with_you: "yes",
-                    age_of_children: "2"
+                    age_of_children: "2",
+                    on_benefits: "dont_know"
 
       assert_rendered_outcome text: "Free childcare for 2-year-olds"
       assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"

@@ -576,6 +576,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "2"
+            calculator.on_benefits = "dont_know"
             assert calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
@@ -592,6 +593,23 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "no"
             calculator.age_of_children = "2"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
+          end
+
+          should "be false if child if eligible but already claiming related benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
+          end
+
+          should "be false if child if elibile and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "no"
             assert_not calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
