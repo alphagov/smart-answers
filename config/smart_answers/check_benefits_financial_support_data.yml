@@ -603,3 +603,10 @@
       url: https://www.gov.uk/the-warm-home-discount-scheme
       countries:
         - scotland
+    - name: wales_fuel_support_scheme_payment
+      title: Wales fuel support scheme payment
+      description: <p>You may be able to claim a one-off £200 payment to help pay your fuel costs. Either you or your partner must be getting one of the qualifying benefits at any time between 1 September 2022 and 31 January 2023. You'll need to apply through your local council.</p>
+      url_text: Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website
+      url: https://gov.wales/wales-fuel-support-scheme-2022-2023
+      countries:
+        - wales
