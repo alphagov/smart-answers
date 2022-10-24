@@ -966,5 +966,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for the Warm Home Discount scheme"
       end
     end
+
+    should "render Warm Home Discount Scheme Scotland" do
+      add_responses where_do_you_live: "scotland", on_benefits: "yes"
+
+      assert_rendered_outcome text: "Warm Home Discount Scheme"
+      assert_rendered_outcome text: "Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme"
+    end
   end
 end
