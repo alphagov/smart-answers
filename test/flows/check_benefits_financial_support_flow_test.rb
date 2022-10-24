@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -956,6 +956,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Education Maintenance Allowance"
       assert_rendered_outcome text: "You may be able to get an Education Maintenance Allowance (EMA) of £30"
+    end
+
+    should "render Warm Home Discount Scheme" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country, on_benefits: "yes"
+
+        assert_rendered_outcome text: "Warm Home Discount Scheme"
+        assert_rendered_outcome text: "Check if you’re eligible for the Warm Home Discount scheme"
+      end
     end
   end
 end

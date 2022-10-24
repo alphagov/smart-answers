@@ -583,3 +583,12 @@
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
+    - name: warm_home_discount_scheme
+      title: Warm Home Discount Scheme
+      description: <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - england
+        - wales

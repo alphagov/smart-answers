@@ -267,6 +267,10 @@ module SmartAnswer::Calculators
       @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
     end
 
+    def eligible_for_warm_home_discount_scheme?
+      @on_benefits != "no"
+    end
+
   private
 
     def eligible_child_ages?(age_groups)

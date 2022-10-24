@@ -1048,6 +1048,24 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#eligible_for_warm_home_discount_scheme?" do
+        context "when eligible" do
+          should "be true if receiving benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            assert calculator.eligible_for_warm_home_discount_scheme?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not on benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_warm_home_discount_scheme?
+          end
+        end
+      end
     end
   end
 end
