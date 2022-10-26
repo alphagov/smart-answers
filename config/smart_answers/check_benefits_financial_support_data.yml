@@ -152,7 +152,7 @@
         - northern-ireland
     - name: tax_free_childcare_with_disability
       title: Tax-Free Childcare
-      description: <p>You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare, or up to £4000 if a child is disabled.</p>
+      description: <p>You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare, or up to £4,000 if a child is disabled.</p>
       condition: eligible_for_tax_free_childcare_with_disability?
       url: /tax-free-childcare
       url_text: Check if you’re eligible for Tax-Free Childcare
@@ -218,7 +218,7 @@
         - england
     - name: winter_fuel_payment
       title: Winter Fuel Payment
-      description: <p>You'll automatically get a Winter Fuel Payment if you’re getting the State Pension. You may have to apply if you've reached State Pension age but are not getting your State Pension, for example because you deferred it. The amount you’ll get will include a ‘Pensioner Cost of Living Payment’.</p>
+      description: <p>You'll automatically get a Winter Fuel Payment if you’re getting the State Pension. You may have to apply if you've reached State Pension age but are not getting your State Pension, for example because you deferred it. This winter the amount you’ll get will include a ‘Pensioner Cost of Living Payment’.</p>
       condition: eligible_for_winter_fuel_payment?
       url: /winter-fuel-payment
       url_text: Check if you're eligible and whether you need to apply for a Winter Fuel Payment
@@ -431,7 +431,10 @@
         - northern-ireland
     - name: best_start_foods_scotland
       title: Best Start Foods
-      description: <p>If you’re getting certain benefits and are pregnant or have a child under 3, you may be entitled to Best Start Foods payments. These help towards the costs of being pregnant or looking after a child.</p>
+      description: |
+        <p>If you’re getting certain benefits and are pregnant or have a child under 3, you may be entitled to Best Start Foods payments. These help towards the costs of being pregnant or looking after a child.</p>
+
+        <p>If you’re pregnant and under 18 you can get help even if you do not receive any benefits.</p>
       condition: best_start_foods_scotland?
       url_text: Check if you’re eligible for help from Best Start on the mygov.scot website
       url: https://www.mygov.scot/best-start-grant-best-start-foods
@@ -574,9 +577,36 @@
         - northern-ireland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
-      description: <p>You may be able to get Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
+      description: <p>You may be able to get an Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
       condition: eligible_for_education_maintenance_allowance_ni?
       url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
+    - name: warm_home_discount_scheme
+      title: Warm Home Discount Scheme
+      description: <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - england
+        - wales
+    - name: warm_home_discount_scheme_scotland
+      title: Warm Home Discount Scheme
+      description: |
+        <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+
+        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier. Ask your supplier as soon as possible as the number of discounts is limited.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - scotland
+    - name: wales_fuel_support_scheme_payment
+      title: Wales fuel support scheme payment
+      description: <p>You may be able to claim a one-off £200 payment to help pay your fuel costs. Either you or your partner must be getting one of the qualifying benefits at any time between 1 September 2022 and 31 January 2023. You'll need to apply through your local council.</p>
+      url_text: Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website
+      url: https://gov.wales/wales-fuel-support-scheme-2022-2023
+      countries:
+        - wales

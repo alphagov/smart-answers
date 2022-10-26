@@ -182,7 +182,10 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_free_childcare_2yr_olds?
-      @children_living_with_you == "yes" && eligible_child_ages?(%w[2])
+      return false unless @children_living_with_you == "yes" && eligible_child_ages?(%w[2])
+      return false if @on_benefits == "no"
+
+      permitted_benefits?(%w[housing_benefit])
     end
 
     def eligible_for_childcare_3_4yr_olds?
@@ -262,6 +265,10 @@ module SmartAnswer::Calculators
 
     def eligible_for_education_maintenance_allowance_ni?
       @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
+    end
+
+    def eligible_for_warm_home_discount_scheme?
+      @on_benefits != "no"
     end
 
   private

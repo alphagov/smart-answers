@@ -298,7 +298,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 12 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 13 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -467,14 +467,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                       age_of_children: "16_to_17"
 
         assert_rendered_outcome text: "Tax-Free Childcare"
-        assert_rendered_outcome text: "up to £4000 if a child is disabled."
+        assert_rendered_outcome text: "up to £4,000 if a child is disabled."
       end
     end
 
     should "render Free childcare 2 yr olds when eligible" do
       add_responses where_do_you_live: "england",
                     children_living_with_you: "yes",
-                    age_of_children: "2"
+                    age_of_children: "2",
+                    on_benefits: "yes",
+                    current_benefits: "pension_credit"
 
       assert_rendered_outcome text: "Free childcare for 2-year-olds"
       assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
@@ -483,7 +485,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Free childcare 2 yr olds when eligible [Wales]" do
       add_responses where_do_you_live: "wales",
                     children_living_with_you: "yes",
-                    age_of_children: "2"
+                    age_of_children: "2",
+                    on_benefits: "dont_know"
 
       assert_rendered_outcome text: "Free childcare for 2-year-olds"
       assert_rendered_outcome text: "Check if you’re eligible for free childcare for 2-year-olds"
@@ -952,7 +955,30 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     age_of_children: "16_to_17"
 
       assert_rendered_outcome text: "Education Maintenance Allowance"
-      assert_rendered_outcome text: "You may be able to get Education Maintenance Allowance (EMA) of £30"
+      assert_rendered_outcome text: "You may be able to get an Education Maintenance Allowance (EMA) of £30"
+    end
+
+    should "render Warm Home Discount Scheme" do
+      %w[england wales].each do |country|
+        add_responses where_do_you_live: country, on_benefits: "yes"
+
+        assert_rendered_outcome text: "Warm Home Discount Scheme"
+        assert_rendered_outcome text: "Check if you’re eligible for the Warm Home Discount scheme"
+      end
+    end
+
+    should "render Warm Home Discount Scheme Scotland" do
+      add_responses where_do_you_live: "scotland", on_benefits: "yes"
+
+      assert_rendered_outcome text: "Warm Home Discount Scheme"
+      assert_rendered_outcome text: "Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme"
+    end
+
+    should "render Wales fuel support scheme payment" do
+      add_responses where_do_you_live: "wales"
+
+      assert_rendered_outcome text: "Wales fuel support scheme payment"
+      assert_rendered_outcome text: "Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website"
     end
   end
 end

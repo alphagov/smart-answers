@@ -576,6 +576,7 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "yes"
             calculator.age_of_children = "2"
+            calculator.on_benefits = "dont_know"
             assert calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
@@ -592,6 +593,23 @@ module SmartAnswer::Calculators
             calculator = CheckBenefitsFinancialSupportCalculator.new
             calculator.children_living_with_you = "no"
             calculator.age_of_children = "2"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
+          end
+
+          should "be false if child if eligible but already claiming related benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            assert_not calculator.eligible_for_free_childcare_2yr_olds?
+          end
+
+          should "be false if child if elibile and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "no"
             assert_not calculator.eligible_for_free_childcare_2yr_olds?
           end
         end
@@ -1027,6 +1045,24 @@ module SmartAnswer::Calculators
             calculator.children_living_with_you = "no"
             calculator.age_of_children = "5_to_7"
             assert_not calculator.eligible_for_education_maintenance_allowance_ni?
+          end
+        end
+      end
+
+      context "#eligible_for_warm_home_discount_scheme?" do
+        context "when eligible" do
+          should "be true if receiving benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "yes"
+            assert calculator.eligible_for_warm_home_discount_scheme?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not on benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_warm_home_discount_scheme?
           end
         end
       end
