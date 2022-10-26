@@ -1,114 +1,1112 @@
 ---
-  visas_for_outcome:
+  consts:
+    job_offer: Need a job offer
+    minimum_salary: Need a minimum salary
+    english_knowledge: Need knowledge of English
+    initial_visa_length: Initial visa length
+    can_extend: Can extend
+    can_settle: Can settle
+  work_types:
     academic:
       title: You need a visa to work as an academic or researcher
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: eligible_skilled_job_academic
-        - name: global_talent_academic
-        - name: temporary_worker_government_authorised_exchange_academic
-        - name: work_at_multinational_company
-        - name: scale_up_academic
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: high_potential_individual
+      potential_visas:
+        - british_national_overseas
+        - skilled_worker_academic
+        - global_talent_academic
+        - government_authorised_exchange_academic
+        - senior_specialist_worker
+        - graduate_trainee
+        - scale_up_worker_academic
+        - youth_mobility
+        - uk_ancestry
+        - high_potential_individual
     arts:
       title: You need a visa to work in arts or culture
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: eligible_skilled_job_arts
-        - name: global_talent_arts
-        - name: temporary_worker_creative_and_sporting_arts
-        - name: work_at_multinational_company
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: representative_of_overseas_business_arts
-        - name: scale_up_arts
-        - name: work_experience_scheme
-        - name: high_potential_individual
+      potential_visas:
+        - british_national_overseas
+        - skilled_worker_arts
+        - global_talent_arts
+        - creative_worker
+        - senior_specialist_worker
+        - graduate_trainee
+        - youth_mobility
+        - uk_ancestry
+        - representative_overseas_business
+        - scale_up_worker_arts
+        - government_authorised_exchange_arts
+        - high_potential_individual
     business:
       title: You need a visa to start a business
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: innovative_business
-          number_of_visas: 2
-        - name: global_talent_business
-        - name: representative_of_overseas_business_business
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: high_potential_individual
+      potential_visas:
+        - british_national_overseas
+        - start_up
+        - innovator
+        - global_talent_business
+        - uk_expansion_worker
+        - youth_mobility
+        - uk_ancestry
+        - high_potential_individual
     digital:
       title: You need a visa to work in digital technology
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: eligible_skilled_job_digital
-        - name: global_talent_digital
-        - name: work_at_multinational_company
-        - name: scale_up_digital
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: high_potential_individual
+      potential_visas:
+        - british_national_overseas
+        - skilled_worker_digital
+        - global_talent_digital
+        - senior_specialist_worker
+        - graduate_trainee
+        - scale_up_worker_digital
+        - youth_mobility
+        - uk_ancestry
+        - high_potential_individual
     health:
       title: You need a visa to work in health and care
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: eligible_skilled_job_health
-          number_of_visas: 2
-        - name: work_at_multinational_company
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: temporary_worker_government_authorised_exchange_health
-        - name: work_experience_scheme
-        - name: high_potential_individual
-        - name: scale_up_health
+      potential_visas:
+        - british_national_overseas
+        - health_care
+        - skilled_worker_health
+        - senior_specialist_worker
+        - graduate_trainee
+        - youth_mobility
+        - uk_ancestry
+        - government_authorised_exchange_training_health
+        - government_authorised_exchange_experience_health
+        - high_potential_individual
+        - scale_up_worker_health
     other:
       title: You need a visa to work in the UK
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: eligible_skilled_job_other
-        - name: work_at_multinational_company
-        - name: scale_up_other
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
-        - name: temporary_worker_charity
-        - name: temporary_worker_government_authorised_exchange
-        - name: temporary_worker_international_agreement_service
-        - name: temporary_worker_international_agreement_work
-        - name: secondment_worker_visa
-          condition: eligible_for_secondment_visa?
-        - name: high_potential_individual
+      potential_visas:
+        - british_national_overseas
+        - skilled_worker_other
+        - senior_specialist_worker
+        - graduate_trainee
+        - scale_up_worker_other
+        - youth_mobility
+        - uk_ancestry
+        - charity_worker
+        - government_authorised_exchange_other
+        - service_supplier
+        - international_agreement
+        - secondment_worker
+        - high_potential_individual
     religious:
       title: You need a visa as a religious worker
-      visas:
-        - name: country_in_bno_list
-          condition: passport_country_in_british_national_overseas_list?
-        - name: temporary_worker_religious_worker
-        - name: minister_of_religion
-        - name: country_in_youth_mobility_scheme
-          condition: passport_country_in_youth_mobility_scheme_list?
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
+      potential_visas:
+        - british_national_overseas
+        - religious_worker
+        - minister_of_religion
+        - youth_mobility
+        - uk_ancestry
     sports:
       title: You need a visa to work as a professional sportsperson
-      visas:
-        - name: sportsperson
-        - name: uk_ancestry_visa
-          condition: passport_country_in_uk_ancestry_visa_list?
+      potential_visas:
+        - international_sportsperson
+        - uk_ancestry
+  visas:
+    - name: british_national_overseas
+      type: British National (Overseas) visa
+      condition: passport_country_in_british_national_overseas_list?
+      title: If you have British national (overseas) status
+      description: |
+        You may be able to live, work and study in the UK with this visa. You can be an employee, self-employed or a director of a company.
+
+        The eligibility criteria include:
+
+        + currently living in Hong Kong as your permanent home, if you’re applying outside the UK
+        + being aged 18 or older
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: http://www.gov.uk/british-national-overseas-bno-visa
+    - name: health_care
+      type: Health and Care Worker visa
+      title: If you're coming to work for the NHS, an NHS supplier or in adult social care
+      description: |
+        You may be able to work in an eligible health and care job, for example a doctor or a nurse.
+
+        You must work for the National Health Service (NHS), an NHS supplier or in adult social care.
+
+        It's cheaper to apply for than the Skilled Worker visa.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: http://www.gov.uk/health-care-worker-visa
+    - name: skilled_worker_health
+      type: Skilled Worker visa
+      title: If you’re coming to work in an eligible skilled job
+      description: |
+        You may be able to work in an eligible health and care job, for example a doctor or a nurse.
+
+        If you'll work in public sector healthcare, it's cheaper to apply for the Health and Care visa instead.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to earn depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: http://www.gov.uk/skilled-worker-visa
+    - name: senior_specialist_worker
+      type: Senior or Specialist Worker visa (Global Business Mobility)
+      title: If you’re transferring to your employer’s UK branch to work in an eligible high-skilled job
+      description: You may be able to work in an eligible high-skilled job at your employer's branch in the UK.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to earn depends on the work you do
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: Depends on initial visa and salary
+          description: You may be able to extend up to the maximum stay - this depends on your salary. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/senior-specialist-worker-visa
+    - name: graduate_trainee
+      type: Graduate Trainee visa (Global Business Mobility)
+      title: If you’re transferring to your employer’s UK branch for a graduate trainee programme
+      description: You may be able to work in a graduate training programme for a managerial or specialist role at your employer’s branch in the UK.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to earn depends on the work you do
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: "No, with exceptions"
+          description: To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: http://www.gov.uk/graduate-trainee-visa
+    - name: youth_mobility
+      type: Youth Mobility Scheme visa
+      condition: passport_country_in_youth_mobility_scheme_list?
+      title: If you’re aged 18 to 30
+      description: |
+        You may be able to live and work in the UK. You can:
+
+        + work in most jobs
+        + be self-employed or a director of a company - within certain rules
+
+        The eligibility criteria include:
+
+        + being aged 18 to 30 when you apply
+        + depending on where you’re from, successfully applying for a ballot
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: "No"
+          description: To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/youth-mobility
+    - name: uk_ancestry
+      type: UK Ancestry visa
+      condition: passport_country_in_uk_ancestry_visa_list?
+      title: If one of your grandparents was born in the UK
+      description: |
+        You may be able to live and work in the UK. You can be an employee, self-employed or a director of a company.
+
+        The eligibility criteria include:
+
+        + being aged 17 or over
+        + proving that one of your grandparents was born in the UK, the Channel Islands or the Isle of Man
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/ancestry-visa
+    - name: government_authorised_exchange_training_health
+      type: Government Authorised Exchange visa (Temporary Work)
+      title: If you’re coming to work in a training programme
+      description: |
+        You may be able to take part in an approved training scheme.
+
+        There are various schemes available that offer practical training in medicine and science.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK organisation that has a licence to manage a training scheme
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: "Depends on initial visa"
+          description: You may be able to extend up to a maximum stay of 2 years. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/government-authorised-exchange
+    - name: government_authorised_exchange_experience_health
+      type: Government Authorised Exchange visa (Temporary Work)
+      title: If you’re coming for a work experience scheme
+      description: You may be able to take part in an approved work experience scheme.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK organisation that has a licence to manage an exchange scheme
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: "Depends on initial visa"
+          description: You may be able to extend up to a maximum stay of 2 years. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/government-authorised-exchange
+    - name: high_potential_individual
+      type: High Potential Individual (HPI) visa
+      title: If you've recently graduated from a top global university
+      description: |
+        You may be able to live and work in the UK. You can be an employee, self-employed or a director of a company.
+
+        The eligibility criteria include having a qualification from an eligible university in the last 5 years.
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 to 3 years
+          description: 3 years with a PhD or doctoral qualification, otherwise 2 years
+        can_extend:
+          answer: "No"
+          description: To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/high-potential-individual-visa
+    - name: scale_up_worker_health
+      type: Scale-up Worker visa
+      title: If you’re coming to work for a fast growing UK business (‘scale-up’ business)
+      description: |
+        You may be able to work in the UK with the option to change employer or job after an initial period.
+
+        You must have a job offer to work for at least 6 months:
+
+        + in an eligible high-skilled job - for example a doctor or nurse
+        + from an approved scale-up business - it must meet eligibility criteria, including growing by 20% each year for the last 3 years
+
+        After 6 months, you can choose to work at any other UK employer or become self-employed.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be for at least 6 months from a UK scale-up business that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 years
+          description: 3 years with a PhD or doctoral qualification, otherwise 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/scale-up-worker-visa
+    - name: skilled_worker_digital
+      type: Skilled Worker visa
+      title: If you’re coming to work in an eligible skilled job
+      description: |
+        You may be able to work in an eligible job in digital technology. These include:
+
+        + web design or development professionals
+        + programmers or software development professionals
+        + IT business analysts, architects and systems designers
+        + IT project and programme managers
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/skilled-worker-visa
+    - name: global_talent_digital
+      type: Global Talent visa
+      title: If you’re a leader or potential leader in your field
+      description: |
+        You may be eligible if you're a leader or potential leader in digital technology.
+
+        You can be an employee, self-employed and a director of a company.
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 3 or 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/global-talent-digital-technology
+    - name: scale_up_worker_digital
+      type: Scale-up Worker visa
+      title: If you’re coming to work for a fast growing UK business (‘scale-up’ business)
+      description: |
+        You may be able to work in the UK with the option to change employer or job after an initial period.
+
+        You must have a job offer to work for at least 6 months:
+
+        + in an eligible high-skilled job - for example a web design professional or IT project manager
+        + from an approved scale-up business - it must meet eligibility criteria, including growing by 20% each year for the last 3 years
+
+        After 6 months, you can choose to work at any other UK employer or become self-employed.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be for at least 6 months from a UK scale-up business that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/scale-up-worker-visa
+    - name: skilled_worker_academic
+      type: Skilled Worker visa
+      title: If you’re coming to work in an eligible skilled job
+      description: You may be able to work in an eligible job. Various jobs in research and academia are eligible.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/skilled-worker-visa
+    - name: global_talent_academic
+      type: Global Talent visa
+      title: If you’re a leader or potential leader in your field
+      description: |
+        You may be eligible if you're a leader or potential leader in science, medicine, engineering or humanities.
+
+        You can be an employee, self-employed and a director of a company.
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 3 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/global-talent-researcher-academic
+    - name: government_authorised_exchange_academic
+      type: Government Authorised Exchange visa (Temporary Work)
+      title: If you’re coming to work in a research or training programme
+      description: |
+        You may be able to work as a researcher, visiting academic or examiner if it’s part of an approved programme.
+
+        The application fee is cheaper than the Skilled Worker or Global Talent visa.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK organisation that has a licence to manage a research or training programme
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 2 years. To stay longer, you may be able to switch to another visa
+      url: https://www.gov.uk/government-authorised-exchange
+    - name: scale_up_worker_academic
+      type: Scale-up Worker visa
+      title: If you’re coming to work for a fast growing UK business (‘scale-up’ business)
+      description: |
+        You may be able to work in the UK with the option to change employer or job after an initial period.
+
+        You must have a job offer to work for at least 6 months:
+
+        + in an eligible high-skilled job - various jobs in research and academia are eligible
+        + from an approved scale-up business - they must meet eligibility criteria, including growing by 20% each year for the last 3 years
+
+        After 6 months, you can choose to work at any other UK employer or become self-employed.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be for at least 6 months from a UK scale-up business that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/scale-up-worker-visa
+    - name: skilled_worker_arts
+      type: Skilled Worker visa
+      title: If you’re coming to work in an eligible skilled job
+      description: |
+        You may be able to work in an eligible arts and culture job. These include:
+
+        + entertainers or creative artists - for example actors, dancers or musicians
+        + other creative roles - for example architects, designers or journalists
+        + many managerial or administrative roles in arts and culture
+
+        Many arts and culture jobs are on the ‘shortage occupation list’ which means you can be paid a lower salary and pay a lower application fee.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/skilled-worker-visa
+    - name: global_talent_arts
+      type: Global Talent visa
+      title: If your work is internationally recognised
+      description: |
+        You may be able to work in an eligible job in one of the following fields:
+
+        + combined arts, dance, literature, music, theatre or visual arts
+        + architecture
+        + fashion design
+        + film and television, including animation, post production and visual effects
+
+        You can be an employee, self-employed and a director of a company.
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 3 or 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/global-talent-arts-culture
+    - name: creative_worker
+      type: Creative Worker visa (Temporary Work)
+      title: If you’re coming to work as an entertainer or creative artist
+      description: |
+        You may be able to either:
+
+        + work or perform as an entertainer or creative artist - for example as an actor, dancer or musician
+        + provide technical or personal support to an entertainer or creative artist - for example as a member of a production crew or a personal assistant
+
+        You must prove that you can make a ‘unique contribution to the UK labour market'.
+
+        The application fee is cheaper than the Skilled Worker or Global Talent visa.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: Yes, with exceptions
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: Yes, with exceptions
+          description: You may be able to extend up to a maximum stay of 2 years (1 year if you change employer). To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/creative-worker-visa
+    - name: scale_up_worker_arts
+      type: Scale-up Worker visa
+      title: If you’re coming to work for a fast growing UK business (‘scale-up’ business)
+      description: |
+        You may be able to work in the UK with the option to change employer or job after an initial period.
+
+        You must have a job offer to work for at least 6 months:
+
+        + in an eligible high-skilled job - various jobs in arts and culture are eligible
+        + from an approved scale-up business - it must meet eligibility criteria, including growing by 20% each year for the last 3 years
+
+        After 6 months, you can choose to work at any other UK employer or become self-employed.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be for at least 6 months from a UK scale-up business that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/scale-up-worker-visa
+    - name: representative_overseas_business
+      type: Representative of an Overseas Business visa
+      title: If you work for an overseas news or broadcasting organisation
+      description: You may be able to be posted on a long-term assignment to the UK.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: You must work for an overseas news or broadcasting organisation
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can speak and understand English
+        initial_visa_length:
+          answer: Up to 3 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/representative-overseas-business
+    - name: government_authorised_exchange_arts
+      type: Government Authorised Exchange visa (Temporary Work)
+      title: If you’re coming for a work experience scheme
+      description: You may be able to take part in an approved work experience scheme.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK organisation that has a licence to manage an exchange scheme
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 1 year. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/government-authorised-exchange
+    - name: international_sportsperson
+      type: International Sportsperson visa
+      title: If you’re an elite sportsperson or coach
+      description: |
+        You may be able to work as an elite sportsperson or coach.
+
+        You must:
+
+        + be internationally established at the highest level of your sport
+        + be endorsed by your sport's governing body
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes, with exceptions"
+          description: If you’re applying to stay for longer than 12 months, you must usually prove that you can speak and understand English
+        initial_visa_length:
+          answer: Up to 3 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Depends on your visa
+          description: |
+            You can settle after 5 years if you had any grant of International Sportsperson permission for longer than 1 year.
+
+            Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/sportsperson-visa
+    - name: religious_worker
+      type: Religious Worker visa (Temporary Work)
+      title: If you want to stay up to 2 years
+      description: You may be able to do non-pastoral work or be part of a religious order.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 2 years. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/religious-worker-visa
+    - name: minister_of_religion
+      type: Minister of Religion visa (T2)
+      title: If you want to stay for longer
+      description: |
+        You may be able to do work within a faith community - for example as a minister of religion, missionary, or member of a religious order.
+
+        It’s more expensive than the Temporary Work - Religious Worker visa.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes"
+          description: "You must usually prove you can read, write, speak and understand English"
+        initial_visa_length:
+          answer: Up to 3 years
+        can_extend:
+          answer: Yes, up to a maximum stay
+          description: You can stay for up to 6 years on this visa. To stay longer, you may be able to switch to another visa or settle
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/minister-of-religion-visa
+    - name: start_up
+      type: Start-up visa
+      title: If you want to start a business for the first time and have an innovative business idea
+      description: |
+        You may be able to start a business if you have:
+
+        + a business idea that’s different from anything else on the market
+        + your idea assessed by an ‘endorsing body’
+      attributes:
+        job_offer:
+          answer: "No"
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes"
+          description: "You must usually prove you can read, write, speak and understand English"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: "No"
+          description: To stay longer, you may be able to switch to another visa - for example an Innovator visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/start-up-visa
+    - name: innovator
+      type: Innovator visa
+      title: If you're an experienced businessperson and have an innovative business idea
+      description: |
+        You may be able to start a business if you have:
+
+        + at least £50,000 to invest
+        + a business idea that’s different from anything else on the market
+        + your idea assessed by an ‘endorsing body’
+      attributes:
+        job_offer:
+          answer: "No"
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "Yes"
+          description: "You must usually prove you can read, write, speak and understand English"
+        initial_visa_length:
+          answer: Up to 3 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 3 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/innovator-visa
+    - name: global_talent_business
+      type: Global Talent visa
+      title: If you’re a leader or potential leader in your field
+      description: |
+        You may be able to start a business if you work in one of the following fields:
+
+        + academia or research
+        + arts or culture
+        + digital technology
+
+        You can also be an employee, self-employed and a director of a company.
+      attributes:
+        job_offer:
+          answer: "No"
+          description: "You can find work once you're in the UK"
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: "Yes - after 3 or 5 years"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/global-talent
+    - name: uk_expansion_worker
+      type: UK Expansion Worker visa (Global Business Mobility)
+      title: If you’re setting up your company’s first UK branch or subsidiary
+      description: |
+        You may be able to set up your company's first UK branch or subsidiary.
+
+        The eligibility criteria include working in an eligible job.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your overseas employer will need a licence to sponsor you to work in the UK
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: Yes, up to a maximum stay
+          description: You can stay for up to 2 years on this visa. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/uk-expansion-worker-visa
+    - name: skilled_worker_other
+      type: Skilled Worker visa
+      title: If you’re coming to work in an eligible skilled job
+      description: |
+        You may be able to work in an eligible skilled job.
+
+        These include:
+
+        + jobs that require a university degree, such as scientists or doctors
+        + many managerial or skilled administrative roles
+        + skilled trades, such as carpenters or plumbers
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to earn depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: Up to 5 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're still eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: http://www.gov.uk/skilled-worker-visa
+    - name: scale_up_worker_other
+      type: Scale-up Worker visa
+      title: If you’re coming to work for a fast growing UK business (‘scale-up’ business)
+      description: |
+        You may be able to work in the UK with the option to change employer or job after an initial period.
+
+        You must have a job offer to work for at least 6 months:
+
+        + in an eligible high-skilled job - including jobs that require a university degree, or higher skilled managerial or administrative roles
+        + from an approved scale-up business - it must meet eligibility criteria, including growing by 20% each year for the last 3 years
+
+        After 6 months, you can choose to work at any other UK employer or become self-employed.
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be for at least 6 months from a UK scale-up business that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "Yes"
+          description: How much you need to be paid depends on the work you do
+        english_knowledge:
+          answer: "Yes"
+          description: You must usually prove you can read, write, speak and understand English
+        initial_visa_length:
+          answer: 2 years
+        can_extend:
+          answer: "Yes"
+          description: You can extend as many times as you want, as long as you're eligible
+        can_settle:
+          answer: Yes - after 5 years
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/scale-up-worker-visa
+    - name: charity_worker
+      type: Charity Worker visa (Temporary Work)
+      title: If you’re coming to volunteer for a charity
+      description: You may be able to do unpaid voluntary work for a charity.
+      attributes:
+        job_offer:
+          answer: "Yes"
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 1 year
+        can_extend:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 1 year. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/temporary-worker-charity-worker-visa
+    - name: government_authorised_exchange_other
+      type: Government Authorised Exchange visa (Temporary Work)
+      title: If you’re coming for an approved government programme
+      description: |
+        You may be eligible for a Temporary Work - Government Authorised Exchange visa if you take part in an approved:
+
+        + work experience programme
+        + research and training programme
+        + Overseas Government Language Programme
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: "Your offer must be from a UK employer that's a registered sponsor for this visa"
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+          description: Up to 1 year for work experience
+        can_extend:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 2 years (1 year for work experience). To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/government-authorised-exchange
+    - name: service_supplier
+      type: Service Supplier visa (Global Business Mobility)
+      title: If you’re temporarily providing an eligible service in the UK
+      description: |
+        You may be able to provide services to a UK business.
+
+        The eligibility criteria include:
+
+        + doing an eligible job - or proving you have relevant qualifications
+        + having enough professional experience - this is between 1 and 6 years, depending on your work
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: 6 to 12 months
+          description: Depends on your nationality and the service you're providing
+        can_extend:
+          answer: Depends on initial visa
+          description: You may be able to extend up to a maximum stay of 6 or 12 months. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/service-supplier-visa
+    - name: international_agreement
+      type: International Agreement visa (Temporary Work)
+      title: If you’re coming to work in the UK for a foreign government or international organisation
+      description: |
+        You may be eligible for a Temporary Work – International Agreement Worker visa if you’re coming to work:
+
+        + for a foreign government or eligible international organisation
+        + as a private servant in a diplomat’s home, for example as a cook, cleaner or carer
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: Depends on initial visa
+          description: Depends on your nationality and the service you're providing
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/international-agreement-worker-visa
+    - name: secondment_worker
+      type: Secondment Worker visa (Global Business Mobility)
+      condition: eligible_for_secondment_visa?
+      title: If you’re coming to work as part of a high-value contract between your overseas employer and a UK organisation
+      description: |
+        You may be eligible to be transferred by your employer to a different organisation in the UK.
+
+        The eligibility criteria include:
+
+        + your overseas employer having an eligible contract with the UK organisation worth at least £50 million
+        + you having worked for your overseas employer for at least 12 months outside the UK
+        + you working in an eligible job
+      attributes:
+        job_offer:
+          answer: "Yes"
+          description: Your offer must be from a UK employer that's a registered sponsor for this visa
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: 1 year
+        can_extend:
+          answer: Yes, up to a maximum stay
+          description: You can stay for up to 2 years on this visa. To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/secondment-worker-visa

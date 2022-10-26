@@ -11,10 +11,10 @@ module CheckUkVisaFlowTestHelper
 
   def test_visa_count(passport_country, expected_count)
     should "render outcome of #{expected_count} visas available with correct plural form for passport country #{passport_country}" do
-      plural_form = "option".pluralize(expected_count)
+      plural_form = "visa".pluralize(expected_count)
 
       add_responses what_passport_do_you_have?: passport_country
-      assert_rendered_outcome text: "Based on your answers, you have #{expected_count} visa #{plural_form}."
+      assert_rendered_outcome text: "Based on your answers, you might be eligible for #{expected_count} #{plural_form}."
     end
   end
 
