@@ -15,6 +15,13 @@ class QuestionPresenter < NodePresenter
     )
   end
 
+  def error_id(template)
+    types = %w[radio_question checkbox_question date_question]
+
+    fragment = types.any? { |type| type == template } ? "response\-0" : "response"
+    "##{fragment}"
+  end
+
   def title
     @renderer.content_for(:title)
   end

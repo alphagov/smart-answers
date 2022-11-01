@@ -10,18 +10,21 @@
       question.default_day ? nil : {
         label: "Day",
         name: "response[day]",
+        id: "response-0",
         width: 2,
         value: question.parsed_response[:day],
       },
       question.default_month ? nil : {
         label: "Month",
         name: "response[month]",
+        id: "response-1",
         width: 2,
         value: question.parsed_response[:month],
       },
       question.default_year ? nil : {
         label: "Year",
         name: "response[year]",
+        id: "response-2",
         width: 4,
         value: question.parsed_response[:year],
       }

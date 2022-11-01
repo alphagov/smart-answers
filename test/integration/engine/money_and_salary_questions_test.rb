@@ -10,7 +10,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       visit "/annual-bonus/y"
 
       within "#current-question" do
-        within '.govuk-label[for="response_amount"]' do
+        within '.govuk-label[for="response"]' do
           assert_page_has_content "How much do you earn?"
         end
 

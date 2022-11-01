@@ -20,7 +20,8 @@ class SmartAnswersControllerPostcodeQuestionTest < ActionController::TestCase
     should "show a validation error if invalid input" do
       submit_response "invalid postcode"
       assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /User input\?/
-      assert_select "body", /Please answer this question/
+      assert_select ".govuk-error-summary [href]", /Please answer this question/
+      assert_select ".govuk-error-message", /Please answer this question/
     end
   end
 
