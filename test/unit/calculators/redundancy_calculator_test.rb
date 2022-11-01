@@ -20,7 +20,7 @@ module SmartAnswer::Calculators
 
     context "amounts for the redundancy date" do
       should "have max and rate for last 4 tax years" do
-        (0..4).each do |i|
+        5.times do |i|
           date = (Time.zone.now - i.years).beginning_of_year
           calculator = RedundancyCalculator.redundancy_rates(date)
           assert calculator.start_date < date, "Config file missing redundancy rates for #{date.year - 1}-#{date.year}"
@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
 
     context "Northern Ireland amounts for the redundancy date" do
       should "have max and rate for last 4 tax years" do
-        (0..4).each do |i|
+        5.times do |i|
           date = (Time.zone.now - i.years).beginning_of_year
           calculator = RedundancyCalculator.northern_ireland_redundancy_rates(date)
           assert calculator.start_date < date, "Config file missing NI redundancy rates for #{date.year - 1}-#{date.year}"
