@@ -1,6 +1,6 @@
 name: Deploy
 
-run-name: Deploy ${{ inputs.gitRef }} to ${{ inputs.environment }}
+run-name: Deploy ${{ inputs.gitRef || github.ref  }} to ${{ inputs.environment || 'integration' }}
 
 on:
   workflow_dispatch:
