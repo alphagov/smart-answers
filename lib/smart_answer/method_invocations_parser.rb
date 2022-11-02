@@ -15,7 +15,7 @@ module SmartAnswer
         _receiver_node, method_name, *arg_nodes = *node
         method = matching_method(method_name, arg_nodes.length)
         if method.present?
-          @invocations << { method: method, arg_nodes: arg_nodes }
+          @invocations << { method:, arg_nodes: }
         end
         super(node)
       end

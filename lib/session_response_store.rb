@@ -2,8 +2,8 @@ class SessionResponseStore < ResponseStore
   def initialize(flow_name:, session:, user_response_keys: [], additional_keys: [])
     @flow_name = flow_name
     super(responses: session,
-          user_response_keys: user_response_keys,
-          additional_keys: additional_keys)
+          user_response_keys:,
+          additional_keys:)
   end
 
   def all

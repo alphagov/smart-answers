@@ -9,7 +9,7 @@ class ContentItemPresenter
 
   def payload
     {
-      base_path: base_path,
+      base_path:,
       title: start_node_presenter.title,
       description: start_node_presenter.meta_description,
       update_type: "minor",

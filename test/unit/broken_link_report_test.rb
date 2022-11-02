@@ -36,7 +36,7 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
 
   def link
     @link ||= OpenStruct.new(
-      status: status,
+      status:,
       uri: "http://example.com/foo/bar",
       problem_summary: "Whoops",
       errors: ["It broke"],
@@ -51,12 +51,12 @@ class BrokenLinkReportTest < ActiveSupport::TestCase
   def report
     @report ||= OpenStruct.new(
       totals: OpenStruct.new(totals),
-      links: links,
+      links:,
     )
   end
 
   def mock_link_checker
-    OpenStruct.new(report: report)
+    OpenStruct.new(report:)
   end
 
   context ".for_erb_files_at" do

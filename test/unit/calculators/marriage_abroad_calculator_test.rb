@@ -538,7 +538,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:french_overseas_territories?).with("ceremony-country").returns("french-overseas-territory")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "french-overseas-territory", calculator.ceremony_country_is_french_overseas_territory?
@@ -549,7 +549,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:british_overseas_territories?).with("ceremony-country").returns("british-overseas-territory")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "british-overseas-territory", calculator.ceremony_country_is_british_overseas_territory?
@@ -560,7 +560,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:ss_marriage_countries?).with("ceremony-country").returns("same-sex-marriage-country")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "same-sex-marriage-country", calculator.same_sex_marriage_country?
@@ -571,7 +571,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:ss_marriage_countries_when_couple_british?).with("ceremony-country").returns("same-sex-marriage-country-when-couple-british")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "same-sex-marriage-country-when-couple-british", calculator.same_sex_marriage_country_when_couple_british?
@@ -582,7 +582,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:ss_marriage_and_partnership?).with("ceremony-country").returns("same-sex-marriage-and-civil-partnership")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "same-sex-marriage-and-civil-partnership", calculator.same_sex_marriage_and_civil_partnership?
@@ -593,7 +593,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:countries_without_consular_facilities?).with("ceremony-country").returns("country-without-consular-facilities")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "country-without-consular-facilities", calculator.country_without_consular_facilities?
@@ -604,7 +604,7 @@ module SmartAnswer
         should "delegate to the data query" do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
           data_query.stubs(:dutch_caribbean_islands?).with("ceremony-country").returns("dutch-caribbean-island")
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator = MarriageAbroadCalculator.new(data_query:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "dutch-caribbean-island", calculator.ceremony_country_is_dutch_caribbean_island?
@@ -616,7 +616,7 @@ module SmartAnswer
           consular_fees = { fee: 55 }
           rates_query = stub(rates: consular_fees)
 
-          @calculator = MarriageAbroadCalculator.new(rates_query: rates_query)
+          @calculator = MarriageAbroadCalculator.new(rates_query:)
         end
 
         should "return the fee value for a consular service" do
@@ -645,7 +645,7 @@ module SmartAnswer
               },
             },
           }
-          @calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          @calculator = MarriageAbroadCalculator.new(services_data:)
         end
 
         should "return empty array if country not found in data" do
@@ -742,7 +742,7 @@ module SmartAnswer
 
         should "return nil if there's no payment information partial set for the ceremony country" do
           services_data = { "ceremony-country" => {} }
-          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator = MarriageAbroadCalculator.new(services_data:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_nil calculator.services_payment_partial_name
@@ -754,7 +754,7 @@ module SmartAnswer
               "payment_partial_name" => "partial-name",
             },
           }
-          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator = MarriageAbroadCalculator.new(services_data:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "partial-name", calculator.services_payment_partial_name
@@ -766,7 +766,7 @@ module SmartAnswer
               "opposite_sex" => { "payment_partial_name" => "partial-name" },
             },
           }
-          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator = MarriageAbroadCalculator.new(services_data:)
           calculator.ceremony_country = "ceremony-country"
 
           assert_equal "partial-name", calculator.services_payment_partial_name
