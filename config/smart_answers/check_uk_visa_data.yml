@@ -1075,8 +1075,8 @@
         initial_visa_length:
           answer: Up to 2 years
         can_extend:
-          answer: Depends on initial visa
-          description: Depends on your nationality and the service you're providing
+          answer: Depends on job
+          description: You may be able to extend up to a maximum stay of 2 years (5 years if you work as a private servant in the household of a diplomat). To stay longer, you may be able to switch to another visa
         can_settle:
           answer: "No"
           description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
