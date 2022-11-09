@@ -324,11 +324,13 @@ module SmartAnswer::Calculators
       brunei
       canada
       chile
+      colombia
       costa-rica
       curacao
       dominica
       grenada
       guatemala
+      guyana
       honduras
       hong-kong
       hong-kong-(british-national-overseas)
@@ -351,6 +353,7 @@ module SmartAnswer::Calculators
       panama
       papua-new-guinea
       paraguay
+      peru
       pitcairn-island
       samoa
       san-marino
@@ -385,7 +388,6 @@ module SmartAnswer::Calculators
       cape-verde
       central-african-republic
       chad
-      colombia
       comoros
       cuba
       djibouti
@@ -395,7 +397,6 @@ module SmartAnswer::Calculators
       fiji
       gabon
       georgia
-      guyana
       haiti
       indonesia
       jordan
@@ -412,7 +413,6 @@ module SmartAnswer::Calculators
       niger
       north-korea
       oman
-      peru
       philippines
       qatar
       russia
