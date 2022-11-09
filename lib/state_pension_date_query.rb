@@ -66,6 +66,6 @@ private
   end
 
   def pension_dates_static
-    YAML.load_file(Rails.root.join("config/smart_answers/state_pension_dates.yml"))
+    YAML.load_file(Rails.root.join("config/smart_answers/state_pension_dates.yml"), permitted_classes: [Date, StatePensionDate, Symbol])
   end
 end
