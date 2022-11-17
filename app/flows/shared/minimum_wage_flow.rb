@@ -7,7 +7,7 @@ class MinimumWageFlow < SmartAnswer::Flow
 
       on_response do |response|
         date = Date.parse("2021-04-01") if response == "past_payment"
-        self.calculator = SmartAnswer::Calculators::MinimumWageCalculator.new(date: date)
+        self.calculator = SmartAnswer::Calculators::MinimumWageCalculator.new(date:)
         self.accommodation_charge = nil
       end
 

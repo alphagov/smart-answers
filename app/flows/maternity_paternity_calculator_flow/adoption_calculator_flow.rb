@@ -44,10 +44,10 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
           self.adoption_placement_date = response
           calculator.adoption_placement_date = adoption_placement_date
 
-          self.a_leave_earliest_start = calculator.leave_earliest_start_date(adoption_is_from_overseas: adoption_is_from_overseas)
+          self.a_leave_earliest_start = calculator.leave_earliest_start_date(adoption_is_from_overseas:)
           self.a_leave_earliest_start_formatted = calculator.format_date(a_leave_earliest_start)
 
-          self.a_leave_latest_start = calculator.leave_latest_start_date(adoption_is_from_overseas: adoption_is_from_overseas)
+          self.a_leave_latest_start = calculator.leave_latest_start_date(adoption_is_from_overseas:)
           self.a_leave_latest_start_formatted = calculator.format_date(a_leave_latest_start)
 
           self.employment_start = calculator.a_employment_start

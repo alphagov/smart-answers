@@ -8,7 +8,7 @@ class YearQuestionPresenter < QuestionPresenter
 
     year = @node.parse_input(current_response)
     {
-      year: year,
+      year:,
     }
   rescue SmartAnswer::InvalidResponse
     {}

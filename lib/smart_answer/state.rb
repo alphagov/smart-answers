@@ -24,6 +24,7 @@ module SmartAnswer
     def transition_to(new_node_name, input)
       dup.tap do |new_state|
         new_state.current_node_name = new_node_name
+        new_state.accepted_responses = accepted_responses.dup
         new_state.accepted_responses[current_node_name] = input
         new_state.freeze
       end
@@ -31,13 +32,6 @@ module SmartAnswer
 
     def to_hash
       @table
-    end
-
-  private
-
-    def initialize_copy(orig)
-      super
-      self.accepted_responses = orig.accepted_responses.dup
     end
   end
 end

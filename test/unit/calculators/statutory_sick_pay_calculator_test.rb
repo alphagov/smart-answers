@@ -922,8 +922,8 @@ module SmartAnswer
           )
 
           assert_equal 42, calculator.prev_sick_days
-          assert_equal calculator.ssp_payment,
-                       calculator.send(:weekly_payments).map(&:second).sum
+          assert_equal calculator.send(:weekly_payments).map(&:second).sum.round(2),
+                       calculator.ssp_payment.to_f
         end
 
         should "have the correct 2017/2018 value" do

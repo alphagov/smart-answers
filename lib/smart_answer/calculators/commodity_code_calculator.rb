@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
     end
 
     def self.commodity_codes_data
-      @commodity_codes_data ||= YAML.load(File.open("config/smart_answers/commodity_codes_data.yml").read) # rubocop:disable Security/YAMLLoad
+      @commodity_codes_data ||= YAML.load(File.open("config/smart_answers/commodity_codes_data.yml").read)
     end
 
   private

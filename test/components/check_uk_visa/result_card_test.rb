@@ -44,7 +44,7 @@ class ResultCardVisaTest < ComponentTestCase
         title: "Result card title",
         url: "www.gov.uk",
         attributes: ATTRIBUTES,
-        calculator: calculator,
+        calculator:,
       })
     end
   end
@@ -55,7 +55,7 @@ class ResultCardVisaTest < ComponentTestCase
         type: "Result card type",
         url: "www.gov.uk",
         attributes: ATTRIBUTES,
-        calculator: calculator,
+        calculator:,
       })
     end
   end
@@ -66,7 +66,7 @@ class ResultCardVisaTest < ComponentTestCase
         type: "Result card type",
         title: "Result card title",
         attributes: ATTRIBUTES,
-        calculator: calculator,
+        calculator:,
       })
     end
   end
@@ -77,7 +77,7 @@ class ResultCardVisaTest < ComponentTestCase
         type: "Result card type",
         title: "Result card title",
         url: "www.gov.uk",
-        calculator: calculator,
+        calculator:,
       })
     end
   end
@@ -105,7 +105,7 @@ class ResultCardVisaTest < ComponentTestCase
       title: "Result card title",
       url: "www.gov.uk",
       attributes: ATTRIBUTES,
-      calculator: calculator,
+      calculator:,
     })
 
     assert_select ".app-c-result-card" do

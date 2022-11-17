@@ -227,7 +227,7 @@ module SmartAnswer
           @profit_per_day = 40.98
           award_period = stub("award_period", number_of_days: @number_of_days_in_award_period)
           @calculator = PartYearProfitTaxCreditsCalculator.new
-          @calculator.stubs(award_period: award_period, profit_per_day: @profit_per_day)
+          @calculator.stubs(award_period:, profit_per_day: @profit_per_day)
         end
 
         should "multiply profit per day by number of days in award period and round down to nearest pound" do
@@ -248,7 +248,7 @@ module SmartAnswer
 
         should "return taxable profit figure when the award period matches the basis period" do
           basis_period = DateRange.new(begins_on: @tax_year_begins_on, ends_on: @tax_credit_award_ends_on)
-          @calculator.stubs(basis_period: basis_period)
+          @calculator.stubs(basis_period:)
           @calculator.stubs(taxable_profit: 10_000)
 
           assert_equal 10_000, @calculator.award_period_taxable_profit
@@ -256,7 +256,7 @@ module SmartAnswer
 
         should "return pro rata taxable profit when the award period and basis period are different" do
           basis_period = YearRange.new(begins_on: @tax_year_begins_on)
-          @calculator.stubs(basis_period: basis_period)
+          @calculator.stubs(basis_period:)
           @calculator.stubs(pro_rata_taxable_profit: 10_000)
 
           assert_equal 10_000, @calculator.award_period_taxable_profit

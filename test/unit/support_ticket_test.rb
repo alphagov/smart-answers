@@ -17,7 +17,7 @@ class SupportTicketTest < ActiveSupport::TestCase
   end
 
   def support_ticket
-    @support_ticket ||= SupportTicket.new(subject: subject, body: body, requester_email: email)
+    @support_ticket ||= SupportTicket.new(subject:, body:, requester_email: email)
   end
 
   context ".send" do
@@ -25,7 +25,7 @@ class SupportTicketTest < ActiveSupport::TestCase
       self.valid_zendesk_credentials = ZENDESK_CREDENTIALS
       stub_zendesk_ticket_creation(support_ticket.payload)
 
-      assert SupportTicket.send subject: subject, body: body, requester_email: email
+      assert SupportTicket.send subject:, body:, requester_email: email
     end
   end
 

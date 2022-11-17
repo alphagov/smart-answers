@@ -27,7 +27,7 @@ class FlowHelperTest < ActionView::TestCase
 
         SessionResponseStore.expects(:new).with(
           flow_name: params[:id],
-          session: session,
+          session:,
           user_response_keys: [],
           additional_keys: [],
         ).returns(store)

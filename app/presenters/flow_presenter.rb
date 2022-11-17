@@ -29,7 +29,7 @@ class FlowPresenter
   end
 
   def presenter_for(node)
-    @node_presenters[node.name] ||= node.presenter(flow_presenter: self, state: state)
+    @node_presenters[node.name] ||= node.presenter(flow_presenter: self, state:)
   end
 
   def current_node

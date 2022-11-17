@@ -33,11 +33,11 @@ module SmartAnswer::Calculators
       (topup_start_year..TOPUP_END_DATE.year).each do |_|
         break if birthday_after_topup_end?(dob, age)
 
-        rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
+        rows << { amount: lump_sum_amount(age, weekly_amount), age: } if age >= retirement_age(gender)
         age += 1
       end
       if (TOPUP_END_DATE.year == Time.zone.today.year) && (dob.month < 5) && (birthday(dob) > Time.zone.today) && !birthday_after_topup_end?(dob, age) && (age >= retirement_age(gender))
-        rows << { amount: lump_sum_amount(age, weekly_amount), age: age }
+        rows << { amount: lump_sum_amount(age, weekly_amount), age: }
       end
       rows
     end

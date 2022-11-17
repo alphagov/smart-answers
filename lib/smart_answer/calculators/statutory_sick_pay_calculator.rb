@@ -162,10 +162,10 @@ module SmartAnswer
         if paid_at_least_8_weeks_of_earnings?
           self.class.average_weekly_earnings(
             pay: total_employee_earnings,
-            pay_pattern: pay_pattern,
-            monthly_pattern_payments: monthly_pattern_payments,
-            relevant_period_to: relevant_period_to,
-            relevant_period_from: relevant_period_from,
+            pay_pattern:,
+            monthly_pattern_payments:,
+            relevant_period_to:,
+            relevant_period_from:,
           )
         elsif paid_less_than_8_weeks_of_earnings?
           self.class.total_earnings_awe(

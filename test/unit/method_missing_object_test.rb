@@ -69,7 +69,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
         "method_one.method_two" => 222,
         "method_one.method_three" => 333,
       }
-      @object = MethodMissingObject.new(:method_one, overrides: overrides)
+      @object = MethodMissingObject.new(:method_one, overrides:)
     end
 
     should "return relevant overridden values when description matches" do

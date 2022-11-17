@@ -2,7 +2,8 @@ module SmartAnswer::Calculators
   class RatesQuery
     def self.from_file(rates_filename, load_path: "config/smart_answers/rates")
       rates_data_path = Rails.root.join(load_path, "#{rates_filename}.yml")
-      rates_data = YAML.load_file(rates_data_path).map(&:with_indifferent_access)
+      rates_yaml = YAML.load_file(rates_data_path, permitted_classes: [Date, Symbol])
+      rates_data = rates_yaml.map(&:with_indifferent_access)
       new(rates_data)
     end
 

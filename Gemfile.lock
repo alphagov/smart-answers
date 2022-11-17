@@ -232,6 +232,12 @@ GEM
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.9-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.13.9-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-linux)
+      racc (~> 1.4)
     null_logger (0.0.1)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -414,7 +420,10 @@ GEM
       multipart-post (~> 2.0)
 
 PLATFORMS
+  aarch64-linux
+  arm64-darwin
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   ast
@@ -459,7 +468,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.7.6
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.1.4
+   2.3.24

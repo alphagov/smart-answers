@@ -43,6 +43,7 @@ module SmartAnswer::Calculators
     def self.child_benefit_data
       @child_benefit_data ||= YAML.load_file(
         Rails.root.join("config/smart_answers/rates/child_benefit_rates.yml"),
+        permitted_classes: [Date, Symbol],
       ).with_indifferent_access
     end
 

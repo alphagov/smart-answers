@@ -27,7 +27,7 @@ namespace :publishing_api do
     redirect = {
       path: args.base_path,
       segments_mode: "ignore",
-      type: type,
+      type:,
       destination: args.destination,
     }
     GdsApi.publishing_api.unpublish(

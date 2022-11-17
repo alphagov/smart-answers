@@ -290,7 +290,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -341,7 +341,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -392,7 +392,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -623,7 +623,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -674,7 +674,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -726,7 +726,7 @@ module SmartAnswer
               }.each do |household_income, loan_amount|
                 calculator = StudentFinanceCalculator.new(
                   course_start: current_year,
-                  household_income: household_income,
+                  household_income:,
                   residence: @residence,
                   course_type: "uk-full-time",
                 )
@@ -766,8 +766,8 @@ module SmartAnswer
                   household_income: 45_000,
                   residence: "away-in-london",
                   course_type: @course_type,
-                  part_time_credits: part_time_credits,
-                  full_time_credits: full_time_credits,
+                  part_time_credits:,
+                  full_time_credits:,
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end

@@ -2,7 +2,7 @@ require "gds_api/base"
 require "gds_api/json_client"
 
 class WorkingDays
-  WEEKDAYS = (1..5).freeze
+  WEEKDAYS = (1..5)
   BANK_HOLIDAYS_URL = "https://www.gov.uk/bank-holidays.json".freeze
 
   def initialize(days)

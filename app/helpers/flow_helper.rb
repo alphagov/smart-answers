@@ -11,7 +11,7 @@ module FlowHelper
       }
 
       if flow.response_store == :session
-        SessionResponseStore.new(flow_name: params[:id], session: session, **keys)
+        SessionResponseStore.new(flow_name: params[:id], session:, **keys)
       else
         QueryParametersResponseStore.new(query_parameters: request.query_parameters, **keys)
       end
