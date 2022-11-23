@@ -81,6 +81,10 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_equal current_path, "/checkbox-sample/y/none"
 
+      within(".govuk-error-summary [href]") do
+        assert_page_has_content "Please answer this question"
+      end
+
       within(".govuk-error-message") do
         assert_page_has_content "Please answer this question"
       end

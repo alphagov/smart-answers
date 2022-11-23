@@ -12,6 +12,7 @@ class InputValidationTest < EngineIntegrationTest
 
       within "#current-question" do
         assert_page_has_content "How much do you earn?"
+        within(".govuk-error-summary [href]") { assert_page_has_content "Please answer this question" }
         within(".govuk-error-message") { assert_page_has_content "Please answer this question" }
         assert page.has_field?("response[amount]", type: "text", with: "-123")
       end

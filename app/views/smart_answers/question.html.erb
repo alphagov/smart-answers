@@ -15,6 +15,18 @@
           "question-key": question.node_slug,
         }) do %>
       <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-8" id="current-question">
+        <% if question.error.present? %>
+          <%= render "govuk_publishing_components/components/error_summary", {
+            id: "error-summary",
+            title: "There is a problem",
+            items: [
+              {
+                text: question.error,
+                href: question.error_id(question.partial_template_name)
+              }
+            ]
+          } %>
+        <% end %>
 
         <%= render partial: "smart_answers/inputs/#{question.partial_template_name}", locals: { question: question } %>
 

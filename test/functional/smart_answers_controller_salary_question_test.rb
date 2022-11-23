@@ -35,6 +35,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
         should "show a generic message" do
           submit_response amount: "bad_number"
           assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
+          assert_select ".govuk-error-summary [href]", /Please answer this question/
           assert_select ".govuk-error-message", /Please answer this question/
         end
 
@@ -47,6 +48,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
       should "show a validation error if invalid period" do
         submit_response amount: "1", period: "bad_period"
         assert_select "h1.govuk-label-wrapper .govuk-label.govuk-label--l", /How much\?/
+        assert_select ".govuk-error-summary [href]", /Please answer this question/
         assert_select ".govuk-error-message", /Please answer this question/
       end
 
