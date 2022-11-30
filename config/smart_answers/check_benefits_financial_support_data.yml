@@ -552,14 +552,28 @@
         - northern-ireland
     - name: apply_for_an_older_persons_bus_pass
       title: Apply for an older person's bus pass
-      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales, Scotland and Northern Ireland you can get a pass at 60.</p>
+      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
       condition: eligible_for_an_older_persons_bus_pass?
       url_text: Find out how to apply for an older person’s bus pass
       url: https://www.gov.uk/apply-for-elderly-person-bus-pass
       countries:
         - england
         - wales
+    - name: apply_for_an_older_persons_bus_pass_scotland
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
+      condition: eligible_for_an_older_persons_bus_pass?
+      url_text: Find out how to apply for an older person’s bus pass on the mygov.scot website
+      url: https://www.mygov.scot/older-persons-bus-pass
+      countries:
         - scotland
+    - name: apply_for_an_older_persons_bus_pass_ni
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
+      condition: eligible_for_an_older_persons_bus_pass?
+      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
+      countries:
         - northern-ireland
     - name: apply_for_a_disabled_persons_bus_pass
       title: Apply for a disabled person's bus pass
