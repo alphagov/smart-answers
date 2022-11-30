@@ -12,6 +12,8 @@ Bundler.require(*Rails.groups)
 
 module SmartAnswers
   class Application < Rails::Application
+    include GovukPublishingComponents::AppHelpers::AssetHelper
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = "London"
@@ -67,5 +69,7 @@ module SmartAnswers
 
     # Allow requests for all domains e.g. <app>.dev.gov.uk
     config.hosts.clear
+
+    config.assets.precompile << get_component_css_paths
   end
 end
