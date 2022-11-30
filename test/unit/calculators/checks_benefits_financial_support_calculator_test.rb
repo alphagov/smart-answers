@@ -462,6 +462,53 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#eligible_for_scottish_child_payment?" do
+        context "when eligible" do
+          should "be true if child living with you and aged 15 or under" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.on_benefits = "dont_know"
+            %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
+              calculator.age_of_children = age
+              assert calculator.eligible_for_scottish_child_payment?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if child is over 15" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "16_to_17"
+            calculator.on_benefits = "dont_know"
+            assert_not calculator.eligible_for_scottish_child_payment?
+          end
+
+          should "be false if child is not living with you" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "no"
+            assert_not calculator.eligible_for_scottish_child_payment?
+          end
+
+          should "be false if child if eligible but already claiming related benefit" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "yes"
+            calculator.current_benefits = "housing_benefit"
+            assert_not calculator.eligible_for_scottish_child_payment?
+          end
+
+          should "be false if child if eligible and not claiming benefits" do
+            calculator = CheckBenefitsFinancialSupportCalculator.new
+            calculator.children_living_with_you = "yes"
+            calculator.age_of_children = "2"
+            calculator.on_benefits = "no"
+            assert_not calculator.eligible_for_scottish_child_payment?
+          end
+        end
+      end
+
       context "#eligible_for_tax_free_childcare?" do
         context "when eligible" do
           should "be true if working, with children between 1 and 11" do

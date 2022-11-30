@@ -451,6 +451,17 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if you’re eligible for Universal Credit on the nidirect website"
     end
 
+    should "render Scottish Child Payment when eligible" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "2",
+                    on_benefits: "yes",
+                    current_benefits: "pension_credit"
+
+      assert_rendered_outcome text: "Scottish Child Payment"
+      assert_rendered_outcome text: "Check if you're eligible for Scottish Child Payment and how to apply on the mygov.scot website"
+    end
+
     should "render Tax-free childcare when eligible without a disabled child" do
       %w[england scotland wales northern-ireland].each do |country|
         add_responses where_do_you_live: country,

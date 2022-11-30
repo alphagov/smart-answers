@@ -163,6 +163,14 @@ module SmartAnswer::Calculators
       @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
 
+    def eligible_for_scottish_child_payment?
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15]
+      return false unless @children_living_with_you == "yes" && eligible_child_ages?(age_groups)
+      return false if @on_benefits == "no"
+
+      permitted_benefits?(%w[housing_benefit])
+    end
+
     def eligible_for_tax_free_childcare?
       return false if @are_you_working == "no"
       return false if @children_living_with_you == "no"
