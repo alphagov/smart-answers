@@ -1,3 +1,5 @@
+<% add_gem_component_stylesheet("govspeak") if question.body %>
+
 <%= render "smart_answers/inputs/caption", question: question %>
 <%= render "govuk_publishing_components/components/radio", {
   name: "response",

@@ -1,3 +1,5 @@
+<% add_gem_component_stylesheet("govspeak") %>
+
 <% outcome = @presenter.current_node %>
 <% content_for :outcome_title do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
