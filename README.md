@@ -56,4 +56,4 @@ Further guidance is available in [`docs/tasks`](docs/tasks).
 
 ## Licence
 
-[MIT License](./LICENSE.md)
+[MIT License](./LICENCE)
