@@ -60,6 +60,26 @@
       group: Supporting your income
       countries:
         - northern-ireland
+    - name: warm_home_discount_scheme
+      title: Warm Home Discount Scheme
+      description: <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - england
+        - wales
+    - name: warm_home_discount_scheme_scotland
+      title: Warm Home Discount Scheme
+      description: |
+        <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+
+        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier. Ask your supplier as soon as possible as the number of discounts is limited.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - scotland
     - name: housing_benefit
       title: Housing Benefit
       description: |
@@ -138,6 +158,15 @@
       group: Supporting your income
       countries:
         - northern-ireland
+    - name: scottish_child_payment
+      title: Scottish Child Payment
+      description: <p>You can apply for a weekly payment of £25 for each child you care for under 16 if you or your partner get certain benefits.</p>
+      condition: eligible_for_scottish_child_payment?
+      url: https://www.mygov.scot/scottish-child-payment
+      url_text: Check if you're eligible for Scottish Child Payment and how to apply on the mygov.scot website
+      group: Help with childcare costs
+      countries:
+        - scotland
     - name: tax_free_childcare
       title: Tax-Free Childcare
       description: <p>You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare.</p>
@@ -523,14 +552,28 @@
         - northern-ireland
     - name: apply_for_an_older_persons_bus_pass
       title: Apply for an older person's bus pass
-      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales, Scotland and Northern Ireland you can get a pass at 60.</p>
+      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
       condition: eligible_for_an_older_persons_bus_pass?
       url_text: Find out how to apply for an older person’s bus pass
       url: https://www.gov.uk/apply-for-elderly-person-bus-pass
       countries:
         - england
         - wales
+    - name: apply_for_an_older_persons_bus_pass_scotland
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
+      condition: eligible_for_an_older_persons_bus_pass?
+      url_text: Find out how to apply for an older person’s bus pass on the mygov.scot website
+      url: https://www.mygov.scot/older-persons-bus-pass
+      countries:
         - scotland
+    - name: apply_for_an_older_persons_bus_pass_ni
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
+      condition: eligible_for_an_older_persons_bus_pass?
+      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
+      countries:
         - northern-ireland
     - name: apply_for_a_disabled_persons_bus_pass
       title: Apply for a disabled person's bus pass
@@ -583,26 +626,6 @@
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
-    - name: warm_home_discount_scheme
-      title: Warm Home Discount Scheme
-      description: <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
-      condition: eligible_for_warm_home_discount_scheme?
-      url_text: Check if you’re eligible for the Warm Home Discount scheme
-      url: https://www.gov.uk/the-warm-home-discount-scheme
-      countries:
-        - england
-        - wales
-    - name: warm_home_discount_scheme_scotland
-      title: Warm Home Discount Scheme
-      description: |
-        <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
-
-        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier. Ask your supplier as soon as possible as the number of discounts is limited.</p>
-      condition: eligible_for_warm_home_discount_scheme?
-      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
-      url: https://www.gov.uk/the-warm-home-discount-scheme
-      countries:
-        - scotland
     - name: wales_fuel_support_scheme_payment
       title: Wales fuel support scheme payment
       description: <p>You may be able to claim a one-off £200 payment to help pay your fuel costs. Either you or your partner must be getting one of the qualifying benefits at any time between 1 September 2022 and 31 January 2023. You'll need to apply through your local council.</p>

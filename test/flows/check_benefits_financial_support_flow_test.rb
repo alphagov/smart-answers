@@ -451,6 +451,17 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if you’re eligible for Universal Credit on the nidirect website"
     end
 
+    should "render Scottish Child Payment when eligible" do
+      add_responses where_do_you_live: "scotland",
+                    children_living_with_you: "yes",
+                    age_of_children: "2",
+                    on_benefits: "yes",
+                    current_benefits: "pension_credit"
+
+      assert_rendered_outcome text: "Scottish Child Payment"
+      assert_rendered_outcome text: "Check if you're eligible for Scottish Child Payment and how to apply on the mygov.scot website"
+    end
+
     should "render Tax-free childcare when eligible without a disabled child" do
       %w[england scotland wales northern-ireland].each do |country|
         add_responses where_do_you_live: country,
@@ -896,12 +907,26 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Apply for an older person's bus pass" do
-      %w[england wales northern-ireland scotland].each do |country|
+      %w[england wales].each do |country|
         add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Apply for an older person's bus pass"
         assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
       end
+    end
+
+    should "render Apply for an older person's bus pass Scotland" do
+      add_responses where_do_you_live: "scotland", over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel if you are 60 or over."
+    end
+
+    should "render Apply for an older person's bus pass NI" do
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel if you are 60 or over."
     end
 
     should "render Apply for a disabled person's bus pass" do
