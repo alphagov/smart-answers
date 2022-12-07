@@ -17,7 +17,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= stylesheet_link_tag "print.css", media: "print" %>
     <%= javascript_include_tag "test-dependencies" if Rails.env.test? %>
     <%= javascript_include_tag "application", defer: true %>
     <%= yield :head %>

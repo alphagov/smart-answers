@@ -1,5 +1,4 @@
 //= link application.css
-//= link print.css
 //= link visualise.css
 //= link joint.css
 //= link application.js
