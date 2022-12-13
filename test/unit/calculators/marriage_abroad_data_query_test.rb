@@ -34,6 +34,7 @@ module SmartAnswer
                       countries_with_2_outcomes_marriage_or_pacs
                       countries_with_6_outcomes
                       countries_with_ceremony_location_outcomes
+                      countries_with_9_outcomes
                       countries_with_1_outcome]
             data = @data_query.marriage_data
 
@@ -315,6 +316,7 @@ module SmartAnswer
               countries_with_3_outcomes: %w[japan],
               countries_with_2_outcomes_marriage_or_pacs: %w[monaco],
               countries_with_ceremony_location_outcomes: %w[finland],
+              countries_with_9_outcomes: %w[chile],
               countries_with_1_outcome: %w[french-guiana],
             )
 
@@ -322,6 +324,7 @@ module SmartAnswer
                          %w[anguilla
                             bermuda
                             cayman-islands
+                            chile
                             finland
                             french-guiana
                             japan

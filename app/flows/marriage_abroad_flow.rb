@@ -87,8 +87,12 @@ class MarriageAbroadFlow < SmartAnswer::Flow
         calculator.partner_nationality = response
       end
 
-      next_node do
-        question :partner_opposite_or_same_sex?
+      next_node do |_response|
+        if calculator.nine_questions_country?
+          outcome :outcome_marriage_abroad_in_country
+        else
+          question :partner_opposite_or_same_sex?
+        end
       end
     end
 

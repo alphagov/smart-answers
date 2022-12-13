@@ -125,6 +125,7 @@ module SmartAnswer::Calculators
       countries_with_3_outcomes +
       countries_with_2_outcomes_marriage_or_pacs +
       countries_with_ceremony_location_outcomes +
+      countries_with_9_outcomes +
       countries_with_1_outcome).sort
     end
 
@@ -146,6 +147,10 @@ module SmartAnswer::Calculators
 
     def countries_with_6_outcomes
       country_outcomes(:countries_with_6_outcomes)
+    end
+
+    def countries_with_9_outcomes
+      country_outcomes(:countries_with_9_outcomes)
     end
 
     def countries_with_18_outcomes
