@@ -184,8 +184,7 @@ Depending on the document, you'll be asked to provide an original version or a p
 
   Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
 
-
-  ##3. Pay
+ ##3. Pay
 
   <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
@@ -195,7 +194,7 @@ Depending on the document, you'll be asked to provide an original version or a p
 
     If you’re unable to pay for the registration online, you can also pay in person at the Consular section of the [British Embassy, Khartoum](/government/world/organisations/british-embassy-khartoum/office/british-embassy-khartoum-main-contact).
   <% else %>
-    You should pay online for the registration. Email <birthregistrationenquiries@fcdo.gov.uk> if you’re unable to pay online.
+    You should pay online for the registration. Email <Overseas.RegistrationUnit@fcdo.gov.uk> if you’re unable to pay online.
   <% end %>
 
   Once you’ve paid you will be given a reference number to use on your birth registration form.
@@ -204,12 +203,11 @@ Depending on the document, you'll be asked to provide an original version or a p
              locals: { calculator: calculator } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees', locals: { document_return_fees: calculator.document_return_fees } %>
-
   <%= render partial: 'shared/births_and_deaths_registration/button', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk" } } %>
 
   The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from November the year after you register. 
         
-  If you need a copy sooner, email the name of the registered person, the registration date and reference number to <birthregistrationapplications@fcdo.gov.uk>. You’ll get a reply telling you how to get your copy and the cost - usually £50 plus courier fees.
+  If you need a copy sooner, email the name of the registered person, the registration date and reference number to <Overseas.RegistrationUnit@fcdo.gov.uk>. You’ll get a reply telling you how to get your copy and the cost - usually £50 plus courier fees.
        
         
   ##4. Send your registration
