@@ -184,10 +184,9 @@ Depending on the document, you'll be asked to provide an original version or a p
 
   Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
 
+ ##3. Pay
 
   <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
-
-  ##3. Pay
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% elsif calculator.country_of_birth == 'sudan' ||
     calculator.current_country == 'sudan' %>
@@ -204,7 +203,6 @@ Depending on the document, you'll be asked to provide an original version or a p
              locals: { calculator: calculator } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees', locals: { document_return_fees: calculator.document_return_fees } %>
-      
   <%= render partial: 'shared/births_and_deaths_registration/button', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk" } } %>
 
   The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from November the year after you register. 
