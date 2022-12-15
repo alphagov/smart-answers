@@ -9,10 +9,6 @@ $govuk-include-default-font-face: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 
-@import "components/intervention";
-@import "components/result-card";
-@import "components/result-item";
-@import "components/result-sections";
 @import "smart_answers";
 
 .desktop-min-height {
