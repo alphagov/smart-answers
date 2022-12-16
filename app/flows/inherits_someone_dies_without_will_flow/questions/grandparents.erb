@@ -6,3 +6,9 @@
   "yes": "Yes",
   "no": "No"
 ) %>
+
+<% text_for :hint do %>
+  <% if calculator.region == "england-and-wales"%>
+    If any grandparents survived the deceased but have since died, select 'Yes'.
+  <% end %>
+<% end %>

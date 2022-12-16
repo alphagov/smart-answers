@@ -6,3 +6,11 @@
   "yes": "Yes",
   "no": "No"
 ) %>
+
+<% if calculator.region == "england-and-wales"%>
+  <% text_for :hint do %>
+    If the deceased died before 1 January 1970 and their parents were not married when they were born, this does not include their father.
+
+    If any parents survived the deceased but have since died, select 'Yes'.
+  <% end %>
+<% end %>

@@ -3,7 +3,15 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  If a half-aunt or half-uncle has died before the deceased died, their children (the cousins of the deceased) inherit in their place.
+  <% if calculator.region == "england-and-wales" %>
+    If a half-aunt or half-uncle died before the deceased, their children (the half-cousins of the deceased) inherit in their place.
+
+    If any of these half-cousins died before the deceased, their children will inherit in their place.
+
+    If any half-aunts, half-uncles or their descendants died after the deceased, their share will become part of their own estate.
+  <% else %>
+    If a half-aunt or half-uncle has died before the deceased died, their children (the cousins of the deceased) inherit in their place.
+  <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>

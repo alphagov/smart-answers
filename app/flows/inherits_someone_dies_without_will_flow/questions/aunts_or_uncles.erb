@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  Did the deceased have any aunts or uncles?
+  <% if calculator.region == "england-and-wales"%>
+    Are there any living aunts or uncles, or any living descendants of deceased aunts or uncles (such as cousins)?
+  <% else %>
+    Did the deceased have any aunts or uncles?
+  <% end %>
 <% end %>
 
 <% options(
@@ -9,6 +13,6 @@
 
 <% if calculator.hint_needed_for_half_relations? %>
   <% text_for :hint do %>
-    This does not include half-aunts or half-uncles
+    This does not include half-aunts or half-uncles, who are half-sisters or half-brothers of the deceased’s parents. If any aunts, uncles or their descendants survived the deceased but have since died, select ‘Yes’.
   <% end %>
 <% end %>

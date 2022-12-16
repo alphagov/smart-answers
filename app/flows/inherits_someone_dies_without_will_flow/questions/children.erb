@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
+  Are there any living children or any other living descendants (such as grandchildren or great-grandchildren)?
 <% end %>
 
 <% options(
@@ -8,5 +8,11 @@
 ) %>
 
 <% text_for :hint do %>
-  Children include legally-adopted sons or daughters (but not stepchildren).
+  <% if calculator.region == "england-and-wales"%>
+    This includes legally adopted children and their descendants, but it does not include stepchildren and their descendants.
+
+    If any of the children or their descendants survived the deceased but have since died, select 'Yes'.
+  <% else %>
+    Children include legally-adopted sons or daughters (but not stepchildren).
+  <% end %>
 <% end %>
