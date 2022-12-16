@@ -1,9 +1,14 @@
 <% text_for :title do %>
-  Where did the deceased live?
+  Where was the deceased domiciled?
 <% end %>
 
 <% options(
   "england-and-wales": "England and Wales",
   "scotland": "Scotland",
-  "northern-ireland": "Northern Ireland"
+  "northern-ireland": "Northern Ireland",
+  "outside-uk": "Outside of the UK"
 ) %>
+
+<% text_for :hint do %>
+  The deceased was domiciled in the place that they considered their permanent home, or the place they intended to return to live permanently.
+<% end %>

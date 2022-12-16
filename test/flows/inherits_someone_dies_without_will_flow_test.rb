@@ -18,8 +18,20 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of partner? for any response" do
+      should "have a next node of partner? for England and Wales" do
         assert_next_node :partner?, for_response: "england-and-wales"
+      end
+
+      should "have a next node of partner? for Scotland" do
+        assert_next_node :partner?, for_response: "scotland"
+      end
+
+      should "have a next node of partner? for Northern Ireland" do
+        assert_next_node :partner?, for_response: "northern-ireland"
+      end
+
+      should "have an outcome for a non-UK domiciled deceased for Outside Uk" do
+        assert_next_node :outcome_68, for_response: "outside-uk"
       end
     end
   end

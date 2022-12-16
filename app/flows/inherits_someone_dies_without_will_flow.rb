@@ -12,6 +12,7 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
       option :"england-and-wales"
       option :scotland
       option :"northern-ireland"
+      option :"outside-uk"
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::InheritsSomeoneDiesWithoutWillCalculator.new
@@ -20,7 +21,11 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :partner?
+        if calculator.region == "outside-uk"
+          outcome :outcome_68
+        else
+          question :partner?
+        end
       end
     end
 
@@ -411,5 +416,7 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
     outcome :outcome_65
     outcome :outcome_66
     outcome :outcome_67
+
+    outcome :outcome_68
   end
 end
