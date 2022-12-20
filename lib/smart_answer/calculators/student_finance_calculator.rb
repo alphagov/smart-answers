@@ -14,10 +14,10 @@ module SmartAnswer
                     :tuition_fee_amount
 
       LOAN_MAXIMUMS = {
-        "2021-2022" => {
-          "at-home" => 7_987,
-          "away-outside-london" => 9_488,
-          "away-in-london" => 12_382,
+        "2023-2024" => {
+          "at-home" => 8_400,
+          "away-outside-london" => 9_978,
+          "away-in-london" => 13_002,
         },
         "2022-2023" => {
           "at-home" => 8_171,
@@ -27,10 +27,10 @@ module SmartAnswer
       }.freeze
 
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
-        "2021-2022" => {
-          "at-home" => 1902,
-          "away-in-london" => 3558,
-          "away-outside-london" => 2534,
+        "2023-2024" => {
+          "at-home" => 1955,
+          "away-in-london" => 3658,
+          "away-outside-london" => 2605,
         },
         "2022-2023" => {
           "at-home" => 1902,
@@ -40,9 +40,9 @@ module SmartAnswer
       }.freeze
 
       CHILD_CARE_GRANTS = {
-        "2021-2022" => {
-          "one-child" => 179.62,
-          "more-than-one-child" => 307.95,
+        "2023-2024" => {
+          "one-child" => 188.90,
+          "more-than-one-child" => 323.85,
         },
         "2022-2023" => {
           "one-child" => 183.75,
@@ -50,22 +50,22 @@ module SmartAnswer
         },
       }.freeze
 
-      CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 19_281.99
-      CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 27_499.55
+      CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 19_549.79
+      CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 27_958.19
 
       PARENTS_LEARNING_ALLOWANCE = {
-        "2021-2022" => 1_821,
+        "2023-2024" => 1_915,
         "2022-2023" => 1_863,
       }.freeze
 
-      PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_635.98
+      PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_739.98
 
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2021-2022" => 3_190,
+        "2023-2024" => 3_354,
         "2022-2023" => 3_263,
       }.freeze
 
-      ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_271.98
+      ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_453.98
 
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
@@ -73,10 +73,10 @@ module SmartAnswer
       }.freeze
 
       LOAN_MINIMUMS = {
-        "2021-2022" => {
-          "at-home" => 3_516,
-          "away-outside-london" => 4_422,
-          "away-in-london" => 6_166,
+        "2023-2024" => {
+          "at-home" => 3_698,
+          "away-outside-london" => 4_651,
+          "away-in-london" => 6_485,
         },
         "2022-2023" => {
           "at-home" => 3_597,
@@ -86,10 +86,10 @@ module SmartAnswer
       }.freeze
 
       INCOME_PENALTY_RATIO = {
-        "2021-2022" => {
-          "at-home" => 7.43,
-          "away-outside-london" => 7.36,
-          "away-in-london" => 7.24,
+        "2023-2024" => {
+          "at-home" => 7.08,
+          "away-outside-london" => 7.01,
+          "away-in-london" => 6.89,
         },
         "2022-2023" => {
           "at-home" => 7.27,
