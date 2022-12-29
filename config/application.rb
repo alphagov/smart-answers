@@ -55,10 +55,6 @@ module SmartAnswers
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
 
-    # allow overriding the asset host with an enironment variable, useful for
-    # when router is proxying to this app but asset proxying isn't set up.
-    config.asset_host = ENV["ASSET_HOST"]
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = "1.0"
 
