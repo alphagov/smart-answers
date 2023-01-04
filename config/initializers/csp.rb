@@ -1,1 +1,0 @@
-GovukContentSecurityPolicy.configure
