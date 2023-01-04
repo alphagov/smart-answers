@@ -135,7 +135,7 @@ GEM
       zendesk_api (~> 1.27)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    govspeak (7.0.0)
+    govspeak (7.0.1)
       actionview (>= 6)
       addressable (>= 2.3.8, < 3)
       govuk_publishing_components (>= 23)
@@ -220,7 +220,7 @@ GEM
       ruby2_keywords (>= 0.0.5)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    net-imap (0.3.3)
+    net-imap (0.3.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -250,7 +250,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (5.0.0)
+    public_suffix (5.0.1)
     puma (6.0.2)
       nio4r (~> 2.0)
     racc (1.6.2)
