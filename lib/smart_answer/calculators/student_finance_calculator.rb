@@ -14,39 +14,39 @@ module SmartAnswer
                     :tuition_fee_amount
 
       LOAN_MAXIMUMS = {
-        "2023-2024" => {
-          "at-home" => 8_400,
-          "away-outside-london" => 9_978,
-          "away-in-london" => 13_002,
-        },
         "2022-2023" => {
           "at-home" => 8_171,
           "away-outside-london" => 9_706,
           "away-in-london" => 12_667,
         },
+        "2023-2024" => {
+          "at-home" => 8_400,
+          "away-outside-london" => 9_978,
+          "away-in-london" => 13_002,
+        },
       }.freeze
 
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
-        "2023-2024" => {
-          "at-home" => 1955,
-          "away-in-london" => 3658,
-          "away-outside-london" => 2605,
-        },
         "2022-2023" => {
           "at-home" => 1902,
           "away-in-london" => 3558,
           "away-outside-london" => 2534,
         },
+        "2023-2024" => {
+          "at-home" => 1955,
+          "away-in-london" => 3658,
+          "away-outside-london" => 2605,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS = {
-        "2023-2024" => {
-          "one-child" => 188.90,
-          "more-than-one-child" => 323.85,
-        },
         "2022-2023" => {
           "one-child" => 183.75,
           "more-than-one-child" => 315.03,
+        },
+        "2023-2024" => {
+          "one-child" => 188.90,
+          "more-than-one-child" => 323.85,
         },
       }.freeze
 
@@ -54,15 +54,15 @@ module SmartAnswer
       CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 27_958.19
 
       PARENTS_LEARNING_ALLOWANCE = {
-        "2023-2024" => 1_915,
         "2022-2023" => 1_863,
+        "2023-2024" => 1_915,
       }.freeze
 
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_739.98
 
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2023-2024" => 3_354,
         "2022-2023" => 3_263,
+        "2023-2024" => 3_354,
       }.freeze
 
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_453.98
@@ -73,28 +73,28 @@ module SmartAnswer
       }.freeze
 
       LOAN_MINIMUMS = {
-        "2023-2024" => {
-          "at-home" => 3_698,
-          "away-outside-london" => 4_651,
-          "away-in-london" => 6_485,
-        },
         "2022-2023" => {
           "at-home" => 3_597,
           "away-outside-london" => 4_524,
           "away-in-london" => 6_308,
         },
+        "2023-2024" => {
+          "at-home" => 3_698,
+          "away-outside-london" => 4_651,
+          "away-in-london" => 6_485,
+        },
       }.freeze
 
       INCOME_PENALTY_RATIO = {
-        "2023-2024" => {
-          "at-home" => 7.08,
-          "away-outside-london" => 7.01,
-          "away-in-london" => 6.89,
-        },
         "2022-2023" => {
           "at-home" => 7.27,
           "away-outside-london" => 7.20,
           "away-in-london" => 7.08,
+        },
+        "2023-2024" => {
+          "at-home" => 7.08,
+          "away-outside-london" => 7.01,
+          "away-in-london" => 6.89,
         },
       }.freeze
 
