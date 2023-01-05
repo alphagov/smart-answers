@@ -402,6 +402,31 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
       assert_match(/Total SAP:\s*£10,569.78/, @test_flow.outcome_text)
     end
 
+    should "render when an employee is entitled to statutory adoption pay and exactly on the threshold" do
+      add_responses(
+        what_type_of_leave?: "adoption",
+        taking_paternity_or_maternity_leave_for_adoption?: "maternity",
+        adoption_is_from_overseas?: "no",
+        date_of_adoption_match?: "2022-12-15",
+        date_of_adoption_placement?: "2022-12-15",
+        adoption_did_the_employee_work_for_you?: "yes",
+        adoption_employment_contract?: "yes",
+        adoption_is_the_employee_on_your_payroll?: "yes",
+        adoption_date_leave_starts?: "2022-12-15",
+        last_normal_payday_adoption?: "2022-11-30",
+        payday_eight_weeks_adoption?: "2022-09-30",
+        pay_frequency_adoption?: "monthly",
+        earnings_for_pay_period_adoption?: "1066.0",
+        how_many_payments_monthly?: "2",
+        how_do_you_want_the_sap_calculated?: "weekly_starting",
+      )
+
+      # lower limit for 2021 - 2022 is £123/w, 1066/m
+      assert_rendered_outcome text: "The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP)"
+
+      assert_match(/Total SAP:\s*£4,317.30/, @test_flow.outcome_text)
+    end
+
     should "render when an employee is not entitled to statutory adoption pay due to no payroll" do
       add_responses maternity_adoption_responses.merge(adoption_is_the_employee_on_your_payroll?: "no")
 
