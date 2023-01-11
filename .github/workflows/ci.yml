@@ -39,32 +39,5 @@ jobs:
 
   test-ruby:
     name: Test Ruby
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Checkout Publishing API (for Content Schemas)
-        uses: actions/checkout@v3
-        with:
-          repository: alphagov/publishing-api
-          ref: deployed-to-production
-          path: vendor/publishing-api
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Setup Node
-        uses: alphagov/govuk-infrastructure/.github/actions/setup-node@main
-
-      - name: Precompile assets
-        uses: alphagov/govuk-infrastructure/.github/actions/precompile-rails-assets@main
-
-      - name: Run Minitest
-        env:
-          RAILS_ENV: test
-          GOVUK_CONTENT_SCHEMAS_PATH: vendor/publishing-api/content_schemas
-        run: bundle exec rake test
+    uses: ./.github/workflows/minitest.yml
 
