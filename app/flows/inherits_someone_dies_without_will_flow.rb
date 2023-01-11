@@ -40,20 +40,36 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
 
       next_node do
         case calculator.region
-        when "england-and-wales", "northern-ireland"
+        when "england-and-wales"
           if calculator.partner?
-            case calculator.region
-            when "england-and-wales"
-              question :estate_over_270000?
-            when "northern-ireland"
-              question :estate_over_250000?
-            end
+            question :date_of_death?
+          else
+            question :children?
+          end
+        when "northern-ireland"
+          if calculator.partner?
+            question :estate_over_250000?
           else
             question :children?
           end
         when "scotland"
           question :children?
         end
+      end
+    end
+
+    # Q3 (England and Wales)
+    radio :date_of_death? do
+      option :"before-oct-2014"
+      option :"oct-2014-feb-2020"
+      option :"after-feb-2020"
+
+      on_response do |response|
+        calculator.date_of_death = response
+      end
+
+      next_node do
+        question :children?
       end
     end
 
@@ -76,25 +92,6 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
       end
     end
 
-    # Q3 (England and Wales)
-    radio :estate_over_270000? do
-      option :yes
-      option :no
-
-      on_response do |response|
-        calculator.estate_over_270000 = response
-        calculator.next_steps = [:wills_link] unless calculator.estate_over_270000?
-      end
-
-      next_node do
-        if calculator.estate_over_270000?
-          question :children?
-        else
-          outcome :outcome_1
-        end
-      end
-    end
-
     # Q4
     radio :children? do
       option :yes
@@ -108,10 +105,25 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
         case calculator.region
         when "england-and-wales"
           if calculator.partner?
-            if calculator.children?
-              outcome :outcome_20
-            else
-              outcome :outcome_1
+            case calculator.date_of_death
+            when "before-oct-2014"
+              if calculator.children?
+                outcome :outcome_10
+              else
+                outcome :outcome_11
+              end
+            when "oct-2014-feb-2020"
+              if calculator.children?
+                outcome :outcome_12
+              else
+                outcome :outcome_14
+              end
+            when "after-feb-2020"
+              if calculator.children?
+                outcome :outcome_13
+              else
+                outcome :outcome_14
+              end
             end
           elsif calculator.children?
             outcome :outcome_2
@@ -395,7 +407,12 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
     outcome :outcome_5
     outcome :outcome_6
 
-    outcome :outcome_20
+    outcome :outcome_10
+    outcome :outcome_11
+    outcome :outcome_12
+    outcome :outcome_13
+    outcome :outcome_14
+
     outcome :outcome_23
     outcome :outcome_24
     outcome :outcome_25
