@@ -1,0 +1,49 @@
+name: Run Minitest
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'
+        required: false
+        type: string
+      publishingApiRef:
+        description: 'The branch, tag or SHA to checkout Publishing API'
+        required: false
+        default: 'deployed-to-production'
+        type: string
+
+jobs:
+  run-minitest:
+    name: Run Minitest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          repository: alphagov/smart-answers
+          ref: ${{ inputs.ref || github.ref }}
+
+      - name: Checkout Publishing API (for Content Schemas)
+        uses: actions/checkout@v3
+        with:
+          repository: alphagov/publishing-api
+          ref: ${{ inputs.publishingApiRef }}
+          path: vendor/publishing-api
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: alphagov/govuk-infrastructure/.github/actions/setup-node@main
+
+      - name: Precompile assets
+        uses: alphagov/govuk-infrastructure/.github/actions/precompile-rails-assets@main
+
+      - name: Run Minitest
+        env:
+          RAILS_ENV: test
+          GOVUK_CONTENT_SCHEMAS_PATH: vendor/publishing-api/content_schemas
+        run: bundle exec rake test
