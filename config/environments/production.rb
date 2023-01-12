@@ -24,6 +24,8 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
+  # Compress JavaScripts.
+  config.assets.js_compressor = :uglifier
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
@@ -35,6 +37,10 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
+
+  # Rather than use a CSS compressor, use the SASS style to perform compression.
+  config.sass.style = :compressed
+  config.sass.line_comments = false
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
