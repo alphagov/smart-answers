@@ -31,7 +31,6 @@
     "extends": "stylelint-config-gds/scss"
   },
   "dependencies": {
-    "accessible-autocomplete": "^2.0.4",
     "jasmine-browser-runner": "^1.2.0",
     "jasmine-core": "^4.5.0"
   },
