@@ -1,7 +1,0 @@
-@import "accessible-autocomplete/dist/accessible-autocomplete.min"; // stylelint-disable scss/at-import-partial-extension
-
-.app-c-autocomplete {
-  .autocomplete__option {
-    @include govuk-font(19);
-  }
-}
