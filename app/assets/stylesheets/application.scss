@@ -14,7 +14,6 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/components/error-summary";
 @import "govuk_publishing_components/components/fieldset";
 @import "govuk_publishing_components/components/govspeak";
-@import "govuk_publishing_components/components/intervention";
 @import "govuk_publishing_components/components/print-link";
 @import "govuk_publishing_components/components/radio";
 @import "govuk_publishing_components/components/related-navigation";
@@ -26,7 +25,6 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/components/table";
 @import "govuk_publishing_components/components/warning-text";
 
-@import "components/intervention";
 @import "components/result-card";
 @import "components/result-item";
 @import "components/result-sections";
