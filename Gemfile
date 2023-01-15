@@ -5,6 +5,7 @@ ruby File.read(".ruby-version").chomp
 gem "rails", "7.0.4"
 
 gem "ast"
+gem "bootsnap", require: false
 gem "gds-api-adapters"
 gem "gds_zendesk"
 gem "govspeak"
