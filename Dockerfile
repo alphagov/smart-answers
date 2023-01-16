@@ -1,29 +1,26 @@
-ARG base_image=ghcr.io/alphagov/govuk-ruby-base:3.1.2
-ARG builder_image=ghcr.io/alphagov/govuk-ruby-builder:3.1.2
+ARG ruby_version=3.1.2
+ARG base_image=ghcr.io/alphagov/govuk-ruby-base:$ruby_version
+ARG builder_image=ghcr.io/alphagov/govuk-ruby-builder:$ruby_version
+
 
 FROM $builder_image AS builder
 
-ENV BUNDLE_WITHOUT="development test webkit"
-
-RUN mkdir -p /app && ln -fs /tmp /app/tmp && ln -fs /tmp /home/app
-WORKDIR /app
-COPY Gemfile Gemfile.lock .ruby-version /app/
+WORKDIR $APP_HOME
+COPY Gemfile* .ruby-version ./
 RUN bundle install
-COPY . /app
-RUN bundle exec rails assets:precompile && rm -fr /app/log
+COPY . .
+RUN bootsnap precompile --gemfile .
+RUN rails assets:precompile && rm -fr log
 
 
 FROM $base_image
 
-ENV GOVUK_APP_NAME=smartanswers
+ENV GOVUK_APP_NAME=smart-answers
 
-RUN mkdir -p /app && ln -fs /tmp /app/tmp && ln -fs /tmp /home/app
-WORKDIR /app
-
-COPY --from=builder /usr/bin/node* /usr/bin/
-COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
-COPY --from=builder /app ./
+WORKDIR $APP_HOME
+COPY --from=builder $BUNDLE_PATH $BUNDLE_PATH
+COPY --from=builder $BOOTSNAP_CACHE_DIR $BOOTSNAP_CACHE_DIR
+COPY --from=builder $APP_HOME .
 
 USER app
-
-CMD ["bundle", "exec", "puma"]
+CMD ["puma"]
