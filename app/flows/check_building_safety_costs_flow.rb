@@ -4,6 +4,19 @@ class CheckBuildingSafetyCostsFlow < SmartAnswer::Flow
     content_id "29355604-e9a1-499a-9b0c-18abd833f02e"
     status :published
 
+    radio :building_over_11_metres? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        if response == "yes"
+          question :developer_agreed_to_pay?
+        else
+          outcome :unlikely_to_need_to_pay
+        end
+      end
+    end
+
     radio :developer_agreed_to_pay? do
       option :yes
       option :no
@@ -13,20 +26,7 @@ class CheckBuildingSafetyCostsFlow < SmartAnswer::Flow
         if response == "yes"
           outcome :developers_pay
         else
-          question :building_over_11_metres?
-        end
-      end
-    end
-
-    radio :building_over_11_metres? do
-      option :yes
-      option :no
-
-      next_node do |response|
-        if response == "yes"
           question :owned_by_leaseholders?
-        else
-          outcome :unlikely_to_need_to_pay
         end
       end
     end
