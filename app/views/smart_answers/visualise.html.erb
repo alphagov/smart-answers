@@ -9,9 +9,10 @@
 <%= stylesheet_link_tag 'visualise' %>
 <% end %>
 
-<script defer="false">
+<%# Use of defer is to hoist this JS to head with slimmer, it's totally a hack %>
+<%= javascript_tag(nonce: true, defer: true) do -%>
   var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
-</script>
+<%- end %>
 
 <%= render "govuk_publishing_components/components/title", {
   context: "Flow visualisation for",
