@@ -450,7 +450,6 @@ DEPENDENCIES
   json
   launchy
   listen
-  mail
   method_source
   minitest
   minitest-focus
