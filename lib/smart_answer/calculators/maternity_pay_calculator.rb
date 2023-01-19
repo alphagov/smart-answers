@@ -335,7 +335,7 @@ module SmartAnswer::Calculators
     end
 
     def above_lower_earning_limit
-      average_weekly_earnings > lower_earning_limit
+      average_weekly_earnings >= lower_earning_limit
     end
 
     def pay_dates_and_pay
