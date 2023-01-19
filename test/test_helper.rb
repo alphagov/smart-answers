@@ -16,7 +16,6 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 require "gds_api/test_helpers/json_client_helper"
 require "gds_api/test_helpers/content_store"
-require "gds_api/test_helpers/imminence"
 require "gds_api/test_helpers/publishing_api"
 require "gds_api/test_helpers/worldwide"
 require_relative "support/fixture_methods"
@@ -24,7 +23,6 @@ require_relative "support/fixture_methods"
 class ActiveSupport::TestCase
   include FixtureMethods
   include GdsApi::TestHelpers::ContentStore
-  include GdsApi::TestHelpers::Imminence
   include GdsApi::TestHelpers::PublishingApi
   include GdsApi::TestHelpers::Worldwide
   include ActionDispatch::Assertions
