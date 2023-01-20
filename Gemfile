@@ -9,7 +9,7 @@ gem "bootsnap", require: false
 gem "gds-api-adapters"
 gem "gds_zendesk"
 gem "govspeak"
-gem "govuk_app_config"
+gem "govuk_app_config", github: "alphagov/govuk_app_config", branch: "aspirational-csp"
 gem "govuk_publishing_components"
 gem "htmlentities"
 gem "httparty"

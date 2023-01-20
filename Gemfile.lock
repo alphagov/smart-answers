@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_app_config.git
+  revision: 305aa894796ac4c7d074c82c22a734f2368052a0
+  branch: aspirational-csp
+  specs:
+    govuk_app_config (4.13.0)
+      logstasher (~> 2.1)
+      plek (>= 4, < 6)
+      prometheus_exporter (~> 2.0)
+      puma (>= 5.6, < 7.0)
+      rack-proxy (~> 0.7)
+      sentry-rails (~> 5.3)
+      sentry-ruby (~> 5.3)
+      statsd-ruby (~> 1.5)
+      unicorn (~> 6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -147,16 +163,6 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (~> 6)
-    govuk_app_config (4.13.0)
-      logstasher (~> 2.1)
-      plek (>= 4, < 6)
-      prometheus_exporter (~> 2.0)
-      puma (>= 5.6, < 7.0)
-      rack-proxy (~> 0.7)
-      sentry-rails (~> 5.3)
-      sentry-ruby (~> 5.3)
-      statsd-ruby (~> 1.5)
-      unicorn (~> 6.1)
     govuk_personalisation (0.12.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
@@ -441,7 +447,7 @@ DEPENDENCIES
   gds-api-adapters
   gds_zendesk
   govspeak
-  govuk_app_config
+  govuk_app_config!
   govuk_publishing_components
   govuk_schemas
   govuk_test
