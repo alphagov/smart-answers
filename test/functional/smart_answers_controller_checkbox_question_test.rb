@@ -12,7 +12,7 @@ class SmartAnswersControllerCheckboxQuestionTest < ActionController::TestCase
   context "checkbox question" do
     should "display question" do
       get :show, params: { id: "checkbox-sample", started: "y" }
-      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l .govuk-caption-l", "Sample checkbox question"
+      assert_select ".govuk-caption-l", "Sample checkbox question"
       assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /What do you want on your pizza\?/
       assert_select "input[type=checkbox][name=\"response[]\"]"
     end
