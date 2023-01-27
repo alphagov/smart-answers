@@ -12,7 +12,7 @@ class SmartAnswersControllerRadioQuestionTest < ActionController::TestCase
   context "radio question" do
     should "display question" do
       get :show, params: { id: "radio-sample", started: "y" }
-      assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l .govuk-caption-l", "Sample radio question"
+      assert_select ".govuk-caption-l", "Sample radio question"
       assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--l h1.govuk-fieldset__heading", /Hotter or colder\?/
       assert_select "input[type=radio][name=response]"
     end
