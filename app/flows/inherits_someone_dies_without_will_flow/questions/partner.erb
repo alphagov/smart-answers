@@ -7,6 +7,15 @@
   "no": "No"
 ) %>
 
-<% text_for :hint do %>
-  A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
+<% govspeak_for :hint do %>
+  <% if calculator.region == "england-and-wales"%>
+    You should still select ‘Yes’ even if:
+
+    - the deceased died on or after 1 January 1996 and their husband, wife or civil partner died more than 28 days later
+    - the deceased died before 1 January 1996 and their husband, wife or civil partner died at any time after
+
+    A partner who was not married or in a civil partnership with the deceased has no automatic right to inherit.
+  <% else %>
+    A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
+  <% end %>
 <% end %>

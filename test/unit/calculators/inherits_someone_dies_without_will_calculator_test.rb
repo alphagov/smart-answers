@@ -10,7 +10,6 @@ module SmartAnswer::Calculators
       %i[
         partner
         estate_over_250000
-        estate_over_270000
         children
         parents
         siblings

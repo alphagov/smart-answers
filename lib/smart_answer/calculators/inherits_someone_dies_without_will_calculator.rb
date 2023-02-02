@@ -1,15 +1,11 @@
 module SmartAnswer::Calculators
   class InheritsSomeoneDiesWithoutWillCalculator
-    attr_accessor :region, :next_steps, :partner, :estate_over_250000, :estate_over_270000, :children, :parents,
+    attr_accessor :region, :next_steps, :partner, :estate_over_250000, :date_of_death, :children, :parents,
                   :siblings, :siblings_including_mixed_parents, :grandparents, :aunts_or_uncles, :half_siblings,
                   :half_aunts_or_uncles, :great_aunts_or_uncles, :more_than_one_child
 
     def estate_over_250000?
       estate_over_250000 == "yes"
-    end
-
-    def estate_over_270000?
-      estate_over_270000 == "yes"
     end
 
     def children?

@@ -1,9 +1,17 @@
 <% text_for :title do %>
-  The estate is shared equally between the parents.
+ <% if calculator.region == "england-and-wales"%>
+    The estate is shared equally between any living parents.
+ <% else %>
+    The estate is shared equally between the parents.
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
-  They may have to pay Inheritance Tax.
+  <% if calculator.region == "england-and-wales"%>
+    If any parents died after the deceased, their share will become part of their own estate.
+  <% else %>
+    They may have to pay Inheritance Tax.
+  <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>

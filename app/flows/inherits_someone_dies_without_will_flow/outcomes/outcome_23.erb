@@ -3,7 +3,15 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  If a half-brother or half-sister has died before the deceased died, their children (nieces and nephews of the deceased) inherit in their place.
+  <% if calculator.region == "england-and-wales"%>
+    If a half-brother or half-sister died before the deceased, their children (half-nieces and half-nephews of the deceased) will inherit in their place.
+
+    If any of these half-nieces or half-nephews died before the deceased, their children will inherit in their place.
+
+    If any half-brothers, half-sisters or their descendants died after the deceased, their share will become part of their own estate.
+  <% else %>
+    If a half-brother or half-sister has died before the deceased died, their children (nieces and nephews of the deceased) inherit in their place.
+  <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>

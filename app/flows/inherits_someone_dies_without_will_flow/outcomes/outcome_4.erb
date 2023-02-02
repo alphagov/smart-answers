@@ -1,9 +1,21 @@
 <% text_for :title do %>
-  The estate is shared equally between the brothers or sisters.
+  <% if calculator.region == "england-and-wales"%>
+    The estate is shared equally between the brothers or sisters (not including any step-brothers, step-sisters, half-brothers or half-sisters).
+  <% else %>
+    The estate is shared equally between the brothers or sisters.
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
-  If a brother or sister has died before the deceased died, their children (nieces and nephews of the deceased) inherit in their place.
+  <% if calculator.region == "england-and-wales"%>
+    If a brother or sister died before the deceased, their children (nieces and nephews of the deceased) will inherit in their place.
+
+    If any of these nieces or nephews died before the deceased, their children will inherit in their place.
+
+    If any brothers, sisters or their descendants died after the deceased, their share will become part of their own estate.
+  <% else %>
+    If a brother or sister has died before the deceased died, their children (nieces and nephews of the deceased) inherit in their place.
+  <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>

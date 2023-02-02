@@ -1,9 +1,23 @@
 <% text_for :title do %>
-  The estate is shared equally between the children or their descendants.
+  <% if calculator.region == "england-and-wales"%>
+    The estate is shared equally between the living children.
+  <% else %>
+    The estate is shared equally between the children or their descendants.
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
-  If a son or daughter has died before the deceased died, their children will inherit in their place.
+ <% if calculator.region == "england-and-wales"%>
+    If any of the children died before the deceased died, their children (grandchildren of the deceased) will inherit in their place.
+
+    If any of these grandchildren died before the deceased, their children (great-grandchildren of the deceased) will inherit in their place.
+
+    If any of these descendants died after the deceased, their share will become part of their own estate.
+
+    ^If the deceased died before 1 January 1970, children who were born when their parents were not married cannot inherit if there are other children who were born when their parents were married.
+ <% else %>
+    If a son or daughter has died before the deceased died, their children will inherit in their place.
+  <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>

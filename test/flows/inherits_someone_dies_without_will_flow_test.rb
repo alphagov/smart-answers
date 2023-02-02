@@ -18,8 +18,20 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of partner? for any response" do
+      should "have a next node of partner? for England and Wales" do
         assert_next_node :partner?, for_response: "england-and-wales"
+      end
+
+      should "have a next node of partner? for Scotland" do
+        assert_next_node :partner?, for_response: "scotland"
+      end
+
+      should "have a next node of partner? for Northern Ireland" do
+        assert_next_node :partner?, for_response: "northern-ireland"
+      end
+
+      should "have an outcome for a non-UK domiciled deceased for Outside Uk" do
+        assert_next_node :outcome_68, for_response: "outside-uk"
       end
     end
   end
@@ -35,8 +47,8 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of estate_over_270000? for a 'yes' if region is england-and-wales" do
-        assert_next_node :estate_over_270000?, for_response: "yes"
+      should "have a next node of date_of_death? for a 'yes' if region is england-and-wales" do
+        assert_next_node :date_of_death?, for_response: "yes"
       end
 
       should "have a next node of children? for a 'no' if region is england-and-wales" do
@@ -82,9 +94,9 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "question: estate_over_270000?" do
+  context "question: date_of_death?" do
     setup do
-      testing_node :estate_over_270000?
+      testing_node :date_of_death?
       add_responses region?: "england-and-wales",
                     partner?: "yes"
     end
@@ -94,12 +106,14 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of children? for a 'yes' response" do
-        assert_next_node :children?, for_response: "yes"
+      should "have a next node of children? for before-oct-2014" do
+        assert_next_node :children?, for_response: "before-oct-2014"
       end
-
-      should "have a next node of outcome_1 for a 'no' response" do
-        assert_next_node :outcome_1, for_response: "no"
+      should "have a next node of children? for oct-2014-feb-2020" do
+        assert_next_node :children?, for_response: "oct-2014-feb-2020"
+      end
+      should "have a next node of children? for after-feb-2020" do
+        assert_next_node :children?, for_response: "after-feb-2020"
       end
     end
   end
@@ -109,7 +123,7 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
       testing_node :children?
       add_responses region?: "england-and-wales",
                     partner?: "yes",
-                    estate_over_270000?: "yes"
+                    date_of_death?: "before-oct-2014"
     end
 
     should "render the question" do
@@ -117,12 +131,32 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of outcome_20 for a 'yes' response if has partner and region is england-and-wales" do
-        assert_next_node :outcome_20, for_response: "yes"
+      should "have a next node of outcome_10 for a 'yes' response if has partner and region is england-and-wales and deceased died before-oct-2014" do
+        assert_next_node :outcome_10, for_response: "yes"
       end
 
-      should "have a next node of outcome_1 for a 'no' response if has partner and region is england-and-wales" do
-        assert_next_node :outcome_1, for_response: "no"
+      should "have a next node of outcome_1 for a 'no' response if has partner and region is england-and-wales and deceased died before-oct-2014" do
+        assert_next_node :outcome_11, for_response: "no"
+      end
+
+      should "have a next node of outcome_12 for a 'yes' response if has partner and region is england-and-wales and deceased died betweeen oct-2014-feb-2020" do
+        add_responses date_of_death?: "oct-2014-feb-2020"
+        assert_next_node :outcome_12, for_response: "yes"
+      end
+
+      should "have a next node of outcome_14 for a 'no' response if has partner and region is england-and-wales and deceased died betweeen oct-2014-feb-2020" do
+        add_responses date_of_death?: "oct-2014-feb-2020"
+        assert_next_node :outcome_14, for_response: "no"
+      end
+
+      should "have a next node of outcome_13 for a 'yes' response if has partner and region is england-and-wales and deceased died after-feb-2020" do
+        add_responses date_of_death?: "after-feb-2020"
+        assert_next_node :outcome_13, for_response: "yes"
+      end
+
+      should "have a next node of outcome_14 for a 'no' response if has partner and region is england-and-wales and deceased died after-feb-2020" do
+        add_responses date_of_death?: "after-feb-2020"
+        assert_next_node :outcome_14, for_response: "no"
       end
 
       should "have a next node of outcome_2 for a 'yes' response if has no partner and region is england-and-wales" do
@@ -383,14 +417,12 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of outcome_5 for a 'yes' response if region is england-and-wales" do
         add_responses region?: "england-and-wales",
-                      estate_over_270000?: "yes",
                       half_siblings?: "no"
         assert_next_node :outcome_5, for_response: "yes"
       end
 
       should "have a next node of aunts_or_uncles? for a 'no' response if region is england-and-wales" do
         add_responses region?: "england-and-wales",
-                      estate_over_270000?: "yes",
                       half_siblings?: "no"
         assert_next_node :aunts_or_uncles?, for_response: "no"
       end
@@ -456,7 +488,6 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of outcome_6 'yes' response if region is england-and-wales" do
         add_responses region?: "england-and-wales",
-                      estate_over_270000?: "yes",
                       half_siblings?: "no",
                       grandparents?: "no"
         assert_next_node :outcome_6, for_response: "yes"
@@ -464,7 +495,6 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
 
       should "have a next node of half_aunts_or_uncles? 'no' response if region is england-and-wales" do
         add_responses region?: "england-and-wales",
-                      estate_over_270000?: "yes",
                       half_siblings?: "no",
                       grandparents?: "no"
         assert_next_node :half_aunts_or_uncles?, for_response: "no"
@@ -601,18 +631,18 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
   context "outcome: outcome_1" do
     setup do
       testing_node :outcome_1
-      add_responses region?: "england-and-wales",
+      add_responses region?: "scotland",
                     partner?: "yes",
-                    estate_over_270000?: "no"
+                    children?: "no",
+                    parents?: "no",
+                    siblings?: "no"
     end
 
-    should "render wills link if estate under 270000" do
+    should "render wills link" do
       assert_rendered_outcome text: "Read the guide to wills, probate and inheritance."
     end
 
-    should "render inheritance link if estate over 270000 and no children" do
-      add_responses estate_over_270000?: "yes",
-                    children?: "no"
+    should "render inheritance link" do
       assert_rendered_outcome text: "Inheritance Tax"
     end
   end

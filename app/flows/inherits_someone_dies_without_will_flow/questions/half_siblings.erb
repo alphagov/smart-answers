@@ -1,8 +1,18 @@
 <% text_for :title do %>
-  Did the deceased have any half-brothers or half-sisters?
+  <% if calculator.region == "england-and-wales" %>
+    Are there any living half-brothers or half-sisters, or any living descendants of deceased half-brothers or half-sisters (such as half-nephews or half-nieces)?
+  <%else %>
+    Did the deceased have any half-brothers or half-sisters?
+  <% end %>
 <% end %>
 
 <% options(
   "yes": "Yes",
   "no": "No"
 ) %>
+
+<% if calculator.region == "england-and-wales" %>
+  <% text_for :hint do %>
+    If any half-brothers, half-sisters or their descendants survived the deceased but have since died, select 'Yes'.
+  <% end %>
+<% end %>
