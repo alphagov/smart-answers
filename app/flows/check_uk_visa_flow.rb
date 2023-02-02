@@ -8,7 +8,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     additional_countries = UkbaCountry.all
 
     # Q1
-    country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: SmartAnswer::Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
+    country_select :what_passport_do_you_have?, additional_countries:, exclude_countries: SmartAnswer::Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::UkVisaCalculator.new
         calculator.passport_country = response

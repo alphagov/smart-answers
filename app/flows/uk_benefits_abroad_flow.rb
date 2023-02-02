@@ -74,7 +74,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
     end
 
     ## Country Question - Shared
-    country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+    country_select(:which_country?, additional_countries:, exclude_countries:) do
       on_response do |response|
         calculator.country = response
         calculator.country_name = (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
