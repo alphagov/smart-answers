@@ -40,7 +40,6 @@ countries_with_18_outcomes:
   - cayman-islands
   - central-african-republic
   - chad
-  - chile
   - china
   - colombia
   - comoros
@@ -220,6 +219,8 @@ countries_with_ceremony_location_outcomes:
   - denmark
   - finland
   - iceland
+countries_with_9_outcomes:
+  - chile
 countries_with_1_outcome:
   - france
   - french-guiana

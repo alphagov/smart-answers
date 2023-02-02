@@ -32,6 +32,7 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
                    countries_with_1_outcome
                    countries_with_2_outcomes
                    countries_with_6_outcomes
+                   countries_with_9_outcomes
                    countries_with_18_outcomes]
     all_types.sum([]) { |t| countries_list(t) }
   end
@@ -538,6 +539,76 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
           add_responses legal_residency?: "uk",
                         what_is_your_partners_nationality?: "partner_other",
                         partner_opposite_or_same_sex?: "same_sex"
+          assert_rendered_outcome
+        end
+      end
+    end
+
+    countries_list(:countries_with_9_outcomes).each do |country|
+      context "9 outcome country: #{country}" do
+        setup do
+          # stubbing a single country at a time makes this test > 60s faster
+          stub_worldwide_api([country])
+          add_responses country_of_ceremony?: country
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is British" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_british"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is local" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_local"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the ceremony country " \
+               "and the partner is not local" do
+          add_responses legal_residency?: "ceremony_country",
+                        what_is_your_partners_nationality?: "partner_other"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is British" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_british"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is local" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_local"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in a different country " \
+               "and the partner is not local" do
+          add_responses legal_residency?: "third_country",
+                        what_is_your_partners_nationality?: "partner_other"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is British" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_british"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is local" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_local"
+          assert_rendered_outcome
+        end
+
+        should "render an outcome where residency is in the UK and the partner is not local" do
+          add_responses legal_residency?: "uk",
+                        what_is_your_partners_nationality?: "partner_other"
           assert_rendered_outcome
         end
       end

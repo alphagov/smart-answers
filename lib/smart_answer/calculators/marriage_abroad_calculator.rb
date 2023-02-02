@@ -198,6 +198,8 @@ module SmartAnswer::Calculators
         [ceremony_country, ceremony_location_path_name, marriage_type_path_name]
       elsif four_questions_country?
         [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
+      elsif nine_questions_country?
+        [ceremony_country, ceremony_location_path_name, partner_nationality_path_name]
       end
     end
 
@@ -224,6 +226,10 @@ module SmartAnswer::Calculators
 
     def three_questions_country?
       @data_query.countries_with_6_outcomes.include?(ceremony_country)
+    end
+
+    def nine_questions_country?
+      @data_query.countries_with_9_outcomes.include?(ceremony_country)
     end
 
     def four_questions_country?
