@@ -19,7 +19,7 @@ class AllSmartAnswerQuestionsFlow < SmartAnswer::Flow
       end
     end
 
-    country_select :which_country?, additional_countries: additional_countries do
+    country_select(:which_country?, additional_countries:) do
       next_node do
         question :which_year?
       end

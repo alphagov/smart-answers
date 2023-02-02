@@ -15,7 +15,7 @@ class MarriageAbroadFlow < SmartAnswer::Flow
     exclude_countries = %w[samoa mali holy-see british-antarctic-territory the-occupied-palestinian-territories]
 
     # Q1
-    country_select :country_of_ceremony?, exclude_countries: exclude_countries do
+    country_select(:country_of_ceremony?, exclude_countries:) do
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::MarriageAbroadCalculator.new
         calculator.ceremony_country = response
