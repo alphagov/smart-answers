@@ -10,10 +10,17 @@
       restart_flow_path(@presenter),
       class: "govuk-link",
       data: {
-        module: "gem-track-click",
+        module: "gem-track-click ga4-link-tracker",
         "track-action": "Start again",
         "track-category": "StartAgain",
-        "track-label": @presenter.current_node.title
+        "track-label": @presenter.current_node.title,
+        ga4_link: {
+          event_name: "form_start_again",
+          type: "smart answer",
+          section: @presenter.current_node.title,
+          action: "start again",
+          tool_name: @presenter.title,
+        }
       } %>
   <% end %>
   <% items = @presenter.answered_questions.map do |question|
