@@ -42,6 +42,16 @@
           href: @presenter.start_page_link(response_store.forwarding_responses),
           rel: "nofollow",
           start: true,
+          data_attributes: {
+            module: 'ga4-link-tracker',
+            ga4_link: {
+              event_name: "form_start",
+              type: "smart answer",
+              section: "start page",
+              action: "start",
+              tool_name: start_node.title,
+            }
+          }
         } %>
       </section>
 
