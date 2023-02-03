@@ -7,11 +7,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render 'smart_answers/shared/debug' %>
+    <%
+      continue_button_text = "Continue"
+      ga4_attributes = {
+        event_name: "form_response",
+        type: "smart answer",
+        section: question.title,
+        action: continue_button_text,
+        tool_name: @presenter.title,
+      }
+    %>
+
     <%= form_tag(current_question_path(@presenter),
         :method => :get,
         :data => {
-          module: "track-responses",
+          module: "track-responses ga4-form-tracker",
           type: question.partial_template_name,
+          ga4_form: ga4_attributes,
           "question-key": question.node_slug,
         }) do %>
       <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-8" id="current-question">
@@ -44,7 +56,7 @@
 
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
-          text: "Continue",
+          text: continue_button_text,
           margin_bottom: true
         } %>
       </div>
