@@ -11,7 +11,7 @@
   <div
     id="result-info"
     class="govuk-grid-column-two-thirds outcome"
-    data-module="auto-track-event ga4-auto-tracker"
+    data-module="auto-track-event ga4-auto-tracker ga4-smart-answer-results-tracker"
     data-track-category="Smart Answer"
     data-track-action="Completed"
     data-track-label="<%= @name %>"
@@ -23,6 +23,8 @@
       "action": "complete",
       "tool_name": "<%= @presenter.title %>"
     }'
+    data-ecommerce-start-index="1"
+    data-list-title="<%= @presenter.title %>"
   >
     <%= render 'smart_answers/shared/debug' %>
     <%= render "govuk_publishing_components/components/title", {
