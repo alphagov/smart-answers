@@ -10,10 +10,17 @@
       restart_flow_path(@presenter),
       class: "govuk-link",
       data: {
-        module: "gem-track-click",
+        module: "gem-track-click ga4-link-tracker",
         "track-action": "Start again",
         "track-category": "StartAgain",
-        "track-label": @presenter.current_node.title
+        "track-label": @presenter.current_node.title,
+        ga4_link: {
+          event_name: "form_start_again",
+          type: "smart answer",
+          section: @presenter.current_node.title,
+          action: "start again",
+          tool_name: @presenter.title,
+        }
       } %>
   <% end %>
   <% items = @presenter.answered_questions.map do |question|
@@ -33,10 +40,17 @@
       edit: {
         href: @presenter.change_answer_link(question, response_store.forwarding_responses),
         data_attributes: {
-          "module": "gem-track-click",
+          "module": "gem-track-click ga4-link-tracker",
           "track-category": "Smart Answer Change Link",
           "track-action":  "Link clicked",
-          "track-label": question.change_link_track_label(accepted_response)
+          "track-label": question.change_link_track_label(accepted_response),
+          ga4_link: {
+            event_name: "form_change_response",
+            type: "smart answer",
+            section: question.change_link_track_label(accepted_response),
+            action: "change response",
+            tool_name: @presenter.title,
+          }
         }
       }
     }
