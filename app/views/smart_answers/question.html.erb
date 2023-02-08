@@ -31,6 +31,17 @@
           <%= render "govuk_publishing_components/components/error_summary", {
             id: "error-summary",
             title: "There is a problem",
+            data_attributes: {
+              module: 'ga4-auto-tracker',
+              ga4_auto: {
+                event_name: 'form_error',
+                type: 'smart answer',
+                text: question.error,
+                section: question.title,
+                action: 'error',
+                tool_name: @presenter.title,
+              },
+            },
             items: [
               {
                 text: question.error,
