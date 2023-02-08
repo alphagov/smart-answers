@@ -7,19 +7,26 @@
 <% end %>
 
 <div class="govuk-grid-row">
-
+  <% title = "Information based on your answers" %>
   <div
     id="result-info"
     class="govuk-grid-column-two-thirds outcome"
-    data-module="auto-track-event"
+    data-module="auto-track-event ga4-auto-tracker"
     data-track-category="Smart Answer"
     data-track-action="Completed"
     data-track-label="<%= @name %>"
     data-track-options='{"nonInteraction": true}'
+    data-ga4-auto='{
+      "event_name": "form_complete",
+      "type": "smart answer",
+      "section": "<%= title %>",
+      "action": "complete",
+      "tool_name": "<%= @presenter.title %>"
+    }'
   >
     <%= render 'smart_answers/shared/debug' %>
     <%= render "govuk_publishing_components/components/title", {
-      title: "Information based on your answers",
+      title: title,
       context: @presenter.title + ":",
       context_inside: true,
     } %>
