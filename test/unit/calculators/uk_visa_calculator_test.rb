@@ -550,6 +550,55 @@ module SmartAnswer
           end
         end
 
+        context "eligible_for_india_young_professionals_scheme?" do
+          %w[health digital academic arts religious business other].each do |work_type|
+            should "return true if passport country is India, visiting for work, staying for over six months and type of work is #{work_type}" do
+              calculator = UkVisaCalculator.new
+              calculator.passport_country = "india"
+              calculator.purpose_of_visit_answer = "work"
+              calculator.length_of_stay = "longer_than_six_months"
+              calculator.what_type_of_work = work_type
+              assert calculator.eligible_for_india_young_professionals_scheme?
+            end
+          end
+
+          should "return false if passport country is India, visiting for work, staying for over six months and type of work is sports" do
+            calculator = UkVisaCalculator.new
+            calculator.passport_country = "india"
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "sports"
+            assert_not calculator.eligible_for_india_young_professionals_scheme?
+          end
+
+          should "return false if visiting for work, staying for over six months and type of work is not sports and passport country is not India" do
+            calculator = UkVisaCalculator.new
+            calculator.passport_country = "france"
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "health"
+            assert_not calculator.eligible_for_india_young_professionals_scheme?
+          end
+
+          should "return false if passport country is India, not visiting for work, staying for over six months and type of work is not sports" do
+            calculator = UkVisaCalculator.new
+            calculator.passport_country = "india"
+            calculator.purpose_of_visit_answer = "tourism"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = "health"
+            assert_not calculator.eligible_for_india_young_professionals_scheme?
+          end
+
+          should "return false if passport country is India, visiting for work, staying for under six months and type of work is not sports" do
+            calculator = UkVisaCalculator.new
+            calculator.passport_country = "india"
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "less_than_six_months"
+            calculator.what_type_of_work = "health"
+            assert_not calculator.eligible_for_india_young_professionals_scheme?
+          end
+        end
+
         context "eligible_for_secondment_visa?" do
           should "return true if visiting for work, for longer than six months and doing 'other' work " do
             calculator = UkVisaCalculator.new

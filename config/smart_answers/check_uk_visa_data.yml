@@ -16,6 +16,7 @@
         - government_authorised_exchange_academic
         - senior_specialist_worker
         - graduate_trainee
+        - india_young_professionals_scheme
         - scale_up_worker_academic
         - youth_mobility
         - uk_ancestry
@@ -29,6 +30,7 @@
         - creative_worker
         - senior_specialist_worker
         - graduate_trainee
+        - india_young_professionals_scheme
         - youth_mobility
         - uk_ancestry
         - representative_overseas_business
@@ -43,6 +45,7 @@
         - innovator
         - global_talent_business
         - uk_expansion_worker
+        - india_young_professionals_scheme
         - youth_mobility
         - uk_ancestry
         - high_potential_individual
@@ -54,6 +57,7 @@
         - global_talent_digital
         - senior_specialist_worker
         - graduate_trainee
+        - india_young_professionals_scheme
         - scale_up_worker_digital
         - youth_mobility
         - uk_ancestry
@@ -66,6 +70,7 @@
         - skilled_worker_health
         - senior_specialist_worker
         - graduate_trainee
+        - india_young_professionals_scheme
         - youth_mobility
         - uk_ancestry
         - government_authorised_exchange_training_health
@@ -79,6 +84,7 @@
         - skilled_worker_other
         - senior_specialist_worker
         - graduate_trainee
+        - india_young_professionals_scheme
         - scale_up_worker_other
         - youth_mobility
         - uk_ancestry
@@ -94,6 +100,7 @@
         - british_national_overseas
         - religious_worker
         - minister_of_religion
+        - india_young_professionals_scheme
         - youth_mobility
         - uk_ancestry
     sports:
@@ -1110,3 +1117,34 @@
           answer: "No"
           description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
       url: https://www.gov.uk/secondment-worker-visa
+    - name: india_young_professionals_scheme
+      type: India Young Professionals Scheme visa
+      condition: eligible_for_india_young_professionals_scheme?
+      title: If you’re aged 18 to 30
+      description: |
+        You may be able to live and work in the UK. You can:
+
+        + work in most jobs
+        + be self-employed or a director of a company - within certain rules
+
+        The eligibility criteria include:
+
+        + being aged 18 to 30 when you apply
+        + successfully applying for a ballot
+      attributes:
+        job_offer:
+          answer: "No"
+          description: You can find work once you're in the UK
+        minimum_salary:
+          answer: "No"
+        english_knowledge:
+          answer: "No"
+        initial_visa_length:
+          answer: Up to 2 years
+        can_extend:
+          answer: "No"
+          description: To stay longer, you may be able to switch to another visa
+        can_settle:
+          answer: "No"
+          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
+      url: https://www.gov.uk/india-young-professionals-scheme-visa

@@ -54,6 +54,13 @@ module CheckUkVisaFlowTestHelper
     end
   end
 
+  def test_india_young_professionals_visa_guidance
+    should "render visa guidance when passport country is India" do
+      add_responses what_passport_do_you_have?: "india"
+      assert_rendered_outcome text: "India Young Professionals Scheme visa"
+    end
+  end
+
   def test_shared_purpose_of_visit_next_nodes
     should "have a next node of staying_for_how_long? for a 'study' response" do
       assert_next_node :staying_for_how_long?, for_response: "study"

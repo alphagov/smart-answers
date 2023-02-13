@@ -218,6 +218,10 @@ module SmartAnswer::Calculators
       work_visit? && staying_for_over_six_months? && @what_type_of_work == "other"
     end
 
+    def eligible_for_india_young_professionals_scheme?
+      @passport_country == "india" && work_visit? && staying_for_over_six_months? && @what_type_of_work != "sports"
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
