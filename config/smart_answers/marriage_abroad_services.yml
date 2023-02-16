@@ -265,14 +265,12 @@ austria:
   opposite_sex:
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage_or_civil_partnership
-      - :issuing_cni_or_nulla_osta
+      - :affidavit_or_affirmation_for_marriage
     payment_partial_name: pay_by_mastercard_and_visa_only
   same_sex:
     default:
       default:
-      - :receiving_notice_of_marriage_or_civil_partnership
-      - :issuing_cni_or_nulla_osta
+      - :affidavit_or_affirmation_for_marriage
     payment_partial_name: pay_by_visa_masterdcard_sometimes_cash_or_friends_card
 azerbaijan:
   opposite_sex:
