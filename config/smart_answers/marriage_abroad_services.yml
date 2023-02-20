@@ -266,12 +266,12 @@ austria:
     ceremony_country:
       default:
       - :affidavit_or_affirmation_for_marriage
-    payment_partial_name: pay_by_mastercard_and_visa_only
+    payment_partial_name: pay_by_mastercard_and_visa_credit_debit
   same_sex:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
-    payment_partial_name: pay_by_visa_masterdcard_sometimes_cash_or_friends_card
+    payment_partial_name: pay_by_mastercard_and_visa_credit_debit
 azerbaijan:
   opposite_sex:
     ceremony_country:
