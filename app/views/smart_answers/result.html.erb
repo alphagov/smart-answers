@@ -35,9 +35,18 @@
 
     <div
       data-flow-name="<%= @name %>"
-      data-module="gem-track-click"
+      data-module="gem-track-click ga4-link-tracker"
       data-track-category="Internal Link Clicked"
       data-track-action="<%= @name %> results"
+      data-ga4-link='{
+      "event_name": "information_click", 
+      "type": "smart answer",
+      "section": "<%= title %>", 
+      "action": "information_click",
+      "tool_name": "<%= @presenter.title %>" 
+    }'
+    data-ga4-track-links-only
+    data-ga4-set-indexes
       data-track-links-only
     >
       <div class="govuk-!-margin-bottom-6">
