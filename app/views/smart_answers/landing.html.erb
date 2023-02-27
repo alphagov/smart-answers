@@ -5,10 +5,6 @@
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
   <% if content_item.present? %>
-    <%= render "govuk_publishing_components/components/meta_tags",
-      content_item: content_item,
-      strip_dates_pii: true,
-      strip_postcode_pii: true %>
     <%= render 'govuk_publishing_components/components/machine_readable_metadata',
       schema: :article,
       content_item: content_item %>
