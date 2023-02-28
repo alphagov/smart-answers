@@ -19,6 +19,15 @@
   <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item %>
 <% end %>
 
+<% if start_node&.survey_url %>
+  <%= render "govuk_publishing_components/components/intervention", {
+    suggestion_text: "Help make GOV.UK better",
+    suggestion_link_text: "Take part in user research",
+    suggestion_link_url: start_node.survey_url,
+    new_tab: true,
+  } %>
+<% end %>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", {
