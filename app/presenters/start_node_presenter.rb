@@ -1,4 +1,6 @@
 class StartNodePresenter < NodePresenter
+  include StartNode::CostOfLivingBanner
+
   def initialize(node, flow_presenter, state = nil, options = {})
     super(node, flow_presenter, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
