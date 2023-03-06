@@ -1,14 +1,23 @@
+<% content_for :body do %>
+  <div class="smart_answer">
+    <%= yield :breadcrumbs %>
+    <main id="content" role="main">
+      <%= yield %>
+    </main>
+  </div>
+<% end %>
+
 <%
-    answer_title = @title
-    question_title = yield :question_title
-    outcome_title = yield :outcome_title
-    if question_title.present?
-      title = "#{question_title} - #{answer_title}"
-    elsif outcome_title.present?
-      title = "#{outcome_title} - #{answer_title}"
-    else
-      title = answer_title
-    end
+  answer_title = @title
+  question_title = yield :question_title
+  outcome_title = yield :outcome_title
+  if question_title.present?
+    title = "#{question_title} - #{answer_title}"
+  elsif outcome_title.present?
+    title = "#{outcome_title} - #{answer_title}"
+  else
+    title = answer_title
+  end
 %>
 <!DOCTYPE html>
 <html>
@@ -29,15 +38,14 @@
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
     <% end %>
+
+    <%=
+      render_component_stylesheets
+    %>
   </head>
   <body class="govuk-template__body">
     <div id="wrapper">
-      <div class="smart_answer">
-        <%= yield :breadcrumbs %>
-        <main id="content" role="main">
-          <%= yield %>
-        </main>
-      </div>
+      <%= yield :body %>
     </div>
   </body>
 </html>
