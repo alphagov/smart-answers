@@ -7,5 +7,5 @@
 <% end %>
 
 <% govspeak_for :next_steps do %>
-  Read the guide to [wills, probate and inheritance](/applying-for-probate).
+  <%= render partial: 'next_step_links', locals: { next_steps: calculator.next_steps, probate_content: true } %>
 <% end %>
