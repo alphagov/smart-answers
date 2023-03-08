@@ -1,6 +1,6 @@
 module StartNode
   module CostOfLivingBanner
-    COST_OF_LIVING_SURVEY_URL = "https://surveys.publishing.service.gov.uk/s/XS2YWV/".freeze
+    COST_OF_LIVING_SURVEY_URL = "https://s.userzoom.com/m/MSBDMTQ3MVM0NCAg".freeze
 
     SURVEY_URL_MAPPINGS = {
       "/check-benefits-financial-support" => COST_OF_LIVING_SURVEY_URL,
