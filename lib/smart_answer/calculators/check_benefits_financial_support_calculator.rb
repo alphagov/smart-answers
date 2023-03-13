@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     attr_accessor :where_do_you_live,
                   :over_state_pension_age,
                   :are_you_working,
+                  :how_many_paid_hours_work,
                   :disability_or_health_condition,
                   :disability_affecting_work,
                   :carer_disability_or_health_condition,

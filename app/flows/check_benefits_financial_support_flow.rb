@@ -43,6 +43,23 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
       end
 
       next_node do
+        if calculator.are_you_working == "yes"
+          question :how_many_paid_hours_work
+        else
+          question :disability_or_health_condition
+        end
+      end
+    end
+
+    radio :how_many_paid_hours_work do
+      option :sixteen_or_more_per_week
+      option :sixteen_or_less_per_week
+
+      on_response do |response|
+        calculator.how_many_paid_hours_work = response
+      end
+
+      next_node do
         question :disability_or_health_condition
       end
     end
