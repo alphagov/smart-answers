@@ -55,8 +55,31 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
+      should "have a next node of how_many_paid_hours_work if working" do
+        assert_next_node :how_many_paid_hours_work, for_response: "yes"
+      end
+
+      should "have a next node of disability_or_health_condition if not working" do
+        assert_next_node :disability_or_health_condition, for_response: "no"
+      end
+    end
+  end
+
+  context "question: how_many_paid_hours_work" do
+    setup do
+      testing_node :how_many_paid_hours_work
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
       should "have a next node of disability_or_health_condition" do
-        assert_next_node :disability_or_health_condition, for_response: "yes_over_16_hours_per_week"
+        assert_next_node :disability_or_health_condition, for_response: "sixteen_or_more_per_week"
       end
     end
   end
@@ -66,7 +89,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :disability_or_health_condition
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week"
+                    are_you_working: "no"
     end
 
     should "render the question" do
@@ -78,8 +101,28 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_next_node :carer_disability_or_health_condition, for_response: "no"
       end
 
-      should "have a next node of disability_affecting_work if there is a conditon" do
-        assert_next_node :disability_affecting_work, for_response: "yes"
+      should "have a next node of disability_affecting_daily_tasks if there is a conditon" do
+        assert_next_node :disability_affecting_daily_tasks, for_response: "yes"
+      end
+    end
+  end
+
+  context "question: disability_affecting_daily_tasks" do
+    setup do
+      testing_node :disability_affecting_daily_tasks
+      add_responses where_do_you_live: "england",
+                    over_state_pension_age: "yes",
+                    are_you_working: "no",
+                    disability_or_health_condition: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of disability_affecting_work" do
+        assert_next_node :disability_affecting_work, for_response: "no"
       end
     end
   end
@@ -89,8 +132,9 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :disability_affecting_work
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
-                    disability_or_health_condition: "yes"
+                    are_you_working: "no",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_daily_tasks: "no"
     end
 
     should "render the question" do
@@ -99,7 +143,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of carer_disability_or_health_condition" do
-        assert_next_node :carer_disability_or_health_condition, for_response: "yes_limits_work"
+        assert_next_node :carer_disability_or_health_condition, for_response: "no"
       end
     end
   end
@@ -109,7 +153,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :carer_disability_or_health_condition
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no"
     end
 
@@ -129,7 +173,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :children_living_with_you
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "yes"
     end
@@ -154,7 +198,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :age_of_children
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes"
@@ -176,7 +220,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :children_with_disability
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
@@ -199,7 +243,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :on_benefits
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
@@ -231,7 +275,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :current_benefits
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
@@ -256,7 +300,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :assets_and_savings
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "no",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
@@ -286,7 +330,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       testing_node :results
       add_responses where_do_you_live: "england",
                     over_state_pension_age: "yes",
-                    are_you_working: "yes_over_16_hours_per_week",
+                    are_you_working: "yes",
                     disability_or_health_condition: "no",
                     carer_disability_or_health_condition: "no",
                     children_living_with_you: "yes",
