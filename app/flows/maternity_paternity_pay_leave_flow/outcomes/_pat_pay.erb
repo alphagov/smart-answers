@@ -64,6 +64,12 @@ Weekly rate (between <%= calculator.formatted_first_day_in_year(2022) %> and <%=
 
 <% end %>
 
+<% if calculator.paid_leave_is_in_year?(2023) %>
+
+Weekly rate (between <%= calculator.formatted_first_day_in_year(2023) %> and <%= calculator.formatted_last_day_in_year(2023) %>) | £172.48 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
 <% if calculator.paid_leave_is_in_year?(2013) %>
 
 Tell the partner’s employer | 28 days before they want to start paternity pay
