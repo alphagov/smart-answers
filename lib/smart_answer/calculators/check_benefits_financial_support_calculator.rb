@@ -130,7 +130,7 @@ module SmartAnswer::Calculators
 
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
-        @are_you_working != "yes_over_16_hours_per_week" &&
+        @are_you_working != "no_retired" &&
         @disability_or_health_condition == "yes" &&
         @disability_affecting_work != "no"
     end
