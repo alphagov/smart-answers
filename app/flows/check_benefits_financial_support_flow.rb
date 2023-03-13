@@ -74,10 +74,23 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
 
       next_node do
         if calculator.disability_or_health_condition == "yes"
-          question :disability_affecting_work
+          question :disability_affecting_daily_tasks
         else
           question :carer_disability_or_health_condition
         end
+      end
+    end
+
+    radio :disability_affecting_daily_tasks do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.disability_affecting_daily_tasks = response
+      end
+
+      next_node do
+        question :disability_affecting_work
       end
     end
 
