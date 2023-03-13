@@ -191,20 +191,24 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_jobseekers_allowance?" do
         context "when eligible" do
-          should "be true if under pension age, working under 16 hours" do
+          should "be true if under pension age, not retired, working under 16 hours" do
             @calculator.over_state_pension_age = "no"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              @calculator.are_you_working = working_hours
+            %w[no yes].each do |working|
+              @calculator.are_you_working = working
+              @calculator.how_many_paid_hours_work = "sixteen_or_less_per_week"
+
               assert @calculator.eligible_for_jobseekers_allowance?
             end
           end
 
-          should "be true if under pension age, working under 16 hours and a health condition does not prevent work" do
+          should "be true if under pension age, not retired, working under 16 hours and a health condition does not prevent work" do
             @calculator.over_state_pension_age = "no"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              @calculator.are_you_working = working_hours
-              %w[no yes_limits_work].each do |affecting_work|
-                @calculator.disability_affecting_work = affecting_work
+            %w[no yes].each do |working|
+              @calculator.are_you_working = working
+              @calculator.how_many_paid_hours_work = "sixteen_or_less_per_week"
+              %w[no yes_limits_work].each do |disability_affecting_work|
+                @calculator.disability_affecting_work = disability_affecting_work
+
                 assert @calculator.eligible_for_jobseekers_allowance?
               end
             end
@@ -214,29 +218,39 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if OVER state pension age" do
             @calculator.over_state_pension_age = "yes"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              @calculator.are_you_working = working_hours
-              %w[no yes_limits_work].each do |affecting_work|
-                @calculator.disability_affecting_work = affecting_work
-                assert_not @calculator.eligible_for_jobseekers_allowance?
-              end
-            end
-          end
+            %w[no yes].each do |working|
+              @calculator.are_you_working = working
+              @calculator.how_many_paid_hours_work = "sixteen_or_less_per_week"
 
-          should "be false if under state pension age and working OVER 16 hours" do
-            @calculator.over_state_pension_age = "yes"
-            @calculator.are_you_working = "yes_over_16_hours_per_week"
-            %w[no yes_limits_work].each do |affecting_work|
-              @calculator.disability_affecting_work = affecting_work
               assert_not @calculator.eligible_for_jobseekers_allowance?
             end
           end
 
-          should "be false if under state pension age, working under 16 hours, and with a health condition that prevents work" do
+          should "be false if retired" do
             @calculator.over_state_pension_age = "yes"
-            %w[no yes_under_16_hours_per_week].each do |working_hours|
-              @calculator.are_you_working = working_hours
+            @calculator.are_you_working = "no_retired"
+            @calculator.how_many_paid_hours_work = "sixteen_or_less_per_week"
+
+            assert_not @calculator.eligible_for_jobseekers_allowance?
+          end
+
+          should "be false if working OVER 16 hours per week" do
+            @calculator.over_state_pension_age = "yes"
+            %w[no yes].each do |working|
+              @calculator.are_you_working = working
+              @calculator.how_many_paid_hours_work = "sixteen_or_more_per_week"
+
+              assert_not @calculator.eligible_for_jobseekers_allowance?
+            end
+          end
+
+          should "be false if health condition prevents work" do
+            @calculator.over_state_pension_age = "no"
+            %w[no yes].each do |working|
+              @calculator.are_you_working = working
+              @calculator.how_many_paid_hours_work = "sixteen_or_less_per_week"
               @calculator.disability_affecting_work = "yes_unable_to_work"
+
               assert_not @calculator.eligible_for_jobseekers_allowance?
             end
           end

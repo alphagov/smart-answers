@@ -137,7 +137,8 @@ module SmartAnswer::Calculators
 
     def eligible_for_jobseekers_allowance?
       @over_state_pension_age == "no" &&
-        @are_you_working != "yes_over_16_hours_per_week" &&
+        @are_you_working != "no_retired" &&
+        @how_many_paid_hours_work == "sixteen_or_less_per_week" &&
         @disability_affecting_work != "yes_unable_to_work"
     end
 
