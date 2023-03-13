@@ -34,9 +34,9 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
     end
 
     radio :are_you_working do
-      option :yes_over_16_hours_per_week
-      option :yes_under_16_hours_per_week
+      option :yes
       option :no
+      option :no_retired
 
       on_response do |response|
         calculator.are_you_working = response
