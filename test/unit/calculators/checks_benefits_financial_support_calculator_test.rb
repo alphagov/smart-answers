@@ -808,9 +808,7 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_personal_independence_payment?" do
         context "when eligible" do
-          should "be true if under state pension age, without health condition and with child aged 16 to 19 with a health condition" do
-            @calculator.over_state_pension_age = "no"
-            @calculator.disability_or_health_condition = "no"
+          should "be true if child aged 16 to 19 with a health condition" do
             @calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               @calculator.age_of_children = age
@@ -827,9 +825,13 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false if OVER state pension age, without health condition and with child aged 16 to 19 without a health condition" do
+          should "be false if OVER state pension age WITHOUT a health condition" do
             @calculator.over_state_pension_age = "yes"
             @calculator.disability_or_health_condition = "no"
+            assert_not @calculator.eligible_for_personal_independence_payment?
+          end
+
+          should "be false if child living with you is aged 16 to 19 without a health condition" do
             @calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               @calculator.age_of_children = age
@@ -838,23 +840,21 @@ module SmartAnswer::Calculators
             end
           end
 
-          should "be false if under state pension age, without health condition and with child aged 16 to 19 without a health condition" do
-            @calculator.over_state_pension_age = "no"
-            @calculator.disability_or_health_condition = "no"
-            @calculator.children_living_with_you = "yes"
-            %w[16_to_17 18_to_19].each do |age|
-              @calculator.age_of_children = age
-              @calculator.children_with_disability = "no"
-              assert_not @calculator.eligible_for_personal_independence_payment?
-            end
-          end
-
-          should "be false if under state pension age, without health condition and with child not aged 16 to 19" do
-            @calculator.over_state_pension_age = "no"
-            @calculator.disability_or_health_condition = "no"
+          should "be false if child living with you is has a health condition and is not aged between 16-19" do
             @calculator.children_living_with_you = "yes"
             @calculator.age_of_children = "5_to_7"
+            @calculator.children_with_disability = "yes"
+
             assert_not @calculator.eligible_for_personal_independence_payment?
+          end
+
+          should "be false if child aged 16 to 19, with a health condition, not living with you" do
+            @calculator.children_living_with_you = "no"
+            %w[16_to_17 18_to_19].each do |age|
+              @calculator.age_of_children = age
+              @calculator.children_with_disability = "yes"
+              assert_not @calculator.eligible_for_personal_independence_payment?
+            end
           end
         end
       end

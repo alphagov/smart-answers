@@ -239,9 +239,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_personal_independence_payment?
-      return false unless @over_state_pension_age == "no"
-
-      return true if @disability_or_health_condition == "yes"
+      return true if @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
 
       age_groups = %w[16_to_17 18_to_19]
 
