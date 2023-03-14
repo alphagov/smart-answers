@@ -209,7 +209,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
-      @are_you_working != "no" &&
+      @are_you_working == "yes" &&
         @children_living_with_you == "yes" &&
         eligible_child_ages?(%w[3_to_4])
     end
