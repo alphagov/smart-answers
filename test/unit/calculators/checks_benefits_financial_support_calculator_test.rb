@@ -861,23 +861,32 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_adult_disability_payment_scotland?" do
         context "when eligible" do
-          should "be true if under state pension age, with health condition" do
+          should "be true if under state pension age, with health condition that affects daily tasks" do
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "yes"
+            @calculator.disability_affecting_daily_tasks = "yes"
             assert @calculator.eligible_for_adult_disability_payment_scotland?
           end
         end
 
         context "when ineligible" do
-          should "be false if OVER state pension age" do
+          should "be false if OVER state pension age with health condition that affects daily tasks" do
             @calculator.over_state_pension_age = "yes"
             @calculator.disability_or_health_condition = "yes"
+            @calculator.disability_affecting_daily_tasks = "yes"
             assert_not @calculator.eligible_for_adult_disability_payment_scotland?
           end
 
           should "be false if under state pension age, without health condition" do
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "no"
+            assert_not @calculator.eligible_for_adult_disability_payment_scotland?
+          end
+
+          should "be false if under state pension age, with health condition that does not affect daily tasks" do
+            @calculator.over_state_pension_age = "no"
+            @calculator.disability_or_health_condition = "yes"
+            @calculator.disability_affecting_daily_tasks = "no"
             assert_not @calculator.eligible_for_adult_disability_payment_scotland?
           end
         end
