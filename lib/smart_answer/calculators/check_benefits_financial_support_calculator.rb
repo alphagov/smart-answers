@@ -175,7 +175,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare?
-      return false if @are_you_working == "no"
+      return false if @are_you_working != "yes"
       return false if @children_living_with_you == "no"
       return false if @children_with_disability == "yes"
 
@@ -184,7 +184,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare_with_disability?
-      return false if @are_you_working == "no"
+      return false if @are_you_working != "yes"
       return false if @children_living_with_you == "no"
       return false if @children_with_disability == "no"
 
