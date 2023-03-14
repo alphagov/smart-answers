@@ -255,7 +255,9 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_attendance_allowance?
-      @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
+      @over_state_pension_age == "yes" &&
+        @disability_or_health_condition == "yes" &&
+        @disability_affecting_daily_tasks == "yes"
     end
 
     def eligible_for_budgeting_loan?

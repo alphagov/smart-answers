@@ -894,29 +894,32 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_attendance_allowance?" do
         context "when eligible" do
-          should "be true if over state pension age with a health condition" do
+          should "be true if over state pension age with health condition that affects daily tasks" do
             @calculator.over_state_pension_age = "yes"
             @calculator.disability_or_health_condition = "yes"
+            @calculator.disability_affecting_daily_tasks = "yes"
             assert @calculator.eligible_for_attendance_allowance?
           end
         end
 
         context "when ineligible" do
-          should "be false if over state pension age WITHOUT a health condition" do
+          should "be false if UNDER state pension age with a health condition that affects daily tasks" do
+            @calculator.over_state_pension_age = "no"
+            @calculator.disability_or_health_condition = "yes"
+            @calculator.disability_affecting_daily_tasks = "yes"
+            assert_not @calculator.eligible_for_attendance_allowance?
+          end
+
+          should "be false if OVER state pension age WITHOUT a health condition" do
             @calculator.over_state_pension_age = "yes"
             @calculator.disability_or_health_condition = "no"
             assert_not @calculator.eligible_for_attendance_allowance?
           end
 
-          should "be false if UNDER state pension age with a health condition" do
-            @calculator.over_state_pension_age = "no"
+          should "be false if over state pension age, with health condition that does not affect daily tasks" do
+            @calculator.over_state_pension_age = "yes"
             @calculator.disability_or_health_condition = "yes"
-            assert_not @calculator.eligible_for_attendance_allowance?
-          end
-
-          should "be false if UNDER state pension age WIHTOUT a health condition" do
-            @calculator.over_state_pension_age = "no"
-            @calculator.disability_or_health_condition = "no"
+            @calculator.disability_affecting_daily_tasks = "no"
             assert_not @calculator.eligible_for_attendance_allowance?
           end
         end
