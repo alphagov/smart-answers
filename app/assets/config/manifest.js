@@ -1,6 +1,5 @@
 //= link application.css
 
-//= link components/_intervention.css
 //= link components/_result-card.css
 //= link components/_result-item.css
 //= link components/_result-sections.css
