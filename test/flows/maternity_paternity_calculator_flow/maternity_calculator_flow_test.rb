@@ -389,13 +389,13 @@ class MaternityPaternityCalculatorFlow::MaternityCalculatorFlowTest < ActiveSupp
     end
 
     should "render when an employee is entitled to statutory maternity pay" do
-      add_responses maternity_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, due_date: "2022-05-01")
+      add_responses maternity_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, due_date: "2023-05-01")
 
       assert_rendered_outcome text: "The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP)"
 
-      # 90% of 1000 a week for 6 weeks + (39 - 6) * 156.66 statutory (rate for 2022)
-      # = 900 * 6 + 33 * 156.66
-      assert_match(/Total SMP:\s*£10,569.78/, @test_flow.outcome_text)
+      # 90% of 1000 a week for 6 weeks + (39 - 6) * 172.48 statutory (rate for 2023)
+      # = 900 * 6 + 33 * 172.48
+      assert_match(/Total SMP:\s*£11,091.84/, @test_flow.outcome_text)
     end
 
     should "render when an employee is not entitled to statutory maternity pay and have average earnings" do

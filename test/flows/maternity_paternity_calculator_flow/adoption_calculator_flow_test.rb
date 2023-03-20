@@ -393,13 +393,13 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     end
 
     should "render when an employee is entitled to statutory adoption pay" do
-      add_responses maternity_adoption_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, placement_date: "2022-05-01")
+      add_responses maternity_adoption_responses(pay_frequency: "weekly", pay_per_frequency: 1_000, placement_date: "2023-05-01")
 
       assert_rendered_outcome text: "The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP)"
 
-      # 90% of 1000 a week for 6 weeks + (39 - 6) * 156.66 statutory (rate for 2022)
-      # = 900 * 6 + 33 * 156.66
-      assert_match(/Total SAP:\s*£10,569.78/, @test_flow.outcome_text)
+      # 90% of 1000 a week for 6 weeks + (39 - 6) * 172.48 statutory (rate for 2023)
+      # = 900 * 6 + 33 * 172.48
+      assert_match(/Total SAP:\s*£11,091.84/, @test_flow.outcome_text)
     end
 
     should "render when an employee is entitled to statutory adoption pay and exactly on the threshold" do
