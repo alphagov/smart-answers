@@ -284,6 +284,14 @@ module SmartAnswer::Calculators
       @on_benefits != "no"
     end
 
+    def eligible_for_help_to_save?
+      return false if @current_benefits.nil?
+
+      @over_state_pension_age == "no" &&
+        @on_benefits != "no" &&
+        @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
+    end
+
   private
 
     def eligible_child_ages?(age_groups)
