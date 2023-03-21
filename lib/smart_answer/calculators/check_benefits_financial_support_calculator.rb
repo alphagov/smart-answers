@@ -292,6 +292,11 @@ module SmartAnswer::Calculators
         @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
     end
 
+    def eligible_disabled_facilities_grant?
+      disabled_adult_less_than_16000_savings? || living_with_disabled_child_less_than_16000_savings?
+    end
+    end
+
   private
 
     def eligible_child_ages?(age_groups)
@@ -312,6 +317,14 @@ module SmartAnswer::Calculators
       @current_benefits.split(",").none? do |benefit|
         skip_benefit_list.include?(benefit)
       end
+    end
+
+    def disabled_adult_less_than_16000_savings?
+      @disability_or_health_condition == "yes" && @assets_and_savings != "over_16000"
+    end
+
+    def living_with_disabled_child_less_than_16000_savings?
+      @children_living_with_you == "yes" && @children_with_disability == "yes" && @assets_and_savings != "over_16000"
     end
   end
 end

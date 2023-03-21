@@ -1087,5 +1087,32 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Find out more about Help to Save"
       end
     end
+
+    should "render Eligible for Disabled Facilities Grant? (Disabled adult in England or Wales)" do
+      %w[england wales].each do |country|
+        %w[none_16000 under_16000].each do |asset|
+          add_responses where_do_you_live: country,
+                        disability_or_health_condition: "yes",
+                        disability_affecting_daily_tasks: "no",
+                        disability_affecting_work: "no",
+                        assets_and_savings: asset
+
+          assert_rendered_outcome text: "You could get a grant from your local council to make changes to your home if you’re disabled or you live with someone who is."
+          assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant"
+        end
+      end
+    end
+
+    should "render Eligible for Disabled Facilities Grant? (Disabled child in England or Wales)" do
+      %w[england wales].each do |country|
+        %w[none_16000 under_16000].each do |asset|
+          add_responses where_do_you_live: country,
+                        assets_and_savings: asset
+
+          assert_rendered_outcome text: "You could get a grant from your local council to make changes to your home if you’re disabled or you live with someone who is."
+          assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant"
+        end
+      end
+    end
   end
 end

@@ -636,8 +636,20 @@
     - name: help_to_save
       title: Help to Save
       description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>
+      condition: eligible_for_help_to_save?
       url_text: Find out more about Help to Save
       url: https://www.gov.uk/get-help-savings-low-income
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
+    - name: disabled_facilities_grant
+      title: Disabled Facilities Grant
+      description: <p>You could get a grant from your local council to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_disabled_facilities_grant?
+      url_text: Check if you’re eligible for a Disabled Facilities Grant
+      url: https://www.gov.uk/disabled-facilities-grants
       countries:
         - england
         - wales

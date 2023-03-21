@@ -1026,6 +1026,78 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "eligible_disabled_facilities_grant? for a disabled adult" do
+        context "when eligible" do
+          should "be true with a disability or health condition and less than 16000 in assets and savings" do
+            @calculator.disability_or_health_condition = "yes"
+            %w[none_16000 under_16000].each do |asset|
+              @calculator.assets_and_savings = asset
+              assert @calculator.eligible_disabled_facilities_grant?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false without a disability and less than 16000 in assets and savings" do
+            @calculator.disability_or_health_condition = "no"
+            %w[none_16000 under_16000].each do |asset|
+              @calculator.assets_and_savings = asset
+              assert_not @calculator.eligible_disabled_facilities_grant?
+            end
+          end
+
+          should "be false with a disability and more than 16000 in assets and savings" do
+            @calculator.disability_or_health_condition = "yes"
+
+            @calculator.assets_and_savings = "over_16000"
+            assert_not @calculator.eligible_disabled_facilities_grant?
+          end
+        end
+      end
+
+      context "eligible_disabled_facilities_grant? for a disabled child" do
+        context "when eligible" do
+          should "be true if living with a disabled child and less than 16000 in assets and savings" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.children_with_disability = "yes"
+            %w[none_16000 under_16000].each do |asset|
+              @calculator.assets_and_savings = asset
+              assert @calculator.eligible_disabled_facilities_grant?
+            end
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if child not living with you, child has a disability and less than 16000 in assets and savings" do
+            @calculator.children_living_with_you = "no"
+            @calculator.children_with_disability = "yes"
+            %w[none_16000 under_16000].each do |asset|
+              @calculator.assets_and_savings = asset
+              assert_not @calculator.eligible_disabled_facilities_grant?
+            end
+          end
+
+          should "be false if living with a child that is not disabled and less than 16000 in assets and savings" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.children_with_disability = "no"
+            %w[none_16000 under_16000].each do |asset|
+              @calculator.assets_and_savings = asset
+              assert_not @calculator.eligible_disabled_facilities_grant?
+            end
+          end
+
+          should "be false if living with a disabled child and more than 16000 in assets and savings" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.children_with_disability = "yes"
+
+            @calculator.assets_and_savings = "over_16000"
+            assert_not @calculator.eligible_disabled_facilities_grant?
+          end
+        end
+      end
+
+
     end
   end
 end
