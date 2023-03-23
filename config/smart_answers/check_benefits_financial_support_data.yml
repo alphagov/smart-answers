@@ -554,8 +554,8 @@
       title: Apply for an older person's bus pass
       description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
       condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass
-      url: https://www.gov.uk/apply-for-elderly-person-bus-pass
+      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
       countries:
         - england
         - wales
