@@ -653,5 +653,11 @@
       countries:
         - england
         - wales
-        - scotland
+    - name: disabled_facilities_grant_ni
+      title: Disabled Facilities Grant
+      description: <p>You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_disabled_facilities_grant?
+      url_text: Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website
+      url: https://www.nihe.gov.uk/housing-help/grants/types-of-grants-available/disabled-facilities-grant
+      countries:
         - northern-ireland

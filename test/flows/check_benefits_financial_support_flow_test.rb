@@ -1114,5 +1114,28 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         end
       end
     end
+
+    should "render Eligible for Disabled Facilities Grant? (Disabled adult in Northern Ireland)" do
+      %w[none_16000 under_16000].each do |asset|
+        add_responses where_do_you_live: "northern-ireland",
+                      disability_or_health_condition: "yes",
+                      disability_affecting_daily_tasks: "no",
+                      disability_affecting_work: "no",
+                      assets_and_savings: asset
+
+        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
+      end
+    end
+
+    should "render Eligible for Disabled Facilities Grant? (Disabled child in Northern Ireland)" do
+      %w[none_16000 under_16000].each do |asset|
+        add_responses where_do_you_live: "northern-ireland",
+                      assets_and_savings: asset
+
+        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
+      end
+    end
   end
 end
