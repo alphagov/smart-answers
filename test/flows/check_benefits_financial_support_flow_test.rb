@@ -1137,5 +1137,22 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
       end
     end
+
+    should "render Eligible for help with house adaptations if you are disabled? (Disabled adult in Scotland)" do
+      add_responses where_do_you_live: "scotland",
+                    disability_or_health_condition: "yes",
+                    disability_affecting_daily_tasks: "no",
+                    disability_affecting_work: "no"
+
+      assert_rendered_outcome text: "You could get help from your local council to make changes to your home if you’re disabled or you live with someone who is."
+      assert_rendered_outcome text: "Check if you’re eligible for help with house adaptations on the mygov.scot website"
+    end
+
+    should "render Eligible for help with house adaptations if you are disabled? (Disabled child in Scotland)" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "You could get help from your local council to make changes to your home if you’re disabled or you live with someone who is."
+      assert_rendered_outcome text: "Check if you’re eligible for help with house adaptations on the mygov.scot website"
+    end
   end
 end

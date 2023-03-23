@@ -295,6 +295,9 @@ module SmartAnswer::Calculators
     def eligible_disabled_facilities_grant?
       disabled_adult_less_than_16000_savings? || living_with_disabled_child_less_than_16000_savings?
     end
+
+    def eligible_for_help_with_house_adaptations_if_you_are_disabled?
+      @disability_or_health_condition == "yes" || living_with_disabled_child?
     end
 
   private
@@ -319,12 +322,16 @@ module SmartAnswer::Calculators
       end
     end
 
+    def living_with_disabled_child?
+      @children_living_with_you == "yes" && @children_with_disability == "yes"
+    end
+
     def disabled_adult_less_than_16000_savings?
       @disability_or_health_condition == "yes" && @assets_and_savings != "over_16000"
     end
 
     def living_with_disabled_child_less_than_16000_savings?
-      @children_living_with_you == "yes" && @children_with_disability == "yes" && @assets_and_savings != "over_16000"
+      living_with_disabled_child? && @assets_and_savings != "over_16000"
     end
   end
 end

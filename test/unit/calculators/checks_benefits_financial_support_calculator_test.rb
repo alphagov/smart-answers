@@ -1097,7 +1097,45 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "eligible_for_help_with_house_adaptations_if_you_are_disabled? for a disabled adult" do
+        context "when eligible" do
+          should "be true with a disability or health condition" do
+            @calculator.disability_or_health_condition = "yes"
+            assert @calculator.eligible_for_help_with_house_adaptations_if_you_are_disabled?
+          end
+        end
 
+        context "when ineligible" do
+          should "be false without a disability" do
+            @calculator.disability_or_health_condition = "no"
+            assert_not @calculator.eligible_for_help_with_house_adaptations_if_you_are_disabled?
+          end
+        end
+      end
+
+      context "eligible_for_help_with_house_adaptations_if_you_are_disabled? for a disabled child" do
+        context "when eligible" do
+          should "be true if living with a disabled child " do
+            @calculator.children_living_with_you = "yes"
+            @calculator.children_with_disability = "yes"
+            assert @calculator.eligible_for_help_with_house_adaptations_if_you_are_disabled?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if child not living with you, child has a disability" do
+            @calculator.children_living_with_you = "no"
+            @calculator.children_with_disability = "yes"
+            assert_not @calculator.eligible_for_help_with_house_adaptations_if_you_are_disabled?
+          end
+
+          should "be false if living with a child that is not disabled" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.children_with_disability = "no"
+            assert_not @calculator.eligible_for_help_with_house_adaptations_if_you_are_disabled?
+          end
+        end
+      end
     end
   end
 end

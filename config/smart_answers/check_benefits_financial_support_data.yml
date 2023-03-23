@@ -661,3 +661,11 @@
       url: https://www.nihe.gov.uk/housing-help/grants/types-of-grants-available/disabled-facilities-grant
       countries:
         - northern-ireland
+    - name: help_with_house_adaptations_if_you_are_disabled
+      title: Help with house adaptations if you're disabled
+      description: <p>You could get help from your local council to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_for_help_with_house_adaptations_if_you_are_disabled?
+      url_text: Check if you’re eligible for help with house adaptations on the mygov.scot website
+      url: https://www.mygov.scot/care-equipment-adaptations
+      countries:
+        - scotland
