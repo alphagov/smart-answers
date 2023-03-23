@@ -1052,7 +1052,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     age_of_children: "16_to_17"
 
       assert_rendered_outcome text: "Education Maintenance Allowance"
-      assert_rendered_outcome text: "You may be able to get an Education Maintenance Allowance (EMA) of £30"
+      assert_rendered_outcome text: "You may be able to get Education Maintenance Allowance (EMA) of £30"
     end
 
     should "render Warm Home Discount Scheme" do
