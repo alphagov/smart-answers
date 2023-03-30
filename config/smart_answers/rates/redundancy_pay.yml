@@ -27,3 +27,7 @@
   end_date: 2023-04-05
   max: "17,130"
   rate: 571
+- start_date: 2023-04-06
+  end_date: 2024-04-05
+  max: "19,290"
+  rate: 643
