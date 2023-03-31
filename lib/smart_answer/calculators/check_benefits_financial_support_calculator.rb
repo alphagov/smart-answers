@@ -136,10 +136,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_jobseekers_allowance?
-      @over_state_pension_age == "no" &&
-        @are_you_working != "no_retired" &&
-        @how_many_paid_hours_work == "sixteen_or_less_per_week" &&
-        @disability_affecting_work != "yes_unable_to_work"
+      eligibile_for_jobseekers_in_paid_work? || eligibile_for_jobseekers_not_in_paid_work?
     end
 
     def eligible_for_pension_credit?
@@ -301,6 +298,19 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def eligibile_for_jobseekers_in_paid_work?
+      @over_state_pension_age == "no" &&
+        @are_you_working == "yes" &&
+        @how_many_paid_hours_work == "sixteen_or_less_per_week" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
+
+    def eligibile_for_jobseekers_not_in_paid_work?
+      @over_state_pension_age == "no" &&
+        @are_you_working == "no" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
 
     def eligible_child_ages?(age_groups)
       @age_of_children.split(",").any? { |age| age_groups.include?(age) }
