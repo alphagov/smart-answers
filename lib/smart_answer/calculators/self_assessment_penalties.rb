@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
       { start_date: "2022-10-11", end_date: "2022-11-21", value: 0.0475 },
       { start_date: "2022-11-22", end_date: "2023-01-05", value: 0.055 },
       { start_date: "2023-01-06", end_date: "2023-02-20", value: 0.06 },
-      { start_date: "2023-02-21", end_date: "2023-04-13", value: 0.065 },
+      { start_date: "2023-02-21", end_date: "2023-04-12", value: 0.065 },
       { start_date: "2023-04-13", end_date: "2100-04-04", value: 0.0675 },
     ].freeze
 
