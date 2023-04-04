@@ -191,7 +191,7 @@ module SmartAnswer::Calculators
         context "when eligible for living wage?" do
           should "return the national living wage rate" do
             @calculator = MinimumWageCalculator.new(age: 25)
-            assert_equal 9.5, @calculator.minimum_hourly_rate
+            assert_equal 10.42, @calculator.minimum_hourly_rate
           end
         end
       end
@@ -423,7 +423,7 @@ module SmartAnswer::Calculators
           basic_pay: 312,
           basic_hours: 39,
         )
-        assert_equal 9.5, @calculator.minimum_hourly_rate
+        assert_equal 10.42, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 19 year old" do
         @calculator = MinimumWageCalculator.new(
@@ -432,7 +432,7 @@ module SmartAnswer::Calculators
           basic_pay: 312,
           basic_hours: 39,
         )
-        assert_equal 6.83, @calculator.minimum_hourly_rate
+        assert_equal 7.49, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 17 year old" do
         @calculator = MinimumWageCalculator.new(
@@ -441,7 +441,7 @@ module SmartAnswer::Calculators
           basic_pay: 312,
           basic_hours: 39,
         )
-        assert_equal 4.81, @calculator.minimum_hourly_rate
+        assert_equal 5.28, @calculator.minimum_hourly_rate
       end
     end
 
