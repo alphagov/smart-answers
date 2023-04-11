@@ -60,17 +60,6 @@
       group: Supporting your income
       countries:
         - northern-ireland
-    - name: warm_home_discount_scheme_scotland
-      title: Warm Home Discount Scheme
-      description: |
-        <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
-
-        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier. Ask your supplier as soon as possible as the number of discounts is limited.</p>
-      condition: eligible_for_warm_home_discount_scheme?
-      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
-      url: https://www.gov.uk/the-warm-home-discount-scheme
-      countries:
-        - scotland
     - name: housing_benefit
       title: Housing Benefit
       description: |
@@ -618,6 +607,17 @@
       countries:
         - england
         - wales
+    - name: warm_home_discount_scheme_scotland
+      title: Warm Home Discount Scheme
+      description: |
+        <p>You could get a discount on your electricity bill between October and March under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+
+        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - scotland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
       description: <p>You may be able to get a weekly Education Maintenance Allowance (EMA) if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
