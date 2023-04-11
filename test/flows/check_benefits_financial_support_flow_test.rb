@@ -861,7 +861,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                       current_benefits: "universal_credit"
 
         assert_rendered_outcome text: "Sure Start Maternity Grant"
-        assert_rendered_outcome text: "If you or your partner get certain benefits you could get a one-off payment of £500"
+        assert_rendered_outcome text: "If you or your partner get certain benefits you could get a payment to help towards the costs of having a child."
       end
     end
 
