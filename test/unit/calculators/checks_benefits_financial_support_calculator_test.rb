@@ -1039,16 +1039,22 @@ module SmartAnswer::Calculators
       end
 
       context "eligible_for_help_to_save?" do
-        context "when eligible" do
+        context "when eligible (on benefits)" do
           should "be true if under state pension age and receiving universal credit or tax credits" do
             @calculator.over_state_pension_age = "no"
-            %w[yes dont_know].each do |on_benefits|
-              @calculator.on_benefits = on_benefits
-              %w[universal_credit tax_credits].each do |current_benefits|
-                @calculator.current_benefits = current_benefits
-                assert @calculator.eligible_for_help_to_save?
-              end
+            @calculator.on_benefits = "yes"
+            %w[universal_credit tax_credits].each do |current_benefits|
+              @calculator.current_benefits = current_benefits
+              assert @calculator.eligible_for_help_to_save?
             end
+          end
+        end
+
+        context "when eligible (don't know if on benefits)" do
+          should "be true if under state pension age and don't know if on benefits" do
+            @calculator.over_state_pension_age = "no"
+            @calculator.on_benefits = "dont_know"
+            assert @calculator.eligible_for_help_to_save?
           end
         end
       end

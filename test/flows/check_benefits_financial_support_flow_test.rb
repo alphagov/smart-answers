@@ -1112,7 +1112,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website"
     end
 
-    should "render Eligible for help to save" do
+    should "render Eligible for help to save (on benefits)" do
       %w[universal_credit tax_credits].each do |benefit|
         add_responses over_state_pension_age: "no",
                       current_benefits: benefit
@@ -1120,6 +1120,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits."
         assert_rendered_outcome text: "Find out more about Help to Save"
       end
+    end
+
+    should "render Eligible for help to save (don't know if on benefits)" do
+      add_responses over_state_pension_age: "no",
+                    on_benefits: "dont_know"
+
+      assert_rendered_outcome text: "You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits."
+      assert_rendered_outcome text: "Find out more about Help to Save"
     end
 
     should "render Eligible for Disabled Facilities Grant? (Disabled adult in England or Wales)" do

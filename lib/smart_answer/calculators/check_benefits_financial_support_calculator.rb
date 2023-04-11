@@ -282,11 +282,11 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_help_to_save?
-      return false if @current_benefits.nil?
-
-      @over_state_pension_age == "no" &&
-        @on_benefits != "no" &&
-        @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
+      if @current_benefits.nil?
+        eligible_for_help_to_save_dont_know_if_on_benefits?
+      else
+        eligible_for_help_to_save_on_benefits?
+      end
     end
 
     def eligible_disabled_facilities_grant?
@@ -298,6 +298,17 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def eligible_for_help_to_save_dont_know_if_on_benefits?
+      @over_state_pension_age == "no" &&
+        @on_benefits == "dont_know"
+    end
+
+    def eligible_for_help_to_save_on_benefits?
+      @over_state_pension_age == "no" &&
+        @on_benefits == "yes" &&
+        @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
+    end
 
     def eligibile_for_jobseekers_in_paid_work?
       @over_state_pension_age == "no" &&
