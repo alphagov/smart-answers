@@ -160,7 +160,7 @@
         - northern-ireland
     - name: scottish_child_payment
       title: Scottish Child Payment
-      description: <p>You can apply for a weekly payment of £25 for each child you care for under 16 if you or your partner get certain benefits.</p>
+      description: <p>You can apply for a weekly payment for each child you care for under 16 if you or your partner get certain benefits.</p>
       condition: eligible_for_scottish_child_payment?
       url: https://www.mygov.scot/scottish-child-payment
       url_text: Check if you're eligible for Scottish Child Payment and how to apply on the mygov.scot website
