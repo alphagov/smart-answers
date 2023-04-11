@@ -3,7 +3,7 @@
 # and usually 1. The last item in the file should have an end
 # date of 2999-01-01
 ---
-- start_date: 2022-04-11
+- start_date: 2023-04-11
   end_date: 2999-01-01
-  weekly_rate: 141.85
-  lower_weekly_rate: 85.00
+  weekly_rate: 156.20
+  lower_weekly_rate: 93.60
