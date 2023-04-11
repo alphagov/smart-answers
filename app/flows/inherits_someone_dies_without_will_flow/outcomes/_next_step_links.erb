@@ -1,5 +1,11 @@
 <% if next_steps.include?(:wills_link) %>
-  Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+  <% if local_assigns[:probate_content] %>
+
+    Read the guide [before you apply for probate.](/applying-for-probate/before-you-apply)
+  <% else %>
+
+    Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+  <% end %>
 <% end %>
 <% if next_steps.include?(:inheritance_link) %>
 
@@ -8,3 +14,4 @@
 <% if next_steps.include?(:ownerless_link) %>
   Find out what happens to [ownerless property](/unclaimed-estates-bona-vacantia "Ownerless property (bona vacantia)")
 <% end %>
+
