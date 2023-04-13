@@ -2,9 +2,13 @@
   Are you in paid work?
 <% end %>
 
+<% text_for :hint do %>
+  Select yes if you're employed but not currently working - for example, because you're on parental leave.
+<% end %>
+
 <% options(
-    yes_over_16_hours_per_week: "Yes, I usually work 16 hours or more each week",
-    yes_under_16_hours_per_week: "Yes, I usually work less than 16 hours each week",
-    no: "No"
+    yes: "Yes",
+    no: "No",
+    no_retired: "No, I'm retired and I've stopped working"
   )
 %>

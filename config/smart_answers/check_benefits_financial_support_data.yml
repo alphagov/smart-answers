@@ -60,26 +60,6 @@
       group: Supporting your income
       countries:
         - northern-ireland
-    - name: warm_home_discount_scheme
-      title: Warm Home Discount Scheme
-      description: <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
-      condition: eligible_for_warm_home_discount_scheme?
-      url_text: Check if you’re eligible for the Warm Home Discount scheme
-      url: https://www.gov.uk/the-warm-home-discount-scheme
-      countries:
-        - england
-        - wales
-    - name: warm_home_discount_scheme_scotland
-      title: Warm Home Discount Scheme
-      description: |
-        <p>You could get a £150 discount on your electricity bill between October 2022 and March 2023 under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
-
-        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier. Ask your supplier as soon as possible as the number of discounts is limited.</p>
-      condition: eligible_for_warm_home_discount_scheme?
-      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
-      url: https://www.gov.uk/the-warm-home-discount-scheme
-      countries:
-        - scotland
     - name: housing_benefit
       title: Housing Benefit
       description: |
@@ -116,7 +96,7 @@
         - northern-ireland
     - name: access_to_work
       title: Access to Work
-      description: <p>You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.</p>
+      description: <p>You may be eligible for help to get or stay in work if you have a physical or mental health condition or disability.</p>
       condition: eligible_for_access_to_work?
       url: /access-to-work
       url_text: Check if you’re eligible for Access to Work
@@ -129,7 +109,7 @@
       title: Access to Work
       description: <p>You may be able to get help to find or stay in work if you have a physical or mental health condition or disability.</p>
       condition: eligible_for_access_to_work?
-      url: https://www.nidirect.gov.uk/articles/employment-support-information
+      url: https://www.nidirect.gov.uk/articles/access-work-practical-help-work
       url_text: Check if you’re eligible for Access to Work on the nidirect website
       group: Supporting your income
       countries:
@@ -160,7 +140,7 @@
         - northern-ireland
     - name: scottish_child_payment
       title: Scottish Child Payment
-      description: <p>You can apply for a weekly payment of £25 for each child you care for under 16 if you or your partner get certain benefits.</p>
+      description: <p>You can apply for a weekly payment for each child you care for under 16 if you or your partner get certain benefits.</p>
       condition: eligible_for_scottish_child_payment?
       url: https://www.mygov.scot/scottish-child-payment
       url_text: Check if you're eligible for Scottish Child Payment and how to apply on the mygov.scot website
@@ -429,7 +409,7 @@
         - northern-ireland
     - name: sure_start_maternity_grant
       title: Sure Start Maternity Grant
-      description: <p>If you or your partner get certain benefits you could get a one-off payment of £500 to help towards the costs of having a child. You must usually have no other children under 16.</p>
+      description: <p>If you or your partner get certain benefits you could get a payment to help towards the costs of having a child. You must usually have no other children under 16.</p>
       condition: eligible_for_sure_start_maternity_grant?
       url_text: Check if you’re eligible for a Sure Start Maternity Grant
       url: https://www.gov.uk/sure-start-maternity-grant
@@ -554,8 +534,8 @@
       title: Apply for an older person's bus pass
       description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
       condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass
-      url: https://www.gov.uk/apply-for-elderly-person-bus-pass
+      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
       countries:
         - england
         - wales
@@ -618,9 +598,29 @@
         - wales
         - scotland
         - northern-ireland
+    - name: warm_home_discount_scheme
+      title: Warm Home Discount Scheme
+      description: <p>You could get a discount on your electricity bill between October and March under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - england
+        - wales
+    - name: warm_home_discount_scheme_scotland
+      title: Warm Home Discount Scheme
+      description: |
+        <p>You could get a discount on your electricity bill between October and March under the Warm Home Discount Scheme. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
+
+        <p>You'll automatically get the discount if you get Pension Credit. You may also be eligible if you’re getting certain other benefits but you’ll need to check with your supplier.</p>
+      condition: eligible_for_warm_home_discount_scheme?
+      url_text: Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme
+      url: https://www.gov.uk/the-warm-home-discount-scheme
+      countries:
+        - scotland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
-      description: <p>You may be able to get an Education Maintenance Allowance (EMA) of £30 a week if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
+      description: <p>You may be able to get a weekly Education Maintenance Allowance (EMA) if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
       condition: eligible_for_education_maintenance_allowance_ni?
       url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
@@ -628,8 +628,44 @@
         - northern-ireland
     - name: wales_fuel_support_scheme_payment
       title: Wales fuel support scheme payment
-      description: <p>You may be able to claim a one-off £200 payment to help pay your fuel costs. Either you or your partner must be getting one of the qualifying benefits at any time between 1 September 2022 and 31 January 2023. You'll need to apply through your local council.</p>
+      description: <p>You may be able to claim a one-off payment to help pay your fuel costs if you or your partner get certain benefits. You'll need to apply through your local council.</p>
       url_text: Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website
       url: https://gov.wales/wales-fuel-support-scheme-2022-2023
       countries:
         - wales
+    - name: help_to_save
+      title: Help to Save
+      description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>
+      condition: eligible_for_help_to_save?
+      url_text: Find out more about Help to Save
+      url: https://www.gov.uk/get-help-savings-low-income
+      countries:
+        - england
+        - wales
+        - scotland
+        - northern-ireland
+    - name: disabled_facilities_grant
+      title: Disabled Facilities Grant
+      description: <p>You could get a grant from your local council to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_disabled_facilities_grant?
+      url_text: Check if you’re eligible for a Disabled Facilities Grant
+      url: https://www.gov.uk/disabled-facilities-grants
+      countries:
+        - england
+        - wales
+    - name: disabled_facilities_grant_ni
+      title: Disabled Facilities Grant
+      description: <p>You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_disabled_facilities_grant?
+      url_text: Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website
+      url: https://www.nihe.gov.uk/housing-help/grants/types-of-grants-available/disabled-facilities-grant
+      countries:
+        - northern-ireland
+    - name: help_with_house_adaptations_if_you_are_disabled
+      title: Help with house adaptations if you're disabled
+      description: <p>You could get help from your local council to make changes to your home if you’re disabled or you live with someone who is.</p>
+      condition: eligible_for_help_with_house_adaptations_if_you_are_disabled?
+      url_text: Check if you’re eligible for help with house adaptations on the mygov.scot website
+      url: https://www.mygov.scot/care-equipment-adaptations
+      countries:
+        - scotland

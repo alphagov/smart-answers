@@ -34,12 +34,29 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
     end
 
     radio :are_you_working do
-      option :yes_over_16_hours_per_week
-      option :yes_under_16_hours_per_week
+      option :yes
       option :no
+      option :no_retired
 
       on_response do |response|
         calculator.are_you_working = response
+      end
+
+      next_node do
+        if calculator.are_you_working == "yes"
+          question :how_many_paid_hours_work
+        else
+          question :disability_or_health_condition
+        end
+      end
+    end
+
+    radio :how_many_paid_hours_work do
+      option :sixteen_or_more_per_week
+      option :sixteen_or_less_per_week
+
+      on_response do |response|
+        calculator.how_many_paid_hours_work = response
       end
 
       next_node do
@@ -57,10 +74,23 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
 
       next_node do
         if calculator.disability_or_health_condition == "yes"
-          question :disability_affecting_work
+          question :disability_affecting_daily_tasks
         else
           question :carer_disability_or_health_condition
         end
+      end
+    end
+
+    radio :disability_affecting_daily_tasks do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.disability_affecting_daily_tasks = response
+      end
+
+      next_node do
+        question :disability_affecting_work
       end
     end
 

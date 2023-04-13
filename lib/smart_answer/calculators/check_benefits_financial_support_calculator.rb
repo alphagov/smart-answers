@@ -3,7 +3,9 @@ module SmartAnswer::Calculators
     attr_accessor :where_do_you_live,
                   :over_state_pension_age,
                   :are_you_working,
+                  :how_many_paid_hours_work,
                   :disability_or_health_condition,
+                  :disability_affecting_daily_tasks,
                   :disability_affecting_work,
                   :carer_disability_or_health_condition,
                   :children_living_with_you,
@@ -128,15 +130,13 @@ module SmartAnswer::Calculators
 
     def eligible_for_employment_and_support_allowance?
       @over_state_pension_age == "no" &&
-        @are_you_working != "yes_over_16_hours_per_week" &&
+        @are_you_working != "no_retired" &&
         @disability_or_health_condition == "yes" &&
         @disability_affecting_work != "no"
     end
 
     def eligible_for_jobseekers_allowance?
-      @over_state_pension_age == "no" &&
-        @are_you_working != "yes_over_16_hours_per_week" &&
-        @disability_affecting_work != "yes_unable_to_work"
+      eligibile_for_jobseekers_in_paid_work? || eligibile_for_jobseekers_not_in_paid_work?
     end
 
     def eligible_for_pension_credit?
@@ -172,7 +172,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare?
-      return false if @are_you_working == "no"
+      return false if @are_you_working != "yes"
       return false if @children_living_with_you == "no"
       return false if @children_with_disability == "yes"
 
@@ -181,7 +181,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_tax_free_childcare_with_disability?
-      return false if @are_you_working == "no"
+      return false if @are_you_working != "yes"
       return false if @children_living_with_you == "no"
       return false if @children_with_disability == "no"
 
@@ -206,7 +206,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_30hrs_free_childcare_3_4yrs?
-      @are_you_working != "no" &&
+      @are_you_working == "yes" &&
         @children_living_with_you == "yes" &&
         eligible_child_ages?(%w[3_to_4])
     end
@@ -236,9 +236,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_personal_independence_payment?
-      return false unless @over_state_pension_age == "no"
-
-      return true if @disability_or_health_condition == "yes"
+      return true if @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
 
       age_groups = %w[16_to_17 18_to_19]
 
@@ -248,11 +246,15 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_adult_disability_payment_scotland?
-      @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
+      @over_state_pension_age == "no" &&
+        @disability_or_health_condition == "yes" &&
+        @disability_affecting_daily_tasks == "yes"
     end
 
     def eligible_for_attendance_allowance?
-      @over_state_pension_age == "yes" && @disability_or_health_condition == "yes"
+      @over_state_pension_age == "yes" &&
+        @disability_or_health_condition == "yes" &&
+        @disability_affecting_daily_tasks == "yes"
     end
 
     def eligible_for_budgeting_loan?
@@ -279,7 +281,47 @@ module SmartAnswer::Calculators
       @on_benefits != "no"
     end
 
+    def eligible_for_help_to_save?
+      if @current_benefits.nil?
+        eligible_for_help_to_save_dont_know_if_on_benefits?
+      else
+        eligible_for_help_to_save_on_benefits?
+      end
+    end
+
+    def eligible_disabled_facilities_grant?
+      disabled_adult_less_than_16000_savings? || living_with_disabled_child_less_than_16000_savings?
+    end
+
+    def eligible_for_help_with_house_adaptations_if_you_are_disabled?
+      @disability_or_health_condition == "yes" || living_with_disabled_child?
+    end
+
   private
+
+    def eligible_for_help_to_save_dont_know_if_on_benefits?
+      @over_state_pension_age == "no" &&
+        @on_benefits == "dont_know"
+    end
+
+    def eligible_for_help_to_save_on_benefits?
+      @over_state_pension_age == "no" &&
+        @on_benefits == "yes" &&
+        @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
+    end
+
+    def eligibile_for_jobseekers_in_paid_work?
+      @over_state_pension_age == "no" &&
+        @are_you_working == "yes" &&
+        @how_many_paid_hours_work == "sixteen_or_less_per_week" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
+
+    def eligibile_for_jobseekers_not_in_paid_work?
+      @over_state_pension_age == "no" &&
+        @are_you_working == "no" &&
+        @disability_affecting_work != "yes_unable_to_work"
+    end
 
     def eligible_child_ages?(age_groups)
       @age_of_children.split(",").any? { |age| age_groups.include?(age) }
@@ -299,6 +341,18 @@ module SmartAnswer::Calculators
       @current_benefits.split(",").none? do |benefit|
         skip_benefit_list.include?(benefit)
       end
+    end
+
+    def living_with_disabled_child?
+      @children_living_with_you == "yes" && @children_with_disability == "yes"
+    end
+
+    def disabled_adult_less_than_16000_savings?
+      @disability_or_health_condition == "yes" && @assets_and_savings != "over_16000"
+    end
+
+    def living_with_disabled_child_less_than_16000_savings?
+      living_with_disabled_child? && @assets_and_savings != "over_16000"
     end
   end
 end
