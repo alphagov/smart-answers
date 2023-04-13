@@ -8,12 +8,11 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render 'smart_answers/shared/debug' %>
     <%
-      continue_button_text = "Continue"
       ga4_attributes = {
         event_name: "form_response",
         type: "smart answer",
         section: question.title,
-        action: continue_button_text,
+        action: "continue",
         tool_name: @presenter.title,
       }
     %>
@@ -67,7 +66,7 @@
 
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
-          text: continue_button_text,
+          text: "Continue",
           margin_bottom: true
         } %>
       </div>
