@@ -37,6 +37,6 @@
   "devDependencies": {
     "standardx": "^7.0.0",
     "stylelint": "^14.16.1",
-    "stylelint-config-gds": "^0.2.0"
+    "stylelint-config-gds": "^0.3.0"
   }
 }
