@@ -2,7 +2,7 @@ require "component_test_helper"
 
 class ResultCardVisaTest < ComponentTestCase
   def component_name
-    "check_uk_visa/result-card"
+    "check_uk_visa/result_card"
   end
 
   ATTRIBUTES = {

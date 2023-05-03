@@ -2,7 +2,7 @@ require "component_test_helper"
 
 class ResultSectionsTest < ComponentTestCase
   def component_name
-    "result-sections"
+    "result_sections"
   end
 
   TOPICS = {
