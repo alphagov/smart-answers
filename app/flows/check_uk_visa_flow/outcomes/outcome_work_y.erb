@@ -10,7 +10,7 @@
 
 <% html_for :body do %>
   <% calculator.visas_for_outcome.each do |visa| %>
-    <%= render "components/check_uk_visa/result-card", { 
+    <%= render "components/check_uk_visa/result_card", { 
       title: visa["title"],
       type: visa["type"],
       description: visa["description"],

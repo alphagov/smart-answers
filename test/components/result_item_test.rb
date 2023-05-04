@@ -2,7 +2,7 @@ require "component_test_helper"
 
 class ResultItemTest < ComponentTestCase
   def component_name
-    "result-item"
+    "result_item"
   end
 
   test "fails to render when no data is given" do
