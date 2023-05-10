@@ -147,7 +147,7 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (~> 6)
-    govuk_app_config (7.1.0)
+    govuk_app_config (7.2.0)
       logstasher (~> 2.1)
       plek (>= 4, < 6)
       prometheus_exporter (~> 2.0)
@@ -200,7 +200,7 @@ GEM
     logstasher (2.1.5)
       activesupport (>= 5.2)
       request_store
-    loofah (2.20.0)
+    loofah (2.21.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
