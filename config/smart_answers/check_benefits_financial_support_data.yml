@@ -669,3 +669,10 @@
       url: https://www.mygov.scot/care-equipment-adaptations
       countries:
         - scotland
+    - name: discretionary_assistance_fund
+      title: Discretionary Assistance Fund
+      description: <p>If you’re in financial hardship, you could get money as part of the Discretionary Assistance Fund. This can be used if you need support to live independently or for essential costs, such as food, utility bills or emergency travel.</p>
+      url_text: Check if you’re eligible for the Discretionary Assistance Fund on the GOV.WALES website
+      url: https://www.gov.wales/discretionary-assistance-fund-daf/eligibility
+      countries:
+        - wales

@@ -1196,5 +1196,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You could get help from your local council to make changes to your home if you’re disabled or you live with someone who is."
       assert_rendered_outcome text: "Check if you’re eligible for help with house adaptations on the mygov.scot website"
     end
+
+    should "render Discretionary Assistance Fund" do
+      add_responses where_do_you_live: "wales"
+
+      assert_rendered_outcome text: "Discretionary Assistance Fund"
+      assert_rendered_outcome text: "Check if you’re eligible for the Discretionary Assistance Fund on the GOV.WALES website"
+    end
   end
 end
