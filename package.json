@@ -31,12 +31,16 @@
     "extends": "stylelint-config-gds/scss"
   },
   "dependencies": {
-    "jasmine-browser-runner": "^1.4.0",
-    "jasmine-core": "^4.6.0"
+    "jasmine-browser-runner": "^2.0.0",
+    "jasmine-core": "^5.0.0"
   },
   "devDependencies": {
     "standardx": "^7.0.0",
     "stylelint": "^14.16.1",
     "stylelint-config-gds": "^0.3.0"
+  },
+  "resolutions": {
+    "stylelint/strip-ansi": "6.0.1",
+    "stylelint/string-width": "4.2.3"
   }
 }
