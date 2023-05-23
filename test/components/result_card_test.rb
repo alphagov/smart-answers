@@ -90,4 +90,32 @@ class ResultCardTest < ComponentTestCase
       assert_select ".app-c-result-card__description", text: "Result card description"
     end
   end
+
+  test "renders a result card with the GA4 ecommerce path on the URL" do
+    render_component({
+      title: "Result card title",
+      description: "Result card description",
+      url: "https://example.com/test-path",
+      url_text: "GOV.UK",
+      url_track_action: "Smart Answer Flow Name",
+    })
+
+    assert_select ".app-c-result-card" do
+      assert_select ".app-c-result-card__link[data-ga4-ecommerce-path='https://example.com/test-path']", true
+    end
+  end
+
+  test "replaces https://www.gov.uk on GA4 ecommerce path URLs" do
+    render_component({
+      title: "Result card title",
+      description: "Result card description",
+      url: "https://www.gov.uk/this-is-a-path",
+      url_text: "GOV.UK",
+      url_track_action: "Smart Answer Flow Name",
+    })
+
+    assert_select ".app-c-result-card" do
+      assert_select ".app-c-result-card__link[data-ga4-ecommerce-path='/this-is-a-path']", true
+    end
+  end
 end
