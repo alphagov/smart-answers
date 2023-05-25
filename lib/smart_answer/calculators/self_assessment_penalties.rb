@@ -237,7 +237,7 @@ module SmartAnswer::Calculators
       if rate_for_date.present?
         rate_for_date[:value] / 365.0
       else
-        0.035 / 365.0
+        0.0325 / 365.0
       end
     end
   end
