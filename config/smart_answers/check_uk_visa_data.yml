@@ -843,13 +843,13 @@
           answer: Up to 2 years
         can_extend:
           answer: "No"
-          description: To stay longer, you may be able to switch to another visa - for example an Innovator visa
+          description: To stay longer, you may be able to switch to another visa - for example an Innovator Founder visa
         can_settle:
           answer: "No"
           description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
       url: https://www.gov.uk/start-up-visa
     - name: innovator
-      type: Innovator visa
+      type: Innovator Founder visa
       title: If you're an experienced businessperson and have an innovative business idea
       description: |
         You may be able to start a business if you have:
@@ -873,7 +873,7 @@
         can_settle:
           answer: "Yes - after 3 years"
           description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
-      url: https://www.gov.uk/innovator-visa
+      url: https://www.gov.uk/innovator-founder-visa
     - name: global_talent_business
       type: Global Talent visa
       title: If you’re a leader or potential leader in your field
