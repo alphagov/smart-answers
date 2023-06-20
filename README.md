@@ -24,9 +24,23 @@ A tool for content designers to present complex information as a flow of questio
 
 This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh --live` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
 
 If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
+
+### Running the test suite
+
+```
+bundle exec rake
+```
+
+### Troubleshooting
+- When running integration tests, if you get `SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version <some version number>` error, then:
+  - run `brew install chromedriver` or if you already have the cask, `brew upgrade chromedriver`
+  - if that doesn't work, install the correct Chrome driver into `usr/local/bin`
+- When running `bundle exec rake`, if you get `rake aborted!
+  LoadError: linked to incompatible <some libruby or gem link>`, run `gem pristine --all`
+
 
 ### Smart Answer design
 
