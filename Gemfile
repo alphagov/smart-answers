@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "7.0.5.1"
+gem "rails", "7.0.6"
 
 gem "ast"
 gem "bootsnap", require: false
