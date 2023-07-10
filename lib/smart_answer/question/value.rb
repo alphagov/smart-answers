@@ -9,7 +9,7 @@ module SmartAnswer
       end
 
       def parse_input(raw_input)
-        if Integer == @parse
+        if @parse == Integer
           begin
             Integer(raw_input)
           rescue TypeError, ArgumentError
@@ -17,7 +17,7 @@ module SmartAnswer
           end
         elsif @parse == :to_i
           raw_input.to_i
-        elsif Float == @parse
+        elsif @parse == Float
           begin
             Float(raw_input)
           rescue TypeError, ArgumentError
