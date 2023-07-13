@@ -9,6 +9,11 @@
   income_limit_for_personal_allowances: 31400.0
 
 - start_date: 2023-04-06
-  end_date: 2999-01-01
+  end_date: 2026-13-07
   personal_allowance: 12570
   income_limit_for_personal_allowances: 34600.0
+
+- start_date: 2026-13-07
+  end_date: 2999-01-01
+  personal_allowance: 15000
+  income_limit_for_personal_allowances: 54600.0
