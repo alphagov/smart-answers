@@ -41,7 +41,6 @@
       title: You need a visa to start a business
       potential_visas:
         - british_national_overseas
-        - start_up
         - innovator
         - global_talent_business
         - uk_expansion_worker
@@ -823,31 +822,6 @@
           answer: Yes - after 5 years
           description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
       url: https://www.gov.uk/minister-of-religion-visa
-    - name: start_up
-      type: Start-up visa
-      title: If you want to start a business for the first time and have an innovative business idea
-      description: |
-        You may be able to start a business if you have:
-
-        + a business idea that’s different from anything else on the market
-        + an idea that was assessed by an ‘endorsing body’ before 13 April 2023
-      attributes:
-        job_offer:
-          answer: "No"
-        minimum_salary:
-          answer: "No"
-        english_knowledge:
-          answer: "Yes"
-          description: "You must usually prove you can read, write, speak and understand English"
-        initial_visa_length:
-          answer: Up to 2 years
-        can_extend:
-          answer: "No"
-          description: To stay longer, you may be able to switch to another visa - for example an Innovator Founder visa
-        can_settle:
-          answer: "No"
-          description: Settling means you can live permanently in the UK. If you successfully apply, you can use this status to apply for citizenship
-      url: https://www.gov.uk/start-up-visa
     - name: innovator
       type: Innovator Founder visa
       title: If you're an experienced businessperson and have an innovative business idea
