@@ -8,4 +8,8 @@
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   <%= render partial: 'estonia_or_latvia', locals: {calculator: calculator} %>
+
+  <% if calculator.july_19_to_august_16_2023_grace_period_country? %>
+    <%= render partial: 'july_19_to_august_16_2023/outcome_12_13', locals: {calculator: calculator} %>
+  <% end %>
 <% end %>

@@ -36,4 +36,8 @@
   + in a [fast-growing UK business (sometimes known as a ‘scale-up’ business)](/scale-up-worker-visa)
 
   You can also apply for an [international agreement](/international-agreement-worker-visa) visa if you'll be doing work covered by international law while in the UK (for example, working for a foreign government or as a private servant in a diplomatic household).
+
+  <% if calculator.july_19_to_august_16_2023_grace_period_country? %>
+    <%= render partial: 'july_19_to_august_16_2023/outcome_3', locals: {calculator: calculator} %>
+  <% end %>
 <% end %>

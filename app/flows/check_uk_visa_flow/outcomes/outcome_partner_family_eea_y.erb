@@ -24,4 +24,8 @@
   You may be able to apply as a ‘dependant’ of your partner or family member’s visa. You can work or study if your application is successful.
 
   [Browse for your family member’s type of visa](/browse/visas-immigration) to find out how to apply.
+
+  <% if calculator.july_19_to_august_16_2023_grace_period_country? %>
+    <%= render partial: 'july_19_to_august_16_2023/outcome_8_9_10', locals: {calculator: calculator} %>
+  <% end %>
 <% end %>

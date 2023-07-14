@@ -15,4 +15,8 @@
   + is settled in the UK (called having ‘indefinite leave to remain’)
   + has settled or pre-settled status under the EU Settlement Scheme
   + has a Turkish worker or businessperson visa
+
+  <% if calculator.july_19_to_august_16_2023_grace_period_country? %>
+    <%= render partial: 'july_19_to_august_16_2023/outcome_11', locals: {calculator: calculator} %>
+  <% end %>
 <% end %>
