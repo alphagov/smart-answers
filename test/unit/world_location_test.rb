@@ -11,17 +11,6 @@ class WorldLocationTest < ActiveSupport::TestCase
       assert_equal @location_slugs, results.map(&:slug)
     end
 
-    should "load multiple pages of locations" do
-      @location_slugs = (1..30).map { |n| "location-#{n}" }
-      stub_worldwide_api_has_locations(@location_slugs)
-
-      results = WorldLocation.all
-      assert_requested :get,
-                       %r{\A#{WORLDWIDE_API_ENDPOINT}/api/world-locations},
-                       times: 2
-      assert_equal @location_slugs, results.map(&:slug)
-    end
-
     should "filter out any results that are not world locations e.g. delegations & missions" do
       @location_slugs = %w[the-shire rivendel rohan delegation-to-lorien gondor arnor mission-to-mordor]
       stub_worldwide_api_has_locations(@location_slugs)
@@ -40,7 +29,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     context "caching the results" do
       setup do
         @location_slugs = (1..10).map { |n| "location-#{n}" }
-        @endpoint = %r{\A#{WORLDWIDE_API_ENDPOINT}/api/world-locations}
+        @endpoint = %r{\A#{WORLDWIDE_API_ENDPOINT}/api/content/world}
         stub_worldwide_api_has_locations(@location_slugs)
       end
 
@@ -71,7 +60,7 @@ class WorldLocationTest < ActiveSupport::TestCase
       should "use the stale value from the cache on error for a week" do
         first = WorldLocation.all
 
-        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations").to_timeout
+        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/content/world").to_timeout
 
         travel_to(25.hours.from_now) do
           assert_nothing_raised do
@@ -90,7 +79,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "the Worldwide API returns no locations" do
       setup do
-        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations")
+        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/content/world")
           .to_return(
             status: 200,
             body: {
@@ -128,14 +117,13 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "return nil if not found" do
-      stub_worldwide_api_does_not_have_location("non-existent")
+      stub_worldwide_api_has_locations(%w[rohan gondor])
       assert_nil WorldLocation.find("non-existent")
     end
 
     context "caching the result" do
       setup do
-        @rohan_request = stub_worldwide_api_has_location("rohan")
-        stub_worldwide_api_has_location("gondor")
+        @rohan_request = stub_worldwide_api_has_locations(%w[rohan gondor])
       end
 
       should "cache the loaded location" do
@@ -189,8 +177,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "equality" do
     setup do
-      stub_worldwide_api_has_location("rohan")
-      stub_worldwide_api_has_location("gondor")
+      stub_worldwide_api_has_locations(%w[rohan gondor])
     end
 
     should "consider 2 location instances with the same slug as ==" do
