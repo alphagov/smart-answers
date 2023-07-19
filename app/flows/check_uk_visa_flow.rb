@@ -388,7 +388,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_marriage_nvn_british_overseas_territories)
         elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list?
           next outcome(:outcome_marriage_nvn_british_overseas_territories)
-        elsif calculator.passport_country_in_electronic_visa_waiver_list?
+        elsif calculator.passport_country_in_electronic_visa_waiver_list? ||
+            calculator.passport_country_in_electronic_travel_authorisation_list?
           next outcome(:outcome_marriage_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_marriage_taiwan)
