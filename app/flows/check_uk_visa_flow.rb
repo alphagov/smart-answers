@@ -158,6 +158,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
             outcome :outcome_transit_taiwan_through_border_control
           elsif calculator.passport_country_in_visa_national_list? ||
               calculator.passport_country_in_electronic_visa_waiver_list? ||
+              calculator.passport_country_in_electronic_travel_authorisation_list? ||
               calculator.travel_document?
             outcome :outcome_transit_leaving_airport
           elsif calculator.passport_country_in_direct_airside_transit_visa_list?

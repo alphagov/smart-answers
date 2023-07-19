@@ -714,6 +714,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK in transit"
     end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: "qatar"
+      assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_transit_leaving_airport_direct_airside_transit_visa" do
