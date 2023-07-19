@@ -30,6 +30,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "macao",
                                       "taiwan",
                                       "venezuela",
+                                      "qatar",
                                       @electronic_visa_waiver_country,
                                       @direct_airside_transit_visa_country,
                                       @visa_national_country,
@@ -884,6 +885,18 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_visa_count("china", 2)
       test_visa_count("british-national-overseas", 5)
       test_visa_count("stateless-or-refugee", 2)
+    end
+  end
+
+  context "outcome: outcome_visit_waiver" do
+    setup do
+      testing_node :outcome_visit_waiver
+      add_responses purpose_of_visit?: "tourism"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: "qatar"
+      assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
   end
 end
