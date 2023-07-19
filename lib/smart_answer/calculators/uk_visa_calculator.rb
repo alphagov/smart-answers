@@ -78,6 +78,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
     end
 
+    def passport_country_requires_electronic_travel_authorisation?
+      %w[qatar].include?(@passport_country)
+    end
+
     def passport_country_in_epassport_gate_list?
       COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
     end
