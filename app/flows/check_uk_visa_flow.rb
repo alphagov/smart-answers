@@ -207,7 +207,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
               outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
             end
           elsif calculator.work_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
+            if calculator.passport_country_in_electronic_visa_waiver_list? || calculator.passport_country_in_electronic_travel_authorisation_list?
               outcome :outcome_work_waiver
             elsif (calculator.passport_country_in_british_overseas_territories_list? ||
                 calculator.passport_country_is_taiwan? ||
