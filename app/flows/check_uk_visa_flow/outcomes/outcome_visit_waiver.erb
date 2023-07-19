@@ -7,4 +7,8 @@
 
   + an [electronic visa waiver](/get-electronic-visa-waiver)
   + a [Standard Visitor visa](/standard-visitor)
+
+  <%if calculator.passport_country_in_electronic_travel_authorisation_list?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice', locals: {calculator: calculator} %>
+  <% end %>
 <% end %>
