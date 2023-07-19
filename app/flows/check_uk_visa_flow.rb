@@ -172,7 +172,9 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           outcome :outcome_transit_refugee_not_leaving_airport
         elsif calculator.passport_country_in_direct_airside_transit_visa_list?
           outcome :outcome_transit_not_leaving_airport
-        elsif calculator.passport_country_in_visa_national_list? || calculator.travel_document?
+        elsif calculator.passport_country_in_visa_national_list? ||
+            calculator.travel_document? ||
+            calculator.passport_country_in_electronic_travel_authorisation_list?
           outcome :outcome_no_visa_needed
         end
       end
