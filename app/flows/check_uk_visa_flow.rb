@@ -195,7 +195,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           end
         elsif calculator.staying_for_six_months_or_less?
           if calculator.study_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
+            if calculator.passport_country_in_electronic_visa_waiver_list? || calculator.passport_country_in_electronic_travel_authorisation_list?
               outcome :outcome_study_waiver
             elsif calculator.passport_country_is_taiwan?
               outcome :outcome_study_waiver_taiwan
