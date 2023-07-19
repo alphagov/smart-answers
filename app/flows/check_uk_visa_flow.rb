@@ -341,7 +341,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.school_visit?
-        if calculator.passport_country_in_electronic_visa_waiver_list?
+        if calculator.passport_country_in_electronic_visa_waiver_list? ||
+          calculator.passport_country_in_electronic_travel_authorisation_list?
           next outcome(:outcome_school_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_study_waiver_taiwan)

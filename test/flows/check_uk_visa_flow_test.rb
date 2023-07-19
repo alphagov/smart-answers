@@ -955,4 +955,16 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
   end
+
+  context "outcome: outcome_school_waiver" do
+    setup do
+      testing_node :outcome_school_waiver
+      add_responses purpose_of_visit?: "school"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: "qatar"
+      assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
+  end
 end
