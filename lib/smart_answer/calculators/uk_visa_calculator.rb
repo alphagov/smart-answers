@@ -222,6 +222,16 @@ module SmartAnswer::Calculators
       @passport_country == "india" && work_visit? && staying_for_over_six_months? && @what_type_of_work != "sports"
     end
 
+    def july_19_to_august_16_2023_grace_period_country?
+      %w[
+        dominica
+        honduras
+        namibia
+        timor-leste
+        vanuatu
+      ].freeze.include?(@passport_country)
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
@@ -331,11 +341,9 @@ module SmartAnswer::Calculators
       colombia
       costa-rica
       curacao
-      dominica
       grenada
       guatemala
       guyana
-      honduras
       hong-kong
       hong-kong-(british-national-overseas)
       israel
@@ -349,7 +357,6 @@ module SmartAnswer::Calculators
       mexico
       micronesia
       monaco
-      namibia
       nauru
       new-zealand
       nicaragua
@@ -369,13 +376,11 @@ module SmartAnswer::Calculators
       st-lucia
       st-maarten
       st-vincent-and-the-grenadines
-      timor-leste
       tonga
       trinidad-and-tobago
       tuvalu
       uruguay
       usa
-      vanuatu
       vatican-city
     ).freeze
 
@@ -450,6 +455,7 @@ module SmartAnswer::Calculators
       cote-d-ivoire
       cyprus-north
       democratic-republic-of-the-congo
+      dominica
       egypt
       el-salvador
       eritrea
@@ -459,6 +465,7 @@ module SmartAnswer::Calculators
       ghana
       guinea
       guinea-bissau
+      honduras
       india
       iran
       iraq
@@ -475,6 +482,7 @@ module SmartAnswer::Calculators
       moldova
       mongolia
       myanmar
+      namibia
       nepal
       nigeria
       north-macedonia
@@ -492,8 +500,10 @@ module SmartAnswer::Calculators
       syria
       tanzania
       the-gambia
+      timor-leste
       turkey
       uganda
+      vanuatu
       venezuela
       vietnam
       yemen

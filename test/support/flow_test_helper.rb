@@ -83,6 +83,13 @@ module FlowTestHelper
     assert_match text, test_flow.outcome_text if text
   end
 
+  def assert_no_rendered_outcome(text: nil)
+    ensure_valid_and_correct_node
+
+    assert_not_empty test_flow.outcome_text
+    assert_no_match text, test_flow.outcome_text if text
+  end
+
   class TestFlow
     attr_reader :flow
 
