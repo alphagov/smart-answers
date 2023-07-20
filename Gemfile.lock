@@ -168,7 +168,7 @@ GEM
     govuk_personalisation (0.14.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (35.10.0)
+    govuk_publishing_components (35.11.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -225,7 +225,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.2)
+    mini_portile2 (2.8.4)
     minitest (5.18.1)
     minitest-focus (1.4.0)
       minitest (>= 4, < 6)
