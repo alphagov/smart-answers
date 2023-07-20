@@ -71,5 +71,22 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "#previous_period" do
+      setup do
+        @test_rate = RatesQuery.from_file(
+          "exact_date_rates",
+          load_path: "test/fixtures/rates",
+        )
+      end
+
+      should "be nil for 2013-01-31" do
+        assert_nil @test_rate.previous_period(date: Date.parse("2013-01-31"))
+      end
+
+      should "be 2013-01-31 for 2013-02-01" do
+        assert_equal Date.parse("2012-01-01"), @test_rate.previous_period(date: Date.parse("2013-02-01"))[:start_date]
+      end
+    end
   end
 end

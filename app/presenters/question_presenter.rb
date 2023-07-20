@@ -11,7 +11,7 @@ class QuestionPresenter < NodePresenter
       template_directory: @node.template_directory.join("questions"),
       template_name: @node.template_name,
       locals: @state.to_hash,
-      helpers: [SmartAnswer::FormattingHelper] + helpers,
+      helpers: [SmartAnswer::RateDatesHelper, SmartAnswer::FormattingHelper] + helpers,
     )
   end
 

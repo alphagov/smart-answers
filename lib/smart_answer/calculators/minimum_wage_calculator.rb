@@ -28,6 +28,10 @@ module SmartAnswer::Calculators
       @minimum_wage_data = rates_for_date(@date)
     end
 
+    def previous_period_start_date
+      data.previous_period(date:)[:start_date]
+    end
+
     def valid_age?(age)
       age.positive? && age <= 200
     end
