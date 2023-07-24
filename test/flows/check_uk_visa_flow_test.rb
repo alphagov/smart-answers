@@ -631,6 +631,13 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     passing_through_uk_border_control?: "no"
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
+                    travelling_to_cta?: "somewhere_else",
+                    passing_through_uk_border_control?: "no"
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_school_y" do
@@ -709,6 +716,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_transit_leaving_airport" do
@@ -732,6 +744,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance for Electronic Travel Authorisation" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
   end
 
@@ -917,6 +934,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_study_waiver" do
@@ -929,6 +951,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance for Electronic Travel Authorisation" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
   end
 
@@ -943,6 +970,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_marriage_electronic_visa_waiver" do
@@ -955,6 +987,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
   end
 
   context "outcome: outcome_school_waiver" do
@@ -966,6 +1003,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance for Electronic Travel Authorisation" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: "If you’re travelling after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
     end
   end
 end
