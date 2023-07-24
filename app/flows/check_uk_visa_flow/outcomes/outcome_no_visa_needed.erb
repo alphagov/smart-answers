@@ -4,7 +4,7 @@
 
 <% govspeak_for :body do %>
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice', locals: {calculator: calculator} %>
+    If you're travelling after 15 November 2023, you'll need to apply for an [electronic travel authorisation (ETA)](/electronic-travel-authorisation) instead of an electronic visa waiver. You'll be able to apply for an ETA from 25 October 2023.
   <% end %>
 
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
