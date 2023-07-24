@@ -245,13 +245,13 @@ module SmartAnswer
         should "return true if passport_country is in list of countries that can apply for an electronic travel authorisation" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "qatar"
-          assert calculator.passport_country_in_electronic_travel_authorisation_list?
+          assert calculator.passport_country_requires_electronic_travel_authorisation?
         end
 
         should "return false if passport_country is not in list of countries that can apply for an electronic travel authorisation" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_in_electronic_travel_authorisation_list?
+          assert_not calculator.passport_country_requires_electronic_travel_authorisation?
         end
       end
 
