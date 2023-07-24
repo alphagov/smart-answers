@@ -17,7 +17,6 @@ class WorldLocation
     cache_fetch("all") do
       world_locations = GdsApi.worldwide
                               .world_locations
-                              .with_subsequent_pages
                               .select { |r| valid_world_location_format?(r.to_hash) }
                               .map { |r| new(r.to_hash) }
 
