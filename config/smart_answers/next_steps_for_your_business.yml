@@ -7,7 +7,7 @@
 - id: r2
   title: "Check if you need any licences for your business"
   description: "You might need licences or to register your company, depending on the type of work you do."
-  url: "/licence-finder"
+  url: "/find-licences"
   topic: "Licences and registration"
   group: "Things you need to do next"
 - id: r3
