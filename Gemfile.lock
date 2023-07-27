@@ -229,7 +229,7 @@ GEM
     minitest (5.18.1)
     minitest-focus (1.4.0)
       minitest (>= 4, < 6)
-    mocha (2.0.4)
+    mocha (2.1.0)
       ruby2_keywords (>= 0.0.5)
     msgpack (1.6.0)
     multi_xml (0.6.0)
