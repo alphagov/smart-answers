@@ -12,7 +12,7 @@ class MarriageAbroadFlow < SmartAnswer::Flow
     name "marriage-abroad"
     status :published
 
-    exclude_countries = %w[samoa holy-see british-antarctic-territory the-occupied-palestinian-territories]
+    exclude_countries = %w[samoa holy-see british-antarctic-territory the-occupied-palestinian-territories uk-mission-to-the-wto-un-and-other-international-organisations-geneva]
 
     # Q1
     country_select(:country_of_ceremony?, exclude_countries:) do
