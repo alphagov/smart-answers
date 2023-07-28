@@ -12,6 +12,37 @@
 <% end %>
 <% content_for :head do %>
   <meta name="robots" content="noindex">
+  <%
+    ga4_track_headings = [
+      "/state-pension-through-partner/y/widowed/your_pension_age_after_specific_date/female_gender",
+      "/marriage-abroad/y/italy/ceremony_country/opposite_sex",
+      "/marriage-abroad/y/poland/ceremony_country/opposite_sex",
+      "/register-a-birth/y/japan/father/yes/same_country",
+      "/check-uk-visa/y/usa/work/six_months_or_less",
+      "/check-uk-visa/y/australia/work/six_months_or_less",
+      "/check-uk-visa/y/germany/work/six_months_or_less",
+      "/check-uk-visa/y/france/work/six_months_or_less",
+      "/check-uk-visa/y/italy/work/six_months_or_less",
+      "/check-uk-visa/y/spain/work/six_months_or_less",
+      "/check-uk-visa/y/poland/work/six_months_or_less",
+      "/check-uk-visa/y/romania/work/six_months_or_less",
+      "/check-uk-visa/y/canada/work/six_months_or_less",
+      "/check-uk-visa/y/netherlands/work/six_months_or_less",
+      "/check-uk-visa/y/portugal/work/six_months_or_less",
+      "/check-uk-visa/y/greece/work/six_months_or_less",
+      "/check-uk-visa/y/sweden/work/six_months_or_less",
+      "/check-uk-visa/y/new-zealand/work/six_months_or_less",
+      "/check-uk-visa/y/belgium/work/six_months_or_less",
+      "/check-uk-visa/y/japan/work/six_months_or_less",
+      "/check-uk-visa/y/switzerland/work/six_months_or_less",
+      "/check-uk-visa/y/bulgaria/work/six_months_or_less",
+      "/check-uk-visa/y/denmark/work/six_months_or_less",
+      "/check-uk-visa/y/czech-republic/work/six_months_or_less",
+    ]
+  %>
+  <% if ga4_track_headings.include?(request.fullpath) %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings"/>
+  <% end %>  
 <% end %>
 
 <div class="govuk-grid-row">
