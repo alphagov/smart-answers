@@ -774,7 +774,7 @@ module SmartAnswer
       end
 
       context "outcome per path" do
-        context "#two_questions_country? " do
+        context "#two_questions_country?" do
           should "return true if this 2 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "2_outcome_country"
@@ -790,7 +790,7 @@ module SmartAnswer
           end
         end
 
-        context "#three_questions_country? " do
+        context "#three_questions_country?" do
           should "return true if this 6 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "6_outcome_country"
@@ -806,7 +806,7 @@ module SmartAnswer
           end
         end
 
-        context "#four_questions_country? " do
+        context "#four_questions_country?" do
           should "return true if this 18 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "18_outcome_country"
