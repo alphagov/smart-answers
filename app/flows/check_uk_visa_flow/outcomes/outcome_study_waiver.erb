@@ -9,7 +9,7 @@
   + [a Standard Visitor visa](/standard-visitor) for courses up to 6 months
 
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice', locals: {calculator: calculator} %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
   <% end %>
 
   *[EVW]: electronic visa waiver

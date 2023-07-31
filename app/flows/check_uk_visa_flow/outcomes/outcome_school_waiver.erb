@@ -9,7 +9,7 @@
   + a [Parent of a Child Student visa](/parent-of-a-child-at-school-visa)
 
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice', locals: {calculator: calculator} %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
   <% end %>
 
   *[EVW]: electronic visa waiver
