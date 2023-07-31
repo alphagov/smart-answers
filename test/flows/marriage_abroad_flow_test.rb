@@ -20,7 +20,7 @@ class MarriageAbroadFlowTest < ActiveSupport::TestCase
     stub_worldwide_api_has_locations(country_slugs)
 
     WORLDWIDE_ORGANISATION_API_COUNTRIES.intersection(country_slugs).each do |slug|
-      stub_worldwide_api_has_organisations_for_location(slug, { results: [] })
+      stub_search_api_has_organisations_for_location(slug, [])
     end
   end
 

@@ -14,7 +14,7 @@ class RegisterABirthFlowTest < ActiveSupport::TestCase
       %w[indonesia]
 
     stub_worldwide_api_has_locations(countries.uniq)
-    stub_worldwide_api_has_organisations_for_location("north-korea", { results: [{ title: "organisation-title" }] })
+    stub_search_api_has_organisations_for_location("north-korea", [{ "title" => "organisation-title", "base_path" => "/world/organisations/organisation" }])
   end
 
   setup do

@@ -314,23 +314,30 @@ module SmartAnswer
         should "return the fco organisation for the world location" do
           organisations_data = [
             {
-              title: "organisation-1-title",
+              "title" => "organisation-1-title",
+              "base_path" => "/world/organisations/organisation-1",
             },
             {
-              title: "organisation-2-title",
-              sponsors: [{ details: { acronym: "FCDO" } }],
+              "title" => "organisation-2-title",
+              "base_path" => "/world/organisations/organisation-2",
+              "links" => {
+                "sponsoring_organisations" => [
+                  {
+                    "details" => {
+                      "acronym" => "FCDO",
+                    },
+                  },
+                ],
+              },
             },
           ]
-          stub_worldwide_api_has_organisations_for_location(
-            "world-location",
-            { results: organisations_data },
-          )
+          stub_search_api_has_organisations_for_location("world-location", organisations_data)
 
           assert_equal "organisation-2-title", @calculator.fco_organisation.title
         end
 
         should "return nil if the world location doesn't have an fco organisation" do
-          stub_worldwide_api_has_no_organisations_for_location("world-location")
+          stub_search_api_has_organisations_for_location("world-location", [])
           assert_nil @calculator.fco_organisation
         end
       end
