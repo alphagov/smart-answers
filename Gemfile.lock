@@ -73,6 +73,13 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
+    better_html (2.0.2)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.16.0)
@@ -100,6 +107,13 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    erb_lint (0.4.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.12.0)
     execjs (2.8.1)
     faraday (1.10.0)
@@ -592,6 +606,7 @@ GEM
       plek (>= 1.1.0)
       rack
       rest-client
+    smart_properties (1.17.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -642,6 +657,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  erb_lint
   gds-api-adapters
   gds_zendesk
   govspeak

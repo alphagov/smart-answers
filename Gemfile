@@ -35,6 +35,7 @@ end
 
 group :development, :test do
   gem "byebug"
+  gem "erb_lint", require: false
   gem "govuk_schemas"
   gem "govuk_test"
   gem "pry"
