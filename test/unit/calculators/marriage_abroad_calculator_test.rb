@@ -314,23 +314,30 @@ module SmartAnswer
         should "return the fco organisation for the world location" do
           organisations_data = [
             {
-              title: "organisation-1-title",
+              "title" => "organisation-1-title",
+              "base_path" => "/world/organisations/organisation-1",
             },
             {
-              title: "organisation-2-title",
-              sponsors: [{ details: { acronym: "FCDO" } }],
+              "title" => "organisation-2-title",
+              "base_path" => "/world/organisations/organisation-2",
+              "links" => {
+                "sponsoring_organisations" => [
+                  {
+                    "details" => {
+                      "acronym" => "FCDO",
+                    },
+                  },
+                ],
+              },
             },
           ]
-          stub_worldwide_api_has_organisations_for_location(
-            "world-location",
-            { results: organisations_data },
-          )
+          stub_search_api_has_organisations_for_location("world-location", organisations_data)
 
           assert_equal "organisation-2-title", @calculator.fco_organisation.title
         end
 
         should "return nil if the world location doesn't have an fco organisation" do
-          stub_worldwide_api_has_no_organisations_for_location("world-location")
+          stub_search_api_has_organisations_for_location("world-location", [])
           assert_nil @calculator.fco_organisation
         end
       end
@@ -774,7 +781,7 @@ module SmartAnswer
       end
 
       context "outcome per path" do
-        context "#two_questions_country? " do
+        context "#two_questions_country?" do
           should "return true if this 2 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "2_outcome_country"
@@ -790,7 +797,7 @@ module SmartAnswer
           end
         end
 
-        context "#three_questions_country? " do
+        context "#three_questions_country?" do
           should "return true if this 6 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "6_outcome_country"
@@ -806,7 +813,7 @@ module SmartAnswer
           end
         end
 
-        context "#four_questions_country? " do
+        context "#four_questions_country?" do
           should "return true if this 18 outcome country is part of the outcome per path countries" do
             @calculator = MarriageAbroadCalculator.new
             @calculator.ceremony_country = "18_outcome_country"

@@ -4,10 +4,10 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   context ".for_location" do
     should "instantiates WorldwideOrganisation objects using data from the API" do
       organisations_data = [
-        { title: "organisation-1-title" },
-        { title: "organisation-2-title" },
+        { "title" => "organisation-1-title", "base_path" => "/world/organisations/organisation-1" },
+        { "title" => "organisation-2-title", "base_path" => "/world/organisations/organisation-2" },
       ]
-      stub_worldwide_api_has_organisations_for_location("location-slug", { results: organisations_data })
+      stub_search_api_has_organisations_for_location("location-slug", organisations_data)
 
       worldwide_organisations = WorldwideOrganisation.for_location("location-slug")
 

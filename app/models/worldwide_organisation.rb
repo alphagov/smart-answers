@@ -30,7 +30,7 @@ class WorldwideOrganisation
     return [] unless all_offices.any?
 
     embassies = all_offices.select do |office|
-      office["services"].any? do |service|
+      office["services"]&.any? do |service|
         service["title"].include?(service_title)
       end
     end
