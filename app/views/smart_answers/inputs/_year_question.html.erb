@@ -4,24 +4,24 @@
   <% end %>
 
   <%= render "govuk_publishing_components/components/date_input", {
-    error_message: question.error,
+        error_message: question.error,
     hint: question.hint,
     items: [
-       {
+      {
         label: "Year",
-        name: "response[year]",
-        id: "response",
-        width: 4,
-        value: question.parsed_response[:year],
-      }
-    ]
-  } %>
+       name: "response[year]",
+       id: "response",
+       width: 4,
+       value: question.parsed_response[:year],
+      },
+    ],
+      } %>
 <% end %>
 
 <%= render "smart_answers/inputs/caption", question: question %>
 <%= render "govuk_publishing_components/components/fieldset", {
-  legend_text: question.title,
+      legend_text: question.title,
   heading_level: 1,
   heading_size: "l",
-  text: form_contents
-} %>
+  text: form_contents,
+    } %>

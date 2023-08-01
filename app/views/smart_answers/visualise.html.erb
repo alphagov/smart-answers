@@ -1,12 +1,12 @@
 <% content_for :head do %>
 <meta name="robots" content="noindex, nofollow">
-<%= javascript_include_tag 'joint.patch' %>
-<%= javascript_include_tag 'joint' %>
-<%= javascript_include_tag 'joint.layout.DirectedGraph' %>
-<%= javascript_include_tag 'dagre' %>
-<%= javascript_include_tag 'visualise' %>
-<%= stylesheet_link_tag 'joint' %>
-<%= stylesheet_link_tag 'visualise' %>
+<%= javascript_include_tag "joint.patch" %>
+<%= javascript_include_tag "joint" %>
+<%= javascript_include_tag "joint.layout.DirectedGraph" %>
+<%= javascript_include_tag "dagre" %>
+<%= javascript_include_tag "visualise" %>
+<%= stylesheet_link_tag "joint" %>
+<%= stylesheet_link_tag "visualise" %>
 <% end %>
 
 <%# Use of defer is to hoist this JS to head with slimmer, it's totally a hack %>
@@ -15,25 +15,25 @@
 <%- end %>
 
 <%= render "govuk_publishing_components/components/title", {
-  context: "Flow visualisation for",
-  title: @title
-} %>
+      context: "Flow visualisation for",
+  title: @title,
+    } %>
 
 <p class="govuk-body">This is a visualisation of the <%= link_to @title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
 <% if ! @graph_presenter.visualisable? %>
   <%= render "govuk_publishing_components/components/warning_text", {
-    text: "This visualisation does not show all transitions correctly."
-  } %>
+        text: "This visualisation does not show all transitions correctly.",
+      } %>
 <% end %>
 
 <p class="govuk-body">Having problems reading the visualisation? Changing the orientation may help.</p>
 <%= render "govuk_publishing_components/components/button", {
-  text: "Show in landscape",
+      text: "Show in landscape",
   margin_bottom: true,
   data_attributes: {
-    click_action: "visualise"
-  }
-} %>
+    click_action: "visualise",
+  },
+    } %>
 
 <div class="visualisation">
   <div id="paper" class="paper"></div>

@@ -65,12 +65,12 @@
     data-ecommerce-start-index="1"
     data-list-title="<%= @presenter.title %>"
   >
-    <%= render 'smart_answers/shared/debug' %>
+    <%= render "smart_answers/shared/debug" %>
     <%= render "govuk_publishing_components/components/title", {
-      title: title,
+          title: title,
       context: @presenter.title + ":",
       context_inside: true,
-    } %>
+        } %>
 
     <div
       data-flow-name="<%= @name %>"
@@ -91,9 +91,9 @@
       <div class="govuk-!-margin-bottom-6">
         <% if outcome.title.present? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: outcome.title,
-            margin_bottom: 6
-          } %>
+                text: outcome.title,
+            margin_bottom: 6,
+              } %>
         <% end %>
 
         <%= outcome.body %>
@@ -102,20 +102,20 @@
       <% if outcome.next_steps.present? %>
         <div class="govuk-!-margin-bottom-6">
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Next steps",
-            margin_bottom: 6
-          } %>
+                text: "Next steps",
+            margin_bottom: 6,
+              } %>
           <%= outcome.next_steps %>
         </div>
       <% end %>
     </div>
 
-    <%= render 'smart_answers/shared/previous_answers', form_complete: true %>
+    <%= render "smart_answers/shared/previous_answers", form_complete: true %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>
     <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item, ga4_tracking: true %>
+      <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item, ga4_tracking: true %>
     </div>
   <% end %>
 </div>

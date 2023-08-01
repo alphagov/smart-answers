@@ -1,19 +1,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <%= render "govuk_publishing_components/components/title", {
-      title: "Smart Answers"
-    } %>
+          title: "Smart Answers",
+        } %>
 
     <div class="smart-answers-list">
       <%= render "govuk_publishing_components/components/table", {
-        head: [
-          { text: "Title" },
-          { text: "Status" },
-          { text: "Questions" },
-          { text: "Outcomes" },
-          { text: "Links" },
-          { text: "" },
-        ],
+            head: [
+              { text: "Title" },
+              { text: "Status" },
+              { text: "Questions" },
+              { text: "Outcomes" },
+              { text: "Links" },
+              { text: "" },
+            ],
         rows: @flows.map do |flow|
           presenter = flow.start_node.presenter
           [
@@ -22,10 +22,10 @@
             { text: flow.questions.count },
             { text: flow.outcomes.count },
             { text: code_links(flow.class) },
-            { text: link_to('Visualise', visualise_path(flow.name), class: "govuk-link") },
+            { text: link_to("Visualise", visualise_path(flow.name), class: "govuk-link") },
           ]
-        end
-      } %>
+        end,
+          } %>
     </div>
 
   </div>

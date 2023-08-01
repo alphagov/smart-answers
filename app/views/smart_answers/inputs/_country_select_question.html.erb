@@ -1,9 +1,9 @@
 <%= render "smart_answers/inputs/caption", question: question %>
 <%= render "govuk_publishing_components/components/select", {
-  id: "response",
+      id: "response",
   label: question.title,
   heading_size: "l",
   is_page_heading: true,
   error_message: question.error,
-  options: question.select_options
-} %>
+  options: question.select_options,
+    } %>

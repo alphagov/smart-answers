@@ -1,9 +1,9 @@
 <%= render "smart_answers/inputs/caption", question: question %>
 <%= render "govuk_publishing_components/components/input", {
-  label: {
-    text: question.title,
-    is_page_heading: true
-  },
+      label: {
+        text: question.title,
+        is_page_heading: true,
+      },
   name: "response",
   id: "response",
   heading_size: "l",
@@ -11,4 +11,4 @@
   error_message: question.error,
   hint: question.hint,
   value: question.current_response,
-} %>
+    } %>

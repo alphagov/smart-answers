@@ -4,7 +4,7 @@
   <% end %>
 
   <%= render "govuk_publishing_components/components/date_input", {
-    error_message: question.error,
+        error_message: question.error,
     hint: question.hint,
     items: [
       question.default_day ? nil : {
@@ -27,15 +27,15 @@
         id: "response-2",
         width: 4,
         value: question.parsed_response[:year],
-      }
-    ].compact
-  } %>
+      },
+    ].compact,
+      } %>
 <% end %>
 
 <%= render "smart_answers/inputs/caption", question: question %>
 <%= render "govuk_publishing_components/components/fieldset", {
-  legend_text: question.title,
+      legend_text: question.title,
   heading_level: 1,
   heading_size: "l",
-  text: form_contents
-} %>
+  text: form_contents,
+    } %>

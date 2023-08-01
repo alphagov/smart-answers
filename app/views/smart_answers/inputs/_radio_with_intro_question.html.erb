@@ -8,11 +8,11 @@
 <%= question.body %>
 
 <%= render "govuk_publishing_components/components/radio", {
-  name: "response",
+      name: "response",
   heading: question.radio_heading,
   heading_size: "m",
   heading_level: 2,
   id_prefix: "response",
   error_message: question.error,
-  items: question.radio_buttons
-} %>
+  items: question.radio_buttons,
+    } %>
