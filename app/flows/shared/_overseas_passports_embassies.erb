@@ -6,7 +6,11 @@ if overseas_passports_embassies.any?
 
 $A
 <%= embassy["title"] %>
-<%= embassy["address"]["label"]["value"].gsub(/\s+\n/,"\n") %>
+<%= embassy.dig("address", "adr", "street-address") %>
+<%= embassy.dig("address", "adr", "locality") %>
+<%= embassy.dig("address", "adr", "region") %>
+<%= embassy.dig("address", "adr", "postal-code") %>
+<%= embassy.dig("address", "adr", "country-name") %>
 $A
 
 $C
