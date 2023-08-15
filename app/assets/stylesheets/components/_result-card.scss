@@ -6,7 +6,7 @@
   border: 1px solid $govuk-border-colour;
   margin-bottom: govuk-spacing(4);
 
-  &:before {
+  &::before {
     position: absolute;
     content: "";
     top: -1px;
