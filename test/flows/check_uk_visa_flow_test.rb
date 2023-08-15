@@ -9,6 +9,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   setup do
     testing_flow CheckUkVisaFlow
     @electronic_visa_waiver_country = "kuwait"
+    @electronic_travel_authorisation_country = "qatar"
     @direct_airside_transit_visa_country = "afghanistan"
     @visa_national_country = "armenia"
     @british_overseas_territory_country = "anguilla"
@@ -18,6 +19,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
+
+    @eta_text = "If you’re travelling on or after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver. You’ll be able to apply for an ETA from 25 October 2023."
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
@@ -30,6 +33,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "macao",
                                       "taiwan",
                                       "venezuela",
+                                      @electronic_travel_authorisation_country,
                                       @electronic_visa_waiver_country,
                                       @direct_airside_transit_visa_country,
                                       @visa_national_country,
@@ -608,18 +612,33 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   context "outcome: outcome_no_visa_needed" do
     setup do
       testing_node :outcome_no_visa_needed
-      add_responses what_passport_do_you_have?: @eea_country,
-                    purpose_of_visit?: "transit"
+      add_responses purpose_of_visit?: "transit"
     end
 
     should "render a suggestion of evidence for a further journey" do
-      add_responses travelling_to_cta?: "somewhere_else"
+      add_responses what_passport_do_you_have?: @eea_country,
+                    travelling_to_cta?: "somewhere_else"
       assert_rendered_outcome text: "you should bring evidence of your onward journey"
     end
 
     should "render a suggestion of a visa for a further journey to Ireland" do
-      add_responses travelling_to_cta?: "republic_of_ireland"
+      add_responses what_passport_do_you_have?: @eea_country,
+                    travelling_to_cta?: "republic_of_ireland"
       assert_rendered_outcome text: "You may want to apply for a visa"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
+                    travelling_to_cta?: "somewhere_else",
+                    passing_through_uk_border_control?: "no"
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
+                    travelling_to_cta?: "somewhere_else",
+                    passing_through_uk_border_control?: "no"
+      assert_no_rendered_outcome text: @eta_text
     end
   end
 
@@ -694,6 +713,16 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
     end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_transit_leaving_airport" do
@@ -712,6 +741,16 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render different guidance for passports from outher countries" do
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK in transit"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
     end
   end
 
@@ -884,6 +923,93 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_visa_count("china", 2)
       test_visa_count("british-national-overseas", 5)
       test_visa_count("stateless-or-refugee", 2)
+    end
+  end
+
+  context "outcome: outcome_visit_waiver" do
+    setup do
+      testing_node :outcome_visit_waiver
+      add_responses purpose_of_visit?: "tourism"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
+    end
+  end
+
+  context "outcome: outcome_study_waiver" do
+    setup do
+      testing_node :outcome_study_waiver
+      add_responses purpose_of_visit?: "study",
+                    staying_for_how_long?: "six_months_or_less"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
+    end
+  end
+
+  context "outcome: outcome_work_waiver" do
+    setup do
+      testing_node :outcome_work_waiver
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "six_months_or_less"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
+    end
+  end
+
+  context "outcome: outcome_marriage_electronic_visa_waiver" do
+    setup do
+      testing_node :outcome_marriage_electronic_visa_waiver
+      add_responses purpose_of_visit?: "marriage"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
+    end
+  end
+
+  context "outcome: outcome_school_waiver" do
+    setup do
+      testing_node :outcome_school_waiver
+      add_responses purpose_of_visit?: "school"
+    end
+
+    should "render specific guidance for Electronic Travel Authorisation" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: @eta_text
+    end
+
+    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_no_rendered_outcome text: @eta_text
     end
   end
 end

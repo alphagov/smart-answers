@@ -22,6 +22,11 @@
 
     - an [electronic visa waiver](/get-electronic-visa-waiver)
     - a [Standard Visitor visa](/standard-visitor)
+
+    <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
+      <%= render partial: 'electronic_travel_authorisation_advice'%>
+    <% end %>
+
   <% else %>
 
     You’ll usually need to apply for a [Standard Visitor visa](/standard-visitor).

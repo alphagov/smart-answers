@@ -24,7 +24,9 @@ A tool for content designers to present complex information as a flow of questio
 
 This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh --live` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or run `./startup.sh --live` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
+
+If working on a smart answer that makes use of an API, locally run `./startup.sh --live` script to run the app instead of docker.
 
 If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
 

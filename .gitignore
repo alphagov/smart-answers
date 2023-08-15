@@ -10,6 +10,7 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+out/
 
 # SimplCov
 coverage
@@ -20,3 +21,6 @@ public/assets
 # Yarn
 node_modules
 yarn-error.log
+
+# IntelliJ
+.idea/

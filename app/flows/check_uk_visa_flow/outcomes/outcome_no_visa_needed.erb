@@ -3,8 +3,14 @@
 <% end %>
 
 <% govspeak_for :body do %>
+  <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
+    If you're travelling on or after 15 November 2023, you'll need to apply for an [electronic travel authorisation (ETA)](/electronic-travel-authorisation) instead of an electronic visa waiver. You'll be able to apply for an ETA from 25 October 2023.
+  <% end %>
+
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
-      (calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea? || calculator.passport_country_in_british_overseas_territories_list?) %>
+    (calculator.passport_country_in_non_visa_national_list? ||
+      calculator.passport_country_in_eea? ||
+      calculator.passport_country_in_british_overseas_territories_list?) %>
 
     However, you should bring evidence of your onward journey to show to officers at the UK border.
 
