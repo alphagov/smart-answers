@@ -61,6 +61,7 @@ module FlowTestHelper
     assert_not_empty start_node_presenter.title, "Expected the start page to have a title"
     assert_not_empty start_node_presenter.body, "Expected the start page to have a body"
   end
+
   def assert_rendered_question(text: nil)
     ensure_valid_and_correct_node
 
