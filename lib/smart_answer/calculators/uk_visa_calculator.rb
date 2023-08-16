@@ -226,16 +226,6 @@ module SmartAnswer::Calculators
       @passport_country == "india" && work_visit? && staying_for_over_six_months? && @what_type_of_work != "sports"
     end
 
-    def july_19_to_august_16_2023_grace_period_country?
-      %w[
-        dominica
-        honduras
-        namibia
-        timor-leste
-        vanuatu
-      ].freeze.include?(@passport_country)
-    end
-
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
