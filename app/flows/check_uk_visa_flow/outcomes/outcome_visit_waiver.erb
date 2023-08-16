@@ -3,12 +3,16 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  You must either apply for:
+  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    If you do not have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man, you must either apply for:
+  <% else %>
+    You must either apply for:
+  <% end %>
 
   + an [electronic visa waiver](/get-electronic-visa-waiver)
   + a [Standard Visitor visa](/standard-visitor)
 
-  <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
+  <% if calculator.passport_country_requires_electronic_travel_authorisation?  %>
     <%= render partial: 'electronic_travel_authorisation_advice'%>
   <% end %>
 <% end %>
