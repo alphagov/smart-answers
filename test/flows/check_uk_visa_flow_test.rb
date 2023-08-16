@@ -276,16 +276,25 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   context "question: channel_islands_or_isle_of_man?" do
     setup do
       testing_node :channel_islands_or_isle_of_man?
-      add_responses what_passport_do_you_have?: @eea_country,
-                    purpose_of_visit?: "transit",
+      add_responses purpose_of_visit?: "transit",
                     travelling_to_cta?: "channel_islands_or_isle_of_man"
     end
 
     should "render the question" do
+      add_responses what_passport_do_you_have?: @eea_country
       assert_rendered_question
     end
 
+    should "not render additional information in question body for ETA countries that are also EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_no_rendered_question text: "You’ll need a UK visa or an  Electronic Visa Waiver if you don’t have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man."
+    end
+
     context "next_node" do
+      setup do
+        add_responses what_passport_do_you_have?: @eea_country
+      end
+
       test_shared_purpose_of_visit_next_nodes
     end
   end

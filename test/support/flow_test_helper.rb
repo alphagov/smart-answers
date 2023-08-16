@@ -61,11 +61,18 @@ module FlowTestHelper
     assert_not_empty start_node_presenter.title, "Expected the start page to have a title"
     assert_not_empty start_node_presenter.body, "Expected the start page to have a body"
   end
-
-  def assert_rendered_question
+  def assert_rendered_question(text: nil)
     ensure_valid_and_correct_node
 
     assert_not_empty test_flow.question_title
+    assert_match text, test_flow.question_body_text if text
+  end
+
+  def assert_no_rendered_question(text: nil)
+    ensure_valid_and_correct_node
+
+    assert_not_empty test_flow.question_title
+    assert_no_match text, test_flow.question_body_text if text
   end
 
   def assert_rendered_question_hint
@@ -156,15 +163,19 @@ module FlowTestHelper
     end
 
     def question_title
-      raise "#{state.current_node_name} is not a question" unless current_node_type == :question
-
-      QuestionPresenter.new(flow.node(state.current_node_name), nil, state).title
+      question_presenter.title
     end
 
     def question_hint
-      raise "#{state.current_node_name} is not a question" unless current_node_type == :question
+      question_presenter.hint
+    end
 
-      QuestionPresenter.new(flow.node(state.current_node_name), nil, state).hint
+    def question_body
+      question_presenter.body
+    end
+
+    def question_body_text
+      Nokogiri::HTML::DocumentFragment.parse(question_body).text
     end
 
     def outcome_body
@@ -195,6 +206,12 @@ module FlowTestHelper
       raise "#{state.current_node_name} is not an outcome" unless current_node_type == :outcome
 
       OutcomePresenter.new(flow.node(state.current_node_name), nil, state)
+    end
+
+    def question_presenter
+      raise "#{state.current_node_name} is not a question" unless current_node_type == :question
+
+      QuestionPresenter.new(flow.node(state.current_node_name), nil, state)
     end
   end
 end
