@@ -1,14 +1,14 @@
 # How to retire a Smart Answer
 
-The process to retire a published Smart Answer involves using a [rake task](#removing-the-content-item) to update on GOV.UK the content item that represents the Smart Answer flow, and then [removing the code](#remove-smart-answer-code) for the Smart Answer.
+Retiring a published Smart Answer involves using a [rake task](#removing-the-content-item) to update the content item that represents the Smart Answer flow, and then [removing the code](#remove-smart-answer-code).
 
 ## Removing the content item
 
-Before removing a Smart Answer you will need the content_id for the Smart
-Answer. These can be found in the
-`app/flows/<\smart-answer>_flow.rb` file of the Smart Answer that
-is being retired. For redirecting or replacing a Smart Answer you will also
-need to know the paths of these pages these are based off the `name` attribute
+Before removing a Smart Answer you will need its content_id. This is found in the relevant
+`app/flows/<\smart-answer>_flow.rb` file.
+
+For redirecting or replacing a Smart Answer you will also
+need to know the paths of the pages, which are based off the `name` attribute
 of the `app/flows/<\smart-answer>_flow.rb` file. For example, for
 the Marriage Abroad Smart Answer the path is `/marriage-abroad`.
 
@@ -35,28 +35,25 @@ bundle exec rake "publishing_api:unpublish_redirect[d0a95767-f6ab-432a-aebc-096e
 
 If there is not content to replace the Smart Answer then the convention is to
 serve a page that indicates there used to be content but isn't anymore (a 410
-gone HTTP response). An example of how to perform this is:
+gone HTTP response). To do this you'd run the following command:
 
 ```
 bundle exec rake publishing_api:unpublish_gone[<content_id>]
 ```
 
-> It is possible to remove the Smart Answer and rather than serve a 410 Gone
-> page instead serve a 404 Not Found, which misleads visitors to the page that
-> content had never been published there. This can be done by using the
-> `publishing_api:unpublish_vanish` task instead of the gone equivalent. This
-> task should only be used in exceptional circumstances for example an
-> accidental early publishing of content with a sensitive URL.
+> In exceptional circumstances, for example after accidental publishing, it is possible to remove the Smart Answer and serve
+> a 404 Not Found response (instead of a 410 Gone response) which misleadingly implies that content had never been published
+> there. This can be done by using the `publishing_api:unpublish_vanish` task instead. 
 
 ### Replace a Smart Answer with a different content type
 
 Sometimes there will be a need to replace a Smart Answer with a different type
-of content, typically these have been transactions, answers and start pages
-that can be published through [Publisher](https://github.com/alphagov/publisher).
+of content, typically these have been transactions, answers or start pages
+which are published through [Publisher](https://github.com/alphagov/publisher).
 
-The next step is to perform a temporary removal of the Smart Answer page(s) to
-be replaced. You can use the [aforementioned `publishing_api:unpublish_gone`
-task](#showing-users-a-page-to-indicate-the-content-is-no-longer-available)
+Before a new piece of content can be recreated with the same URL, you will need to perform a 
+temporary removal of the Smart Answer page(s) to be replaced. You can use the 
+[`publishing_api:unpublish_gone` task](#showing-users-a-page-to-indicate-the-content-is-no-longer-available)
 to perform this.
 
 You can then run a rake task command to reserve the path(s) used by the Smart
@@ -67,20 +64,19 @@ Marriage Abroad start page for Publisher you can perform the following command:
 bundle exec rake "publishing_api:change_owning_application[/marriage-abroad,publisher]"
 ```
 
-Once this is complete you can then create a new piece of content with the URL
-the Smart Answer page previously used.
+You can then create a new piece of content with the URL previously used by the Smart Answer.
 
 > NOTE: Start pages once existed in Publisher, and artefacts may persist in Publisher's
 > database with current Smart Answer slugs. This may prevent a Smart Answer being replaced
 > by a new document type as Publisher is still reserving the slug. [You will need to delete
-> the old artefact]https://github.com/alphagov/publisher/pull/1474/files), once confirmed
+> the old artefact](https://github.com/alphagov/publisher/pull/1474/files), once confirmed
 > it is no longer needed.
 
 
 ## Remove Smart Answer code
 
 Remove all the files and directories associated with the individual Smart
-Answer and their associated tests, examples of common files:
+Answer and their associated tests. Examples of common files are:
 
 - Flow class files
   - app/flows/<\smart-answer>\_flow.rb
