@@ -134,6 +134,10 @@ module SmartAnswer::Calculators
       @passport_country == "macao"
     end
 
+    def passport_country_is_russia_or_georgia?
+      %w[russia georgia].include?(@passport_country)
+    end
+
     def passport_country_is_turkey?
       @passport_country == "turkey"
     end
@@ -399,7 +403,6 @@ module SmartAnswer::Calculators
       equatorial-guinea
       fiji
       gabon
-      georgia
       haiti
       indonesia
       jordan
@@ -418,7 +421,6 @@ module SmartAnswer::Calculators
       oman
       philippines
       qatar
-      russia
       sao-tome-and-principe
       saudi-arabia
       stateless-or-refugee
@@ -456,6 +458,7 @@ module SmartAnswer::Calculators
       estonia-alien-passport
       eswatini
       ethiopia
+      georgia
       ghana
       guinea
       guinea-bissau
@@ -482,6 +485,7 @@ module SmartAnswer::Calculators
       north-macedonia
       pakistan
       palestinian-territories
+      russia
       rwanda
       senegal
       serbia
