@@ -1,9 +1,9 @@
 ---
-EnableDefaultLinters: false
 glob: "**/*.{html,text,js}{+*,}.erb"
 exclude:
   - '**/vendor/**/*'
   - '**/node_modules/**/*'
+  - 'app/views/smart_answers/visualise.html.erb'
 linters:
   SpaceAroundErbTag:
     enabled: true

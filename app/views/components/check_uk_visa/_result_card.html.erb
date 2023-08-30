@@ -30,7 +30,7 @@
             <%= render "govuk_publishing_components/components/heading", {
               text: calculator.visa_attribute_statement(attribute&.first),
               heading_level: 3,
-              font_size: "s"
+              font_size: "s",
             } %>
 
             <% attribute.each do |k| %>
@@ -53,8 +53,7 @@
   <% end %>
 
   <p class="govuk-body govuk-!-margin-bottom-0">
-    <%= link_to "Find out more about the #{type}", url, 
-      class: "govuk-link app-c-result-card__link"
-    %>
+    <%= link_to "Find out more about the #{type}", url,
+      class: "govuk-link app-c-result-card__link" %>
   </p>
 </div>

@@ -7,24 +7,24 @@
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
   <% if content_item.present? %>
-    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+    <%= render "govuk_publishing_components/components/machine_readable_metadata",
       schema: :article,
       content_item: content_item %>
-    <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+    <%= render "govuk_publishing_components/components/machine_readable_metadata",
       schema: :government_service,
       content_item: content_item %>
   <% end %>
-  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
 <% end %>
 
 <% content_for :breadcrumbs do %>
-  <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item, ga4_tracking: true %>
+  <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item, ga4_tracking: true %>
 <% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", {
-      title: start_node.title
+      title: start_node.title,
     } %>
   </div>
 </div>
@@ -41,15 +41,15 @@
           rel: "nofollow",
           start: true,
           data_attributes: {
-            module: 'ga4-link-tracker',
+            module: "ga4-link-tracker",
             ga4_link: {
               event_name: "form_start",
               type: "smart answer",
               section: "start page",
               action: "start",
               tool_name: start_node.title,
-            }
-          }
+            },
+          },
         } %>
       </section>
 
@@ -58,7 +58,7 @@
           <div id="before-you-start">
             <%= render "govuk_publishing_components/components/heading", {
               text: start_node.post_body_header,
-              padding: true
+              padding: true,
             } %>
             <%= start_node.post_body %>
           </div>
@@ -66,9 +66,9 @@
       <% end %>
     </article>
 
-    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: content_item, ga4_tracking: true %>
+    <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item, ga4_tracking: true %>
   </div>
   <div class="govuk-grid-column-one-third">
-    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item, ga4_tracking: true %>
+    <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item, ga4_tracking: true %>
   </div>
 </div>

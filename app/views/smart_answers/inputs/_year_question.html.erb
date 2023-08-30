@@ -7,14 +7,14 @@
     error_message: question.error,
     hint: question.hint,
     items: [
-       {
-        label: "Year",
-        name: "response[year]",
-        id: "response",
-        width: 4,
-        value: question.parsed_response[:year],
-      }
-    ]
+      {
+       label: "Year",
+       name: "response[year]",
+       id: "response",
+       width: 4,
+       value: question.parsed_response[:year],
+     },
+    ],
   } %>
 <% end %>
 
@@ -23,5 +23,5 @@
   legend_text: question.title,
   heading_level: 1,
   heading_size: "l",
-  text: form_contents
+  text: form_contents,
 } %>

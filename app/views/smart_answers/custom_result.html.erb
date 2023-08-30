@@ -1,4 +1,4 @@
-<% # this custom result template is currently tested on the next-steps-for-your-business flow %>
+<%# this custom result template is currently tested on the next-steps-for-your-business flow %>
 <% outcome = @presenter.current_node %>
 
 <% add_gem_component_stylesheet("govspeak") %>
@@ -25,11 +25,10 @@
       "section": "<%= outcome.title %>",
       "action": "complete",
       "tool_name": "<%= @presenter.title %>"
-    }'
-  >
+    }'>
     <%= render "govuk_publishing_components/components/title", {
       title: outcome.title,
-      margin_bottom: 6
+      margin_bottom: 6,
     } %>
 
     <%= outcome.description %>
@@ -40,7 +39,7 @@
       text: "Change your answers",
       font_size: "l",
       border_top: 2,
-      padding: true
+      padding: true,
     } %>
 
     <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
@@ -51,25 +50,25 @@
           module: "gem-track-click",
           "track-action": "Answer the questions again to change the results",
           "track-category": "StartAgain",
-          "track-label": @presenter.current_node.title
+          "track-label": @presenter.current_node.title,
         } %>
     <% end %>
 
-    <%= render 'govuk_publishing_components/components/print_link', {
+    <%= render "govuk_publishing_components/components/print_link", {
       data_attributes: {
         module: "ga4-event-tracker",
         ga4_event: {
-          event_name: 'print_page',
-          type: 'print page',
+          event_name: "print_page",
+          type: "print page",
           index: {
             index_link: 1,
           },
           index_total: 1,
-          section: 'Footer',
+          section: "Footer",
         },
       },
     } %>
 
-    <%= render 'smart_answers/shared/debug' %>
+    <%= render "smart_answers/shared/debug" %>
   </div>
 </div>

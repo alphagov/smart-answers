@@ -16,7 +16,7 @@
         <%= render "components/result_item", {
           highlighted: highlighted,
           group_index: group_index,
-          result_index: result_index
+          result_index: result_index,
         }.merge(result.symbolize_keys) %>
         <% result_index += 1 %>
       <% end %>

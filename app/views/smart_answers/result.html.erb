@@ -41,8 +41,8 @@
     ]
   %>
   <% if ga4_track_headings.include?(request.fullpath) %>
-    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings"/>
-  <% end %>  
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings">
+  <% end %>
 <% end %>
 
 <div class="govuk-grid-row">
@@ -63,9 +63,8 @@
       "tool_name": "<%= @presenter.title %>"
     }'
     data-ecommerce-start-index="1"
-    data-list-title="<%= @presenter.title %>"
-  >
-    <%= render 'smart_answers/shared/debug' %>
+    data-list-title="<%= @presenter.title %>">
+    <%= render "smart_answers/shared/debug" %>
     <%= render "govuk_publishing_components/components/title", {
       title: title,
       context: @presenter.title + ":",
@@ -78,21 +77,20 @@
       data-track-category="Internal Link Clicked"
       data-track-action="<%= @name %> results"
       data-ga4-link='{
-      "event_name": "information_click", 
+      "event_name": "information_click",
       "type": "smart answer",
-      "section": "<%= title %>", 
+      "section": "<%= title %>",
       "action": "information click",
-      "tool_name": "<%= @presenter.title %>" 
+      "tool_name": "<%= @presenter.title %>"
     }'
     data-ga4-track-links-only
     data-ga4-set-indexes
-      data-track-links-only
-    >
+      data-track-links-only>
       <div class="govuk-!-margin-bottom-6">
         <% if outcome.title.present? %>
           <%= render "govuk_publishing_components/components/heading", {
             text: outcome.title,
-            margin_bottom: 6
+            margin_bottom: 6,
           } %>
         <% end %>
 
@@ -103,19 +101,19 @@
         <div class="govuk-!-margin-bottom-6">
           <%= render "govuk_publishing_components/components/heading", {
             text: "Next steps",
-            margin_bottom: 6
+            margin_bottom: 6,
           } %>
           <%= outcome.next_steps %>
         </div>
       <% end %>
     </div>
 
-    <%= render 'smart_answers/shared/previous_answers', form_complete: true %>
+    <%= render "smart_answers/shared/previous_answers", form_complete: true %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>
     <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item, ga4_tracking: true %>
+      <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item, ga4_tracking: true %>
     </div>
   <% end %>
 </div>
