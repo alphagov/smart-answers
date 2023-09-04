@@ -21,7 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          repository: alphagov/smart-answers
           ref: ${{ inputs.ref || github.ref }}
 
       - name: Checkout Publishing API (for Content Schemas)
