@@ -777,7 +777,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     %w[russia georgia].each do |country|
       should "render extra guidance for #{country}" do
         add_responses what_passport_do_you_have?: country
-        assert_rendered_outcome text: /If you’re arriving in the UK before 5 October 2023/
+        assert_rendered_outcome text: /If you’re arriving in the UK before 6 October 2023/
       end
     end
   end
