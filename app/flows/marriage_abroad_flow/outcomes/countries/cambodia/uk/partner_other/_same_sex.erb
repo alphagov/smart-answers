@@ -57,11 +57,5 @@ You’ll need to pay a fee to register your marriage or civil partnership and a 
 
 <%= render partial: 'partner_naturalisation_in_uk' %>
 
-## Fees
-
-<%= render partial: 'consular_fees_table_items',
-    collection: calculator.services,
-    as: :service,
-    locals: { calculator: calculator } %>
-
-You can only pay fees for consular services by cash in US dollars.
+<%= render partial: 'services_and_fees',
+           locals: { calculator: calculator } %>
