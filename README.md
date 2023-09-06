@@ -16,7 +16,7 @@ A tool for content designers to present complex information as a flow of questio
 
 * **Landing page**: Contains a description of the Smart Answer and the "Start now" button that leads to the first question.
 
-* **Question page**: Contains an individual question that's asked in order to help arrive at at an outcome.
+* **Question page**: Contains an individual question that's asked in order to help arrive at an outcome.
 
 * **Outcome page**: Contains the result of the Smart Answer based on responses to individual questions.
 
