@@ -29,9 +29,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "israel",
                                       "ireland",
                                       "estonia",
+                                      "georgia",
                                       "latvia",
                                       "hong-kong",
                                       "macao",
+                                      "russia",
                                       "taiwan",
                                       "venezuela",
                                       @electronic_travel_authorisation_country,
@@ -761,6 +763,22 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
       assert_no_rendered_outcome text: @eta_text
+    end
+  end
+
+  context "outcome: outcome_transit_not_leaving_airport" do
+    setup do
+      testing_node :outcome_transit_not_leaving_airport
+      add_responses purpose_of_visit?: "transit",
+                    travelling_to_cta?: "somewhere_else",
+                    passing_through_uk_border_control?: "no"
+    end
+
+    %w[russia georgia].each do |country|
+      should "render extra guidance for #{country}" do
+        add_responses what_passport_do_you_have?: country
+        assert_rendered_outcome text: /If you’re arriving in the UK before 6 October 2023/
+      end
     end
   end
 

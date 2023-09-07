@@ -1,15 +1,15 @@
 <% text_for :title do %>
-  You’ll need a visa to pass through the UK in transit (unless you’re exempt)
+  You’ll need a visa to pass through the UK in transit
 <% end %>
 
 <% govspeak_for :body do %>
-  You should apply for a [Direct Airside Transit visa](/transit-visa) if you arrive in the UK on a flight and leave again without passing through immigration control.
+  You normally need a [Direct Airside Transit visa](/transit-visa/direct-airside-transit-visa) if you arrive in the UK on a flight and leave again without passing through immigration control.
 
   ##Exemptions
 
-  You do not need a visa if you have one of the following:
+  You do not need a Direct Airside Transit visa if you have one of the following:
 
-  - a visa for Canada, New Zealand, Australia or the USA (this can be used for travel to any country) <%= render partial: 'b1_b2_visa_exception', locals: {calculator: calculator} %>
+  - a visa for Canada, New Zealand, Australia or the USA (this can be used for travel to any country) <%= render partial: 'b1_b2_visa_exception', locals: {calculator:} %>
   - a permanent resident visa issued by Australia or New Zealand
   - a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
   - a permanent resident card issued by Canada on or after 28 June 2002
@@ -25,4 +25,6 @@
   All visas and residence permits must be valid.
 
   %E-visas or e-residence permits are not acceptable unless your airline is able to verify it with the issuing country. Contact your airline for more information.%
+
+  <%= render partial: 'russia_or_georgia', locals: {calculator:} %>
 <% end %>
