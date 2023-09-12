@@ -27,7 +27,7 @@ class RegisterADeathFlow < SmartAnswer::Flow
             question :did_the_person_die_at_home_hospital?
           end
         else
-          question :which_country?
+          outcome :death_abroad_result
         end
       end
     end
@@ -60,65 +60,9 @@ class RegisterADeathFlow < SmartAnswer::Flow
       end
     end
 
-    # Q4
-    country_select :which_country?, exclude_countries: SmartAnswer::Calculators::RegisterADeathCalculator::EXCLUDE_COUNTRIES do
-      on_response do |response|
-        calculator.country_of_death = response
-      end
-
-      next_node do
-        if calculator.responded_with_nonregistrable_country?
-          outcome :nonregistrable_result
-        elsif calculator.country_has_no_embassy?
-          outcome :no_embassy_result
-        else
-          question :where_are_you_now?
-        end
-      end
-    end
-
-    # Q5
-    radio :where_are_you_now? do
-      option :same_country
-      option :another_country
-      option :in_the_uk
-
-      on_response do |response|
-        calculator.current_location = response
-      end
-
-      next_node do
-        if calculator.same_country? && calculator.died_in_north_korea?
-          outcome :north_korea_result
-        elsif calculator.another_country?
-          question :which_country_are_you_in_now?
-        else
-          outcome :oru_result
-        end
-      end
-    end
-
-    # Q6
-    country_select :which_country_are_you_in_now?, exclude_countries: SmartAnswer::Calculators::RegisterADeathCalculator::EXCLUDE_COUNTRIES do
-      on_response do |response|
-        calculator.current_country = response
-      end
-
-      next_node do
-        if calculator.currently_in_north_korea?
-          outcome :north_korea_result
-        else
-          outcome :oru_result
-        end
-      end
-    end
-
-    outcome :nonregistrable_result
-    outcome :no_embassy_result
     outcome :uk_result
-    outcome :oru_result
-    outcome :north_korea_result
     outcome :scotland_result
     outcome :northern_ireland_result
+    outcome :death_abroad_result
   end
 end
