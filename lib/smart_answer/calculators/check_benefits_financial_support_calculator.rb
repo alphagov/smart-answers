@@ -136,7 +136,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_jobseekers_allowance?
-      eligibile_for_jobseekers_in_paid_work? || eligibile_for_jobseekers_not_in_paid_work?
+      eligible_for_jobseekers_in_paid_work? || eligible_for_jobseekers_not_in_paid_work?
     end
 
     def eligible_for_pension_credit?
@@ -310,14 +310,14 @@ module SmartAnswer::Calculators
         @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
     end
 
-    def eligibile_for_jobseekers_in_paid_work?
+    def eligible_for_jobseekers_in_paid_work?
       @over_state_pension_age == "no" &&
         @are_you_working == "yes" &&
         @how_many_paid_hours_work == "sixteen_or_less_per_week" &&
         @disability_affecting_work != "yes_unable_to_work"
     end
 
-    def eligibile_for_jobseekers_not_in_paid_work?
+    def eligible_for_jobseekers_not_in_paid_work?
       @over_state_pension_age == "no" &&
         @are_you_working == "no" &&
         @disability_affecting_work != "yes_unable_to_work"
