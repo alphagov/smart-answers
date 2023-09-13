@@ -25,40 +25,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "higher_risk_country?" do
-        should "be true for higher risk countries" do
-          assert @query.higher_risk_country?("afghanistan")
-          assert_not @query.higher_risk_country?("france")
-        end
-      end
-
-      context "lower_risk_country?" do
-        should "be true for lower risk countries" do
-          assert @query.lower_risk_country?("france")
-          assert_not @query.lower_risk_country?("afghanistan")
-        end
-      end
-
       context "registration_country_slug" do
         should "map the country to a registration country if one exists" do
           assert_equal "spain", @query.registration_country_slug("andorra")
         end
         should "give the original if no mapping exists" do
           assert_equal "spain", @query.registration_country_slug("spain")
-        end
-      end
-
-      context "oru_documents_variant_for_birth?" do
-        should "be true for Netherlands" do
-          assert @query.oru_documents_variant_for_birth?("netherlands")
-        end
-
-        should "be true for Belgium" do
-          assert @query.oru_documents_variant_for_birth?("belgium")
-        end
-
-        should "be false for Argentina" do
-          assert_not @query.oru_documents_variant_for_birth?("argentina")
         end
       end
 
@@ -97,15 +69,6 @@ module SmartAnswer::Calculators
           assert_respond_to(@query.document_return_fees, :post_to_uk)
           assert_respond_to(@query.document_return_fees, :post_to_europe)
           assert_respond_to(@query.document_return_fees, :post_to_rest_of_the_world)
-        end
-      end
-
-      context "#register_a_birth_fees" do
-        should "instantiate RatesQuery using register_a_birth data" do
-          rates_query = stub(rates: "register-a-birth-rates")
-          RatesQuery.stubs(:from_file).with("register_a_birth").returns(rates_query)
-
-          assert_equal "register-a-birth-rates", RegistrationsDataQuery.new.register_a_birth_fees
         end
       end
 

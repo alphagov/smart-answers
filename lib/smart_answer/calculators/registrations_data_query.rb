@@ -243,10 +243,6 @@ module SmartAnswer::Calculators
       @data = self.class.registration_data
     end
 
-    def has_birth_registration_exception?(country_slug)
-      COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.include?(country_slug)
-    end
-
     def commonwealth_country?(country_slug)
       COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
@@ -271,24 +267,8 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
 
-    def higher_risk_country?(country_slug)
-      HIGHER_RISK_COUNTRIES.include?(country_slug)
-    end
-
-    def lower_risk_country?(country_slug)
-      !higher_risk_country?(country_slug)
-    end
-
     def registration_country_slug(country_slug)
       data["registration_country"][country_slug] || country_slug
-    end
-
-    def custom_registration_duration(country_slug)
-      ORU_REGISTRATION_DURATION[country_slug]
-    end
-
-    def oru_documents_variant_for_birth?(country_slug)
-      ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_slug)
     end
 
     def oru_documents_variant_for_death?(country_slug)
@@ -305,10 +285,6 @@ module SmartAnswer::Calculators
 
     def document_return_fees
       RatesQuery.from_file("births_and_deaths_document_return_fees").rates
-    end
-
-    def register_a_birth_fees
-      RatesQuery.from_file("register_a_birth").rates
     end
 
     def register_a_death_fees
