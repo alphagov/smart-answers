@@ -30,32 +30,12 @@ module SmartAnswer::Calculators
       death_expected == "yes"
     end
 
-    def registration_country
-      @reg_data_query.registration_country_slug(current_country || country_of_death)
-    end
-
-    def document_return_fees
-      @reg_data_query.document_return_fees
-    end
-
     def fee_for_registering_a_death
       @reg_data_query.register_a_death_fees.register_a_death
     end
 
     def fee_for_copy_of_death_registration_certificate
       @reg_data_query.register_a_death_fees.copy_of_death_registration_certificate
-    end
-
-    def oru_documents_variant_for_death?
-      @reg_data_query.oru_documents_variant_for_death?(country_of_death)
-    end
-
-    def oru_courier_variant?
-      @reg_data_query.oru_courier_variant?(registration_country)
-    end
-
-    def oru_courier_by_high_commission?
-      @reg_data_query.oru_courier_by_high_commission?(registration_country)
     end
   end
 end
