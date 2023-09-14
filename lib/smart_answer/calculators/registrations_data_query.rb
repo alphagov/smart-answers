@@ -28,10 +28,6 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
 
-    def register_a_death_fees
-      RatesQuery.from_file("register_a_death").rates
-    end
-
     def self.registration_data
       @registration_data ||= YAML.load_file(Rails.root.join("config/smart_answers/registrations.yml"))
     end
