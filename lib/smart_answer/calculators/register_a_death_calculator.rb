@@ -13,7 +13,6 @@ module SmartAnswer::Calculators
 
     def initialize(attributes = {})
       super
-      @reg_data_query = RegistrationsDataQuery.new
       @country_name_query = CountryNameFormatter.new
       @translator_query = TranslatorLinks.new
     end
@@ -31,11 +30,17 @@ module SmartAnswer::Calculators
     end
 
     def fee_for_registering_a_death
-      @reg_data_query.register_a_death_fees.register_a_death
+      register_a_death_fees.register_a_death
     end
 
     def fee_for_copy_of_death_registration_certificate
-      @reg_data_query.register_a_death_fees.copy_of_death_registration_certificate
+      register_a_death_fees.copy_of_death_registration_certificate
+    end
+
+  private
+
+    def register_a_death_fees
+      RatesQuery.from_file("register_a_death").rates
     end
   end
 end
