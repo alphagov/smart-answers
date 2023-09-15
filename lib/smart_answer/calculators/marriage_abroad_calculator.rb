@@ -3,11 +3,11 @@ module SmartAnswer::Calculators
     attr_accessor :ceremony_country, :marriage_or_pacs, :partner_nationality
     attr_writer :resident_of, :sex_of_your_partner, :type_of_ceremony
 
-    def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
+    def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, consulate_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
       @rates_query = rates_query || RatesQuery.from_file("marriage_abroad_consular_fees")
       @country_name_formatter = country_name_formatter || CountryNameFormatter.new
-      @registrations_data_query = registrations_data_query || RegistrationsDataQuery.new
+      @consulate_data_query = consulate_data_query || ConsulateDataQuery.new
       services_data_file = Rails.root.join("config/smart_answers/marriage_abroad_services.yml")
       @services_data = services_data || YAML.load_file(services_data_file)
     end
@@ -111,7 +111,7 @@ module SmartAnswer::Calculators
     end
 
     def embassy_or_consulate_ceremony_country
-      if @registrations_data_query.has_consulate?(ceremony_country) || @registrations_data_query.has_consulate_general?(ceremony_country)
+      if @consulate_data_query.has_consulate?(ceremony_country) || @consulate_data_query.has_consulate_general?(ceremony_country)
         "consulate"
       else
         "embassy"
