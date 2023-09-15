@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get "/:id", to: "flow#landing", as: :flow_landing
 
   get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
+
+  get "/register-a-death/y/overseas/*other", to: redirect("/register-a-death/y/overseas")
+
   get "/:id(/y(/*responses))", to: "smart_answers#show", as: :smart_answer, format: false
 
   get "/:id/start", to: "flow#start", as: :start_flow
