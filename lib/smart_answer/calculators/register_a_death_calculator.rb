@@ -37,6 +37,10 @@ module SmartAnswer::Calculators
       register_a_death_fees.copy_of_death_registration_certificate
     end
 
+    def minimum_fee_for_document_return
+      register_a_death_fees.minimum_return_fee
+    end
+
   private
 
     def register_a_death_fees

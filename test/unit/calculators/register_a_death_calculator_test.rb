@@ -23,6 +23,14 @@ module SmartAnswer
           assert_equal 10.00, @calculator.fee_for_copy_of_death_registration_certificate
         end
       end
+
+      context "minimum_fee_for_document_return" do
+        should "return correct fee for the minimum cost of returning a document" do
+          rates_query = stub(rates: OpenStruct.new({ minimum_return_fee: 5.00 }))
+          @stub_rates_query.returns(rates_query)
+          assert_equal 5.00, @calculator.minimum_fee_for_document_return
+        end
+      end
     end
   end
 end
