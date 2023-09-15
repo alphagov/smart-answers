@@ -16,7 +16,7 @@ you can order a consular death registration certificate - this is an optional do
 
 ##Fees
 It costs <%= format_money(calculator.fee_for_registering_a_death) %> to register a birth with the UK authorities. You can also order a consular birth registration certificate - it costs <%= format_money(calculator.fee_for_copy_of_death_registration_certificate) %> per certificate.
-You’ll also need to pay to have your documents sent back to you. This costs between <%= format_money(calculator.minimum_fee_for_document_return) %> and £25 depending on which country the documents are returned to.
+You’ll also need to pay to have your documents sent back to you. This costs between <%= format_money(calculator.minimum_fee_for_document_return) %> and <%= format_money(calculator.maximum_fee_for_document_return) %> depending on which country the documents are returned to.
 
 ##Apply online
 

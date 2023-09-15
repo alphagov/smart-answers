@@ -8,3 +8,4 @@
   register_a_death: 150.00
   copy_of_death_registration_certificate: 50.00
   minimum_return_fee: 5.00
+  maximum_return_fee: 25.00

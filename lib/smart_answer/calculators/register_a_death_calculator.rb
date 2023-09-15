@@ -41,6 +41,10 @@ module SmartAnswer::Calculators
       register_a_death_fees.minimum_return_fee
     end
 
+    def maximum_fee_for_document_return
+      register_a_death_fees.maximum_return_fee
+    end
+
   private
 
     def register_a_death_fees
