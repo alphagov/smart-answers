@@ -176,8 +176,8 @@ GEM
       rails (>= 6)
       rouge
       sprockets (>= 3)
-    govuk_schemas (4.6.0)
-      json-schema (>= 2.8, < 4.1)
+    govuk_schemas (4.7.0)
+      json-schema (>= 2.8, < 4.2)
     govuk_test (3.0.1)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -196,7 +196,7 @@ GEM
       concurrent-ruby (~> 1.0)
     inflection (1.0.0)
     json (2.6.3)
-    json-schema (4.0.0)
+    json-schema (4.1.1)
       addressable (>= 2.8)
     kramdown (2.4.0)
       rexml
