@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/:id/y/visualise(.:format)", to: "smart_answers#visualise", as: :visualise
 
+  # This code has been added to specifically handle the retired register a death abroad URLs, which were a subset of the register a death smart answer
   get "/register-a-death/y/overseas/*other", to: redirect("/register-a-death/y/overseas")
 
   get "/:id(/y(/*responses))", to: "smart_answers#show", as: :smart_answer, format: false
