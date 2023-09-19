@@ -171,41 +171,45 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.staying_for_over_six_months?
-          if calculator.study_visit?
-            outcome :outcome_study_y # outcome 2 study y
-          elsif calculator.work_visit?
-            question :what_type_of_work?
-          end
-        elsif calculator.staying_for_six_months_or_less?
-          if calculator.study_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
-              outcome :outcome_study_waiver
-            elsif calculator.passport_country_is_taiwan?
-              outcome :outcome_study_waiver_taiwan
-            elsif calculator.passport_country_in_direct_airside_transit_visa_list? ||
-                calculator.passport_country_in_visa_national_list? ||
-                calculator.travel_document?
-              outcome :outcome_study_m # outcome 3 study m visa needed short courses
-            elsif calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?
-              outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
-            end
-          elsif calculator.work_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
-              outcome :outcome_work_waiver
-            elsif (calculator.passport_country_in_british_overseas_territories_list? ||
-                calculator.passport_country_is_taiwan? ||
-                calculator.passport_country_in_non_visa_national_list? ||
-                calculator.passport_country_in_eea?) &&
-                !calculator.travel_document?
-              # outcome 5.5 work N no visa needed
-              outcome :outcome_work_n
-            else
-              # outcome 5 work m visa needed short courses
-              outcome :outcome_work_m
-            end
-          end
+        if calculator.study_visit?
+          outcome_study_visit
+        elsif calculator.work_visit?
+          next_node_for_work_visit
         end
+      end
+    end
+
+    def next_node_for_work_visit
+      if calculator.staying_for_over_six_months?
+        question :what_type_of_work?
+      elsif calculator.staying_for_six_months_or_less? && calculator.has_passport_requiring_electronic_visa_waiver_list?
+        outcome :outcome_work_waiver
+      elsif calculator.staying_for_six_months_or_less? && (calculator.passport_country_in_british_overseas_territories_list? ||
+        calculator.passport_country_is_taiwan? ||
+        calculator.passport_country_in_non_visa_national_list? ||
+        calculator.passport_country_in_eea?) &&
+        !calculator.travel_document?
+        # outcome 5.5 work N no visa needed
+        outcome :outcome_work_n
+      elsif calculator.staying_for_six_months_or_less?
+        # outcome 5 work m visa needed short courses
+        outcome :outcome_work_m
+      end
+    end
+
+    def outcome_study_visit
+      if calculator.staying_for_over_six_months?
+        outcome :outcome_study_y # outcome 2 study y
+      elsif calculator.staying_for_six_months_or_less? && calculator.has_passport_requiring_electronic_visa_waiver_list?
+        outcome :outcome_study_waiver
+      elsif calculator.staying_for_six_months_or_less? && calculator.passport_country_is_taiwan?
+        outcome :outcome_study_waiver_taiwan
+      elsif calculator.staying_for_six_months_or_less? && (calculator.requires_a_direct_airside_transit_visa? ||
+        calculator.passport_country_in_visa_national_list? ||
+        calculator.travel_document?)
+        outcome :outcome_study_m # outcome 3 study m visa needed short courses
+      elsif calculator.staying_for_six_months_or_less? && (calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?)
+        outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
       end
     end
 
