@@ -141,26 +141,21 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.passing_through_uk_border_control?
-          if calculator.passport_country_is_taiwan?
-            outcome :outcome_transit_taiwan_through_border_control
-          elsif calculator.passport_country_in_visa_national_list? ||
-              calculator.passport_country_in_electronic_visa_waiver_list? ||
-              calculator.travel_document?
-            outcome :outcome_transit_leaving_airport
-          elsif calculator.passport_country_in_direct_airside_transit_visa_list?
-            outcome :outcome_transit_leaving_airport_direct_airside_transit_visa
-          end
+        if calculator.passing_through_uk_border_control? && calculator.passport_country_is_taiwan?
+          outcome :outcome_transit_taiwan_through_border_control
+        elsif calculator.passing_through_uk_border_control? && requires_a_visitor_in_transit_visa?
+          outcome :outcome_transit_leaving_airport
+        elsif calculator.passing_through_uk_border_control? && calculator.requires_a_direct_airside_transit_visa?
+          outcome :outcome_transit_leaving_airport_direct_airside_transit_visa
         elsif calculator.passport_country_is_taiwan?
           outcome :outcome_transit_taiwan
         elsif calculator.passport_country_is_venezuela?
           outcome :outcome_no_visa_needed
         elsif calculator.applicant_is_stateless_or_a_refugee?
           outcome :outcome_transit_refugee_not_leaving_airport
-        elsif calculator.passport_country_in_direct_airside_transit_visa_list?
+        elsif calculator.requires_a_direct_airside_transit_visa?
           outcome :outcome_transit_not_leaving_airport
-        elsif calculator.passport_country_in_visa_national_list? ||
-            calculator.travel_document?
+        elsif no_transit_visa_is_required?
           outcome :outcome_no_visa_needed
         end
       end
