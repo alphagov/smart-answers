@@ -1,7 +1,7 @@
 <% text_for :title do %>
   <% if calculator.passport_country_is_taiwan? %>
     You will not need a visa if your passport has a personal ID number on the bio data page.
-  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+  <% elsif calculator.has_passport_requiring_electronic_visa_waiver_list? %>
     You’ll need an electronic visa waiver (EVW) or a Standard Visitor visa
   <% else %>
     You’ll need a visa to pass through the UK (unless you’re exempt)
@@ -16,7 +16,7 @@
     [Check what documents you need to bring](/government/publications/visitor-visa-guide-to-supporting-documents) to show officers at the UK border.
 
     If your passport does not have a personal ID number on the bio data page you’ll usually need to apply for a [Standard Visitor visa](/standard-visitor).
-  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+  <% elsif calculator.has_passport_requiring_electronic_visa_waiver_list? %>
 
     You must either apply for:
 

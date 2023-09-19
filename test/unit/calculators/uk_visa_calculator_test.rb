@@ -63,13 +63,13 @@ module SmartAnswer
         should "return true if passport_country is in list of countries requiring a direct airside transit visa" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "afghanistan"
-          assert calculator.passport_country_in_direct_airside_transit_visa_list?
+          assert calculator.requires_a_direct_airside_transit_visa?
         end
 
         should "return false if passport_country is not in list of countries requiring a direct airside transit visa" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_in_direct_airside_transit_visa_list?
+          assert_not calculator.requires_a_direct_airside_transit_visa?
         end
       end
 
@@ -231,13 +231,13 @@ module SmartAnswer
         should "return true if passport_country is in list of countries that can apply for an electronic visa waiver" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "oman"
-          assert calculator.passport_country_in_electronic_visa_waiver_list?
+          assert calculator.has_passport_requiring_electronic_visa_waiver_list?
         end
 
         should "return false if passport_country is not in list of countries that can apply for an electronic visa waiver" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_in_electronic_visa_waiver_list?
+          assert_not calculator.has_passport_requiring_electronic_visa_waiver_list?
         end
       end
 

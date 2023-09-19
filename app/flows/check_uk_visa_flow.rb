@@ -339,11 +339,11 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.school_visit?
-        if calculator.passport_country_in_electronic_visa_waiver_list?
+        if calculator.has_passport_requiring_electronic_visa_waiver_list?
           next outcome(:outcome_school_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_study_waiver_taiwan)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_eea?
+        elsif has_passport_allowing_school_visits?
           next outcome(:outcome_school_n)
         else
           next outcome(:outcome_school_y)
@@ -351,14 +351,11 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.medical_visit?
-        if calculator.passport_country_in_electronic_visa_waiver_list?
+        if calculator.has_passport_requiring_electronic_visa_waiver_list?
           next outcome(:outcome_visit_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_visit_waiver_taiwan)
-        elsif (calculator.passport_country_in_non_visa_national_list? ||
-            calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_british_overseas_territories_list?) &&
-            !calculator.travel_document?
+        elsif has_passport_requiring_no_visa?
           next outcome(:outcome_medical_n)
         else
           next outcome(:outcome_medical_y)
@@ -366,14 +363,11 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.tourism_visit?
-        if calculator.passport_country_in_electronic_visa_waiver_list?
+        if calculator.has_passport_requiring_electronic_visa_waiver_list?
           next outcome(:outcome_visit_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_visit_waiver_taiwan)
-        elsif (calculator.passport_country_in_non_visa_national_list? ||
-            calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_british_overseas_territories_list?) &&
-            !calculator.travel_document?
+        elsif has_passport_requiring_no_visa?
           next outcome(:outcome_tourism_n)
         else
           next question(:travelling_visiting_partner_family_member?)
@@ -385,11 +379,11 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_marriage_nvn_british_overseas_territories)
         elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list?
           next outcome(:outcome_marriage_nvn_british_overseas_territories)
-        elsif calculator.passport_country_in_electronic_visa_waiver_list?
+        elsif calculator.has_passport_requiring_electronic_visa_waiver_list?
           next outcome(:outcome_marriage_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_marriage_taiwan)
-        elsif calculator.passport_country_in_direct_airside_transit_visa_list? || calculator.passport_country_in_visa_national_list?
+        elsif calculator.requires_a_direct_airside_transit_visa? || calculator.passport_country_in_visa_national_list?
           next outcome(:outcome_marriage_visa_nat_direct_airside_transit_visa)
         end
       end
@@ -406,5 +400,29 @@ class CheckUkVisaFlow < SmartAnswer::Flow
         end
       end
     end
+  end
+
+  private
+
+  def has_passport_requiring_no_visa?
+    (calculator.passport_country_in_non_visa_national_list? ||
+      calculator.passport_country_in_eea? ||
+      calculator.passport_country_in_british_overseas_territories_list?) &&
+      !calculator.travel_document?
+  end
+
+  def no_transit_visa_is_required?
+    calculator.passport_country_in_visa_national_list? ||
+      calculator.travel_document?
+  end
+
+  def requires_a_visitor_in_transit_visa?
+    calculator.passport_country_in_visa_national_list? ||
+      calculator.has_passport_requiring_electronic_visa_waiver_list? ||
+      calculator.travel_document?
+  end
+
+  def has_passport_allowing_school_visits?
+    calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list? || calculator.passport_country_in_eea?
   end
 end

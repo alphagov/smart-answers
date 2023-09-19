@@ -62,7 +62,7 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES.include?(@passport_country)
     end
 
-    def passport_country_in_direct_airside_transit_visa_list?
+    def requires_a_direct_airside_transit_visa?
       COUNTRY_GROUP_DIRECT_AIRSIDE_TRANSIT_VISA.include?(@passport_country)
     end
 
@@ -74,7 +74,7 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_UK_ANCESTRY_VISA.include?(@passport_country)
     end
 
-    def passport_country_in_electronic_visa_waiver_list?
+    def has_passport_requiring_electronic_visa_waiver_list?
       COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
     end
 
