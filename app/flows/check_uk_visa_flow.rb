@@ -107,24 +107,12 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       next_node do
         if calculator.travelling_to_channel_islands_or_isle_of_man?
           next question(:channel_islands_or_isle_of_man?)
+        elsif has_passport_requiring_no_visa?
+          next outcome(:outcome_no_visa_needed)
         elsif calculator.travelling_to_ireland?
-          if (calculator.passport_country_in_non_visa_national_list? ||
-              calculator.passport_country_in_eea? ||
-              calculator.passport_country_in_british_overseas_territories_list?) &&
-              !calculator.travel_document?
-            next outcome(:outcome_no_visa_needed)
-          else
-            next outcome(:outcome_transit_to_the_republic_of_ireland)
-          end
+          next outcome(:outcome_transit_to_the_republic_of_ireland)
         elsif calculator.travelling_to_elsewhere?
-          if (calculator.passport_country_in_non_visa_national_list? ||
-              calculator.passport_country_in_eea? ||
-              calculator.passport_country_in_british_overseas_territories_list?) &&
-              !calculator.travel_document?
-            next outcome(:outcome_no_visa_needed)
-          else
-            next question(:passing_through_uk_border_control?)
-          end
+          next question(:passing_through_uk_border_control?)
         end
       end
     end
