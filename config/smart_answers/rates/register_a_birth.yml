@@ -1,9 +1,0 @@
-# Only the current date is used, so this file should only have
-# at most 2 items (current and future when uprating is coming),
-# and usually 1. The last item in the file should have an end
-# date of 2999-01-01
----
-- start_date: 2016-04-06
-  end_date: 2999-01-01
-  register_a_birth: 150.00
-  copy_of_birth_registration_certificate: 50.00
