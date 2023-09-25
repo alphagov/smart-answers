@@ -13,21 +13,12 @@ module SmartAnswer::Calculators
 
     def initialize(attributes = {})
       super
-      @reg_data_query = RegistrationsDataQuery.new
       @country_name_query = CountryNameFormatter.new
       @translator_query = TranslatorLinks.new
     end
 
     def died_in_uk?
       %w[england_wales scotland northern_ireland].include?(location_of_death)
-    end
-
-    def died_in_eea_or_switzerland?
-      @reg_data_query.eea_country_or_switzerland?(country_of_death)
-    end
-
-    def died_in_commonwealth?
-      @reg_data_query.commonwealth_country?(country_of_death)
     end
 
     def died_at_home_or_in_hospital?
@@ -38,83 +29,26 @@ module SmartAnswer::Calculators
       death_expected == "yes"
     end
 
-    def registration_country
-      @reg_data_query.registration_country_slug(current_country || country_of_death)
-    end
-
-    def registration_country_name_lowercase_prefix
-      @country_name_query.definitive_article(registration_country)
-    end
-
-    def death_country_name_lowercase_prefix
-      @country_name_query.definitive_article(country_of_death)
-    end
-
-    def country_has_no_embassy?
-      %w[libya syria yemen somalia].include?(country_of_death)
-    end
-
-    def responded_with_nonregistrable_country?
-      RegistrationsDataQuery::COUNTRIES_WITHOUT_UK_REGISTRATION.include?(country_of_death)
-    end
-
-    def in_the_uk?
-      current_location == "in_the_uk"
-    end
-
-    def same_country?
-      current_location == "same_country"
-    end
-
-    def another_country?
-      current_location == "another_country"
-    end
-
-    def died_in_north_korea?
-      country_of_death == "north-korea"
-    end
-
-    def currently_in_north_korea?
-      current_country == "north-korea"
-    end
-
-    def translator_link_url
-      @translator_query.links[country_of_death]
-    end
-
-    def overseas_passports_embassies
-      location = WorldLocation.find(registration_country)
-      organisation = location.fco_organisation
-
-      if organisation
-        organisation.offices_with_service "Births and Deaths registration service"
-      else
-        []
-      end
-    end
-
-    def document_return_fees
-      @reg_data_query.document_return_fees
-    end
-
     def fee_for_registering_a_death
-      @reg_data_query.register_a_death_fees.register_a_death
+      register_a_death_fees.register_a_death
     end
 
     def fee_for_copy_of_death_registration_certificate
-      @reg_data_query.register_a_death_fees.copy_of_death_registration_certificate
+      register_a_death_fees.copy_of_death_registration_certificate
     end
 
-    def oru_documents_variant_for_death?
-      @reg_data_query.oru_documents_variant_for_death?(country_of_death)
+    def minimum_fee_for_document_return
+      register_a_death_fees.minimum_return_fee
     end
 
-    def oru_courier_variant?
-      @reg_data_query.oru_courier_variant?(registration_country)
+    def maximum_fee_for_document_return
+      register_a_death_fees.maximum_return_fee
     end
 
-    def oru_courier_by_high_commission?
-      @reg_data_query.oru_courier_by_high_commission?(registration_country)
+  private
+
+    def register_a_death_fees
+      RatesQuery.from_file("register_a_death").rates
     end
   end
 end

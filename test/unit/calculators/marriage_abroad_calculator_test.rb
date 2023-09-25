@@ -514,24 +514,24 @@ module SmartAnswer
 
       context "#embassy_or_consulate_ceremony_country" do
         setup do
-          @registrations_data_query = stub.quacks_like(RegistrationsDataQuery.new)
-          @registrations_data_query.stubs(
+          @consulate_data_query = stub.quacks_like(ConsulateDataQuery.new)
+          @consulate_data_query.stubs(
             has_consulate?: false,
             has_consulate_general?: false,
           )
 
-          @calculator = MarriageAbroadCalculator.new(registrations_data_query: @registrations_data_query)
+          @calculator = MarriageAbroadCalculator.new(consulate_data_query: @consulate_data_query)
           @calculator.ceremony_country = "country-slug"
         end
 
         should 'return "consulate" if ceremony country has consulate' do
-          @registrations_data_query.stubs(:has_consulate?).with("country-slug").returns(true)
+          @consulate_data_query.stubs(:has_consulate?).with("country-slug").returns(true)
 
           assert_equal "consulate", @calculator.embassy_or_consulate_ceremony_country
         end
 
         should 'return "consulate" if ceremony country has consulate general' do
-          @registrations_data_query.stubs(:has_consulate_general?).with("country-slug").returns(true)
+          @consulate_data_query.stubs(:has_consulate_general?).with("country-slug").returns(true)
 
           assert_equal "consulate", @calculator.embassy_or_consulate_ceremony_country
         end

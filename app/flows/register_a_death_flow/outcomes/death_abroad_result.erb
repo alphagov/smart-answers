@@ -1,0 +1,37 @@
+<% govspeak_for :body do %>
+You must register the death according to the regulations in the country where the person died. You’ll be given a local death certificate.
+
+This death certificate will be accepted in the UK. If it’s not in English, you need to have it translated by an [approved translator](https://find-a-professional-service-abroad.service.csd.fcdo.gov.uk/find/translators-interpreters).
+
+##Register a death abroad with the UK authorities
+
+You can also choose to register a death abroad with the UK authorities, if the death happened on or after 1 January 1983.
+
+You do not have to do this, but if you do:
+
+- the death will be recorded with the General Register Offices or the National Records Office of Scotland
+
+- the death record will be held in the UK
+
+- you can order a consular death registration certificate - this is an optional document that says you’ve registered a death abroad with the UK authorities
+
+^You do not need to register the death with the UK authorities in order to use the [Tell Us Once](https://www.gov.uk/after-a-death/death-abroad) service.
+
+##Fees
+It costs <%= format_money(calculator.fee_for_registering_a_death) %> to register a death with the UK authorities. You can also order a consular death registration certificate - it costs <%= format_money(calculator.fee_for_copy_of_death_registration_certificate) %> per certificate.
+
+You’ll also need to pay to have your documents sent back to you. This costs between <%= format_money(calculator.minimum_fee_for_document_return) %> and <%= format_money(calculator.maximum_fee_for_document_return) %> depending on which country the documents are returned to.
+
+##Apply online
+
+Use this service to register a death abroad with the UK authorities.
+
+^This service is optional.
+
+{button start}[Start now](https://register-a-death-abroad.service.gov.uk){/button}
+
+##Get help with your application
+
+If you have any questions about registering a death abroad with the UK authorities, email [Overseas.RegistrationUnit@fcdo.gov.uk](mailto:Overseas.RegistrationUnit@fcdo.gov.uk).
+
+<% end  %>
