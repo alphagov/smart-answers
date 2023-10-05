@@ -134,10 +134,6 @@ module SmartAnswer::Calculators
       @passport_country == "macao"
     end
 
-    def passport_country_is_russia_or_georgia?
-      %w[russia georgia].include?(@passport_country)
-    end
-
     def passport_country_is_turkey?
       @passport_country == "turkey"
     end
