@@ -766,22 +766,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_transit_not_leaving_airport" do
-    setup do
-      testing_node :outcome_transit_not_leaving_airport
-      add_responses purpose_of_visit?: "transit",
-                    travelling_to_cta?: "somewhere_else",
-                    passing_through_uk_border_control?: "no"
-    end
-
-    %w[russia georgia].each do |country|
-      should "render extra guidance for #{country}" do
-        add_responses what_passport_do_you_have?: country
-        assert_rendered_outcome text: /If you’re arriving in the UK before 6 October 2023/
-      end
-    end
-  end
-
   context "outcome: outcome_transit_leaving_airport_direct_airside_transit_visa" do
     setup do
       testing_node :outcome_transit_leaving_airport_direct_airside_transit_visa
