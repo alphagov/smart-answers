@@ -10,6 +10,15 @@
             new_tab: true,
           } %>
       </div>
+    <% elsif @presenter && @presenter.start_node.benefits_survey_url(request.path) %>
+      <div class="banner-container govuk-!-static-margin-top-4">
+          <%= render "govuk_publishing_components/components/intervention", {
+            suggestion_text: "Help improve GOV.UK",
+            suggestion_link_text: "Take part in user research",
+            suggestion_link_url: @presenter.start_node.benefits_survey_url(request.path),
+            new_tab: true,
+          } %>
+      </div>
     <% end %>
     <main id="content" role="main">
       <%= yield %>
