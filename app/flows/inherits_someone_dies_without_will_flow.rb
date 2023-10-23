@@ -62,7 +62,7 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
     radio :date_of_death? do
       option :"before-oct-2014"
       option :"oct-2014-feb-2020"
-      option :"after-feb-2020"
+      option :"feb-2020-jul-2023"
 
       on_response do |response|
         calculator.date_of_death = response
@@ -118,7 +118,7 @@ class InheritsSomeoneDiesWithoutWillFlow < SmartAnswer::Flow
               else
                 outcome :outcome_14
               end
-            when "after-feb-2020"
+            when "feb-2020-jul-2023"
               if calculator.children?
                 outcome :outcome_13
               else
