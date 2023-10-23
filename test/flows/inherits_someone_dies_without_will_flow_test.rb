@@ -112,8 +112,11 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
       should "have a next node of children? for oct-2014-feb-2020" do
         assert_next_node :children?, for_response: "oct-2014-feb-2020"
       end
-      should "have a next node of children? for after-feb-2020" do
-        assert_next_node :children?, for_response: "after-feb-2020"
+      should "have a next node of children? for feb-2020-jul-2023" do
+        assert_next_node :children?, for_response: "feb-2020-jul-2023"
+      end
+      should "have a next node of children? for after-jul-2023" do
+        assert_next_node :children?, for_response: "after-jul-2023"
       end
     end
   end
@@ -149,13 +152,23 @@ class InheritsSomeoneDiesWithoutWillFlowTest < ActiveSupport::TestCase
         assert_next_node :outcome_14, for_response: "no"
       end
 
-      should "have a next node of outcome_13 for a 'yes' response if has partner and region is england-and-wales and deceased died after-feb-2020" do
-        add_responses date_of_death?: "after-feb-2020"
+      should "have a next node of outcome_13 for a 'yes' response if has partner and region is england-and-wales and deceased died feb-2020-jul-2023" do
+        add_responses date_of_death?: "feb-2020-jul-2023"
         assert_next_node :outcome_13, for_response: "yes"
       end
 
-      should "have a next node of outcome_14 for a 'no' response if has partner and region is england-and-wales and deceased died after-feb-2020" do
-        add_responses date_of_death?: "after-feb-2020"
+      should "have a next node of outcome_14 for a 'no' response if has partner and region is england-and-wales and deceased died feb-2020-jul-2023" do
+        add_responses date_of_death?: "feb-2020-jul-2023"
+        assert_next_node :outcome_14, for_response: "no"
+      end
+
+      should "have a next node of outcome_15 for a 'yes' response if has partner and region is england-and-wales and deceased died after-jul-2023" do
+        add_responses date_of_death?: "after-jul-2023"
+        assert_next_node :outcome_15, for_response: "yes"
+      end
+
+      should "have a next node of outcome_14 for a 'no' response if has partner and region is england-and-wales and deceased died after-jul-2023" do
+        add_responses date_of_death?: "after-jul-2023"
         assert_next_node :outcome_14, for_response: "no"
       end
 
