@@ -1,16 +1,7 @@
 <% content_for :body do %>
   <div class="smart_answer">
     <%= yield :breadcrumbs %>
-    <% if @presenter && @presenter.start_node.survey_url(request.path) %>
-      <div class="banner-container govuk-!-static-margin-top-4">
-          <%= render "govuk_publishing_components/components/intervention", {
-            suggestion_text: "Help improve a new GOV.UK tool",
-            suggestion_link_text: "Sign up to take part in user research",
-            suggestion_link_url: @presenter.start_node.survey_url(request.path),
-            new_tab: true,
-          } %>
-      </div>
-    <% elsif @presenter && @presenter.start_node.benefits_survey_url(request.path) %>
+    <% if @presenter && @presenter.start_node.benefits_survey_url(request.path) %>
       <div class="banner-container govuk-!-static-margin-top-4">
           <%= render "govuk_publishing_components/components/intervention", {
             suggestion_text: "Help improve GOV.UK",
