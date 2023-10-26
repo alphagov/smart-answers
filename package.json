@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "standardx": "^7.0.0",
-    "stylelint": "^15.11.0",
+    "stylelint": "^15.10.3",
     "stylelint-config-gds": "^1.0.0"
   },
   "resolutions": {
