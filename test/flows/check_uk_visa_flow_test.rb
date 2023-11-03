@@ -726,14 +726,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
