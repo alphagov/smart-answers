@@ -957,22 +957,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     staying_for_how_long?: "six_months_or_less"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
-    end
-
-    should "render ETA specific instructions for visiting Channel Islands or Isle of Man" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
-                    travelling_to_cta?: "channel_islands_or_isle_of_man"
-      assert_rendered_outcome text: @eta_text
-      assert_rendered_outcome text: @channel_island_isle_of_man_text
-      assert_no_rendered_outcome text: "You must either apply for:"
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
