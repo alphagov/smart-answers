@@ -1,18 +1,19 @@
 <% text_for :title do %>
-  You’ll need an electronic visa waiver (EVW) or a visitor visa
+  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    You’ll need an electronic travel authorisation (ETA) or a visitor visa.
+  <% else %>
+    You’ll need an electronic visa waiver (EVW) or a visitor visa
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
+    You must apply for either:
+
   <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
-    If you do not have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man, you must either apply for:
+    + an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta)
   <% else %>
-    You must either apply for:
+    + an [electronic visa waiver](/get-electronic-visa-waiver)
   <% end %>
 
-  + an [electronic visa waiver](/get-electronic-visa-waiver)
   + a [Standard Visitor visa](/standard-visitor)
-
-  <% if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-  <% end %>
 <% end %>
