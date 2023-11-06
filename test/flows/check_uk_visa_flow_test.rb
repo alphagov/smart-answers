@@ -20,7 +20,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you’re travelling on or after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver."
+    @eta_text = "Apply for (ETA)."
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
