@@ -544,7 +544,6 @@ module SmartAnswer::Calculators
       bahrain
       kuwait
       oman
-      qatar
       saudi-arabia
       united-arab-emirates
     ].freeze
