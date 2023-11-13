@@ -20,8 +20,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "Apply for (ETA)."
-
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
                                       "india",
@@ -638,18 +636,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You may want to apply for a visa"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
                     travelling_to_cta?: "somewhere_else",
                     passing_through_uk_border_control?: "no"
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
-                    travelling_to_cta?: "somewhere_else",
-                    passing_through_uk_border_control?: "no"
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
