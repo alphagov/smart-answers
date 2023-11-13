@@ -16,4 +16,8 @@
   <% else %>
     If you want to convert a civil partnership into a marriage, you'll need to apply for an [electronic visa waiver (EVW)](/get-electronic-visa-waiver) or a [Standard Visitor visa](/standard-visitor).
   <% end %>
+
+  <% if calculator.passport_country_in_electronic_visa_waiver_list?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
+  <% end %>
 <% end %>

@@ -20,6 +20,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
+    @eta_text = "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA). You’ll be able to apply for an ETA from 1 February 2024"
+
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
                                       "india",
@@ -642,6 +644,13 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     passing_through_uk_border_control?: "no"
       assert_no_rendered_outcome text: "electronic visa waiver"
     end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
+                    travelling_to_cta?: "somewhere_else",
+                    passing_through_uk_border_control?: "no"
+      assert_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_school_y" do
@@ -720,6 +729,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
     end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_transit_leaving_airport" do
@@ -743,6 +757,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
+    end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
     end
   end
 
@@ -928,6 +947,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
     end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_study_waiver" do
@@ -940,6 +964,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
+    end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
     end
   end
 
@@ -954,6 +983,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
     end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_marriage_electronic_visa_waiver" do
@@ -966,6 +1000,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
     end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
+    end
   end
 
   context "outcome: outcome_school_waiver" do
@@ -977,6 +1016,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
+    end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
     end
   end
 end
