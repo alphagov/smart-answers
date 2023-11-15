@@ -11,9 +11,9 @@
   - settled in the UK
   - someone with humanitarian protection, for example if they have refugee status
 
-  If you want to convert a civil partnership into a marriage, you'll need to apply for an [electronic visa waiver (EVW)](/get-electronic-visa-waiver) or a [Standard Visitor visa](/standard-visitor).
-
-  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
-    <%= render partial: 'electronic_travel_authorisation_advice' %>
+  <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
+    If you want to convert a civil partnership into a marriage, you’ll need to apply for [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta) or a [Standard Visitor visa](/standard-visitor).
+  <% else %>
+    If you want to convert a civil partnership into a marriage, you'll need to apply for an [electronic visa waiver (EVW)](/get-electronic-visa-waiver) or a [Standard Visitor visa](/standard-visitor).
   <% end %>
 <% end %>

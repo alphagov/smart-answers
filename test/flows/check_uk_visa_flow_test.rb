@@ -20,9 +20,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you’re travelling on or after 15 November 2023, you’ll need to apply for an electronic travel authorisation (ETA) instead of an electronic visa waiver."
-    @channel_island_isle_of_man_text = "If you do not have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man, you must either apply for:"
-
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
                                       "india",
@@ -639,18 +636,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You may want to apply for a visa"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
                     travelling_to_cta?: "somewhere_else",
                     passing_through_uk_border_control?: "no"
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
-                    travelling_to_cta?: "somewhere_else",
-                    passing_through_uk_border_control?: "no"
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -726,14 +716,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -755,14 +740,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK in transit"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -944,22 +924,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses purpose_of_visit?: "tourism"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
-    end
-
-    should "render ETA specific instructions for visiting Channel Islands or Isle of Man" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
-                    travelling_to_cta?: "channel_islands_or_isle_of_man"
-      assert_rendered_outcome text: @eta_text
-      assert_rendered_outcome text: @channel_island_isle_of_man_text
-      assert_no_rendered_outcome text: "You must either apply for:"
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -970,22 +937,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     staying_for_how_long?: "six_months_or_less"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
-    end
-
-    should "render ETA specific instructions for visiting Channel Islands or Isle of Man" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
-                    travelling_to_cta?: "channel_islands_or_isle_of_man"
-      assert_rendered_outcome text: @eta_text
-      assert_rendered_outcome text: @channel_island_isle_of_man_text
-      assert_no_rendered_outcome text: "You must either apply for:"
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -996,14 +950,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     staying_for_how_long?: "six_months_or_less"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -1013,14 +962,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses purpose_of_visit?: "marriage"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
@@ -1030,14 +974,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses purpose_of_visit?: "school"
     end
 
-    should "render specific guidance for Electronic Travel Authorisation" do
+    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: @eta_text
-    end
-
-    should "not render Electronic Travel Authorisation guidance for non-ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_no_rendered_outcome text: @eta_text
+      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 end
