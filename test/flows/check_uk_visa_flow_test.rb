@@ -20,6 +20,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
+    @eta_text = "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA). You’ll be able to apply for an ETA from 1 February 2024"
+
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
                                       "india",
@@ -561,6 +563,28 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "ETA advice toggle" do
+    setup do
+      testing_node :outcome_work_waiver
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "six_months_or_less"
+    end
+
+    should "render ETA text before the cutoff date" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      travel_to Date.new(2023, 2, 25) do
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    should "not render ETA text after the cutoff date" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      travel_to Date.new(2024, 2, 25) do
+        assert_no_rendered_outcome text: @eta_text
+      end
+    end
+  end
+
   context "outcome: outcome_marriage_visa_nat_direct_airside_transit_visa" do
     setup do
       testing_node :outcome_marriage_visa_nat_direct_airside_transit_visa
@@ -977,6 +1001,78 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "electronic visa waiver"
+    end
+
+    should "render temporary guidance related to ETA for all EVW countries" do
+      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+      assert_rendered_outcome text: @eta_text
+    end
+  end
+
+  if Time.zone.now < Time.zone.local(2024, 2, 22)
+    context "render temporary guidance related to ETA for all EVW countries" do
+      should "render for outcome: no visa needed" do
+        testing_node :outcome_no_visa_needed
+        add_responses purpose_of_visit?: "transit",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country,
+                      travelling_to_cta?: "somewhere_else",
+                      passing_through_uk_border_control?: "no"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_transit_to_the_republic_of_ireland" do
+        testing_node :outcome_transit_to_the_republic_of_ireland
+        add_responses purpose_of_visit?: "transit",
+                      travelling_to_cta?: "republic_of_ireland",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_transit_leaving_airport" do
+        testing_node :outcome_transit_leaving_airport
+        add_responses purpose_of_visit?: "transit",
+                      travelling_to_cta?: "somewhere_else",
+                      passing_through_uk_border_control?: "yes",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_visit_waiver" do
+        testing_node :outcome_visit_waiver
+        add_responses purpose_of_visit?: "tourism",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_study_waiver" do
+        testing_node :outcome_study_waiver
+        add_responses purpose_of_visit?: "study",
+                      staying_for_how_long?: "six_months_or_less",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_work_waiver" do
+        testing_node :outcome_work_waiver
+        add_responses purpose_of_visit?: "work",
+                      staying_for_how_long?: "six_months_or_less",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_marriage_electronic_visa_waiver" do
+        testing_node :outcome_marriage_electronic_visa_waiver
+        add_responses purpose_of_visit?: "marriage",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_school_waiver" do
+        testing_node :outcome_school_waiver
+        add_responses purpose_of_visit?: "school",
+                      what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
     end
   end
 end

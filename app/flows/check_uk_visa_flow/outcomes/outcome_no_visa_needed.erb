@@ -8,6 +8,11 @@
 <% end %>
 
 <% govspeak_for :body do %>
+
+  <% if calculator.passport_country_in_electronic_visa_waiver_list? && Time.now < Time.new(2024, 02, 22)%>
+    If you're travelling on or after 22 February 2024, you'll need to apply for an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta). You'll be able to apply for an ETA from 1 February 2024.
+  <% end %>
+
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
     [Apply for (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
   <% end %>

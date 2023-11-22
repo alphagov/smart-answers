@@ -16,4 +16,7 @@
   <% end %>
 
   + a [Standard Visitor visa](/standard-visitor)
+  <% if calculator.passport_country_in_electronic_visa_waiver_list?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
+  <% end %>
 <% end %>

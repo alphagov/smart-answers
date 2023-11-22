@@ -15,4 +15,11 @@
     + an [electronic visa waiver](/get-electronic-visa-waiver) to stay for up to 6 months
   <% end %>
   + a [Parent of a Child Student visa](/parent-of-a-child-at-school-visa)
+
+  <% if calculator.passport_country_in_electronic_visa_waiver_list?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
+  <% end %>
+
+  *[EVW]: electronic visa waiver
+
 <% end %>
