@@ -4,6 +4,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   function TrackResponses ($module) {
     this.$module = $module
+
+    this.init()
   }
 
   TrackResponses.prototype.init = function () {
