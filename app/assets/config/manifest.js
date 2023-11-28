@@ -2,6 +2,7 @@
 
 //= link joint.css
 //= link application.js
+//= link es6-components.js
 //= link dagre.js
 //= link joint.layout.DirectedGraph.js
 //= link joint.js
