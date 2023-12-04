@@ -15,4 +15,8 @@
   + is settled in the UK (called having ‘indefinite leave to remain’)
   + has settled or pre-settled status under the EU Settlement Scheme
   + has a Turkish worker or businessperson visa
+
+  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
+  <% end %>
 <% end %>

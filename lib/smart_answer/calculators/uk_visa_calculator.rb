@@ -82,6 +82,10 @@ module SmartAnswer::Calculators
       %w[qatar].include?(@passport_country)
     end
 
+    def electronic_travel_authorisation_warning_notice_required?
+      ETA_WARNING_LIST.include?(@passport_country)
+    end
+
     def passport_country_in_epassport_gate_list?
       COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
     end
@@ -541,6 +545,15 @@ module SmartAnswer::Calculators
     ].freeze
 
     COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w[
+      bahrain
+      kuwait
+      oman
+      saudi-arabia
+      united-arab-emirates
+    ].freeze
+
+    ETA_WARNING_LIST = %w[
+      jordan
       bahrain
       kuwait
       oman

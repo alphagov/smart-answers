@@ -6,4 +6,8 @@
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   Apply for a [Standard Visitor visa](/standard-visitor) if you're studying for 6 months or less.
+
+  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
+  <% end %>
 <% end %>

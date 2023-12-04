@@ -29,6 +29,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "ireland",
                                       "estonia",
                                       "georgia",
+                                      "jordan",
                                       "latvia",
                                       "hong-kong",
                                       "macao",
@@ -1010,7 +1011,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   end
 
   if Time.zone.now < Time.zone.local(2024, 2, 22)
-    context "render temporary guidance related to ETA for all EVW countries" do
+    context "render temporary guidance related to ETA for all EVW countries and Jordan" do
       should "render for outcome: no visa needed" do
         testing_node :outcome_no_visa_needed
         add_responses purpose_of_visit?: "transit",
@@ -1071,6 +1072,51 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         testing_node :outcome_school_waiver
         add_responses purpose_of_visit?: "school",
                       what_passport_do_you_have?: @electronic_visa_waiver_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_work_m for Jordan" do
+        testing_node :outcome_work_m
+        add_responses purpose_of_visit?: "work",
+                      staying_for_how_long?: "six_months_or_less",
+                      what_passport_do_you_have?: "jordan"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_school_y for Jordan" do
+        testing_node :outcome_school_y
+        add_responses purpose_of_visit?: "school",
+                      what_passport_do_you_have?: "jordan"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_medical_y" do
+        testing_node :outcome_medical_y
+        add_responses purpose_of_visit?: "medical",
+                      what_passport_do_you_have?: "jordan"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_marriage_visa_nat_direct_airside_transit_visa" do
+        testing_node :outcome_marriage_visa_nat_direct_airside_transit_visa
+        add_responses purpose_of_visit?: "marriage",
+                      what_passport_do_you_have?: "jordan"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_study_m" do
+        testing_node :outcome_study_m
+        add_responses purpose_of_visit?: "study",
+                      staying_for_how_long?: "six_months_or_less",
+                      what_passport_do_you_have?: "jordan"
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "render for outcome: outcome_tourism_visa_partner" do
+        testing_node :outcome_tourism_visa_partner
+        add_responses purpose_of_visit?: "tourism",
+                      travelling_visiting_partner_family_member?: "yes",
+                      what_passport_do_you_have?: "jordan"
         assert_rendered_outcome text: @eta_text
       end
     end
