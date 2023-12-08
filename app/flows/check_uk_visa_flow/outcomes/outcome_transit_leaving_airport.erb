@@ -21,10 +21,12 @@
     + an [electronic visa waiver](/get-electronic-visa-waiver)
     + a [Visitor in Transit visa](/transit-visa)
 
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-
   <% else %>
     You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
+  <% end %>
+
+  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
+    <%= render partial: 'electronic_travel_authorisation_advice'%>
   <% end %>
 
   ##Transiting without a visa
