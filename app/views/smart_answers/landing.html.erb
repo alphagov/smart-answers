@@ -15,6 +15,24 @@
       content_item: content_item %>
   <% end %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
+  <%
+    ga4_scroll_track_headings_paths = [
+      "/check-uk-visa",
+      "/check-benefits-financial-support",
+      "/state-pension-age",
+      "/calculate-your-holiday-entitlement",
+      "/calculate-your-redundancy-pay",
+      "/student-finance-calculator",
+      "/child-benefit-tax-calculator",
+      "/maternity-paternity-pay-leave",
+      "/maternity-paternity-calculator",
+      "/calculate-statutory-sick-pay",
+      "/am-i-getting-minimum-wage"
+    ]
+  %>
+  <% if ga4_scroll_track_headings_paths.include?(@content_item["base_path"]) %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker"/>
+  <% end %>
 <% end %>
 
 <% content_for :breadcrumbs do %>
