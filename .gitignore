@@ -24,3 +24,7 @@ yarn-error.log
 
 # IntelliJ
 .idea/
+
+# Dart Sass
+/app/assets/builds/*
+!/app/assets/builds/.keep
