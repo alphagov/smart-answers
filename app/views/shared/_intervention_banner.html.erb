@@ -1,0 +1,10 @@
+<% if recruitment_banner.present? %>
+  <div class="govuk-width-container govuk-!-margin-top-4">
+    <%= render "govuk_publishing_components/components/intervention", {
+      new_tab: true,
+      suggestion_text: recruitment_banner["suggestion_text"],
+      suggestion_link_text: recruitment_banner["suggestion_link_text"],
+      suggestion_link_url: recruitment_banner["survey_url"],
+    } %>
+  </div>
+<% end %>

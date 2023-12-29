@@ -1,0 +1,11 @@
+# Example usage of adding a banner to the banners list:
+
+  # - name: Banner 1
+  #   suggestion_text: "Help improve GOV.UK"
+  #   suggestion_link_text: "Take part in user research"
+  #   survey_url: https://google.com
+  #   page_paths: 
+  #     - /
+  #     - /foreign-travel-advice
+
+banners:

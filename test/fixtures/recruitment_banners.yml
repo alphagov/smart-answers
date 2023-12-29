@@ -1,0 +1,14 @@
+banners: 
+  - name: Banner 1
+    suggestion_text: "Help improve GOV.UK"
+    suggestion_link_text: "Take part in user research"
+    survey_url: https://google.com
+    page_paths: 
+      - /
+
+  - name: Banner 2
+    suggestion_text: "Help improve GOV.UK"
+    suggestion_link_text: "Take part in user research"
+    survey_url: https://google.com
+    page_paths: 
+      - /some_path
