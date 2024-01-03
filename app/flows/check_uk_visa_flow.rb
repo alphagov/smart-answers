@@ -316,7 +316,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_transit_to_the_republic_of_ireland
     outcome :outcome_tourism_n
     outcome :outcome_tourism_visa_partner
-    outcome :outcome_requires_electronic_travel_authorisation
+    outcome :outcome_medical_requires_electronic_travel_authorisation
+    outcome :outcome_tourism_requires_electronic_travel_authorisation
     outcome :outcome_requires_electronic_visa_waiver
     outcome :outcome_visit_waiver_taiwan
     outcome :outcome_work_m
@@ -353,7 +354,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
       if calculator.medical_visit?
         if calculator.passport_country_requires_electronic_travel_authorisation?
-          next outcome(:outcome_requires_electronic_travel_authorisation)
+          next outcome(:outcome_medical_requires_electronic_travel_authorisation)
         elsif calculator.passport_country_in_electronic_visa_waiver_list?
           next outcome(:outcome_requires_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?
@@ -370,7 +371,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
       if calculator.tourism_visit?
         if calculator.passport_country_requires_electronic_travel_authorisation?
-          next outcome(:outcome_requires_electronic_travel_authorisation)
+          next outcome(:outcome_tourism_requires_electronic_travel_authorisation)
         elsif calculator.passport_country_in_electronic_visa_waiver_list?
           next outcome(:outcome_requires_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?

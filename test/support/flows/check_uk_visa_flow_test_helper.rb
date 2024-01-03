@@ -112,9 +112,9 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_requires_electronic_visa_waiver, for_response: "medical"
       end
 
-      should "have a next node of outcome_requires_electronic_travel_authorisation for a electronic visa waiver country passport" do
+      should "have a next node of outcome_medical_requires_electronic_travel_authorisation for a electronic visa waiver country passport" do
         add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-        assert_next_node :outcome_requires_electronic_travel_authorisation, for_response: "medical"
+        assert_next_node :outcome_medical_requires_electronic_travel_authorisation, for_response: "medical"
       end
 
       should "have a next node of outcome_visit_waiver_taiwan for a Taiwan passport" do
@@ -161,9 +161,9 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_requires_electronic_visa_waiver, for_response: "tourism"
       end
 
-      should "have a next node of outcome_requires_electronic_travel_authorisation for a electronic visa waiver country passport" do
+      should "have a next node of outcome_tourism_requires_electronic_travel_authorisation for electronic travel authorisation country passport" do
         add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-        assert_next_node :outcome_requires_electronic_travel_authorisation, for_response: "tourism"
+        assert_next_node :outcome_tourism_requires_electronic_travel_authorisation, for_response: "tourism"
       end
 
       should "have a next node of outcome_visit_waiver_taiwan for a Taiwan passport" do
