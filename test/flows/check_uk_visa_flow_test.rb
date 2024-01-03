@@ -921,18 +921,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_visit_waiver" do
-    setup do
-      testing_node :outcome_visit_waiver
-      add_responses purpose_of_visit?: "tourism"
-    end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
-    end
-  end
-
   context "outcome: outcome_study_waiver" do
     setup do
       testing_node :outcome_study_waiver
@@ -1028,13 +1016,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses purpose_of_visit?: "transit",
                       travelling_to_cta?: "somewhere_else",
                       passing_through_uk_border_control?: "yes",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_visit_waiver" do
-        testing_node :outcome_visit_waiver
-        add_responses purpose_of_visit?: "tourism",
                       what_passport_do_you_have?: @electronic_visa_waiver_country
         assert_rendered_outcome text: @eta_text
       end
@@ -1144,13 +1125,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses purpose_of_visit?: "transit",
                       travelling_to_cta?: "somewhere_else",
                       passing_through_uk_border_control?: "yes",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_visit_waiver" do
-        testing_node :outcome_visit_waiver
-        add_responses purpose_of_visit?: "tourism",
                       what_passport_do_you_have?: @electronic_visa_waiver_country
         assert_no_rendered_outcome text: @eta_text
       end
