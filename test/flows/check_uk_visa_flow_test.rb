@@ -261,6 +261,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         assert_next_node :outcome_transit_to_the_republic_of_ireland, for_response: "republic_of_ireland"
       end
 
+      should "have a next node of outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation for a different country and a " \
+             "'republic_of_ireland' response" do
+        add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+        assert_next_node :outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation, for_response: "republic_of_ireland"
+      end
+
       should "have a next node of passing_through_uk_border_control? for a travel document country with " \
              "a travel document and a 'somewhere_else' response" do
         add_responses what_passport_do_you_have?: @travel_document_country,
@@ -723,11 +729,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render different guidance for passports from outher countries" do
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
-    end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 

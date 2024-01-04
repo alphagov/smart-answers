@@ -113,6 +113,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
               calculator.passport_country_in_british_overseas_territories_list?) &&
               !calculator.travel_document?
             next outcome(:outcome_no_visa_needed)
+          elsif calculator.passport_country_requires_electronic_travel_authorisation?
+            next outcome(:outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation)
           else
             next outcome(:outcome_transit_to_the_republic_of_ireland)
           end
@@ -317,6 +319,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_transit_taiwan
     outcome :outcome_transit_taiwan_through_border_control
     outcome :outcome_transit_to_the_republic_of_ireland
+    outcome :outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation
     outcome :outcome_tourism_n
     outcome :outcome_tourism_visa_partner
     outcome :outcome_medical_electronic_travel_authorisation
