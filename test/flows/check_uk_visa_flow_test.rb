@@ -470,6 +470,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_work_waiver, for_response: "six_months_or_less"
         end
 
+        should "have a next node of outcome_work_electronic_travel_authorisation for a work visit with a electronic travel authorisation passport" do
+          add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
+                        purpose_of_visit?: "work"
+          assert_next_node :outcome_work_electronic_travel_authorisation, for_response: "six_months_or_less"
+        end
+
         should "have a next node of outcome_work_n for a work visit with a British overseas territory passport" do
           add_responses what_passport_do_you_have?: @british_overseas_territory_country,
                         purpose_of_visit?: "work"
@@ -925,19 +931,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_visa_count("china", 2)
       test_visa_count("british-national-overseas", 5)
       test_visa_count("stateless-or-refugee", 2)
-    end
-  end
-
-  context "outcome: outcome_work_waiver" do
-    setup do
-      testing_node :outcome_work_waiver
-      add_responses purpose_of_visit?: "work",
-                    staying_for_how_long?: "six_months_or_less"
-    end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 

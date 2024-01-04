@@ -212,7 +212,9 @@ class CheckUkVisaFlow < SmartAnswer::Flow
               outcome :outcome_study_no_visa_needed # outcome 1 no visa needed
             end
           elsif calculator.work_visit?
-            if calculator.passport_country_requires_electronic_travel_authorisation? || calculator.passport_country_in_electronic_visa_waiver_list?
+            if calculator.passport_country_requires_electronic_travel_authorisation?
+              outcome :outcome_work_electronic_travel_authorisation
+            elsif calculator.passport_country_in_electronic_visa_waiver_list?
               outcome :outcome_work_waiver
             elsif (calculator.passport_country_in_british_overseas_territories_list? ||
                 calculator.passport_country_is_taiwan? ||
@@ -328,6 +330,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_visit_waiver_taiwan
     outcome :outcome_work_m
     outcome :outcome_work_n
+    outcome :outcome_work_electronic_travel_authorisation
     outcome :outcome_work_waiver
     outcome :outcome_work_y
   end
