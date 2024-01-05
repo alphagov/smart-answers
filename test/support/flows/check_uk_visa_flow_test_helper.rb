@@ -226,6 +226,11 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_marriage_electronic_visa_waiver, for_response: "marriage"
       end
 
+      should "have a next node of outcome_marriage_electronic_travel_authorisation for an electronic travel authorisation country passport" do
+        add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+        assert_next_node :outcome_marriage_electronic_travel_authorisation, for_response: "marriage"
+      end
+
       should "have a next node of outcome_marriage_taiwan for a Taiwan passport" do
         add_responses what_passport_do_you_have?: "taiwan"
         assert_next_node :outcome_marriage_taiwan, for_response: "marriage"

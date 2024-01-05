@@ -934,18 +934,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_marriage_electronic_visa_waiver" do
-    setup do
-      testing_node :outcome_marriage_electronic_visa_waiver
-      add_responses purpose_of_visit?: "marriage"
-    end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
-    end
-  end
-
   context "outcome: outcome_school_waiver" do
     setup do
       testing_node :outcome_school_waiver
