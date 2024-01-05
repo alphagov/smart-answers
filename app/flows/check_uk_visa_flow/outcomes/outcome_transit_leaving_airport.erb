@@ -1,7 +1,5 @@
 <% text_for :title do %>
-  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
-    You’ll need an electronic travel authorisation (ETA) or a Visitor in Transit visa.
-  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
     You’ll need an electronic visa waiver (EVW) or a Visitor in Transit visa
   <% else %>
     You’ll need a visa to pass through the UK in transit
@@ -9,13 +7,7 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
-    You must apply for either:
-
-    + an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta)
-    + a [Visitor in Transit visa](/transit-visa)
-
-  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
     You must either apply for:
 
     + an [electronic visa waiver](/get-electronic-visa-waiver)
