@@ -210,20 +210,20 @@ module CheckUkVisaFlowTestHelper
     end
 
     context "for a 'marriage' response" do
-      should "have a next node of outcome_marriage_nvn_british_overseas_territories for an EEA passport" do
+      should "have a next node of outcome_marriage_nvn for an EEA passport" do
         add_responses what_passport_do_you_have?: @eea_country
-        assert_next_node :outcome_marriage_nvn_british_overseas_territories, for_response: "marriage"
+        assert_next_node :outcome_marriage_nvn, for_response: "marriage"
       end
 
-      should "have a next node of :outcome_marriage_nvn_british_overseas_territories for a non-visa national passport" do
+      should "have a next node of :outcome_marriage_nvn for a non-visa national passport" do
         add_responses what_passport_do_you_have?: @non_visa_national_country
-        assert_next_node :outcome_marriage_nvn_british_overseas_territories, for_response: "marriage"
+        assert_next_node :outcome_marriage_nvn, for_response: "marriage"
       end
 
-      should "have a next node of :outcome_marriage_nvn_british_overseas_territories for a British overseas " \
+      should "have a next node of :outcome_marriage_nvn for a British overseas " \
              "territory passport" do
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
-        assert_next_node :outcome_marriage_nvn_british_overseas_territories, for_response: "marriage"
+        assert_next_node :outcome_marriage_nvn, for_response: "marriage"
       end
 
       should "have a next node of outcome_marriage_electronic_visa_waiver for a electronic visa waiver country passport" do
@@ -231,9 +231,9 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_marriage_electronic_visa_waiver, for_response: "marriage"
       end
 
-      should "have a next node of outcome_marriage_electronic_travel_authorisation for an electronic travel authorisation country passport" do
+      should "have a next node of outcome_marriage_nvn for an electronic travel authorisation country passport" do
         add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-        assert_next_node :outcome_marriage_electronic_travel_authorisation, for_response: "marriage"
+        assert_next_node :outcome_marriage_nvn, for_response: "marriage"
       end
 
       should "have a next node of outcome_marriage_taiwan for a Taiwan passport" do

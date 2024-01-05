@@ -26,7 +26,8 @@
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
     (calculator.passport_country_in_non_visa_national_list? ||
       calculator.passport_country_in_eea? ||
-      calculator.passport_country_in_british_overseas_territories_list?) %>
+      calculator.passport_country_in_british_overseas_territories_list?) &&
+    not(calculator.passport_country_requires_electronic_travel_authorisation?)%>
 
     However, you should bring evidence of your onward journey to show to officers at the UK border.
 

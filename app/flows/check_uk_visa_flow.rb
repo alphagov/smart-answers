@@ -108,13 +108,13 @@ class CheckUkVisaFlow < SmartAnswer::Flow
         if calculator.travelling_to_channel_islands_or_isle_of_man?
           next question(:channel_islands_or_isle_of_man?)
         elsif calculator.travelling_to_ireland?
-          if (calculator.passport_country_in_non_visa_national_list? ||
-              calculator.passport_country_in_eea? ||
-              calculator.passport_country_in_british_overseas_territories_list?) &&
+          if calculator.passport_country_requires_electronic_travel_authorisation?
+            next outcome(:outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation)
+          elsif (calculator.passport_country_in_non_visa_national_list? ||
+            calculator.passport_country_in_eea? ||
+            calculator.passport_country_in_british_overseas_territories_list?) &&
               !calculator.travel_document?
             next outcome(:outcome_no_visa_needed)
-          elsif calculator.passport_country_requires_electronic_travel_authorisation?
-            next outcome(:outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation)
           else
             next outcome(:outcome_transit_to_the_republic_of_ireland)
           end
@@ -293,10 +293,9 @@ class CheckUkVisaFlow < SmartAnswer::Flow
 
     outcome :outcome_diplomatic_business
     outcome :outcome_joining_family_nvn
-    outcome :outcome_marriage_nvn_british_overseas_territories
+    outcome :outcome_marriage_nvn
     outcome :outcome_marriage_taiwan
     outcome :outcome_marriage_visa_nat_direct_airside_transit_visa
-    outcome :outcome_marriage_electronic_travel_authorisation
     outcome :outcome_marriage_electronic_visa_waiver
     outcome :outcome_medical_n
     outcome :outcome_medical_y
@@ -400,12 +399,8 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.marriage_visit?
-        if calculator.passport_country_in_eea?
-          next outcome(:outcome_marriage_nvn_british_overseas_territories)
-        elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list?
-          next outcome(:outcome_marriage_nvn_british_overseas_territories)
-        elsif calculator.passport_country_requires_electronic_travel_authorisation?
-          next outcome(:outcome_marriage_electronic_travel_authorisation)
+        if calculator.passport_country_in_eea? || calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_british_overseas_territories_list?
+          next outcome(:outcome_marriage_nvn)
         elsif calculator.passport_country_in_electronic_visa_waiver_list?
           next outcome(:outcome_marriage_electronic_visa_waiver)
         elsif calculator.passport_country_is_taiwan?

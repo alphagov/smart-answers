@@ -622,20 +622,31 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_marriage_nvn_british_overseas_territories" do
+  context "outcome: outcome_marriage_nvn" do
     setup do
-      testing_node :outcome_marriage_nvn_british_overseas_territories
+      testing_node :outcome_marriage_nvn
       add_responses purpose_of_visit?: "marriage"
     end
 
     should "render specific guidance to British nationals overseas" do
       add_responses what_passport_do_you_have?: "british-national-overseas"
       assert_rendered_outcome text: "you can apply for a British National Overseas (BNO) visa."
+      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
+      assert_rendered_outcome text: "You will not need a visa but"
     end
 
     should "render different guidance to non-British nationals overseas" do
       add_responses what_passport_do_you_have?: @eea_country
       assert_rendered_outcome text: "you must apply for a family visa"
+      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
+      assert_rendered_outcome text: "You will not need a visa but"
+    end
+
+    should "render specific guidance related to converting a civil partnership into a marriage for ETA
+        country passport holders, instead of standard nvn guidance" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: "electronic travel authorisation (ETA)"
+      assert_no_rendered_outcome text: "You will not need a visa but"
     end
   end
 
@@ -649,6 +660,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @eea_country,
                     travelling_to_cta?: "somewhere_else"
       assert_rendered_outcome text: "you should bring evidence of your onward journey"
+    end
+
+    should "not render a suggestion of evidence for a further journey for ETA countries" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
+                    travelling_to_cta?: "somewhere_else"
+      assert_no_rendered_outcome text: "you should bring evidence of your onward journey"
     end
 
     should "render a suggestion of a visa for a further journey to Ireland" do
@@ -754,11 +771,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render different guidance for passports from outher countries" do
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK in transit"
-    end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
     end
   end
 
