@@ -940,11 +940,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses purpose_of_visit?: "school"
     end
 
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_outcome text: "electronic visa waiver"
-    end
-
     should "render temporary guidance related to ETA for all EVW countries" do
       add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
       assert_rendered_outcome text: @eta_text

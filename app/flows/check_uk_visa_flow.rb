@@ -306,6 +306,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_partner_family_eea_y
     outcome :outcome_partner_family_eea_n
     outcome :outcome_school_n
+    outcome :outcome_school_electronic_travel_authorisation
     outcome :outcome_school_waiver
     outcome :outcome_school_y
     outcome :outcome_standard_visitor_visa
@@ -351,7 +352,9 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       if calculator.school_visit?
-        if calculator.passport_country_requires_electronic_travel_authorisation? || calculator.passport_country_in_electronic_visa_waiver_list?
+        if calculator.passport_country_requires_electronic_travel_authorisation?
+          next outcome(:outcome_school_electronic_travel_authorisation)
+        elsif calculator.passport_country_in_electronic_visa_waiver_list?
           next outcome(:outcome_school_waiver)
         elsif calculator.passport_country_is_taiwan?
           next outcome(:outcome_study_waiver_taiwan)

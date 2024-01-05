@@ -75,6 +75,11 @@ module CheckUkVisaFlowTestHelper
     end
 
     context "for a 'school' response" do
+      should "have a next node of outcome_school_electronic_travel_authorisation for electronic travel authorisation country passport" do
+        add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+        assert_next_node :outcome_school_electronic_travel_authorisation, for_response: "school"
+      end
+
       should "have a next node of outcome_school_waiver for a electronic visa waiver country passport" do
         add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
         assert_next_node :outcome_school_waiver, for_response: "school"
