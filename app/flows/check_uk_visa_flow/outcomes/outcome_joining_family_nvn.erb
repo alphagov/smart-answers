@@ -1,12 +1,23 @@
 <% text_for :title do %>
-  You may need a visa
+  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    You'll need a visa or electronic travel authorisation (ETA)
+  <% else %>
+    You may need a visa
+  <% end %>
 <% end %>
 
 <% govspeak_for :body do %>
-  Whether you need a visa depends on how long you’re staying in the UK.
+  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    Whether you need a visa or ETA depends on how long you’re staying in the UK.
 
-  ##If you’re staying 6 months or less
-  You do not need a visa if you’re visiting family or a partner for 6 months or less.
+    ##If you’re staying 6 months or less
+    You'll need ETA if you’re visiting family or a partner for 6 months or less.
+  <% else %>
+    Whether you need a visa depends on how long you’re staying in the UK.
+
+    ##If you’re staying 6 months or less
+    You do not need a visa if you’re visiting family or a partner for 6 months or less.
+  <% end %>
 
   If the family member you’re joining is from the EU, Switzerland, Norway, Iceland or Liechtenstein, you may be able to apply for a free [family permit](/family-permit). This makes it easier and quicker to enter the UK. Your family member must have been living in the UK by 31 December 2020.
 

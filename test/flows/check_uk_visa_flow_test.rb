@@ -958,6 +958,37 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "outcome: outcome_joining_family_nvn" do
+    setup do
+      testing_node :outcome_joining_family_nvn
+      add_responses purpose_of_visit?: "family"
+    end
+
+    should "render correct text for non-visa-national country passport" do
+      add_responses what_passport_do_you_have?: @non_visa_national_country
+      assert_rendered_outcome text: "You may need a visa"
+      assert_rendered_outcome text: "Whether you need a visa depends"
+    end
+
+    should "not render ETA text for non-visa-national country passport" do
+      add_responses what_passport_do_you_have?: @non_visa_national_country
+      assert_no_rendered_outcome text: "You'll need a visa or electronic travel authorisation (ETA)"
+      assert_no_rendered_outcome text: "Whether you need a visa or ETA depends"
+    end
+
+    should "render correct text for ETA country passport" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_rendered_outcome text: "You'll need a visa or electronic travel authorisation (ETA)"
+      assert_rendered_outcome text: "Whether you need a visa or ETA depends"
+    end
+
+    should "not render non-visa-national text for ETA country passport" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
+      assert_no_rendered_outcome text: "You may need a visa"
+      assert_no_rendered_outcome text: "Whether you need a visa depends"
+    end
+  end
+
   context "The ETA advice toggle" do
     date_before_feb22nd2024 = Date.new(2024, 2, 21)
     date_after_feb22nd2024 = Date.new(2024, 2, 23)
