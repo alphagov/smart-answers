@@ -1,10 +1,5 @@
-//= link application.css
+//= link_tree ../builds
 
-//= link components/_result-card.css
-//= link components/_result-item.css
-//= link components/_result-sections.css
-
-//= link visualise.css
 //= link joint.css
 //= link application.js
 //= link dagre.js

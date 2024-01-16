@@ -69,7 +69,5 @@ module SmartAnswers
 
     # Allow requests for all domains e.g. <app>.dev.gov.uk
     config.hosts.clear
-
-    config.assets.precompile << get_component_css_paths
   end
 end

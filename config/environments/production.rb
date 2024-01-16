@@ -26,21 +26,12 @@ Rails.application.configure do
 
   # Compress JavaScripts.
   config.assets.js_compressor = :uglifier
-  # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
-
-  # Do not add source map line comments into css files
-  config.sass.line_comments = false
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
-
-  # Rather than use a CSS compressor, use the SASS style to perform compression.
-  config.sass.style = :compressed
-  config.sass.line_comments = false
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
