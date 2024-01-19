@@ -1,6 +1,6 @@
 <% text_for :title do %>
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    You need electronic travel authorisation (ETA) to come to the UK
+    You need an electronic travel authorisation (ETA) to come to the UK
   <% else %>
     You do not need a visa to come to the UK
   <% end %>
@@ -20,7 +20,7 @@
   <% end %>
 
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    [Apply for (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
+    [Apply for an (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
   <% end %>
 
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&

@@ -978,8 +978,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     should "render correct text for ETA country passport" do
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_rendered_outcome text: "You'll need a visa or electronic travel authorisation (ETA)"
-      assert_rendered_outcome text: "Whether you need a visa or ETA depends"
+      assert_rendered_outcome text: "You'll need a visa or an electronic travel authorisation (ETA)"
+      assert_rendered_outcome text: "Whether you need a visa or an ETA depends"
     end
 
     should "not render non-visa-national text for ETA country passport" do
