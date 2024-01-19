@@ -668,6 +668,18 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_no_rendered_outcome text: "you should bring evidence of your onward journey"
     end
 
+    should "render a suggestion of applying for a transit visa for ETA countries when transiting to somewhere else" do
+      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
+                    travelling_to_cta?: "somewhere_else"
+      assert_rendered_outcome text: "You may want to apply for a transit visa"
+    end
+
+    should "not render a suggestion of applying for a transit visa for non-ETA countries" do
+      add_responses what_passport_do_you_have?: @eea_country,
+                    travelling_to_cta?: "somewhere_else"
+      assert_no_rendered_outcome text: "You may want to apply for a transit visa"
+    end
+
     should "render a suggestion of a visa for a further journey to Ireland" do
       add_responses what_passport_do_you_have?: @eea_country,
                     travelling_to_cta?: "republic_of_ireland"
