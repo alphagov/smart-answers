@@ -17,7 +17,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @eea_country = "austria"
     @travel_document_country = "hong-kong"
     @b1_b2_country = "syria"
-    @epassport_gate_country = "australia"
     @youth_mobility_scheme_country = "canada"
 
     @eta_text = "If you’re travelling on or after 22 February 2024, you can apply for an electronic travel authorisation (ETA). You’ll be able to apply for an ETA from 1 February 2024"
@@ -45,7 +44,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       @eea_country,
                                       @travel_document_country,
                                       @b1_b2_country,
-                                      @epassport_gate_country,
                                       @youth_mobility_scheme_country].uniq)
   end
 
@@ -768,11 +766,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       testing_node :outcome_work_n
       add_responses purpose_of_visit?: "work",
                     staying_for_how_long?: "six_months_or_less"
-    end
-
-    should "render epassport guidance to appropriate countries" do
-      add_responses what_passport_do_you_have?: @epassport_gate_country
-      assert_rendered_outcome text: "Do not use the automatic ePassport gates"
     end
   end
 
