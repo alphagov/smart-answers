@@ -20,7 +20,14 @@
 
   ##If you want to convert a civil partnership into a marriage
 
-  You will not need a visa but you must meet the [Standard Visitor eligibility requirements](/standard-visitor).
+  <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    You'll need to apply for either:
 
-  [Check what documents you need to bring](/government/publications/visitor-visa-guide-to-supporting-documents) to show officers at the UK border.
+    - an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta)
+    - a [Standard Visitor visa](/standard-visitor/apply-standard-visitor-visa)
+  <% else %>
+    You will not need a visa but you must meet the [Standard Visitor eligibility requirements](/standard-visitor).
+
+    [Check what documents you need to bring](/government/publications/visitor-visa-guide-to-supporting-documents) to show officers at the UK border.
+  <% end %>
 <% end %>

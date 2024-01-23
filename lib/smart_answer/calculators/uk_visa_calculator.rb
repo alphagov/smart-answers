@@ -368,6 +368,7 @@ module SmartAnswer::Calculators
       paraguay
       peru
       pitcairn-island
+      qatar
       samoa
       san-marino
       seychelles
@@ -424,7 +425,6 @@ module SmartAnswer::Calculators
       north-korea
       oman
       philippines
-      qatar
       sao-tome-and-principe
       saudi-arabia
       stateless-or-refugee
