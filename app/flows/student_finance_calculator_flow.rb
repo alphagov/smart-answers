@@ -52,7 +52,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "uk-part-time"
           question :where_will_you_live_while_studying?
         when "eu-full-time", "eu-part-time"
-          outcome :outcome_eu_students
+          outcome :outcome_tuition_fee_only
         end
       end
     end
@@ -197,7 +197,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_uk_part_time_students
 
-    outcome :outcome_eu_students
+    outcome :outcome_tuition_fee_only
 
     outcome :outcome_uk_full_time_dental_medical_students
   end
