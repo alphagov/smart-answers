@@ -19,7 +19,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you’re travelling on or after 22 February 2024, you can apply for an electronic travel authorisation (ETA). You’ll be able to apply for an ETA from 1 February 2024"
+    @eta_text = "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA)"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
@@ -1018,7 +1018,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                       what_passport_do_you_have?: "jordan",
                       travelling_to_cta?: "somewhere_else",
                       passing_through_uk_border_control?: "no"
-        assert_rendered_outcome text: "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA). You’ll be able to apply for an ETA from 1 February 2024"
+        assert_rendered_outcome text: @eta_text
       end
 
       should "for outcome: outcome_transit_to_the_republic_of_ireland" do
