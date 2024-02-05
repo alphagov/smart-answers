@@ -69,7 +69,7 @@ module SmartAnswer
 
       should "identify invocations of method within return statement" do
         block_invoking_method = lambda do
-          return method_with_no_args
+          method_with_no_args
         end
 
         invocations = @parser.invocations(block_invoking_method.source)

@@ -16,7 +16,7 @@ module FixtureMethods
   end
 
   def setup_fixture_flows
-    stub_request(:get, %r{#{Plek.new.find("content-store")}/content/(.*)})
+    stub_request(:get, %r{#{Plek.new.find('content-store')}/content/(.*)})
       .to_return(status: 404, body: {}.to_json)
 
     require_fixture_flows

@@ -217,8 +217,8 @@ module SmartAnswer::Calculators
     end
 
     def filed_during_covid_deadline_easement?
-      covid_easement_first_year = (tax_year == "2019-20" && filing_date < Date.parse("2021-03-01"))
-      covid_easement_second_year = (tax_year == "2020-21" && filing_date < Date.parse("2022-03-01"))
+      covid_easement_first_year = tax_year == "2019-20" && filing_date < Date.parse("2021-03-01")
+      covid_easement_second_year = tax_year == "2020-21" && filing_date < Date.parse("2022-03-01")
 
       (covid_easement_first_year || covid_easement_second_year) && submission_method == "online"
     end
