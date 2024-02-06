@@ -112,7 +112,7 @@ module SmartAnswer::Calculators
     end
 
     def cost_as_currency(costs)
-      number_to_currency(costs, unit: "£", precision: 0)
+      number_to_currency(costs.to_f, unit: "£", precision: 0)
     end
   end
 end
