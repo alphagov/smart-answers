@@ -5,10 +5,6 @@
 <% govspeak_for :body do %>
   You should apply for a [Standard Visitor visa](/standard-visitor).
 
-  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-  <% end %>
-
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 
   <%= render partial: 'estonia_or_latvia', locals: {calculator: calculator} %>

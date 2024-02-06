@@ -80,11 +80,6 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_school_electronic_travel_authorisation, for_response: "school"
       end
 
-      should "have a next node of outcome_school_waiver for a electronic visa waiver country passport" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_next_node :outcome_school_waiver, for_response: "school"
-      end
-
       should "have a next node of outcome_study_waiver_taiwan for a Taiwan passport" do
         add_responses what_passport_do_you_have?: "taiwan"
         assert_next_node :outcome_study_waiver_taiwan, for_response: "school"
@@ -112,12 +107,7 @@ module CheckUkVisaFlowTestHelper
     end
 
     context "for a 'medical' response" do
-      should "have a next node of outcome_electronic_visa_waiver for a electronic visa waiver country passport" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_next_node :outcome_electronic_visa_waiver, for_response: "medical"
-      end
-
-      should "have a next node of outcome_medical_electronic_travel_authorisation for a electronic visa waiver country passport" do
+      should "have a next node of outcome_medical_electronic_travel_authorisation for a electronic travel authorisation country passport" do
         add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
         assert_next_node :outcome_medical_electronic_travel_authorisation, for_response: "medical"
       end
@@ -161,11 +151,6 @@ module CheckUkVisaFlowTestHelper
     end
 
     context "for a 'tourism' response" do
-      should "have a next node of outcome_electronic_visa_waiver for a electronic visa waiver country passport" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_next_node :outcome_electronic_visa_waiver, for_response: "tourism"
-      end
-
       should "have a next node of outcome_tourism_requires_electronic_travel_authorisation for electronic travel authorisation country passport" do
         add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
         assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
@@ -224,11 +209,6 @@ module CheckUkVisaFlowTestHelper
              "territory passport" do
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_next_node :outcome_marriage_nvn, for_response: "marriage"
-      end
-
-      should "have a next node of outcome_marriage_electronic_visa_waiver for a electronic visa waiver country passport" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_next_node :outcome_marriage_electronic_visa_waiver, for_response: "marriage"
       end
 
       should "have a next node of outcome_marriage_nvn for an electronic travel authorisation country passport" do

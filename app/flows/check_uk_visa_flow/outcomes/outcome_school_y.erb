@@ -11,9 +11,5 @@
 
   If they’re 12 or over, you can apply for a [Standard Visitor visa](/standard-visitor) to visit them for up to 6 months.
 
-  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-  <% end %>
-
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
 <% end %>

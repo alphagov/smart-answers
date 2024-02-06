@@ -74,16 +74,8 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_UK_ANCESTRY_VISA.include?(@passport_country)
     end
 
-    def passport_country_in_electronic_visa_waiver_list?
-      COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
-    end
-
     def passport_country_requires_electronic_travel_authorisation?
-      %w[qatar].include?(@passport_country)
-    end
-
-    def electronic_travel_authorisation_warning_notice_required?
-      ETA_WARNING_LIST.include?(@passport_country)
+      COUNTRY_GROUP_ELECTRONIC_TRAVEL_AUTHORISATION.include?(@passport_country)
     end
 
     def passport_country_in_epassport_gate_list?
@@ -331,6 +323,7 @@ module SmartAnswer::Calculators
       aruba
       australia
       bahamas
+      bahrain
       barbados
       belize
       bonaire-st-eustatius-saba
@@ -350,7 +343,9 @@ module SmartAnswer::Calculators
       hong-kong-(british-national-overseas)
       israel
       japan
+      jordan
       kiribati
+      kuwait
       macao
       malaysia
       maldives
@@ -362,6 +357,7 @@ module SmartAnswer::Calculators
       nauru
       new-zealand
       nicaragua
+      oman
       palau
       panama
       papua-new-guinea
@@ -371,6 +367,7 @@ module SmartAnswer::Calculators
       qatar
       samoa
       san-marino
+      saudi-arabia
       seychelles
       singapore
       solomon-islands
@@ -382,6 +379,7 @@ module SmartAnswer::Calculators
       tonga
       trinidad-and-tobago
       tuvalu
+      united-arab-emirates
       uruguay
       usa
       vatican-city
@@ -390,7 +388,6 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_VISA_NATIONAL = %w[
       armenia
       azerbaijan
-      bahrain
       benin
       bhutan
       bolivia
@@ -410,9 +407,7 @@ module SmartAnswer::Calculators
       gabon
       haiti
       indonesia
-      jordan
       kazakhstan
-      kuwait
       kyrgyzstan
       laos
       madagascar
@@ -423,10 +418,8 @@ module SmartAnswer::Calculators
       mozambique
       niger
       north-korea
-      oman
       philippines
       sao-tome-and-principe
-      saudi-arabia
       stateless-or-refugee
       suriname
       taiwan
@@ -436,7 +429,6 @@ module SmartAnswer::Calculators
       tunisia
       turkmenistan
       ukraine
-      united-arab-emirates
       uzbekistan
       zambia
     ].freeze
@@ -548,21 +540,14 @@ module SmartAnswer::Calculators
       switzerland
     ].freeze
 
-    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w[
+    COUNTRY_GROUP_ELECTRONIC_TRAVEL_AUTHORISATION = %w[
+      qatar
       bahrain
       kuwait
       oman
       saudi-arabia
       united-arab-emirates
-    ].freeze
-
-    ETA_WARNING_LIST = %w[
       jordan
-      bahrain
-      kuwait
-      oman
-      saudi-arabia
-      united-arab-emirates
     ].freeze
 
     COUNTRY_GROUP_EPASSPORT_GATES = %w[

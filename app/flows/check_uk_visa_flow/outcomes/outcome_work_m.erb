@@ -9,10 +9,6 @@
 
   <%= render partial: 'estonia_or_latvia', locals: {calculator: calculator} %>
 
-  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-  <% end %>
-
   ##Business or academic visits
 
   You can apply for a [Standard Visitor visa](/standard-visitor) if you’re coming to the UK for certain business or academic activities, such as:
