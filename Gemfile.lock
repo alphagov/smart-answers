@@ -156,7 +156,7 @@ GEM
     govuk_personalisation (0.15.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (37.2.4)
+    govuk_publishing_components (37.3.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -244,8 +244,8 @@ GEM
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     null_logger (0.0.1)
-    opentelemetry-api (1.2.3)
-    opentelemetry-common (0.20.0)
+    opentelemetry-api (1.2.4)
+    opentelemetry-common (0.20.1)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-otlp (0.26.3)
       google-protobuf (~> 3.14)
@@ -618,7 +618,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
     zendesk_api (3.0.5)
       faraday (> 2.0.0)
       faraday-multipart
