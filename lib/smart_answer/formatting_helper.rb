@@ -13,7 +13,7 @@ module SmartAnswer
     end
 
     def format_salary(salary)
-      "#{number_to_currency(salary.amount, precision: 0)} per #{salary.period}"
+      "#{number_to_currency(salary.amount.to_f, precision: 0)} per #{salary.period}"
     end
 
     def format_date(date)
