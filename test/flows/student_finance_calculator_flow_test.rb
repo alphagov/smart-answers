@@ -79,9 +79,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
 
       %w[eu-full-time eu-part-time].each do |eu_student_type|
-        should "have a next node of outcome_eu_students for a #{eu_student_type} student" do
+        should "have a next node of outcome_tuition_fee_only for a #{eu_student_type} student" do
           add_responses what_type_of_student_are_you?: eu_student_type
-          assert_next_node :outcome_eu_students, for_response: "5000"
+          assert_next_node :outcome_tuition_fee_only, for_response: "5000"
         end
       end
     end
