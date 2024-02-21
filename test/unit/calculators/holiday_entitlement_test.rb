@@ -367,6 +367,15 @@ module SmartAnswer::Calculators
             assert_equal "13.9", @calculator.formatted_full_time_part_time_days
           end
 
+          # /days-worked-per-week/starting/2020-02-29/2021-01-01/5.0
+          should "work for a leap day start date with an end date the following year" do
+            @calculator.start_date = Date.parse("2020-02-29")
+            @calculator.leaving_date = Date.parse("2021-01-01")
+            @calculator.working_days_per_week = 5
+
+            assert_equal "23.7", @calculator.formatted_full_time_part_time_days
+          end
+
           # /days-worked-per-week/starting/2019-11-23/2020-04-07/3.0
           should "for less than 5 days a week" do
             @calculator.start_date = Date.parse("2019-11-23")
