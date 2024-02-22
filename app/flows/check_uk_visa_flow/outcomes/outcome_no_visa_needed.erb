@@ -9,16 +9,6 @@
 
 <% govspeak_for :body do %>
 
-  <% if calculator.electronic_travel_authorisation_warning_notice_required? && Time.now < Time.new(2024, 02, 22)%>
-
-      <% if calculator.passport_country_is_jordan? %>
-      If you're travelling on or after 22 February 2024, you'll need to apply for an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
-      <% else %>
-      If you're travelling on or after 22 February 2024, you'll need to apply for an [electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
-      <% end %>
-
-  <% end %>
-
   <%if calculator.passport_country_requires_electronic_travel_authorisation? %>
     [Apply for an (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
   <% end %>

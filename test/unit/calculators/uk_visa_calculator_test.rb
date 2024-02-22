@@ -73,20 +73,6 @@ module SmartAnswer
         end
       end
 
-      context "#passport_country_in_eta_warning_list?" do
-        should "return true if passport_country is in list of countries requiring an ETA after Feb 2024" do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "jordan"
-          assert calculator.electronic_travel_authorisation_warning_notice_required?
-        end
-
-        should "return false if passport_country is not in list of countries requiring an ETA after Feb 2024" do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "made-up-country"
-          assert_not calculator.electronic_travel_authorisation_warning_notice_required?
-        end
-      end
-
       context "#tourism_visit?" do
         should 'return true if purpose_of_visit_answer is "tourism"' do
           calculator = UkVisaCalculator.new
@@ -238,20 +224,6 @@ module SmartAnswer
           calculator = UkVisaCalculator.new
           calculator.passport_country = "slovenia"
           assert_not calculator.passport_country_in_youth_mobility_scheme_list?
-        end
-      end
-
-      context "#passport_country_in_electronic_visa_waiver_list?" do
-        should "return true if passport_country is in list of countries that can apply for an electronic visa waiver" do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "oman"
-          assert calculator.passport_country_in_electronic_visa_waiver_list?
-        end
-
-        should "return false if passport_country is not in list of countries that can apply for an electronic visa waiver" do
-          calculator = UkVisaCalculator.new
-          calculator.passport_country = "made-up-country"
-          assert_not calculator.passport_country_in_electronic_visa_waiver_list?
         end
       end
 

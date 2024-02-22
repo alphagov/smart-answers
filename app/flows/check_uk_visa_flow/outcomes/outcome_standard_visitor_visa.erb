@@ -12,8 +12,4 @@
   <% end %>
 
   <%= render partial: 'stateless_or_refugee', locals: {calculator: calculator} %>
-
-  <% if calculator.electronic_travel_authorisation_warning_notice_required?  %>
-    <%= render partial: 'electronic_travel_authorisation_advice'%>
-  <% end %>
 <% end %>

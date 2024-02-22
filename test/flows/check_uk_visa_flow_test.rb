@@ -8,7 +8,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
   setup do
     testing_flow CheckUkVisaFlow
-    @electronic_visa_waiver_country = "kuwait"
     @electronic_travel_authorisation_country = "qatar"
     @direct_airside_transit_visa_country = "afghanistan"
     @visa_national_country = "armenia"
@@ -36,7 +35,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "taiwan",
                                       "venezuela",
                                       @electronic_travel_authorisation_country,
-                                      @electronic_visa_waiver_country,
                                       @direct_airside_transit_visa_country,
                                       @visa_national_country,
                                       @british_overseas_territory_country,
@@ -255,7 +253,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
       should "have a next node of outcome_transit_to_the_republic_of_ireland for a different country and a " \
              "'republic_of_ireland' response" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+        add_responses what_passport_do_you_have?: @visa_national_country
         assert_next_node :outcome_transit_to_the_republic_of_ireland, for_response: "republic_of_ireland"
       end
 
@@ -274,7 +272,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
       should "have a next node of passing_through_uk_border_control? for a different country and a " \
              "'somewhere_else' response" do
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
+        add_responses what_passport_do_you_have?: @visa_national_country
         assert_next_node :passing_through_uk_border_control?, for_response: "somewhere_else"
       end
     end
@@ -290,11 +288,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render the question" do
       add_responses what_passport_do_you_have?: @eea_country
       assert_rendered_question
-    end
-
-    should "not render additional information in question body for ETA countries that are also EVW countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
-      assert_no_rendered_question text: "You’ll need a UK visa or an  Electronic Visa Waiver if you don’t have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man."
     end
 
     context "next_node" do
@@ -327,11 +320,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
         should "have a next node of outcome_transit_leaving_airport for a visa national passport" do
           add_responses what_passport_do_you_have?: @visa_national_country
-          assert_next_node :outcome_transit_leaving_airport, for_response: "yes"
-        end
-
-        should "have a next node of outcome_transit_leaving_airport for a electronic visa waiver passport" do
-          add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
           assert_next_node :outcome_transit_leaving_airport, for_response: "yes"
         end
 
@@ -407,12 +395,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       end
 
       context "for a 'six_months_or_less' response" do
-        should "have a next node of outcome_study_waiver for a study visit with a electronic visa waiver passport" do
-          add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
-                        purpose_of_visit?: "study"
-          assert_next_node :outcome_study_waiver, for_response: "six_months_or_less"
-        end
-
         should "have a next node of outcome_study_electronic_travel_authorisation for a study visit with electronic travel authorisation passport" do
           add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
                         purpose_of_visit?: "study"
@@ -460,12 +442,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           add_responses what_passport_do_you_have?: @eea_country,
                         purpose_of_visit?: "study"
           assert_next_node :outcome_study_no_visa_needed, for_response: "six_months_or_less"
-        end
-
-        should "have a next node of outcome_work_waiver for a work visit with a electronic visa waiver passport" do
-          add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
-                        purpose_of_visit?: "work"
-          assert_next_node :outcome_work_waiver, for_response: "six_months_or_less"
         end
 
         should "have a next node of outcome_work_electronic_travel_authorisation for a work visit with a electronic travel authorisation passport" do
@@ -683,13 +659,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     travelling_to_cta?: "republic_of_ireland"
       assert_rendered_outcome text: "You may want to apply for a visa"
     end
-
-    should "not have any reference to electronic visa waivers (EVWs) for ETA countries" do
-      add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country,
-                    travelling_to_cta?: "somewhere_else",
-                    passing_through_uk_border_control?: "no"
-      assert_no_rendered_outcome text: "electronic visa waiver"
-    end
   end
 
   context "outcome: outcome_school_y" do
@@ -754,11 +723,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You will not need a visa if your passport has a personal ID number on the bio data page."
     end
 
-    should "render specific guidance for passports from countries on the electronic visa waiver list" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_rendered_outcome text: "You’ll need an electronic visa waiver (EVW) or a Standard Visitor visa"
-    end
-
     should "render different guidance for passports from outher countries" do
       add_responses what_passport_do_you_have?: @visa_national_country
       assert_rendered_outcome text: "You’ll need a visa to pass through the UK (unless you’re exempt)"
@@ -771,11 +735,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses purpose_of_visit?: "transit",
                     travelling_to_cta?: "somewhere_else",
                     passing_through_uk_border_control?: "yes"
-    end
-
-    should "render specific guidance for passports from countries on the electronic visa waiver list" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_rendered_outcome text: "You’ll need an electronic visa waiver (EVW) or a Visitor in Transit visa"
     end
 
     should "render different guidance for passports from outher countries" do
@@ -951,18 +910,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_school_waiver" do
-    setup do
-      testing_node :outcome_school_waiver
-      add_responses purpose_of_visit?: "school"
-    end
-
-    should "render temporary guidance related to ETA for all EVW countries" do
-      add_responses what_passport_do_you_have?: @electronic_visa_waiver_country
-      assert_rendered_outcome text: @eta_text
-    end
-  end
-
   context "outcome: outcome_joining_family_nvn" do
     setup do
       testing_node :outcome_joining_family_nvn
@@ -991,237 +938,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "You may need a visa"
       assert_no_rendered_outcome text: "Whether you need a visa depends"
-    end
-  end
-
-  context "The ETA advice toggle" do
-    date_before_feb22nd2024 = Date.new(2024, 2, 21)
-    date_after_feb22nd2024 = Date.new(2024, 2, 23)
-
-    context "renders temporary ETA guidance on or before 22nd Feb 2024" do
-      setup do
-        travel_to date_before_feb22nd2024
-      end
-
-      should "for outcome: no visa needed" do
-        testing_node :outcome_no_visa_needed
-        add_responses purpose_of_visit?: "transit",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country,
-                      travelling_to_cta?: "somewhere_else",
-                      passing_through_uk_border_control?: "no"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: no visa needed, when passport country is Jordan" do
-        testing_node :outcome_no_visa_needed
-        add_responses purpose_of_visit?: "transit",
-                      what_passport_do_you_have?: "jordan",
-                      travelling_to_cta?: "somewhere_else",
-                      passing_through_uk_border_control?: "no"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_transit_to_the_republic_of_ireland" do
-        testing_node :outcome_transit_to_the_republic_of_ireland
-        add_responses purpose_of_visit?: "transit",
-                      travelling_to_cta?: "republic_of_ireland",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_transit_leaving_airport" do
-        testing_node :outcome_transit_leaving_airport
-        add_responses purpose_of_visit?: "transit",
-                      travelling_to_cta?: "somewhere_else",
-                      passing_through_uk_border_control?: "yes",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_study_waiver" do
-        testing_node :outcome_study_waiver
-        add_responses purpose_of_visit?: "study",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_work_waiver" do
-        testing_node :outcome_work_waiver
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_marriage_electronic_visa_waiver" do
-        testing_node :outcome_marriage_electronic_visa_waiver
-        add_responses purpose_of_visit?: "marriage",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_school_waiver" do
-        testing_node :outcome_school_waiver
-        add_responses purpose_of_visit?: "school",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_standard_visitor_visa" do
-        testing_node :outcome_standard_visitor_visa
-        add_responses what_passport_do_you_have?: "jordan",
-                      purpose_of_visit?: "tourism",
-                      travelling_visiting_partner_family_member?: "no"
-
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_work_m" do
-        testing_node :outcome_work_m
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: "jordan"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_school_y" do
-        testing_node :outcome_school_y
-        add_responses purpose_of_visit?: "school",
-                      what_passport_do_you_have?: "jordan"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_medical_y" do
-        testing_node :outcome_medical_y
-        add_responses purpose_of_visit?: "medical",
-                      what_passport_do_you_have?: "jordan"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_study_m" do
-        testing_node :outcome_study_m
-        add_responses purpose_of_visit?: "study",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: "jordan"
-        assert_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_tourism_visa_partner" do
-        testing_node :outcome_tourism_visa_partner
-        add_responses purpose_of_visit?: "tourism",
-                      travelling_visiting_partner_family_member?: "yes",
-                      what_passport_do_you_have?: "jordan"
-        assert_rendered_outcome text: @eta_text
-      end
-    end
-
-    context "does not render temporary ETA guidance after 22nd Feb 2024" do
-      setup do
-        travel_to date_after_feb22nd2024
-      end
-
-      should "for outcome: no visa needed" do
-        testing_node :outcome_no_visa_needed
-        add_responses purpose_of_visit?: "transit",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country,
-                      travelling_to_cta?: "somewhere_else",
-                      passing_through_uk_border_control?: "no"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_transit_to_the_republic_of_ireland" do
-        testing_node :outcome_transit_to_the_republic_of_ireland
-        add_responses purpose_of_visit?: "transit",
-                      travelling_to_cta?: "republic_of_ireland",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_transit_leaving_airport" do
-        testing_node :outcome_transit_leaving_airport
-        add_responses purpose_of_visit?: "transit",
-                      travelling_to_cta?: "somewhere_else",
-                      passing_through_uk_border_control?: "yes",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "render for outcome: outcome_study_waiver" do
-        testing_node :outcome_study_waiver
-        add_responses purpose_of_visit?: "study",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_work_waiver" do
-        testing_node :outcome_work_waiver
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_marriage_electronic_visa_waiver" do
-        testing_node :outcome_marriage_electronic_visa_waiver
-        add_responses purpose_of_visit?: "marriage",
-                      what_passport_do_you_have?: @electronic_visa_waiver_country
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_school_waiver" do
-        testing_node :outcome_school_waiver
-        add_responses what_passport_do_you_have?: @electronic_visa_waiver_country,
-                      purpose_of_visit?: "school"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_standard_visitor_visa" do
-        testing_node :outcome_standard_visitor_visa
-        add_responses what_passport_do_you_have?: "jordan",
-                      purpose_of_visit?: "tourism",
-                      travelling_visiting_partner_family_member?: "no"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_work_m" do
-        testing_node :outcome_work_m
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: "jordan"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_school_y" do
-        testing_node :outcome_school_y
-        add_responses purpose_of_visit?: "school",
-                      what_passport_do_you_have?: "jordan"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_medical_y" do
-        testing_node :outcome_medical_y
-        add_responses purpose_of_visit?: "medical",
-                      what_passport_do_you_have?: "jordan"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_study_m" do
-        testing_node :outcome_study_m
-        add_responses purpose_of_visit?: "study",
-                      staying_for_how_long?: "six_months_or_less",
-                      what_passport_do_you_have?: "jordan"
-        assert_no_rendered_outcome text: @eta_text
-      end
-
-      should "for outcome: outcome_tourism_visa_partner" do
-        testing_node :outcome_tourism_visa_partner
-        add_responses purpose_of_visit?: "tourism",
-                      travelling_visiting_partner_family_member?: "yes",
-                      what_passport_do_you_have?: "jordan"
-        assert_no_rendered_outcome text: @eta_text
-      end
     end
   end
 end
