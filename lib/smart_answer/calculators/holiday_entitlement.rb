@@ -152,7 +152,7 @@ module SmartAnswer::Calculators
       days_in_year = leave_year_range.leap? ? DAYS_PER_LEAP_YEAR : DAYS_PER_YEAR
 
       if started_after_year_began?
-        months_worked / MONTHS_PER_YEAR
+        days_worked / days_in_year
       elsif worked_partial_year?
         BigDecimal(leaving_date - start_date + 1.0, 10) / days_in_year
       elsif left_before_year_end?
@@ -203,10 +203,8 @@ module SmartAnswer::Calculators
       start_date.present? && leaving_date.present?
     end
 
-    def months_worked
-      year_difference = BigDecimal(leave_year_range.ends_on.year - start_date.year, 10)
-      month_difference = MONTHS_PER_YEAR * year_difference + leave_year_range.ends_on.month - start_date.month
-      leave_year_range.ends_on.day >= start_date.day ? month_difference + 1 : month_difference
+    def days_worked
+      BigDecimal(leave_year_range.ends_on - start_date, 10)
     end
 
     def leave_year_range
