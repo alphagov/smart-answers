@@ -130,6 +130,12 @@ module SmartAnswer
       assert_nil @presenter.error_message_for("error_key")
     end
 
+    test "#error_id generated for multiple choice template types" do
+      %w[radio_question checkbox_question date_question radio_with_intro_question].each do |type|
+        assert_equal "#response-0", @presenter.error_id(type)
+      end
+    end
+
     test "#caption returns the given caption when a caption is given" do
       @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")

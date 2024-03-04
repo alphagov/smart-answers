@@ -16,7 +16,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def error_id(template)
-    types = %w[radio_question checkbox_question date_question]
+    types = %w[radio_question checkbox_question date_question radio_with_intro_question]
 
     fragment = types.any? { |type| type == template } ? "response\-0" : "response"
     "##{fragment}"
