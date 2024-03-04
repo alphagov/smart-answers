@@ -125,7 +125,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.1.0)
       net-http
-    ffi (1.15.5)
+    ffi (1.16.3)
     gds-api-adapters (94.0.0)
       addressable
       link_header
@@ -209,7 +209,7 @@ GEM
     launchy (2.5.2)
       addressable (~> 2.8)
     link_header (0.0.8)
-    listen (3.8.0)
+    listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logstasher (2.1.5)
