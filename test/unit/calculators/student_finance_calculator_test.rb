@@ -173,39 +173,29 @@ module SmartAnswer
             course_start: :unused_variable,
             household_income: 15_000,
             residence: :unused_variable,
-            course_type: "uk-full-time",
           )
         end
 
-        should "be £9250 for uk or eu full-time student" do
+        should "be £9250 for full-time student" do
+          @calculator.course_type = "full-time"
           assert_equal 9250, @calculator.tuition_fee_maximum
         end
 
-        should "be £6935 for uk or eu part-time student" do
-          @calculator.course_type = "uk-part-time"
+        should "be £6935 for part-time student" do
+          @calculator.course_type = "part-time"
           assert_equal 6935, @calculator.tuition_fee_maximum
         end
       end
 
       context "maximum tuition fee" do
-        context "for a full time student" do
-          should "be £9250" do
-            calculator = StudentFinanceCalculator.new(
-              household_income: 25_000,
-              residence: :unused_variable,
-              course_type: "uk-full-time",
-            )
-            assert_equal 9250, calculator.tuition_fee_maximum_full_time
-          end
+        should "be £9250 for a full time student" do
+          calculator = StudentFinanceCalculator.new
+          assert_equal 9250, calculator.tuition_fee_maximum_full_time
         end
-        context "for part time student" do
-          should "be £6935" do
-            calculator = StudentFinanceCalculator.new(
-              household_income: 25_000,
-              residence: :unused_variable,
-            )
-            assert_equal 6935, calculator.tuition_fee_maximum_part_time
-          end
+
+        should "be £6935 for part time student" do
+          calculator = StudentFinanceCalculator.new
+          assert_equal 6935, calculator.tuition_fee_maximum_part_time
         end
       end
 

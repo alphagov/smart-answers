@@ -18,15 +18,15 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of what_type_of_student_are_you? for any response" do
-        assert_next_node :what_type_of_student_are_you?, for_response: "2023-2024"
+      should "have a next node of what_loans_are_you_eligible_for? for any response" do
+        assert_next_node :what_loans_are_you_eligible_for?, for_response: "2023-2024"
       end
     end
   end
 
-  context "question: what_type_of_student_are_you?," do
+  context "question: what_loans_are_you_eligible_for?," do
     setup do
-      testing_node :what_type_of_student_are_you?
+      testing_node :what_loans_are_you_eligible_for?
       add_responses when_does_your_course_start?: "2023-2024"
     end
 
@@ -35,8 +35,26 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
+      should "have a next node of will_you_be_studying_full_or_part_time? for any response" do
+        assert_next_node :will_you_be_studying_full_or_part_time?, for_response: "tuition-and-maintenance"
+      end
+    end
+  end
+
+  context "question: will_you_be_studying_full_or_part_time?," do
+    setup do
+      testing_node :will_you_be_studying_full_or_part_time?
+      add_responses when_does_your_course_start?: "2023-2024",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
       should "have a next node of how_much_are_your_tuition_fees_per_year? for any response" do
-        assert_next_node :how_much_are_your_tuition_fees_per_year?, for_response: "uk-full-time"
+        assert_next_node :how_much_are_your_tuition_fees_per_year?, for_response: "full-time"
       end
     end
   end
@@ -45,7 +63,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :how_much_are_your_tuition_fees_per_year?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time"
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time"
     end
 
     should "render the question" do
@@ -53,34 +72,37 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     context "validation" do
-      %w[uk-full-time eu-full-time].each do |full_time_student_type|
-        should "be invalid for a fee greater than the maximum for a #{full_time_student_type} student" do
-          add_responses what_type_of_student_are_you?: full_time_student_type
+      %w[tuition-and-maintenance tuition-only].each do |loan_type|
+        should "be invalid for a fee greater than the maximum for a full-time student with a #{loan_type} loan" do
+          add_responses what_loans_are_you_eligible_for?: loan_type,
+                        will_you_be_studying_full_or_part_time?: "full-time"
           max_for_full_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["full-time"]
           assert_invalid_response (max_for_full_time + 1).to_s
         end
-      end
 
-      %w[uk-part-time eu-part-time].each do |part_time_student_type|
-        should "be invalid for a fee greater than the maximum for a #{part_time_student_type} student" do
-          add_responses what_type_of_student_are_you?: part_time_student_type
+        should "be invalid for a fee greater than the maximum for a part-time student with a #{loan_type} loan" do
+          add_responses what_loans_are_you_eligible_for?: loan_type,
+                        will_you_be_studying_full_or_part_time?: "part-time"
           max_for_part_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["part-time"]
           assert_invalid_response (max_for_part_time + 1).to_s
         end
       end
+
     end
 
     context "next_node" do
-      %w[uk-full-time uk-part-time].each do |uk_student_type|
-        should "have a next node of where_will_you_live_while_studying? for a #{uk_student_type} student" do
-          add_responses what_type_of_student_are_you?: uk_student_type
+      %w[full-time part-time].each do |course_type|
+        should "have a next node of where_will_you_live_while_studying? for a #{course_type} student with a tuition-and-maintenance loan" do
+          add_responses what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                        will_you_be_studying_full_or_part_time?: course_type
           assert_next_node :where_will_you_live_while_studying?, for_response: "5000"
         end
       end
 
-      %w[eu-full-time eu-part-time].each do |eu_student_type|
-        should "have a next node of outcome_tuition_fee_only for a #{eu_student_type} student" do
-          add_responses what_type_of_student_are_you?: eu_student_type
+      %w[full-time part-time].each do |course_type|
+        should "have a next node of outcome_tuition_fee_only for a #{course_type} student with a tuition-only loan" do
+          add_responses what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                        will_you_be_studying_full_or_part_time?: course_type
           assert_next_node :outcome_tuition_fee_only, for_response: "5000"
         end
       end
@@ -91,7 +113,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :where_will_you_live_while_studying?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250"
     end
 
@@ -110,7 +133,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :whats_your_household_income?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home"
     end
@@ -191,7 +215,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :do_any_of_the_following_apply_uk_full_time_students_only?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000"
@@ -235,7 +260,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :what_course_are_you_studying?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
@@ -269,7 +295,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :are_you_a_doctor_or_dentist?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
@@ -296,7 +323,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_uk_full_time_students
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
@@ -451,7 +479,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_uk_full_time_dental_medical_students
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-full-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",

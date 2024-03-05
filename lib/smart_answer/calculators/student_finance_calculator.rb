@@ -11,7 +11,8 @@ module SmartAnswer
                     :doctor_or_dentist,
                     :uk_ft_circumstances,
                     :uk_all_circumstances,
-                    :tuition_fee_amount
+                    :tuition_fee_amount,
+                    :loan_eligibility
 
       LOAN_MAXIMUMS = {
         "2023-2024" => {
@@ -107,6 +108,7 @@ module SmartAnswer
         @full_time_credits = params[:full_time_credits]
         @doctor_or_dentist = params[:doctor_or_dentist]
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
+        @loan_eligibility = params[:loan_eligibility]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -146,9 +148,9 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum
-        if @course_type == "uk-full-time" || @course_type == "eu-full-time"
+        if @course_type == "full-time"
           tuition_fee_maximum_full_time
-        else
+        elsif @course_type == "part-time"
           tuition_fee_maximum_part_time
         end
       end
