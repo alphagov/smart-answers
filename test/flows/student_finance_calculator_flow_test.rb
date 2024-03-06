@@ -97,11 +97,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         will_you_be_studying_full_or_part_time?: course_type
           assert_next_node :where_will_you_live_while_studying?, for_response: "5000"
         end
-      end
 
-      %w[full-time part-time].each do |course_type|
         should "have a next node of outcome_tuition_fee_only for a #{course_type} student with a tuition-only loan" do
-          add_responses what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+          add_responses what_loans_are_you_eligible_for?: "tuition-only",
                         will_you_be_studying_full_or_part_time?: course_type
           assert_next_node :outcome_tuition_fee_only, for_response: "5000"
         end

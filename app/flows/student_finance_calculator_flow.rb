@@ -58,12 +58,9 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        case calculator.course_type
-        when "uk-full-time"
+        if calculator.loan_eligibility == "tuition-and-maintenance"
           question :where_will_you_live_while_studying?
-        when "uk-part-time"
-          question :where_will_you_live_while_studying?
-        when "eu-full-time", "eu-part-time"
+        elsif calculator.loan_eligibility == "tuition-only"
           outcome :outcome_tuition_fee_only
         end
       end
