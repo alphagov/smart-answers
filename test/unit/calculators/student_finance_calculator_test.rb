@@ -403,7 +403,7 @@ module SmartAnswer
 
           context "for 2023-2024 part-time students" do
             setup do
-              @course_type = "uk-part-time"
+              @course_type = "part-time"
             end
 
             should "be weighted by course intensity" do
@@ -687,7 +687,7 @@ module SmartAnswer
 
           context "for 2024-2025 part-time students" do
             setup do
-              @course_type = "uk-part-time"
+              @course_type = "part-time"
             end
 
             should "be weighted by course intensity" do
