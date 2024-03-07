@@ -89,9 +89,9 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do
         case calculator.course_type
-        when "uk-full-time"
+        when "full-time"
           question :do_any_of_the_following_apply_uk_full_time_students_only?
-        when "uk-part-time"
+        when "part-time"
           question :how_many_credits_will_you_study?
         end
       end
@@ -172,13 +172,13 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do |response|
         case calculator.course_type
-        when "uk-full-time"
+        when "full-time"
           if response == "dental-medical-healthcare"
             question :are_you_a_doctor_or_dentist?
           else
             outcome :outcome_uk_full_time_students
           end
-        when "uk-part-time"
+        when "part-time"
           outcome :outcome_uk_part_time_students
         end
       end

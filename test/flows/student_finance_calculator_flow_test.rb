@@ -147,7 +147,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have a next node of how_many_credits_will_you_study? for part time students" do
-        add_responses what_type_of_student_are_you?: "uk-part-time"
+        add_responses will_you_be_studying_full_or_part_time?: "part-time"
 
         assert_next_node :how_many_credits_will_you_study?, for_response: "50,000"
       end
@@ -158,7 +158,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :how_many_credits_will_you_study?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-part-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "part-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000"
@@ -185,7 +186,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :how_many_credits_does_a_full_time_student_study?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-part-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "part-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
@@ -235,7 +237,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :do_any_of_the_following_apply_all_uk_students?
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-part-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "part-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
@@ -280,7 +283,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have a next node of outcome_uk_part_time_students for part time, non medical, uk students" do
-        add_responses what_type_of_student_are_you?: "uk-part-time",
+        add_responses will_you_be_studying_full_or_part_time?: "part-time",
                       how_many_credits_will_you_study?: "10",
                       how_many_credits_does_a_full_time_student_study?: "11",
                       do_any_of_the_following_apply_all_uk_students?: "has-disability"
@@ -401,7 +404,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_uk_part_time_students
       add_responses when_does_your_course_start?: "2023-2024",
-                    what_type_of_student_are_you?: "uk-part-time",
+                    what_loans_are_you_eligible_for?: "tuition-and-maintenance",
+                    will_you_be_studying_full_or_part_time?: "part-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
