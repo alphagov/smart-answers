@@ -447,7 +447,6 @@ module SmartAnswer
         context "#reduced_maintenance_loan_for_healthcare" do
           setup do
             @household_income = 25_000
-            @course_type = "uk-full-time"
             @doctor_or_dentist = true
           end
 
@@ -455,7 +454,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -467,7 +465,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -479,7 +476,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -735,7 +731,6 @@ module SmartAnswer
         context "#reduced_maintenance_loan_for_healthcare" do
           setup do
             @household_income = 25_000
-            @course_type = "uk-full-time"
             @doctor_or_dentist = true
           end
 
@@ -743,7 +738,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -755,7 +749,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -767,7 +760,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
