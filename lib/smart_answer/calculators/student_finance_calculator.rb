@@ -219,7 +219,7 @@ module SmartAnswer
       end
 
       def loan_proportion
-        return 1 if @course_type == "uk-full-time" || course_intensity == 100
+        return 1 if @course_type == "full-time" || course_intensity == 100
         return 0.75 if course_intensity >= 75
         return 0.666 if course_intensity >= 66.6
         return 0.5 if course_intensity >= 50

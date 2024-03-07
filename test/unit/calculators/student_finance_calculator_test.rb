@@ -259,7 +259,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(8_400).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -282,7 +282,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -293,7 +293,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(3_698).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -309,7 +309,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(9_978).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -333,7 +333,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -344,7 +344,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(4_651).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -360,7 +360,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(13_002).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -384,7 +384,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -395,7 +395,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(6_485).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -549,7 +549,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(8_610).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -571,7 +571,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -582,7 +582,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(3_790).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -598,7 +598,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(10_227).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -621,7 +621,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -632,7 +632,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(4_767).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -648,7 +648,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(13_348).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -672,7 +672,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -683,7 +683,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(6_647).to_s, calculator.maintenance_loan_amount.to_s
             end
