@@ -87,7 +87,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_invalid_response (max_for_part_time + 1).to_s
         end
       end
-
     end
 
     context "next_node" do
