@@ -8,14 +8,14 @@ module SmartAnswer
           course_start: "2023-2024",
           household_income: 25_000,
           residence: "at-home",
-          course_type: "uk-full-time",
+          course_type: "full-time",
         )
         assert_instance_of StudentFinanceCalculator, calculator
 
         assert_equal "2023-2024", calculator.course_start
         assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
-        assert_equal "uk-full-time", calculator.course_type
+        assert_equal "full-time", calculator.course_type
       end
 
       test "StudentFinanceCalculator instance variables can be changed after initialisation" do
@@ -31,12 +31,12 @@ module SmartAnswer
         calculator.course_start = "2023-2024"
         calculator.household_income = 25_000
         calculator.residence = "at-home"
-        calculator.course_type = "uk-full-time"
+        calculator.course_type = "full-time"
 
         assert_equal "2023-2024", calculator.course_start
         assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
-        assert_equal "uk-full-time", calculator.course_type
+        assert_equal "full-time", calculator.course_type
       end
 
       context "#eligible_for_childcare_grant_one_child?" do
