@@ -109,12 +109,11 @@ module SmartAnswer::Calculators
       @accommodation_cost = (accommodation_cost * weekly_multiplier).round(2)
     end
 
-    def per_hour_minimum_wage(date = @date)
-      data = rates_for_date(date)
+    def per_hour_minimum_wage
       if @is_apprentice
-        data[:apprentice_rate]
+        @minimum_wage_data[:apprentice_rate]
       else
-        rates = data[:minimum_rates]
+        rates = @minimum_wage_data[:minimum_rates]
         rate_data = rates.find do |r|
           @age >= r[:min_age] && @age < r[:max_age]
         end
