@@ -15,16 +15,28 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :what_type_of_student_are_you?
+        question :what_loans_are_you_eligible_for?
       end
     end
 
     # Q2
-    radio :what_type_of_student_are_you? do
-      option :"uk-full-time"
-      option :"uk-part-time"
-      option :"eu-full-time"
-      option :"eu-part-time"
+    radio :what_loans_are_you_eligible_for? do
+      option :"tuition-and-maintenance"
+      option :"tuition-only"
+
+      on_response do |response|
+        calculator.loan_eligibility = response
+      end
+
+      next_node do
+        question :will_you_be_studying_full_or_part_time?
+      end
+    end
+
+    # Q3
+    radio :will_you_be_studying_full_or_part_time? do
+      option :"full-time"
+      option :"part-time"
 
       on_response do |response|
         calculator.course_type = response
@@ -35,7 +47,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q3
+    # Q4
     money_question :how_much_are_your_tuition_fees_per_year? do
       on_response do |response|
         calculator.tuition_fee_amount = SmartAnswer::Money.new(response)
@@ -46,18 +58,15 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        case calculator.course_type
-        when "uk-full-time"
+        if calculator.loan_eligibility == "tuition-and-maintenance"
           question :where_will_you_live_while_studying?
-        when "uk-part-time"
-          question :where_will_you_live_while_studying?
-        when "eu-full-time", "eu-part-time"
-          outcome :outcome_eu_students
+        elsif calculator.loan_eligibility == "tuition-only"
+          outcome :outcome_tuition_fee_only
         end
       end
     end
 
-    # Q4
+    # Q5
     radio :where_will_you_live_while_studying? do
       option :'at-home'
       option :'away-outside-london'
@@ -72,7 +81,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q5
+    # Q6
     money_question :whats_your_household_income? do
       on_response do |response|
         calculator.household_income = response
@@ -80,15 +89,15 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do
         case calculator.course_type
-        when "uk-full-time"
+        when "full-time"
           question :do_any_of_the_following_apply_uk_full_time_students_only?
-        when "uk-part-time"
+        when "part-time"
           question :how_many_credits_will_you_study?
         end
       end
     end
 
-    # Q6a
+    # Q7a
     value_question :how_many_credits_will_you_study?, parse: Float do
       on_response do |response|
         calculator.part_time_credits = response
@@ -103,7 +112,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q6b
+    # Q7b
     value_question :how_many_credits_does_a_full_time_student_study?, parse: Float do
       on_response do |response|
         calculator.full_time_credits = response
@@ -118,7 +127,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q7a uk full-time students
+    # Q8a uk full-time students
     checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
       option :"children-under-17"
       option :"dependant-adult"
@@ -135,7 +144,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q7b uk students
+    # Q8b uk students
     checkbox_question :do_any_of_the_following_apply_all_uk_students? do
       option :"has-disability"
       option :"low-income"
@@ -150,7 +159,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q8a
+    # Q9a
     radio :what_course_are_you_studying? do
       option :"teacher-training"
       option :"dental-medical-healthcare"
@@ -163,19 +172,19 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do |response|
         case calculator.course_type
-        when "uk-full-time"
+        when "full-time"
           if response == "dental-medical-healthcare"
             question :are_you_a_doctor_or_dentist?
           else
             outcome :outcome_uk_full_time_students
           end
-        when "uk-part-time"
+        when "part-time"
           outcome :outcome_uk_part_time_students
         end
       end
     end
 
-    # Q8b
+    # Q9b
     radio :are_you_a_doctor_or_dentist? do
       option :yes
       option :no
@@ -197,7 +206,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_uk_part_time_students
 
-    outcome :outcome_eu_students
+    outcome :outcome_tuition_fee_only
 
     outcome :outcome_uk_full_time_dental_medical_students
   end
