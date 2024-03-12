@@ -1001,6 +1001,19 @@ module SmartAnswer
 
           assert_equal 109.40, calculator.ssp_payment.to_f
         end
+
+        should "have the correct 2024/2025 value" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: Date.parse("6 June 2024"),
+            sick_end_date: Date.parse("10 June 2024"),
+            days_of_the_week_worked: %w[1 2 3 4 5],
+            has_linked_sickness: true,
+            linked_sickness_start_date: Date.parse("21 Sep 2023"),
+            linked_sickness_end_date: Date.parse("28 Dec 2023"),
+          )
+
+          assert_equal 116.75, calculator.ssp_payment.to_f
+        end
       end
 
       context "average weekly earnings for new employees who fell sick before first payday" do
