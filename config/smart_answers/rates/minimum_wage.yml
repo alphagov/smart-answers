@@ -19,6 +19,7 @@
     :rate: 9.50
   :apprentice_rate: 4.81
   :accommodation_rate: 8.70
+  :living_wage_min_age: 23
 
 - :start_date: 2023-04-01
   :end_date: 3000-01-01
@@ -37,3 +38,4 @@
     :rate: 10.42
   :apprentice_rate: 5.28
   :accommodation_rate: 9.10
+  :living_wage_min_age: 23

@@ -98,19 +98,6 @@ module SmartAnswer::Calculators
           assert @calculator.valid_age_for_living_wage?(23)
           assert @calculator.valid_age_for_living_wage?(24)
         end
-
-        context "when a date is before 1 April 2021" do
-          setup { @calculator.date = Date.parse("2020-04-01") }
-
-          should "not accept ages below 25" do
-            assert_not @calculator.valid_age_for_living_wage?(23)
-          end
-
-          should "accept ages 25 or above" do
-            assert @calculator.valid_age_for_living_wage?(25)
-            assert @calculator.valid_age_for_living_wage?(26)
-          end
-        end
       end
     end
 
@@ -119,33 +106,30 @@ module SmartAnswer::Calculators
         @calculator = MinimumWageCalculator.new
       end
 
-      should "return true if the age is 25 or over" do
-        %w[25 26].each do |age|
-          @calculator.age = age
-          assert @calculator.eligible_for_living_wage?
-        end
-      end
-
-      should "return true if the age is 23 or over, and the date is on or after 2022-04-01" do
+      should "return true if the age is the minimum for the living wage or higher" do
         %w[23 24].each do |age|
-          @calculator.date = Date.parse("2022-04-01")
           @calculator.age = age
+          @calculator.date = Date.parse("2023-04-01")
+          assert @calculator.eligible_for_living_wage?
+        end
+        %w[23 24].each do |age|
+          @calculator.age = age
+          @calculator.date = Date.parse("2024-04-01")
           assert @calculator.eligible_for_living_wage?
         end
       end
 
-      should "return false if age is lower than 24 or nil, and date is before 2021-04-01" do
-        %w[nil 0 24].each do |age|
-          @calculator.date = Date.parse("2020-04-01")
+      should "return false if age is lower than the minimum or nil" do
+        %w[nil 0 22].each do |age|
+          @calculator.date = Date.parse("2023-04-01")
           @calculator.age = age
           assert_not @calculator.eligible_for_living_wage?
         end
-      end
-
-      should "return false if age is over 25, and date is on or before 2016-04-01" do
-        @calculator.date = Date.parse("2016-03-30")
-        @calculator.age = 26
-        assert_not @calculator.eligible_for_living_wage?
+        %w[nil 0 22].each do |age|
+          @calculator.date = Date.parse("2024-04-01")
+          @calculator.age = age
+          assert_not @calculator.eligible_for_living_wage?
+        end
       end
     end
 

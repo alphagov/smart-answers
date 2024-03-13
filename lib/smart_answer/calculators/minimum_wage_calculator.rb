@@ -53,8 +53,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_age_for_living_wage?(age)
-      (age.to_i >= 23 && date >= Date.parse("2021-04-01")) ||
-        age.to_i >= 25
+      living_wage_min_age = @minimum_wage_data[:living_wage_min_age]
+      age.to_i >= living_wage_min_age
     end
 
     def basic_rate
@@ -130,7 +130,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_living_wage?
-      valid_age_for_living_wage?(age) && date >= Date.parse("2016-04-01")
+      valid_age_for_living_wage?(age)
     end
 
     def under_school_leaving_age?
