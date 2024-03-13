@@ -8,24 +8,21 @@ module SmartAnswer::Calculators
                   :accommodation_cost,
                   :job_requirements_charge,
                   :unpaid_additional_hours
-    attr_reader :date
 
     def initialize(params = {})
+      raise ArgumentError, "Missing past_or_current_payment argument" unless params[:past_or_current_payment]
+      raise ArgumentError, "Invalid past_or_current_payment value: #{params[:past_or_current_payment]}" unless %w[past_payment current_payment].include? params[:past_or_current_payment]
+
       @age = params[:age]
-      @date = params[:date] || SmartAnswer::DateHelper.current_day
+      @past_or_current_payment = params[:past_or_current_payment]
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @accommodation_cost = 0
-      @minimum_wage_data = rates_for_date(@date)
+      @minimum_wage_data = rates
       @job_requirements_charge = false
       @unpaid_additional_hours = false
-    end
-
-    def date=(date)
-      @date = date
-      @minimum_wage_data = rates_for_date(@date)
     end
 
     def previous_period_start_date
@@ -122,11 +119,11 @@ module SmartAnswer::Calculators
     end
 
     def free_accommodation_rate
-      @minimum_wage_data.accommodation_rate
+      @minimum_wage_data[:accommodation_rate]
     end
 
     def apprentice_rate
-      @minimum_wage_data.apprentice_rate
+      @minimum_wage_data[:apprentice_rate]
     end
 
     def eligible_for_living_wage?
@@ -161,8 +158,12 @@ module SmartAnswer::Calculators
 
   private
 
-    def rates_for_date(date = Time.zone.today)
-      data.rates(date)
+    def rates
+      if @past_or_current_payment == "past_payment"
+        data.previous_period
+      elsif @past_or_current_payment == "current_payment"
+        data.current_period
+      end
     end
 
     def data
