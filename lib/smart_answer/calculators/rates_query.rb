@@ -21,6 +21,14 @@ module SmartAnswer::Calculators
       previous_period
     end
 
+    def current_period
+      current_period = nil
+      data.each do |rates_hash|
+        current_period = rates_hash if !current_period || rates_hash[:start_date] > current_period[:start_date]
+      end
+      current_period
+    end
+
     def rates(date = nil)
       date ||= SmartAnswer::DateHelper.current_day
       relevant_rates = data.find do |rates_hash|

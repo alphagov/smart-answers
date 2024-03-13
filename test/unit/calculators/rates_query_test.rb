@@ -85,5 +85,19 @@ module SmartAnswer::Calculators
         assert_equal "earliest", rates.previous_period[:rate]
       end
     end
+
+    context "#current_period" do
+      should "be rates with latest start date when loaded in ascending date order" do
+        rates = RatesQuery.new([{ start_date: Date.parse("2012-01-01"), rate: "earliest" }, { start_date: Date.parse("2013-01-01"), rate: "latest" }])
+
+        assert_equal "latest", rates.current_period[:rate]
+      end
+
+      should "be rates with latest start date when loaded in descending date order" do
+        rates = RatesQuery.new([{ start_date: Date.parse("2013-01-01"), rate: "latest" }, { start_date: Date.parse("2012-01-01"), rate: "earliest" }])
+
+        assert_equal "latest", rates.current_period[:rate]
+      end
+    end
   end
 end
