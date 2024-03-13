@@ -79,7 +79,7 @@ module SmartAnswer::Calculators
     end
 
     def total_entitlement
-      minimum_hourly_rate * total_hours
+      (minimum_hourly_rate * total_hours).round(2)
     end
 
     def historical_entitlement
