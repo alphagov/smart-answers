@@ -10,7 +10,7 @@ module SmartAnswer
 
     def last_year(rates_file)
       data = SmartAnswer::Calculators::RatesQuery.from_file(rates_file)
-      data.previous_period(date: SmartAnswer::DateHelper.current_day)
+      data.previous_period
     end
   end
 end

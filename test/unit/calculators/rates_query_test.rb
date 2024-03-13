@@ -73,19 +73,16 @@ module SmartAnswer::Calculators
     end
 
     context "#previous_period" do
-      setup do
-        @test_rate = RatesQuery.from_file(
-          "exact_date_rates",
-          load_path: "test/fixtures/rates",
-        )
+      should "be rates with earliest start date when loaded in ascending date order" do
+        rates = RatesQuery.new([{ start_date: Date.parse("2012-01-01"), rate: "earliest" }, { start_date: Date.parse("2013-01-01"), rate: "latest" }])
+
+        assert_equal "earliest", rates.previous_period[:rate]
       end
 
-      should "be nil for 2013-01-31" do
-        assert_nil @test_rate.previous_period(date: Date.parse("2013-01-31"))
-      end
+      should "be rates with earliest start date when loaded in descending date order" do
+        rates = RatesQuery.new([{ start_date: Date.parse("2013-01-01"), rate: "latest" }, { start_date: Date.parse("2012-01-01"), rate: "earliest" }])
 
-      should "be 2013-01-31 for 2013-02-01" do
-        assert_equal Date.parse("2012-01-01"), @test_rate.previous_period(date: Date.parse("2013-02-01"))[:start_date]
+        assert_equal "earliest", rates.previous_period[:rate]
       end
     end
   end
