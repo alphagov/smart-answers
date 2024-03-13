@@ -255,68 +255,68 @@ module SmartAnswer::Calculators
           assert_equal 1, @calculator.overdue_filing_days
           assert_equal 100, @calculator.late_filing_penalty
           @calculator.filing_date = Date.parse("2024-04-30")
-          assert_equal 89, @calculator.overdue_filing_days
-          assert_equal 100, @calculator.late_filing_penalty
+          assert_equal 90, @calculator.overdue_filing_days
+          assert_equal 110, @calculator.late_filing_penalty
 
           # band two: 1 May - 30 July: band one + £10/day (up to 90 days)
           # 1 day late incurs £10 penalty
           @calculator.filing_date = Date.parse("2024-05-01")
-          assert_equal 90, @calculator.overdue_filing_days
-          assert_equal 110, @calculator.late_filing_penalty
+          assert_equal 91, @calculator.overdue_filing_days
+          assert_equal 120, @calculator.late_filing_penalty
           # 3 days late incurs £30 penalty
           @calculator.filing_date = Date.parse("2024-05-03")
-          assert_equal 92, @calculator.overdue_filing_days
-          assert_equal 130, @calculator.late_filing_penalty
+          assert_equal 93, @calculator.overdue_filing_days
+          assert_equal 140, @calculator.late_filing_penalty
           # 90 days late incurs £900 penalty + band one
           @calculator.filing_date = Date.parse("2024-07-31")
-          assert_equal 181, @calculator.overdue_filing_days
-          assert_equal 1000, @calculator.late_filing_penalty
+          assert_equal 182, @calculator.overdue_filing_days
+          assert_equal 1300, @calculator.late_filing_penalty
 
           # band three: 1 Aug - 31 Jan 2017: bands one + two + greater of £300 or 5% tax
           # > 181 days late incurs band two + £300
           @calculator.filing_date = Date.parse("2024-08-01")
-          assert_equal 182, @calculator.overdue_filing_days
+          assert_equal 183, @calculator.overdue_filing_days
           assert_equal 1300, @calculator.late_filing_penalty
-          # < 366 days late incurs band two + £300
+          # < 1 year late incurs band two + £300
           @calculator.filing_date = Date.parse("2025-01-31")
-          assert_equal 365, @calculator.overdue_filing_days
-          assert_equal 1300, @calculator.late_filing_penalty
+          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 1600, @calculator.late_filing_penalty
           # > 181 days late incurs band two + 5% tax
           @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
           @calculator.filing_date = Date.parse("2024-08-01")
-          assert_equal 182, @calculator.overdue_filing_days
+          assert_equal 183, @calculator.overdue_filing_days
           assert_equal 1500, @calculator.late_filing_penalty
-          # < 366 days late incurs band two + 5% tax
+          # < 1 year days late incurs band two + 5% tax
           @calculator.filing_date = Date.parse("2025-01-31")
-          assert_equal 365, @calculator.overdue_filing_days
-          assert_equal 1500, @calculator.late_filing_penalty
+          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 2000, @calculator.late_filing_penalty
 
           # band four: After 31 Jan 2017: band one + two + three + greater of £300 or 5% tax
-          # > 365 days late incurs band three + £300
+          # > 1 year late incurs band three + £300
           @calculator.estimated_bill = SmartAnswer::Money.new(5_000)
           @calculator.filing_date = Date.parse("2025-02-01")
-          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 367, @calculator.overdue_filing_days
           assert_equal 1600, @calculator.late_filing_penalty
-          # > 365 days late incurs band three + 5% tax
+          # > 1 year late incurs band three + 5% tax
           @calculator.estimated_bill = SmartAnswer::Money.new(10_000)
           @calculator.filing_date = Date.parse("2025-02-01")
-          assert_equal 366, @calculator.overdue_filing_days
+          assert_equal 367, @calculator.overdue_filing_days
           assert_equal 2000, @calculator.late_filing_penalty
         end
 
         should "calculate total owed (excludes filing penalty)" do
           @calculator.payment_date = Date.parse("2024-02-02")
-          assert_equal 5000, @calculator.total_owed
-          @calculator.payment_date = Date.parse("2024-02-03")
           assert_equal 5001, @calculator.total_owed
+          @calculator.payment_date = Date.parse("2024-02-03")
+          assert_equal 5002, @calculator.total_owed
           @calculator.payment_date = Date.parse("2024-08-03")
-          assert_equal 5667, @calculator.total_owed
+          assert_equal 5695, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-02-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6111, @calculator.total_owed
+          assert_equal 6140, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-08-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6304, @calculator.total_owed
+          assert_equal 6332, @calculator.total_owed
         end
 
         context "HMRC Covid-19 Extension to 1 April for 2019-20" do
@@ -443,10 +443,10 @@ module SmartAnswer::Calculators
     end
 
     context "late payment interest rates" do
-      should "after May 31st, the user should have a late payment penalty of 7%" do
-        @calculator.payment_date = Date.parse("2023-06-1")
+      should "after May 31st, the user should have a late payment penalty of 7.75%" do
+        @calculator.payment_date = Date.parse("2024-06-1")
         assert_equal 250, @calculator.late_payment_penalty
-        assert_equal 106.13, @calculator.interest.to_f
+        assert_equal 128.46, @calculator.interest.to_f
       end
     end
   end
