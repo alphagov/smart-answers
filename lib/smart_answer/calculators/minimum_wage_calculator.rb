@@ -102,7 +102,7 @@ module SmartAnswer::Calculators
       number_of_nights = number_of_nights.to_i
 
       accommodation_cost = if charge > 0 # rubocop:disable Style/NumericPredicate
-                             charged_accomodation_adjustment(charge, number_of_nights)
+                             charged_accommodation_adjustment(charge, number_of_nights)
                            else
                              free_accommodation_adjustment(number_of_nights)
                            end
@@ -152,7 +152,7 @@ module SmartAnswer::Calculators
       (free_accommodation_rate * number_of_nights).round(2)
     end
 
-    def charged_accomodation_adjustment(charge, number_of_nights)
+    def charged_accommodation_adjustment(charge, number_of_nights)
       if charge < free_accommodation_rate
         0
       else
