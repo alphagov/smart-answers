@@ -17,6 +17,8 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       next_node do
         if calculator.regular_or_irregular_hours == "regular"
           question :basis_of_calculation?
+        elsif calculator.regular_or_irregular_hours == "irregular"
+          question :when_does_your_leave_year_start?
         end
       end
     end

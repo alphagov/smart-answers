@@ -21,6 +21,10 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
       should "have next node basis_of_calculation? for a 'regular' response" do
         assert_next_node :basis_of_calculation?, for_response: "regular"
       end
+
+      should "have next node when_does_your_leave_year_start? for a 'irregular' response" do
+        assert_next_node :when_does_your_leave_year_start?, for_response: "irregular"
+      end
     end
   end
 
