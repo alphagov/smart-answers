@@ -4,14 +4,14 @@ module SmartAnswer::Calculators
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
     context "Initialisation" do
       should "reject invalid 'past_or_current_payment' values" do
-        assert_raises(ArgumentError, "Invalid past_or_current_payment value: 'bad value'") {
+        assert_raises(ArgumentError, "Invalid past_or_current_payment value: 'bad value'") do
           MinimumWageCalculator.new(past_or_current_payment: "bad value")
-        }
+        end
       end
       should "reject missing 'past_or_current_payment' argument" do
-        assert_raises(ArgumentError, "Missing past_or_current_payment argument") {
+        assert_raises(ArgumentError, "Missing past_or_current_payment argument") do
           MinimumWageCalculator.new
-        }
+        end
       end
     end
 
