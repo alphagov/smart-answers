@@ -10,8 +10,25 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
     assert_rendered_start_page
   end
 
+  context "question :regular or irregular hours?" do
+    setup { testing_node :regular_or_irregular_hours? }
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have next node basis_of_calculation? for a 'regular' response" do
+        assert_next_node :basis_of_calculation?, for_response: "regular"
+      end
+    end
+  end
+
   context "question :basis of calculation?" do
-    setup { testing_node :basis_of_calculation? }
+    setup do
+      testing_node :basis_of_calculation?
+      add_responses regular_or_irregular_hours?: "regular"
+    end
 
     should "render the question" do
       assert_rendered_question
@@ -31,7 +48,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :calculation period?" do
     setup do
       testing_node :calculation_period?
-      add_responses basis_of_calculation?: "days-worked-per-week"
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "days-worked-per-week"
     end
 
     should "render question" do
@@ -80,7 +98,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :how_many_days_per_week?" do
     setup do
       testing_node :how_many_days_per_week?
-      add_responses basis_of_calculation?: "days-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "days-worked-per-week",
                     calculation_period?: "full-year"
     end
 
@@ -108,7 +127,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :what_is_your_starting_date?" do
     setup do
       testing_node :what_is_your_starting_date?
-      add_responses basis_of_calculation?: "days-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "days-worked-per-week",
                     calculation_period?: "starting-and-leaving"
     end
 
@@ -134,7 +154,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :what_is_your_leaving_date?" do
     setup do
       testing_node :what_is_your_leaving_date?
-      add_responses basis_of_calculation?: "days-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "days-worked-per-week",
                     calculation_period?: "leaving",
                     what_is_your_starting_date?: "2021-01-01"
     end
@@ -208,7 +229,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :when_does_your_leave_year_start?" do
     setup do
       testing_node :when_does_your_leave_year_start?
-      add_responses basis_of_calculation?: "days-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "days-worked-per-week",
                     calculation_period?: "leaving",
                     what_is_your_leaving_date?: "2021-10-01"
     end
@@ -274,7 +296,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :how_many_hours_per_week?" do
     setup do
       testing_node :how_many_hours_per_week?
-      add_responses basis_of_calculation?: "hours-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "hours-worked-per-week",
                     calculation_period?: "leaving",
                     what_is_your_starting_date?: "2021-01-01",
                     what_is_your_leaving_date?: "2021-10-01",
@@ -305,7 +328,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :how_many_days_per_week_for_hours?" do
     setup do
       testing_node :how_many_days_per_week_for_hours?
-      add_responses basis_of_calculation?: "hours-worked-per-week",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "hours-worked-per-week",
                     calculation_period?: "leaving",
                     what_is_your_starting_date?: "2021-01-01",
                     what_is_your_leaving_date?: "2021-10-01",
@@ -347,7 +371,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :shift_worker_basis?" do
     setup do
       testing_node :shift_worker_basis?
-      add_responses basis_of_calculation?: "shift-worker"
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "shift-worker"
     end
 
     should "render question" do
@@ -376,7 +401,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :shift_worker_hours_per_shift?" do
     setup do
       testing_node :shift_worker_hours_per_shift?
-      add_responses basis_of_calculation?: "shift-worker",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "shift-worker",
                     shift_worker_basis?: "full-year"
     end
 
@@ -404,7 +430,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :shift_worker_shifts_per_shift_pattern?" do
     setup do
       testing_node :shift_worker_shifts_per_shift_pattern?
-      add_responses basis_of_calculation?: "shift-worker",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "shift-worker",
                     shift_worker_basis?: "full-year",
                     shift_worker_hours_per_shift?: "8"
     end
@@ -429,7 +456,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :shift_worker_days_per_shift_pattern?" do
     setup do
       testing_node :shift_worker_days_per_shift_pattern?
-      add_responses basis_of_calculation?: "shift-worker",
+      add_responses regular_or_irregular_hours?: "regular",
+                    basis_of_calculation?: "shift-worker",
                     shift_worker_basis?: "full-year",
                     shift_worker_hours_per_shift?: "8",
                     shift_worker_shifts_per_shift_pattern?: "2"

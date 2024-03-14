@@ -16,7 +16,8 @@ module SmartAnswer::Calculators
     attr_accessor :calculation_basis,
                   :holiday_period,
                   :leave_year_start_date,
-                  :hours_per_shift
+                  :hours_per_shift,
+                  :regular_or_irregular_hours
 
     attr_reader :hours_per_week,
                 :start_date,

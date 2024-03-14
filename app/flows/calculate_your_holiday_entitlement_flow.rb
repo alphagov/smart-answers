@@ -5,6 +5,22 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
     status :published
 
     # Q1
+    radio :regular_or_irregular_hours? do
+      option "irregular"
+      option "regular"
+
+      on_response do |response|
+        self.calculator = SmartAnswer::Calculators::HolidayEntitlement.new
+        calculator.regular_or_irregular_hours = response
+      end
+
+      next_node do
+        if calculator.regular_or_irregular_hours == "regular"
+          question :basis_of_calculation?
+        end
+      end
+    end
+
     radio :basis_of_calculation? do
       option "days-worked-per-week"
       option "hours-worked-per-week"
@@ -13,7 +29,6 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       option "shift-worker"
 
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::HolidayEntitlement.new
         calculator.calculation_basis = response
       end
 
