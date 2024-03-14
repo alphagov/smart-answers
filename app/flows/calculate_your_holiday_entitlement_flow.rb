@@ -8,7 +8,6 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
     radio :basis_of_calculation? do
       option "days-worked-per-week"
       option "hours-worked-per-week"
-      option "irregular-hours"
       option "annualised-hours"
       option "compressed-hours"
       option "shift-worker"
@@ -20,7 +19,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
 
       next_node do
         case calculator.calculation_basis
-        when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "irregular-hours", "annualised-hours"
+        when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "annualised-hours"
           question :calculation_period?
         when "shift-worker"
           question :shift_worker_basis?
@@ -47,7 +46,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
           question :what_is_your_leaving_date?
         when "full-year"
           case calculator.calculation_basis
-          when "irregular-hours", "annualised-hours"
+          when "annualised-hours"
             outcome :irregular_and_annualised_done
           when "days-worked-per-week"
             question :how_many_days_per_week?
@@ -111,7 +110,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
             question :how_many_hours_per_week?
           when "shift-worker"
             question :shift_worker_hours_per_shift?
-          when "irregular-hours", "annualised-hours"
+          when "annualised-hours"
             outcome :irregular_and_annualised_done
           end
         else
@@ -148,7 +147,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
           question :how_many_days_per_week?
         when "hours-worked-per-week", "compressed-hours"
           question :how_many_hours_per_week?
-        when "irregular-hours", "annualised-hours"
+        when "annualised-hours"
           outcome :irregular_and_annualised_done
         when "shift-worker"
           question :shift_worker_hours_per_shift?

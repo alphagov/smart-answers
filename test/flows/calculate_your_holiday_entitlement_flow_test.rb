@@ -54,8 +54,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
       context "when the response is full-year" do
         setup { add_response "full-year" }
 
-        should "have a next node of irregular_and_annualised_done outcome for people with irregular hours" do
-          add_responses basis_of_calculation?: "irregular-hours"
+        should "have a next node of irregular_and_annualised_done outcome for people with annualised hours" do
+          add_responses basis_of_calculation?: "annualised-hours"
           assert_next_node :irregular_and_annualised_done
         end
 
@@ -197,8 +197,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
           assert_next_node :shift_worker_hours_per_shift?
         end
 
-        should "have a next node of :irregular_and_annualised_done for people with irregular hours" do
-          add_responses basis_of_calculation?: "irregular-hours"
+        should "have a next node of :irregular_and_annualised_done for people with annualised hours" do
+          add_responses basis_of_calculation?: "annualised-hours"
           assert_next_node :irregular_and_annualised_done
         end
       end
@@ -254,8 +254,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
         assert_next_node :how_many_hours_per_week?
       end
 
-      should "have a next node of :irregular_and_annualised_done for people with irregular hours" do
-        add_responses basis_of_calculation?: "irregular-hours",
+      should "have a next node of :irregular_and_annualised_done for people with annualised hours" do
+        add_responses basis_of_calculation?: "annualised-hours",
                       when_does_your_leave_year_start?: "2021-01-01"
         assert_next_node :irregular_and_annualised_done
       end
