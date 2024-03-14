@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "Validation" do
+    context "Any tax year validation" do
       setup do
         @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
       end
@@ -101,6 +101,12 @@ module SmartAnswer::Calculators
           assert @calculator.valid_accommodation_usage?(7)
         end
       end
+    end
+
+    context "Past tax year validation" do
+      setup do
+        @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
+      end
 
       context "for age for living wage" do
         should "not accept ages below 23" do
@@ -114,30 +120,57 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "#eligible_for_living_wage?" do
-      should "return true if the age is the minimum for the living wage or higher" do
-        %w[23 24].each do |age|
-          @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
-          @calculator.age = age
-          assert @calculator.eligible_for_living_wage?
+    context "Current tax year validation" do
+      setup do
+        @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
+      end
+
+      context "for age for living wage" do
+        should "not accept ages below minimum" do
+          assert_not @calculator.valid_age_for_living_wage?(20)
         end
-        %w[23 24].each do |age|
-          @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
-          @calculator.age = age
-          assert @calculator.eligible_for_living_wage?
+
+        should "accept minimum age or above" do
+          assert @calculator.valid_age_for_living_wage?(21)
+          assert @calculator.valid_age_for_living_wage?(22)
+        end
+      end
+    end
+
+    context "#eligible_for_living_wage?" do
+      context "in the past tax year" do
+        should "return true if the age is the minimum for the living wage or higher" do
+          %w[23 24].each do |age|
+            @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
+            @calculator.age = age
+            assert @calculator.eligible_for_living_wage?
+          end
+        end
+
+        should "return false if age is lower than the minimum or nil" do
+          %w[nil 0 22].each do |age|
+            @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
+            @calculator.age = age
+            assert_not @calculator.eligible_for_living_wage?
+          end
         end
       end
 
-      should "return false if age is lower than the minimum or nil" do
-        %w[nil 0 22].each do |age|
-          @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
-          @calculator.age = age
-          assert_not @calculator.eligible_for_living_wage?
+      context "in the current tax year" do
+        should "return true if the age is the minimum for the living wage or higher" do
+          %w[21 22].each do |age|
+            @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
+            @calculator.age = age
+            assert @calculator.eligible_for_living_wage?
+          end
         end
-        %w[nil 0 22].each do |age|
-          @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
-          @calculator.age = age
-          assert_not @calculator.eligible_for_living_wage?
+
+        should "return false if age is lower than the minimum or nil" do
+          %w[nil 0 20].each do |age|
+            @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
+            @calculator.age = age
+            assert_not @calculator.eligible_for_living_wage?
+          end
         end
       end
     end
@@ -311,7 +344,7 @@ module SmartAnswer::Calculators
     end
 
     context "per hour minimum wage" do
-      context "for current financial year" do
+      context "for current tax year" do
         setup do
           @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
         end
