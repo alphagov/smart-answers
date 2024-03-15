@@ -3657,7 +3657,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_mat_allowance" do
+  context "outcome: outcome_mat_allowance, self-employed mother" do
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
@@ -3716,6 +3716,36 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     should "render _mat_allowance partial weekly rate for 2021" do
       add_responses due_date: "2021-1-1"
       assert_rendered_outcome text: "£151.97 or 90%"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2022" do
+      add_responses due_date: "2022-1-1"
+      assert_rendered_outcome text: "£156.66"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2023" do
+      add_responses due_date: "2023-1-1"
+      assert_rendered_outcome text: "£172.48"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2024" do
+      add_responses due_date: "2024-1-1"
+      assert_rendered_outcome text: "£184.03"
+    end
+  end
+
+  context "outcome: outcome_mat_allowance, employee mother" do
+    setup do
+      testing_node :outcome_mat_allowance
+      add_responses two_carers: "yes",
+                    # due_date: "2016-1-1",
+                    employment_status_of_mother: "employee",
+                    employment_status_of_partner: "self-employed",
+                    mother_started_working_before_continuity_start_date: "yes",
+                    mother_still_working_on_continuity_end_date: "no",
+                    mother_earned_more_than_lower_earnings_limit: "no",
+                    mother_worked_at_least_26_weeks: "yes",
+                    mother_earned_at_least_390: "yes"
     end
 
     should "render _mat_allowance partial weekly rate for 2022" do
