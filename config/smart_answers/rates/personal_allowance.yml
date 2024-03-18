@@ -3,12 +3,12 @@
 # and usually 1. The last item in the file should have an end
 # date of 2999-01-01
 ---
-- start_date: 2022-04-06
-  end_date: 2023-04-05
-  personal_allowance: 12570
-  income_limit_for_personal_allowances: 31400.0
-
 - start_date: 2023-04-06
-  end_date: 2999-01-01
+  end_date: 2024-04-05
   personal_allowance: 12570
   income_limit_for_personal_allowances: 34600.0
+
+- start_date: 2024-04-06
+  end_date: 2999-01-01
+  personal_allowance: 12570
+  income_limit_for_personal_allowances: 37700.0
