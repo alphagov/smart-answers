@@ -17,7 +17,7 @@ module SmartAnswer
           block.call
         end
 
-        def render(component, &block)
+        def render(component, _component_args, &block)
           if component == "govuk_publishing_components/components/govspeak"
             "<govspeak>#{block.call}</govspeak>"
           else
