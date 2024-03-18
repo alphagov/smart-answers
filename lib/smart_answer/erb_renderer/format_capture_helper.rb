@@ -54,7 +54,7 @@ module SmartAnswer
       content = Govspeak::Document.new(content, sanitize: false).to_html
 
       if content.present?
-        render("govuk_publishing_components/components/govspeak") { content.html_safe }
+        render("govuk_publishing_components/components/govspeak", { disable_ga4: true }) { content.html_safe }
       else
         ""
       end
