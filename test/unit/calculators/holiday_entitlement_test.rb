@@ -1860,5 +1860,22 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "calculate entitlement for irregular hours and part-year workers" do
+      should "return 4 hours" do
+        @calculator.hours_in_pay_period = 30
+        assert_equal 4, @calculator.irregular_hours_entitlement
+      end
+
+      should "return 1 hour" do
+        @calculator.hours_in_pay_period = 12
+        assert_equal 1, @calculator.irregular_hours_entitlement
+      end
+
+      should "return 7 hours" do
+        @calculator.hours_in_pay_period = 60
+        assert_equal 7, @calculator.irregular_hours_entitlement
+      end
+    end
   end
 end

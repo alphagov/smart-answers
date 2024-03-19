@@ -22,8 +22,8 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
         assert_next_node :basis_of_calculation?, for_response: "regular"
       end
 
-      should "have next node when_does_your_leave_year_start? for a 'irregular' response" do
-        assert_next_node :when_does_your_leave_year_start?, for_response: "irregular"
+      should "have next node when_does_your_leave_year_start? for a 'irregular-hours-and-part-year' response" do
+        assert_next_node :when_does_your_leave_year_start?, for_response: "irregular-hours-and-part-year"
       end
     end
   end
@@ -76,14 +76,14 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
       context "when the response is full-year" do
         setup { add_response "full-year" }
 
-        should "have a next node of irregular_and_annualised_done outcome for people with annualised hours" do
+        should "have a next node of annualised_done outcome for people with annualised hours" do
           add_responses basis_of_calculation?: "annualised-hours"
-          assert_next_node :irregular_and_annualised_done
+          assert_next_node :annualised_done
         end
 
-        should "have a next node of :irregular_and_annualised_done for people with annualised hours" do
+        should "have a next node of :annualised_done for people with annualised hours" do
           add_responses basis_of_calculation?: "annualised-hours"
-          assert_next_node :irregular_and_annualised_done
+          assert_next_node :annualised_done
         end
 
         should "have a next node of :how_many_days_per_week? for people who work a number of days per week" do
@@ -222,9 +222,9 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
           assert_next_node :shift_worker_hours_per_shift?
         end
 
-        should "have a next node of :irregular_and_annualised_done for people with annualised hours" do
+        should "have a next node of :annualised_done for people with annualised hours" do
           add_responses basis_of_calculation?: "annualised-hours"
-          assert_next_node :irregular_and_annualised_done
+          assert_next_node :annualised_done
         end
       end
     end
@@ -233,17 +233,24 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
   context "question :when_does_your_leave_year_start?" do
     setup do
       testing_node :when_does_your_leave_year_start?
+    end
+
+    should "render question" do
       add_responses regular_or_irregular_hours?: "regular",
                     basis_of_calculation?: "days-worked-per-week",
                     calculation_period?: "leaving",
                     what_is_your_leaving_date?: "2021-10-01"
-    end
-
-    should "render question" do
       assert_rendered_question
     end
 
     context "validation" do
+      setup do
+        add_responses regular_or_irregular_hours?: "regular",
+                      basis_of_calculation?: "days-worked-per-week",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2021-10-01"
+      end
+
       should "be invalid for a leave year starting after a leaving date" do
         add_responses what_is_your_leaving_date?: "2021-10-01"
         assert_invalid_response "2021-10-02"
@@ -268,31 +275,82 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
+      should "have a next node of :hours_in_pay_period? for people who work irregular-hours-and-part-year, and enter a date after 1st April 2024" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-04-01"
+
+        assert_next_node :hours_in_pay_period?
+      end
+
+      should "have a next node of :basis_of_calculation? for people who work irregular-hours-and-part-year, and enter a date before 1st April 2024" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-03-31"
+
+        assert_next_node :basis_of_calculation?
+      end
+
       should "have a next node of :how_many_days_per_week? for people calculating with days-worked-per-week" do
-        add_responses basis_of_calculation?: "days-worked-per-week",
-                      when_does_your_leave_year_start?: "2021-01-01"
+        add_responses regular_or_irregular_hours?: "regular",
+                      basis_of_calculation?: "days-worked-per-week",
+                      when_does_your_leave_year_start?: "2021-01-01",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2021-10-01"
+
         assert_next_node :how_many_days_per_week?
       end
 
       should "have a next node of :how_many_days_per_week? for people calculating with hours-worked-per-week" do
-        add_responses basis_of_calculation?: "hours-worked-per-week",
-                      when_does_your_leave_year_start?: "2021-01-01"
+        add_responses regular_or_irregular_hours?: "regular",
+                      basis_of_calculation?: "hours-worked-per-week",
+                      when_does_your_leave_year_start?: "2021-01-01",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2021-10-01"
         assert_next_node :how_many_hours_per_week?
       end
 
-      should "have a next node of :irregular_and_annualised_done for people with annualised hours" do
-        add_responses basis_of_calculation?: "annualised-hours",
-                      when_does_your_leave_year_start?: "2021-01-01"
-        assert_next_node :irregular_and_annualised_done
+      should "have a next node of :annualised_done for people with annualised hours" do
+        add_responses regular_or_irregular_hours?: "regular",
+                      basis_of_calculation?: "annualised-hours",
+                      when_does_your_leave_year_start?: "2021-01-01",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2021-10-01"
+        assert_next_node :annualised_done
       end
 
       should "have a next node of :shift_worker? for shift workers" do
-        add_responses basis_of_calculation?: "shift-worker",
+        add_responses regular_or_irregular_hours?: "regular",
+                      basis_of_calculation?: "shift-worker",
                       shift_worker_basis?: "starting-and-leaving",
                       what_is_your_starting_date?: "2021-01-01",
                       what_is_your_leaving_date?: "2021-10-01",
-                      when_does_your_leave_year_start?: "2021-03-01"
+                      when_does_your_leave_year_start?: "2021-03-01",
+                      calculation_period?: "leaving"
         assert_next_node :shift_worker_hours_per_shift?
+      end
+    end
+  end
+
+  context "question :hours_in_pay_period?" do
+    setup do
+      testing_node :hours_in_pay_period?
+      add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                    when_does_your_leave_year_start?: "2024-04-01"
+    end
+
+    should "render question" do
+      assert_rendered_question
+    end
+
+    context "validation" do
+      should "be invalid for hours below 1" do
+        assert_invalid_response "0"
+      end
+    end
+
+    context "next_node" do
+      should "have a next node of irregular_hours_and_part_year_done outcome" do
+        add_responses hours_in_pay_period?: "5"
+        assert_next_node :irregular_hours_and_part_year_done
       end
     end
   end

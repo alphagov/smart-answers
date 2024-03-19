@@ -12,12 +12,14 @@ module SmartAnswer::Calculators
     DAYS_PER_WEEK = 7.to_d
     DAYS_PER_LEAP_YEAR = 366.to_d
     STANDARD_WORKING_DAYS_PER_WEEK = 5.to_d
+    PERCENT_OF_HOURS_ENTITLED_TO = (12.07 / 100).to_f
 
     attr_accessor :calculation_basis,
                   :holiday_period,
                   :leave_year_start_date,
                   :hours_per_shift,
-                  :regular_or_irregular_hours
+                  :regular_or_irregular_hours,
+                  :hours_in_pay_period
 
     attr_reader :hours_per_week,
                 :start_date,
@@ -180,6 +182,10 @@ module SmartAnswer::Calculators
 
     def shifts_per_week
       (shifts_per_shift_pattern / days_per_shift_pattern * DAYS_PER_WEEK).round(10)
+    end
+
+    def irregular_hours_entitlement
+      (hours_in_pay_period.to_f * PERCENT_OF_HOURS_ENTITLED_TO).round
     end
 
   private
