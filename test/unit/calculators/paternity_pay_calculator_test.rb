@@ -68,14 +68,14 @@ module SmartAnswer::Calculators
             calculator = PaternityPayCalculator.new(@due_date)
             calculator.date_of_birth = Date.parse("4 April 2024")
 
-            assert_equal "31-05-2024", calculator.paternity_deadline
+            assert_equal Date.parse("31-05-2024"), calculator.paternity_deadline
           end
 
           should "give paternity deadline based on actual birth date when baby is born late" do
             calculator = PaternityPayCalculator.new(@due_date)
             calculator.date_of_birth = Date.parse("8 April 2024")
 
-            assert_equal "02-06-2024", calculator.paternity_deadline
+            assert_equal Date.parse("02-06-2024"), calculator.paternity_deadline
           end
         end
 
@@ -88,14 +88,14 @@ module SmartAnswer::Calculators
             calculator = PaternityPayCalculator.new(@due_date)
             calculator.date_of_birth = Date.parse("4 April 2024")
 
-            assert_equal "06-04-2025", calculator.paternity_deadline
+            assert_equal Date.parse("06-04-2025"), calculator.paternity_deadline
           end
 
           should "give paternity deadline based on actual birth date when baby is born late" do
             calculator = PaternityPayCalculator.new(@due_date)
             calculator.date_of_birth = Date.parse("8 April 2024")
 
-            assert_equal "07-04-2025", calculator.paternity_deadline
+            assert_equal Date.parse("07-04-2025"), calculator.paternity_deadline
           end
         end
       end

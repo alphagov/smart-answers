@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
             calculator = PaternityAdoptionPayCalculator.new(match_date)
             calculator.adoption_placement_date = @placement_date
 
-            assert_equal "30-05-2024", calculator.paternity_deadline
+            assert_equal Date.parse("30-05-2024"), calculator.paternity_deadline
           end
         end
 
@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
             calculator = PaternityAdoptionPayCalculator.new(match_date)
             calculator.adoption_placement_date = @placement_date
 
-            assert_equal "05-04-2025", calculator.paternity_deadline
+            assert_equal Date.parse("05-04-2025"), calculator.paternity_deadline
           end
         end
       end

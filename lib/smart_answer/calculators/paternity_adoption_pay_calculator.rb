@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
                         else
                           364.days
                         end
-      (adoption_placement_date + deadline_period).strftime("%d-%m-%Y")
+      adoption_placement_date + deadline_period
     end
 
     def relevant_week

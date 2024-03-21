@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
                           364.days
                         end
       start_date = [date_of_birth, due_date].max
-      (start_date + deadline_period).strftime("%d-%m-%Y")
+      start_date + deadline_period
     end
 
   private
