@@ -694,7 +694,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     end
 
     context "when an employee is entitled to pay" do
-      should "render when the eligiblity is for statutory adoption pay" do
+      should "render when the eligibility is for statutory adoption pay" do
         add_responses @maternity_adoption_responses
 
         assert_rendered_outcome text: "The employee is entitled to SAP"
