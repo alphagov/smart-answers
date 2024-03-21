@@ -20,7 +20,12 @@ module SmartAnswer::Calculators
     end
 
     def paternity_deadline
-      (adoption_placement_date + 55.days).strftime("%d-%m-%Y")
+      deadline_period = if adoption_placement_date < Date.new(2024, 4, 6)
+                          55.days
+                        else
+                          364.days
+                        end
+      (adoption_placement_date + deadline_period).strftime("%d-%m-%Y")
     end
 
     def relevant_week

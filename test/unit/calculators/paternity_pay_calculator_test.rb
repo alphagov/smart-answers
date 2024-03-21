@@ -59,22 +59,44 @@ module SmartAnswer::Calculators
       end
 
       context "#paternity_deadline" do
-        should "give paternity deadline based on due date when baby is born prematurely" do
-          due_date = Date.parse("10 February 2021")
-          birth_date = Date.parse("8 February 2021")
-          calculator = PaternityPayCalculator.new(due_date)
-          calculator.date_of_birth = birth_date
+        context "deadline is 55 days ahead" do
+          setup do
+            @due_date = Date.parse("6 April 2024")
+          end
 
-          assert_equal "06-04-2021", calculator.paternity_deadline
+          should "give paternity deadline based on due date when baby is born prematurely" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("4 April 2024")
+
+            assert_equal "31-05-2024", calculator.paternity_deadline
+          end
+
+          should "give paternity deadline based on actual birth date when baby is born late" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("8 April 2024")
+
+            assert_equal "02-06-2024", calculator.paternity_deadline
+          end
         end
 
-        should "give paternity deadline based on actual birth date when baby is born late" do
-          due_date = Date.parse("8 February 2021")
-          birth_date = Date.parse("10 February 2021")
-          calculator = PaternityPayCalculator.new(due_date)
-          calculator.date_of_birth = birth_date
+        context "deadline is 364 days ahead" do
+          setup do
+            @due_date = Date.parse("7 April 2024")
+          end
 
-          assert_equal "06-04-2021", calculator.paternity_deadline
+          should "give paternity deadline based on due date when baby is born prematurely" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("4 April 2024")
+
+            assert_equal "06-04-2025", calculator.paternity_deadline
+          end
+
+          should "give paternity deadline based on actual birth date when baby is born late" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("8 April 2024")
+
+            assert_equal "07-04-2025", calculator.paternity_deadline
+          end
         end
       end
     end

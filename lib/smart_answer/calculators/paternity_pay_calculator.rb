@@ -13,8 +13,13 @@ module SmartAnswer::Calculators
     end
 
     def paternity_deadline
+      deadline_period = if due_date <= Date.new(2024, 4, 6)
+                          55.days
+                        else
+                          364.days
+                        end
       start_date = [date_of_birth, due_date].max
-      (start_date + 55.days).strftime("%d-%m-%Y")
+      (start_date + deadline_period).strftime("%d-%m-%Y")
     end
 
   private

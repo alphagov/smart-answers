@@ -4,12 +4,32 @@ module SmartAnswer::Calculators
   class PaternityAdoptionPayCalculatorTest < ActiveSupport::TestCase
     context PaternityAdoptionPayCalculator do
       context "#paternity_deadline" do
-        should "give paternity deadlne based on placement date" do
-          match_date = Date.parse("01 July 2020")
-          placement_date = Date.parse("01 August 2020")
-          calculator = PaternityAdoptionPayCalculator.new(match_date)
-          calculator.adoption_placement_date = placement_date
-          assert_equal "25-09-2020", calculator.paternity_deadline
+        context "deadline is 55 days ahead" do
+          setup do
+            @placement_date = Date.parse("5 April 2024")
+          end
+
+          should "give paternity deadline based on placement date" do
+            match_date = Date.parse("01 March 2024")
+            calculator = PaternityAdoptionPayCalculator.new(match_date)
+            calculator.adoption_placement_date = @placement_date
+
+            assert_equal "30-05-2024", calculator.paternity_deadline
+          end
+        end
+
+        context "deadline is 364 days ahead" do
+          setup do
+            @placement_date = Date.parse("6 April 2024")
+          end
+
+          should "give paternity deadline based on placement date" do
+            match_date = Date.parse("01 March 2024")
+            calculator = PaternityAdoptionPayCalculator.new(match_date)
+            calculator.adoption_placement_date = @placement_date
+
+            assert_equal "05-04-2025", calculator.paternity_deadline
+          end
         end
       end
     end

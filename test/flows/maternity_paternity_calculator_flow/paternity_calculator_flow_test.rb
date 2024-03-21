@@ -288,6 +288,15 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
       assert_rendered_question
     end
 
+    context "due date is after 6 April 2024" do
+      setup do
+        add_responses paternity_responses(up_to: :employee_start_paternity?, due_date: "2024-04-07")
+      end
+      should "render the updated paternity deadline" do
+        assert_rendered_question text: "The last day of leave the employee will be eligible for statutory paternity pay is 06-04-2025"
+      end
+    end
+
     context "next_node" do
       should "have a next node of paternity_not_entitled_to_leave_or_pay when the employee has contract " \
              "paternity and is not on on payroll" do
