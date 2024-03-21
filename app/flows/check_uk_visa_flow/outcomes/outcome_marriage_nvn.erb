@@ -5,6 +5,10 @@
 <% govspeak_for :body do %>
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
+  <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
+    <%= render partial: "electronic_travel_authorisation_advice" %>
+  <% end %>
+
   <% if calculator.passport_country_in_british_national_overseas_list? %>
     If you want to live in the UK permanently, you can apply for a [British National Overseas (BNO) visa](/guidance/hong-kong-british-national-overseas-visa-applications/).
 
