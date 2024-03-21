@@ -14,6 +14,19 @@ GIT
       sprockets-rails
       terser
 
+GIT
+  remote: https://github.com/alphagov/slimmer.git
+  revision: 93b3bdd0ab07c54c6f95dfedb0e466d1e7328b47
+  branch: update-body-classes-for-govuk-frontend-v5
+  specs:
+    slimmer (18.4.0)
+      json
+      nokogiri (~> 1.7)
+      null_logger
+      plek (>= 1.1.0)
+      rack (>= 3.0)
+      rest-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -645,13 +658,6 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.4.0)
-      json
-      nokogiri (~> 1.7)
-      null_logger
-      plek (>= 1.1.0)
-      rack (>= 3.0)
-      rest-client
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -733,7 +739,7 @@ DEPENDENCIES
   shoulda
   simplecov
   simplecov-rcov
-  slimmer
+  slimmer!
   sprockets-rails
   terser
   tilt
