@@ -1530,10 +1530,10 @@ jake@^10.8.5:
     filelist "^1.0.4"
     minimatch "^3.1.2"
 
-jasmine-browser-runner@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/jasmine-browser-runner/-/jasmine-browser-runner-2.3.0.tgz#8a90e7c3af2e1e779c6d273f5f590b7dea5372c0"
-  integrity sha512-2sXbOxIlSupO0/YQVXGwZ7zO8cy084P+SZouriW9WIiiCuDUcTz5dTwoA4IE4qysTNgM7/O3ESoMzX8myCXoIg==
+jasmine-browser-runner@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jasmine-browser-runner/-/jasmine-browser-runner-2.4.0.tgz#eaa817ccfbed9ad5786b4e7bf1a3517f1c3a952c"
+  integrity sha512-gxNgE9qYcpfkBDH1H3Tqq//rBnt5POq0yoqlM5MwJqSfRK3/xHXCnTp1XMQFz/FuHHo9KUQskJaxzagIPeS65Q==
   dependencies:
     ejs "^3.1.6"
     express "^4.16.4"
