@@ -93,10 +93,26 @@ module SmartAnswer
         assert_equal expected, @calculator.maternity_leave_notice_date
       end
 
-      test "paternity_leave_notice_date" do
-        @calculator.due_date = @due_date
-        expected = Date.parse("2014-09-20")
-        assert_equal expected, @calculator.paternity_leave_notice_date
+      context "paternity_leave_notice_date" do
+        context "due date is on 6 April" do
+          setup do
+            @calculator.due_date = Date.parse("2024-04-06")
+          end
+
+          should "apply paternity leave notice period of 15 weeks" do
+            assert_equal Date.parse("2023-12-23"), @calculator.paternity_leave_notice_date
+          end
+        end
+
+        context "due date is after 6 April" do
+          setup do
+            @calculator.due_date = Date.parse("2024-04-07")
+          end
+
+          should "apply paternity leave notice period of 28 days" do
+            assert_equal Date.parse("2024-03-10"), @calculator.paternity_leave_notice_date
+          end
+        end
       end
 
       context "due date in 2013-2014 range" do

@@ -1,8 +1,11 @@
 ##Paternity leave
 
-The mother’s partner can take up to 2 weeks of [paternity leave](/paternity-pay-leave/leave).
+The mother’s partner can take up to 2 weeks' [paternity leave](/paternity-pay-leave/leave).
 
- | Dates
-- | -
-Paternity leave must be used | within 52 weeks of the birth.
-Tell the partner’s employer | by <%= format_date(calculator.paternity_leave_notice_date) %>
+<% if calculator.due_date >= Date.new(2024, 4, 7) %>
+  Paternity leave must be used within 364 days of <%= format_date(calculator.due_date) %>.
+<% else %>
+  Paternity leave must be used within 56 days of <%= format_date(calculator.due_date) %>.
+<% end %>
+
+Tell the partner’s employer by <%= format_date(calculator.paternity_leave_notice_date) %>.

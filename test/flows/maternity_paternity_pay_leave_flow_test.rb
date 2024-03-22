@@ -4004,4 +4004,50 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Tell the partner’s employer\n      11 September 2021"
     end
   end
+
+  context "outcome: outcome_pat_leave" do
+    setup do
+      testing_node :outcome_pat_leave
+      add_responses two_carers: "yes",
+                    due_date: "2016-1-1",
+                    employment_status_of_mother: "worker",
+                    employment_status_of_partner: "employee",
+                    mother_started_working_before_continuity_start_date: "yes",
+                    mother_still_working_on_continuity_end_date: "no",
+                    mother_earned_more_than_lower_earnings_limit: "no",
+                    mother_worked_at_least_26_weeks: "no",
+                    mother_earned_at_least_390: "yes",
+                    partner_started_working_before_continuity_start_date: "yes",
+                    partner_still_working_on_continuity_end_date: "yes",
+                    partner_earned_more_than_lower_earnings_limit: "no"
+    end
+
+    context "for births on 6 April 2024" do
+      setup do
+        add_responses due_date: "2024-04-6"
+      end
+
+      should "render _pat_leave partial with 56 days leave deadline" do
+        assert_rendered_outcome text: "within 56 days of  6 April 2024"
+      end
+
+      should "render _pat_leave partial with 15 weeks notice period" do
+        assert_rendered_outcome text: "Tell the partner’s employer by 23 December 2023"
+      end
+    end
+
+    context "for births on 7 April 2024" do
+      setup do
+        add_responses due_date: "2024-04-07"
+      end
+
+      should "render _pat_leave partial with 364 days leave deadline" do
+        assert_rendered_outcome text: "within 364 days of  7 April 2024"
+      end
+
+      should "render _pat_leave partial with 28 days notice period" do
+        assert_rendered_outcome text: "Tell the partner’s employer by 10 March 2024"
+      end
+    end
+  end
 end
