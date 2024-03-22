@@ -3,11 +3,6 @@
 <% end %>
 
 <% govspeak_for :body do %>
-
- <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
-    <%= render partial: "electronic_travel_authorisation_advice" %>
-  <% end %>
-
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
   <% if calculator.passport_country_in_british_national_overseas_list? %>
@@ -24,6 +19,10 @@
   + has a Turkish worker or businessperson visa
 
   ##If you want to convert a civil partnership into a marriage
+
+<% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
+    <%= render partial: "electronic_travel_authorisation_advice" %>
+  <% end %>
 
   <% if calculator.passport_country_requires_electronic_travel_authorisation? %>
     You'll need to apply for either:
