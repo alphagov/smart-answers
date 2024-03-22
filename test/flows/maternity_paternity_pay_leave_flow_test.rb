@@ -4001,7 +4001,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     should "render _pat_pay partial paid leave on a saturday" do
       add_responses due_date: "2021-12-25"
-      assert_rendered_outcome text: "Tell the partner’s employer\n      11 September 2021"
+      assert_rendered_outcome text: "Tell the partner’s employer\n      by 11 September 2021"
     end
   end
 
