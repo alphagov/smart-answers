@@ -13,10 +13,6 @@
     [Apply for an (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
   <% end %>
 
-  <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
-    <%= render partial: "electronic_travel_authorisation_advice" %>
-  <% end %>
-
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
     (calculator.passport_country_in_non_visa_national_list? ||
       calculator.passport_country_in_eea? ||
@@ -24,6 +20,10 @@
     not(calculator.passport_country_requires_electronic_travel_authorisation?)%>
 
     However, you should bring evidence of your onward journey to show to officers at the UK border.
+
+<% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
+    <%= render partial: "electronic_travel_authorisation_advice" %>
+  <% end %>
 
     <% if calculator.travelling_to_ireland? %>
       %You may want to [apply for a visa](/browse/visas-immigration/tourist-short-stay-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
