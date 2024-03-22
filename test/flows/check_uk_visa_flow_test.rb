@@ -18,7 +18,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "ADD text here"
+    @eta_text = "If you're travelling to the UK after September 2024"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
