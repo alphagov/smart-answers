@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       start_date + deadline_period
     end
 
+    def leave_must_be_taken_consecutively?
+      due_date <= Date.new(2024, 4, 6)
+    end
+
   private
 
     def rate_for(date)

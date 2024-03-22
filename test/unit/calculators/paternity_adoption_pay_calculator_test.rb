@@ -32,6 +32,22 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#leave_must_be_taken_consecutively?" do
+        should "be false when adoption placement date is 6 April 2024 (or after)" do
+          calculator = PaternityAdoptionPayCalculator.new(Date.parse("1 April 2024"))
+          calculator.adoption_placement_date = Date.parse("6 April 2024")
+
+          assert_equal false, calculator.leave_must_be_taken_consecutively?
+        end
+
+        should "be true when adoption placement date is before 6 April 2024" do
+          calculator = PaternityAdoptionPayCalculator.new(Date.parse("1 April 2024"))
+          calculator.adoption_placement_date = Date.parse("5 April 2024")
+
+          assert_equal true, calculator.leave_must_be_taken_consecutively?
+        end
+      end
     end
   end
 end

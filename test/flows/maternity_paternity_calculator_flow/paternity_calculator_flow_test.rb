@@ -693,6 +693,18 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
                                     "Saturday, 01 April 2023 must be at least £123"
     end
 
+    should "render pre-April 2024 guidance when due date is before 7 April 2024" do
+      add_responses paternity_responses(due_date: "2024-04-06")
+
+      assert_rendered_outcome text: "They can choose to take either 1 week or 2 consecutive weeks’ leave."
+    end
+
+    should "render post-April 2024 guidance when due date is 7 April 2024 (or after)" do
+      add_responses paternity_responses(due_date: "2024-04-07")
+
+      assert_rendered_outcome text: "They can take 2 consecutive or non-consecutive weeks."
+    end
+
     context "when an employee is entitled to pay" do
       should "render when the eligibility is for statutory adoption pay" do
         add_responses @maternity_adoption_responses

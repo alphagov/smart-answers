@@ -13,10 +13,12 @@
     <% else %>
       <%= render partial: 'paternity_entitled_to_leave',
                  locals: {
+                   leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
                    leave_start_date: leave_start_date,
                    leave_end_date: leave_end_date,
                    leave_spp_claim_link: leave_spp_claim_link,
-                   notice_of_leave_deadline: notice_of_leave_deadline
+                   notice_of_leave_deadline: notice_of_leave_deadline,
+                   paternity_deadline: calculator.paternity_deadline,
                  } %>
     <% end %>
   <% end %>

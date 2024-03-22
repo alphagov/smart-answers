@@ -31,5 +31,9 @@ module SmartAnswer::Calculators
     def relevant_week
       @matched_week
     end
+
+    def leave_must_be_taken_consecutively?
+      adoption_placement_date <= Date.new(2024, 4, 5)
+    end
   end
 end

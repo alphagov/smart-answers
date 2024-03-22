@@ -99,6 +99,20 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#leave_must_be_taken_consecutively?" do
+        should "be false when due date is after 6 April 2024" do
+          calculator = PaternityPayCalculator.new(Date.parse("7 April 2024"))
+
+          assert_equal false, calculator.leave_must_be_taken_consecutively?
+        end
+
+        should "be true when due date is 6 April 2024 (or before)" do
+          calculator = PaternityPayCalculator.new(Date.parse("6 April 2024"))
+
+          assert_equal true, calculator.leave_must_be_taken_consecutively?
+        end
+      end
     end
   end
 end
