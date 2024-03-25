@@ -160,6 +160,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def paternity_leave_deadline_date
+      if due_date >= Date.new(2024, 4, 7)
+        due_date + 364.days
+      else
+        due_date + 56.days
+      end
+    end
+
   private
 
     def saturday_before(date)

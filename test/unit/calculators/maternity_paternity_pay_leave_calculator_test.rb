@@ -94,7 +94,7 @@ module SmartAnswer
       end
 
       context "paternity_leave_notice_date" do
-        context "due date is on 6 April" do
+        context "due date is on 6 April 2024" do
           setup do
             @calculator.due_date = Date.parse("2024-04-06")
           end
@@ -104,13 +104,35 @@ module SmartAnswer
           end
         end
 
-        context "due date is after 6 April" do
+        context "due date is after 6 April 2024" do
           setup do
             @calculator.due_date = Date.parse("2024-04-07")
           end
 
           should "apply paternity leave notice period of 28 days" do
             assert_equal Date.parse("2024-03-10"), @calculator.paternity_leave_notice_date
+          end
+        end
+      end
+
+      context "paternity_leave_deadline_date" do
+        context "due date is on or before 6 April 2024" do
+          setup do
+            @calculator.due_date = Date.parse("2024-04-06")
+          end
+
+          should "render a paternity leave deadline date of 56 days after the due date" do
+            assert_equal Date.parse("2024-06-01"), @calculator.paternity_leave_deadline_date
+          end
+        end
+
+        context "due date is after 6 April 2024" do
+          setup do
+            @calculator.due_date = Date.parse("2024-04-07")
+          end
+
+          should "render a paternity leave deadline date of 364 days after the due date" do
+            assert_equal Date.parse("2025-04-06"), @calculator.paternity_leave_deadline_date
           end
         end
       end

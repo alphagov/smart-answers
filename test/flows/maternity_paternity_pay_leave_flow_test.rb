@@ -4028,7 +4028,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       end
 
       should "render _pat_leave partial with 56 days leave deadline" do
-        assert_rendered_outcome text: "within 56 days of  6 April 2024"
+        assert_rendered_outcome text: "Paternity leave must be used by  1 June 2024"
       end
 
       should "render _pat_leave partial with 15 weeks notice period" do
@@ -4042,7 +4042,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       end
 
       should "render _pat_leave partial with 364 days leave deadline" do
-        assert_rendered_outcome text: "within 364 days of  7 April 2024"
+        assert_rendered_outcome text: "Paternity leave must be used by  6 April 2025"
       end
 
       should "render _pat_leave partial with 28 days notice period" do
