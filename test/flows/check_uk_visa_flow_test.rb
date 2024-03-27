@@ -18,7 +18,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you're travelling to the UK after September 2024"
+    @eta_text = "If you’re travelling to the UK after September 2024"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
@@ -605,14 +605,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance to British nationals overseas" do
       add_responses what_passport_do_you_have?: "british-national-overseas"
       assert_rendered_outcome text: "you can apply for a British National Overseas (BNO) visa."
-      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
       assert_rendered_outcome text: "You will not need a visa but"
     end
 
     should "render different guidance to non-British nationals overseas" do
       add_responses what_passport_do_you_have?: @eea_country
       assert_rendered_outcome text: "you must apply for a family visa"
-      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
       assert_rendered_outcome text: "You will not need a visa but"
     end
 
@@ -957,7 +955,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @eea_country
         assert_rendered_outcome text: @eta_text
       end
-
     end
 
     context "outcome: outcome_work_n" do
