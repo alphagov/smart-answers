@@ -20,7 +20,7 @@
 
   ##If you want to convert a civil partnership into a marriage
 
-<% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
+  <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
     <%= render partial: "electronic_travel_authorisation_advice" %>
   <% end %>
 
