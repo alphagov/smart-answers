@@ -18,7 +18,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA)"
+    @eta_text = "ADD text here"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
@@ -938,6 +938,130 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "You may need a visa"
       assert_no_rendered_outcome text: "Whether you need a visa depends"
+    end
+  end
+
+  context "ETA callout box should render on" do
+    context "outcome: outcome_tourism_n" do
+      setup do
+        testing_node :outcome_tourism_n
+        add_responses purpose_of_visit?: "tourism"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_work_n" do
+      setup do
+        testing_node :outcome_work_n
+        add_responses purpose_of_visit?: "work",
+                      staying_for_how_long?: "six_months_or_less"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_study_no_visa_needed" do
+      setup do
+        testing_node :outcome_study_no_visa_needed
+        add_responses purpose_of_visit?: "study",
+                      staying_for_how_long?: "six_months_or_less"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_marriage_nvn" do
+      setup do
+        testing_node :outcome_marriage_nvn
+        add_responses purpose_of_visit?: "marriage"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_school_n" do
+      setup do
+        testing_node :outcome_school_n
+        add_responses purpose_of_visit?: "school"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_medical_n" do
+      setup do
+        testing_node :outcome_medical_n
+        add_responses purpose_of_visit?: "medical"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
+    end
+
+    context "outcome: outcome_no_visa_needed" do
+      setup do
+        testing_node :outcome_no_visa_needed
+        add_responses purpose_of_visit?: "transit",
+                      travelling_to_cta?: "somewhere_else"
+      end
+
+      should "for a non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @eta_text
+      end
+
+      should "for a eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eta_text
+      end
     end
   end
 end
