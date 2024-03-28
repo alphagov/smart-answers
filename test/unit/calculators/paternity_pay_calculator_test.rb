@@ -21,6 +21,20 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#paternity_pay_week_and_pay" do
+        setup do
+          due_date = Date.parse("1 May 2014")
+          @calculator = PaternityPayCalculator.new(due_date)
+          @calculator.leave_start_date = due_date
+          @calculator.pay_method = "weekly_starting"
+          @calculator.stubs(:average_weekly_earnings).returns("125.00")
+        end
+
+        should "produce 2 weeks of pay dates and pay at 90% of wage" do
+          assert_equal "Week 1|£112.50\nWeek 2|£112.50", @calculator.paternity_pay_week_and_pay
+        end
+      end
+
       context "paternity leave duration weekly payment dates" do
         setup do
           due_date = Date.parse("1 October 2015")

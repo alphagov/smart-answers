@@ -26,6 +26,14 @@ module SmartAnswer::Calculators
       due_date <= Date.new(2024, 4, 6)
     end
 
+    def paternity_pay_week_and_pay
+      pay_week = 0
+      lines = paydates_and_pay.map do |date_and_pay|
+        %(Week #{pay_week += 1}|£#{sprintf('%.2f', date_and_pay[:pay])})
+      end
+      lines.join("\n")
+    end
+
   private
 
     def rate_for(date)
