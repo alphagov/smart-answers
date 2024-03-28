@@ -8,9 +8,18 @@ module SmartAnswer
       last_year(rates_file)[:end_date].strftime("%B %Y").to_s
     end
 
+    def this_year_living_wage_min_age(rates_file)
+      this_year(rates_file)[:living_wage_min_age]
+    end
+
+    def this_year(rates_file)
+      data = SmartAnswer::Calculators::RatesQuery.from_file(rates_file)
+      data.current_period
+    end
+
     def last_year(rates_file)
       data = SmartAnswer::Calculators::RatesQuery.from_file(rates_file)
-      data.previous_period(date: SmartAnswer::DateHelper.current_day)
+      data.previous_period
     end
   end
 end

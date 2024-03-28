@@ -13,7 +13,7 @@
   - you’re getting paid the National Living Wage
   - your employer owes you past payments from the previous year because of underpayment
 
-  ^You must be at least 23 years old to get the National Living Wage.^
+  ^You must be at least <%= this_year_living_wage_min_age("minimum_wage") %> years old to get the National Living Wage.^
 
   Check [National Minimum Wage and National Living Wage rates](/national-minimum-wage-rates) before <%= last_year_end_text("minimum_wage") %>.
 <% end %>

@@ -8,28 +8,25 @@ module SmartAnswer::Calculators
                   :accommodation_cost,
                   :job_requirements_charge,
                   :unpaid_additional_hours
-    attr_reader :date
 
     def initialize(params = {})
+      raise ArgumentError, "Missing past_or_current_payment argument" unless params[:past_or_current_payment]
+      raise ArgumentError, "Invalid past_or_current_payment value: #{params[:past_or_current_payment]}" unless %w[past_payment current_payment].include? params[:past_or_current_payment]
+
       @age = params[:age]
-      @date = params[:date] || SmartAnswer::DateHelper.current_day
+      @past_or_current_payment = params[:past_or_current_payment]
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @accommodation_cost = 0
-      @minimum_wage_data = rates_for_date(@date)
+      @minimum_wage_data = rates
       @job_requirements_charge = false
       @unpaid_additional_hours = false
     end
 
-    def date=(date)
-      @date = date
-      @minimum_wage_data = rates_for_date(@date)
-    end
-
     def previous_period_start_date
-      data.previous_period(date:)[:start_date]
+      data.previous_period[:start_date]
     end
 
     def valid_age?(age)
@@ -53,8 +50,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_age_for_living_wage?(age)
-      (age.to_i >= 23 && date >= Date.parse("2021-04-01")) ||
-        age.to_i >= 25
+      living_wage_min_age = @minimum_wage_data[:living_wage_min_age]
+      age.to_i >= living_wage_min_age
     end
 
     def basic_rate
@@ -82,7 +79,7 @@ module SmartAnswer::Calculators
     end
 
     def total_entitlement
-      minimum_hourly_rate * total_hours
+      (minimum_hourly_rate * total_hours).round(2)
     end
 
     def historical_entitlement
@@ -102,19 +99,18 @@ module SmartAnswer::Calculators
       number_of_nights = number_of_nights.to_i
 
       accommodation_cost = if charge > 0 # rubocop:disable Style/NumericPredicate
-                             charged_accomodation_adjustment(charge, number_of_nights)
+                             charged_accommodation_adjustment(charge, number_of_nights)
                            else
                              free_accommodation_adjustment(number_of_nights)
                            end
       @accommodation_cost = (accommodation_cost * weekly_multiplier).round(2)
     end
 
-    def per_hour_minimum_wage(date = @date)
-      data = rates_for_date(date)
+    def per_hour_minimum_wage
       if @is_apprentice
-        data[:apprentice_rate]
+        @minimum_wage_data[:apprentice_rate]
       else
-        rates = data[:minimum_rates]
+        rates = @minimum_wage_data[:minimum_rates]
         rate_data = rates.find do |r|
           @age >= r[:min_age] && @age < r[:max_age]
         end
@@ -123,15 +119,15 @@ module SmartAnswer::Calculators
     end
 
     def free_accommodation_rate
-      @minimum_wage_data.accommodation_rate
+      @minimum_wage_data[:accommodation_rate]
     end
 
     def apprentice_rate
-      @minimum_wage_data.apprentice_rate
+      @minimum_wage_data[:apprentice_rate]
     end
 
     def eligible_for_living_wage?
-      valid_age_for_living_wage?(age) && date >= Date.parse("2016-04-01")
+      valid_age_for_living_wage?(age)
     end
 
     def under_school_leaving_age?
@@ -152,7 +148,7 @@ module SmartAnswer::Calculators
       (free_accommodation_rate * number_of_nights).round(2)
     end
 
-    def charged_accomodation_adjustment(charge, number_of_nights)
+    def charged_accommodation_adjustment(charge, number_of_nights)
       if charge < free_accommodation_rate
         0
       else
@@ -162,8 +158,12 @@ module SmartAnswer::Calculators
 
   private
 
-    def rates_for_date(date = Time.zone.today)
-      data.rates(date)
+    def rates
+      if @past_or_current_payment == "past_payment"
+        data.previous_period
+      elsif @past_or_current_payment == "current_payment"
+        data.current_period
+      end
     end
 
     def data

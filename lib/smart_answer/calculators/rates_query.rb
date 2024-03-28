@@ -13,15 +13,20 @@ module SmartAnswer::Calculators
       @data = rates_data
     end
 
-    def previous_period(date: nil)
-      date ||= SmartAnswer::DateHelper.current_day
+    def previous_period
       previous_period = nil
       data.each do |rates_hash|
-        break if rates_hash[:start_date] <= date && rates_hash[:end_date] >= date
-
-        previous_period = rates_hash
+        previous_period = rates_hash if !previous_period || rates_hash[:start_date] <= previous_period[:start_date]
       end
       previous_period
+    end
+
+    def current_period
+      current_period = nil
+      data.each do |rates_hash|
+        current_period = rates_hash if !current_period || rates_hash[:start_date] > current_period[:start_date]
+      end
+      current_period
     end
 
     def rates(date = nil)
