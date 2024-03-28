@@ -4,14 +4,25 @@
     <% if has_contract == 'no' %>
       <%= render partial: 'paternity_not_entitled_to_leave' %>
     <% elsif has_contract == 'yes' %>
-      <%= render partial: 'paternity_entitled_to_leave',
-                 locals: {
-                   leave_type: calculator.leave_type,
-                   leave_start_date: leave_start_date,
-                   leave_end_date: leave_end_date,
-                   leave_spp_claim_link: leave_spp_claim_link,
-                   notice_of_leave_deadline: notice_of_leave_deadline
-                 } %>
+      <% if calculator.leave_type == "adoption" %>
+        <%= render partial: 'adoption_entitled_to_leave',
+                   locals: {
+                     leave_start_date: leave_start_date,
+                     leave_end_date: leave_end_date,
+                     leave_spp_claim_link: leave_spp_claim_link,
+                     notice_of_leave_deadline: notice_of_leave_deadline,
+                   } %>
+      <% else %>
+        <%= render partial: 'paternity_entitled_to_leave',
+                   locals: {
+                     leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
+                     leave_start_date: leave_start_date,
+                     leave_end_date: leave_end_date,
+                     leave_spp_claim_link: leave_spp_claim_link,
+                     notice_of_leave_deadline: notice_of_leave_deadline,
+                     paternity_deadline: calculator.paternity_deadline,
+                   } %>
+      <% end %>
     <% end %>
 
     <%= render partial: 'paternity_not_entitled_to_pay_intro' %>

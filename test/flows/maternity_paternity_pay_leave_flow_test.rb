@@ -3657,7 +3657,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_mat_allowance" do
+  context "outcome: outcome_mat_allowance, self-employed mother" do
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
@@ -3726,6 +3726,41 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     should "render _mat_allowance partial weekly rate for 2023" do
       add_responses due_date: "2023-1-1"
       assert_rendered_outcome text: "£172.48"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2024" do
+      add_responses due_date: "2024-1-1"
+      assert_rendered_outcome text: "£184.03"
+    end
+  end
+
+  context "outcome: outcome_mat_allowance, employee mother" do
+    setup do
+      testing_node :outcome_mat_allowance
+      add_responses two_carers: "yes",
+                    # due_date: "2016-1-1",
+                    employment_status_of_mother: "employee",
+                    employment_status_of_partner: "self-employed",
+                    mother_started_working_before_continuity_start_date: "yes",
+                    mother_still_working_on_continuity_end_date: "no",
+                    mother_earned_more_than_lower_earnings_limit: "no",
+                    mother_worked_at_least_26_weeks: "yes",
+                    mother_earned_at_least_390: "yes"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2022" do
+      add_responses due_date: "2022-1-1"
+      assert_rendered_outcome text: "£156.66"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2023" do
+      add_responses due_date: "2023-1-1"
+      assert_rendered_outcome text: "£172.48"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2024" do
+      add_responses due_date: "2024-1-1"
+      assert_rendered_outcome text: "£184.03"
     end
   end
 
@@ -3876,6 +3911,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses due_date: "2023-1-1"
       assert_rendered_outcome text: "£172.48 per week"
     end
+
+    should "render _mat_pay partial weekly rate for 2024" do
+      add_responses due_date: "2024-1-1"
+      assert_rendered_outcome text: "£184.03 per week"
+    end
   end
 
   context "outcome: outcome_pat_pay" do
@@ -3949,6 +3989,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "£172.48 per week"
     end
 
+    should "render _pat_pay partial weekly rate for 2024" do
+      add_responses due_date: "2024-1-1"
+      assert_rendered_outcome text: "£184.03 per week"
+    end
+
     should "render _pat_pay partial paid leave is in year 2013" do
       add_responses due_date: "2013-1-1"
       assert_rendered_outcome text: "28 days before they want to start paternity pay"
@@ -3956,7 +4001,53 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     should "render _pat_pay partial paid leave on a saturday" do
       add_responses due_date: "2021-12-25"
-      assert_rendered_outcome text: "Tell the partner’s employer\n      11 September 2021"
+      assert_rendered_outcome text: "Tell the partner’s employer\n      by 11 September 2021"
+    end
+  end
+
+  context "outcome: outcome_pat_leave" do
+    setup do
+      testing_node :outcome_pat_leave
+      add_responses two_carers: "yes",
+                    due_date: "2016-1-1",
+                    employment_status_of_mother: "worker",
+                    employment_status_of_partner: "employee",
+                    mother_started_working_before_continuity_start_date: "yes",
+                    mother_still_working_on_continuity_end_date: "no",
+                    mother_earned_more_than_lower_earnings_limit: "no",
+                    mother_worked_at_least_26_weeks: "no",
+                    mother_earned_at_least_390: "yes",
+                    partner_started_working_before_continuity_start_date: "yes",
+                    partner_still_working_on_continuity_end_date: "yes",
+                    partner_earned_more_than_lower_earnings_limit: "no"
+    end
+
+    context "for births on 6 April 2024" do
+      setup do
+        add_responses due_date: "2024-04-6"
+      end
+
+      should "render _pat_leave partial with 56 days leave deadline" do
+        assert_rendered_outcome text: "Paternity leave must be used by  1 June 2024"
+      end
+
+      should "render _pat_leave partial with 15 weeks notice period" do
+        assert_rendered_outcome text: "Tell the partner’s employer by 23 December 2023"
+      end
+    end
+
+    context "for births on 7 April 2024" do
+      setup do
+        add_responses due_date: "2024-04-07"
+      end
+
+      should "render _pat_leave partial with 364 days leave deadline" do
+        assert_rendered_outcome text: "Paternity leave must be used by  6 April 2025"
+      end
+
+      should "render _pat_leave partial with 28 days notice period" do
+        assert_rendered_outcome text: "Tell the partner’s employer by 10 March 2024"
+      end
     end
   end
 end
