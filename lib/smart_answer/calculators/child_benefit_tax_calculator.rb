@@ -9,9 +9,8 @@ module SmartAnswer::Calculators
                   :part_year_claim_dates,
                   :child_number
 
-    attr_reader :child_benefit_data
+    attr_reader :child_benefit_rates
 
-    NET_INCOME_THRESHOLD = 50_000
     TAX_COMMENCEMENT_DATE = Date.parse("7 Jan 2013") # special case for 2012-13, only weeks from 7th Jan 2013 are taxable
     MAX_CHILDREN = 30
 
@@ -31,17 +30,17 @@ module SmartAnswer::Calculators
 
       @part_year_claim_dates = HashWithIndifferentAccess.new
       @child_number = 1
-      @child_benefit_data = self.class.child_benefit_data
+      @child_benefit_rates = self.class.child_benefit_rates
     end
 
     def self.tax_years
-      child_benefit_data.each_with_object([]) do |(key), tax_year|
+      child_benefit_rates.each_with_object([]) do |(key), tax_year|
         tax_year.unshift(key)
       end
     end
 
-    def self.child_benefit_data
-      @child_benefit_data ||= YAML.load_file(
+    def self.child_benefit_rates
+      @child_benefit_rates ||= YAML.load_file(
         Rails.root.join("config/smart_answers/rates/child_benefit_rates.yml"),
         permitted_classes: [Date, Symbol],
       ).with_indifferent_access
@@ -80,12 +79,21 @@ module SmartAnswer::Calculators
     end
 
     def percent_tax_charge
-      if calculate_adjusted_net_income >= 60_000
+      # the percentage tax charge applies above the lower earnings threshold and the percentage
+      # is relative to the earnings position between the lower and upper thresholds
+      # for every full percent of the difference above the threshold. E.g. If the difference between the upper and lower
+      # thresholds is £1000 then each £10 increment above the lower threshold will be an extra percentage of tax
+      lower_earnings_threshold = child_benefit_rates[tax_year][:lower_earnings_threshold]
+      upper_earnings_threshold = child_benefit_rates[tax_year][:upper_earnings_threshold]
+      difference_between_thresholds = upper_earnings_threshold - lower_earnings_threshold
+      adjusted_net_income = calculate_adjusted_net_income
+
+      if adjusted_net_income < lower_earnings_threshold
+        0
+      elsif adjusted_net_income >= upper_earnings_threshold
         100
-      elsif (59_900..59_999).cover?(calculate_adjusted_net_income)
-        99
       else
-        ((calculate_adjusted_net_income - 50_000) / 100.0).floor
+        (((adjusted_net_income - lower_earnings_threshold) / difference_between_thresholds) * 100.0).floor
       end
     end
 
@@ -121,17 +129,17 @@ module SmartAnswer::Calculators
 
     # Methods only used in results view
     def tax_year_label
-      end_date = child_benefit_data[tax_year][:end_date]
+      end_date = child_benefit_rates[tax_year][:end_date]
       "#{tax_year} to #{end_date.year}"
     end
 
     def sa_register_deadline
-      end_date = child_benefit_data[tax_year][:end_date]
+      end_date = child_benefit_rates[tax_year][:end_date]
       "5 October #{end_date.year}"
     end
 
     def tax_year_incomplete?
-      end_date = child_benefit_data[tax_year][:end_date]
+      end_date = child_benefit_rates[tax_year][:end_date]
       end_date >= Time.zone.today
     end
 
@@ -169,7 +177,7 @@ module SmartAnswer::Calculators
     end
 
     def selected_tax_year
-      child_benefit_data[tax_year]
+      child_benefit_rates[tax_year]
     end
   end
 end

@@ -492,7 +492,7 @@ module SmartAnswer::Calculators
                 end_date: Date.parse("2024-04-03"),
               },
             }
-            assert_equal 638.70, calculator.benefits_claimed_amount.round(2)
+            assert_equal 638.7, calculator.benefits_claimed_amount.round(2)
           end
 
           should "give the total amount for three children, two of which are partial tax years" do
@@ -514,6 +514,77 @@ module SmartAnswer::Calculators
             assert_equal 1740.9, calculator.benefits_claimed_amount.round(2)
           end
         end
+        context "for the tax year 2024" do
+          should "give the total amount received for the full tax year for one child" do
+            assert_equal 1331.2,
+                         ChildBenefitTaxCalculator.new(
+                           tax_year: "2024",
+                           children_count: 1,
+                         ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount received for the full tax year for more than one child" do
+            assert_equal 2212.6,
+                         ChildBenefitTaxCalculator.new(
+                           tax_year: "2024",
+                           children_count: 2,
+                         ).benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2024",
+              children_count: 1,
+              part_year_children_count: 1,
+            )
+            calculator.part_year_claim_dates = {
+              "1" => {
+                start_date: Date.parse("2024-01-06"),
+                end_date: Date.parse("2024-04-05"),
+              },
+            }
+            assert_equal 332.8, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for a partial tax year for more than one child" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2024",
+              children_count: 2,
+              part_year_children_count: 2,
+            )
+
+            calculator.part_year_claim_dates = {
+              "1" => {
+                start_date: Date.parse("2024-11-28"),
+                end_date: Date.parse("2025-04-03"),
+              },
+              "2" => {
+                start_date: Date.parse("2025-01-02"),
+                end_date: Date.parse("2025-04-03"),
+              },
+            }
+            assert_equal 681.15, calculator.benefits_claimed_amount.round(2)
+          end
+
+          should "give the total amount for three children, two of which are partial tax years" do
+            calculator = ChildBenefitTaxCalculator.new(
+              tax_year: "2024",
+              children_count: 3,
+              part_year_children_count: 2,
+            )
+            calculator.part_year_claim_dates = {
+              "1" => {
+                start_date: Date.parse("2024-11-28"),
+                end_date: Date.parse("2025-04-03"),
+              },
+              "2" => {
+                start_date: Date.parse("2025-01-02"),
+                end_date: Date.parse("2025-04-03"),
+              },
+            }
+            assert_equal 1856.65, calculator.benefits_claimed_amount.round(2)
+          end
+        end
       end
 
       context "calculating adjusted net income" do
@@ -528,7 +599,7 @@ module SmartAnswer::Calculators
         end
       end # context "calculating adjusted net income"
 
-      context "calculating percentage tax charge" do
+      context "calculating percentage tax charge pre 2024" do
         should "be 0.0 for an income of 50099" do
           assert_equal 0.0, ChildBenefitTaxCalculator.new(
             income_details: 50_099,
@@ -592,7 +663,73 @@ module SmartAnswer::Calculators
             children_count: 2,
           ).percent_tax_charge
         end
-      end # calculating percentage tax charge"
+      end # calculating percentage tax charge pre 2024"
+
+      context "calculating percentage tax charge 2024" do
+        should "be 0.0 for an income of 60099" do
+          assert_equal 0.0, ChildBenefitTaxCalculator.new(
+            income_details: 60_099,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 1.0 for an income of 60399" do
+          assert_equal 1.0, ChildBenefitTaxCalculator.new(
+            income_details: 60_399,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 2.0 for an income of 60400" do
+          assert_equal 2.0, ChildBenefitTaxCalculator.new(
+            income_details: 60_400,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 40.0 for an income of 68013" do
+          assert_equal 40.0, ChildBenefitTaxCalculator.new(
+            income_details: 68_013,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 40.0 for an income of 68089" do
+          assert_equal 40.0, ChildBenefitTaxCalculator.new(
+            income_details: 68_089,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 99.0 for an income of 79999" do
+          assert_equal 99.0, ChildBenefitTaxCalculator.new(
+            income_details: 79_999,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 100.0 for an income of 80000" do
+          assert_equal 100.0, ChildBenefitTaxCalculator.new(
+            income_details: 80_000,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 100.0 for an income of 80001" do
+          assert_equal 100.0, ChildBenefitTaxCalculator.new(
+            income_details: 80_001,
+            tax_year: "2024",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+      end # calculating percentage tax charge 2024"
 
       context "starting and stopping children" do
         context "for the tax year 2012-2013" do

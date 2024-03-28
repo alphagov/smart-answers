@@ -6,58 +6,89 @@
   end_date: 2013-04-05
   only_child: 20.3
   additional_child: 13.4
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2013":
   start_date: 2013-04-06
   end_date: 2014-04-05
   only_child: 20.3
   additional_child: 13.4
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2014":
   start_date: 2014-04-06
   end_date: 2015-04-05
   only_child: 20.5
   additional_child: 13.55
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2015":
   start_date: 2015-04-06
   end_date: 2016-04-05
   only_child: 20.7
   additional_child: 13.7
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2016":
   start_date: 2016-04-06
   end_date: 2017-04-05
   only_child: 20.7
   additional_child: 13.7
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2017":
   start_date: 2017-04-06
   end_date: 2018-04-05
   only_child: 20.7
   additional_child: 13.7
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2018":
   start_date: 2018-04-06
   end_date: 2019-04-05
   only_child: 20.7
   additional_child: 13.7
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2019":
   start_date: 2019-04-06
   end_date: 2020-04-05
   only_child: 20.7
   additional_child: 13.7
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2020":
   start_date: 2020-04-06
   end_date: 2021-04-05
   only_child: 21.05
   additional_child: 13.95
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2021":
   start_date: 2021-04-06
   end_date: 2022-04-05
   only_child: 21.15
   additional_child: 14.00
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2022":
   start_date: 2022-04-06
   end_date: 2023-04-05
   only_child: 21.80
   additional_child: 14.45
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
 "2023":
   start_date: 2023-04-06
   end_date: 2024-04-05
   only_child: 24.00
   additional_child: 15.90
+  lower_earnings_threshold: 50_000
+  upper_earnings_threshold: 60_000
+"2024":
+  start_date: 2024-04-06
+  end_date: 2025-04-05
+  only_child: 25.60
+  additional_child: 16.95
+  lower_earnings_threshold: 60_000
+  upper_earnings_threshold: 80_000
