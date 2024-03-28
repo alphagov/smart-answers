@@ -335,7 +335,7 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
   context "outcome: results" do
     setup { testing_node :results }
 
-    should "render no tax charge when the net income is below £51,000" do
+    should "render no tax charge when the net income is below £50,100" do
       add_responses how_many_children?: "1",
                     which_tax_year?: "2021",
                     is_part_year_claim?: "no",
@@ -345,7 +345,20 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
                     add_other_allowable_deductions?: "yes",
                     other_allowable_deductions?: "10000"
 
-      assert_rendered_outcome text: "There is no tax charge if your income is below £50,099"
+      assert_rendered_outcome text: "There is no tax charge if your income is below £50,100"
+    end
+
+    should "render no tax charge when the net income is below £60,200 in 2024" do
+      add_responses how_many_children?: "1",
+                    which_tax_year?: "2024",
+                    is_part_year_claim?: "no",
+                    income_details?: "70000",
+                    add_allowable_deductions?: "yes",
+                    allowable_deductions?: "5000",
+                    add_other_allowable_deductions?: "yes",
+                    other_allowable_deductions?: "10000"
+
+      assert_rendered_outcome text: "There is no tax charge if your income is below £60,200"
     end
 
     should "render the tax owed the net income is above £51,000" do

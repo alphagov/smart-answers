@@ -3,7 +3,7 @@
 
   <% if calculator.tax_year == "2024" %>
   ^If you submit a new claim between 6 April 2024 and 8 July 2024, your claim may be backdated by up to 3 months. This calculation result does not include your backdated amount. For any backdated amount before 6 April 2024, you can use the 2023 to 2024 Child Benefit tax calculator to estimate this.^
-<% end %>
+  <% end %>
 
   The child benefit received is <%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>.
 
@@ -16,8 +16,11 @@
 
   ### Tax charge to pay
 
-  <% if calculator.calculate_adjusted_net_income < 50100 %>
-    There is no tax charge if your income is below £50,099.
+  <% difference_between_thresholds = calculator.child_benefit_rates[calculator.tax_year][:upper_earnings_threshold] - calculator.child_benefit_rates[calculator.tax_year][:lower_earnings_threshold] %>
+  <% one_percent_check = calculator.child_benefit_rates[calculator.tax_year][:lower_earnings_threshold] + (difference_between_thresholds / 100) %>
+
+  <% if calculator.calculate_adjusted_net_income < one_percent_check %>
+    There is no tax charge if your income is below <%= number_to_currency one_percent_check, unit: "£", precision: 0 %>.
     Your partner (if you have one) may have to pay the charge if their income is higher than yours.
     Find out more about the [tax charge](/child-benefit-tax-charge).
   <% else %>
