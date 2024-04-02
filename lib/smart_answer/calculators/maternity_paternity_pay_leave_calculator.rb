@@ -15,6 +15,8 @@ module SmartAnswer::Calculators
                   :partner_still_working_on_continuity_end_date,
                   :partner_earned_more_than_lower_earnings_limit
 
+    DATE_TO_APPLY_28_DAY_PATERNITY_LEAVE_NOTICE_PERIOD_FROM = Date.new(2024, 4, 7)
+
     def first_day_in_year(year)
       date = Date.new(year, 4, 1)
       offset = (7 - date.wday) % 7
@@ -148,7 +150,23 @@ module SmartAnswer::Calculators
     def maternity_leave_notice_date
       saturday_before(due_date - 14.weeks)
     end
-    alias_method :paternity_leave_notice_date, :maternity_leave_notice_date
+
+    def paternity_leave_notice_date
+      if due_date >= DATE_TO_APPLY_28_DAY_PATERNITY_LEAVE_NOTICE_PERIOD_FROM
+        due_date - 28.days
+      else
+        # Preserve the previous behaviour
+        maternity_leave_notice_date
+      end
+    end
+
+    def paternity_leave_deadline_date
+      if due_date >= Date.new(2024, 4, 7)
+        due_date + 364.days
+      else
+        due_date + 56.days
+      end
+    end
 
   private
 

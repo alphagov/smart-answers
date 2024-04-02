@@ -2,14 +2,25 @@
   <% if has_contract == "no" %>
     <%= render partial: 'paternity_not_entitled_to_leave' %>
   <% else %>
-    <%= render partial: 'paternity_entitled_to_leave',
-               locals: {
-                 leave_type: calculator.leave_type,
-                 leave_start_date: leave_start_date,
-                 leave_end_date: leave_end_date,
-                 leave_spp_claim_link: leave_spp_claim_link,
-                 notice_of_leave_deadline: notice_of_leave_deadline
-               } %>
+    <% if calculator.leave_type == "adoption" %>
+      <%= render partial: 'adoption_entitled_to_leave',
+                 locals: {
+                   leave_start_date: leave_start_date,
+                   leave_end_date: leave_end_date,
+                   leave_spp_claim_link: leave_spp_claim_link,
+                   notice_of_leave_deadline: notice_of_leave_deadline
+                 } %>
+    <% else %>
+      <%= render partial: 'paternity_entitled_to_leave',
+                 locals: {
+                   leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
+                   leave_start_date: leave_start_date,
+                   leave_end_date: leave_end_date,
+                   leave_spp_claim_link: leave_spp_claim_link,
+                   notice_of_leave_deadline: notice_of_leave_deadline,
+                   paternity_deadline: calculator.paternity_deadline,
+                 } %>
+    <% end %>
   <% end %>
 
   <% unless calculator.above_lower_earning_limit %>
@@ -47,9 +58,9 @@
 
       ## SPP calculation
 
-      Date | SPP amount
+      Week | SPP amount
       -|-
-      <%= calculator.pay_dates_and_pay %>
+      <%= calculator.paternity_pay_week_and_pay %>
        | **Total SPP: <%= format_money(calculator.total_spp) %>**
 
     <% end %>

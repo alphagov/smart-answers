@@ -3,7 +3,7 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class PaternityPayCalculatorTest < ActiveSupport::TestCase
     context PaternityPayCalculator do
-      context "test for paternity pay weekly dates and pay" do
+      context "#paydates_and_pay" do
         setup do
           due_date = Date.parse("1 May 2014")
           @calculator = PaternityPayCalculator.new(due_date)
@@ -18,6 +18,20 @@ module SmartAnswer::Calculators
           assert_equal 112.5, paydates_and_pay.first[:pay]
           assert_equal "2014-05-14", paydates_and_pay.last[:date].to_s
           assert_equal 112.5, paydates_and_pay.last[:pay]
+        end
+      end
+
+      context "#paternity_pay_week_and_pay" do
+        setup do
+          due_date = Date.parse("1 May 2014")
+          @calculator = PaternityPayCalculator.new(due_date)
+          @calculator.leave_start_date = due_date
+          @calculator.pay_method = "weekly_starting"
+          @calculator.stubs(:average_weekly_earnings).returns("125.00")
+        end
+
+        should "produce 2 weeks of pay dates and pay at 90% of wage" do
+          assert_equal "Week 1|£112.50\nWeek 2|£112.50", @calculator.paternity_pay_week_and_pay
         end
       end
 
@@ -53,25 +67,64 @@ module SmartAnswer::Calculators
           calculator.leave_start_date = date
           calculator.pay_method = "last_day_of_the_month"
           calculator.stubs(:average_weekly_earnings).returns(500.00)
+
           assert_equal (calculator.statutory_rate(date) * 2), calculator.paydates_and_pay.first[:pay]
         end
       end
-      context "for premature birth paternity dates" do
-        should "give paternity deadline based on due date" do
-          due_date = Date.parse("10 February 2021")
-          birth_date = Date.parse("8 February 2021")
-          calculator = PaternityPayCalculator.new(due_date)
-          calculator.date_of_birth = birth_date
-          assert_equal "06-04-2021", calculator.paternity_deadline
+
+      context "#paternity_deadline" do
+        context "deadline is 55 days ahead" do
+          setup do
+            @due_date = Date.parse("6 April 2024")
+          end
+
+          should "give paternity deadline based on due date when baby is born prematurely" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("4 April 2024")
+
+            assert_equal Date.parse("31-05-2024"), calculator.paternity_deadline
+          end
+
+          should "give paternity deadline based on actual birth date when baby is born late" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("8 April 2024")
+
+            assert_equal Date.parse("02-06-2024"), calculator.paternity_deadline
+          end
+        end
+
+        context "deadline is 364 days ahead" do
+          setup do
+            @due_date = Date.parse("7 April 2024")
+          end
+
+          should "give paternity deadline based on due date when baby is born prematurely" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("4 April 2024")
+
+            assert_equal Date.parse("06-04-2025"), calculator.paternity_deadline
+          end
+
+          should "give paternity deadline based on actual birth date when baby is born late" do
+            calculator = PaternityPayCalculator.new(@due_date)
+            calculator.date_of_birth = Date.parse("8 April 2024")
+
+            assert_equal Date.parse("07-04-2025"), calculator.paternity_deadline
+          end
         end
       end
-      context "for paternity adoption leave dates" do
-        should "give paternity deadlne based on placement date" do
-          match_date = Date.parse("01 July 2020")
-          placement_date = Date.parse("01 August 2020")
-          calculator = PaternityAdoptionPayCalculator.new(match_date)
-          calculator.adoption_placement_date = placement_date
-          assert_equal "25-09-2020", calculator.paternity_deadline
+
+      context "#leave_must_be_taken_consecutively?" do
+        should "be false when due date is after 6 April 2024" do
+          calculator = PaternityPayCalculator.new(Date.parse("7 April 2024"))
+
+          assert_equal false, calculator.leave_must_be_taken_consecutively?
+        end
+
+        should "be true when due date is 6 April 2024 (or before)" do
+          calculator = PaternityPayCalculator.new(Date.parse("6 April 2024"))
+
+          assert_equal true, calculator.leave_must_be_taken_consecutively?
         end
       end
     end
