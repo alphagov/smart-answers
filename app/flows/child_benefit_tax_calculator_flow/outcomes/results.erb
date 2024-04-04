@@ -2,7 +2,11 @@
 <% govspeak_for :body do %>
 
   <% if calculator.tax_year == "2024" %>
-  ^If you submit a new claim between 6 April 2024 and 8 July 2024, your claim may be backdated by up to 3 months. This calculation result does not include your backdated amount. For any backdated amount before 6 April 2024, you can use the 2023 to 2024 Child Benefit tax calculator to estimate this.^
+    ^If you submit a new claim between 6 April 2024 and 8 July 2024, it may be backdated by up to 3 months. To calculate the amount to be included in your 2024 to 2025 tax return, use the Child Benefit tax calculator for the tax year 2023 to 2024. Add this estimated Child Benefit and tax to your 2024 to 2025 tax year calculator results.^
+  <% end %>
+
+  <% if calculator.tax_year == "2023" %>
+    ^If you’re making a new claim between 6 April 2024 and 8 July 2024 and are calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the estimated Child Benefit and tax to your 2024 to 2025 Child Benefit tax calculation results.^
   <% end %>
 
   The child benefit received is <%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>.

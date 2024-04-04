@@ -400,5 +400,25 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Received between 7 January and 5 April 2013"
     end
+
+    should "render specific guidance when the tax year is 2023-2024" do
+      add_responses how_many_children?: "1",
+                    which_tax_year?: "2023",
+                    is_part_year_claim?: "no",
+                    income_details?: "50000",
+                    add_allowable_deductions?: "no"
+
+      assert_rendered_outcome text: "If you’re making a new claim between 6 April 2024 and 8 July 2024 and are calculating your backdated amount"
+    end
+
+    should "render specific guidance when the tax year is 2024-2025" do
+      add_responses how_many_children?: "1",
+                    which_tax_year?: "2024",
+                    is_part_year_claim?: "no",
+                    income_details?: "50000",
+                    add_allowable_deductions?: "no"
+
+      assert_rendered_outcome text: "If you submit a new claim between 6 April 2024 and 8 July 2024, it may be backdated by up to 3 months"
+    end
   end
 end
