@@ -1,15 +1,13 @@
 <% govspeak_for :body do %>
   $!The statutory holiday entitlement is <%= "#{calculator.holiday_entitlement_hours} #{'hour'.pluralize(calculator.holiday_entitlement_hours)}" %> and <%= "#{calculator.holiday_entitlement_minutes} #{'minute'.pluralize(calculator.holiday_entitlement_minutes)}" %> holiday for the year. Rather than taking a day’s holiday it’s <%= "#{calculator.hours_daily} #{'hour'.pluralize(calculator.hours_daily)}" %> and <%= "#{calculator.minutes_daily} #{'minute'.pluralize(calculator.minutes_daily)}" %> holiday for each day otherwise worked.$!
 
-  <% if calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < (Date.new(2024, 4, 1)) %>
-    <%= render partial: "irregular_hours_leave_before_april_2024" %>
-  <% end %>
-
   <%= render partial: 'your_employer_with_rounding' %>
-
+  
   <% if calculator.holiday_period == "starting" %>
     <%= render partial: "the_user_should_be_aware" %>
   <% end %>
 
   <%= render partial: "guidance_on_calculations" %>
+
+  <%= render partial: "april2024_announcement_for_irregular_hours_or_part_of_the_year" %>
 <% end %>

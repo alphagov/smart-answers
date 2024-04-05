@@ -1,9 +1,11 @@
 <% govspeak_for :body do %>
   The statutory holiday entitlement is <%= calculator.formatted_full_time_part_time_weeks %> weeks holiday.
 
-  <% if calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < (Date.new(2024, 4, 1)) %>
-    <%= render partial: "irregular_hours_leave_before_april_2024" %>
-  <% end %>
+  There are no regulations on how to convert the entitlement into days or hours for workers with irregular hours.
+
+  <%= render partial: "april2024_announcement_for_irregular_hours_or_part_of_the_year" %>
+
+  You may wish to [use the calculator again](/calculate-your-holiday-entitlement/y) and calculate the average days or hours worked each week based on a representative reference period instead.
 
   <%= render partial: 'your_employer_with_rounding' %>
 
