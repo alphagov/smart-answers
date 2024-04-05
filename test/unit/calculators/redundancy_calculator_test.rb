@@ -30,10 +30,10 @@ module SmartAnswer::Calculators
       end
 
       should "have max and rate for the current tax year" do
-        calculator = RedundancyCalculator.redundancy_rates(Time.zone.now)
-        assert calculator.end_date > Time.zone.now, "Config file missing current redundancy rates"
-        assert calculator.rate.is_a?(Numeric)
-        assert calculator.max.present?
+        rate = RedundancyCalculator.redundancy_rates(Time.zone.now)
+        assert rate.end_date >= Time.zone.now.to_date, "Config file missing current redundancy rates"
+        assert rate.rate.is_a?(Numeric)
+        assert rate.max.present?
       end
     end
 
@@ -49,10 +49,10 @@ module SmartAnswer::Calculators
       end
 
       should "have max and rate for the current tax year" do
-        calculator = RedundancyCalculator.northern_ireland_redundancy_rates(Time.zone.now)
-        assert calculator.end_date > Time.zone.now, "Config file missing current NI redundancy rates"
-        assert calculator.rate.is_a?(Numeric)
-        assert calculator.max.present?
+        rate = RedundancyCalculator.northern_ireland_redundancy_rates(Time.zone.now)
+        assert rate.end_date >= Time.zone.now.to_date, "Config file missing current NI redundancy rates"
+        assert rate.rate.is_a?(Numeric)
+        assert rate.max.present?
       end
     end
 
