@@ -19,28 +19,16 @@ module SmartAnswer::Calculators
                   :leave_year_start_date,
                   :hours_per_shift,
                   :regular_or_irregular_hours,
-                  :hours_in_pay_period
+                  :hours_in_pay_period,
+                  :start_date,
+                  :leaving_date
 
     attr_reader :hours_per_week,
-                :start_date,
-                :leaving_date,
                 :working_days_per_week,
                 :shifts_per_shift_pattern,
                 :days_per_shift_pattern
 
-    def initialize
-      @leave_year_start_date = calculate_leave_year_start_date
-    end
-
-    def start_date=(date)
-      @start_date = date
-      @leave_year_start_date = calculate_leave_year_start_date
-    end
-
-    def leaving_date=(date)
-      @leaving_date = date
-      @leave_year_start_date = calculate_leave_year_start_date
-    end
+    def initialize; end
 
     def hours_per_week=(hours)
       @hours_per_week = BigDecimal(hours, 10)
@@ -191,6 +179,8 @@ module SmartAnswer::Calculators
   private
 
     def calculate_leave_year_start_date
+      return leave_year_start_date if leave_year_start_date.present?
+
       worked_partial_year? ? start_date : Time.zone.today
     end
 
@@ -217,11 +207,11 @@ module SmartAnswer::Calculators
     end
 
     def leave_year_range
-      SmartAnswer::YearRange.resetting_on(leave_year_start_date).including(date_calc)
+      SmartAnswer::YearRange.resetting_on(calculate_leave_year_start_date).including(date_calc)
     end
 
     def date_calc
-      return leave_year_start_date if worked_full_year?
+      return calculate_leave_year_start_date if worked_full_year?
 
       return leaving_date if leaving_date
 

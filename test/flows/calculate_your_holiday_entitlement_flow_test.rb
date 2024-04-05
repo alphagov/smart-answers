@@ -327,6 +327,15 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
                       calculation_period?: "leaving"
         assert_next_node :shift_worker_hours_per_shift?
       end
+
+      should "have a next node of :how_many_hours_per_week? for irregular hours with leave start date before 1st April 2024" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-01-01",
+                      basis_of_calculation?: "compressed-hours",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2024-07-05"
+        assert_next_node :how_many_hours_per_week?
+      end
     end
   end
 

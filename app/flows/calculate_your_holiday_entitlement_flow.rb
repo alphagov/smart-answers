@@ -147,7 +147,6 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       end
     end
 
-    # Q6 - Q14 - Q22 - Q31 - Q38
     date_question :when_does_your_leave_year_start? do
       on_response do |response|
         calculator.leave_year_start_date = response
