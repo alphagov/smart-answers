@@ -328,13 +328,40 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
         assert_next_node :shift_worker_hours_per_shift?
       end
 
-      should "have a next node of :how_many_hours_per_week? for irregular hours with leave start date before 1st April 2024" do
+      should "have a next node of :how_many_hours_per_week? for compressed-hours irregular-hours workers" do
         add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
                       when_does_your_leave_year_start?: "2024-01-01",
                       basis_of_calculation?: "compressed-hours",
                       calculation_period?: "leaving",
                       what_is_your_leaving_date?: "2024-07-05"
         assert_next_node :how_many_hours_per_week?
+      end
+
+      should "have a next node of :how_many_hours_per_week? for hours-worked-per-week irregular-hours workers" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-01-01",
+                      basis_of_calculation?: "hours-worked-per-week",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2024-07-05"
+        assert_next_node :how_many_hours_per_week?
+      end
+
+      should "have a next node of :how_many_days_per_week? for days-worked-per-week irregular-hours workers" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-01-01",
+                      basis_of_calculation?: "days-worked-per-week",
+                      calculation_period?: "starting",
+                      what_is_your_starting_date?: "2024-03-01"
+        assert_next_node :how_many_days_per_week?
+      end
+
+      should "have a next node of :annualised_done for annualised-hours irregular-hours workers" do
+        add_responses regular_or_irregular_hours?: "irregular-hours-and-part-year",
+                      when_does_your_leave_year_start?: "2024-01-01",
+                      basis_of_calculation?: "annualised-hours",
+                      calculation_period?: "leaving",
+                      what_is_your_leaving_date?: "2024-07-05"
+        assert_next_node :annualised_done
       end
     end
   end
