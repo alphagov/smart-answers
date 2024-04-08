@@ -8,12 +8,6 @@
   if !title || !url || !url_text || !url_track_action
     raise ArgumentError, "The result card component requires a title, url, url_text and url_track_action"
   end
-
-  ga4_url = url.clone
-
-  if ga4_url.start_with?("https://www.gov.uk")
-    ga4_url = ga4_url.gsub("https://www.gov.uk", "")
-  end
 %>
 <div class="app-c-result-card">
   <%= render "govuk_publishing_components/components/heading", {
@@ -35,6 +29,6 @@
     "track-category": "SmartAnswerClicked",
     "track-action": url_track_action,
     "track-label": url,
-    "ga4-ecommerce-path": ga4_url
+    "ga4-ecommerce-path": url.delete_prefix("https://www.gov.uk")
   } %>
 </div>
