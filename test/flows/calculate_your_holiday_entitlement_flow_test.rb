@@ -317,7 +317,7 @@ class CalculateYourHolidayEntitlementFlowTest < ActiveSupport::TestCase
         assert_next_node :annualised_done
       end
 
-      should "have a next node of :shift_worker? for shift workers" do
+      should "have a next node of :shift_worker_hours_per_shift? for shift workers" do
         add_responses regular_or_irregular_hours?: "regular",
                       basis_of_calculation?: "shift-worker",
                       shift_worker_basis?: "starting-and-leaving",
