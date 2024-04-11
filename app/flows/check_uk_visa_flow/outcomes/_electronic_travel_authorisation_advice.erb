@@ -1,1 +1,5 @@
-^If you’re travelling to the UK after September 2024, you may need an electronic travel authorisation (ETA). You do not need to do anything now. Check what you’ll need again before you travel.
+<% if calculator.passport_country_in_non_visa_national_list? %>
+  ^If you’re travelling to the UK after September 2024, you may need an electronic travel authorisation (ETA). You do not need to do anything now. Check what you’ll need again before you travel.
+<% elsif calculator.passport_country_in_eea? %>
+  ^If you’re travelling to the UK after January 2025, you may need an electronic travel authorisation (ETA). You do not need to do anything now. Check what you’ll need again before you travel.
+<% end %>

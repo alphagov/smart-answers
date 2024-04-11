@@ -3,9 +3,7 @@
 <% end %>
 
 <% govspeak_for :body do %>
-  <% if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_eea?  %>
-    <%= render partial: "electronic_travel_authorisation_advice" %>
-  <% end %>
+  <%= render partial: "electronic_travel_authorisation_advice", locals: {calculator: calculator} %>
 
   You can stay in the UK as a tourist for up to 6 months without a visa, but you must meet the Standard Visitor eligibility requirements.
 
