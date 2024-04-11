@@ -178,8 +178,8 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_schemas (4.7.0)
-      json-schema (>= 2.8, < 4.2)
+    govuk_schemas (5.0.0)
+      json-schema (>= 2.8, < 4.4)
     govuk_test (4.0.2)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -202,7 +202,7 @@ GEM
       rdoc
       reline (>= 0.4.2)
     json (2.7.2)
-    json-schema (4.1.1)
+    json-schema (4.3.0)
       addressable (>= 2.8)
     kramdown (2.4.0)
       rexml
@@ -481,7 +481,7 @@ GEM
       method_source (~> 1.0)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
