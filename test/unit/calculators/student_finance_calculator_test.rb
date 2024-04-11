@@ -8,14 +8,14 @@ module SmartAnswer
           course_start: "2023-2024",
           household_income: 25_000,
           residence: "at-home",
-          course_type: "uk-full-time",
+          course_type: "full-time",
         )
         assert_instance_of StudentFinanceCalculator, calculator
 
         assert_equal "2023-2024", calculator.course_start
         assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
-        assert_equal "uk-full-time", calculator.course_type
+        assert_equal "full-time", calculator.course_type
       end
 
       test "StudentFinanceCalculator instance variables can be changed after initialisation" do
@@ -31,12 +31,12 @@ module SmartAnswer
         calculator.course_start = "2023-2024"
         calculator.household_income = 25_000
         calculator.residence = "at-home"
-        calculator.course_type = "uk-full-time"
+        calculator.course_type = "full-time"
 
         assert_equal "2023-2024", calculator.course_start
         assert_equal 25_000, calculator.household_income
         assert_equal "at-home", calculator.residence
-        assert_equal "uk-full-time", calculator.course_type
+        assert_equal "full-time", calculator.course_type
       end
 
       context "#eligible_for_childcare_grant_one_child?" do
@@ -173,39 +173,29 @@ module SmartAnswer
             course_start: :unused_variable,
             household_income: 15_000,
             residence: :unused_variable,
-            course_type: "uk-full-time",
           )
         end
 
-        should "be £9250 for uk or eu full-time student" do
+        should "be £9250 for full-time student" do
+          @calculator.course_type = "full-time"
           assert_equal 9250, @calculator.tuition_fee_maximum
         end
 
-        should "be £6935 for uk or eu part-time student" do
-          @calculator.course_type = "uk-part-time"
+        should "be £6935 for part-time student" do
+          @calculator.course_type = "part-time"
           assert_equal 6935, @calculator.tuition_fee_maximum
         end
       end
 
       context "maximum tuition fee" do
-        context "for a full time student" do
-          should "be £9250" do
-            calculator = StudentFinanceCalculator.new(
-              household_income: 25_000,
-              residence: :unused_variable,
-              course_type: "uk-full-time",
-            )
-            assert_equal 9250, calculator.tuition_fee_maximum_full_time
-          end
+        should "be £9250 for a full time student" do
+          calculator = StudentFinanceCalculator.new
+          assert_equal 9250, calculator.tuition_fee_maximum_full_time
         end
-        context "for part time student" do
-          should "be £6935" do
-            calculator = StudentFinanceCalculator.new(
-              household_income: 25_000,
-              residence: :unused_variable,
-            )
-            assert_equal 6935, calculator.tuition_fee_maximum_part_time
-          end
+
+        should "be £6935 for part time student" do
+          calculator = StudentFinanceCalculator.new
+          assert_equal 6935, calculator.tuition_fee_maximum_part_time
         end
       end
 
@@ -269,7 +259,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(8_400).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -292,7 +282,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -303,7 +293,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(3_698).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -319,7 +309,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(9_978).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -343,7 +333,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -354,7 +344,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(4_651).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -370,7 +360,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(13_002).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -394,7 +384,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -405,7 +395,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(6_485).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -413,7 +403,7 @@ module SmartAnswer
 
           context "for 2023-2024 part-time students" do
             setup do
-              @course_type = "uk-part-time"
+              @course_type = "part-time"
             end
 
             should "be weighted by course intensity" do
@@ -457,7 +447,6 @@ module SmartAnswer
         context "#reduced_maintenance_loan_for_healthcare" do
           setup do
             @household_income = 25_000
-            @course_type = "uk-full-time"
             @doctor_or_dentist = true
           end
 
@@ -465,7 +454,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -477,7 +465,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -489,7 +476,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -559,7 +545,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(8_610).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -581,7 +567,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -592,7 +578,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(3_790).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -608,7 +594,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(10_227).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -631,7 +617,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -642,7 +628,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(4_767).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -658,7 +644,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 25_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(13_348).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -682,7 +668,7 @@ module SmartAnswer
                   course_start: current_year,
                   household_income:,
                   residence: @residence,
-                  course_type: "uk-full-time",
+                  course_type: "full-time",
                 )
                 assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
               end
@@ -693,7 +679,7 @@ module SmartAnswer
                 course_start: current_year,
                 household_income: 500_000,
                 residence: @residence,
-                course_type: "uk-full-time",
+                course_type: "full-time",
               )
               assert_equal SmartAnswer::Money.new(6_647).to_s, calculator.maintenance_loan_amount.to_s
             end
@@ -701,7 +687,7 @@ module SmartAnswer
 
           context "for 2024-2025 part-time students" do
             setup do
-              @course_type = "uk-part-time"
+              @course_type = "part-time"
             end
 
             should "be weighted by course intensity" do
@@ -745,7 +731,6 @@ module SmartAnswer
         context "#reduced_maintenance_loan_for_healthcare" do
           setup do
             @household_income = 25_000
-            @course_type = "uk-full-time"
             @doctor_or_dentist = true
           end
 
@@ -753,7 +738,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -765,7 +749,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
@@ -777,7 +760,6 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: current_year,
               household_income: @household_income,
-              course_type: @course_type,
               residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
