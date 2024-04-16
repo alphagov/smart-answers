@@ -9,10 +9,3 @@
   #     - /foreign-travel-advice
 
 banners:
-- name: DWP user research banner
-  suggestion_text: Help improve GOV.UK
-  suggestion_link_text: Take part in user research (opens in a new tab)
-  survey_url: https://forms.office.com/e/CkfCRwdLQj
-  page_paths:
-    - /check-benefits-financial-support
-    - /check-benefits-financial-support/y/england/no/yes/sixteen_or_more_per_week/no/no/no/no/over_16000
