@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
                   :partner_still_working_on_continuity_end_date,
                   :partner_earned_more_than_lower_earnings_limit
 
-    DATE_TO_APPLY_28_DAY_PATERNITY_LEAVE_NOTICE_PERIOD_FROM = Date.new(2024, 4, 7)
+    APRIL_2024_PATERNITY_LEAVE_RULES_CHANGE_DATE = "2024-04-07".freeze
 
     def first_day_in_year(year)
       date = Date.new(year, 4, 1)
@@ -152,17 +152,16 @@ module SmartAnswer::Calculators
       saturday_before(due_date - 14.weeks)
     end
 
-    def paternity_leave_notice_date
-      if due_date >= DATE_TO_APPLY_28_DAY_PATERNITY_LEAVE_NOTICE_PERIOD_FROM
+    def give_paternity_leave_notice_by_date
+      if due_date_on_or_after(APRIL_2024_PATERNITY_LEAVE_RULES_CHANGE_DATE) && !mother_partner_living_in_northern_ireland
         due_date - 28.days
       else
-        # Preserve the previous behaviour
         maternity_leave_notice_date
       end
     end
 
-    def paternity_leave_deadline_date
-      if due_date >= Date.new(2024, 4, 7)
+    def take_paternity_leave_by_date
+      if due_date_on_or_after(APRIL_2024_PATERNITY_LEAVE_RULES_CHANGE_DATE) && !mother_partner_living_in_northern_ireland
         due_date + 364.days
       else
         due_date + 56.days
@@ -170,6 +169,14 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def mother_partner_living_in_northern_ireland
+      where_does_the_mother_partner_live == "northern_ireland"
+    end
+
+    def due_date_on_or_after(date)
+      due_date >= Date.parse(date)
+    end
 
     def saturday_before(date)
       (date - date.wday) - 1.day
