@@ -14,7 +14,26 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
       end
 
       next_node do
-        outcome :due_date
+        if calculator.two_carers?
+          question :where_does_the_mother_partner_live
+        else
+          outcome :due_date
+        end
+      end
+    end
+
+    radio :where_does_the_mother_partner_live do
+      option "england"
+      option "scotland"
+      option "wales"
+      option "northern_ireland"
+
+      on_response do |response|
+        calculator.where_does_the_mother_partner_live = response
+      end
+
+      next_node do
+        question :due_date
       end
     end
 

@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :two_carers,
+                  :where_does_the_mother_partner_live,
                   :due_date,
                   :employment_status_of_mother,
                   :employment_status_of_partner,
