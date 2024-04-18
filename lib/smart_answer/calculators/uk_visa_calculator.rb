@@ -336,6 +336,7 @@ module SmartAnswer::Calculators
       colombia
       costa-rica
       curacao
+      federated-states-of-micronesia
       grenada
       guatemala
       guyana
@@ -352,7 +353,6 @@ module SmartAnswer::Calculators
       marshall-islands
       mauritius
       mexico
-      micronesia
       monaco
       nauru
       new-zealand
