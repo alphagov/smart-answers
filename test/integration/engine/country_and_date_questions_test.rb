@@ -15,6 +15,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         croatia
         denmark
         eritrea
+        federated-states-of-micronesia
         france
         ghana
         iceland
@@ -22,7 +23,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         laos
         luxembourg
         malta
-        micronesia
         mozambique
         nicaragua
         panama
