@@ -24,13 +24,13 @@
     data-track-action="Completed"
     data-track-label="<%= @name %>"
     data-track-options='{"nonInteraction": true}'
-    data-ga4-auto='{
+    data-ga4-auto="<%= {
       "event_name": "form_complete",
       "type": "smart answer",
-      "section": "<%= title %>",
+      "section": title,
       "action": "complete",
-      "tool_name": "<%= @presenter.title %>"
-    }'
+      "tool_name": @presenter.title
+    }.to_json %>"
     data-ecommerce-start-index="1"
     data-list-title="<%= @presenter.title %>"
     data-ga4-ecommerce-start-index="1"
@@ -48,13 +48,13 @@
       data-module="gem-track-click ga4-link-tracker"
       data-track-category="Internal Link Clicked"
       data-track-action="<%= @name %> results"
-      data-ga4-link='{
-      "event_name": "information_click",
-      "type": "smart answer",
-      "section": "<%= title %>",
-      "action": "information click",
-      "tool_name": "<%= @presenter.title %>"
-    }'
+      data-ga4-link="<%= {
+        "event_name": "information_click",
+        "type": "smart answer",
+        "section": title,
+        "action": "information click",
+        "tool_name": @presenter.title
+      }.to_json %>"
     data-ga4-track-links-only
     data-ga4-set-indexes
       data-track-links-only

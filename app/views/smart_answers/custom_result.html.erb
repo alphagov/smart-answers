@@ -19,13 +19,13 @@
   <div
     class="govuk-grid-column-two-thirds"
     data-module="ga4-auto-tracker"
-    data-ga4-auto='{
+    data-ga4-auto="<%= {
       "event_name": "form_complete",
       "type": "smart answer",
-      "section": "<%= outcome.title %>",
+      "section": outcome.title,
       "action": "complete",
-      "tool_name": "<%= @presenter.title %>"
-    }'
+      "tool_name": @presenter.title
+    }.to_json %>"
   >
     <%= render "govuk_publishing_components/components/title", {
       title: outcome.title,
