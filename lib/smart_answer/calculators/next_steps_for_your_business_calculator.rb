@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
   class NextStepsForYourBusinessCalculator
     RESULT_DATA = YAML.load_file(Rails.root.join("config/smart_answers/next_steps_for_your_business.yml")).freeze
 
-    attr_accessor :annual_turnover_over_85k,
+    attr_accessor :annual_turnover_over_90k,
                   :employer,
                   :activities,
                   :needs_financial_support,
@@ -44,8 +44,8 @@ module SmartAnswer::Calculators
       r13: ->(_) { true },
       r14: ->(_) { true },
       r15: ->(_) { true },
-      r16: ->(calculator) { calculator.annual_turnover_over_85k == "yes" },
-      r17: ->(calculator) { calculator.annual_turnover_over_85k == "not_sure" },
+      r16: ->(calculator) { calculator.annual_turnover_over_90k == "yes" },
+      r17: ->(calculator) { calculator.annual_turnover_over_90k == "not_sure" },
       r18: ->(calculator) { calculator.employer != "no" },
       r19: ->(calculator) { calculator.needs_financial_support == "yes" },
       r20: ->(calculator) { calculator.needs_financial_support == "yes" },
@@ -56,8 +56,8 @@ module SmartAnswer::Calculators
       r25: ->(calculator) { (calculator.business_premises & %w[rented owned none]).present? },
       r26: ->(calculator) { calculator.activities.include?("import_goods") },
       r27: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
-      r28: ->(calculator) { calculator.annual_turnover_over_85k == "yes" },
-      r29: ->(calculator) { calculator.annual_turnover_over_85k == "no" },
+      r28: ->(calculator) { calculator.annual_turnover_over_90k == "yes" },
+      r29: ->(calculator) { calculator.annual_turnover_over_90k == "no" },
       r30: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
     }.with_indifferent_access.freeze
   end

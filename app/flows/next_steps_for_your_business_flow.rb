@@ -7,16 +7,16 @@ class NextStepsForYourBusinessFlow < SmartAnswer::Flow
     additional_parameters %i[ct crn]
 
     # ======================================================================
-    # Will your business take more than £85,000 in a 12 month period?
+    # Will your business take more than £90,000 in a 12 month period?
     # ======================================================================
-    radio :annual_turnover_over_85k do
+    radio :annual_turnover_over_90k do
       option :yes
       option :no
       option :not_sure
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::NextStepsForYourBusinessCalculator.new
-        calculator.annual_turnover_over_85k = response
+        calculator.annual_turnover_over_90k = response
         calculator.registered_for_corp_tax = (ct == "true")
       end
 
