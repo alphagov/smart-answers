@@ -90,13 +90,13 @@
   group: "Good to know"
 - id: r16
   title: "Register for VAT"
-  description: "You need to register your business for VAT if your business takes more than £85,000 (the 'turnover'), if you have not already."
+  description: "You need to register your business for VAT if your business takes more than £90,000 (the 'turnover'), if you have not already."
   url: "/vat-registration"
   topic: Tax
   group: "Things you need to do next"
 - id: r17
   title: "Check if you'll need to register for VAT"
-  description: "If your business takes more than £85,000 (the 'turnover'), you'll need to register for VAT."
+  description: "If your business takes more than £90,000 (the 'turnover'), you'll need to register for VAT."
   url: "/vat-registration/when-to-register"
   topic: Tax
   group: "Things you need to do next"
