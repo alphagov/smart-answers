@@ -20,9 +20,30 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
+      should "have a next node of where does the mother's partner live for a 'yes' response" do
+        assert_next_node :where_does_the_mother_partner_live, for_response: "yes"
+      end
+
+      should "have a next node of due_date for a 'no' response" do
+        assert_next_node :due_date, for_response: "no"
+      end
+    end
+  end
+
+  context "question: where_does_the_mother_partner_live" do
+    setup do
+      testing_node :where_does_the_mother_partner_live
+      add_responses two_carers: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
       should "have a next node of due_date " \
                "for any response" do
-        assert_next_node :due_date, for_response: "yes"
+        assert_next_node :due_date, for_response: "england"
       end
     end
   end
@@ -30,7 +51,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
   context "question: due_date" do
     setup do
       testing_node :due_date
-      add_responses two_carers: "yes"
+      add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england"
     end
 
     should "render the question" do
@@ -49,6 +71,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :employment_status_of_mother
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1"
     end
 
@@ -87,6 +110,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :employment_status_of_partner
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee"
     end
@@ -162,6 +186,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :mother_earned_more_than_lower_earnings_limit
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "employee",
@@ -177,6 +202,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is an employee" do
@@ -186,6 +212,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is a worker" do
@@ -196,6 +223,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is self-employed" do
@@ -206,6 +234,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is unemployed" do
@@ -284,9 +313,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -298,9 +329,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -312,9 +345,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -326,9 +361,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -340,12 +377,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is unemployed " \
                "and the mother did started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -357,12 +396,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is self-employed " \
                "and the mother did started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -374,11 +415,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is self-employed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -390,11 +433,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is unemployed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -406,11 +451,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is self-employed " \
                "and the mother started working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -422,11 +469,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is unemployed " \
                "and the mother started working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -438,9 +487,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -452,9 +503,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -501,9 +554,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
@@ -512,9 +567,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
@@ -523,9 +580,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -534,9 +593,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is self-employed " \
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "self-employed",
                       employment_status_of_partner: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -605,8 +666,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of mother_earned_at_least_390 " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is unemployed" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "unemployed",
                       employment_status_of_partner: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -618,8 +681,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of mother_earned_at_least_390 " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is a worker" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "worker",
                       employment_status_of_partner: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -634,6 +699,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :mother_earned_at_least_390
       add_responses two_carers: "no",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "unemployed",
                     mother_worked_at_least_26_weeks: "yes"
@@ -647,8 +713,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for any response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_partner: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
@@ -656,8 +724,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of partner_started_working_before_continuity_start_date " \
                "for any response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the partner is an worker" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_partner: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
@@ -665,12 +735,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -682,12 +754,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -699,12 +773,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -716,12 +792,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -733,11 +811,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -749,11 +829,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -765,11 +847,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -781,11 +865,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -797,11 +883,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -813,11 +901,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -829,11 +919,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an self-employed " \
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -845,11 +937,13 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is an employee " \
                "and the partner is an unemployed " \
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "employee",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -861,10 +955,12 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is a worker " \
                "and the partner is self-employed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "worker",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -877,10 +973,12 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is unemployed " \
                "and the partner is self-employed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "unemployed",
                       employment_status_of_partner: "self-employed",
                       mother_worked_at_least_26_weeks: "yes"
@@ -890,10 +988,12 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is unemployed " \
                "and the partner is unemployed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "unemployed",
                       employment_status_of_partner: "unemployed",
                       mother_worked_at_least_26_weeks: "yes"
@@ -903,9 +1003,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is a worker " \
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "worker",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -918,9 +1020,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is a worker " \
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "worker",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -933,9 +1037,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is unemployed " \
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "unemployed",
                       employment_status_of_partner: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -948,9 +1054,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_14_weeks " \
                "for a 'yes' response " \
                "when there are two carers " \
+               "and the partner is from England " \
                "and the mother is a unemployed " \
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
+                      where_does_the_mother_partner_live: "england",
                       employment_status_of_mother: "unemployed",
                       employment_status_of_partner: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -1044,6 +1152,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_started_working_before_continuity_start_date
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "employee",
@@ -1070,6 +1179,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_still_working_on_continuity_end_date
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "employee",
@@ -1097,6 +1207,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_earned_more_than_lower_earnings_limit
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "employee",
@@ -1117,6 +1228,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1130,6 +1242,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1144,6 +1257,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1159,6 +1273,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1174,6 +1289,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1190,6 +1306,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1204,6 +1321,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1219,6 +1337,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1234,6 +1353,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1248,6 +1368,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1262,6 +1383,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1276,6 +1398,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1291,6 +1414,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1307,6 +1431,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1323,6 +1448,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1336,6 +1462,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1349,6 +1476,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -1362,6 +1490,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1374,6 +1503,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -1387,6 +1517,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -1399,6 +1530,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1412,6 +1544,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1424,6 +1557,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1439,6 +1573,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1455,6 +1590,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1471,6 +1607,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1486,6 +1623,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1502,6 +1640,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1518,6 +1657,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1532,6 +1672,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1547,6 +1688,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1562,6 +1704,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1578,6 +1721,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1591,6 +1735,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1608,6 +1753,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1625,6 +1771,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1643,6 +1790,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1660,6 +1808,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1677,6 +1826,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -1695,6 +1845,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1707,6 +1858,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -1719,6 +1871,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1732,6 +1885,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -1745,6 +1899,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_leave " \
                "for a 'no' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -1758,6 +1913,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for any response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1771,6 +1927,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for any response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1783,6 +1940,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for any response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1795,6 +1953,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1811,6 +1970,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1826,6 +1986,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1841,6 +2002,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1857,6 +2019,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -1873,6 +2036,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1889,6 +2053,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for any response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is an employee " \
@@ -1906,6 +2071,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -1924,6 +2090,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -1943,6 +2110,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -1962,6 +2130,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -1979,6 +2148,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2000,6 +2170,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2021,6 +2192,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2040,6 +2212,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2060,6 +2233,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2080,6 +2254,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2098,6 +2273,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2118,6 +2294,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2138,6 +2315,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is a worker " \
@@ -2156,6 +2334,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2170,6 +2349,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is self-employed " \
@@ -2184,6 +2364,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2199,6 +2380,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2214,6 +2396,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2230,6 +2413,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is self-employed " \
@@ -2245,6 +2429,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'yes' response " \
                "when the partner is an employee " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not working on the continuity end date " \
                "and the mother is self-employed " \
@@ -2261,6 +2446,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2275,6 +2461,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2290,6 +2477,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2306,6 +2494,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2322,6 +2511,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2339,6 +2529,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2356,6 +2547,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2372,6 +2564,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2388,6 +2581,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2404,6 +2598,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2419,6 +2614,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2434,6 +2630,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2452,6 +2649,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2470,6 +2668,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2486,6 +2685,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2503,6 +2703,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is a worker " \
@@ -2520,6 +2721,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2533,6 +2735,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -2546,6 +2749,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2560,6 +2764,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2574,6 +2779,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_pat_pay " \
                "for a 'yes' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is self-employed " \
@@ -2588,6 +2794,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2602,6 +2809,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2617,6 +2825,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2634,6 +2843,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2651,6 +2861,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2667,6 +2878,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2685,6 +2897,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2704,6 +2917,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2721,6 +2935,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2739,6 +2954,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2757,6 +2973,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is working on the continuity end date " \
                "and the mother is an employee " \
@@ -2776,6 +2993,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2791,6 +3009,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2809,6 +3028,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2827,6 +3047,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2843,6 +3064,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2862,6 +3084,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2881,6 +3104,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -2901,6 +3125,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2916,6 +3141,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2932,6 +3158,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2948,6 +3175,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -2965,6 +3193,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -2980,6 +3209,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an employee " \
@@ -2995,6 +3225,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3011,6 +3242,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3025,6 +3257,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner started working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3039,6 +3272,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3054,6 +3288,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is employee " \
@@ -3071,6 +3306,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is employee " \
@@ -3089,6 +3325,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is employee " \
@@ -3107,6 +3344,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_leave " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is employee " \
@@ -3126,6 +3364,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3143,6 +3382,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3161,6 +3401,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3179,6 +3420,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an employee " \
@@ -3198,6 +3440,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_pay " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3214,6 +3457,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3234,6 +3478,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3254,6 +3499,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3275,6 +3521,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3293,6 +3540,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3314,6 +3562,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3335,6 +3584,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3357,6 +3607,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3378,6 +3629,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3399,6 +3651,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3421,6 +3674,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3443,6 +3697,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3465,6 +3720,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3488,6 +3744,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3507,6 +3764,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3526,6 +3784,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is an worker " \
@@ -3546,6 +3805,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -3561,6 +3821,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_mat_allowance " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is self-employed " \
@@ -3576,6 +3837,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -3592,6 +3854,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -3608,6 +3871,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is unemployed " \
@@ -3625,6 +3889,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is self-employed " \
@@ -3641,6 +3906,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of outcome_birth_nothing " \
                "for a 'no' response " \
                "when the partner is a worker " \
+               "and the partner is from England " \
                "and the partner did not start working before the continuity start date " \
                "and the partner is not still working on the continuity end date " \
                "and the mother is self-employed " \
@@ -3661,6 +3927,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "self-employed",
                     employment_status_of_partner: "self-employed",
@@ -3738,6 +4005,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     # due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "self-employed",
@@ -3768,6 +4036,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance_14_weeks
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "unemployed",
                     employment_status_of_partner: "self-employed",
@@ -3787,6 +4056,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance_mat_leave
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "self-employed",
@@ -3806,6 +4076,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_leave
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "self-employed",
@@ -3824,6 +4095,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_leave_mat_pay
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "self-employed",
@@ -3841,6 +4113,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_pay
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "worker",
                     employment_status_of_partner: "employee",
@@ -3922,6 +4195,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_pat_pay
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "employee",
                     employment_status_of_partner: "worker",
@@ -4009,6 +4283,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_pat_leave
       add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
                     employment_status_of_mother: "worker",
                     employment_status_of_partner: "employee",

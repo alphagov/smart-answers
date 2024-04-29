@@ -55,11 +55,12 @@ module FlowTestHelper
     end
   end
 
-  def assert_rendered_start_page
+  def assert_rendered_start_page(text = nil)
     start_node_presenter = StartNodePresenter.new(test_flow.flow.start_node, nil, test_flow.state)
 
     assert_not_empty start_node_presenter.title, "Expected the start page to have a title"
     assert_not_empty start_node_presenter.body, "Expected the start page to have a body"
+    assert_match text, start_node_presenter.body if text
   end
 
   def assert_rendered_question(text: nil)

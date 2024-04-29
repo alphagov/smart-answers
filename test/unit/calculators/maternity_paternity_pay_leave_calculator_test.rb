@@ -93,14 +93,14 @@ module SmartAnswer
         assert_equal expected, @calculator.maternity_leave_notice_date
       end
 
-      context "paternity_leave_notice_date" do
+      context "give_paternity_leave_notice_by_date" do
         context "due date is on 6 April 2024" do
           setup do
             @calculator.due_date = Date.parse("2024-04-06")
           end
 
           should "apply paternity leave notice period of 15 weeks" do
-            assert_equal Date.parse("2023-12-23"), @calculator.paternity_leave_notice_date
+            assert_equal Date.parse("2023-12-23"), @calculator.give_paternity_leave_notice_by_date
           end
         end
 
@@ -110,19 +110,19 @@ module SmartAnswer
           end
 
           should "apply paternity leave notice period of 28 days" do
-            assert_equal Date.parse("2024-03-10"), @calculator.paternity_leave_notice_date
+            assert_equal Date.parse("2024-03-10"), @calculator.give_paternity_leave_notice_by_date
           end
         end
       end
 
-      context "paternity_leave_deadline_date" do
+      context "take_paternity_leave_by_date" do
         context "due date is on or before 6 April 2024" do
           setup do
             @calculator.due_date = Date.parse("2024-04-06")
           end
 
           should "render a paternity leave deadline date of 56 days after the due date" do
-            assert_equal Date.parse("2024-06-01"), @calculator.paternity_leave_deadline_date
+            assert_equal Date.parse("2024-06-01"), @calculator.take_paternity_leave_by_date
           end
         end
 
@@ -132,7 +132,7 @@ module SmartAnswer
           end
 
           should "render a paternity leave deadline date of 364 days after the due date" do
-            assert_equal Date.parse("2025-04-06"), @calculator.paternity_leave_deadline_date
+            assert_equal Date.parse("2025-04-06"), @calculator.take_paternity_leave_by_date
           end
         end
       end
@@ -254,6 +254,22 @@ module SmartAnswer
 
         should "return the more recent lower_earnings_amount" do
           assert_equal 116, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "mother's partner lives in Northern Ireland" do
+        setup do
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.where_does_the_mother_partner_live = "northern_ireland"
+          @calculator.due_date = Date.parse("2024-04-15")
+        end
+
+        should "returns take paternity leave by 56 days after due date" do
+          assert_equal Date.parse("2024-06-10"), @calculator.take_paternity_leave_by_date
+        end
+
+        should "returns give notice by 105 days before due date" do
+          assert_equal Date.parse("2024-01-06"), @calculator.give_paternity_leave_notice_by_date
         end
       end
     end
