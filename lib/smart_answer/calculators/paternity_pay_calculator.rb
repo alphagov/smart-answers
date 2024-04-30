@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class PaternityPayCalculator < MaternityPayCalculator
-    attr_accessor :paternity_leave_duration
+    attr_accessor :paternity_leave_duration, :where_does_the_employee_live
 
     def initialize(due_date, leave_type = "paternity")
       super(due_date, leave_type)
@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
     end
 
     def paternity_deadline
-      deadline_period = if due_date <= Date.new(2024, 4, 6)
+      deadline_period = if employee_lives_in_northern_ireland? || due_date <= Date.new(2024, 4, 6)
                           55.days
                         else
                           364.days
@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def leave_must_be_taken_consecutively?
-      due_date <= Date.new(2024, 4, 6)
+      employee_lives_in_northern_ireland? || due_date <= Date.new(2024, 4, 6)
     end
 
     def paternity_pay_week_and_pay
@@ -35,6 +35,10 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def employee_lives_in_northern_ireland?
+      where_does_the_employee_live == "northern_ireland"
+    end
 
     def rate_for(date)
       awe = (average_weekly_earnings.to_f * 0.9).round(2)

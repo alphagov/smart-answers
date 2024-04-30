@@ -79,16 +79,40 @@ module SmartAnswer::Calculators
             @calculator = PaternityPayCalculator.new(due_date)
           end
 
-          should "set the paternity deadline to 55 days after the due date when the baby is born prematurely" do
-            @calculator.date_of_birth = Date.parse("4 April 2024")
+          context "employee lives in England/Scotland/Wales" do
+            setup do
+              @calculator.where_does_the_employee_live = "england"
+            end
 
-            assert_equal Date.parse("31-05-2024"), @calculator.paternity_deadline
+            should "set the paternity deadline to 55 days after the due date when the baby is born prematurely" do
+              @calculator.date_of_birth = Date.parse("4 April 2024")
+
+              assert_equal Date.parse("31-05-2024"), @calculator.paternity_deadline
+            end
+
+            should "set the paternity deadline to 55 days after the birth date when the baby is born late" do
+              @calculator.date_of_birth = Date.parse("8 April 2024")
+
+              assert_equal Date.parse("02-06-2024"), @calculator.paternity_deadline
+            end
           end
 
-          should "set the paternity deadline to 55 days after the birth date when the baby is born late" do
-            @calculator.date_of_birth = Date.parse("8 April 2024")
+          context "employee lives in Northern Ireland" do
+            setup do
+              @calculator.where_does_the_employee_live = "northern_ireland"
+            end
 
-            assert_equal Date.parse("02-06-2024"), @calculator.paternity_deadline
+            should "set the paternity deadline to 55 days after the due date when the baby is born prematurely" do
+              @calculator.date_of_birth = Date.parse("4 April 2024")
+
+              assert_equal Date.parse("31-05-2024"), @calculator.paternity_deadline
+            end
+
+            should "set the paternity deadline to 55 days after the birth date when the baby is born late" do
+              @calculator.date_of_birth = Date.parse("8 April 2024")
+
+              assert_equal Date.parse("02-06-2024"), @calculator.paternity_deadline
+            end
           end
         end
 
@@ -98,31 +122,83 @@ module SmartAnswer::Calculators
             @calculator = PaternityPayCalculator.new(due_date)
           end
 
-          should "set the paternity deadline to 364 days after the due date when the baby is born prematurely" do
-            @calculator.date_of_birth = Date.parse("4 April 2024")
+          context "employee lives in England/Scotland/Wales" do
+            setup do
+              @calculator.where_does_the_employee_live = "england"
+            end
 
-            assert_equal Date.parse("06-04-2025"), @calculator.paternity_deadline
+            should "set the paternity deadline to 364 days after the due date when the baby is born prematurely" do
+              @calculator.date_of_birth = Date.parse("4 April 2024")
+
+              assert_equal Date.parse("06-04-2025"), @calculator.paternity_deadline
+            end
+
+            should "set the paternity to 364 days after the birth date when the baby is born late" do
+              @calculator.date_of_birth = Date.parse("8 April 2024")
+
+              assert_equal Date.parse("07-04-2025"), @calculator.paternity_deadline
+            end
           end
 
-          should "set the paternity to 364 days after the birth date when the baby is born late" do
-            @calculator.date_of_birth = Date.parse("8 April 2024")
+          context "employee lives in Northern Ireland" do
+            setup do
+              @calculator.where_does_the_employee_live = "northern_ireland"
+            end
 
-            assert_equal Date.parse("07-04-2025"), @calculator.paternity_deadline
+            should "set the paternity deadline to 55 days after the due date when the baby is born prematurely" do
+              @calculator.date_of_birth = Date.parse("4 April 2024")
+
+              assert_equal Date.parse("01-06-2024"), @calculator.paternity_deadline
+            end
+
+            should "set the paternity deadline to 55 days after the birth date when the baby is born late" do
+              @calculator.date_of_birth = Date.parse("8 April 2024")
+
+              assert_equal Date.parse("02-06-2024"), @calculator.paternity_deadline
+            end
           end
         end
       end
 
       context "#leave_must_be_taken_consecutively?" do
-        should "be false when due date is after 6 April 2024" do
-          calculator = PaternityPayCalculator.new(Date.parse("7 April 2024"))
+        context "employee lives in England/Scotland/Wales" do
+          setup do
+            @employee_location = "england"
+          end
 
-          assert_equal false, calculator.leave_must_be_taken_consecutively?
+          should "be false when due date is after 6 April 2024" do
+            calculator = PaternityPayCalculator.new(Date.parse("7 April 2024"))
+            calculator.where_does_the_employee_live = @employee_location
+
+            assert_equal false, calculator.leave_must_be_taken_consecutively?
+          end
+
+          should "be true when due date is 6 April 2024 (or before)" do
+            calculator = PaternityPayCalculator.new(Date.parse("6 April 2024"))
+            calculator.where_does_the_employee_live = @employee_location
+
+            assert_equal true, calculator.leave_must_be_taken_consecutively?
+          end
         end
 
-        should "be true when due date is 6 April 2024 (or before)" do
-          calculator = PaternityPayCalculator.new(Date.parse("6 April 2024"))
+        context "employee lives in Northern Ireland" do
+          setup do
+            @employee_location = "northern_ireland"
+          end
 
-          assert_equal true, calculator.leave_must_be_taken_consecutively?
+          should "be true when due date is after 6 April 2024" do
+            calculator = PaternityPayCalculator.new(Date.parse("7 April 2024"))
+            calculator.where_does_the_employee_live = @employee_location
+
+            assert_equal true, calculator.leave_must_be_taken_consecutively?
+          end
+
+          should "be true when due date is 6 April 2024 (or before)" do
+            calculator = PaternityPayCalculator.new(Date.parse("6 April 2024"))
+            calculator.where_does_the_employee_live = @employee_location
+
+            assert_equal true, calculator.leave_must_be_taken_consecutively?
+          end
         end
       end
     end
