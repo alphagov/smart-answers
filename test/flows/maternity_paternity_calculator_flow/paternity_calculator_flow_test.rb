@@ -328,7 +328,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
       end
 
       should "render the updated paternity deadline" do
-        assert_rendered_question text: "The last day of leave the employee will be eligible for statutory paternity pay is 06-04-2025"
+        assert_rendered_question text: "The last day of leave the employee will be eligible for statutory paternity pay is 06 April 2025"
       end
     end
 
