@@ -19,8 +19,8 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     end
 
     context "next_node" do
-      should "have a next node of employee_date_matched_paternity_adoption? for a 'paternity' response" do
-        assert_next_node :employee_date_matched_paternity_adoption?, for_response: "paternity"
+      should "have a next node of where_does_the_employee_live? for a 'paternity' response" do
+        assert_next_node :where_does_the_employee_live?, for_response: "paternity"
       end
 
       should "have a next node of adoption_is_from_overseas? for a 'maternity' response" do

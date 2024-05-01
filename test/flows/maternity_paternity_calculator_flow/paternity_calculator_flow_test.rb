@@ -8,10 +8,38 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
 
   setup { testing_flow MaternityPaternityCalculatorFlow }
 
+  context "question: where_does_the_employee_live?" do
+    setup do
+      testing_node :where_does_the_employee_live?
+    end
+
+    should "render the question" do
+      add_responses what_type_of_leave?: "paternity"
+
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of leave_or_pay_for_adoption? for any response when employee is taking paternity leave" do
+        add_responses what_type_of_leave?: "paternity"
+
+        assert_next_node :leave_or_pay_for_adoption?, for_response: "scotland"
+      end
+
+      should "have a next node of leave_or_pay_for_adoption? for any response when employee is taking paternity adoption leave" do
+        add_responses what_type_of_leave?: "adoption",
+                      taking_paternity_or_maternity_leave_for_adoption?: "paternity"
+
+        assert_next_node :employee_date_matched_paternity_adoption?, for_response: "scotland"
+      end
+    end
+  end
+
   context "question: leave_or_pay_for_adoption?" do
     setup do
       testing_node :leave_or_pay_for_adoption?
-      add_responses what_type_of_leave?: "paternity"
+      add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales"
     end
 
     should "render the question" do
@@ -33,6 +61,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :baby_due_date_paternity?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "no"
     end
 
@@ -51,6 +80,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :employee_date_matched_paternity_adoption?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "yes"
     end
 
@@ -69,6 +99,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :baby_birth_date_paternity?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "no",
                     baby_due_date_paternity?: "2020-11-01"
     end
@@ -88,6 +119,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :padoption_date_of_adoption_placement?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "yes",
                     employee_date_matched_paternity_adoption?: "2020-11-01"
     end
@@ -107,6 +139,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :employee_responsible_for_upbringing?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "no",
                     baby_due_date_paternity?: "2020-11-01",
                     baby_birth_date_paternity?: "2020-11-01"
@@ -131,6 +164,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     setup do
       testing_node :padoption_employee_responsible_for_upbringing?
       add_responses what_type_of_leave?: "paternity",
+                    where_does_the_employee_live?: "wales",
                     leave_or_pay_for_adoption?: "yes",
                     employee_date_matched_paternity_adoption?: "2020-11-01",
                     padoption_date_of_adoption_placement?: "2020-11-01"
@@ -292,6 +326,7 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
       setup do
         add_responses paternity_responses(up_to: :employee_start_paternity?, due_date: "2024-04-07")
       end
+
       should "render the updated paternity deadline" do
         assert_rendered_question text: "The last day of leave the employee will be eligible for statutory paternity pay is 06-04-2025"
       end

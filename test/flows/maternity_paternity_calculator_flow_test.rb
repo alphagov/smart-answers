@@ -22,8 +22,8 @@ class MaternityPaternityCalculatorFlowTest < ActiveSupport::TestCase
         assert_next_node :baby_due_date_maternity?, for_response: "maternity"
       end
 
-      should "have a next node of leave_or_pay_for_adoption? for a 'paternity' response" do
-        assert_next_node :leave_or_pay_for_adoption?, for_response: "paternity"
+      should "have a next node of where_does_the_employee_live? for a 'paternity' response" do
+        assert_next_node :where_does_the_employee_live?, for_response: "paternity"
       end
 
       should "have a next node of taking_paternity_or_maternity_leave_for_adoption? for a 'adoption' response" do
