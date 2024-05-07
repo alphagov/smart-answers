@@ -119,7 +119,7 @@ GEM
     domain_name (0.6.20240107)
     drb (2.2.1)
     erubi (1.12.0)
-    execjs (2.8.1)
+    execjs (2.9.1)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-multipart (1.0.4)
@@ -644,13 +644,13 @@ GEM
       sprockets (>= 3.0.0)
     statsd-ruby (1.5.0)
     stringio (3.1.0)
+    terser (1.2.2)
+      execjs (>= 0.3.0, < 3)
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     uk_postcode (2.1.8)
     unicode-display_width (2.5.0)
     uri (0.13.0)
@@ -717,8 +717,8 @@ DEPENDENCIES
   simplecov-rcov
   slimmer
   sprockets-rails
+  terser
   tilt
-  uglifier
   uk_postcode
   webmock
 

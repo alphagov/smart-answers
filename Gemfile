@@ -22,8 +22,8 @@ gem "rails-i18n"
 gem "railties"
 gem "slimmer"
 gem "sprockets-rails"
+gem "terser"
 gem "tilt"
-gem "uglifier"
 gem "uk_postcode"
 
 group :development do
