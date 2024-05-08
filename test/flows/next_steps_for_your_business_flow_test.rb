@@ -10,8 +10,8 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
     assert_rendered_start_page
   end
 
-  context "question: annual_turnover_over_85k" do
-    setup { testing_node :annual_turnover_over_85k }
+  context "question: annual_turnover_over_90k" do
+    setup { testing_node :annual_turnover_over_90k }
 
     should "render the question" do
       assert_rendered_question
@@ -27,7 +27,7 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
   context "question: employ_someone" do
     setup do
       testing_node :employ_someone
-      add_responses annual_turnover_over_85k: "yes"
+      add_responses annual_turnover_over_90k: "yes"
     end
 
     should "render the question" do
@@ -44,7 +44,7 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
   context "question: activities" do
     setup do
       testing_node :activities
-      add_responses annual_turnover_over_85k: "yes",
+      add_responses annual_turnover_over_90k: "yes",
                     employ_someone: "yes"
     end
 
@@ -62,7 +62,7 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
   context "question: financial_support" do
     setup do
       testing_node :financial_support
-      add_responses annual_turnover_over_85k: "yes",
+      add_responses annual_turnover_over_90k: "yes",
                     employ_someone: "yes",
                     activities: "import_goods"
     end
@@ -81,7 +81,7 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
   context "question: business_premises" do
     setup do
       testing_node :business_premises
-      add_responses annual_turnover_over_85k: "yes",
+      add_responses annual_turnover_over_90k: "yes",
                     employ_someone: "yes",
                     activities: "import_goods",
                     financial_support: "yes"
@@ -101,7 +101,7 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
   context "outcome: results" do
     setup do
       testing_node :results
-      add_responses annual_turnover_over_85k: "no",
+      add_responses annual_turnover_over_90k: "no",
                     employ_someone: "no",
                     activities: "none",
                     financial_support: "no",
@@ -164,19 +164,19 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Learn how to deal with personal information"
     end
 
-    should "render VAT results if business has annual turnover more than 85k" do
-      add_responses annual_turnover_over_85k: "yes"
+    should "render VAT results if business has annual turnover more than 90" do
+      add_responses annual_turnover_over_90k: "yes"
       assert_rendered_outcome text: "Register for VAT"
       assert_rendered_outcome text: "How and when to charge VAT"
     end
 
     should "render VAT result if business is unsure of annual turnover" do
-      add_responses annual_turnover_over_85k: "not_sure"
+      add_responses annual_turnover_over_90k: "not_sure"
       assert_rendered_outcome text: "Check if you'll need to register for VAT"
     end
 
-    should "render VAT result if business annual turnover is less than 85k" do
-      add_responses annual_turnover_over_85k: "no"
+    should "render VAT result if business annual turnover is less than 90k" do
+      add_responses annual_turnover_over_90k: "no"
       assert_rendered_outcome text: "You can register for VAT if you want to"
     end
 
