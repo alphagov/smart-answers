@@ -29,35 +29,35 @@ module SmartAnswer::Calculators
       end
 
       context "r16" do
-        should "return true when annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "yes"
+        should "return true when annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "yes"
           assert @rules[:r16].call(@calculator)
         end
 
-        should "return false when annual turnover is not over 85k" do
-          @calculator.annual_turnover_over_85k = "no"
+        should "return false when annual turnover is not over 90k" do
+          @calculator.annual_turnover_over_90k = "no"
           assert_not @rules[:r16].call(@calculator)
         end
 
-        should "return false when unsure if annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "not_sure"
+        should "return false when unsure if annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "not_sure"
           assert_not @rules[:r16].call(@calculator)
         end
       end
 
       context "r17" do
-        should "return false when annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "yes"
+        should "return false when annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "yes"
           assert_not @rules[:r17].call(@calculator)
         end
 
-        should "return false when annual turnover is not over 85k" do
-          @calculator.annual_turnover_over_85k = "no"
+        should "return false when annual turnover is not over 90k" do
+          @calculator.annual_turnover_over_90k = "no"
           assert_not @rules[:r17].call(@calculator)
         end
 
-        should "return true when unsure if annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "not_sure"
+        should "return true when unsure if annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "not_sure"
           assert @rules[:r17].call(@calculator)
         end
       end
@@ -223,35 +223,35 @@ module SmartAnswer::Calculators
       end
 
       context "r28" do
-        should "return true when annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "yes"
+        should "return true when annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "yes"
           assert @rules[:r28].call(@calculator)
         end
 
-        should "return false when annual turnover is not over 85k" do
-          @calculator.annual_turnover_over_85k = "no"
+        should "return false when annual turnover is not over 90k" do
+          @calculator.annual_turnover_over_90k = "no"
           assert_not @rules[:r28].call(@calculator)
         end
 
-        should "return false when unsure if annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "not_sure"
+        should "return false when unsure if annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "not_sure"
           assert_not @rules[:r28].call(@calculator)
         end
       end
 
       context "r29" do
-        should "return false when annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "yes"
+        should "return false when annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "yes"
           assert_not @rules[:r29].call(@calculator)
         end
 
-        should "return true when annual turnover is not over 85k" do
-          @calculator.annual_turnover_over_85k = "no"
+        should "return true when annual turnover is not over 90k" do
+          @calculator.annual_turnover_over_90k = "no"
           assert @rules[:r29].call(@calculator)
         end
 
-        should "return false when unsure if annual turnover is over 85k" do
-          @calculator.annual_turnover_over_85k = "not_sure"
+        should "return false when unsure if annual turnover is over 90k" do
+          @calculator.annual_turnover_over_90k = "not_sure"
           assert_not @rules[:r29].call(@calculator)
         end
       end
