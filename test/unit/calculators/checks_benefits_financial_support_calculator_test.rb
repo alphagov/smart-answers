@@ -670,22 +670,36 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#eligible_for_30hrs_free_childcare_3_4yrs?" do
+      context "#eligible_for_free_childcare_when_working_1_under_2_3_4yrs?" do
         context "when eligible" do
           should "be true if working, with child aged 3 to 4" do
             @calculator.are_you_working = "yes"
             @calculator.children_living_with_you = "yes"
             @calculator.age_of_children = "3_to_4"
-            assert @calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+            assert @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+          end
+
+          should "be true if working, with child aged 1 or under" do
+            @calculator.are_you_working = "yes"
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "1_or_under"
+            assert @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+          end
+
+          should "be true if working, with child aged 2" do
+            @calculator.are_you_working = "yes"
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "2"
+            assert @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
           end
         end
 
         context "when ineligible" do
-          should "be false if working, with child not aged 3 to 4" do
+          should "be false if working, with child not aged under 1, 2 or 3 to 4" do
             @calculator.are_you_working = "yes"
             @calculator.children_living_with_you = "yes"
-            @calculator.age_of_children = "1,5_to_7"
-            assert_not @calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+            @calculator.age_of_children = "5_to_7"
+            assert_not @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
           end
 
           should "be false if not working, with child aged 3 to 4" do
@@ -693,7 +707,25 @@ module SmartAnswer::Calculators
               @calculator.are_you_working = working
               @calculator.children_living_with_you = "yes"
               @calculator.age_of_children = "3_to_4"
-              assert_not @calculator.eligible_for_30hrs_free_childcare_3_4yrs?
+              assert_not @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+            end
+          end
+
+          should "be false if not working, with child aged 1 and under" do
+            %w[no no_retired].each do |working|
+              @calculator.are_you_working = working
+              @calculator.children_living_with_you = "yes"
+              @calculator.age_of_children = "1_or_under"
+              assert_not @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+            end
+          end
+
+          should "be false if not working, with child aged 2" do
+            %w[no no_retired].each do |working|
+              @calculator.are_you_working = working
+              @calculator.children_living_with_you = "yes"
+              @calculator.age_of_children = "2"
+              assert_not @calculator.eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
             end
           end
         end

@@ -205,10 +205,12 @@ module SmartAnswer::Calculators
       @children_living_with_you == "yes" && eligible_child_ages?(%w[3_to_4])
     end
 
-    def eligible_for_30hrs_free_childcare_3_4yrs?
+    def eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+      age_groups = %w[1_or_under 2 3_to_4]
+
       @are_you_working == "yes" &&
         @children_living_with_you == "yes" &&
-        eligible_child_ages?(%w[3_to_4])
+        eligible_child_ages?(age_groups)
     end
 
     def eligible_for_funded_early_learning_and_childcare?

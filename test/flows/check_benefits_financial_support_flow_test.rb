@@ -625,13 +625,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
-    should "render 30 hours of free childcare when eligible" do
-      add_responses where_do_you_live: "england",
-                    children_living_with_you: "yes",
-                    age_of_children: "3_to_4"
+    should "render free childcare if you’re working when eligible" do
+      %w[1_or_under,2,3_to_4].each do |age|
+        add_responses where_do_you_live: "england",
+                      children_living_with_you: "yes",
+                      age_of_children: age
 
-      assert_rendered_outcome text: "30 hours of free childcare"
-      assert_rendered_outcome text: "Check if you’re eligible for 30 hours free childcare"
+        assert_rendered_outcome text: "Free childcare if you’re working"
+        assert_rendered_outcome text: "Check if you’re eligible for free childcare if you're working"
+      end
     end
 
     should "render Winter Fuel Payment" do
