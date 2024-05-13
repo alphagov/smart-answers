@@ -202,7 +202,7 @@
       title: 15 hours of free childcare for 3 and 4-year-olds
       description: <p>You can get 570 hours of free childcare per year with an approved childcare provider if your child is 3 or 4 years old and has not started school full-time.</p>
       condition: eligible_for_15hrs_free_childcare_3_4yr_olds?
-      url: /help-with-childcare-costs/free-childcare-and-education-for-2-to-4-year-olds
+      url: /help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds
       url_text: Find out how to get free childcare for 3 and 4-year-olds
       group: Help with childcare costs
       countries:
@@ -217,11 +217,11 @@
       countries:
         - scotland
     - name: 30hrs_free_childcare_3_4yrs_england
-      title: 30 hours of free childcare
-      description: <p>You may be able to get 30 hours of free childcare with an approved childcare provider if you’re working and your child is 3 or 4 years old and has not started school full-time.</p>
-      condition: eligible_for_30hrs_free_childcare_3_4yrs?
-      url: /30-hours-free-childcare
-      url_text: Check if you’re eligible for 30 hours free childcare
+      title: Free childcare if you’re working
+      description: <p>You may be able to get free childcare with an approved childcare provider if you’re working and your child is between 9 months and 4 years old (and has not started school full-time).</p>
+      condition: eligible_for_free_childcare_when_working_1_under_2_3_4yrs?
+      url: /check-eligible-free-childcare-if-youre-working
+      url_text: Check if you’re eligible for free childcare if you're working
       group: Help with childcare costs
       countries:
         - england
