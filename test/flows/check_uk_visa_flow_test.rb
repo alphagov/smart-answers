@@ -18,8 +18,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @non_visa_national_eta_text = "If you’re travelling to the UK after September 2024"
-    @eea_eta_text = "If you’re travelling to the UK after January 2025"
+    @non_visa_national_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
+    @eea_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
