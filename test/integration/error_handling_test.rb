@@ -37,7 +37,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
     should "set response status code to 503" do
       get "/test"
-      assert_response 503
+      assert_response :service_unavailable
     end
   end
 
@@ -48,7 +48,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
     should "set response status code to 404" do
       get "/test"
-      assert_response 404
+      assert_response :not_found
     end
   end
 
@@ -59,7 +59,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
     should "set response status code to 403" do
       get "/test"
-      assert_response 403
+      assert_response :forbidden
     end
   end
 
@@ -70,7 +70,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
     should "set response status code to 503" do
       get "/test"
-      assert_response 503
+      assert_response :service_unavailable
     end
   end
 
@@ -81,7 +81,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
     should "set response status code to 404" do
       get "/test"
-      assert_response 404
+      assert_response :not_found
     end
   end
 end
