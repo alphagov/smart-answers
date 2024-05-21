@@ -32,6 +32,7 @@ module MaternityPaternityCalculatorFlowTestHelper
     payday_eight_weeks = payday_eight_weeks ? Date.parse(payday_eight_weeks) : due_date - 6.months
 
     responses = { what_type_of_leave?: "paternity",
+                  where_does_the_employee_live?: "wales",
                   leave_or_pay_for_adoption?: "no",
                   baby_due_date_paternity?: due_date.to_s,
                   baby_birth_date_paternity?: due_date.to_s,
@@ -102,6 +103,7 @@ module MaternityPaternityCalculatorFlowTestHelper
     payday_eight_weeks = payday_eight_weeks ? Date.parse(payday_eight_weeks) : placement_date - 6.months
 
     responses = { what_type_of_leave?: "paternity",
+                  where_does_the_employee_live?: "wales",
                   leave_or_pay_for_adoption?: "yes",
                   employee_date_matched_paternity_adoption?: match_date.to_s,
                   padoption_date_of_adoption_placement?: placement_date.to_s,

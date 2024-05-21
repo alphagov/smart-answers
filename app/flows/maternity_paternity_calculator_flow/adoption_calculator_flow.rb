@@ -8,7 +8,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         next_node do |response|
           case response
           when "paternity"
-            question :employee_date_matched_paternity_adoption?
+            question :where_does_the_employee_live?
           when "maternity"
             question :adoption_is_from_overseas?
           end

@@ -27,7 +27,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         when "maternity"
           question :baby_due_date_maternity?
         when "paternity"
-          question :leave_or_pay_for_adoption?
+          question :where_does_the_employee_live?
         when "adoption"
           question :taking_paternity_or_maternity_leave_for_adoption?
         end

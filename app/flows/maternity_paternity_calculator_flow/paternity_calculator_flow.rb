@@ -3,7 +3,28 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
     def define
       days_of_the_week = SmartAnswer::Calculators::MaternityPayCalculator::DAYS_OF_THE_WEEK
 
-      ## QP0
+      ## QP1
+      radio :where_does_the_employee_live? do
+        option "england"
+        option "scotland"
+        option "wales"
+        option "northern_ireland"
+
+        on_response do |response|
+          self.where_does_the_employee_live = response
+        end
+
+        next_node do
+          case leave_type
+          when "paternity"
+            question :leave_or_pay_for_adoption?
+          when "adoption"
+            question :employee_date_matched_paternity_adoption?
+          end
+        end
+      end
+
+      ## QP2
       radio :leave_or_pay_for_adoption? do
         option :yes
         option :no
@@ -18,11 +39,12 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP1
+      ## QP3
       date_question :baby_due_date_paternity? do
         on_response do |response|
           self.due_date = response
           self.calculator = SmartAnswer::Calculators::PaternityPayCalculator.new(due_date)
+          calculator.where_does_the_employee_live = where_does_the_employee_live
         end
 
         next_node do
@@ -30,13 +52,14 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QAP1 - Paternity Adoption
+      ## QAP3 - Paternity Adoption
       date_question :employee_date_matched_paternity_adoption? do
         on_response do |response|
           self.matched_date = response
           self.calculator = SmartAnswer::Calculators::PaternityAdoptionPayCalculator.new(matched_date)
           self.leave_type = "paternity_adoption"
           self.paternity_adoption = true
+          calculator.where_does_the_employee_live = where_does_the_employee_live
         end
 
         next_node do
@@ -44,7 +67,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP2
+      ## QP4
       date_question :baby_birth_date_paternity? do
         on_response do |response|
           self.date_of_birth = response
@@ -56,7 +79,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QAP2 - Paternity Adoption
+      ## QAP4 - Paternity Adoption
       date_question :padoption_date_of_adoption_placement? do
         on_response do |response|
           self.ap_adoption_date = response
@@ -74,7 +97,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP3
+      ## QP5
       radio :employee_responsible_for_upbringing? do
         option :yes
         option :no
@@ -97,7 +120,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QAP3 - Paternity Adoption
+      ## QAP5 - Paternity Adoption
       radio :padoption_employee_responsible_for_upbringing? do
         option :yes
         option :no
@@ -119,7 +142,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP4 - Shared flow onwards
+      ## QP6 - Shared flow onwards
       radio :employee_work_before_employment_start? do
         option :yes
         option :no
@@ -138,7 +161,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP5
+      ## QP7
       radio :employee_has_contract_paternity? do
         option :yes
         option :no
@@ -152,7 +175,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP6
+      ## QP8
       radio :employee_on_payroll_paternity? do
         option :yes
         option :no
@@ -186,7 +209,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP7
+      ## QP9
       radio :employee_still_employed_on_birth_date? do
         option :yes
         option :no
@@ -204,7 +227,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP8
+      ## QP10
       date_question :employee_start_paternity? do
         on_response do |response|
           self.employee_leave_start = response
@@ -226,7 +249,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP9
+      ## QP11
       radio :employee_paternity_length? do
         option :one_week
         option :two_weeks
@@ -246,7 +269,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP10
+      ## QP12
       date_question :last_normal_payday_paternity? do
         on_response do |response|
           calculator.last_payday = response
@@ -261,7 +284,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP11
+      ## QP13
       date_question :payday_eight_weeks_paternity? do
         on_response do |response|
           calculator.pre_offset_payday = response + 1.day
@@ -278,7 +301,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP12
+      ## QP14
       radio :pay_frequency_paternity? do
         option :weekly
         option :every_2_weeks
@@ -294,7 +317,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP13
+      ## QP15
       money_question :earnings_for_pay_period_paternity? do
         on_response do |response|
           self.earnings = response
@@ -316,7 +339,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP14
+      ## QP16
       radio :how_do_you_want_the_spp_calculated? do
         option :weekly_starting
         option :usual_paydates
@@ -336,7 +359,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP15 - Also shared with adoption calculator here onwards
+      ## QP17 - Also shared with adoption calculator here onwards
       date_question :next_pay_day_paternity? do
         on_response do |response|
           self.next_pay_day = response
@@ -348,7 +371,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP16
+      ## QP18
       radio :monthly_pay_paternity? do
         option :first_day_of_the_month
         option :last_day_of_the_month
@@ -376,7 +399,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP17
+      ## QP19
       value_question :specific_date_each_month_paternity?, parse: :to_i do
         on_response do |response|
           calculator.pay_day_in_month = response
@@ -395,7 +418,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP18
+      ## QP20
       checkbox_question :days_of_the_week_paternity? do
         (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
@@ -413,7 +436,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP19
+      ## QP21
       radio :day_of_the_month_paternity? do
         option :"0"
         option :"1"
@@ -433,7 +456,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
       end
 
-      ## QP20
+      ## QP22
       radio :pay_date_options_paternity? do
         option :first
         option :second

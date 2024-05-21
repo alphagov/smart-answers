@@ -5,7 +5,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       # This question is being used in:
       # QM8 in MaternityCalculatorFlow
-      # QP13 in PaternityCalculatorFlow
+      # QP16 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_weekly? do
         payment_options[:weekly].each_key do |payment_option|
@@ -30,7 +30,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       # This question is being used in:
       # QM8 in MaternityCalculatorFlow
-      # QP13 in PaternityCalculatorFlow
+      # QP16 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_every_2_weeks? do
         payment_options[:every_2_weeks].each_key do |payment_option|
@@ -55,7 +55,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       # This question is being used in:
       # QM8 in MaternityCalculatorFlow
-      # QP13 in PaternityCalculatorFlow
+      # QP16 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_every_4_weeks? do
         payment_options[:every_4_weeks].each_key do |payment_option|
@@ -80,7 +80,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
       # This question is being used in:
       # QM8 in MaternityCalculatorFlow
-      # QP13 in PaternityCalculatorFlow
+      # QP16 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       radio :how_many_payments_monthly? do
         payment_options[:monthly].each_key do |payment_option|
