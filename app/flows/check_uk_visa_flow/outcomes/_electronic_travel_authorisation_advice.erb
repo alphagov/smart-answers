@@ -1,0 +1,5 @@
+<% if calculator.passport_country_in_non_visa_national_list? %>
+ ^You currently do not need an electronic travel authorisation (ETA) to travel to the UK. Check what you’ll need again before you travel. 
+<% elsif calculator.passport_country_in_eea? %>
+ ^You currently do not need an electronic travel authorisation (ETA) to travel to the UK. Check what you’ll need again before you travel. 
+<% end %>

@@ -3,6 +3,8 @@
 <% end %>
 
 <% govspeak_for :body do %>
+  <%= render partial: "electronic_travel_authorisation_advice", locals: {calculator: calculator} %>
+
   You can stay in the UK as a student for up to 6 months without a visa, but you must meet the Standard Visitor eligibility requirements.
 
   %You may want to [apply for a Standard Visitor visa](/standard-visitor/apply-standard-visitor-visa) if you have a criminal record or you’ve previously been refused entry into the UK.%

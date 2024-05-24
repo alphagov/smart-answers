@@ -3,7 +3,8 @@
 <% end %>
 
 <% govspeak_for :body do %>
- 
+  <%= render partial: "electronic_travel_authorisation_advice", locals: {calculator: calculator} %>
+
   ##What you can and cannot do without a visa
 
   You can come to the UK as a Standard Visitor for up to 6 months without a visa if you’re doing certain activities, such as:

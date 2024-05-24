@@ -18,7 +18,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
-    @eta_text = "If you’re travelling on or after 22 February 2024, you’ll need to apply for an electronic travel authorisation (ETA)"
+    @non_visa_national_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
+    @eea_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
 
     # stub only the countries used in this test for less of a performance impact
     stub_worldwide_api_has_locations(["china",
@@ -605,14 +606,12 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance to British nationals overseas" do
       add_responses what_passport_do_you_have?: "british-national-overseas"
       assert_rendered_outcome text: "you can apply for a British National Overseas (BNO) visa."
-      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
       assert_rendered_outcome text: "You will not need a visa but"
     end
 
     should "render different guidance to non-British nationals overseas" do
       add_responses what_passport_do_you_have?: @eea_country
       assert_rendered_outcome text: "you must apply for a family visa"
-      assert_no_rendered_outcome text: "electronic travel authorisation (ETA)"
       assert_rendered_outcome text: "You will not need a visa but"
     end
 
@@ -938,6 +937,172 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: @electronic_travel_authorisation_country
       assert_no_rendered_outcome text: "You may need a visa"
       assert_no_rendered_outcome text: "Whether you need a visa depends"
+    end
+  end
+
+  context "ETA callout box on" do
+    context "outcome: outcome_tourism_n" do
+      setup do
+        testing_node :outcome_tourism_n
+        add_responses purpose_of_visit?: "tourism"
+      end
+
+      should "not render callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_work_n" do
+      setup do
+        testing_node :outcome_work_n
+        add_responses purpose_of_visit?: "work",
+                      staying_for_how_long?: "six_months_or_less"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_study_no_visa_needed" do
+      setup do
+        testing_node :outcome_study_no_visa_needed
+        add_responses purpose_of_visit?: "study",
+                      staying_for_how_long?: "six_months_or_less"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_marriage_nvn" do
+      setup do
+        testing_node :outcome_marriage_nvn
+        add_responses purpose_of_visit?: "marriage"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_school_n" do
+      setup do
+        testing_node :outcome_school_n
+        add_responses purpose_of_visit?: "school"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_medical_n" do
+      setup do
+        testing_node :outcome_medical_n
+        add_responses purpose_of_visit?: "medical"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
+    end
+
+    context "outcome: outcome_no_visa_needed" do
+      setup do
+        testing_node :outcome_no_visa_needed
+        add_responses purpose_of_visit?: "transit",
+                      travelling_to_cta?: "somewhere_else"
+      end
+
+      should "not render ETA callout box for countries that do not require it" do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_country
+        assert_no_rendered_outcome text: @non_visa_national_eta_text
+        assert_no_rendered_outcome text: @eea_eta_text
+      end
+
+      should "render callout box for non_visa_national_country passport holders" do
+        add_responses what_passport_do_you_have?: @non_visa_national_country
+        assert_rendered_outcome text: @non_visa_national_eta_text
+      end
+
+      should "render callout box for eea_country passport holders" do
+        add_responses what_passport_do_you_have?: @eea_country
+        assert_rendered_outcome text: @eea_eta_text
+      end
     end
   end
 end
