@@ -134,7 +134,7 @@ GEM
       plek (>= 1.9.0)
       rack (>= 2.2.0)
       rest-client (~> 2.0)
-    gds_zendesk (3.6.0)
+    gds_zendesk (3.7.0)
       null_logger (~> 0)
       zendesk_api (>= 1.37, < 4.0)
     globalid (1.2.1)
@@ -242,7 +242,7 @@ GEM
       ruby2_keywords (>= 0.0.5)
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    multipart-post (2.4.0)
+    multipart-post (2.4.1)
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
