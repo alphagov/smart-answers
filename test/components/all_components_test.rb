@@ -47,10 +47,10 @@ class AllComponentsTest < ActionController::TestCase
         assert File.exist?(css_file)
       end
 
-      should "not use `html_safe`", not_applicable: component_name.in?(%w[govspeak]) do
+      should "not use `html_safe`" do
         file = File.read(filename)
 
-        assert_no_match file, "html_safe"
+        assert_no_match "html_safe", file
       end
     end
   end
