@@ -635,7 +635,7 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.5.0)
+    slimmer (18.5.2)
       json
       nokogiri (~> 1.7)
       null_logger
