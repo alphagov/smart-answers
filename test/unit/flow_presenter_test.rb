@@ -148,7 +148,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
     end
     @flow_presenter = FlowPresenter.new(@flow, nil)
     assert_equal(
-      "https://www.prove-eligibility-foreign-government.service.gov.uk/before-you-start/which-country-are-you-getting-married-in",
+      "https://www.prove-eligibility-foreign-government.service.gov.uk/before-you-start",
       @flow_presenter.start_page_link({ "key" => "value" }),
     )
   end
