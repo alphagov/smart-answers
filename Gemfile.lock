@@ -172,7 +172,7 @@ GEM
     govuk_personalisation (0.16.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (39.0.0)
+    govuk_publishing_components (39.1.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -249,7 +249,7 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.12)
+    net-imap (0.4.14)
       date
       net-protocol
     net-pop (0.1.2)
@@ -549,10 +549,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.3.0)
+    rexml (3.3.1)
       strscan
     rinku (2.0.6)
-    rouge (4.2.1)
+    rouge (4.3.0)
     rubocop (1.64.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -610,10 +610,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sentry-rails (5.17.3)
+    sentry-rails (5.18.0)
       railties (>= 5.0)
-      sentry-ruby (~> 5.17.3)
-    sentry-ruby (5.17.3)
+      sentry-ruby (~> 5.18.0)
+    sentry-ruby (5.18.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda (4.0.0)
