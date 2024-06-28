@@ -24,8 +24,8 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
       end
 
-      check("Ham", visible: false)
-      check("Pepperoni", visible: false)
+      check("Ham", visible: false, allow_label_click: true)
+      check("Pepperoni", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
@@ -61,7 +61,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_page_has_content "Are you sure you don't want any toppings?"
 
-      check("Definitely no toppings", visible: false)
+      check("Definitely no toppings", visible: false, allow_label_click: true)
 
       click_on "Continue"
 
@@ -95,11 +95,11 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "toggle options when none option is present" do
       visit "/checkbox-sample/y/none"
 
-      check("Definitely no toppings", visible: false)
-      check("Hmm I'm not sure, ask me again please", visible: false)
+      check("Definitely no toppings", visible: false, allow_label_click: true)
+      check("Hmm I'm not sure, ask me again please", visible: false, allow_label_click: true)
       assert_not page.has_checked_field?("Definitely no toppings")
 
-      check("Definitely no toppings", visible: false)
+      check("Definitely no toppings", visible: false, allow_label_click: true)
       assert_not page.has_checked_field?("Hmm I'm not sure, ask me again please")
       click_on "Continue"
 

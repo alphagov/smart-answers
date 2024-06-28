@@ -101,15 +101,15 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your quest?" }
-      choose("To seek the Holy Grail", visible: false)
+      choose("To seek the Holy Grail", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "Do you want to select any of these?" }
-      choose("Yes", visible: false)
+      choose("Yes", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
-      choose("Blue", visible: false)
+      choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
@@ -123,15 +123,15 @@ class ChangingAnswerTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Bors"
 
       within("#current-question") { assert_page_has_content "What...is your quest?" }
-      choose("To seek the Holy Grail", visible: false)
+      choose("To seek the Holy Grail", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "Do you want to select any of these?" }
-      choose("Yes", visible: false)
+      choose("Yes", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#current-question") { assert_page_has_content "What...is your favorite colour?" }
-      choose("Blue", visible: false)
+      choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
@@ -143,15 +143,15 @@ class ChangingAnswerTest < EngineIntegrationTest
         assert page.has_unchecked_field?("I dunno", visible: false)
       end
 
-      choose("To rescue the princess", visible: false)
+      choose("To rescue the princess", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
 
-      choose("Yes", visible: false)
+      choose("Yes", visible: false, allow_label_click: true)
       click_on "Continue"
 
-      choose("Blue", visible: false)
+      choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within("#result-info") { assert_page_has_content "Right, off you go." }
@@ -163,7 +163,7 @@ class ChangingAnswerTest < EngineIntegrationTest
         assert page.has_unchecked_field?("Red", visible: false)
       end
 
-      choose("Red", visible: false)
+      choose("Red", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/yes/red"
@@ -174,8 +174,8 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       visit "/checkbox-sample/y"
 
-      check("Peppers", visible: false)
-      check("Pepperoni", visible: false)
+      check("Peppers", visible: false, allow_label_click: true)
+      check("Pepperoni", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
@@ -189,7 +189,7 @@ class ChangingAnswerTest < EngineIntegrationTest
         assert page.has_checked_field?("Pepperoni", visible: false)
       end
 
-      check("Ham", visible: false)
+      check("Ham", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"
