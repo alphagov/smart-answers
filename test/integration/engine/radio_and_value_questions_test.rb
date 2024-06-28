@@ -72,7 +72,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
         assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
       end
 
-      choose("To seek the Holy Grail", visible: false)
+      choose("To seek the Holy Grail", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
@@ -108,7 +108,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
         assert_equal %w[Yes No], options
       end
 
-      choose("Yes", visible: false)
+      choose("Yes", visible: false, allow_label_click: true)
       click_on "Continue"
 
       within "#current-question" do
@@ -124,7 +124,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
         assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
       end
 
-      choose("Blue", visible: false)
+      choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/yes/blue"
