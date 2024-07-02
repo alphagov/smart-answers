@@ -1,14 +1,5 @@
 
 <% govspeak_for :body do %>
-
-  <% if calculator.tax_year == "2024" %>
-    ^If you submit a new claim between 6 April 2024 and 8 July 2024, it may be backdated by up to 3 months. To calculate the amount to be included in your 2024 to 2025 tax return, use the Child Benefit tax calculator for the tax year 2023 to 2024. Add this estimated Child Benefit and tax to your 2024 to 2025 tax year calculator results.^
-  <% end %>
-
-  <% if calculator.tax_year == "2023" %>
-    ^If you’re making a new claim between 6 April 2024 and 8 July 2024 and are calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the estimated Child Benefit and tax to your 2024 to 2025 Child Benefit tax calculation results.^
-  <% end %>
-
   The child benefit received is <%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>.
 
   <% if calculator.tax_year == "2012" %>
@@ -17,8 +8,25 @@
 
   Use this figure in your <%= calculator.tax_year_label %> Self Assessment tax return (if you fill one in).
 
+  <% if calculator.tax_year == "2024" %>
+    ##If you submit a new Child Benefit claim between 6 April and 7 July 2024
 
-  ### Tax charge to pay
+    Your claim may be backdated by up to 3 months.
+
+    If you’re submitting a Self Assessment tax return for 2024 to 2025, you’ll need to add the Child Benefit figure from 2023 to 2024 to this year’s figure (<%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>).
+
+    To work out the 2023 to 2024 Child Benefit figure, use the Child Benefit calculator and enter your income for that year. You can ignore the tax charge for 2023 to 2024 if there is one.
+
+    Use the combined figure in your 2024 to 2025 Self Assessment tax return.
+
+    ^If your income from 2023 to 2024 was a lot higher, your 2024 to 2025 tax charge may go up when you add the 2 Child Benefit figures together. If this happens, you can choose to submit separate tax returns for each tax year instead.
+  <% elsif calculator.tax_year == "2023" %>
+    ##If you submit a new Child Benefit claim between 6 April and 7 July 2024
+
+    If you’re calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the Child Benefit amount to your 2024 to 2025 Child Benefit tax calculator result.
+  <% end %>
+
+  ## Tax charge to pay
 
   <% difference_between_thresholds = calculator.child_benefit_rates[calculator.tax_year][:upper_earnings_threshold] - calculator.child_benefit_rates[calculator.tax_year][:lower_earnings_threshold] %>
   <% one_percent_check = calculator.child_benefit_rates[calculator.tax_year][:lower_earnings_threshold] + (difference_between_thresholds / 100) %>
@@ -46,7 +54,7 @@
     [Income Tax helpline](/government/organisations/hm-revenue-customs/contact/income-tax-enquiries-for-individuals-pensioners-and-employees)
     to find out if you have to pay the tax charge.
 
-    ### How and when to pay
+    ## How and when to pay
 
     You need to pay a [tax charge on the Child Benefit](/child-benefit-tax-charge) you’ve claimed.
 
@@ -61,8 +69,7 @@
 
     The person with the highest income pays the tax charge, so use your partner’s income in the calculator if it’s higher than yours.
 
-
-    ### Your Child Benefit
+    ## Your Child Benefit
     You can choose to:
 
     - [stop getting Child Benefit](/child-benefit-tax-charge/stop-child-benefit) - you must pay any tax you owe
@@ -74,5 +81,4 @@
 
     Find out about [stopping or carrying on Child Benefit](/child-benefit-tax-charge).
   <% end %>
-
 <% end %>
