@@ -20,7 +20,7 @@
     <%= form_tag(current_question_path(@presenter),
         :method => :get,
         :data => {
-          module: "track-responses ga4-form-tracker",
+          module: "ga4-form-tracker",
           type: question.partial_template_name,
           ga4_form: ga4_attributes,
           "question-key": question.node_slug,
