@@ -7,7 +7,7 @@ class StartAgainTest < EngineIntegrationTest
     choose "Response 1"
     click_on "Continue"
 
-    assert page.has_css?(".govuk-link[data-module='gem-track-click ga4-link-tracker']")
+    assert page.has_css?(".govuk-link[data-module='ga4-link-tracker']")
     assert page.has_css?(".govuk-link[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"smart answer\",\"section\":\"Question 2 title\",\"action\":\"start again\",\"tool_name\":\"This is a test flow\"}']")
   end
 
@@ -22,7 +22,7 @@ class StartAgainTest < EngineIntegrationTest
 
     assert_page_has_content "Results title"
     assert_current_url "/session-based/results"
-    assert page.has_css?(".govuk-link[data-module='gem-track-click ga4-link-tracker']")
+    assert page.has_css?(".govuk-link[data-module='ga4-link-tracker']")
     assert page.has_css?(".govuk-link[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"smart answer\",\"section\":\"Information based on your answers\",\"action\":\"start again\",\"tool_name\":\"This is a test flow\"}']")
   end
 
@@ -37,12 +37,12 @@ class StartAgainTest < EngineIntegrationTest
 
     assert_page_has_content "Results title"
     assert_current_url "/session-based/results"
-    assert page.has_css?(".govuk-link[data-module='gem-track-click ga4-link-tracker']")
+    assert page.has_css?(".govuk-link[data-module='ga4-link-tracker']")
     assert page.has_css?(".govuk-link[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"smart answer\",\"section\":\"Information based on your answers\",\"action\":\"start again\",\"tool_name\":\"This is a test flow\"}']")
 
     click_on "Change Question 2 title"
 
-    assert page.has_css?(".govuk-link[data-module='gem-track-click ga4-link-tracker']")
+    assert page.has_css?(".govuk-link[data-module='ga4-link-tracker']")
     assert page.has_css?(".govuk-link[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"smart answer\",\"section\":\"Question 2 title\",\"action\":\"start again\",\"tool_name\":\"This is a test flow\"}']")
   end
 end
