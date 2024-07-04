@@ -17,13 +17,7 @@
     <%= link_to (title + " (opens in new tab)" if title.present?), url,
       class: "govuk-link",
       target: "_blank",
-      rel: "noreferrer noopener",
-      data: {
-        module: "gem-track-click",
-        "track-action": "#{group_index}.#{result_index}",
-        "track-category": "SmartAnswerClicked",
-        "track-label": url
-    } %>
+      rel: "noreferrer noopener" %>
   </h4>
   <p class="govuk-body govuk-!-margin-bottom-1">
     <%= description %>

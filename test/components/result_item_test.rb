@@ -65,16 +65,4 @@ class ResultItemTest < ComponentTestCase
     assert_select ".app-c-result-item .govuk-link[href='www.gov.uk']", text: "Result item title (opens in new tab)"
     assert_select ".app-c-result-item .govuk-body", text: "Result item description"
   end
-
-  test "the track action for google analytics is formatted as [group_index.result_index]" do
-    render_component({
-      title: "Result item Title",
-      url: "gov.uk",
-      description: "Result item description",
-      group_index: 100,
-      result_index: 200,
-    })
-
-    assert_select ".app-c-result-item .govuk-link[data-track-action='100.200']", true
-  end
 end
