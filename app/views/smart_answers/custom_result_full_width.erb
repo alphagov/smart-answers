@@ -21,11 +21,7 @@
 <div
   id="result-info"
   class="outcome"
-  data-module="auto-track-event ga4-auto-tracker"
-  data-track-category="Smart Answer"
-  data-track-action="Completed"
-  data-track-label="<%= @name %>"
-  data-track-options='{"nonInteraction": true}'
+  data-module="ga4-auto-tracker"
   data-ga4-auto="<%={
     "event_name": "form_complete",
     "type": "smart answer",
@@ -43,9 +39,7 @@
 
   <div
     data-flow-name="<%= @name %>"
-    data-module="gem-track-click ga4-link-tracker"
-    data-track-category="Internal Link Clicked"
-    data-track-action="<%= @name %> results"
+    data-module="ga4-link-tracker"
     data-ga4-link="<%= {
       "event_name": "information_click",
       "type": "smart answer",
@@ -55,7 +49,6 @@
     }.to_json %>"
     data-ga4-track-links-only
     data-ga4-set-indexes
-    data-track-links-only
   >
     <div class="govuk-!-margin-bottom-6">
       <% if outcome.title.present? %>
