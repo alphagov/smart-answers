@@ -3,10 +3,9 @@
   description ||= nil
   url ||= nil
   url_text ||= nil
-  url_track_action ||= nil
 
-  if !title || !url || !url_text || !url_track_action
-    raise ArgumentError, "The result card component requires a title, url, url_text and url_track_action"
+  if !title || !url || !url_text
+    raise ArgumentError, "The result card component requires a title, url, and url_text"
   end
 %>
 <div class="app-c-result-card">
@@ -26,9 +25,6 @@
   <%= link_to url_text, url,
   class: "govuk-link app-c-result-card__link",
   data: {
-    "track-category": "SmartAnswerClicked",
-    "track-action": url_track_action,
-    "track-label": url,
     "ga4-ecommerce-path": url.delete_prefix("https://www.gov.uk")
   } %>
 </div>
