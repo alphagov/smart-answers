@@ -2,6 +2,20 @@
 
 Retiring a published Smart Answer involves using a [rake task](#removing-the-content-item) to update the content item that represents the Smart Answer flow, and then [removing the code](#remove-smart-answer-code).
 
+## Important considerations about Smart Answers
+
+A smart answer document is a single content item that contains all possible question and answer paths for that item. Because of this, you **can not simply partially retire a Smart Answer flow**, it's an all-or-nothing affair.
+
+There have been cases wherein a small override has had to be put in place when we wished to transition a smart answer over a period of time, rather than a straight replacement. Special care should be considered on how to handle this transition on a case by case basis.
+
+>In an example case, wherein we were transitioning the Married Abroad smart answer flow to a new service handled by FCDO, the goal was to redirect specific smart answer entries to the new service, starting with the immediate jump from the Start page. This was complicated by the need to keep some sections of the existing smart answer available while the transition was ongoing.
+>
+>However, as redirecting a single part of a smart answer is impossible (due to the whole document being a single content item in our data store), we had to [explicitly override](https://github.com/alphagov/smart-answers/pull/6754/files#diff-40a1a603280835cef933a5c28f6a4248fd60cdc468d03988abc687ffcf5f7e7b) the start page link component to link to the new service.
+>
+>Because of how the flows are handled by, effectively, static URLs, the new service could now link back to the existing smart answer while we have effectively redirected most user-accessible ways to access the old system.
+
+Once the transition is complete, the old smart answer can be retired through the steps below, and the override removed.
+
 ## Removing the content item
 
 Before removing a Smart Answer you will need its content_id. This is found in the relevant
@@ -10,7 +24,7 @@ Before removing a Smart Answer you will need its content_id. This is found in th
 For redirecting or replacing a Smart Answer you will also
 need to know the paths of the pages, which are based off the `name` attribute
 of the `app/flows/<\smart-answer>_flow.rb` file. For example, for
-the Marriage Abroad Smart Answer the path is `/marriage-abroad`.
+the Check UK Visa Smart Answer the path is `/check-uk-visa`.
 
 > NOTE: These URLs are usually cached, so you may need to wait 5-10 minutes to see the effect of these rake tasks.
 
@@ -24,11 +38,11 @@ destination, `/random`, you'd run the following rake task:
 bundle exec rake "publishing_api:unpublish_redirect[<content_id>,<base_path>,/random,prefix]"
 ```
 
-Applying this to the [Marriage Abroad](../../app/flows/marriage_abroad_flow.rb)
+Applying this to the [Check UK Visa](../../app/flows/check_uk_visa_flow.rb)
 Smart Answer you'd run the following command:
 
 ```
-bundle exec rake "publishing_api:unpublish_redirect[d0a95767-f6ab-432a-aebc-096e37fb3039,/marriage-abroad,/random,prefix]"
+bundle exec rake "publishing_api:unpublish_redirect[dc1a1744-4089-43b3-b2e3-4e397b6b15b1,/check-uk-visa,/random,prefix]"
 ```
 
 ### Showing users a page to indicate the content is no longer available
