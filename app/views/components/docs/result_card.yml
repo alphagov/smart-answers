@@ -9,10 +9,8 @@ examples:
       description: You may be able to get up to £2,000 a year for each of your children to help with the costs of childcare.
       url: /tax-free-childcare
       url_text: Check if you’re eligible for Tax-Free childcare
-      url_track_action: Cost of living results
   no_description:
     data:
       title: Tax-Free childcare
       url: /tax-free-childcare
       url_text: Check if you’re eligible for Tax-Free childcare
-      url_track_action: Cost of living results

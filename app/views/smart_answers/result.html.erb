@@ -19,11 +19,7 @@
   <div
     id="result-info"
     class="govuk-grid-column-two-thirds outcome"
-    data-module="auto-track-event ga4-auto-tracker ga4-smart-answer-results-tracker"
-    data-track-category="Smart Answer"
-    data-track-action="Completed"
-    data-track-label="<%= @name %>"
-    data-track-options='{"nonInteraction": true}'
+    data-module="ga4-auto-tracker ga4-smart-answer-results-tracker"
     data-ga4-auto="<%= {
       "event_name": "form_complete",
       "type": "smart answer",
@@ -31,8 +27,6 @@
       "action": "complete",
       "tool_name": @presenter.title
     }.to_json %>"
-    data-ecommerce-start-index="1"
-    data-list-title="<%= @presenter.title %>"
     data-ga4-ecommerce-start-index="1"
     data-ga4-list-title="<%= @presenter.title %>"
   >
@@ -45,9 +39,7 @@
 
     <div
       data-flow-name="<%= @name %>"
-      data-module="gem-track-click ga4-link-tracker"
-      data-track-category="Internal Link Clicked"
-      data-track-action="<%= @name %> results"
+      data-module="ga4-link-tracker"
       data-ga4-link="<%= {
         "event_name": "information_click",
         "type": "smart answer",
@@ -57,7 +49,6 @@
       }.to_json %>"
     data-ga4-track-links-only
     data-ga4-set-indexes
-      data-track-links-only
     >
       <div class="govuk-!-margin-bottom-6">
         <% if outcome.title.present? %>

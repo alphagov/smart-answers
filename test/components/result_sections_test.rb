@@ -80,16 +80,4 @@ class ResultSectionsTest < ComponentTestCase
       assert_select ".app-c-result-item.app-c-result-item--highlighted", true
     end
   end
-
-  test "result_index is incremented for the google analytics track action" do
-    render_component({
-      topics: TOPICS,
-    })
-
-    assert_select ".app-c-result-sections" do
-      assert_select ".app-c-result-sections__section:nth-child(1)" do
-        assert_select ".app-c-result-item:nth-child(3) .govuk-link[data-track-action='1.2']"
-      end
-    end
-  end
 end

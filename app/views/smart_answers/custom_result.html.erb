@@ -46,13 +46,7 @@
     <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
       <%= link_to "Answer the questions again to change the results",
         restart_flow_path(@presenter),
-        class: "govuk-link",
-        data: {
-          module: "gem-track-click",
-          "track-action": "Answer the questions again to change the results",
-          "track-category": "StartAgain",
-          "track-label": @presenter.current_node.title
-        } %>
+        class: "govuk-link" %>
     <% end %>
 
     <%= render 'govuk_publishing_components/components/print_link' %>

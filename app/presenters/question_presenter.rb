@@ -78,14 +78,6 @@ class QuestionPresenter < NodePresenter
     value
   end
 
-  def change_link_track_label(value)
-    if redacted?
-      "#{title} / [FILTERED]"
-    else
-      "#{title} / #{response_label(value)}"
-    end
-  end
-
   def partial_template_name
     "#{@node.class.name.demodulize.underscore}_question"
   end

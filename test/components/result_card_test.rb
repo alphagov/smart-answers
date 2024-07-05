@@ -16,7 +16,6 @@ class ResultCardTest < ComponentTestCase
       render_component({
         url: "www.gov.uk",
         url_text: "GOV.UK",
-        url_track_action: "Smart Answer Flow Name",
       })
     end
   end
@@ -26,7 +25,6 @@ class ResultCardTest < ComponentTestCase
       render_component({
         title: "Result card title",
         url_text: "GOV.UK",
-        url_track_action: "Smart Answer Flow Name",
       })
     end
   end
@@ -36,17 +34,6 @@ class ResultCardTest < ComponentTestCase
       render_component({
         title: "Result card title",
         url: "www.gov.uk",
-        url_track_action: "Smart Answer Flow Name",
-      })
-    end
-  end
-
-  test "does not render when no url_track_action is provided" do
-    assert_raises do
-      render_component({
-        title: "Result card title",
-        url: "www.gov.uk",
-        url_text: "GOV.UK",
       })
     end
   end
@@ -57,36 +44,32 @@ class ResultCardTest < ComponentTestCase
     end
   end
 
-  test "renders a result card with only the title and url with tracking data" do
+  test "renders a result card with only the title and url" do
     render_component({
       title: "Result card title",
       description: nil,
       url: "www.gov.uk",
       url_text: "GOV.UK",
-      url_track_action: "Smart Answer Flow Name",
     })
 
     assert_select ".app-c-result-card" do
       assert_select ".gem-c-heading", text: "Result card title"
       assert_select ".app-c-result-card__link[href='www.gov.uk']", text: "GOV.UK"
-      assert_select ".app-c-result-card__link[data-track-action='Smart Answer Flow Name']", true
       assert_select ".app-c-result-card__description", false
     end
   end
 
-  test "renders a result card with the title, description and url with tracking data" do
+  test "renders a result card with the title, description and url" do
     render_component({
       title: "Result card title",
       description: "Result card description",
       url: "www.gov.uk",
       url_text: "GOV.UK",
-      url_track_action: "Smart Answer Flow Name",
     })
 
     assert_select ".app-c-result-card" do
       assert_select ".gem-c-heading", text: "Result card title"
       assert_select ".app-c-result-card__link[href='www.gov.uk']", text: "GOV.UK"
-      assert_select ".app-c-result-card__link[data-track-action='Smart Answer Flow Name']", true
       assert_select ".app-c-result-card__description", text: "Result card description"
     end
   end
@@ -97,7 +80,6 @@ class ResultCardTest < ComponentTestCase
       description: "Result card description",
       url: "https://example.com/test-path",
       url_text: "GOV.UK",
-      url_track_action: "Smart Answer Flow Name",
     })
 
     assert_select ".app-c-result-card" do
@@ -111,7 +93,6 @@ class ResultCardTest < ComponentTestCase
       description: "Result card description",
       url: "https://www.gov.uk/this-is-a-path",
       url_text: "GOV.UK",
-      url_track_action: "Smart Answer Flow Name",
     })
 
     assert_select ".app-c-result-card" do
