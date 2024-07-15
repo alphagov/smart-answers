@@ -27,6 +27,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "test-dependencies" if Rails.env.test? %>
+    <%= javascript_include_tag "es6-components", type: "module" %>
     <%= javascript_include_tag "application", defer: true %>
     <%= yield :head %>
     <% if content_item %>
