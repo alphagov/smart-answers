@@ -14,10 +14,9 @@
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
-    <%= link_to (title + " (opens in new tab)" if title.present?), url,
-      class: "govuk-link",
-      target: "_blank",
-      rel: "noreferrer noopener" %>
+    <%= link_to url, class: "govuk-link", target: "_blank", rel: "noreferrer noopener" do %>
+      <%= title || url %> <span class="govuk-!-display-none-print">(opens in new tab)</span>
+    <% end %>
   </h4>
   <p class="govuk-body govuk-!-margin-bottom-1">
     <%= description %>

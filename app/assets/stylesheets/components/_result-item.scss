@@ -11,3 +11,26 @@
   border-left: 5px solid govuk-colour("blue");
   padding: govuk-spacing(3);
 }
+
+// stylelint-disable declaration-no-important
+@include govuk-media-query($media-type: print) {
+  .app-c-result-item  {
+    break-inside: avoid;
+    border-color: $govuk-print-text-colour;
+
+    .govuk-link::after {
+      display: block;
+      margin-top: 1mm;
+      font-size: 12pt;
+    }
+  }
+
+  .app-c-result-item--highlighted {
+    background-color: initial;
+
+    a,a:link {
+      color: $govuk-print-text-colour !important;
+    }
+  }
+}
+// stylelint-enable declaration-no-important
