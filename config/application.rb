@@ -16,7 +16,7 @@ module SmartAnswers
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.time_zone = "London"
+    config.govuk_time_zone = "London"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
