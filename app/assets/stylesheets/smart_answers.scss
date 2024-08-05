@@ -40,5 +40,13 @@
         padding: govuk-spacing(2);
       }
     }
+
+    // stylelint-disable selector-max-id
+    & > #content > .govuk-grid-row > :only-child {
+      float: none;
+      width: auto;
+    }
+    // stylelint-enable selector-max-id
+
   }
 }

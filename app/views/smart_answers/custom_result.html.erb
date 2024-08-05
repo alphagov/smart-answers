@@ -36,18 +36,20 @@
 
     <%= outcome.body %>
 
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "Change your answers",
-      font_size: "l",
-      border_top: 2,
-      padding: true
-    } %>
+    <div class="govuk-!-display-none-print">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Change your answers",
+        font_size: "l",
+        border_top: 2,
+        padding: true
+      } %>
 
-    <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
-      <%= link_to "Answer the questions again to change the results",
-        restart_flow_path(@presenter),
-        class: "govuk-link" %>
-    <% end %>
+      <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
+        <%= link_to "Answer the questions again to change the results",
+          restart_flow_path(@presenter),
+          class: "govuk-link" %>
+      <% end %>
+    </div>
 
     <%= render 'govuk_publishing_components/components/print_link' %>
 

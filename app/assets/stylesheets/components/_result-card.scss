@@ -44,3 +44,19 @@
 .app-c-result-card__link {
   @include govuk-font($size: 19, $weight: bold);
 }
+
+@include govuk-media-query($media-type: print) {
+  .app-c-result-card {
+    break-inside: avoid;
+    border: 1pt solid $govuk-print-text-colour;
+
+    &::before {
+      display: none;
+    }
+
+    .app-c-result-card__link,
+    .app-c-result-card__link:link {
+      color: $govuk-print-text-colour;
+    }
+  }
+}
