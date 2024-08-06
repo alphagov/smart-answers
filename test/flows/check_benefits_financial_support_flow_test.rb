@@ -641,7 +641,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Winter Fuel Payment"
-        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you’re getting the State Pension."
+        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you get Pension Credit or certain benefits."
       end
     end
 
