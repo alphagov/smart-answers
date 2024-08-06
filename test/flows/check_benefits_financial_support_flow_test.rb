@@ -637,11 +637,11 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Winter Fuel Payment" do
-      %w[england wales northern-ireland scotland].each do |country|
+      %w[england wales northern-ireland].each do |country|
         add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Winter Fuel Payment"
-        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you’re getting the State Pension."
+        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you get Pension Credit or certain benefits."
       end
     end
 

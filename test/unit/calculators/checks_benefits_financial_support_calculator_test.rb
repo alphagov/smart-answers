@@ -851,14 +851,94 @@ module SmartAnswer::Calculators
       context "#eligible_for_winter_fuel_payment?" do
         context "when eligible" do
           should "be true if eligible for state pension" do
+            @calculator.where_do_you_live = "england"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
             @calculator.over_state_pension_age = "yes"
+
+            assert @calculator.eligible_for_winter_fuel_payment?
+          end
+
+          should "be true if lives in qualifying country" do
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+            qualifying_countries = %w[england northern_ireland wales]
+            qualifying_countries.each do |country|
+              @calculator.where_do_you_live = country
+
+              assert @calculator.eligible_for_winter_fuel_payment?
+            end
+          end
+
+          should "be true if they don't know whether they receive a qualifying benefit" do
+            @calculator.where_do_you_live = "england"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "dont_know"
+
+            assert @calculator.eligible_for_winter_fuel_payment?
+          end
+
+          should "be true if receives a qualifying benefit" do
+            @calculator.where_do_you_live = "england"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            qualifying_benefits = %w[universal_credit jobseekers_allowance employment_and_support_allowance pension_credit income_support]
+            qualifying_benefits.each do |benefit|
+              @calculator.current_benefits = benefit
+
+              assert @calculator.eligible_for_winter_fuel_payment?
+            end
+          end
+
+          should "be true if receives a mixture of qualifying and non-qualifying benefits" do
+            @calculator.where_do_you_live = "england"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit,jobseekers_allowance,tax_credits"
+
             assert @calculator.eligible_for_winter_fuel_payment?
           end
         end
 
         context "when ineligible" do
+          should "be false if lives in Scotland" do
+            @calculator.where_do_you_live = "scotland"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
+            assert_not @calculator.eligible_for_winter_fuel_payment?
+          end
+
+          should "be false if does not receive any benefits" do
+            @calculator.where_do_you_live = "england"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "no"
+
+            assert_not @calculator.eligible_for_winter_fuel_payment?
+          end
+
+          should "be false if receives non-qualifying benefits (and no qualifying benefits)" do
+            @calculator.where_do_you_live = "england"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            non_qualifying_benefits = %w[tax_credits housing_benefit]
+            non_qualifying_benefits.each do |benefit|
+              @calculator.current_benefits = benefit
+
+              assert_not @calculator.eligible_for_winter_fuel_payment?
+            end
+
+            assert_not @calculator.eligible_for_winter_fuel_payment?
+          end
+
           should "be false if ineligible for state pension" do
+            @calculator.where_do_you_live = "england"
             @calculator.over_state_pension_age = "no"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
             assert_not @calculator.eligible_for_winter_fuel_payment?
           end
         end

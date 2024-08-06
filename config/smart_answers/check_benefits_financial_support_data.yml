@@ -227,10 +227,10 @@
         - england
     - name: winter_fuel_payment
       title: Winter Fuel Payment
-      description: <p>You'll automatically get a Winter Fuel Payment if you’re getting the State Pension. You may have to apply if you've reached State Pension age but are not getting your State Pension, for example because you deferred it. This winter the amount you’ll get will include a ‘Pensioner Cost of Living Payment’.</p>
+      description: <p>You'll automatically get a Winter Fuel Payment if you get Pension Credit or certain benefits. You should get a letter in October or November telling you how much you'll get, if you’re eligible.</p>
       condition: eligible_for_winter_fuel_payment?
-      url: /winter-fuel-payment
-      url_text: Check if you're eligible and whether you need to apply for a Winter Fuel Payment
+      url: /winter-fuel-payment/how-to-claim
+      url_text: If you do not get a letter, check if you're eligible and whether you need to claim a Winter Fuel Payment
       countries:
         - england
         - wales
