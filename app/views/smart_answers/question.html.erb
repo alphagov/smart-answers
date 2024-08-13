@@ -6,7 +6,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'smart_answers/shared/debug' %>
+    <%= render "smart_answers/shared/debug" %>
     <%
       ga4_attributes = {
         event_name: "form_response",
@@ -31,22 +31,22 @@
             id: "error-summary",
             title: "There is a problem",
             data_attributes: {
-              module: 'ga4-auto-tracker',
+              module: "ga4-auto-tracker",
               ga4_auto: {
-                event_name: 'form_error',
-                type: 'smart answer',
+                event_name: "form_error",
+                type: "smart answer",
                 text: question.error,
                 section: question.title,
-                action: 'error',
+                action: "error",
                 tool_name: @presenter.title,
               },
             },
             items: [
               {
                 text: question.error,
-                href: question.error_id(question.partial_template_name)
-              }
-            ]
+                href: question.error_id(question.partial_template_name),
+              },
+            ],
           } %>
         <% end %>
 
@@ -54,24 +54,24 @@
 
         <%= content_tag(:div, question.post_body, class: "govuk-!-margin-bottom-4") if question.post_body.present? %>
 
-        <% controller_name == 'flow' && response_store.forwarding_responses.each do |name, value| %>
+        <% controller_name == "flow" && response_store.forwarding_responses.each do |name, value| %>
           <% if value.kind_of?(Array) %>
             <% value.each do |item| %>
-              <input type="hidden" name="<%= name %>[]" value="<%= item %>" />
+              <input type="hidden" name="<%= name %>[]" value="<%= item %>">
             <% end %>
           <% else %>
-            <input type="hidden" name="<%= name %>" value="<%= value %>" />
+            <input type="hidden" name="<%= name %>" value="<%= value %>">
           <% end %>
         <% end %>
 
-        <input type="hidden" name="next" value="1" />
+        <input type="hidden" name="next" value="1">
         <%= render "govuk_publishing_components/components/button", {
           text: "Continue",
-          margin_bottom: true
+          margin_bottom: true,
         } %>
       </div>
     <% end %>
 
-    <%= render 'smart_answers/shared/previous_answers', form_complete: false %>
+    <%= render "smart_answers/shared/previous_answers", form_complete: false %>
   </div>
 </div>

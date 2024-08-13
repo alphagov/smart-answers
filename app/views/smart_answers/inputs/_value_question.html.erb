@@ -2,7 +2,7 @@
 <%= render "govuk_publishing_components/components/input", {
   label: {
     text: question.title,
-    is_page_heading: true
+    is_page_heading: true,
   },
   name: "response",
   id: "response",
@@ -12,5 +12,5 @@
   suffix: question.suffix_label,
   value: question.current_response,
   error_message: question.error,
-  prefix: question.prefix_label
+  prefix: question.prefix_label,
 } %>

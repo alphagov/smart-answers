@@ -13,7 +13,7 @@
     text: title,
     heading_level: 2,
     margin_bottom: 2,
-    font_size: "m"
+    font_size: "m",
   } %>
 
   <% if description %>
@@ -25,6 +25,6 @@
   <%= link_to url_text, url,
   class: "govuk-link app-c-result-card__link",
   data: {
-    "ga4-ecommerce-path": url.delete_prefix("https://www.gov.uk")
+    "ga4-ecommerce-path": url.delete_prefix("https://www.gov.uk"),
   } %>
 </div>

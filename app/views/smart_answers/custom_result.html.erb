@@ -24,12 +24,11 @@
       "type": "smart answer",
       "section": outcome.title,
       "action": "complete",
-      "tool_name": @presenter.title
-    }.to_json %>"
-  >
+      "tool_name": @presenter.title,
+    }.to_json %>">
     <%= render "govuk_publishing_components/components/title", {
       title: outcome.title,
-      margin_bottom: 6
+      margin_bottom: 6,
     } %>
 
     <%= outcome.description %>
@@ -41,7 +40,7 @@
         text: "Change your answers",
         font_size: "l",
         border_top: 2,
-        padding: true
+        padding: true,
       } %>
 
       <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
@@ -51,8 +50,8 @@
       <% end %>
     </div>
 
-    <%= render 'govuk_publishing_components/components/print_link' %>
+    <%= render "govuk_publishing_components/components/print_link" %>
 
-    <%= render 'smart_answers/shared/debug' %>
+    <%= render "smart_answers/shared/debug" %>
   </div>
 </div>
