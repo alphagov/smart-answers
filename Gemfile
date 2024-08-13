@@ -7,6 +7,7 @@ gem "rails", "7.1.3.4"
 gem "ast"
 gem "bootsnap", require: false
 gem "dartsass-rails"
+gem "erb_lint"
 gem "gds-api-adapters"
 gem "gds_zendesk"
 gem "govspeak"
