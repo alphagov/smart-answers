@@ -1,7 +1,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <%= render "govuk_publishing_components/components/title", {
-      title: "Smart Answers"
+      title: "Smart Answers",
     } %>
 
     <div class="smart-answers-list">
@@ -22,9 +22,9 @@
             { text: flow.questions.count },
             { text: flow.outcomes.count },
             { text: code_links(flow.class) },
-            { text: link_to('Visualise', visualise_path(flow.name), class: "govuk-link") },
+            { text: link_to("Visualise", visualise_path(flow.name), class: "govuk-link") },
           ]
-        end
+        end,
       } %>
     </div>
 

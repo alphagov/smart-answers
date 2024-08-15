@@ -4,7 +4,7 @@
     text: "Your answers",
     heading_level: 2,
     font_size: "m",
-    margin_bottom: 4
+    margin_bottom: 4,
   } %>
   <%= tag.p class: "govuk-body" do %>
     <%= link_to "Start again",
@@ -18,7 +18,7 @@
           section: form_complete ? "Information based on your answers" : @presenter.current_node.title,
           action: "start again",
           tool_name: @presenter.title,
-        }
+        },
       } %>
   <% end %>
   <% items = @presenter.answered_questions.map do |question|
@@ -26,7 +26,7 @@
 
     if question.multiple_responses?
       value = render "govuk_publishing_components/components/list", {
-        items: question.response_labels(accepted_response)
+        items: question.response_labels(accepted_response),
       }
     else
       value = question.response_label(accepted_response)
@@ -45,13 +45,13 @@
             section: question.title,
             action: "change response",
             tool_name: @presenter.title,
-          }
-        }
-      }
+          },
+        },
+      },
     }
   end %>
   <%= render "govuk_publishing_components/components/summary_list", {
     wide_title: true,
-    items: items
+    items: items,
   } %>
 <% end %>

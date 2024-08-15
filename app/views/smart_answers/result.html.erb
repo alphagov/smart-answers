@@ -25,12 +25,11 @@
       "type": "smart answer",
       "section": title,
       "action": "complete",
-      "tool_name": @presenter.title
+      "tool_name": @presenter.title,
     }.to_json %>"
     data-ga4-ecommerce-start-index="1"
-    data-ga4-list-title="<%= @presenter.title %>"
-  >
-    <%= render 'smart_answers/shared/debug' %>
+    data-ga4-list-title="<%= @presenter.title %>">
+    <%= render "smart_answers/shared/debug" %>
     <%= render "govuk_publishing_components/components/title", {
       title: title,
       context: @presenter.title + ":",
@@ -45,16 +44,15 @@
         "type": "smart answer",
         "section": title,
         "action": "information click",
-        "tool_name": @presenter.title
+        "tool_name": @presenter.title,
       }.to_json %>"
     data-ga4-track-links-only
-    data-ga4-set-indexes
-    >
+    data-ga4-set-indexes>
       <div class="govuk-!-margin-bottom-6">
         <% if outcome.title.present? %>
           <%= render "govuk_publishing_components/components/heading", {
             text: outcome.title,
-            margin_bottom: 6
+            margin_bottom: 6,
           } %>
         <% end %>
 
@@ -65,19 +63,19 @@
         <div class="govuk-!-margin-bottom-6">
           <%= render "govuk_publishing_components/components/heading", {
             text: "Next steps",
-            margin_bottom: 6
+            margin_bottom: 6,
           } %>
           <%= outcome.next_steps %>
         </div>
       <% end %>
     </div>
 
-    <%= render 'smart_answers/shared/previous_answers', form_complete: true %>
+    <%= render "smart_answers/shared/previous_answers", form_complete: true %>
   </div>
 
   <% if defined?(@presenter.finished?) and @presenter.finished? %>
     <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item %>
+      <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item %>
     </div>
   <% end %>
 </div>
