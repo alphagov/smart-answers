@@ -313,10 +313,10 @@ module SmartAnswer::Calculators
           assert_equal 5695, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-02-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6140, @calculator.total_owed
+          assert_equal 6134, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-08-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6332, @calculator.total_owed
+          assert_equal 6320, @calculator.total_owed
         end
 
         context "HMRC Covid-19 Extension to 1 April for 2019-20" do
@@ -443,10 +443,10 @@ module SmartAnswer::Calculators
     end
 
     context "late payment interest rates" do
-      should "after May 31st, the user should have a late payment penalty of 7.75%" do
-        @calculator.payment_date = Date.parse("2024-06-1")
-        assert_equal 250, @calculator.late_payment_penalty
-        assert_equal 128.46, @calculator.interest.to_f
+      should "user should have a late payment penalty of 7.5% after August 19th 2024" do
+        @calculator.payment_date = Date.parse("2024-08-20")
+        assert_equal 500, @calculator.late_payment_penalty
+        assert_equal 213.39, @calculator.interest.to_f
       end
     end
   end
