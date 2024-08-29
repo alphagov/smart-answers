@@ -9,7 +9,6 @@ gem "bootsnap", require: false
 gem "dartsass-rails"
 gem "erb_lint"
 gem "gds-api-adapters"
-gem "gds_zendesk"
 gem "govspeak"
 gem "govuk_app_config"
 gem "govuk_publishing_components"
