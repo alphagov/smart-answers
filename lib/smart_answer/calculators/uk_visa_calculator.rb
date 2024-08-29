@@ -344,7 +344,6 @@ module SmartAnswer::Calculators
       hong-kong-(british-national-overseas)
       israel
       japan
-      jordan
       kiribati
       kuwait
       macao
@@ -464,6 +463,7 @@ module SmartAnswer::Calculators
       iraq
       israel-provisional-passport
       jamaica
+      jordan
       kenya
       kosovo
       latvia-alien-passport
@@ -547,7 +547,6 @@ module SmartAnswer::Calculators
       oman
       saudi-arabia
       united-arab-emirates
-      jordan
     ].freeze
 
     COUNTRY_GROUP_EPASSPORT_GATES = %w[

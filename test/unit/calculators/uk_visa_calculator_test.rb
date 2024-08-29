@@ -633,6 +633,15 @@ module SmartAnswer
           end
         end
       end
+
+      context "#jordan no longer require ETA" do
+        should 'return false for passport_country_requires_electronic_travel_authorisation? if passport_country is "jordan"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "jordan"
+
+          assert_not calculator.passport_country_requires_electronic_travel_authorisation?
+        end
+      end
     end
   end
 end
