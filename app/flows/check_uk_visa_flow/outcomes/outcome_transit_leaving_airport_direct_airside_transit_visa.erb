@@ -5,7 +5,9 @@
 <% govspeak_for :body do %>
   You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
 
-^ You do not need to apply for a Visitor in Transit visa if you already have a Marriage Visitor or Standard Visitor visa. ^
+  ^ You do not need to apply for a Visitor in Transit visa if you already have a Marriage Visitor or Standard Visitor visa.
+
+  <%= render partial: "jordan/outcome_transit_leaving_airport_direct_airside_transit_visa_1", locals: {calculator: calculator} %>
 
   ##Transiting without a visa
 
@@ -38,4 +40,6 @@
   All visas and residence permits must be valid.
 
   Australian paper confirmation slips are not accepted.
+
+  <%= render partial: "jordan/outcome_transit_leaving_airport_direct_airside_transit_visa_2", locals: {calculator: calculator} %>
 <% end %>
