@@ -136,12 +136,6 @@ GEM
     execjs (2.9.1)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (3.1.0)
-      net-http
     ffi (1.16.3)
     gds-api-adapters (96.0.3)
       addressable
@@ -150,9 +144,6 @@ GEM
       plek (>= 1.9.0)
       rack (>= 2.2.0)
       rest-client (~> 2.0)
-    gds_zendesk (3.7.0)
-      null_logger (~> 0)
-      zendesk_api (>= 1.37, < 4.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (4.27.3)
@@ -212,7 +203,6 @@ GEM
       puma
       selenium-webdriver (>= 4.0)
     hashdiff (1.1.0)
-    hashie (5.0.0)
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.7)
@@ -223,7 +213,6 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
-    inflection (1.0.0)
     io-console (0.7.2)
     irb (1.14.0)
       rdoc (>= 4.0.0)
@@ -267,10 +256,7 @@ GEM
       ruby2_keywords (>= 0.0.5)
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    multipart-post (2.4.1)
     mutex_m (0.2.0)
-    net-http (0.4.1)
-      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -673,7 +659,6 @@ GEM
       concurrent-ruby (~> 1.0)
     uk_postcode (2.1.8)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
     webmock (3.23.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -686,13 +671,6 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.17)
-    zendesk_api (3.0.5)
-      faraday (> 2.0.0)
-      faraday-multipart
-      hashie (>= 3.5.2, < 6.0.0)
-      inflection
-      mini_mime
-      multipart-post (~> 2.0)
 
 PLATFORMS
   aarch64-linux
@@ -709,7 +687,6 @@ DEPENDENCIES
   dartsass-rails
   erb_lint
   gds-api-adapters
-  gds_zendesk
   govspeak
   govuk_app_config
   govuk_publishing_components
