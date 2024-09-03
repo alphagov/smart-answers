@@ -1,9 +1,19 @@
 require_relative "boot"
 
-# Don't include all of rails, we don't need activerecord or action_mailer
-require "action_controller/railtie"
+# We don't need activerecord or action_mailer
+require "rails"
+# Pick the frameworks you want:
 require "active_model/railtie"
 require "sprockets/railtie"
+# require "active_job/railtie"
+# require "active_record/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+# require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+require "action_view/railtie"
+# require "action_cable/engine"
 require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
