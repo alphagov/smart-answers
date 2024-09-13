@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "jasmine-browser-runner": "^2.5.0",
-    "jasmine-core": "^5.2.0"
+    "jasmine-core": "^5.3.0"
   },
   "devDependencies": {
     "standardx": "^7.0.0",
