@@ -146,19 +146,19 @@ GEM
       rest-client (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.28.0)
+    google-protobuf (4.28.1)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.0-aarch64-linux)
+    google-protobuf (4.28.1-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.0-arm64-darwin)
+    google-protobuf (4.28.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.0-x86_64-linux)
+    google-protobuf (4.28.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    googleapis-common-protos-types (1.15.0)
+    googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
     govspeak (8.3.4)
       actionview (>= 6)
@@ -185,7 +185,7 @@ GEM
     govuk_personalisation (1.0.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (43.1.1)
+    govuk_publishing_components (43.2.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -211,7 +211,7 @@ GEM
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
     irb (1.14.0)
@@ -291,7 +291,7 @@ GEM
     opentelemetry-helpers-mysql (0.1.1)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.21)
-    opentelemetry-helpers-sql-obfuscation (0.1.1)
+    opentelemetry-helpers-sql-obfuscation (0.2.0)
       opentelemetry-common (~> 0.21)
     opentelemetry-instrumentation-action_mailer (0.1.0)
       opentelemetry-api (~> 1.0)
@@ -559,7 +559,7 @@ GEM
       netrc (~> 0.8)
     rexml (3.3.7)
     rinku (2.0.6)
-    rouge (4.3.0)
+    rouge (4.4.0)
     rubocop (1.64.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
