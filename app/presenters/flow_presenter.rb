@@ -55,9 +55,7 @@ class FlowPresenter
   end
 
   def start_page_link(forwarding_responses)
-    if @flow.name.eql? "marriage-abroad" # Nasty hack to allow migration of old service to new one. Will be stripped asap
-      "https://www.prove-eligibility-foreign-government.service.gov.uk/before-you-start"
-    elsif response_store
+    if response_store
       start_flow_path(name, params: forwarding_responses)
     else
       smart_answer_path(name)
