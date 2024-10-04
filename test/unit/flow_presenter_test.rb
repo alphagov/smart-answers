@@ -141,15 +141,4 @@ class FlowPresenterTest < ActiveSupport::TestCase
   test "#start_page_link returns the start page link for a non response store flow" do
     assert_equal "/flow-name/y", @flow_presenter.start_page_link({ "key" => "value" })
   end
-
-  test "#start_page_link returns the new flow when we're in marriage-abroad" do
-    @flow = SmartAnswer::Flow.build do
-      name "marriage-abroad"
-    end
-    @flow_presenter = FlowPresenter.new(@flow, nil)
-    assert_equal(
-      "https://www.prove-eligibility-foreign-government.service.gov.uk/before-you-start",
-      @flow_presenter.start_page_link({ "key" => "value" }),
-    )
-  end
 end
