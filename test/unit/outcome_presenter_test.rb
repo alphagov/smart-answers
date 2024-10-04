@@ -29,7 +29,6 @@ module SmartAnswer
       SmartAnswer::ErbRenderer.expects(:new).with(has_entry(helpers: [
         SmartAnswer::FormattingHelper,
         SmartAnswer::OverseasPassportsHelper,
-        SmartAnswer::MarriageAbroadHelper,
       ]))
 
       OutcomePresenter.new(outcome, nil)
