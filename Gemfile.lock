@@ -203,7 +203,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.7)
@@ -659,7 +659,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uk_postcode (2.1.8)
     unicode-display_width (2.5.0)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
