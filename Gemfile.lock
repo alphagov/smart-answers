@@ -147,21 +147,21 @@ GEM
       rest-client (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.28.2)
+    google-protobuf (4.28.3)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-aarch64-linux)
+    google-protobuf (4.28.3-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-arm64-darwin)
+    google-protobuf (4.28.3-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-x86_64-linux)
+    google-protobuf (4.28.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
     googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
-    govspeak (8.5.0)
+    govspeak (8.5.1)
       actionview (>= 6, < 7.2.2)
       addressable (>= 2.3.8, < 2.8.8)
       govuk_publishing_components (>= 35.1)
