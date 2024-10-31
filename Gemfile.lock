@@ -220,7 +220,7 @@ GEM
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.7.4)
+    json (2.7.5)
     json-schema (4.3.0)
       addressable (>= 2.8)
     kramdown (2.4.0)
