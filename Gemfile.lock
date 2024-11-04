@@ -171,7 +171,7 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (~> 6)
-    govuk_app_config (9.14.6)
+    govuk_app_config (9.15.0)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.30)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.69.0)
