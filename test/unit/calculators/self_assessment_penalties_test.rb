@@ -43,6 +43,11 @@ module SmartAnswer::Calculators
 
         assert_equal Date.new(2023, 4, 6), @calculator.start_of_next_tax_year
       end
+      should "return 2024-04-06 if tax-year is 2023-24" do
+        @calculator.tax_year = "2023-24"
+
+        assert_equal Date.new(2024, 4, 6), @calculator.start_of_next_tax_year
+      end
     end
 
     context "one_year_after_start_date_for_penalties" do
@@ -75,6 +80,11 @@ module SmartAnswer::Calculators
         @calculator.tax_year = "2022-23"
 
         assert_equal Date.new(2025, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should "return 2026-02-01 if tax-year is 2023-24" do
+        @calculator.tax_year = "2023-24"
+
+        assert_equal Date.new(2026, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
     end
 
