@@ -10,7 +10,6 @@ module SmartAnswer::Calculators
 
     DEADLINES = {
       online_filing_deadline: {
-        "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
         "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
@@ -21,7 +20,6 @@ module SmartAnswer::Calculators
         "2022-23": ONLINE_FILING_DEADLINE_YEAR.starting_in(2024).begins_on,
       },
       paper_filing_deadline: {
-        "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2017-18": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2018-19": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2019-20": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
@@ -30,7 +28,6 @@ module SmartAnswer::Calculators
         "2022-23": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2023).begins_on,
       },
       payment_deadline: {
-        "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": PAYMENT_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": PAYMENT_DEADLINE_YEAR.starting_in(2020).begins_on,
         "2019-20": PAYMENT_DEADLINE_YEAR.starting_in(2021).begins_on,
@@ -61,8 +58,6 @@ module SmartAnswer::Calculators
 
     def tax_year_range
       case tax_year
-      when "2016-17"
-        SmartAnswer::YearRange.tax_year.starting_in(2016)
       when "2017-18"
         SmartAnswer::YearRange.tax_year.starting_in(2017)
       when "2018-19"
@@ -84,8 +79,6 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when "2016-17"
-        PENALTY_YEAR.starting_in(2019).begins_on
       when "2017-18"
         PENALTY_YEAR.starting_in(2020).begins_on
       when "2018-19"
