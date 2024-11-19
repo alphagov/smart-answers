@@ -161,7 +161,7 @@ GEM
       rake (>= 13)
     googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
-    govspeak (8.6.1)
+    govspeak (8.7.0)
       actionview (>= 6, < 7.2.3)
       addressable (>= 2.3.8, < 2.8.8)
       govuk_publishing_components (>= 35.1)
@@ -183,9 +183,9 @@ GEM
       sentry-rails (~> 5.3)
       sentry-ruby (~> 5.3)
       statsd-ruby (~> 1.5)
-    govuk_personalisation (1.0.0)
+    govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
-      rails (>= 6, < 8)
+      rails (>= 6, < 9)
     govuk_publishing_components (45.4.1)
       chartkick
       govuk_app_config
