@@ -10,7 +10,6 @@ module SmartAnswer::Calculators
 
     DEADLINES = {
       online_filing_deadline: {
-        "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": ONLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
         "2019-20": ONLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
@@ -19,24 +18,25 @@ module SmartAnswer::Calculators
         "2020-21-covid-easement": ONLINE_FILING_DEADLINE_YEAR_FEB.starting_in(2022).begins_on,
         "2021-22": ONLINE_FILING_DEADLINE_YEAR.starting_in(2023).begins_on,
         "2022-23": ONLINE_FILING_DEADLINE_YEAR.starting_in(2024).begins_on,
+        "2023-24": ONLINE_FILING_DEADLINE_YEAR.starting_in(2025).begins_on,
       },
       paper_filing_deadline: {
-        "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2017-18": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2018-19": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2019-20": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2020).begins_on,
         "2020-21": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2021).begins_on,
         "2021-22": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2022).begins_on,
         "2022-23": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2023).begins_on,
+        "2023-24": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2025).begins_on,
       },
       payment_deadline: {
-        "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
         "2017-18": PAYMENT_DEADLINE_YEAR.starting_in(2019).begins_on,
         "2018-19": PAYMENT_DEADLINE_YEAR.starting_in(2020).begins_on,
         "2019-20": PAYMENT_DEADLINE_YEAR.starting_in(2021).begins_on,
         "2020-21": PAYMENT_DEADLINE_YEAR.starting_in(2022).begins_on,
         "2021-22": PAYMENT_DEADLINE_YEAR.starting_in(2023).begins_on,
         "2022-23": PAYMENT_DEADLINE_YEAR.starting_in(2024).begins_on,
+        "2023-24": PAYMENT_DEADLINE_YEAR.starting_in(2025).begins_on,
       },
     }.freeze
 
@@ -56,13 +56,12 @@ module SmartAnswer::Calculators
       { start_date: "2023-05-31", end_date: "2023-07-10", value: 0.07 },
       { start_date: "2023-07-11", end_date: "2023-08-21", value: 0.075 },
       { start_date: "2023-08-22", end_date: "2024-08-19", value: 0.0775 },
-      { start_date: "2024-08-20", end_date: "2100-04-04", value: 0.075 },
+      { start_date: "2024-08-20", end_date: "2024-11-25", value: 0.075 },
+      { start_date: "2024-11-26", end_date: "2100-04-04", value: 0.0725 },
     ].freeze
 
     def tax_year_range
       case tax_year
-      when "2016-17"
-        SmartAnswer::YearRange.tax_year.starting_in(2016)
       when "2017-18"
         SmartAnswer::YearRange.tax_year.starting_in(2017)
       when "2018-19"
@@ -75,6 +74,8 @@ module SmartAnswer::Calculators
         SmartAnswer::YearRange.tax_year.starting_in(2021)
       when "2022-23"
         SmartAnswer::YearRange.tax_year.starting_in(2022)
+      when "2023-24"
+        SmartAnswer::YearRange.tax_year.starting_in(2023)
       end
     end
 
@@ -84,8 +85,6 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when "2016-17"
-        PENALTY_YEAR.starting_in(2019).begins_on
       when "2017-18"
         PENALTY_YEAR.starting_in(2020).begins_on
       when "2018-19"
@@ -98,6 +97,8 @@ module SmartAnswer::Calculators
         PENALTY_YEAR.starting_in(2024).begins_on
       when "2022-23"
         PENALTY_YEAR.starting_in(2025).begins_on
+      when "2023-24"
+        PENALTY_YEAR.starting_in(2026).begins_on
       end
     end
 

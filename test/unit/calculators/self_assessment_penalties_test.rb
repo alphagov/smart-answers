@@ -13,11 +13,6 @@ module SmartAnswer::Calculators
     end
 
     context "#start_of_next_year" do
-      should "return 2017-04-06 if tax-year is 2016-17" do
-        @calculator.tax_year = "2016-17"
-
-        assert_equal Date.new(2017, 4, 6), @calculator.start_of_next_tax_year
-      end
       should "return 2018-04-06 if tax-year is 2017-18" do
         @calculator.tax_year = "2017-18"
 
@@ -48,14 +43,14 @@ module SmartAnswer::Calculators
 
         assert_equal Date.new(2023, 4, 6), @calculator.start_of_next_tax_year
       end
+      should "return 2024-04-06 if tax-year is 2023-24" do
+        @calculator.tax_year = "2023-24"
+
+        assert_equal Date.new(2024, 4, 6), @calculator.start_of_next_tax_year
+      end
     end
 
     context "one_year_after_start_date_for_penalties" do
-      should "return 2019-02-01 if tax-year is 2016-17" do
-        @calculator.tax_year = "2016-17"
-
-        assert_equal Date.new(2019, 2, 1), @calculator.one_year_after_start_date_for_penalties
-      end
       should "return 2020-02-01 if tax-year is 2017-18" do
         @calculator.tax_year = "2017-18"
 
@@ -85,6 +80,11 @@ module SmartAnswer::Calculators
         @calculator.tax_year = "2022-23"
 
         assert_equal Date.new(2025, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should "return 2026-02-01 if tax-year is 2023-24" do
+        @calculator.tax_year = "2023-24"
+
+        assert_equal Date.new(2026, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
     end
 
@@ -313,10 +313,10 @@ module SmartAnswer::Calculators
           assert_equal 5695, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-02-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6134, @calculator.total_owed
+          assert_equal 6132, @calculator.total_owed
           @calculator.payment_date = Date.parse("2025-08-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6320, @calculator.total_owed
+          assert_equal 6311, @calculator.total_owed
         end
 
         context "HMRC Covid-19 Extension to 1 April for 2019-20" do
