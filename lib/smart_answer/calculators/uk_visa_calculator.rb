@@ -234,6 +234,10 @@ module SmartAnswer::Calculators
       @passport_country == "india" && work_visit? && staying_for_over_six_months? && @what_type_of_work != "sports"
     end
 
+    def show_colombia_visa_change_transition_text?
+      @passport_country == "colombia" && Time.zone.now <= Time.zone.local(2024, 12, 24)
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
@@ -341,7 +345,6 @@ module SmartAnswer::Calculators
       brunei
       canada
       chile
-      colombia
       costa-rica
       curacao
       federated-states-of-micronesia
@@ -450,6 +453,7 @@ module SmartAnswer::Calculators
       burundi
       cameroon
       china
+      colombia
       congo
       cote-d-ivoire
       cyprus-north
