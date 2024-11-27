@@ -6,3 +6,5 @@
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require govuk_publishing_components/components/table
+
+//= require govuk_web_banners/dependencies

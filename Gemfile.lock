@@ -205,6 +205,9 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
+    govuk_web_banners (0.1.0)
+      govuk_publishing_components
+      rails (>= 7)
     hashdiff (1.1.1)
     htmlentities (4.3.4)
     http-accept (1.7.0)
@@ -694,6 +697,7 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_schemas
   govuk_test
+  govuk_web_banners
   htmlentities
   httparty
   json
