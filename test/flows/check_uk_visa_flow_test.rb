@@ -21,7 +21,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @youth_mobility_scheme_country = "canada"
 
     @non_visa_national_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
-    @eta_rollout_group_1_rest_of_the_world_text = "If you’re travelling on or after 8 January 2025, you’ll need to apply for an electronic travel authorisation (ETA). You’ll be able to apply from 27 November 2024."
+    @eta_rollout_group_1_rest_of_the_world_text = "If you’re travelling on or after 8 January 2025, you’ll need to apply for an electronic travel authorisation (ETA)."
     @eta_rollout_group_2_eu_eea_text = "If you’re travelling on or after 2 April 2025, you’ll need to apply for an electronic travel authorisation (ETA). You’ll be able to apply from 5 March 2025."
     @eea_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
 
