@@ -69,9 +69,6 @@
     <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item %>
   </div>
   <div class="govuk-grid-column-one-third">
-    <% if content_item.present? && show_govuk_chat_promo?(content_item["base_path"]) %>
-      <%= render "govuk_publishing_components/components/chat_entry", { margin_top_until_tablet: true } %>
-    <% end %>
     <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item %>
   </div>
 </div>
