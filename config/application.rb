@@ -25,8 +25,15 @@ module SmartAnswers
     include GovukPublishingComponents::AppHelpers::AssetHelper
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.2
     config.govuk_time_zone = "London"
+
+    Rails.application.config.action_view.form_with_generates_remote_forms = false
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += %W[#{config.root}/lib #{config.root}/app/presenters]
+
+    # New for rails 7.1 to enable previous autoload behaviour
+    config.add_autoload_paths_to_load_path = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -37,6 +44,7 @@ module SmartAnswers
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :"en-GB"
     config.i18n.fallbacks = true
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.yml")]
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "/assets/smartanswers"
@@ -49,7 +57,15 @@ module SmartAnswers
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = "1.0"
+
+    # Disable Rack::Cache
+    config.action_dispatch.rack_cache = nil
+
     config.action_dispatch.ignore_accept_header = true
+
+    # Force lib autoload, which was removed by Rails 3.0 and enforced by Zeitwerk
+    config.eager_load_paths << Rails.root.join("lib")
+
     # Allow requests for all domains e.g. <app>.dev.gov.uk
     config.hosts.clear
     # Please, add to the `ignore` list any other `lib` subdirectories that do
