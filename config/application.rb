@@ -64,7 +64,7 @@ module SmartAnswers
     config.action_dispatch.ignore_accept_header = true
 
     # Force lib autoload, which was removed by Rails 3.0 and enforced by Zeitwerk
-    config.eager_load_paths << Rails.root.join("lib")
+    config.autoload_paths << Rails.root.join("lib")
 
     # Allow requests for all domains e.g. <app>.dev.gov.uk
     config.hosts.clear
