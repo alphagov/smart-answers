@@ -45,7 +45,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits jsa].include?(response)
+        if %w[maternity_benefits child_benefit ssp bereavement_benefits jsa].include?(response)
           question :which_country?
         elsif response == "iidb"
           question :iidb_already_claiming?
@@ -55,6 +55,8 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           question :db_how_long_abroad?
         elsif response == "tax_credits"
           question :eligible_for_tax_credits?
+        elsif response == "winter_fuel_payment"
+          outcome :wfp_not_eligible_outcome
         elsif calculator.going_abroad
           case response
           when "pension"
@@ -579,7 +581,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           when "jsa"
             outcome :jsa_eea_going_abroad_maybe_outcome
           when "winter_fuel_payment"
-            outcome :wfp_going_abroad_eea_maybe_outcome
+            question :born_before_23_September_1958?
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
           when "disability_benefits"
@@ -603,7 +605,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           when "jsa"
             outcome :jsa_eea_going_abroad_maybe_outcome
           when "winter_fuel_payment"
-            outcome :wfp_going_abroad_eea_maybe_outcome
+            question :born_before_23_September_1958?
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
           when "disability_benefits"
@@ -620,6 +622,62 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           when "disability_benefits"
             outcome(calculator.going_abroad ? :db_going_abroad_other_outcome : :db_already_abroad_other_outcome)
           end
+        end
+      end
+    end
+
+    radio :born_before_23_September_1958? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        case response
+        when "yes"
+          question :you_or_partner_get_a_benefit_in_the_country?
+        when "no"
+          outcome :wfp_not_eligible_outcome
+        end
+      end
+    end
+
+    radio :you_or_partner_get_a_benefit_in_the_country? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        case response
+        when "yes"
+          outcome :wfp_not_eligible_outcome
+        when "no"
+          question :you_or_partner_pay_contributions_to_the_country?
+        end
+      end
+    end
+
+    radio :you_or_partner_pay_contributions_to_the_country? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        case response
+        when "yes"
+          outcome :wfp_not_eligible_outcome
+        when "no"
+          question :you_or_partner_get_a_means_tested_benefit_in_the_country?
+        end
+      end
+    end
+
+    radio :you_or_partner_get_a_means_tested_benefit_in_the_country? do
+      option :yes
+      option :no
+
+      next_node do |response|
+        case response
+        when "yes"
+          outcome :wfp_maybe_outcome
+        when "no"
+          outcome :wfp_not_eligible_outcome
         end
       end
     end
