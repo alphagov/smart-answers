@@ -20,7 +20,6 @@ module SmartAnswer::Calculators
                    income_details: 0,
                    allowable_deductions: 0,
                    other_allowable_deductions: 0)
-
       @children_count = children_count
       @tax_year = tax_year
       @part_year_children_count = part_year_children_count
