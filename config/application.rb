@@ -15,16 +15,20 @@ module SmartAnswers
     include GovukPublishingComponents::AppHelpers::AssetHelper
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.2
     config.govuk_time_zone = "London"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.action_view.form_with_generates_remote_forms = false
+
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W[#{config.root}/lib #{config.root}/app/presenters]
+    config.add_autoload_paths_to_load_path = true
+
     config.allow_forgery_protection = false
+
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -65,6 +69,9 @@ module SmartAnswers
 
     config.action_dispatch.ignore_accept_header = true
 
+    # We have to load the old fashioned way as Zeitwerk does not work correctly
+    # with config.autoload_lib in 7.1 with our current file structure.
+    config.autoload_paths << Rails.root.join("lib")
     config.eager_load_paths << Rails.root.join("lib")
 
     # Allow requests for all domains e.g. <app>.dev.gov.uk
