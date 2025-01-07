@@ -110,7 +110,7 @@ GEM
     childprocess (5.0.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.4)
-    connection_pool (2.4.1)
+    connection_pool (2.5.0)
     crack (1.0.0)
       bigdecimal
       rexml
@@ -124,7 +124,7 @@ GEM
     docile (1.4.0)
     domain_name (0.6.20240107)
     drb (2.2.1)
-    erb_lint (0.7.0)
+    erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
