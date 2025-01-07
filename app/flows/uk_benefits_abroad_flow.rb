@@ -106,9 +106,10 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           end
 
         when "winter_fuel_payment"
-          if calculator.country == "ireland" # going_abroad and already abroad
+          # The following are all the same for going_abroad and already abroad
+          if calculator.country == "ireland"
             question :is_british_or_irish?
-          elsif calculator.already_abroad && calculator.country_eligible_for_winter_fuel_payment?
+          elsif calculator.country_eligible_for_winter_fuel_payment?
             question :worked_in_eea_or_switzerland?
           else
             outcome :wfp_not_eligible_outcome
