@@ -15,7 +15,7 @@ module SmartAnswers
     include GovukPublishingComponents::AppHelpers::AssetHelper
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.2
+    config.load_defaults 8.0
     config.govuk_time_zone = "London"
 
     # Settings in config/environments/* take precedence over those specified here.
