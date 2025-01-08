@@ -123,7 +123,7 @@ GEM
     docile (1.4.0)
     domain_name (0.6.20240107)
     drb (2.2.1)
-    erb_lint (0.7.0)
+    erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
