@@ -58,7 +58,7 @@ class InputValidationTest < EngineIntegrationTest
       assert_current_url "/annual-bonus/y/4000.0-month/50000.0"
 
       within "#result-info" do
-        within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "OK, here you go." }
+        within page.find(".gem-c-heading h2", match: :first) { assert_page_has_content "OK, here you go." }
         within(".info-notice") { assert_page_has_content "This is allowed because £50,000 is more than your annual salary of £48,000" }
       end
     end
