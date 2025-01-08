@@ -5,9 +5,9 @@
 }
 
 .app-c-result-sections__section {
+  border-top: 1px solid $govuk-border-colour;
   @include govuk-font($size: 19);
   @include govuk-responsive-padding(4, "top");
-  border-top: 1px solid $govuk-border-colour;
 }
 
 @include govuk-media-query($media-type: print) {
