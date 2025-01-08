@@ -14,7 +14,7 @@
 
 // stylelint-disable declaration-no-important
 @include govuk-media-query($media-type: print) {
-  .app-c-result-item  {
+  .app-c-result-item {
     break-inside: avoid;
     border-color: $govuk-print-text-colour;
 
@@ -28,7 +28,8 @@
   .app-c-result-item--highlighted {
     background-color: initial;
 
-    a,a:link {
+    a,
+    a:link {
       color: $govuk-print-text-colour !important;
     }
   }
