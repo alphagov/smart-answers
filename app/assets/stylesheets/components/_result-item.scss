@@ -1,20 +1,20 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .app-c-result-item {
-  @include govuk-font($size: 19);
   padding-top: govuk-spacing(6);
+  @include govuk-font($size: 19);
 }
 
 .app-c-result-item--highlighted {
-  @include govuk-responsive-margin(6, "bottom");
   background-color: govuk-colour("light-grey");
   border-left: 5px solid govuk-colour("blue");
   padding: govuk-spacing(3);
+  @include govuk-responsive-margin(6, "bottom");
 }
 
 // stylelint-disable declaration-no-important
 @include govuk-media-query($media-type: print) {
-  .app-c-result-item  {
+  .app-c-result-item {
     break-inside: avoid;
     border-color: $govuk-print-text-colour;
 
@@ -28,7 +28,8 @@
   .app-c-result-item--highlighted {
     background-color: initial;
 
-    a,a:link {
+    a,
+    a:link {
       color: $govuk-print-text-colour !important;
     }
   }

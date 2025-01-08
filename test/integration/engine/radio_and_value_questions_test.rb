@@ -160,7 +160,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within "#result-info" do
-        within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "Right, off you go." }
+        within page.find(".gem-c-heading h2", match: :first) { assert_page_has_content "Right, off you go." }
         assert_page_has_content "Oh! Well, thank you. Thank you very much."
       end
     end
@@ -205,7 +205,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
     click_on "Continue"
 
     within "#result-info" do
-      within page.find("h2.gem-c-heading", match: :first) { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
+      within page.find(".gem-c-heading h2", match: :first) { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
       within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }
     end
   end
