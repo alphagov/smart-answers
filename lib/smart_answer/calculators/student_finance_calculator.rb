@@ -87,10 +87,10 @@ module SmartAnswer
       }.freeze
 
       INCOME_PENALTY_RATIO = {
-        "2023-2024" => {
-          "at-home" => 7.08,
-          "away-outside-london" => 7.01,
-          "away-in-london" => 6.89,
+        "2024-2025" => {
+          "at-home" => 6.91,
+          "away-outside-london" => 6.84,
+          "away-in-london" => 6.73,
         },
         "2025-2026" => {
           "at-home" => 6.71,
