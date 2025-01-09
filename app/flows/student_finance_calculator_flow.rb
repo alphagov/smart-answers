@@ -6,8 +6,8 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     # Q1
     radio :when_does_your_course_start? do
-      option :"2023-2024"
       option :"2024-2025"
+      option :"2025-2026"
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::StudentFinanceCalculator.new
