@@ -1,6 +1,7 @@
 require "test_helper"
 require "support/flow_test_helper"
 
+# noinspection RubyResolve
 class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -63,20 +64,12 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
         should "have a next node of which_country? for a '#{benefit}' response if going_abroad" do
           assert_next_node :which_country?, for_response: benefit
         end
-
-        # Repeat of above for an 'already_abroad' response
-        # TODO: Could this could be refactored to use contexts for the different responses?
-        should "have a next node of which_country? for a '#{benefit}' response if already_abroad" do
-          add_responses going_or_already_abroad?: "already_abroad"
-          assert_next_node :which_country?, for_response: benefit
-        end
       end
 
       should "have a next node of iidb_already_claiming? for an 'iidb' response" do
         assert_next_node :iidb_already_claiming?, for_response: "iidb"
       end
 
-      # TODO: Example - what is the response needed for ESA and already_abroad? This is only testing going_abroad.
       should "have a next node of esa_how_long_abroad? for an 'esa' response" do
         assert_next_node :esa_how_long_abroad?, for_response: "esa"
       end
@@ -172,21 +165,16 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
           add_responses which_benefit?: "winter_fuel_payment"
         end
 
-        %w[going_abroad already_abroad].each do |location|
-          should "have next node of is_british_or_irish? for an 'ireland' response if #{location}" do
-            add_responses going_or_already_abroad?: location
-            assert_next_node :is_british_or_irish?, for_response: "ireland"
-          end
+        should "have next node of is_british_or_irish? for an 'ireland' response" do
+          assert_next_node :is_british_or_irish?, for_response: "ireland"
+        end
 
-          should "have a next node of worked_in_eea_or_switzerland? for any EEA country response except ireland if #{location}" do
-            add_responses going_or_already_abroad?: location
-            assert_next_node :worked_in_eea_or_switzerland?, for_response: "liechtenstein"
-          end
+        should "have a next node of worked_in_eea_or_switzerland? for any EEA country response except ireland" do
+          assert_next_node :worked_in_eea_or_switzerland?, for_response: "liechtenstein"
+        end
 
-          should "have a next node of wfp_not_eligible_outcome for any non-EEA country response if #{location}" do
-            add_responses going_or_already_abroad?: location
-            assert_next_node :wfp_not_eligible_outcome, for_response: "australia"
-          end
+        should "have a next node of wfp_not_eligible_outcome for any non-EEA country response" do
+          assert_next_node :wfp_not_eligible_outcome, for_response: "australia"
         end
       end
 
@@ -980,7 +968,7 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
         assert_next_node :db_already_abroad_eea_outcome, for_response: "before_jan_2021"
       end
 
-      # TODO: Should we cycle through the different benefits for the following tests?
+      # TODO: Do we need to cycle through the different benefits for the following tests?
       should "have a next node of jsa_eea_going_abroad_maybe_outcome for a 'before_jan_2021' response if benefit is jsa" do
         assert_next_node :jsa_eea_going_abroad_maybe_outcome, for_response: "before_jan_2021"
       end
@@ -1040,7 +1028,7 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
       end
 
       context "winter_fuel_payment" do
-        should "have a next node of born_before_23_September_1958 for a 'before_jan_2021' response if benefit is winter_fuel_payment and going_abroad" do
+        should "have a next node of born_before_23_September_1958 for a 'before_jan_2021' response if benefit is winter_fuel_payment" do
           add_responses which_benefit?: "winter_fuel_payment"
           assert_next_node :born_before_23_September_1958?, for_response: "before_jan_2021"
         end
@@ -1051,7 +1039,7 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
           assert_next_node :jsa_not_entitled_outcome, for_response: response
         end
 
-        should "have a next node of wfp_not_eligible_outcome for a '#{response}' response if benefit is winter_fuel_payment and going_abroad" do
+        should "have a next node of wfp_not_eligible_outcome for a '#{response}' response if benefit is winter_fuel_payment" do
           add_responses which_benefit?: "winter_fuel_payment"
           assert_next_node :wfp_not_eligible_outcome, for_response: response
         end
