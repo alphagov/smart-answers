@@ -86,10 +86,6 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_BRITISH_NATIONAL_OVERSEAS.include?(@passport_country)
     end
 
-    def passport_country_in_eta_rollout_group_1_rest_of_the_world?
-      COUNTRY_GROUP_ETA_ROLLOUT_GROUP_1_REST_OF_THE_WORLD.include?(@passport_country)
-    end
-
     def passport_country_in_eta_rollout_group_2_eu_eea?
       COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA.include?(@passport_country)
     end
@@ -549,12 +545,63 @@ module SmartAnswer::Calculators
     ].freeze
 
     COUNTRY_GROUP_ELECTRONIC_TRAVEL_AUTHORISATION = %w[
-      qatar
+      antigua-and-barbuda
+      argentina
+      australia
+      bahamas
       bahrain
+      barbados
+      belize
+      botswana
+      brazil
+      british-national-overseas
+      brunei
+      canada
+      chile
+      colombia
+      costa-rica
+      federated-states-of-micronesia
+      grenada
+      guatemala
+      guyana
+      hong-kong
+      hong-kong-(british-national-overseas)
+      israel
+      japan
+      kiribati
       kuwait
+      macao
+      malaysia
+      maldives
+      marshall-islands
+      mauritius
+      mexico
+      nauru
+      new-zealand
+      nicaragua
       oman
+      palau
+      panama
+      papua-new-guinea
+      paraguay
+      peru
+      qatar
+      samoa
       saudi-arabia
+      seychelles
+      singapore
+      solomon-islands
+      south-korea
+      st-kitts-and-nevis
+      st-lucia
+      st-vincent-and-the-grenadines
+      taiwan
+      tonga
+      trinidad-and-tobago
+      tuvalu
       united-arab-emirates
+      uruguay
+      usa
     ].freeze
 
     COUNTRY_GROUP_EPASSPORT_GATES = %w[
@@ -625,60 +672,6 @@ module SmartAnswer::Calculators
       "british-overseas-citizen",
       "zimbabwe",
     ].flatten.freeze
-
-    COUNTRY_GROUP_ETA_ROLLOUT_GROUP_1_REST_OF_THE_WORLD = %w[
-      antigua-and-barbuda
-      argentina
-      australia
-      bahamas
-      barbados
-      belize
-      botswana
-      brazil
-      british-national-overseas
-      brunei
-      canada
-      chile
-      colombia
-      costa-rica
-      federated-states-of-micronesia
-      grenada
-      guatemala
-      guyana
-      hong-kong
-      hong-kong-(british-national-overseas)
-      israel
-      japan
-      kiribati
-      macao
-      malaysia
-      maldives
-      marshall-islands
-      mauritius
-      mexico
-      nauru
-      new-zealand
-      nicaragua
-      palau
-      panama
-      papua-new-guinea
-      paraguay
-      peru
-      samoa
-      seychelles
-      singapore
-      solomon-islands
-      south-korea
-      st-kitts-and-nevis
-      st-lucia
-      st-vincent-and-the-grenadines
-      taiwan
-      tonga
-      trinidad-and-tobago
-      tuvalu
-      uruguay
-      usa
-    ].freeze
 
     COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA = %w[
       andorra
