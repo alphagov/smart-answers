@@ -132,18 +132,6 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_medical_n, for_response: "medical"
       end
 
-      should "have a next node of outcome_medical_n for a travel document country with a passport" do
-        add_responses what_passport_do_you_have?: @travel_document_country,
-                      what_sort_of_travel_document?: "passport"
-        assert_next_node :outcome_medical_n, for_response: "medical"
-      end
-
-      should "have a next node of outcome_medical_y for a travel document country with a travel document" do
-        add_responses what_passport_do_you_have?: @travel_document_country,
-                      what_sort_of_travel_document?: "travel_document"
-        assert_next_node :outcome_medical_y, for_response: "medical"
-      end
-
       should "have a next node of outcome_medical_y for other passports" do
         add_responses what_passport_do_you_have?: @visa_national_country
         assert_next_node :outcome_medical_y, for_response: "medical"
@@ -176,19 +164,13 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_tourism_n, for_response: "tourism"
       end
 
-      should "have a next node of outcome_tourism_n for a travel document country with a passport" do
+      should "have a next node of outcome_tourism_electronic_travel_authorisation for a travel document country with a passport" do
         add_responses what_passport_do_you_have?: @travel_document_country,
                       what_sort_of_travel_document?: "passport"
-        assert_next_node :outcome_tourism_n, for_response: "tourism"
+        assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
       end
 
-      should "have a next node of outcome_tourism_y for a travel document country with a travel document" do
-        add_responses what_passport_do_you_have?: @travel_document_country,
-                      what_sort_of_travel_document?: "travel_document"
-        assert_next_node :travelling_visiting_partner_family_member?, for_response: "tourism"
-      end
-
-      should "have a next node of outcome_tourism_y for other passports" do
+      should "have a next node of travelling_visiting_partner_family_member? for other passports" do
         add_responses what_passport_do_you_have?: @visa_national_country
         assert_next_node :travelling_visiting_partner_family_member?, for_response: "tourism"
       end

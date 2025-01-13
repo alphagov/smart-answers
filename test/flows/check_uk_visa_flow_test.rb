@@ -14,7 +14,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @british_overseas_territory_country = "anguilla"
     @non_visa_national_country = "andorra"
     @eea_country = "austria"
-    @eta_rollout_group_1_rest_of_the_world_country = "antigua-and-barbuda"
+    @eta_rollout_group_1_rest_of_the_world_country = "taiwan"
     @eta_rollout_group_2_eu_eea_country = "bonaire-st-eustatius-saba"
     @travel_document_country = "hong-kong"
     @b1_b2_country = "syria"
@@ -242,20 +242,20 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           add_responses what_passport_do_you_have?: @british_overseas_territory_country
           assert_next_node :outcome_no_visa_needed, for_response: response
         end
-
-        should "have a next node of outcome_no_visa_needed for a travel document country with a passport " \
-               "and a '#{response}' response" do
-          add_responses what_passport_do_you_have?: @travel_document_country,
-                        what_sort_of_travel_document?: "passport"
-          assert_next_node :outcome_no_visa_needed, for_response: response
-        end
       end
 
-      should "have a next node of outcome_transit_to_the_republic_of_ireland for a travel document country with " \
-             "a travel document and a 'republic_of_ireland' response" do
+      should "have a next node of outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation for a travel document country with a passport " \
+             "and a 'republic_of_ireland' response" do
         add_responses what_passport_do_you_have?: @travel_document_country,
-                      what_sort_of_travel_document?: "travel_document"
-        assert_next_node :outcome_transit_to_the_republic_of_ireland, for_response: "republic_of_ireland"
+                      what_sort_of_travel_document?: "passport"
+        assert_next_node :outcome_transit_to_the_republic_of_ireland_electronic_travel_authorisation, for_response: "republic_of_ireland"
+      end
+
+      should "have a next node of outcome_no_visa_needed for a travel document country with a passport " \
+             "and a 'somewhere_else' response" do
+        add_responses what_passport_do_you_have?: @travel_document_country,
+                      what_sort_of_travel_document?: "passport"
+        assert_next_node :outcome_no_visa_needed, for_response: "somewhere_else"
       end
 
       should "have a next node of outcome_transit_to_the_republic_of_ireland for a different country and a " \
@@ -425,13 +425,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_study_m, for_response: "six_months_or_less"
         end
 
-        should "have a next node of outcome_study_m for a study visit with a travel document" do
-          add_responses what_passport_do_you_have?: @travel_document_country,
-                        what_sort_of_travel_document?: "travel_document",
-                        purpose_of_visit?: "study"
-          assert_next_node :outcome_study_m, for_response: "six_months_or_less"
-        end
-
         should "have a next node of outcome_study_no_visa_needed for a study visit with a British overseas " \
                "territory passport" do
           add_responses what_passport_do_you_have?: @british_overseas_territory_country,
@@ -478,13 +471,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           add_responses what_passport_do_you_have?: @eea_country,
                         purpose_of_visit?: "work"
           assert_next_node :outcome_work_n, for_response: "six_months_or_less"
-        end
-
-        should "have a next node of outcome_work_m for a work visit with a travel document" do
-          add_responses what_passport_do_you_have?: @travel_document_country,
-                        what_sort_of_travel_document?: "travel_document",
-                        purpose_of_visit?: "work"
-          assert_next_node :outcome_work_m, for_response: "six_months_or_less"
         end
 
         should "have a next node of outcome_work_m for a work visit for other countries" do
@@ -612,7 +598,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance to British nationals overseas" do
       add_responses what_passport_do_you_have?: "british-national-overseas"
       assert_rendered_outcome text: "you can apply for a British National Overseas (BNO) visa."
-      assert_rendered_outcome text: "You will not need a visa but"
+      assert_no_rendered_outcome text: "You will not need a visa but"
     end
 
     should "render different guidance to non-British nationals overseas" do
@@ -945,11 +931,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_no_rendered_outcome text: "Whether you need a visa depends"
     end
 
-    should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-      add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-      assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
-    end
-
     should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
       add_responses what_passport_do_you_have?: @eta_rollout_group_2_eu_eea_country
       assert_rendered_outcome text: @eta_rollout_group_2_eu_eea_text
@@ -967,11 +948,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_no_rendered_outcome text: @non_visa_national_eta_text
         assert_no_rendered_outcome text: @eea_eta_text
-      end
-
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
       end
 
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
@@ -1017,11 +993,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         assert_no_rendered_outcome text: @eea_eta_text
       end
 
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
-      end
-
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
         add_responses what_passport_do_you_have?: @eta_rollout_group_2_eu_eea_country
         assert_rendered_outcome text: @eta_rollout_group_2_eu_eea_text
@@ -1038,11 +1009,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_no_rendered_outcome text: @non_visa_national_eta_text
         assert_no_rendered_outcome text: @eea_eta_text
-      end
-
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
       end
 
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
@@ -1063,11 +1029,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         assert_no_rendered_outcome text: @eea_eta_text
       end
 
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
-      end
-
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
         add_responses what_passport_do_you_have?: @eta_rollout_group_2_eu_eea_country
         assert_rendered_outcome text: @eta_rollout_group_2_eu_eea_text
@@ -1084,11 +1045,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_no_rendered_outcome text: @non_visa_national_eta_text
         assert_no_rendered_outcome text: @eea_eta_text
-      end
-
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
       end
 
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
@@ -1108,11 +1064,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_no_rendered_outcome text: @non_visa_national_eta_text
         assert_no_rendered_outcome text: @eea_eta_text
-      end
-
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
       end
 
       should "render callout box for eta_rollout_group_2_eu_eea_country passport holders" do
