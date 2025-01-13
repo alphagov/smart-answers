@@ -144,19 +144,19 @@ GEM
       rest-client (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.29.2)
+    google-protobuf (4.29.3)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.2-aarch64-linux)
+    google-protobuf (4.29.3-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.2-arm64-darwin)
+    google-protobuf (4.29.3-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.2-x86_64-linux)
+    google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    googleapis-common-protos-types (1.16.0)
+    googleapis-common-protos-types (1.17.0)
       google-protobuf (>= 3.18, < 5.a)
     govspeak (9.0.0)
       actionview (>= 6, < 8.0.2)
@@ -183,7 +183,7 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (47.0.0)
+    govuk_publishing_components (48.0.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -234,7 +234,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.4)
+    logger (1.6.5)
     logstasher (2.1.5)
       activesupport (>= 5.2)
       request_store
