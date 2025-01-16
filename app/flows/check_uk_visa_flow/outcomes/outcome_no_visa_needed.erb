@@ -1,6 +1,6 @@
 <% text_for :title do %>
   <%if calculator.passport_country_requires_electronic_travel_authorisation?  %>
-    You'll need an electronic travel authorisation (ETA) to come to the UK
+    You'll need an electronic travel authorisation (ETA) to pass through UK border control
   <% else %>
     You do not need a visa to come to the UK
   <% end %>
@@ -10,7 +10,7 @@
 <% govspeak_for :body do %>
 
   <%if calculator.passport_country_requires_electronic_travel_authorisation? %>
-    [Apply for an (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta).
+    [Apply for an ETA](/guidance/apply-for-an-electronic-travel-authorisation-eta).
   <% end %>
 
   <% if (calculator.travelling_to_elsewhere? || calculator.travelling_to_ireland?) &&
@@ -29,6 +29,20 @@
   <% end %>
 
   <%if calculator.passport_country_requires_electronic_travel_authorisation? %>
+    You do not need an ETA if you will not pass through UK border control. You should bring evidence of your onward journey, such as a ticket to your destination.
+
+    You always pass through border control if you:
+
+    + leave the main airport building for any reason
+    + need to collect your bags and check them in to your onward flight
+
+    You must also pass through border control if both:
+
+    + your onward flight leaves on a different calendar day to when you arrive
+    + there's nowhere for you to stay overnight in the airport, for example in a transit hotel
+
+    Check with your airline if you're not sure if you'll pass through UK border control.
+
     %You may want to apply for a [transit visa](/transit-visa) instead if you have a criminal record or you’ve previously been refused entry into the UK.
   <% end %>
 <% end %>
