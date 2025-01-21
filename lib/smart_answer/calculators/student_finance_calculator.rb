@@ -35,8 +35,8 @@ module SmartAnswer
         },
         "2025-2026" => {
           "at-home" => 2_396,
-          "away-in-london" => 3_194,
-          "away-outside-london" => 4_485,
+          "away-in-london" => 4_485,
+          "away-outside-london" => 3_194,
         },
       }.freeze
 
