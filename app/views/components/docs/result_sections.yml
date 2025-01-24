@@ -6,29 +6,30 @@ uses_component_wrapper_helper: true
 examples:
   default:
     data:
-      title: Business tax
-      results:
+      topics:
+        business_tax:
         - title: "Register for Corporation Tax"
           url: "/corporation-tax"
           description: "You need to register for corporation tax within 3 months of starting to do business, if you haven’t done so already."
   with-multiple-items:
     data:
-      title: Business tax
-      results:
-        - title: "Register for Corporation Tax"
-          url: "/corporation-tax"
-          description: "You need to register for corporation tax within 3 months of starting to do business, if you haven’t done so already."
-        - title: "Register for VAT"
-          url: "/vat-registration"
-          description: "You need to register your business for VAT if your VAT taxable turnover is more than £85,000."
+      topics:
+        business_tax:
+          - title: "Register for Corporation Tax"
+            url: "/corporation-tax"
+            description: "You need to register for corporation tax within 3 months of starting to do business, if you haven’t done so already."
+          - title: "Register for VAT"
+            url: "/vat-registration"
+            description: "You need to register your business for VAT if your VAT taxable turnover is more than £85,000."
   with-multiple-highlighted-items:
     data:
-      title: Business tax
-      highlighted: true
-      results:
-        - title: "Register for Corporation Tax"
-          url: "/corporation-tax"
-          description: "You need to register for corporation tax within 3 months of starting to do business, if you haven’t done so already."
-        - title: "Register for VAT"
-          url: "/vat-registration"
-          description: "You need to register your business for VAT if your VAT taxable turnover is more than £85,000."
+      topics:
+        business_tax:
+          - title: "Register for Corporation Tax"
+            url: "/corporation-tax"
+            description: "You need to register for corporation tax within 3 months of starting to do business, if you haven’t done so already."
+            highlighted: true
+          - title: "Register for VAT"
+            url: "/vat-registration"
+            description: "You need to register your business for VAT if your VAT taxable turnover is more than £85,000."
+            highlighted: true
