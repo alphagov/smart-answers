@@ -2,6 +2,7 @@ name: Result section
 description: Groups a set of results items under a common title
 shared_accessibility_criteria:
   - link
+uses_component_wrapper_helper: true
 examples:
   default:
     data:
