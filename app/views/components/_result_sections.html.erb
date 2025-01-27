@@ -7,8 +7,11 @@
   if !topics.any?
     raise ArgumentError, "The result section component requires topics data"
   end
+
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.add_class("app-c-result-sections")
 %>
-<div class="app-c-result-sections">
+<%= tag.div(**component_helper.all_attributes) do %>
   <% topics.each do |topic, results| %>
     <section class="app-c-result-sections__section">
       <h3 class="govuk-heading-m"><%= topic %></h3>
@@ -22,4 +25,4 @@
       <% end %>
     </section>
   <% end %>
-</div>
+<% end %>
