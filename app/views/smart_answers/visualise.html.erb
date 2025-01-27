@@ -14,9 +14,12 @@
   var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
 <%- end %>
 
-<%= render "govuk_publishing_components/components/title", {
+<%= render "govuk_publishing_components/components/heading", {
   context: "Flow visualisation for",
-  title: @title,
+  text: @title,
+  heading_level: 1,
+  font_size: "xl",
+  margin_bottom: 8,
 } %>
 
 <p class="govuk-body">This is a visualisation of the <%= link_to @title, smart_answer_path(params[:id]) %> questions and outcomes.</p>

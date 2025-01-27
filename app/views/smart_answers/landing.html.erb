@@ -23,8 +23,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/title", {
-      title: start_node.title,
+    <%= render "govuk_publishing_components/components/heading", {
+      text: start_node.title,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
     } %>
   </div>
 </div>
