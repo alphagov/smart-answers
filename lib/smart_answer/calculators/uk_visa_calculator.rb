@@ -562,7 +562,6 @@ module SmartAnswer::Calculators
       brunei
       canada
       chile
-      colombia
       costa-rica
       federated-states-of-micronesia
       grenada
