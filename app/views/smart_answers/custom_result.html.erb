@@ -26,9 +26,11 @@
       "action": "complete",
       "tool_name": @presenter.title,
     }.to_json %>">
-    <%= render "govuk_publishing_components/components/title", {
-      title: outcome.title,
+    <%= render "govuk_publishing_components/components/heading", {
+      text: outcome.title,
       margin_bottom: 6,
+      heading_level: 1,
+      font_size: "xl",
     } %>
 
     <%= outcome.description %>
