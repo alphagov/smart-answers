@@ -27,7 +27,7 @@ class BrokenLinkReport
         content << "Flow: #{folder.name}"
         content << "===================="
         folder.links.each do |link|
-          next unless link.status == :broken || link.status == :caution
+          next unless %i[broken caution].include?(link.status)
 
           content << link.uri
           content << link.problem_summary
