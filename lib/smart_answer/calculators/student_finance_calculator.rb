@@ -69,8 +69,8 @@ module SmartAnswer
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
 
       TUITION_FEE_MAXIMUM = {
-        "full-time" => 9_250,
-        "part-time" => 6_935,
+        "full-time" => 9_535,
+        "part-time" => 7_145,
       }.freeze
 
       LOAN_MINIMUMS = {
