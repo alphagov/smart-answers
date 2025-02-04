@@ -1799,6 +1799,16 @@ module SmartAnswer::Calculators
             assert_equal BigDecimal("5.2786885246").round(10), @calculator.full_time_part_time_weeks.round(10)
             assert_equal "5.28", @calculator.formatted_full_time_part_time_weeks
           end
+
+          # /annualised-hours/leaving/2025-01-29/2024-02-29 discovered leap day calc issue
+          should "return 5.16 weeks when the start_date is 2024-02-29 and leaving_date is 2025-01-29" do
+            @calculator.start_date = Date.parse("2024-02-29")
+            @calculator.leaving_date = Date.parse("2025-01-29")
+
+            assert_equal BigDecimal("0.9205479452").round(10), @calculator.fraction_of_year.round(10)
+            assert_equal BigDecimal("5.1550684932").round(10), @calculator.full_time_part_time_weeks.round(10)
+            assert_equal "5.16", @calculator.formatted_full_time_part_time_weeks
+          end
         end
 
         context "for department test data" do

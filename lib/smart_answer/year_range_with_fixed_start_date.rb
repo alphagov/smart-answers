@@ -7,6 +7,13 @@ module SmartAnswer
     end
 
     def starting_in(start_year)
+      # To handle the very rare case where we hit a leap year
+      # Prevents us trying to call a nonexistent date e.g. 29th Feb 2025
+      if (@start_month == 2) && (@start_day == 29) && !Date.leap?(start_year)
+        @start_month = 3
+        @start_day = 1
+      end
+
       start_date = Date.new(start_year, @start_month, @start_day)
       YearRange.new(begins_on: start_date)
     end
