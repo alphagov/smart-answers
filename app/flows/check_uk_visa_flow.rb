@@ -52,6 +52,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     radio :what_sort_of_passport? do
       option :citizen
       option :alien
+      option :test
 
       next_node do |response|
         if response == "alien"
