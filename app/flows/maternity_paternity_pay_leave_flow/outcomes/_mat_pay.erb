@@ -78,6 +78,12 @@ Remaining weeks (between <%= calculator.formatted_first_day_in_year(2024) %> and
 
 <% end %>
 
+<% if calculator.paid_leave_is_in_year?(2025) %>
+
+Remaining weeks (between <%= calculator.formatted_first_day_in_year(2025) %> and <%= calculator.formatted_last_day_in_year(2025) %>) | £187.18 per week or 90% of her average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
 Tell the mother’s employer | 28 days before she wants want to start maternity pay
 
 Tax and National Insurance will be deducted.

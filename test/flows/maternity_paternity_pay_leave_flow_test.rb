@@ -4199,6 +4199,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses due_date: "2024-1-1"
       assert_rendered_outcome text: "£184.03 per week"
     end
+
+    should "render _mat_pay partial weekly rate for 2025" do
+      add_responses due_date: "2025-1-1"
+      assert_rendered_outcome text: "£187.18 per week"
+    end
   end
 
   context "outcome: outcome_pat_pay" do
