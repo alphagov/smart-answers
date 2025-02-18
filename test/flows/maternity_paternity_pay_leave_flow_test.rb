@@ -4283,6 +4283,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "£184.03 per week"
     end
 
+    should "render _pat_pay partial weekly rate for 2025" do
+      add_responses due_date: "2025-1-1"
+      assert_rendered_outcome text: "£187.18 per week"
+    end
+
     should "render _pat_pay partial paid leave is in year 2013" do
       add_responses due_date: "2013-1-1"
       assert_rendered_outcome text: "28 days before they want to start paternity pay"
