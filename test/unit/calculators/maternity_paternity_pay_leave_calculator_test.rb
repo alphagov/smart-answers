@@ -233,15 +233,75 @@ module SmartAnswer
         end
       end
 
+      context "due date in 2021-2022 range" do
+        setup do
+          @date = Date.parse("2022-04-01")
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £120 for lower_earnings_amount" do
+          assert_equal 120, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date in 2022-2023 range" do
+        setup do
+          @date = Date.parse("2023-04-01")
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £123 for lower_earnings_amount" do
+          assert_equal 123, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date in 2023-2024 range" do
+        setup do
+          @date = Date.parse("2024-04-01")
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £123 for lower_earnings_amount" do
+          assert_equal 123, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date in 2024-2025 range" do
+        setup do
+          @date = Date.parse("2025-04-01")
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £123 for lower_earnings_amount" do
+          assert_equal 123, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date in 2025-2026 range" do
+        setup do
+          @date = Date.parse("2026-04-01")
+          @calculator = MaternityPaternityPayLeaveCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £125 for lower_earnings_amount" do
+          assert_equal 125, @calculator.lower_earnings_amount
+        end
+      end
+
       context "due date outside all ranges" do
         setup do
-          @date = Date.parse("2022-01-01")
+          @date = Date.parse("2050-01-01")
           @calculator = MaternityPaternityPayLeaveCalculator.new
           @calculator.due_date = @date
         end
 
         should "return the latest known lower_earnings_amount" do
-          assert_equal 120, @calculator.lower_earnings_amount
+          assert_equal 125, @calculator.lower_earnings_amount
         end
       end
 
