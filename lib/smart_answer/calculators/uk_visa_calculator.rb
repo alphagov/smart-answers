@@ -78,6 +78,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_ELECTRONIC_TRAVEL_AUTHORISATION.include?(@passport_country)
     end
 
+    def passport_eu_eea_country_requires_electronic_travel_authorisation?
+      COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA.include?(@passport_country)
+    end
+
     def passport_country_in_epassport_gate_list?
       COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
     end
