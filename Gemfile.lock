@@ -202,7 +202,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.1.1)
+    govuk_web_banners (1.1.2)
       govuk_app_config
       govuk_publishing_components
       rails (>= 7)
@@ -514,7 +514,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.11)
+    rack (3.1.12)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.0)
@@ -567,9 +567,9 @@ GEM
       ffi (~> 1.0)
     rdoc (6.12.0)
       psych (>= 4.0.0)
-    redis (5.3.0)
+    redis (5.4.0)
       redis-client (>= 0.22.0)
-    redis-client (0.23.2)
+    redis-client (0.24.0)
       connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
