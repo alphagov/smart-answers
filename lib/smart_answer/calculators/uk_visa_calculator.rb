@@ -150,6 +150,10 @@ module SmartAnswer::Calculators
       @passport_country == "jordan"
     end
 
+    def passport_country_is_trinidad_and_tobago?
+      @passport_country == "trinidad-and-tobago"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
@@ -387,7 +391,6 @@ module SmartAnswer::Calculators
       st-maarten
       st-vincent-and-the-grenadines
       tonga
-      trinidad-and-tobago
       tuvalu
       united-arab-emirates
       uruguay
@@ -507,6 +510,7 @@ module SmartAnswer::Calculators
       tanzania
       the-gambia
       timor-leste
+      trinidad-and-tobago
       turkey
       uganda
       vanuatu
@@ -603,7 +607,6 @@ module SmartAnswer::Calculators
       st-lucia
       st-vincent-and-the-grenadines
       tonga
-      trinidad-and-tobago
       tuvalu
       united-arab-emirates
       uruguay
