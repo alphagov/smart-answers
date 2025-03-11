@@ -1039,8 +1039,8 @@ module SmartAnswer
 
         should "have the correct 2025/2026 value" do
           calculator = StatutorySickPayCalculator.new(
-            sick_start_date: Date.parse("3 June 2025"),
-            sick_end_date: Date.parse("7 June 2025"),
+            sick_start_date: Date.parse("2 June 2025"),
+            sick_end_date: Date.parse("6 June 2025"),
             days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: true,
             linked_sickness_start_date: Date.parse("21 Sep 2024"),
