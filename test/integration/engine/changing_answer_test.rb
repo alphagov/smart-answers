@@ -2,55 +2,55 @@ require_relative "engine_test_helper"
 
 class ChangingAnswerTest < EngineIntegrationTest
   with_and_without_javascript do
-    # should "be able to change country and date answers" do
-    #   stub_content_store_has_item("/moved-to-country")
-    #   stub_worldwide_api_has_locations(%w[argentina belarus])
+    should "be able to change country and date answers" do
+      stub_content_store_has_item("/moved-to-country")
+      stub_worldwide_api_has_locations(%w[argentina belarus])
 
-    #   visit "/moved-to-country/y"
+      visit "/moved-to-country/y"
 
-    #   select "Belarus", from: "response"
-    #   click_on "Continue"
+      select "Belarus", from: "response"
+      click_on "Continue"
 
-    #   within("#current-question") { assert_page_has_content "What date did you move there?" }
-    #   fill_in "response[day]", with: "5"
-    #   fill_in "response[month]", with: "5"
-    #   fill_in "response[year]", with: "1975"
-    #   click_on "Continue"
+      within("#current-question") { assert_page_has_content "What date did you move there?" }
+      fill_in "response[day]", with: "5"
+      fill_in "response[month]", with: "5"
+      fill_in "response[year]", with: "1975"
+      click_on "Continue"
 
-    #   within("#current-question") { assert_page_has_content "Which country were you born in?" }
+      within("#current-question") { assert_page_has_content "Which country were you born in?" }
 
-    #   within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
+      within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
 
-    #   within "#current-question" do
-    #     assert_page_has_content "Which country do you live in?"
-    #     assert page.has_selector? :select, "response", selected: "Belarus"
-    #   end
+      within "#current-question" do
+        assert_page_has_content "Which country do you live in?"
+        assert page.has_selector? :select, "response", selected: "Belarus"
+      end
 
-    #   select "Argentina", from: "response"
-    #   click_on "Continue"
+      select "Argentina", from: "response"
+      click_on "Continue"
 
-    #   assert_current_url "/moved-to-country/y/argentina"
+      assert_current_url "/moved-to-country/y/argentina"
 
-    #   fill_in "response[day]", with: "10"
-    #   fill_in "response[month]", with: "6"
-    #   fill_in "response[year]", with: "1985"
-    #   click_on "Continue"
+      fill_in "response[day]", with: "10"
+      fill_in "response[month]", with: "6"
+      fill_in "response[year]", with: "1985"
+      click_on "Continue"
 
-    #   within(".govuk-summary-list__row:nth-child(2)") { click_on "Change" }
+      within(".govuk-summary-list__row:nth-child(2)") { click_on "Change" }
 
-    #   within "#current-question" do
-    #     assert page.has_field? "Day", with: "10"
-    #     assert page.has_field? "Month", with: "6"
-    #     assert page.has_field? "Year", with: "1985"
-    #   end
+      within "#current-question" do
+        assert page.has_field? "Day", with: "10"
+        assert page.has_field? "Month", with: "6"
+        assert page.has_field? "Year", with: "1985"
+      end
 
-    #   fill_in "response[day]", with: "15"
-    #   fill_in "response[month]", with: "4"
-    #   fill_in "response[year]", with: "2000"
-    #   click_on "Continue"
+      fill_in "response[day]", with: "15"
+      fill_in "response[month]", with: "4"
+      fill_in "response[year]", with: "2000"
+      click_on "Continue"
 
-    #   assert_current_url "/moved-to-country/y/argentina/2000-04-15"
-    # end
+      assert_current_url "/moved-to-country/y/argentina/2000-04-15"
+    end
 
     should "be able to change money and salary answers" do
       stub_content_store_has_item("/annual-bonus")
