@@ -17,18 +17,19 @@ class ActionDispatch::IntegrationTest
     assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
   end
 
-  def assert_current_url(path_with_query, options = {})
-    assert_same_url(current_url, path_with_query, options.merge(wait_until: true))
+  def assert_current_url(path_with_query)
+    expected = URI.parse(path_with_query)
+    wait_until { expected.path == URI.parse(current_url).path }
+    current = URI.parse(current_url)
+    assert_equal expected.path, current.path
+    assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
   end
 
-  def assert_same_url(expected_url, actual_url, options = {})
+  def assert_same_url(expected_url, actual_url)
     expected = URI.parse(expected_url)
-    wait_until { expected.path == URI.parse(current_url).path } if options[:wait_until]
     actual = URI.parse(actual_url)
     assert_equal expected.path, actual.path
-    unless options[:ignore_query]
-      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(actual.query)
-    end
+    assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(actual.query)
   end
 
   # Adapted from http://www.elabs.se/blog/53-why-wait_until-was-removed-from-capybara
