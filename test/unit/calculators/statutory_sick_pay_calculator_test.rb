@@ -863,6 +863,17 @@ module SmartAnswer
           end
         end
 
+        context "in the beginning of 2025/2026" do
+          setup do
+            @date = Date.parse("6 April 2025")
+            @lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+          end
+
+          should "be 125" do
+            assert_equal 125.00, @lel
+          end
+        end
+
         context "fallback when no dates are matching" do
           should "not break and use the rate of the latest available fiscal year" do
             date = Date.parse("6 April 2056")
@@ -1024,6 +1035,19 @@ module SmartAnswer
           )
 
           assert_equal 116.75, calculator.ssp_payment.to_f
+        end
+
+        should "have the correct 2025/2026 value" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: Date.parse("2 June 2025"),
+            sick_end_date: Date.parse("6 June 2025"),
+            days_of_the_week_worked: %w[1 2 3 4 5],
+            has_linked_sickness: true,
+            linked_sickness_start_date: Date.parse("21 Sep 2024"),
+            linked_sickness_end_date: Date.parse("28 Dec 2024"),
+          )
+
+          assert_equal 118.75, calculator.ssp_payment.to_f
         end
       end
 
