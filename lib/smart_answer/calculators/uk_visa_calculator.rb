@@ -566,7 +566,6 @@ module SmartAnswer::Calculators
       belize
       botswana
       brazil
-      british-national-overseas
       brunei
       canada
       chile
@@ -576,7 +575,6 @@ module SmartAnswer::Calculators
       guatemala
       guyana
       hong-kong
-      hong-kong-(british-national-overseas)
       israel
       japan
       kiribati

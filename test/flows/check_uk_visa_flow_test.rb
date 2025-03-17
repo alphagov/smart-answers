@@ -598,7 +598,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render specific guidance to British nationals overseas" do
       add_responses what_passport_do_you_have?: "british-national-overseas"
       assert_rendered_outcome text: "you can apply for a British National Overseas (BNO) visa."
-      assert_no_rendered_outcome text: "You will not need a visa but"
+      assert_rendered_outcome text: "You will not need a visa but"
     end
 
     should "render different guidance to non-British nationals overseas" do
