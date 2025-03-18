@@ -23,7 +23,16 @@
 
   ##Transiting without a visa
 
-  If your passport does not have a personal ID number, you might be eligible to transit without a visa if:
+  <% if calculator.passport_country_is_taiwan? %>
+
+   If your passport does not have a personal ID number, you might be eligible to transit without a visa if:
+
+  <% else %>
+
+  You may be eligible to transit without a visa if:
+
+  <% end %>
+
 
   - you arrive and depart by air
   - have a confirmed onward flight that leaves on the day you arrive or before midnight on the day after you arrive
