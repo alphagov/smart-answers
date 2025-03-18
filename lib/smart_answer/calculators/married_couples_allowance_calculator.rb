@@ -56,13 +56,9 @@ module SmartAnswer::Calculators
       married_couples_allowance_rates.minimum_married_couple_allowance
     end
 
-    def income_limit_for_personal_allowances
-      @personal_allowance_calculator.income_limit_for_personal_allowances
-    end
+    delegate :income_limit_for_personal_allowances, to: :@personal_allowance_calculator
 
-    def personal_allowance
-      @personal_allowance_calculator.personal_allowance
-    end
+    delegate :personal_allowance, to: :@personal_allowance_calculator
 
     def married_couples_allowance_rates
       @married_couples_allowance_rates ||= RatesQuery.from_file("married_couples_allowance").rates

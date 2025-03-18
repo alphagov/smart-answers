@@ -15,9 +15,7 @@ class NodePresenter
     @node.slug
   end
 
-  def view_template_path
-    @node.view_template_path
-  end
+  delegate :view_template_path, to: :@node
 
   def redacted?
     @node.redact
