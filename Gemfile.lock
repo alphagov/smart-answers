@@ -157,7 +157,7 @@ GEM
     google-protobuf (4.30.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    googleapis-common-protos-types (1.18.0)
+    googleapis-common-protos-types (1.19.0)
       google-protobuf (>= 3.18, < 5.a)
     govspeak (10.2.2)
       actionview (>= 6, < 8.0.3)
@@ -169,7 +169,7 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (>= 6, < 8)
-    govuk_app_config (9.16.6)
+    govuk_app_config (9.16.7)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.31)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.75.0)
