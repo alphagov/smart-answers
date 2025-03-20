@@ -4,6 +4,7 @@
   "repository": "https://github.com/alphagov/smart-answers",
   "success_url": "/",
   "env": {
+    "RATES_QUERY_DATE": "2025-04-06",
     "GOVUK_APP_DOMAIN": "www.gov.uk",
     "GOVUK_WEBSITE_ROOT": "https://www.gov.uk",
     "GOVUK_PROXY_STATIC_ENABLED": "true",
