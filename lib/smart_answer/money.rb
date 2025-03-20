@@ -19,9 +19,7 @@ module SmartAnswer
       @value = BigDecimal(input.to_s)
     end
 
-    def to_s
-      @value.to_s
-    end
+    delegate :to_s, to: :@value
 
     def <=>(other)
       case other

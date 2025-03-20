@@ -80,9 +80,7 @@ module SmartAnswer::Calculators
       PAYMENT_OPTIONS
     end
 
-    def payment_options
-      self.class.payment_options
-    end
+    delegate :payment_options, to: :class
 
     def number_of_payments
       if valid_payment_option?

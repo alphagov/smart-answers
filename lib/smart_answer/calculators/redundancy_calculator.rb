@@ -28,9 +28,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_money(amount)
-      self.class.format_money(amount)
-    end
+    delegate :format_money, to: :class
 
     def self.format_money(amount)
       formatted_amount = number_to_currency(amount, precision: 2, locale: :gb, unit: "")
