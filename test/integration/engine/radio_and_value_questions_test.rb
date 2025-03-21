@@ -9,6 +9,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
     should "handle radio and value questions" do
       visit "/bridge-of-death"
 
+      find "h1", text: "The Bridge of Death"
       assert_current_url "/bridge-of-death"
 
       assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']", visible: :all)
@@ -27,6 +28,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
 
       click_on "Start now"
 
+      find "h1", text: "What...is your name?"
       assert_current_url "/bridge-of-death/y"
 
       # This is asserting that the form URL doesn't get created with a trailing /
@@ -47,6 +49,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       fill_in "response", with: "Lancelot"
       click_on "Continue"
 
+      find "h1", text: "What...is your quest?"
       assert_current_url "/bridge-of-death/y/Lancelot"
 
       assert page.has_link?("Start again", href: "/bridge-of-death")
@@ -75,6 +78,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       choose("To seek the Holy Grail", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Colour options"
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
       assert page.has_link?("Start again", href: "/bridge-of-death")
@@ -111,6 +115,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       choose("Yes", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "What...is your favorite colour?"
       within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your favorite colour?"
@@ -127,6 +132,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
       choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/yes/blue"
 
       assert page.has_link?("Start again", href: "/bridge-of-death")
@@ -169,12 +175,15 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
   should "calculate alternate path correctly" do
     visit "/bridge-of-death/y"
 
+    find "h1", text: "What...is your name?"
     fill_in "response", with: "Robin"
     click_on "Continue"
 
+    find "h1", text: "What...is your quest?"
     choose("To seek the Holy Grail", visible: false)
     click_on "Continue"
 
+    find "h1", text: "What...is the capital of Assyria?"
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
 
     assert page.has_link?("Start again", href: "/bridge-of-death")
@@ -204,6 +213,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
     fill_in "response", with: "I don't know THAT"
     click_on "Continue"
 
+    find "h1", text: "The Bridge of Death: Information based on your answers"
     within "#result-info" do
       within page.find(".gem-c-heading h2", match: :first) { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
       within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }

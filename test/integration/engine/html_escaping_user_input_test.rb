@@ -4,7 +4,7 @@ class HtmlEscapingUserInputTest < EngineIntegrationTest
   setup do
     stub_content_store_has_item("/value-sample")
     visit "/value-sample"
-    click_on "Start now"
+    find(:link, text: "Start now").click
   end
 
   context "when user input contains unsafe HTML" do
@@ -13,6 +13,7 @@ class HtmlEscapingUserInputTest < EngineIntegrationTest
       unsafe_html = "<script id='naughty'>#{@javascript}"
       fill_in "User input", with: unsafe_html
       click_on "Continue"
+      find "p", text: "text-before-user-input"
     end
 
     should "escape user input interpolated into outcome ERB template" do
