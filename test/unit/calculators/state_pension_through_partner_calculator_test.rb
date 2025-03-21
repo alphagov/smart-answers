@@ -6,6 +6,34 @@ module SmartAnswer::Calculators
       @calculator = StatePensionThroughPartnerCalculator.new
     end
 
+    context "#lower_basic_state_pension_rate" do
+      should "return the correct amount for 2024/2025" do
+        travel_to("2024-06-01") do
+          assert_equal @calculator.lower_basic_state_pension_rate, 101.55
+        end
+      end
+
+      should "return the correct amount for 2025/2026" do
+        travel_to("2025-06-01") do
+          assert_equal @calculator.lower_basic_state_pension_rate, 105.70
+        end
+      end
+    end
+
+    context "#higher_basic_state_pension_rate" do
+      should "return the correct amount for 2024/2025" do
+        travel_to("2024-06-01") do
+          assert_equal @calculator.higher_basic_state_pension_rate, 169.50
+        end
+      end
+
+      should "return the correct amount for 2025/2026" do
+        travel_to("2025-06-01") do
+          assert_equal @calculator.higher_basic_state_pension_rate, 176.45
+        end
+      end
+    end
+
     context "widow_and_new_pension?" do
       context "you reached pension age before specific date" do
         setup do
