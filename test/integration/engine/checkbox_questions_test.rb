@@ -9,6 +9,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "handle checkbox questions" do
       visit "/checkbox-sample/y"
 
+      find "h1", text: "What do you want on your pizza?"
       within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What do you want on your pizza?"
@@ -28,6 +29,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       check("Pepperoni", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       assert page.has_link?("Start again", href: "/checkbox-sample")
@@ -48,8 +50,10 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "allow selecting no options from a checkbox question" do
       visit "/checkbox-sample/y"
 
+      find "h1", text: "What do you want on your pizza?"
       click_on "Continue"
 
+      find "h1", text: "Are you sure you don't want any toppings?"
       assert_current_url "/checkbox-sample/y/none"
 
       assert page.has_link?("Start again", href: "/checkbox-sample")
@@ -65,6 +69,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       click_on "Continue"
 
+      find "h1", text: "Sample checkbox question: Information based on your answers"
       assert_current_url "/checkbox-sample/y/none/none"
 
       within ".outcome:nth-child(1)" do
@@ -75,10 +80,12 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "expect explicit selection of 'none' option when present" do
       visit "/checkbox-sample/y/none"
 
+      find "h1", text: "Are you sure you don't want any toppings?"
       assert_page_has_content "Are you sure you don't want any toppings?"
 
       click_on "Continue"
 
+      find "p", text: "Please answer this question"
       assert_equal current_path, "/checkbox-sample/y/none"
 
       within(".govuk-error-summary [href]") do
@@ -95,6 +102,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "toggle options when none option is present" do
       visit "/checkbox-sample/y/none"
 
+      find "h1", text: "Are you sure you don't want any toppings?"
       check("Definitely no toppings", visible: false, allow_label_click: true)
       check("Hmm I'm not sure, ask me again please", visible: false, allow_label_click: true)
       assert_not page.has_checked_field?("Definitely no toppings")
@@ -103,6 +111,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_not page.has_checked_field?("Hmm I'm not sure, ask me again please")
       click_on "Continue"
 
+      find "h1", text: "Sample checkbox question: Information based on your answers"
       assert_current_url "/checkbox-sample/y/none/none"
     end
   end
@@ -114,6 +123,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     check("Ice Cream!!!", visible: false)
     click_on("Continue", visible: false)
 
+    find "h1", text: "Sample checkbox question: Information based on your answers"
     assert_current_url "/checkbox-sample/y/ham,ice_cream"
     within ".outcome:nth-child(1)" do
       assert_page_has_content "No way. That's disgusting!"

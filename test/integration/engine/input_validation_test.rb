@@ -7,9 +7,11 @@ class InputValidationTest < EngineIntegrationTest
 
       visit "/annual-bonus/y"
 
+      find "h1", text: "How much do you earn?"
       fill_in "response[amount]", with: "-123"
       click_on "Continue"
 
+      find "p", text: "Please answer this question"
       within "#current-question" do
         assert_page_has_content "How much do you earn?"
         within(".govuk-error-summary [href]") { assert_page_has_content "Please answer this question" }
@@ -21,11 +23,13 @@ class InputValidationTest < EngineIntegrationTest
       select "month", from: "response[period]"
       click_on "Continue"
 
+      find "h1", text: "What size bonus do you want?"
       assert_current_url "/annual-bonus/y/4000.0-month"
 
       fill_in "response", with: "asdfasdf"
       click_on "Continue"
 
+      find "p", text: "Sorry, that number is not valid. Please try again."
       within "#current-question" do
         assert_page_has_content "What size bonus do you want?"
         within(".govuk-error-message") { assert_page_has_content "Sorry, that number is not valid. Please try again." }
@@ -35,6 +39,7 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "50000"
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/annual-bonus/y/4000.0-month/50000.0"
     end
 
@@ -43,9 +48,11 @@ class InputValidationTest < EngineIntegrationTest
 
       visit "/annual-bonus/y/4000.0-month"
 
+      find "h1", text: "What size bonus do you want?"
       fill_in "response", with: "3000"
       click_on "Continue"
 
+      find "p", text: "You can't request a bonus less than your annual salary."
       within "#current-question" do
         assert_page_has_content "What size bonus do you want?"
         within(".govuk-error-message") { assert_page_has_content "You can't request a bonus less than your annual salary." }
@@ -55,6 +62,7 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "50000"
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/annual-bonus/y/4000.0-month/50000.0"
 
       within "#result-info" do
@@ -68,9 +76,11 @@ class InputValidationTest < EngineIntegrationTest
 
       visit "/custom-errors-sample/y"
 
+      find "h1", text: "How many things do you own?"
       fill_in "response", with: "asdfasdf"
       click_on "Continue"
 
+      find "p", text: "Sorry, but that is not a number. Please try again."
       within "#current-question" do
         assert_page_has_content "How many things do you own?"
         within(".govuk-error-message") { assert_page_has_content "Sorry, but that is not a number. Please try again." }

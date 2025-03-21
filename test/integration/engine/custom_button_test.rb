@@ -4,7 +4,7 @@ class CustomButtonTest < EngineIntegrationTest
   setup do
     stub_content_store_has_item("/custom-button")
     visit "/custom-button"
-    click_on "Start now"
+    find(:link, text: "Start now").click
   end
 
   should "display custom button text" do

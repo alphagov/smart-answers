@@ -9,6 +9,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
     should "handle money and salary questions" do
       visit "/annual-bonus/y"
 
+      find "h1", text: "How much do you earn?"
       within "#current-question" do
         within '.govuk-label[for="response"]' do
           assert_page_has_content "How much do you earn?"
@@ -22,6 +23,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       select "month", from: "response[period]"
       click_on "Continue"
 
+      find "h1", text: "What size bonus do you want?"
       assert_current_url "/annual-bonus/y/5000.0-month"
 
       assert page.has_link?("Start again", href: "/annual-bonus")
@@ -44,6 +46,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       fill_in "response", with: "1000000"
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/annual-bonus/y/5000.0-month/1000000.0"
 
       assert page.has_link?("Start again", href: "/annual-bonus")
