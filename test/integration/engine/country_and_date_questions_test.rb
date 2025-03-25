@@ -42,6 +42,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     should "handle country and date questions" do
       visit "/moved-to-country/y"
 
+      find "h1", text: "Which country do you live in?"
       within "#current-question" do
         assert_page_has_content "Which country do you live in?"
       end
@@ -54,6 +55,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       select "Belarus", from: "response"
       click_on "Continue"
 
+      find "h1", text: "What date did you move there?"
       assert_current_url "/moved-to-country/y/belarus"
 
       assert page.has_link?("Start again", href: "/moved-to-country")
@@ -81,6 +83,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       fill_in "Year", with: "1975"
       click_on "Continue"
 
+      find "h1", text: "Which country were you born in?"
       assert_current_url "/moved-to-country/y/belarus/1975-05-05"
 
       assert page.has_link?("Start again", href: "/moved-to-country")
@@ -113,6 +116,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       select "Venezuela", from: "response"
       click_on "Continue"
 
+      find "h1", text: ": Information based on your answers"
       assert_current_url "/moved-to-country/y/belarus/1975-05-05/venezuela"
 
       assert page.has_link?("Start again", href: "/moved-to-country")

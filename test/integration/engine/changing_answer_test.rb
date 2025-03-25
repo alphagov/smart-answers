@@ -28,6 +28,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "Argentina", from: "response"
       click_on "Continue"
 
+      find "h1", text: "What date did you move there?"
       assert_current_url "/moved-to-country/y/argentina"
 
       fill_in "response[day]", with: "10"
@@ -49,6 +50,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response[year]", with: "2000"
       click_on "Continue"
 
+      find "h1", text: "Which country were you born in?"
       assert_current_url "/moved-to-country/y/argentina/2000-04-15"
     end
 
@@ -79,6 +81,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "week", from: "response[period]"
       click_on "Continue"
 
+      find "h1", text: "What size bonus do you want?"
       assert_current_url "/annual-bonus/y/2000.0-week"
 
       fill_in "response", with: "2000000"
@@ -94,6 +97,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "3000000"
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/annual-bonus/y/2000.0-week/3000000.0"
     end
 
@@ -125,9 +129,9 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "Bors"
       click_on "Continue"
 
+      find "h1", text: "What...is your quest?"
       assert_current_url "/bridge-of-death/y/Bors"
 
-      find "h1", text: "What...is your quest?"
       choose("To seek the Holy Grail", visible: false, allow_label_click: true)
       click_on "Continue"
 
@@ -152,6 +156,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("To rescue the princess", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Colour options"
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
 
       choose("Yes", visible: false, allow_label_click: true)
@@ -174,6 +179,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Red", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "The Bridge of Death: Information based on your answers"
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/yes/red"
     end
 
@@ -187,6 +193,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       check("Pepperoni", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
 
       within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
@@ -202,6 +209,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       check("Ham", visible: false, allow_label_click: true)
       click_on "Continue"
 
+      find "h1", text: "Information based on your answers"
       assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"
     end
 
@@ -214,6 +222,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "B1 1PW"
       click_on "Continue"
 
+      find "h1", text: "Sample postcode question: Information based on your answers"
       assert_current_url "/postcode-sample/y/B1%201PW"
 
       within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
