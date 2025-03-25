@@ -24,4 +24,23 @@ environment variable in the [`app.json`](../../app.json), for example:
 `"RATES_QUERY_DATE": "2020-04-01"` - don't forget to remove this before
 merging.
 
+**Note** This will only work if your review app has not yet been created. Pushing
+a change to an app.json after a review app has been created will not update the
+environment variables. 
+
+If you want to do change the variable after your review app has been deployed, 
+you'll have to manually set the  environment variable like so (where `$DATE` is 
+the date you want to set and `$APP` is the name of the review app (e.g. 
+`smart-answers-pr-7132`)):
+
+```bash
+heroku config:set RATES_QUERY_DATE=$DATE -a $APP
+```
+
+_If you're not already logged in, you will be prompted to log in to Heroku via your 
+web browser. This assumes you have [access to the shared Heroku account][] 
+and [have the Heroku CLI installed][]._
+
 [Heroku Review]: https://devcenter.heroku.com/articles/github-integration-review-apps
+[access to the shared Heroku account]: https://docs.publishing.service.gov.uk/manual/heroku.html
+[have the Heroku CLI installed]: https://devcenter.heroku.com/articles/heroku-cli
