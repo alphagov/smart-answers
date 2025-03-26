@@ -97,7 +97,7 @@ module CheckUkVisaFlowTestHelper
 
       should "have a next node of outcome_school_n for an EEA passport" do
         add_responses what_passport_do_you_have?: @eea_country
-        assert_next_node :outcome_school_n, for_response: "school"
+        assert_next_node :outcome_school_electronic_travel_authorisation, for_response: "school"
       end
 
       should "have a next node of outcome_school_y for other passports" do
@@ -129,7 +129,7 @@ module CheckUkVisaFlowTestHelper
 
       should "have a next node of outcome_medical_n for an EEA passport" do
         add_responses what_passport_do_you_have?: @eea_country
-        assert_next_node :outcome_medical_n, for_response: "medical"
+        assert_next_node :outcome_medical_electronic_travel_authorisation, for_response: "medical"
       end
 
       should "have a next node of outcome_medical_y for other passports" do
@@ -156,7 +156,7 @@ module CheckUkVisaFlowTestHelper
 
       should "have a next node of outcome_tourism_n for an EEA passport" do
         add_responses what_passport_do_you_have?: @eea_country
-        assert_next_node :outcome_tourism_n, for_response: "tourism"
+        assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
       end
 
       should "have a next node of outcome_tourism_n for a British overseas territory passport" do
