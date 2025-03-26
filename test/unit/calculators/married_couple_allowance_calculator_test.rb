@@ -108,17 +108,6 @@ module SmartAnswer::Calculators
       assert_equal SmartAnswer::Money.new("28250"), result
     end
 
-    test "rate values for 2023/24" do
-      travel_to("2023-06-01") do
-        calculator = MarriedCouplesAllowanceCalculator.new
-
-        assert_equal 12_570, calculator.personal_allowance
-        assert_equal 34_600.0, calculator.income_limit_for_personal_allowances
-        assert_equal 10_375, calculator.maximum_mca
-        assert_equal 4010, calculator.minimum_mca
-      end
-    end
-
     test "rate values for 2024/25" do
       travel_to("2024-06-01") do
         calculator = MarriedCouplesAllowanceCalculator.new
@@ -127,6 +116,17 @@ module SmartAnswer::Calculators
         assert_equal 37_700.0, calculator.income_limit_for_personal_allowances
         assert_equal 11_080, calculator.maximum_mca
         assert_equal 4270, calculator.minimum_mca
+      end
+    end
+
+    test "rate values for 2025/26" do
+      travel_to("2025-06-01") do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 12_570, calculator.personal_allowance
+        assert_equal 37_700.0, calculator.income_limit_for_personal_allowances
+        assert_equal 11_270, calculator.maximum_mca
+        assert_equal 4360, calculator.minimum_mca
       end
     end
   end
