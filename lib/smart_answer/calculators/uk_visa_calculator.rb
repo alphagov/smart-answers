@@ -557,58 +557,98 @@ module SmartAnswer::Calculators
     ].freeze
 
     COUNTRY_GROUP_ELECTRONIC_TRAVEL_AUTHORISATION = %w[
+      andorra
       antigua-and-barbuda
       argentina
+      aruba
       australia
+      austria
       bahamas
       bahrain
       barbados
+      belgium
       belize
+      bonaire-st-eustatius-saba
       botswana
       brazil
       brunei
+      bulgaria
       canada
       chile
       costa-rica
+      croatia
+      curacao
+      cyprus
+      czech-republic
+      denmark
+      estonia
       federated-states-of-micronesia
+      finland
+      france
+      germany
+      greece
       grenada
       guatemala
       guyana
       hong-kong
+      hungary
+      iceland
       israel
+      italy
       japan
       kiribati
       kuwait
+      latvia
+      liechtenstein
+      lithuania
+      luxembourg
       macao
       malaysia
       maldives
+      malta
       marshall-islands
       mauritius
       mexico
+      monaco
       nauru
+      netherlands
       new-zealand
       nicaragua
+      norway
       oman
       palau
       panama
       papua-new-guinea
       paraguay
       peru
+      poland
+      portugal
       qatar
+      romania
+      saint-barthelemy
       samoa
+      san-marino
       saudi-arabia
       seychelles
       singapore
+      slovakia
+      slovenia
       solomon-islands
       south-korea
+      spain
       st-kitts-and-nevis
       st-lucia
+      st-maarten
+      st-martin
       st-vincent-and-the-grenadines
+      sweden
+      switzerland
       tonga
       tuvalu
       united-arab-emirates
       uruguay
       usa
+      vatican-city
     ].freeze
 
     COUNTRY_GROUP_EPASSPORT_GATES = %w[
@@ -684,47 +724,6 @@ module SmartAnswer::Calculators
       taiwan
     ].freeze
 
-    COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA = %w[
-      andorra
-      austria
-      aruba
-      belgium
-      bonaire-st-eustatius-saba
-      bulgaria
-      croatia
-      curacao
-      cyprus
-      czech-republic
-      denmark
-      estonia
-      finland
-      france
-      germany
-      greece
-      hungary
-      iceland
-      italy
-      latvia
-      liechtenstein
-      lithuania
-      luxembourg
-      malta
-      monaco
-      netherlands
-      norway
-      poland
-      portugal
-      romania
-      saint-barthelemy
-      san-marino
-      slovakia
-      slovenia
-      spain
-      st-martin
-      st-maarten
-      sweden
-      switzerland
-      vatican-city
-    ].freeze
+    COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA = %w[].freeze
   end
 end
