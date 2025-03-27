@@ -194,7 +194,6 @@ class CheckBenefitsFinancialSupportFlow < SmartAnswer::Flow
       option :jobseekers_allowance
       option :employment_and_support_allowance
       option :pension_credit
-      option :tax_credits
       option :income_support
       option :housing_benefit
 

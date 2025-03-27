@@ -118,7 +118,7 @@
       title: Universal Credit
       description: |
         <p>You may be able to get help to pay your living costs if you’re on a low income. You could get Universal Credit if you’re working (including self-employed or part time), out of work or cannot work.</p>
-        <p>If you're already getting any benefits or tax credits, do not claim Universal Credit until you’ve checked that it will make you better off. This is because some benefits will stop as soon as you make a Universal Credit claim, even if it’s not successful.</p>
+        <p>If you're already getting any benefits, do not claim Universal Credit until you’ve checked that it will make you better off. This is because some benefits will stop as soon as you make a Universal Credit claim, even if it’s not successful.</p>
       condition: eligible_for_universal_credit?
       url: /universal-credit
       url_text: Check if you’re eligible for Universal Credit
@@ -131,7 +131,7 @@
       title: Universal Credit
       description: |
         <p>You may be able to get help to pay your living costs if you’re on a low income. You could get Universal Credit if you’re working (including self-employed or part time), out of work or cannot work.</p>
-        <p>If you're already getting any benefits or tax credits, do not claim Universal Credit until you’ve checked that it will make you better off. This is because some benefits will stop as soon as you make a Universal Credit claim, even if it’s not successful.</p>
+        <p>If you're already getting any benefits, do not claim Universal Credit until you’ve checked that it will make you better off. This is because some benefits will stop as soon as you make a Universal Credit claim, even if it’s not successful.</p>
       condition: eligible_for_universal_credit?
       url: https://www.nidirect.gov.uk/campaigns/universal-credit
       url_text: Check if you’re eligible for Universal Credit on the nidirect website

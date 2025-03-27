@@ -288,7 +288,7 @@ module SmartAnswer::Calculators
           should "be true if over state pension age" do
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "tax_credits"
+            @calculator.current_benefits = "universal_credit"
             assert @calculator.eligible_for_pension_credit?
           end
 
@@ -788,7 +788,7 @@ module SmartAnswer::Calculators
           should "be true if over state pension age and recieve pension_credit" do
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "pension_credit,tax_credits"
+            @calculator.current_benefits = "pension_credit"
 
             assert @calculator.eligible_for_free_tv_license?
           end
@@ -798,7 +798,7 @@ module SmartAnswer::Calculators
           should "be false if over state pension age but claim benefits other than pension_credit" do
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "income_support,tax_credits"
+            @calculator.current_benefits = "income_support"
             assert_not @calculator.eligible_for_free_tv_license?
           end
 
@@ -895,7 +895,7 @@ module SmartAnswer::Calculators
             @calculator.where_do_you_live = "england"
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit,jobseekers_allowance,tax_credits"
+            @calculator.current_benefits = "universal_credit,jobseekers_allowance"
 
             assert @calculator.eligible_for_winter_fuel_payment?
           end
@@ -923,7 +923,7 @@ module SmartAnswer::Calculators
             @calculator.where_do_you_live = "england"
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            non_qualifying_benefits = %w[tax_credits housing_benefit]
+            non_qualifying_benefits = %w[housing_benefit]
             non_qualifying_benefits.each do |benefit|
               @calculator.current_benefits = benefit
 
@@ -1075,7 +1075,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if already selected associated benefit" do
             @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "tax_credits"
+            @calculator.current_benefits = "housing_benefit"
             assert_not @calculator.eligible_for_support_for_mortgage_interest?
           end
 
@@ -1152,13 +1152,11 @@ module SmartAnswer::Calculators
 
       context "eligible_for_help_to_save?" do
         context "when eligible (on benefits)" do
-          should "be true if under state pension age and receiving universal credit or tax credits" do
+          should "be true if under state pension age and receiving universal credit" do
             @calculator.over_state_pension_age = "no"
             @calculator.on_benefits = "yes"
-            %w[universal_credit tax_credits].each do |current_benefits|
-              @calculator.current_benefits = current_benefits
-              assert @calculator.eligible_for_help_to_save?
-            end
+            @calculator.current_benefits = "universal_credit"
+            assert @calculator.eligible_for_help_to_save?
           end
         end
 
