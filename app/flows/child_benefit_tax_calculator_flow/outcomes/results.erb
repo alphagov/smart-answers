@@ -1,14 +1,6 @@
 
 <% govspeak_for :body do %>
 
-  <% if calculator.tax_year == "2024" %>
-    ^If you submit a new claim between 6 April 2024 and 8 July 2024, it may be backdated by up to 3 months. To calculate the amount to be included in your 2024 to 2025 tax return, use the Child Benefit tax calculator for the tax year 2023 to 2024. Add this estimated Child Benefit and tax to your 2024 to 2025 tax year calculator results.^
-  <% end %>
-
-  <% if calculator.tax_year == "2023" %>
-    ^If you’re making a new claim between 6 April 2024 and 8 July 2024 and are calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the estimated Child Benefit and tax to your 2024 to 2025 Child Benefit tax calculation results.^
-  <% end %>
-
   The child benefit received is <%= number_to_currency calculator.benefits_claimed_amount, unit: "£", precision: 2  %>.
 
   <% if calculator.tax_year == "2012" %>
@@ -24,6 +16,15 @@
   <% one_percent_check = calculator.child_benefit_rates[calculator.tax_year][:lower_earnings_threshold] + (difference_between_thresholds / 100) %>
 
   <% if calculator.calculate_adjusted_net_income < one_percent_check %>
+
+    <% if calculator.tax_year == "2024" %>
+      ^If you made a new claim between 6 April 2024 and 7 July 2024, it may be backdated by up to 3 months. To calculate the amount to be included in your 2024 to 2025 tax return, use the Child Benefit tax calculator for the tax year 2023 to 2024. Add this estimated Child Benefit and tax to your 2024 to 2025 tax year calculator results.^
+    <% end %>
+
+    <% if calculator.tax_year == "2023" %>
+      ^If you made a new claim between 6 April 2024 and 7 July 2024 and are calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the estimated Child Benefit and tax to your 2024 to 2025 Child Benefit tax calculation results.^
+    <% end %>
+
     There is no tax charge if your income is below <%= number_to_currency one_percent_check, unit: "£", precision: 0 %>.
     Your partner (if you have one) may have to pay the charge if their income is higher than yours.
     Find out more about the [tax charge](/child-benefit-tax-charge).
@@ -52,15 +53,22 @@
 
     To pay the charge you must fill in a Self Assessment tax return each tax year. Follow these steps:
 
-    - [Register for Self Assessment](/register-for-self-assessment) if you don’t already fill in a tax return - you should do this by <%= calculator.sa_register_deadline %>.
-    - Fill in the tax return and include the amount of Child Benefit received for the tax year.
-    - Send the tax return.
-    - Pay the tax you owe.
+    1. [Register for Self Assessment](/register-for-self-assessment) if you don’t already fill in a tax return - you should do this by <%= calculator.sa_register_deadline %>.
+    2. Fill in the tax return and include the amount of Child Benefit received for the tax year.
+    3. Send the tax return.
+    4. Pay the tax you owe.
 
     There are [deadlines](/self-assessment-tax-return-deadlines) for sending the tax return and paying the tax.
 
     The person with the highest income pays the tax charge, so use your partner’s income in the calculator if it’s higher than yours.
 
+    <% if calculator.tax_year == "2024" %>
+      ^If you made a new claim between 6 April 2024 and 7 July 2024, it may be backdated by up to 3 months. To calculate the amount to be included in your 2024 to 2025 tax return, use the Child Benefit tax calculator for the tax year 2023 to 2024. Add this estimated Child Benefit and tax to your 2024 to 2025 tax year calculator results.^
+    <% end %>
+
+    <% if calculator.tax_year == "2023" %>
+      ^If you made a new claim between 6 April 2024 and 7 July 2024 and are calculating your backdated amount, you do not need to send a separate Self Assessment tax return for 2023 to 2024. Add the estimated Child Benefit and tax to your 2024 to 2025 Child Benefit tax calculation results.^
+    <% end %>
 
     ### Your Child Benefit
     You can choose to:
