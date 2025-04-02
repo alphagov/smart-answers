@@ -314,9 +314,12 @@ module SmartAnswer::Calculators
           @calculator.payment_date = Date.parse("2025-02-03")
           assert_equal 750, @calculator.late_payment_penalty
           assert_equal 6132, @calculator.total_owed
-          @calculator.payment_date = Date.parse("2025-08-03")
+          @calculator.payment_date = Date.parse("2025-03-03")
           assert_equal 750, @calculator.late_payment_penalty
-          assert_equal 6306, @calculator.total_owed
+          assert_equal 6159, @calculator.total_owed
+          @calculator.payment_date = Date.parse("2025-05-03")
+          assert_equal 750, @calculator.late_payment_penalty
+          assert_equal 6223, @calculator.total_owed
         end
 
         context "HMRC Covid-19 Extension to 1 April for 2019-20" do
