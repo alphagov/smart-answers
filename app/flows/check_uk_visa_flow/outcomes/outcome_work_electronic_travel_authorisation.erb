@@ -3,6 +3,9 @@
 <% end %>
 
 <% govspeak_for :body do %>
+  <% if calculator.passport_country_is_taiwan? %>
+    <%= render partial: "electronic_travel_authorisation_taiwan", locals: {calculator: calculator} %>
+  <% end %>
   What you need to apply for depends on your circumstances.
 
   You need an ETA for some business and academic activities, but you must get a visa if you plan to work in the UK.
