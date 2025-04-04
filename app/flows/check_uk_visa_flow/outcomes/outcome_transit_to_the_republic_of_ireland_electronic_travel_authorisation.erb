@@ -3,6 +3,9 @@
 <% end %>
 
 <% govspeak_for :body do %>
+  <% if calculator.passport_country_is_taiwan? %>
+    <%= render partial: "electronic_travel_authorisation_taiwan", locals: {calculator: calculator} %>
+  <% end %>
     [Apply for an ETA](/guidance/apply-for-an-electronic-travel-authorisation-eta).
 
     You do not need an ETA if you will not pass through UK border control. You should bring evidence of your onward journey, such as a ticket to your destination.
