@@ -2,27 +2,8 @@
 # make sure we have that at least. If adding a new set of data at
 # the end, you may have to update dates/values in the test file.
 ---
-- :start_date: 2023-04-01
-  :end_date: 2024-03-31
-  :minimum_rates:
-  - :min_age: 0
-    :max_age: 18
-    :rate: 5.28
-  - :min_age: 18
-    :max_age: 21
-    :rate: 7.49
-  - :min_age: 21
-    :max_age: 23
-    :rate: 10.18
-  - :min_age: 23
-    :max_age: 1000
-    :rate: 10.42
-  :apprentice_rate: 5.28
-  :accommodation_rate: 9.10
-  :living_wage_min_age: 23
-
 - :start_date: 2024-04-01
-  :end_date: 3000-01-01
+  :end_date: 2025-03-31
   :minimum_rates:
   - :min_age: 0
     :max_age: 18
@@ -38,4 +19,23 @@
     :rate: 11.44
   :apprentice_rate: 6.40
   :accommodation_rate: 9.99
+  :living_wage_min_age: 21
+
+- :start_date: 2025-04-01
+  :end_date: 3000-01-01
+  :minimum_rates:
+  - :min_age: 0
+    :max_age: 18
+    :rate: 7.55
+  - :min_age: 18
+    :max_age: 21
+    :rate: 10.00
+  - :min_age: 21
+    :max_age: 23
+    :rate: 12.21
+  - :min_age: 23
+    :max_age: 1000
+    :rate: 12.21
+  :apprentice_rate: 7.55
+  :accommodation_rate: 10.66
   :living_wage_min_age: 21
