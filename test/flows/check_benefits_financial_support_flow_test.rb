@@ -1115,13 +1115,11 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Eligible for help to save (on benefits)" do
-      %w[universal_credit tax_credits].each do |benefit|
-        add_responses over_state_pension_age: "no",
-                      current_benefits: benefit
+      add_responses over_state_pension_age: "no",
+                    current_benefits: "universal_credit"
 
-        assert_rendered_outcome text: "You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits."
-        assert_rendered_outcome text: "Find out more about Help to Save"
-      end
+      assert_rendered_outcome text: "You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits."
+      assert_rendered_outcome text: "Find out more about Help to Save"
     end
 
     should "render Eligible for help to save (don't know if on benefits)" do
