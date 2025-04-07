@@ -109,11 +109,13 @@ module SmartAnswer::Calculators
       end
 
       context "for age for living wage" do
-        should "not accept ages below 23" do
-          assert_not @calculator.valid_age_for_living_wage?(22)
+        should "not accept ages below 21" do
+          assert_not @calculator.valid_age_for_living_wage?(20)
         end
 
-        should "accept ages 23 or above" do
+        should "accept ages 21 or above" do
+          assert @calculator.valid_age_for_living_wage?(21)
+          assert @calculator.valid_age_for_living_wage?(22)
           assert @calculator.valid_age_for_living_wage?(23)
           assert @calculator.valid_age_for_living_wage?(24)
         end
@@ -130,9 +132,11 @@ module SmartAnswer::Calculators
           assert_not @calculator.valid_age_for_living_wage?(20)
         end
 
-        should "accept minimum age or above" do
+        should "accept ages 21 or above" do
           assert @calculator.valid_age_for_living_wage?(21)
           assert @calculator.valid_age_for_living_wage?(22)
+          assert @calculator.valid_age_for_living_wage?(23)
+          assert @calculator.valid_age_for_living_wage?(24)
         end
       end
     end
@@ -148,8 +152,8 @@ module SmartAnswer::Calculators
         end
 
         should "return false if age is lower than the minimum or nil" do
-          %w[nil 0 22].each do |age|
-            @calculator = MinimumWageCalculator.new(past_or_current_payment: "past_payment")
+          %w[nil 0 20].each do |age|
+            @calculator = MinimumWageCalculator.new(past_or_current_payment: "current_payment")
             @calculator.age = age
             assert_not @calculator.eligible_for_living_wage?
           end
@@ -212,12 +216,12 @@ module SmartAnswer::Calculators
 
       context "minimum hourly rate" do
         should "be the minimum wage per hour for the age and year" do
-          assert_equal 8.60, @calculator.minimum_hourly_rate
+          assert_equal 10.00, @calculator.minimum_hourly_rate
         end
         context "when eligible for living wage?" do
           should "return the national living wage rate" do
             @calculator = MinimumWageCalculator.new(age: 25, past_or_current_payment: "past_payment")
-            assert_equal 10.42, @calculator.minimum_hourly_rate
+            assert_equal 11.44, @calculator.minimum_hourly_rate
           end
         end
       end
@@ -253,7 +257,7 @@ module SmartAnswer::Calculators
         end
 
         should "calculate the accommodation cost" do
-          expected = ((9.99 * 4) - (12.00 * 4)) * 1
+          expected = ((10.66 * 4) - (12.00 * 4)).round(2) * 1
           assert_equal(expected, @calculator.accommodation_cost)
         end
 
@@ -265,7 +269,7 @@ module SmartAnswer::Calculators
 
       context "historical entitlement" do
         should "be minimum wage for the year multiplied by total hours" do
-          assert_equal 335.4, @calculator.historical_entitlement
+          assert_equal 390.0, @calculator.historical_entitlement
         end
       end
 
@@ -284,8 +288,8 @@ module SmartAnswer::Calculators
           )
         end
 
-        should "have a minimum hourly rate of 11.44" do
-          assert_equal 11.44, @calculator.minimum_hourly_rate
+        should "have a minimum hourly rate of 12.21" do
+          assert_equal 12.21, @calculator.minimum_hourly_rate
         end
       end
 
@@ -302,7 +306,7 @@ module SmartAnswer::Calculators
         end
 
         should "calculate minimum hourly rate" do
-          assert_equal 10.42, @calculator.minimum_hourly_rate
+          assert_equal 11.44, @calculator.minimum_hourly_rate
         end
       end
 
@@ -319,19 +323,19 @@ module SmartAnswer::Calculators
         end
 
         should "calculate total hourly rate" do
-          assert_equal 11.44, @calculator.minimum_hourly_rate
+          assert_equal 12.21, @calculator.minimum_hourly_rate
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for free accommodation" do
           @calculator.accommodation_adjustment(0, 5)
-          assert_equal 49.95, @calculator.accommodation_cost
+          assert_equal 53.30, @calculator.accommodation_cost
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(12, 5)
-          assert_equal(-10.05, @calculator.accommodation_cost)
+          assert_equal(-6.70, @calculator.accommodation_cost)
           assert_not @calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
@@ -352,37 +356,37 @@ module SmartAnswer::Calculators
         should "be correct for those under 18" do
           [0, 17].each do |age|
             @calculator.age = age
-            assert_equal 6.40, @calculator.per_hour_minimum_wage
+            assert_equal 7.55, @calculator.per_hour_minimum_wage
           end
         end
 
         should "be correct for 18 to 20 year olds" do
           [18, 20].each do |age|
             @calculator.age = age
-            assert_equal 8.60, @calculator.per_hour_minimum_wage
+            assert_equal 10.0, @calculator.per_hour_minimum_wage
           end
         end
 
         should "be correct for 21 to 22 year olds" do
           [21, 22].each do |age|
             @calculator.age = age
-            assert_equal 11.44, @calculator.per_hour_minimum_wage
+            assert_equal 12.21, @calculator.per_hour_minimum_wage
           end
         end
 
         should "be correct for those aged 23 and over" do
           [23, 100].each do |age|
             @calculator.age = age
-            assert_equal 11.44, @calculator.per_hour_minimum_wage
+            assert_equal 12.21, @calculator.per_hour_minimum_wage
           end
         end
 
         should "have correct apprentice rate" do
-          assert_equal 6.40, @calculator.apprentice_rate
+          assert_equal 7.55, @calculator.apprentice_rate
         end
 
         should "have correct accommodation rate" do
-          assert_equal 9.99, @calculator.free_accommodation_rate
+          assert_equal 10.66, @calculator.free_accommodation_rate
         end
       end
     end
@@ -395,12 +399,12 @@ module SmartAnswer::Calculators
         assert_equal 0, @calculator.accommodation_adjustment("3.50", 5)
       end
       should "return the number of nights times the threshold if the accommodation is free" do
-        assert_equal((9.10 * 4), @calculator.accommodation_adjustment("0", 4))
+        assert_equal((9.99 * 4), @calculator.accommodation_adjustment("0", 4))
       end
       should "subtract the charged fee from the free fee where the accommodation costs more than the threshold" do
-        charge = 10.12
+        charge = 10.90
         number_of_nights = 5
-        free_adjustment = (9.10 * number_of_nights).round(2)
+        free_adjustment = (9.99 * number_of_nights).round(2)
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
         assert_equal((free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment)
         assert charged_adjustment.negative? # this should always be less than zero
@@ -417,7 +421,7 @@ module SmartAnswer::Calculators
           past_or_current_payment: "current_payment",
         )
         @calculator.accommodation_adjustment(20, 4)
-        assert_equal 231.41, @calculator.total_pay
+        assert_equal 233.32, @calculator.total_pay
       end
     end
 
@@ -430,7 +434,7 @@ module SmartAnswer::Calculators
           basic_hours: 39,
           past_or_current_payment: "current_payment",
         )
-        assert_equal 11.44, @calculator.minimum_hourly_rate
+        assert_equal 12.21, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 19 year old" do
         @calculator = MinimumWageCalculator.new(
@@ -440,7 +444,7 @@ module SmartAnswer::Calculators
           basic_hours: 39,
           past_or_current_payment: "current_payment",
         )
-        assert_equal 8.60, @calculator.minimum_hourly_rate
+        assert_equal 10.0, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 17 year old" do
         @calculator = MinimumWageCalculator.new(
@@ -450,7 +454,7 @@ module SmartAnswer::Calculators
           basic_hours: 39,
           past_or_current_payment: "current_payment",
         )
-        assert_equal 6.40, @calculator.minimum_hourly_rate
+        assert_equal 7.55, @calculator.minimum_hourly_rate
       end
     end
 
@@ -465,7 +469,7 @@ module SmartAnswer::Calculators
         )
       end
       should "return total_entitlement" do
-        assert_equal 446.16, @calculator.total_entitlement
+        assert_equal 476.19, @calculator.total_entitlement
       end
       should "return total_underpayment" do
         assert_equal 100.0, @calculator.total_pay
