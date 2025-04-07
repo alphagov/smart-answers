@@ -271,7 +271,7 @@ module SmartAnswer::Calculators
     def eligible_for_budgeting_loan?
       return false if @on_benefits == "no"
 
-      skip_benefit_list = %w[universal_credit tax_credits housing_benefit]
+      skip_benefit_list = %w[universal_credit housing_benefit]
 
       permitted_benefits?(skip_benefit_list)
     end
@@ -279,7 +279,7 @@ module SmartAnswer::Calculators
     def eligible_for_support_for_mortgage_interest?
       return false if @on_benefits == "no"
 
-      skip_benefit_list = %w[tax_credits housing_benefit]
+      skip_benefit_list = %w[housing_benefit]
 
       permitted_benefits?(skip_benefit_list)
     end
@@ -318,7 +318,7 @@ module SmartAnswer::Calculators
     def eligible_for_help_to_save_on_benefits?
       @over_state_pension_age == "no" &&
         @on_benefits == "yes" &&
-        @current_benefits.include?("universal_credit") || @current_benefits.include?("tax_credits")
+        @current_benefits.include?("universal_credit")
     end
 
     def eligible_for_jobseekers_in_paid_work?
