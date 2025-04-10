@@ -100,7 +100,7 @@ module SmartAnswer::Calculators
     end
 
     def leap_year_birthday?(dob)
-      Date.new(dob.year).leap? && (dob.month == 2 && dob.day == 29)
+      Date.new(dob.year).leap? && dob.month == 2 && dob.day == 29
     end
   end
 end
