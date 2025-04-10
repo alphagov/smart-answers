@@ -31,7 +31,7 @@ module SmartAnswer
     end
 
     def show_in_pence?(amount)
-      amount.is_a?(Numeric) && ((amount < 1) && (amount > -1)) && !amount.round(2).zero?
+      amount.is_a?(Numeric) && (amount < 1) && (amount > -1) && !amount.round(2).zero?
     end
   end
 end
