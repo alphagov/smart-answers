@@ -111,6 +111,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
+    content_block_tools (0.4.6)
+      actionview (>= 6)
     crack (1.0.0)
       bigdecimal
       rexml
@@ -722,6 +724,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  content_block_tools
   dartsass-rails
   erb_lint
   gds-api-adapters
