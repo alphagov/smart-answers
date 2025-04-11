@@ -6,6 +6,7 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/govuk_frontend_support";
 
 @import "smart_answers";
+@import "content_block";
 
 .desktop-min-height {
   @include govuk-media-query($from: tablet) {
