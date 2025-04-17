@@ -27,3 +27,7 @@
   end_date: 2025-04-05
   max: "21,870"
   rate: 729
+- start_date: 2025-04-06
+  end_date: 2026-04-05
+  max: "22,470"
+  rate: 749
