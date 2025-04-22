@@ -14,13 +14,11 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @british_overseas_territory_country = "anguilla"
     @non_visa_national_country = "pitcairn-island"
     @eea_country = "austria"
-    @eta_rollout_group_1_rest_of_the_world_country = "taiwan"
     @travel_document_country = "hong-kong"
     @b1_b2_country = "syria"
     @youth_mobility_scheme_country = "canada"
 
     @non_visa_national_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
-    @eta_rollout_group_1_rest_of_the_world_text = "If you’re travelling on or after 8 January 2025, you’ll need to apply for an electronic travel authorisation (ETA)."
     @eea_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
 
     # stub only the countries used in this test for less of a performance impact
@@ -45,8 +43,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       @eea_country,
                                       @travel_document_country,
                                       @b1_b2_country,
-                                      @youth_mobility_scheme_country,
-                                      @eta_rollout_group_1_rest_of_the_world_country].uniq)
+                                      @youth_mobility_scheme_country].uniq)
   end
 
   should "render a start page" do
@@ -410,9 +407,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_study_electronic_travel_authorisation, for_response: "six_months_or_less"
         end
 
-        should "have a next node of outcome_study_waiver_taiwan for a study visit with a Taiwan passport" do
+        should "have a next node of outcome_study_electronic_travel_authorisation for a study visit with a Taiwan passport" do
           add_responses what_passport_do_you_have?: "taiwan", purpose_of_visit?: "study"
-          assert_next_node :outcome_study_waiver_taiwan, for_response: "six_months_or_less"
+          assert_next_node :outcome_study_electronic_travel_authorisation, for_response: "six_months_or_less"
         end
 
         should "have a next node of outcome_study_m for a study visit with a direct airside transit visa" do
@@ -440,7 +437,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_study_no_visa_needed, for_response: "six_months_or_less"
         end
 
-        should "have a next node of outcome_study_no_visa_needed for a study visit with an EEA passport" do
+        should "have a next node of outcome_study_electronic_travel_authorisation for a study visit with an EEA passport" do
           add_responses what_passport_do_you_have?: @eea_country,
                         purpose_of_visit?: "study"
           assert_next_node :outcome_study_electronic_travel_authorisation, for_response: "six_months_or_less"
@@ -458,9 +455,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_work_n, for_response: "six_months_or_less"
         end
 
-        should "have a next node of outcome_work_n for a work visit with a Taiwan passport" do
+        should "have a next node of outcome_work_electronic_travel_authorisation for a work visit with a Taiwan passport" do
           add_responses what_passport_do_you_have?: "taiwan", purpose_of_visit?: "work"
-          assert_next_node :outcome_work_n, for_response: "six_months_or_less"
+          assert_next_node :outcome_work_electronic_travel_authorisation, for_response: "six_months_or_less"
         end
 
         should "have a next node of outcome_work_n for a work visit with a non-visa national passport" do
@@ -469,7 +466,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
           assert_next_node :outcome_work_n, for_response: "six_months_or_less"
         end
 
-        should "have a next node of outcome_work_n for a work visit with an EEA passport" do
+        should "have a next node of outcome_work_electronic_travel_authorisation for a work visit with an EEA passport" do
           add_responses what_passport_do_you_have?: @eea_country,
                         purpose_of_visit?: "work"
           assert_next_node :outcome_work_electronic_travel_authorisation, for_response: "six_months_or_less"
@@ -660,6 +657,74 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                     travelling_to_cta?: "republic_of_ireland"
       assert_rendered_outcome text: "You may want to apply for a transit visa"
     end
+
+    should "render specific guidance for a Taiwan passport" do
+      add_responses what_passport_do_you_have?: "taiwan",
+                    travelling_to_cta?: "republic_of_ireland"
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
+  end
+
+  context "medical ETA for Taiwan" do
+    setup do
+      testing_node :outcome_medical_electronic_travel_authorisation
+      add_responses what_passport_do_you_have?: "taiwan",
+                    purpose_of_visit?: "medical"
+    end
+
+    should "render specific guidance for a Taiwan passport" do
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
+  end
+
+  context "tourism ETA for Taiwan" do
+    setup do
+      testing_node :outcome_tourism_electronic_travel_authorisation
+      add_responses what_passport_do_you_have?: "taiwan",
+                    purpose_of_visit?: "tourism"
+    end
+
+    should "render specific guidance for a Taiwan passport" do
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
+  end
+
+  context "work ETA for Taiwan" do
+    setup do
+      testing_node :outcome_work_electronic_travel_authorisation
+      add_responses what_passport_do_you_have?: "taiwan",
+                    purpose_of_visit?: "work",
+                    staying_for_how_long?: "six_months_or_less"
+    end
+
+    should "render specific guidance for a Taiwan passport" do
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
+  end
+
+  context "school ETA for Taiwan" do
+    setup do
+      testing_node :outcome_school_electronic_travel_authorisation
+      add_responses what_passport_do_you_have?: "taiwan",
+                    purpose_of_visit?: "school"
+    end
+
+    should "render specific guidance for a Taiwan passport" do
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
+  end
+
+  context "study ETA for Taiwan" do
+    setup do
+      testing_node :outcome_study_electronic_travel_authorisation
+      add_responses what_passport_do_you_have?: "taiwan",
+                    purpose_of_visit?: "study",
+                    staying_for_how_long?: "six_months_or_less"
+    end
+
+    should "render specific guidance for a Taiwan passport" do
+      assert_rendered_outcome text: "personal ID number on the bio data page"
+    end
   end
 
   context "outcome: outcome_school_y" do
@@ -717,11 +782,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       testing_node :outcome_transit_to_the_republic_of_ireland
       add_responses purpose_of_visit?: "transit",
                     travelling_to_cta?: "republic_of_ireland"
-    end
-
-    should "render specific guidance for a Taiwan passport" do
-      add_responses what_passport_do_you_have?: "taiwan"
-      assert_rendered_outcome text: "You will not need a visa if your passport has a personal ID number on the bio data page."
     end
 
     should "render different guidance for passports from outher countries" do
@@ -967,11 +1027,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_no_rendered_outcome text: @non_visa_national_eta_text
         assert_no_rendered_outcome text: @eea_eta_text
-      end
-
-      should "render callout box for eta_rollout_group_1_rest_of_the_world_country passport holders" do
-        add_responses what_passport_do_you_have?: @eta_rollout_group_1_rest_of_the_world_country
-        assert_rendered_outcome text: @eta_rollout_group_1_rest_of_the_world_text
       end
     end
 

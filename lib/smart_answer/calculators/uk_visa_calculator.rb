@@ -643,6 +643,7 @@ module SmartAnswer::Calculators
       st-vincent-and-the-grenadines
       sweden
       switzerland
+      taiwan
       tonga
       tuvalu
       united-arab-emirates
@@ -720,9 +721,7 @@ module SmartAnswer::Calculators
       "zimbabwe",
     ].flatten.freeze
 
-    COUNTRY_GROUP_ETA_ROLLOUT_GROUP_1_REST_OF_THE_WORLD = %w[
-      taiwan
-    ].freeze
+    COUNTRY_GROUP_ETA_ROLLOUT_GROUP_1_REST_OF_THE_WORLD = %w[].freeze
 
     COUNTRY_GROUP_ETA_ROLLOUT_GROUP_2_EU_EEA = %w[].freeze
   end
