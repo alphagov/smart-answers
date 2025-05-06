@@ -1,9 +1,11 @@
 <% text_for :title do %>
-  You’ll reach State Pension age on <%= format_date(calculator.state_pension_date) %>.
+  Your State Pension age
 
 <% end %>
 
 <% govspeak_for :body do %>
+  You’ll reach State Pension age on <%= format_date(calculator.state_pension_date) %>.
+
   Your State Pension age is <%= calculator.state_pension_age %>.
 
   <% if calculator.rolling_increase_period? %>
