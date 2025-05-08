@@ -1,9 +1,11 @@
 <% text_for :title do %>
-  You reached State Pension age on <%= format_date(calculator.state_pension_date) %>.
+  Your State Pension age
 
 <% end %>
 
 <% govspeak_for :body do %>
+  You reached State Pension age on <%= format_date(calculator.state_pension_date) %>.
+
   Your State Pension age was <%= calculator.state_pension_age %>.
 
   You should have got your pension claim pack before you reached your State Pension age.
