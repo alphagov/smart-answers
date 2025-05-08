@@ -136,7 +136,7 @@ GEM
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
-    gds-api-adapters (99.0.0)
+    gds-api-adapters (99.1.0)
       addressable
       link_header
       null_logger
@@ -254,10 +254,10 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
-    mime-types (3.6.2)
+    mime-types (3.7.0)
       logger
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0325)
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0507)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
     minitest (5.25.5)
