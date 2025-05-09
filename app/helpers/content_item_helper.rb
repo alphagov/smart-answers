@@ -5,6 +5,17 @@ module ContentItemHelper
       "calculator.holiday_entitlement_days" => 10,
       "calculator.path_to_outcome" => %w[italy ceremony_country opposite_sex],
       "calculator.ceremony_country" => "italy",
+      "calculator.tuition_fee_maximum_full_time" => 0,
+      "calculator.tuition_fee_maximum_part_time" => 0,
+      "calculator.tuition_fee_amount" => 0,
+      "calculator.maintenance_loan_amount" => 0,
+      "calculator.max_loan_amount" => 0,
+      "calculator.loan_shortfall" => 0,
+      "calculator.childcare_grant_one_child" => 0,
+      "calculator.childcare_grant_more_than_one_child" => 0,
+      "calculator.parent_learning_allowance" => 0,
+      "calculator.adult_dependant_allowance" => 0,
+      "calculator.reduced_maintenance_loan_for_healthcare" => 0,
     }.freeze
 
     # rubocop:disable Style/MissingRespondToMissing
