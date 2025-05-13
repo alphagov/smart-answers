@@ -3,10 +3,6 @@ require "test_helper"
 class ContentItemHelperTest < ActionView::TestCase
   def setup
     setup_fixture_flows
-    @flow = RadioSampleFlow.build
-
-    node = SmartAnswer::StartNode.new(@flow, @flow.name.underscore.to_sym)
-    @start_node = node.presenter
   end
 
   def teardown
@@ -15,6 +11,11 @@ class ContentItemHelperTest < ActionView::TestCase
 
   context "extract_flow_content" do
     should "include all flow content" do
+      flow = RadioSampleFlow.build
+
+      node = SmartAnswer::StartNode.new(flow, flow.name.underscore.to_sym)
+      start_node = node.presenter
+
       expected_content = [
         "Hotter or colder?",
         "Body for hotter or colder",
@@ -27,7 +28,18 @@ class ContentItemHelperTest < ActionView::TestCase
         "Frozen outcome title",
         "Frozen outcome body",
       ]
-      assert_equal expected_content, extract_flow_content(@flow, @start_node)
+      assert_equal expected_content, extract_flow_content(flow, start_node)
+    end
+    should "use placeholder text for missing content" do
+      flow = MethodMissingSampleFlow.build
+
+      node = SmartAnswer::StartNode.new(flow, flow.name.underscore.to_sym)
+      start_node = node.presenter
+
+      expected_content = [
+        "I am owed £0.",
+      ]
+      assert_equal expected_content, extract_flow_content(flow, start_node)
     end
   end
 end
