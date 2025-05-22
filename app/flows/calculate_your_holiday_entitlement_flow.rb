@@ -98,7 +98,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       next_node do
         if calculator.holiday_period == "starting-and-leaving"
           question :what_is_your_leaving_date?
-        elsif calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < (Date.new(2024, 4, 1))
+        elsif calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < Date.new(2024, 4, 1)
           case calculator.calculation_basis
           when "days-worked-per-week"
             question :how_many_days_per_week?
@@ -130,7 +130,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.holiday_period == "starting-and-leaving" || (calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < (Date.new(2024, 4, 1)))
+        if calculator.holiday_period == "starting-and-leaving" || (calculator.regular_or_irregular_hours == "irregular-hours-and-part-year" && calculator.leave_year_start_date < Date.new(2024, 4, 1))
           case calculator.calculation_basis
           when "days-worked-per-week"
             question :how_many_days_per_week?
@@ -171,7 +171,7 @@ class CalculateYourHolidayEntitlementFlow < SmartAnswer::Flow
       next_node do
         if calculator.regular_or_irregular_hours == "irregular-hours-and-part-year"
 
-          if calculator.leave_year_start_date >= (Date.new(2024, 4, 1))
+          if calculator.leave_year_start_date >= Date.new(2024, 4, 1)
             question :hours_in_pay_period?
           else
             question :basis_of_calculation?
