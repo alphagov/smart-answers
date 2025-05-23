@@ -109,7 +109,7 @@ class ResultCardVisaTest < ComponentTestCase
     })
 
     assert_select ".app-c-result-card" do
-      assert_select ".govuk-heading-m", text: /\n\s*Result\s*card\s*title\s*/ do
+      assert_select ".govuk-heading-m", text: /\s*Result\s*card\s*title\s*/ do
         assert_select ".govuk-caption-m", text: "Visa type"
       end
       assert_select ".app-c-result-card__attribute", count: ATTRIBUTES.count
