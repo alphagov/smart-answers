@@ -62,6 +62,7 @@ bundle exec rake
 * [Deploying changes for fact-check](docs/tasks/fact-check.md)
 * [Creating a new Smart Answer](docs/tasks/creating-a-new-smart-answer.md)
 * [Publishing a Smart Answer](docs/tasks/publishing.md)
+* [Updating a Smart Answer](docs/tasks/updating.md)
 * [Retiring a Smart Answer](docs/tasks/retiring-a-smart-answer.md)
 
 Further guidance is available in [`docs/tasks`](docs/tasks).
