@@ -1,49 +1,40 @@
-# ======================================================================
-# The flow logic.
-# ======================================================================
 class CalculateInheritanceTaxInterestFlow < SmartAnswer::Flow
   def define
     name "calculate-inheritance-tax-interest"
     content_id "f066bf22-70c1-4085-986b-39c585a138a3"
     status :draft
-    # ======================================================================
-    # Available input types:
-    # ======================================================================
-    # - Checkbox
-    # - Country select
-    # - Date
-    # - Money
-    # - Radio
-    # - Postcode
-    # - Salary
-    # - Value (text)
 
-    # ======================================================================
-    # Question
-    # ======================================================================
-    checkbox_question :question? do
-      option :blue
-      option :green
-      option :red
-      option :yellow
-
+    date_question :start_date_for_interest? do
       on_response do |response|
-        self.calculator = SmartAnswer::Calculators::CalculateInheritanceTaxInterestCalculator.new
-        calculator.question = response
-      end
-
-      validate do
-        calculator.validate?
+        self.calculator = SmartAnswer::Calculators::InheritanceTaxInterestCalculator.new
+        calculator.start_date = response
       end
 
       next_node do
-        outcome :results
+        question :end_date_for_interest?
       end
     end
 
-    # ======================================================================
-    # Outcome
-    # ======================================================================
-    outcome :results
+    date_question :end_date_for_interest? do
+      on_response do |response|
+        calculator.end_date = response
+      end
+
+      next_node do
+        question :how_much_inheritance_tax_owed?
+      end
+    end
+
+    money_question :how_much_inheritance_tax_owed? do
+      on_response do |response|
+        calculator.inheritance_tax_owed = response
+      end
+
+      next_node do
+        outcome :inheritance_tax_interest
+      end
+    end
+
+    outcome :inheritance_tax_interest
   end
 end
