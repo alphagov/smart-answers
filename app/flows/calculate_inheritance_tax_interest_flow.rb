@@ -8,6 +8,8 @@ class CalculateInheritanceTaxInterestFlow < SmartAnswer::Flow
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::InheritanceTaxInterestCalculator.new
         calculator.start_date = response
+        calculator.end_date = response
+        calculator.inheritance_tax_owed = response
       end
 
       next_node do
