@@ -80,7 +80,7 @@ module SmartAnswer::Calculators
         date >= Date.parse(r[:start_date]) && date <= Date.parse(r[:end_date])
       end
 
-      BigDecimal(rate_entry&.[](:value).to_s.presence || "0.0325") / 365
+      BigDecimal(rate_entry&.[](:value).to_s.presence) / 366
     end
   end
 end
