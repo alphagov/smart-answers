@@ -4290,12 +4290,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     should "render _pat_pay partial paid leave is in year 2013" do
       add_responses due_date: "2013-1-1"
-      assert_rendered_outcome text: "28 days before they want to start paternity pay"
+      assert_rendered_outcome text: "The partner must tell their employer"
+      assert_rendered_outcome text: "by 18 September 2012"
     end
 
     should "render _pat_pay partial paid leave on a saturday" do
       add_responses due_date: "2021-12-25"
-      assert_rendered_outcome text: "Tell the partner’s employer\n      by 11 September 2021"
+      assert_rendered_outcome text: "The partner must tell their employer"
+      assert_rendered_outcome text: "by 11 September 2021"
     end
   end
 
@@ -4327,7 +4329,9 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       end
 
       should "render _pat_leave partial with 15 weeks notice period" do
-        assert_rendered_outcome text: "Tell the partner’s employer by 23 December 2023"
+        assert_rendered_outcome text: "The partner must tell their employer"
+        assert_rendered_outcome text: "the baby’s due date - by 23 December 2023"
+        assert_rendered_outcome text: "when they want their leave to start - by 23 December 2023"
       end
     end
 
@@ -4340,8 +4344,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
         assert_rendered_outcome text: "Paternity leave must be used by  6 April 2025"
       end
 
-      should "render _pat_leave partial with 28 days notice period" do
-        assert_rendered_outcome text: "Tell the partner’s employer by 10 March 2024"
+      should "render _pat_leave partial with 105 days notice period" do
+        assert_rendered_outcome text: "The partner must tell their employer:"
+        assert_rendered_outcome text: "the baby’s due date - by 24 December 2023"
+        assert_rendered_outcome text: "when they want their leave to start - by 10 March 2024"
       end
     end
   end
