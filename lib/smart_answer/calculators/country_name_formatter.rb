@@ -3,7 +3,6 @@ module SmartAnswer::Calculators
     COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w[bahamas
                                             british-virgin-islands
                                             cayman-islands
-                                            czech-republic
                                             democratic-republic-of-the-congo
                                             dominican-republic
                                             falkland-islands

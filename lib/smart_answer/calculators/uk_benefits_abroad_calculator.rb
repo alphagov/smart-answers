@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
                        bulgaria
                        croatia
                        cyprus
-                       czech-republic
+                       czechia
                        denmark
                        estonia
                        finland

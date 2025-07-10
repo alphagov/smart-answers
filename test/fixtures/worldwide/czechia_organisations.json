@@ -30,10 +30,10 @@
               "postal-code": "",
               "locality": "Prague",
               "region": "",
-              "country-name": "Czech Republic"
+              "country-name": "Czechia"
             },
             "label": {
-              "value": "Thunovska 14\r\n118 00\n Prague\nCzech Republic"
+              "value": "Thunovska 14\r\n118 00\n Prague\nCzechia"
             }
           },
           "contact_numbers": [
@@ -93,10 +93,10 @@
                 "postal-code": "",
                 "locality": "Prague",
                 "region": "",
-                "country-name": "Czech Republic"
+                "country-name": "Czechia"
               },
               "label": {
-                "value": "Thunovska 14\r\n118 00  \n Prague\nCzech Republic"
+                "value": "Thunovska 14\r\n118 00  \n Prague\nCzechia"
               }
             },
             "contact_numbers": [
@@ -132,10 +132,10 @@
                 "postal-code": "",
                 "locality": "Prague",
                 "region": "",
-                "country-name": "Czech Republic"
+                "country-name": "Czechia"
               },
               "label": {
-                "value": "Thunovska 14\r\n118 00\n Prague\nCzech Republic"
+                "value": "Thunovska 14\r\n118 00\n Prague\nCzechia"
               }
             },
             "contact_numbers": [
@@ -171,10 +171,10 @@
                 "postal-code": "",
                 "locality": "Prague 1",
                 "region": "",
-                "country-name": "Czech Republic"
+                "country-name": "Czechia"
               },
               "label": {
-                "value": "Thunovska 14\r\n118 00\n Prague 1\nCzech Republic"
+                "value": "Thunovska 14\r\n118 00\n Prague 1\nCzechia"
               }
             },
             "contact_numbers": [
@@ -201,7 +201,7 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-czech-republic",
-      "title": "Department for International Trade Czech Republic",
+      "title": "Department for International Trade Czechia",
       "format": "Worldwide Organisation",
       "updated_at": "2018-05-29T13:24:53.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-czech-republic",
@@ -211,7 +211,7 @@
       "analytics_identifier": "WO222",
       "offices": {
         "main": {
-          "title": "Department for International Trade Czech Republic",
+          "title": "Department for International Trade Czechia",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
           "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-czech-republic/office/uk-trade-investment-czech-republic",
@@ -229,10 +229,10 @@
               "postal-code": "11800",
               "locality": "",
               "region": "Prague",
-              "country-name": "Czech Republic"
+              "country-name": "Czechia"
             },
             "label": {
-              "value": "British Embassy Prague\nThunovska 14\n11800 \nCzech Republic"
+              "value": "British Embassy Prague\nThunovska 14\n11800 \nCzechia"
             }
           },
           "contact_numbers": [
@@ -261,7 +261,7 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-science-innovation-network-in-the-czech-republic",
-      "title": "UK Science & Innovation Network in the Czech Republic",
+      "title": "UK Science & Innovation Network in Czechia",
       "format": "Worldwide Organisation",
       "updated_at": "2016-03-02T13:54:21.000+00:00",
       "web_url": "https://www.gov.uk/world/organisations/uk-science-innovation-network-in-the-czech-republic",
@@ -301,7 +301,7 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/czech-republic/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/czechia/organisations?page=1",
         "rel": "self"
       }
     ]
