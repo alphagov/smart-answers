@@ -526,7 +526,7 @@ module SmartAnswer::Calculators
       bulgaria
       croatia
       cyprus
-      czech-republic
+      czechia
       denmark
       estonia
       finland
@@ -579,7 +579,7 @@ module SmartAnswer::Calculators
       croatia
       curacao
       cyprus
-      czech-republic
+      czechia
       denmark
       estonia
       federated-states-of-micronesia
@@ -660,7 +660,7 @@ module SmartAnswer::Calculators
       canada
       croatia
       cyprus
-      czech-republic
+      czechia
       denmark
       estonia
       finland
