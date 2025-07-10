@@ -4,4 +4,7 @@ The mother’s partner can take up to 2 weeks' [paternity leave](/paternity-pay-
 
 Paternity leave must be used by <%= format_date(calculator.take_paternity_leave_by_date) %>.
 
-Tell the partner’s employer by <%= format_date(calculator.give_paternity_leave_notice_by_date) %>.
+The partner must tell their employer:
+
+- the baby’s due date - by <%= format_date(calculator.due_date_notice_to_partner_employer) %>
+- when they want their leave to start - by <%= format_date(calculator.give_paternity_leave_notice_by_date) %>
