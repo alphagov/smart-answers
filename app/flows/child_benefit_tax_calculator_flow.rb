@@ -30,6 +30,24 @@ class ChildBenefitTaxCalculatorFlow < SmartAnswer::Flow
         calculator.tax_year = response
       end
 
+      next_node do |response|
+        if response == "2024"
+          question :between_april_june?
+        else
+          question :is_part_year_claim?
+        end
+      end
+    end
+
+    # Q2-b
+    radio :between_april_june? do
+      option :yes
+      option :no
+
+      on_response do |response|
+        calculator.between_april_june = response
+      end
+
       next_node do
         question :is_part_year_claim?
       end
