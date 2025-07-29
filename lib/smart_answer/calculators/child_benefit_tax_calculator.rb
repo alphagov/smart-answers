@@ -7,7 +7,8 @@ module SmartAnswer::Calculators
                   :allowable_deductions,
                   :other_allowable_deductions,
                   :part_year_claim_dates,
-                  :child_number
+                  :child_number,
+                  :between_april_june
 
     attr_reader :child_benefit_rates
 
@@ -30,6 +31,7 @@ module SmartAnswer::Calculators
       @part_year_claim_dates = HashWithIndifferentAccess.new
       @child_number = 1
       @child_benefit_rates = self.class.child_benefit_rates
+      @between_april_june = "no"
     end
 
     def self.tax_years

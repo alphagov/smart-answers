@@ -48,6 +48,32 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
       should "have a next node of is_part_year_claim?" do
         assert_next_node :is_part_year_claim?, for_response: "2021"
       end
+
+      should "have a next node of between_april_june? for 2024" do
+        assert_next_node :between_april_june?, for_response: "2024"
+      end
+    end
+  end
+
+  context "question: between_april_june?" do
+    setup do
+      testing_node :between_april_june?
+      add_responses how_many_children?: "5",
+                    which_tax_year?: "2024"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of is_part_year_claim? for a 'yes' response" do
+        assert_next_node :is_part_year_claim?, for_response: "yes"
+      end
+
+      should "have a next node of is_part_year_claim? for a 'no' response" do
+        assert_next_node :is_part_year_claim?, for_response: "no"
+      end
     end
   end
 
@@ -351,6 +377,7 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
     should "render no tax charge when the net income is below £60,200 in 2024" do
       add_responses how_many_children?: "1",
                     which_tax_year?: "2024",
+                    between_april_june?: "no",
                     is_part_year_claim?: "no",
                     income_details?: "70000",
                     add_allowable_deductions?: "yes",
@@ -401,19 +428,10 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Received between 7 January and 5 April 2013"
     end
 
-    should "render specific guidance when the tax year is 2023-2024" do
-      add_responses how_many_children?: "1",
-                    which_tax_year?: "2023",
-                    is_part_year_claim?: "no",
-                    income_details?: "50000",
-                    add_allowable_deductions?: "no"
-
-      assert_rendered_outcome text: "If you made a new claim between 6 April 2024 and 7 July 2024 and are calculating your backdated amount"
-    end
-
-    should "render specific guidance when the tax year is 2024-2025" do
+    should "render specific guidance when the tax year is 2024 and the claim is between April and June" do
       add_responses how_many_children?: "1",
                     which_tax_year?: "2024",
+                    between_april_june?: "yes",
                     is_part_year_claim?: "no",
                     income_details?: "50000",
                     add_allowable_deductions?: "no"
