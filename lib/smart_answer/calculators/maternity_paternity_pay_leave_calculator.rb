@@ -170,6 +170,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def due_date_notice_to_partner_employer
+      due_date - 105.days
+    end
+
   private
 
     def mother_partner_living_in_northern_ireland
