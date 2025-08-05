@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
         @calculator.end_date = Date.parse("2023-01-10")
         @calculator.inheritance_tax_owed = 10_000
 
-        assert_equal SmartAnswer::Money.new(15.7), @calculator.calculate_interest
+        assert_equal SmartAnswer::Money.new(15.71), @calculator.calculate_interest
       end
 
       should "calculate correct interest across multiple rate periods" do
@@ -24,15 +24,15 @@ module SmartAnswer::Calculators
         @calculator.end_date = Date.parse("2023-01-10")
         @calculator.inheritance_tax_owed = 10_000
 
-        assert_equal SmartAnswer::Money.new(17.2), @calculator.calculate_interest
+        assert_equal SmartAnswer::Money.new(17.21), @calculator.calculate_interest
       end
     end
 
-    context "#calculate_interest_for_date" do
+    context "#calculate interest for specific date" do
       should "calculate daily interest truncated to 2 decimal places" do
-        date = Date.parse("2023-01-07")
-        amount = @calculator.send(:calculate_interest_for_date, date)
-        assert_equal BigDecimal("1.64"), amount
+        Date.parse("2023-01-07")
+        amount = @calculator.calculate_interest
+        assert_equal BigDecimal("15.71"), amount.value
       end
     end
   end

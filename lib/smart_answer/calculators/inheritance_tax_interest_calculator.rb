@@ -61,26 +61,29 @@ module SmartAnswer::Calculators
 
       s_date = start_date.is_a?(String) ? Date.parse(start_date) : start_date
       e_date = end_date.is_a?(String) ? Date.parse(end_date) : end_date
-
-      interest = (s_date..e_date).sum { |date| calculate_interest_for_date(date) }
-
-      SmartAnswer::Money.new(interest.round(2))
-    end
-
-  private
-
-    def calculate_interest_for_date(date)
       tax = BigDecimal(inheritance_tax_owed.to_s)
-      daily_rate = daily_rate_for(date)
-      (tax * daily_rate).truncate(2)
-    end
+      total_interest = BigDecimal("0")
 
-    def daily_rate_for(date)
-      rate_entry = INTEREST_RATES.find do |r|
-        date >= Date.parse(r[:start_date]) && date <= Date.parse(r[:end_date])
+      # Step through each period where the interest rate stays the same
+      current_date = s_date
+      while current_date <= e_date
+        rate_entry = INTEREST_RATES.find do |r|
+          current_date >= Date.parse(r[:start_date]) && current_date <= Date.parse(r[:end_date])
+        end
+
+        raise "No rate found for date #{current_date}" unless rate_entry
+
+        period_end = [Date.parse(rate_entry[:end_date]), e_date].min
+        days_in_period = (period_end - current_date).to_i + 1
+        annual_rate = BigDecimal(rate_entry[:value].to_s.presence || "0")
+
+        interest_for_period = (tax * annual_rate * days_in_period) / 366
+        total_interest += interest_for_period
+
+        current_date = period_end + 1
       end
 
-      BigDecimal(rate_entry&.[](:value).to_s.presence) / 366
+      SmartAnswer::Money.new(total_interest.round(2))
     end
   end
 end
