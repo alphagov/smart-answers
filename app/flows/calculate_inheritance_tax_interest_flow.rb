@@ -2,7 +2,7 @@ class CalculateInheritanceTaxInterestFlow < SmartAnswer::Flow
   def define
     name "calculate-inheritance-tax-interest"
     content_id "f066bf22-70c1-4085-986b-39c585a138a3"
-    status :draft
+    status :published
 
     date_question :start_date_for_interest? do
       validate :error_start_date_too_early do |response|
