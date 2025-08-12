@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: alphagov/smart-answers
           ref: ${{ inputs.ref || github.ref }}
 
       - name: Checkout Publishing API (for Content Schemas)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: alphagov/publishing-api
           ref: ${{ inputs.publishingApiRef }}
