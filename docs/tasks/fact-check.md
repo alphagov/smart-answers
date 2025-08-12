@@ -8,7 +8,7 @@ to the PR.
 
 The main branch of Smart Answers is deployed to Heroku with each update and
 this allows previewing draft Smart Answers. This is available at
-https://smart-answers-preview.herokuapp.com/.
+https://govuk-smart-answers.herokuapp.com/.
 
 ## Displaying rates for a specific date
 
