@@ -64,7 +64,6 @@ module SmartAnswer::Calculators
       tax = BigDecimal(inheritance_tax_owed.to_s)
       total_interest = BigDecimal("0")
 
-      # Step through each period where the interest rate stays the same
       current_date = s_date
       while current_date <= e_date
         rate_entry = INTEREST_RATES.find do |r|
@@ -83,7 +82,7 @@ module SmartAnswer::Calculators
         current_date = period_end + 1
       end
 
-      SmartAnswer::Money.new(total_interest.round(2))
+      "£#{sprintf('%.2f', total_interest.round(2))}"
     end
   end
 end
