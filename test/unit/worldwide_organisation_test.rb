@@ -127,7 +127,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
       should "have an accessor for all offices" do
         assert_equal 2, @organisation.all_offices.size
-        assert_equal %w[main-office-title other-office-title], (@organisation.all_offices.map { |office| office[:title] })
+        assert_equal(%w[main-office-title other-office-title], @organisation.all_offices.map { |office| office[:title] })
       end
 
       should "have an accessor for the URL" do
