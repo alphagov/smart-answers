@@ -53,7 +53,8 @@ module SmartAnswer::Calculators
       { start_date: "2024-11-26", end_date: "2025-02-24", value: 0.0725 },
       { start_date: "2025-02-25", end_date: "2025-04-05", value: 0.07 },
       { start_date: "2025-04-06", end_date: "2025-05-27", value: 0.085 },
-      { start_date: "2025-05-28", end_date: "2100-01-01", value: 0.0825 },
+      { start_date: "2025-05-28", end_date: "2025-08-26", value: 0.0825 },
+      { start_date: "2025-08-27", end_date: "2100-01-01", value: 0.08 },
     ].freeze
 
     def calculate_interest
@@ -82,7 +83,7 @@ module SmartAnswer::Calculators
         current_date = period_end + 1
       end
 
-      "£#{sprintf('%.2f', total_interest.round(2))}"
+      sprintf("%.2f", total_interest.round(2)).to_s
     end
   end
 end
