@@ -8,22 +8,10 @@
   </div>
 <% end %>
 
-<%
-  answer_title = @title
-  question_title = yield :question_title
-  outcome_title = yield :outcome_title
-  if question_title.present?
-    title = "#{question_title} - #{answer_title}"
-  elsif outcome_title.present?
-    title = "#{outcome_title} - #{answer_title}"
-  else
-    title = answer_title
-  end
-%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %> - GOV.UK</title>
+    <title><%= title_for_head(answer_title: @title, question_title: (yield :question_title), outcome_title: (yield :outcome_title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", :media => "all" %>
