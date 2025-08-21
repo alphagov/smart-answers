@@ -155,6 +155,11 @@ Refresh the Smart Answer in your browser to see this new content.
 
 Read more about [outcome page templates](../design/erb-templates/outcome-templates.md).
 
+[example-smart-answer]: http://localhost:3000/example-smart-answer
+
+### 5. Publish the new Smart Answer
+
+Follow the instructions for [publishing a Smart Answer](publishing.md) to ensure the changes are synchronised on the Publishing API and live on GOV.UK.
+
 And that's all there is to an incredibly simple Smart Answer.
 
-[example-smart-answer]: http://localhost:3000/example-smart-answer
