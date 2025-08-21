@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Slimmer::Template
-
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
@@ -12,8 +10,6 @@ class ApplicationController < ActionController::Base
       password: ENV.fetch("BASIC_AUTH_PASSWORD"),
     )
   end
-
-  slimmer_template :gem_layout
 
 protected
 

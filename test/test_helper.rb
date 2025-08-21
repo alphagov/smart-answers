@@ -34,5 +34,3 @@ class ActiveSupport::TestCase
     WorldLocation.reset_cache
   end
 end
-
-require "slimmer/test"
