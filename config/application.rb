@@ -5,6 +5,7 @@ require "action_controller/railtie"
 require "active_model/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require "govuk_publishing_components/middleware/ga4_optimise"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -76,5 +77,8 @@ module SmartAnswers
 
     # Allow requests for all domains e.g. <app>.dev.gov.uk
     config.hosts.clear
+
+    # Use the middleware to compact data-ga4-event/link attributes
+    config.middleware.use GovukPublishingComponents::Middleware::Ga4Optimise
   end
 end
