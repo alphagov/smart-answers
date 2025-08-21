@@ -1,4 +1,6 @@
 <% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
+<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
+<% global_banner =  render("govuk_web_banners/global_banner") %>
 
 <% content_for :body do %>
   <div class="smart_answer">
@@ -29,6 +31,8 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
       title: title_for_head(title_prefix: (yield :title_prefix), answer_title: @title),
+      emergency_banner:,
+      global_banner:,
   } do %>
   <%= yield :body %>
   <%= javascript_include_tag "test-dependencies" if Rails.env.test? %>
