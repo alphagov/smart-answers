@@ -45,8 +45,10 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits jsa].include?(response)
+        if %w[maternity_benefits child_benefit ssp bereavement_benefits jsa].include?(response)
           question :which_country?
+        elsif response == "winter_fuel_payment"
+          outcome :wfp_not_eligible_outcome
         elsif response == "iidb"
           question :iidb_already_claiming?
         elsif response == "esa"
@@ -103,16 +105,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
             question :working_for_a_uk_employer? # Q8 going_abroad and Q7 already_abroad
           else
             question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
-          end
-
-        when "winter_fuel_payment"
-          # The following are all the same for going_abroad and already abroad
-          if calculator.country == "ireland"
-            question :is_british_or_irish?
-          elsif calculator.country_eligible_for_winter_fuel_payment?
-            question :worked_in_eea_or_switzerland?
-          else
-            outcome :wfp_not_eligible_outcome
           end
 
         when "child_benefit"
@@ -579,8 +571,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           case calculator.benefit
           when "jsa"
             outcome :jsa_eea_going_abroad_maybe_outcome
-          when "winter_fuel_payment"
-            question :born_before_23_September_1958?
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
           when "disability_benefits"
@@ -603,8 +593,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           case calculator.benefit
           when "jsa"
             outcome :jsa_eea_going_abroad_maybe_outcome
-          when "winter_fuel_payment"
-            question :born_before_23_September_1958?
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
           when "disability_benefits"
@@ -614,8 +602,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           case calculator.benefit
           when "jsa"
             outcome :jsa_not_entitled_outcome
-          when "winter_fuel_payment"
-            outcome :wfp_not_eligible_outcome
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_other_outcome : :esa_already_abroad_other_outcome)
           when "disability_benefits"
@@ -677,19 +663,13 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           case calculator.benefit
           when "jsa"
             outcome :jsa_ireland_outcome
-          when "winter_fuel_payment"
-            question :born_before_23_September_1958?
           when "esa"
             outcome(calculator.going_abroad ? :esa_going_abroad_eea_outcome : :esa_already_abroad_eea_outcome)
           when "disability_benefits"
             outcome :db_going_abroad_ireland_outcome
           end
         when "no"
-          if calculator.benefit == "winter_fuel_payment" && calculator.going_abroad
-            outcome :wfp_not_eligible_outcome
-          else
-            question :worked_in_eea_or_switzerland?
-          end
+          question :worked_in_eea_or_switzerland?
         end
       end
     end
