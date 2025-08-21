@@ -1,5 +1,5 @@
 <% question = @presenter.current_node %>
-<% content_for :question_title do %><% if question.error.present? %>Error - <% end %><%= question.title %><% end %>
+<% content_for :title_prefix do %><% if question.error.present? %>Error - <% end %><%= question.title %><% end %>
 <% content_for :head do %>
   <meta name="robots" content="noindex">
 <% end %>
