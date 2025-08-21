@@ -6,7 +6,6 @@ gem "rails", "8.0.2.1"
 
 gem "ast"
 gem "bootsnap", require: false
-gem "csv"
 gem "dartsass-rails"
 gem "erb_lint"
 gem "gds-api-adapters"
