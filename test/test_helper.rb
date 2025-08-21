@@ -20,7 +20,7 @@ require "gds_api/test_helpers/publishing_api"
 require "gds_api/test_helpers/worldwide"
 require_relative "support/fixture_methods"
 
-Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
+# Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
 
 class ActiveSupport::TestCase
   include FixtureMethods
