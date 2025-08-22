@@ -203,7 +203,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.8.0)
+    govuk_web_banners (1.9.0)
       govuk_app_config
       govuk_publishing_components
       rails (>= 7)
