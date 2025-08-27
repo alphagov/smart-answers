@@ -49,7 +49,7 @@ module SmartAnswer
         e = assert_raises(ActionView::Template::Error) do
           renderer.content_for(:key)
         end
-        assert_match "undefined local variable or method `non_existent_state_variable'", e.message
+        assert_match "undefined local variable or method 'non_existent_state_variable'", e.message
       end
     end
 
