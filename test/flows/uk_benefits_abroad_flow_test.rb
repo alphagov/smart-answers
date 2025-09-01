@@ -60,10 +60,14 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      %w[winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits jsa].each do |benefit|
+      %w[maternity_benefits child_benefit ssp bereavement_benefits jsa].each do |benefit|
         should "have a next node of which_country? for a '#{benefit}' response if going_abroad" do
           assert_next_node :which_country?, for_response: benefit
         end
+      end
+
+      should "have a next node of wfp_not_eligible_outcome for an 'winter_fuel_payment' response" do
+        assert_next_node :wfp_not_eligible_outcome, for_response: "winter_fuel_payment"
       end
 
       should "have a next node of iidb_already_claiming? for an 'iidb' response" do
@@ -157,24 +161,6 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
 
         should "have a next node of employer_paying_ni? for any non-EEA country response" do
           assert_next_node :employer_paying_ni?, for_response: "australia"
-        end
-      end
-
-      context "winter_fuel_payment" do
-        setup do
-          add_responses which_benefit?: "winter_fuel_payment"
-        end
-
-        should "have next node of is_british_or_irish? for an 'ireland' response" do
-          assert_next_node :is_british_or_irish?, for_response: "ireland"
-        end
-
-        should "have a next node of worked_in_eea_or_switzerland? for any EEA country response except ireland" do
-          assert_next_node :worked_in_eea_or_switzerland?, for_response: "liechtenstein"
-        end
-
-        should "have a next node of wfp_not_eligible_outcome for any non-EEA country response" do
-          assert_next_node :wfp_not_eligible_outcome, for_response: "australia"
         end
       end
 
@@ -928,20 +914,6 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      context "winter_fuel_payment" do
-        should "have a next node of born_before_23_September_1958 for a 'before_jan_2021' response if benefit is winter_fuel_payment" do
-          add_responses which_benefit?: "winter_fuel_payment"
-          assert_next_node :born_before_23_September_1958?, for_response: "before_jan_2021"
-        end
-
-        %w[no after_jan_2021].each do |response|
-          should "have a next node of parents_lived_in_eea_or_switzerland? for a #{response} response if benefit is winter_fuel_payment" do
-            add_responses which_benefit?: "winter_fuel_payment"
-            assert_next_node :parents_lived_in_eea_or_switzerland?, for_response: response
-          end
-        end
-      end
-
       should "have a next node of esa_going_abroad_eea_outcome for a 'before_jan_2021' response if benefit is esa and going_abroad" do
         add_responses which_benefit?: "esa",
                       esa_how_long_abroad?: "esa_more_than_a_year"
@@ -1027,21 +999,9 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
         assert_next_node :db_already_abroad_eea_outcome, for_response: "before_jan_2021"
       end
 
-      context "winter_fuel_payment" do
-        should "have a next node of born_before_23_September_1958 for a 'before_jan_2021' response if benefit is winter_fuel_payment" do
-          add_responses which_benefit?: "winter_fuel_payment"
-          assert_next_node :born_before_23_September_1958?, for_response: "before_jan_2021"
-        end
-      end
-
       %w[after_jan_2021 no].each do |response|
         should "have a next node of jsa_not_entitled_outcome for a '#{response}' response if benefit is jsa" do
           assert_next_node :jsa_not_entitled_outcome, for_response: response
-        end
-
-        should "have a next node of wfp_not_eligible_outcome for a '#{response}' response if benefit is winter_fuel_payment" do
-          add_responses which_benefit?: "winter_fuel_payment"
-          assert_next_node :wfp_not_eligible_outcome, for_response: response
         end
 
         should "have a next node of esa_going_abroad_other_outcome for a '#{response}' response if benefit is esa and going_abroad" do
@@ -1086,28 +1046,6 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      context "winter_fuel_payment" do
-        setup do
-          add_responses which_benefit?: "winter_fuel_payment"
-        end
-
-        %w[going_abroad already_abroad].each do |location|
-          should "have a next node of born_before_23_September_1958? for a 'yes' response if benefit is winter_fuel_payment and #{location}" do
-            add_responses going_or_already_abroad?: location
-            assert_next_node :born_before_23_September_1958?, for_response: "yes"
-          end
-        end
-
-        should "have a next node of wfp_outcome_not_eligible for a 'no' response if benefit is winter_fuel_payment and going abroad" do
-          assert_next_node :wfp_not_eligible_outcome, for_response: "no"
-        end
-
-        should "have a next node of worked_in_eea_or_switzerland? for a 'no' response if benefit is winter_fuel_payment and already abroad" do
-          add_responses going_or_already_abroad?: "already_abroad"
-          assert_next_node :worked_in_eea_or_switzerland?, for_response: "no"
-        end
-      end
-
       should "have a next node of jsa_ireland_outcome for a 'yes' response if benefit is jsa" do
         assert_next_node :jsa_ireland_outcome, for_response: "yes"
       end
@@ -1133,75 +1071,6 @@ class UkBenefitsAbroadFlowTest < ActiveSupport::TestCase
 
       should "have a next node of worked_in_eea_or_switzerland? for a 'no' response" do
         assert_next_node :worked_in_eea_or_switzerland?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: born_before_23_September_1958? for winter_fuel_payment" do
-    setup do
-      testing_node :born_before_23_September_1958?
-      add_responses going_or_already_abroad?: "going_abroad",
-                    which_benefit?: "winter_fuel_payment",
-                    which_country?: "ireland",
-                    is_british_or_irish?: "yes"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    should "have a next node of you_or_partner_get_a_benefit_in_the_country? for a 'yes' response" do
-      assert_next_node :you_or_partner_get_a_benefit_in_the_country?, for_response: "yes"
-    end
-
-    should "have a next node of wfp_not_eligible_outcome for a 'no' response" do
-      assert_next_node :wfp_not_eligible_outcome, for_response: "no"
-    end
-  end
-
-  context "question: you_or_partner_get_a_benefit_in_the_country? for winter_fuel_payment" do
-    setup do
-      testing_node :you_or_partner_get_a_benefit_in_the_country?
-      add_responses going_or_already_abroad?: "already_abroad",
-                    which_benefit?: "winter_fuel_payment",
-                    which_country?: "ireland",
-                    is_british_or_irish?: "yes",
-                    born_before_23_September_1958?: "yes"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of wfp_not_eligible_outcome for a 'yes' response" do
-        assert_next_node :wfp_not_eligible_outcome, for_response: "yes"
-      end
-
-      should "have a next node of you_or_partner_get_a_benefit_in_the_country? for a 'no' response" do
-        assert_next_node :you_or_partner_get_a_means_tested_benefit_in_the_country?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: you_or_partner_get_a_means_tested_benefit_in_the_country? for winter_fuel_payment" do
-    setup do
-      testing_node :you_or_partner_get_a_means_tested_benefit_in_the_country?
-      add_responses which_benefit?: "winter_fuel_payment",
-                    going_or_already_abroad?: "already_abroad",
-                    which_country?: "ireland",
-                    is_british_or_irish?: "yes",
-                    born_before_23_September_1958?: "yes",
-                    you_or_partner_get_a_benefit_in_the_country?: "no"
-    end
-
-    context "next_node" do
-      should "have a next node of wfp_not_eligible_outcome for a 'no' response" do
-        assert_next_node :wfp_not_eligible_outcome, for_response: "no"
-      end
-
-      should "have a next node of you_or_partner_get_a_benefit_in_the_country? for a 'yes' response" do
-        assert_next_node :wfp_maybe_outcome, for_response: "yes"
       end
     end
   end
