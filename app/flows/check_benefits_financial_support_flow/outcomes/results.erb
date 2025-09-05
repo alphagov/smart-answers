@@ -6,6 +6,10 @@
   <% end %>
     <p class="govuk-body">This tool does not include all the ways you can get help with living costs. It will be updated with more types of support.</p>
 
+  <% if calculator.where_do_you_live == "northern-ireland" %>
+    <%= render partial: 'northern_ireland_winter_fuel' %>
+  <% end %>
+
   <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-9">
     <% calculator.benefits_for_outcome.each do |benefit| %>
       <%= render "components/result_card", {
