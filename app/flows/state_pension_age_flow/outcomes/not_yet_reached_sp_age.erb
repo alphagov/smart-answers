@@ -8,9 +8,7 @@
 
   Your State Pension age is <%= calculator.state_pension_age %>.
 
-  <% if calculator.rolling_increase_period? %>
-    ^This may increase by up to a year following [review of the State Pension age](/government/news/proposed-new-timetable-for-state-pension-age-increases).^
-  <% end %>
+  ^This may change following [review of the State Pension age](/government/collections/third-state-pension-age-review).^
 
   <% if calculator.can_apply? %>
     You can [claim your State Pension](<%= calculator.how_to_claim_url %>) now. Your payments will start after you reach State Pension age.

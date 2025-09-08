@@ -92,9 +92,9 @@ class StatePensionAgeFlowTest < ActiveSupport::TestCase
       add_responses which_calculation?: "age"
     end
 
-    should "render that the pension age may increase when dob is between 6 April 1970 and 5 April 1978" do
-      add_responses dob_age?: "04-04-1978"
-      assert_rendered_outcome text: "This may increase by up to a year"
+    should "render that the pension age may increase" do
+      add_responses dob_age?: "04-04-1988"
+      assert_rendered_outcome text: "This may change"
     end
 
     should "render that you can apply for your state pension 2 months before state pension date" do

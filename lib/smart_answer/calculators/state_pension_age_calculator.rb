@@ -61,10 +61,6 @@ module SmartAnswer::Calculators
       old_state_pension? ? "/state-pension/how-to-claim" : "/new-state-pension/how-to-claim"
     end
 
-    def rolling_increase_period?
-      dob.between?(Date.parse("6 April 1970"), Date.parse("5 April 1978"))
-    end
-
     def pension_age_based_on_gender?
       dob < Date.parse("6 December 1953")
     end
