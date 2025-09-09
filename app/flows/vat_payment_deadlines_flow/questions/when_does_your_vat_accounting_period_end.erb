@@ -2,6 +2,10 @@
   When does your VAT accounting period end?
 <% end %>
 
+<% govspeak_for :body do %>
+  Enter the month and year using numbers only - do not enter month names. Use the format MM and YYYY, for example 06 2025.
+<% end %>
+
 <% text_for :error_message do %>
-  Your accounting period must end at the last day of the month.
+  There is a problem. You must enter your accounting period end date using numbers only, in the format MM and YYYY.
 <% end %>
