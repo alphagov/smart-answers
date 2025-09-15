@@ -438,5 +438,15 @@ class ChildBenefitTaxCalculatorFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "If you made a new claim between 6 April 2024 and 7 July 2024, it may be backdated by up to 3 months"
     end
+
+    should "render specific guidance when income is above £60,000 and the claim is after 2024 (Inclusive)" do
+      add_responses how_many_children?: "1",
+                    which_tax_year?: "2025",
+                    is_part_year_claim?: "no",
+                    income_details?: "70000",
+                    add_allowable_deductions?: "no"
+
+      assert_rendered_outcome text: "You can pay through PAYE or Self Assessment."
+    end
   end
 end
