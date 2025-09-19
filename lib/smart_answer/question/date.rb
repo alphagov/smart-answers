@@ -66,7 +66,6 @@ module SmartAnswer
                end
 
         validate_input(date)
-        date
       rescue ArgumentError => e
         if e.message =~ /invalid date/
           raise InvalidResponse, "Bad date: #{input.inspect}", caller
@@ -85,9 +84,15 @@ module SmartAnswer
       def validate_input(date)
         raise "from date must not be after the to date" if from && to && from > to
 
+        if date.year < 100
+          date = ::Date.new(date.year.to_i + 2000, date.month, date.day)
+        end
+
         if (from && date < from) || (to && date > to)
           raise InvalidResponse, "Provided date is out of range: #{date}", caller
         end
+
+        date
       end
     end
   end
