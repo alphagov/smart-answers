@@ -115,8 +115,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       select "Venezuela", from: "response"
       click_on "Continue"
-
-      find "h1", text: ": Information based on your answers"
+      find "h1", text: ": Information based on your answers", normalize_ws: true
       assert_current_url "/moved-to-country/y/belarus/1975-05-05/venezuela"
 
       assert page.has_link?("Start again", href: "/moved-to-country")
