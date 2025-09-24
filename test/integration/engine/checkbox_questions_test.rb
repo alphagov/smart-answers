@@ -69,7 +69,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       click_on "Continue"
 
-      find "h1", text: "Sample checkbox question: Information based on your answers"
+      find "h1", text: "Sample checkbox question: Information based on your answers", normalize_ws: true
       assert_current_url "/checkbox-sample/y/none/none"
 
       within ".outcome:nth-child(1)" do
@@ -111,7 +111,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_not page.has_checked_field?("Hmm I'm not sure, ask me again please")
       click_on "Continue"
 
-      find "h1", text: "Sample checkbox question: Information based on your answers"
+      find "h1", text: "Sample checkbox question: Information based on your answers", normalize_ws: true
       assert_current_url "/checkbox-sample/y/none/none"
     end
   end
@@ -123,7 +123,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     check("Ice Cream!!!", visible: false)
     click_on("Continue", visible: false)
 
-    find "h1", text: "Sample checkbox question: Information based on your answers"
+    find "h1", text: "Sample checkbox question: Information based on your answers", normalize_ws: true
     assert_current_url "/checkbox-sample/y/ham,ice_cream"
     within ".outcome:nth-child(1)" do
       assert_page_has_content "No way. That's disgusting!"

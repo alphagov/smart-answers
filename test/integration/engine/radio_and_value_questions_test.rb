@@ -213,7 +213,7 @@ class RadioAndValueQuestionsTest < EngineIntegrationTest
     fill_in "response", with: "I don't know THAT"
     click_on "Continue"
 
-    find "h1", text: "The Bridge of Death: Information based on your answers"
+    find "h1", text: "The Bridge of Death: Information based on your answers", normalize_ws: true
     within "#result-info" do
       within page.find(".gem-c-heading h2", match: :first) { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
       within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }

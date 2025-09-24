@@ -122,7 +122,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
-      find "h1", text: "The Bridge of Death: Information based on your answers"
+      find "h1", text: "The Bridge of Death: Information based on your answers", normalize_ws: true
       within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
 
       find "h1", text: "What...is your name?"
@@ -143,7 +143,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
-      find "h1", text: "The Bridge of Death: Information based on your answers"
+      find "h1", text: "The Bridge of Death: Information based on your answers", normalize_ws: true
       within(".govuk-summary-list__row:nth-child(2)") { click_on "Change" }
 
       find "h1", text: "What...is your quest?"
@@ -166,7 +166,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Blue", visible: false, allow_label_click: true)
       click_on "Continue"
 
-      find "h1", text: "The Bridge of Death: Information based on your answers"
+      find "h1", text: "The Bridge of Death: Information based on your answers", normalize_ws: true
       within(".govuk-summary-list__row:nth-child(4)") { click_on "Change" }
 
       find "h1", text: "What...is your favorite colour?"
@@ -179,7 +179,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose("Red", visible: false, allow_label_click: true)
       click_on "Continue"
 
-      find "h1", text: "The Bridge of Death: Information based on your answers"
+      find "h1", text: "The Bridge of Death: Information based on your answers", normalize_ws: true
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/yes/red"
     end
 
@@ -222,7 +222,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "B1 1PW"
       click_on "Continue"
 
-      find "h1", text: "Sample postcode question: Information based on your answers"
+      find "h1", text: "Sample postcode question: Information based on your answers", normalize_ws: true
       assert_current_url "/postcode-sample/y/B1%201PW"
 
       within(".govuk-summary-list__row:nth-child(1)") { click_on "Change" }
