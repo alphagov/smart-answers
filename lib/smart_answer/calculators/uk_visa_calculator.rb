@@ -256,7 +256,7 @@ module SmartAnswer::Calculators
       new-caledonia
       reunion
       st-pierre-and-miquelon
-      the-occupied-palestinian-territories
+      palestine
       wallis-and-futuna
       western-sahara
     ].freeze
@@ -495,7 +495,7 @@ module SmartAnswer::Calculators
       nigeria
       north-macedonia
       pakistan
-      palestinian-territories
+      palestine
       russia
       rwanda
       senegal
