@@ -259,6 +259,7 @@ module SmartAnswer::Calculators
       the-occupied-palestinian-territories
       wallis-and-futuna
       western-sahara
+      palestinian-territories
     ].freeze
 
     COUNTRY_GROUP_COMMONWEALTH = %w[
@@ -495,7 +496,7 @@ module SmartAnswer::Calculators
       nigeria
       north-macedonia
       pakistan
-      palestinian-territories
+      palestine
       russia
       rwanda
       senegal

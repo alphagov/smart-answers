@@ -1531,6 +1531,11 @@ palau:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: true
+palestine:
+  type:
+  group: ips_documents_group_1
+  app_form: hmpo_1_application_form
+  optimistic_processing_time?: false
 panama:
   type: ips_application_1
   group: ips_documents_group_2
@@ -2022,11 +2027,6 @@ thailand:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: true
-the-occupied-palestinian-territories:
-  type:
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
-  optimistic_processing_time?: false
 timor-leste:
   type: ips_application_3
   group: ips_documents_group_3
