@@ -7,8 +7,9 @@
 
 @import "govuk_publishing_components/component_support";
 
+@import "govuk_publishing_components/components/cookie-banner"; // Note - out of alphabetical order to fix issue caused
+                                                                // by cookie-banner styles importing button/index
 @import "govuk_publishing_components/components/button";
-@import "govuk_publishing_components/components/cookie-banner";
 @import "govuk_publishing_components/components/feedback";
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/heading";
