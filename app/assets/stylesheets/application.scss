@@ -1,9 +1,26 @@
-// This flag stops the font from being included in this application's
-// stylesheet - the font is being served by Static across all of GOV.UK, so is
-// not needed here.
-$govuk-include-default-font-face: false;
+// The AssetHelper module is configured for this application to load individual stylesheets
+// for components and views on pages where they are needed.
+
+// https://github.com/alphagov/govuk_publishing_components/blob/main/docs/set-up-individual-component-css-loading.md
 
 @import "govuk_publishing_components/govuk_frontend_support";
+
+@import "govuk_publishing_components/component_support";
+
+@import "govuk_publishing_components/components/cookie-banner"; // Note - out of alphabetical order to fix issue caused
+                                                                // by cookie-banner styles importing button/index
+@import "govuk_publishing_components/components/button";
+@import "govuk_publishing_components/components/feedback";
+@import "govuk_publishing_components/components/govspeak";
+@import "govuk_publishing_components/components/heading";
+@import "govuk_publishing_components/components/input";
+@import "govuk_publishing_components/components/label";
+@import "govuk_publishing_components/components/layout-footer";
+@import "govuk_publishing_components/components/layout-for-public";
+@import "govuk_publishing_components/components/layout-super-navigation-header";
+@import "govuk_publishing_components/components/search";
+@import "govuk_publishing_components/components/search-with-autocomplete";
+@import "govuk_publishing_components/components/skip-link";
 
 @import "smart_answers";
 
