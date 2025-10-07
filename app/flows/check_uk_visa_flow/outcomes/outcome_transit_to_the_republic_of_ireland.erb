@@ -21,6 +21,8 @@
 
   <%= render partial: "trinidad-and-tobago/outcome_transit_to_the_republic_of_ireland_1", locals: {calculator: calculator} %>
 
+  <%= render partial: "botswana/outcome_transit_to_the_republic_of_ireland_1", locals: {calculator: calculator} %>
+
   ##Transiting without a visa
 
   <% if calculator.passport_country_is_taiwan? %>
@@ -43,4 +45,6 @@
   You will not be able to transit without a visa if a Border Force officer decides you do not qualify under the immigration rules.
   
   <%= render partial: "trinidad-and-tobago/outcome_transit_to_the_republic_of_ireland_2", locals: {calculator: calculator} %>
+
+  <%= render partial: "botswana/outcome_transit_to_the_republic_of_ireland_2", locals: {calculator: calculator} %>
 <% end %>
