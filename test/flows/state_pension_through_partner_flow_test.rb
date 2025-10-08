@@ -4,7 +4,14 @@ require "support/flow_test_helper"
 class StatePensionThroughPartnerFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  setup { testing_flow StatePensionThroughPartnerFlow }
+  setup do
+    @lower_rate = stub("rate", slug: "lower-basic-state-pension-amount", amount: "£100.00")
+    @higher_rate = stub("rate", slug: "full-basic-state-pension-amount", amount: "£160.00")
+    @pension = stub("pension", rates: [@lower_rate, @higher_rate])
+    Pension.stubs(:find).with("basic-state-pension").returns(@pension)
+
+    testing_flow StatePensionThroughPartnerFlow
+  end
 
   should "render a start page" do
     assert_rendered_start_page
