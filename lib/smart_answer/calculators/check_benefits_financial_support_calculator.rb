@@ -236,6 +236,10 @@ module SmartAnswer::Calculators
       true if @over_state_pension_age == "yes"
     end
 
+    def eligible_for_winter_fuel_payment_ni?
+      @where_do_you_live == "northern-ireland" && @over_state_pension_age == "yes"
+    end
+
     def eligible_for_carers_allowance?
       @carer_disability_or_health_condition == "yes"
     end

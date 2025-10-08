@@ -234,6 +234,14 @@
       countries:
         - england
         - wales
+    - name: winter_fuel_payment_ni
+      title: Winter Fuel Payment
+      description: <p class="govuk-body">You might be eligible for a <a class="govuk-link" href="https://www.nidirect.gov.uk/contacts/winter-fuel-payment-centre">Winter Fuel Payment from the Northern Ireland Executive</a>.</p>
+      condition: eligible_for_winter_fuel_payment_ni?
+      url: nil
+      url_text: ""
+      countries:
+        - northern-ireland
     - name: carers_allowance
       title: Carer’s Allowance
       description: <p>You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>

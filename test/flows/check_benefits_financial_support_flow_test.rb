@@ -646,6 +646,13 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
+    should "render Winter Fuel Payment for Northern Ireland" do
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Winter Fuel Payment"
+      assert_rendered_outcome text: "You might be eligible for a Winter Fuel Payment from the Northern Ireland Executive."
+    end
+
     should "render Carer’s Allowance when eligible" do
       add_responses carer_disability_or_health_condition: "yes"
 

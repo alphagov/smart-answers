@@ -929,6 +929,17 @@ module SmartAnswer::Calculators
             assert_not @calculator.eligible_for_winter_fuel_payment?
           end
         end
+
+        context "when Northern Ireland" do
+          should "be true if lives in Northern Ireland" do
+            @calculator.where_do_you_live = "northern-ireland"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
+            assert @calculator.eligible_for_winter_fuel_payment_ni?
+          end
+        end
       end
 
       context "#eligible_for_personal_independence_payment?" do
