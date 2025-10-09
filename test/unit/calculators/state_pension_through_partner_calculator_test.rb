@@ -3,34 +3,23 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class StatePensionThroughPartnerCalculatorTest < ActiveSupport::TestCase
     setup do
+      @lower_rate = stub("rate", slug: "lower-basic-state-pension-amount", amount: "£100.00")
+      @higher_rate = stub("rate", slug: "full-basic-state-pension-amount", amount: "£160.00")
+      @pension = stub("pension", rates: [@lower_rate, @higher_rate])
+      Pension.stubs(:find).with("basic-state-pension").returns(@pension)
+
       @calculator = StatePensionThroughPartnerCalculator.new
     end
 
     context "#lower_basic_state_pension_rate" do
-      should "return the correct amount for 2024/2025" do
-        travel_to("2024-06-01") do
-          assert_equal @calculator.lower_basic_state_pension_rate, 101.55
-        end
-      end
-
-      should "return the correct amount for 2025/2026" do
-        travel_to("2025-06-01") do
-          assert_equal @calculator.lower_basic_state_pension_rate, 105.70
-        end
+      should "return the correct rate without currency symbols" do
+        assert_equal @calculator.lower_basic_state_pension_rate, 100.00
       end
     end
 
     context "#higher_basic_state_pension_rate" do
-      should "return the correct amount for 2024/2025" do
-        travel_to("2024-06-01") do
-          assert_equal @calculator.higher_basic_state_pension_rate, 169.50
-        end
-      end
-
-      should "return the correct amount for 2025/2026" do
-        travel_to("2025-06-01") do
-          assert_equal @calculator.higher_basic_state_pension_rate, 176.45
-        end
+      should "return the correct rate without currency symbols" do
+        assert_equal @calculator.higher_basic_state_pension_rate, 160.00
       end
     end
 

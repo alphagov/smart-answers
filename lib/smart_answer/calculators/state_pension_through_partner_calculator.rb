@@ -8,11 +8,11 @@ module SmartAnswer::Calculators
                   :gender
 
     def lower_basic_state_pension_rate
-      rates.lower_weekly_rate
+      @lower_basic_state_pension_rate ||= pension.rates.find { |rate| rate.slug == "lower-basic-state-pension-amount" }.amount.gsub(/[£,]/, "").to_f
     end
 
     def higher_basic_state_pension_rate
-      rates.weekly_rate
+      @higher_basic_state_pension_rate ||= pension.rates.find { |rate| rate.slug == "full-basic-state-pension-amount" }.amount.gsub(/[£,]/, "").to_f
     end
 
     def divorced?
@@ -69,8 +69,8 @@ module SmartAnswer::Calculators
 
   private
 
-    def rates
-      @rates ||= RatesQuery.from_file("state_pension").rates
+    def pension
+      @pension ||= Pension.find("basic-state-pension")
     end
   end
 end
