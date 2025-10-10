@@ -7,7 +7,7 @@
   <% add_app_component_stylesheet("result-sections") %>
 <% end %>
 
-<% content_for :outcome_title do %>
+<% content_for :title_prefix do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>
 <% content_for :head do %>

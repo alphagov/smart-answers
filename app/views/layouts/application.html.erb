@@ -1,52 +1,40 @@
+<% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
+<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
+<% global_banner =  render("govuk_web_banners/global_banner") %>
+
 <% content_for :body do %>
   <div class="smart_answer">
-    <%= yield :breadcrumbs %>
-    <%= render "govuk_web_banners/recruitment_banner" %>
-    <main class="govuk-main-wrapper" id="content" role="main">
+    <div class="govuk-width-container">
+      <%= yield :breadcrumbs %>
+      <%= render "govuk_web_banners/recruitment_banner" %>
+    </div>
+    <main class="govuk-main-wrapper govuk-width-container" id="content" role="main">
       <%= yield %>
     </main>
   </div>
 <% end %>
 
-<%
-  answer_title = @title
-  question_title = yield :question_title
-  outcome_title = yield :outcome_title
-  if question_title.present?
-    title = "#{question_title} - #{answer_title}"
-  elsif outcome_title.present?
-    title = "#{outcome_title} - #{answer_title}"
-  else
-    title = answer_title
-  end
-%>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %> - GOV.UK</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "test-dependencies", type: "module" if Rails.env.test? %>
-    <%= javascript_include_tag "application", defer: true, type: "module" %>
-    <%= yield :head %>
-    <% if content_item %>
-      <%= render "govuk_publishing_components/components/meta_tags",
-        content_item: content_item,
-        strip_dates_pii: true,
-        strip_postcode_pii: true %>
-    <% end %>
-    <% if @meta_section %>
-      <meta name="govuk:section" content="<%= @meta_section %>">
-    <% end %>
+<%= content_for :head do %>
+  <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <% if content_item %>
+    <%= render "govuk_publishing_components/components/meta_tags",
+      content_item: content_item,
+      strip_dates_pii: true,
+      strip_postcode_pii: true %>
+  <% end %>
+  <% if @meta_section %>
+    <meta name="govuk:section" content="<%= @meta_section %>">
+  <% end %>
+  <%= render_component_stylesheets %>
+<% end %>
 
-    <%=
-      render_component_stylesheets
-    %>
-  </head>
-  <body class="govuk-template__body">
-    <div id="wrapper">
-      <%= yield :body %>
-    </div>
-  </body>
-</html>
+<%= render "govuk_publishing_components/components/layout_for_public", {
+      title: title_for_head(title_prefix: (yield :title_prefix), answer_title: @title),
+      emergency_banner:,
+      global_banner:,
+  } do %>
+  <%= yield :body %>
+  <%= javascript_include_tag "test-dependencies" if Rails.env.test? %>
+<% end %>
+

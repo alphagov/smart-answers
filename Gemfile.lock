@@ -632,13 +632,6 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.7.0)
-      json
-      nokogiri (~> 1.7)
-      null_logger
-      plek (>= 1.1.0)
-      rack (>= 3.0)
-      rest-client
     smart_properties (1.17.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
@@ -720,7 +713,6 @@ DEPENDENCIES
   shoulda
   simplecov
   simplecov-rcov
-  slimmer
   sprockets-rails
   terser
   tilt
