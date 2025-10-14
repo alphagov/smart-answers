@@ -154,6 +154,10 @@ module SmartAnswer::Calculators
       @passport_country == "trinidad-and-tobago"
     end
 
+    def passport_country_is_botswana?
+      @passport_country == "botswana"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
@@ -344,7 +348,6 @@ module SmartAnswer::Calculators
       barbados
       belize
       bonaire-st-eustatius-saba
-      botswana
       brazil
       british-national-overseas
       brunei
@@ -454,6 +457,7 @@ module SmartAnswer::Calculators
       angola
       bangladesh
       belarus
+      botswana
       burundi
       cameroon
       china
@@ -570,7 +574,6 @@ module SmartAnswer::Calculators
       belgium
       belize
       bonaire-st-eustatius-saba
-      botswana
       brazil
       brunei
       bulgaria
