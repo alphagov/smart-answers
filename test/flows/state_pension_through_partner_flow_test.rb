@@ -4,7 +4,20 @@ require "support/flow_test_helper"
 class StatePensionThroughPartnerFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  setup { testing_flow StatePensionThroughPartnerFlow }
+  setup do
+    @lower_rate = stub("content_block", render: "£100.00")
+    @higher_rate = stub("rate", render: "£160.00")
+
+    SmartAnswer::ContentBlock.stubs(:new)
+                             .with(SmartAnswer::Calculators::StatePensionThroughPartnerCalculator::LOWER_BASIC_STATE_PENSION_RATE_EMBED_CODE)
+                             .returns(@lower_rate)
+
+    SmartAnswer::ContentBlock.stubs(:new)
+                             .with(SmartAnswer::Calculators::StatePensionThroughPartnerCalculator::HIGHER_BASIC_STATE_PENSION_RATE_EMBED_CODE)
+                             .returns(@higher_rate)
+
+    testing_flow StatePensionThroughPartnerFlow
+  end
 
   should "render a start page" do
     assert_rendered_start_page
