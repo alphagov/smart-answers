@@ -1,13 +1,11 @@
 <% outcome = @presenter.current_node %>
 
-<% add_gem_component_stylesheet("govspeak") %>
-
 <% if outcome.add_app_component_stylesheets? %>
   <% add_app_component_stylesheet("result-card") %>
   <% add_app_component_stylesheet("result-sections") %>
 <% end %>
 
-<% content_for :outcome_title do %>
+<% content_for :title_prefix do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>
 <% content_for :head do %>

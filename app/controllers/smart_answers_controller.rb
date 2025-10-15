@@ -1,6 +1,4 @@
 class SmartAnswersController < ApplicationController
-  include Slimmer::Headers
-
   before_action :find_smart_answer, except: %w[index]
   before_action :redirect_response_to_canonical_path, only: %w[show]
   before_action :content_item, except: %w[index]

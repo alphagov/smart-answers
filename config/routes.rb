@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "smart_answers#index"
 
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
-  get "/healthcheck/ready", to: GovukHealthcheck.rack_response
+  get "/healthcheck/ready", to: GovukHealthcheck.rack_response(
+    GovukHealthcheck::EmergencyBannerRedis,
+  )
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
