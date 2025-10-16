@@ -4,22 +4,44 @@
 // https://github.com/alphagov/govuk_publishing_components/blob/main/docs/set-up-individual-component-css-loading.md
 
 @import "govuk_publishing_components/govuk_frontend_support";
-
 @import "govuk_publishing_components/component_support";
 
+@import 'govuk_publishing_components/components/breadcrumbs';
 @import "govuk_publishing_components/components/button";
+@import 'govuk_publishing_components/components/checkboxes';
+@import 'govuk_publishing_components/components/contextual-sidebar';
 @import "govuk_publishing_components/components/cookie-banner";
+@import 'govuk_publishing_components/components/date-input';
+@import 'govuk_publishing_components/components/error-message';
+@import 'govuk_publishing_components/components/error-summary';
 @import "govuk_publishing_components/components/feedback";
+@import 'govuk_publishing_components/components/fieldset';
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/heading";
+@import 'govuk_publishing_components/components/hint';
 @import "govuk_publishing_components/components/input";
 @import "govuk_publishing_components/components/label";
 @import "govuk_publishing_components/components/layout-footer";
 @import "govuk_publishing_components/components/layout-for-public";
 @import "govuk_publishing_components/components/layout-super-navigation-header";
+@import 'govuk_publishing_components/components/print-link';
+@import 'govuk_publishing_components/components/radio';
+@import 'govuk_publishing_components/components/related-navigation';
 @import "govuk_publishing_components/components/search";
 @import "govuk_publishing_components/components/search-with-autocomplete";
+@import 'govuk_publishing_components/components/select';
 @import "govuk_publishing_components/components/skip-link";
+@import 'govuk_publishing_components/components/step-by-step-nav';
+@import 'govuk_publishing_components/components/step-by-step-nav-header';
+@import 'govuk_publishing_components/components/step-by-step-nav-related';
+@import 'govuk_publishing_components/components/summary-list';
+@import 'govuk_publishing_components/components/table';
+@import 'govuk_publishing_components/components/textarea';
+@import 'govuk_publishing_components/components/warning-text';
+
+@import 'components/result-card';
+@import 'components/result-item';
+@import 'components/result-sections';
 
 @import "smart_answers";
 
