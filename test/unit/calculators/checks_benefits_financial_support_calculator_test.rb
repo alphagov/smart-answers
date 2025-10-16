@@ -911,24 +911,11 @@ module SmartAnswer::Calculators
             assert_not @calculator.eligible_for_winter_fuel_payment?
           end
 
-          should "be false if does not receive any benefits" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "no"
-
-            assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be false if receives non-qualifying benefits (and no qualifying benefits)" do
-            @calculator.where_do_you_live = "england"
+          should "be false if lives in Northern Ireland" do
+            @calculator.where_do_you_live = "northern-ireland"
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
-            non_qualifying_benefits = %w[housing_benefit]
-            non_qualifying_benefits.each do |benefit|
-              @calculator.current_benefits = benefit
-
-              assert_not @calculator.eligible_for_winter_fuel_payment?
-            end
+            @calculator.current_benefits = "universal_credit"
 
             assert_not @calculator.eligible_for_winter_fuel_payment?
           end
@@ -940,6 +927,17 @@ module SmartAnswer::Calculators
             @calculator.current_benefits = "universal_credit"
 
             assert_not @calculator.eligible_for_winter_fuel_payment?
+          end
+        end
+
+        context "when Northern Ireland" do
+          should "be true if lives in Northern Ireland" do
+            @calculator.where_do_you_live = "northern-ireland"
+            @calculator.over_state_pension_age = "yes"
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
+            assert @calculator.eligible_for_winter_fuel_payment_ni?
           end
         end
       end
