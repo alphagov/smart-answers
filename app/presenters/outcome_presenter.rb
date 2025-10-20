@@ -37,12 +37,6 @@ class OutcomePresenter < NodePresenter
     @node.view_template_path || "smart_answers/result"
   end
 
-  def add_app_component_stylesheets?
-    base_path == "/check-uk-visa" && @node.slug == "outcome-work-y" ||
-      base_path == "/check-benefits-financial-support" && @node.slug == "results" ||
-      base_path == "/next-steps-for-your-business" && @node.slug == "results"
-  end
-
 private
 
   def base_path
