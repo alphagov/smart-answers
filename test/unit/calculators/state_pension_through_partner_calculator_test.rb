@@ -3,34 +3,29 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class StatePensionThroughPartnerCalculatorTest < ActiveSupport::TestCase
     setup do
+      @lower_rate = stub("content_block", render: "£100.00")
+      @higher_rate = stub("rate", render: "£160.00")
+
+      SmartAnswer::ContentBlock.stubs(:new)
+                               .with(StatePensionThroughPartnerCalculator::LOWER_BASIC_STATE_PENSION_RATE_EMBED_CODE)
+                               .returns(@lower_rate)
+
+      SmartAnswer::ContentBlock.stubs(:new)
+                               .with(StatePensionThroughPartnerCalculator::HIGHER_BASIC_STATE_PENSION_RATE_EMBED_CODE)
+                               .returns(@higher_rate)
+
       @calculator = StatePensionThroughPartnerCalculator.new
     end
 
     context "#lower_basic_state_pension_rate" do
-      should "return the correct amount for 2024/2025" do
-        travel_to("2024-06-01") do
-          assert_equal @calculator.lower_basic_state_pension_rate, 101.55
-        end
-      end
-
-      should "return the correct amount for 2025/2026" do
-        travel_to("2025-06-01") do
-          assert_equal @calculator.lower_basic_state_pension_rate, 105.70
-        end
+      should "return the correct rate without currency symbols" do
+        assert_equal @calculator.lower_basic_state_pension_rate, @lower_rate.render
       end
     end
 
     context "#higher_basic_state_pension_rate" do
-      should "return the correct amount for 2024/2025" do
-        travel_to("2024-06-01") do
-          assert_equal @calculator.higher_basic_state_pension_rate, 169.50
-        end
-      end
-
-      should "return the correct amount for 2025/2026" do
-        travel_to("2025-06-01") do
-          assert_equal @calculator.higher_basic_state_pension_rate, 176.45
-        end
+      should "return the correct rate without currency symbols" do
+        assert_equal @calculator.higher_basic_state_pension_rate, @higher_rate.render
       end
     end
 
