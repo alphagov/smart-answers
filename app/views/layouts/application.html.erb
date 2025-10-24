@@ -1,18 +1,5 @@
-<% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
 <% emergency_banner = render("govuk_web_banners/emergency_banner") %>
 <% global_banner =  render("govuk_web_banners/global_banner") %>
-
-<% content_for :body do %>
-  <div class="smart_answer">
-    <div class="govuk-width-container">
-      <%= yield :breadcrumbs %>
-      <%= render "govuk_web_banners/recruitment_banner" %>
-    </div>
-    <main class="govuk-main-wrapper govuk-width-container" id="content" role="main">
-      <%= yield %>
-    </main>
-  </div>
-<% end %>
 
 <%= content_for :head do %>
   <%= csp_meta_tag %>
@@ -26,7 +13,18 @@
   <% if @meta_section %>
     <meta name="govuk:section" content="<%= @meta_section %>">
   <% end %>
-  <%= render_component_stylesheets %>
+<% end %>
+
+<% content_for :body do %>
+  <div class="smart_answer">
+    <div class="govuk-width-container">
+      <%= yield :breadcrumbs %>
+      <%= render "govuk_web_banners/recruitment_banner" %>
+    </div>
+    <main class="govuk-main-wrapper govuk-width-container" id="content" role="main">
+      <%= yield %>
+    </main>
+  </div>
 <% end %>
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
