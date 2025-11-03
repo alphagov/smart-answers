@@ -1,10 +1,5 @@
 <% outcome = @presenter.current_node %>
 
-<% if outcome.add_app_component_stylesheets? %>
-  <% add_app_component_stylesheet("result-card") %>
-  <% add_app_component_stylesheet("result-sections") %>
-<% end %>
-
 <% content_for :title_prefix do %>
   <% if outcome.title.present? %><%= outcome.title %><% else %>Outcome<% end %>
 <% end %>
