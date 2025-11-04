@@ -111,6 +111,12 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.4)
+    content_block_tools (1.6.1)
+      actionview (>= 6, < 8.1.2)
+      gds-api-adapters (~> 101.0.0)
+      govspeak (>= 10.6.3)
+      rails (>= 6, < 8.1.2)
+      view_component (~> 4)
     crack (1.0.1)
       bigdecimal
       rexml
@@ -658,6 +664,10 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.1.1)
     useragent (0.16.11)
+    view_component (4.1.1)
+      actionview (>= 7.1.0, < 8.2)
+      activesupport (>= 7.1.0, < 8.2)
+      concurrent-ruby (~> 1)
     webmock (3.26.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -684,6 +694,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  content_block_tools
   dartsass-rails
   erb_lint
   gds-api-adapters
