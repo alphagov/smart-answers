@@ -28,5 +28,35 @@ module SmartAnswer
       assert_equal "The Gorge of Eternal Peril!!!", payload[:description]
       assert_match %r{He who would cross the Bridge of Death}, payload.dig(:details, :hidden_search_terms, 0)
     end
+
+    context "when the ContentBlockDetector finds associated content blocks" do
+      setup do
+        @content_id = SecureRandom.uuid
+        content_block_1 = stub("content_block", content_id: @content_id)
+        content_block_2 = stub("content_block", content_id: @content_id)
+
+        detector = stub("detector", content_blocks: [content_block_1, content_block_2])
+        ContentBlockDetector.expects(:new).with(@flow).returns(detector)
+      end
+
+      should "include an array of unique content IDs in the payload" do
+        payload = ContentItemPresenter.new(@flow).payload
+
+        assert_equal [@content_id], payload[:links][:embed]
+      end
+    end
+
+    context "when the ContentBlockDetector does not find associated content blocks" do
+      setup do
+        detector = stub("detector", content_blocks: [])
+        ContentBlockDetector.expects(:new).with(@flow).returns(detector)
+      end
+
+      should "not include any links" do
+        payload = ContentItemPresenter.new(@flow).payload
+
+        assert_nil payload[:links]
+      end
+    end
   end
 end
