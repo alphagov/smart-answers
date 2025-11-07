@@ -227,14 +227,20 @@
         - england
     - name: winter_fuel_payment
       title: Winter Fuel Payment
-      description: <p>You'll automatically get a Winter Fuel Payment if you get Pension Credit or certain benefits. You should get a letter in October or November telling you how much you'll get, if you’re eligible.</p>
+      description: <p>You'll automatically get a Winter Fuel Payment if you’ve reached State Pension age. You should get a letter in October or November telling you how much you’ll get, if you’re eligible.</p><p class="govuk-body"><b><a class="govuk-link" href="/winter-fuel-payment/report-change-circumstances">If you do not get a letter, check if you're eligible and whether you need to claim a Winter Fuel Payment</a></b><p>If your taxable income is over £35,000, HMRC will take back your Winter Fuel Payment through the tax system.</p><p class="govuk-body">You can <a class="govuk-link" href="/winter-fuel-payment/report-change-circumstances">opt out of getting the Winter Fuel Payment</a> if you do not want to receive it.</p>
       condition: eligible_for_winter_fuel_payment?
-      url: /winter-fuel-payment/how-to-claim
-      url_text: If you do not get a letter, check if you're eligible and whether you need to claim a Winter Fuel Payment
+      url: nil
+      url_text: ""
       countries:
         - england
         - wales
-        - scotland
+    - name: winter_fuel_payment_ni
+      title: Winter Fuel Payment
+      description: <p class="govuk-body">You might be eligible for a <a class="govuk-link" href="https://www.nidirect.gov.uk/contacts/winter-fuel-payment-centre">Winter Fuel Payment from the Northern Ireland Executive</a>.</p>
+      condition: eligible_for_winter_fuel_payment_ni?
+      url: nil
+      url_text: ""
+      countries:
         - northern-ireland
     - name: carers_allowance
       title: Carer’s Allowance

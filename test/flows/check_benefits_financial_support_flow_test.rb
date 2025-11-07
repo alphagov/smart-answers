@@ -637,12 +637,20 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render Winter Fuel Payment" do
-      %w[england wales northern-ireland].each do |country|
+      %w[england wales].each do |country|
         add_responses where_do_you_live: country, over_state_pension_age: "yes"
 
         assert_rendered_outcome text: "Winter Fuel Payment"
-        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you get Pension Credit or certain benefits."
+        assert_rendered_outcome text: "You'll automatically get a Winter Fuel Payment if you’ve reached State Pension age."
+        assert_rendered_outcome text: "If your taxable income is over £35,000, HMRC will take back your Winter Fuel Payment through the tax system."
       end
+    end
+
+    should "render Winter Fuel Payment for Northern Ireland" do
+      add_responses where_do_you_live: "northern-ireland", over_state_pension_age: "yes"
+
+      assert_rendered_outcome text: "Winter Fuel Payment"
+      assert_rendered_outcome text: "You might be eligible for a Winter Fuel Payment from the Northern Ireland Executive."
     end
 
     should "render Carer’s Allowance when eligible" do

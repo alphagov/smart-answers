@@ -230,16 +230,14 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_winter_fuel_payment?
-      return false if @where_do_you_live == "scotland"
-      return false unless @over_state_pension_age == "yes"
-      return false if @on_benefits == "no"
-      return true if @on_benefits == "dont_know"
+      return false if
+        @where_do_you_live == "scotland" || @where_do_you_live == "northern-ireland"
 
-      qualifying_benefits = %w[universal_credit jobseekers_allowance employment_and_support_allowance pension_credit income_support]
-      qualifying_benefits.each do |benefit|
-        return true if @current_benefits.include?(benefit)
-      end
-      false
+      true if @over_state_pension_age == "yes"
+    end
+
+    def eligible_for_winter_fuel_payment_ni?
+      @where_do_you_live == "northern-ireland" && @over_state_pension_age == "yes"
     end
 
     def eligible_for_carers_allowance?
