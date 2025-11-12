@@ -107,7 +107,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_filing_date?
-      filing_date >= start_of_next_tax_year
+      filing_date >= start_of_next_tax_year && filing_date <= SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 2).begins_on
     end
 
     def valid_payment_date?

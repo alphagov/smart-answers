@@ -56,6 +56,11 @@ class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
       should "be invalid for submitted date before start of next tax year" do
         assert_invalid_response "2020-04-05"
       end
+
+      should "be invalid for submitted date after the upper bounds tax date" do
+        # Upper bounds tax date is the start of the tax year in two years time e.g. we're in 2025 so date is April 2027
+        assert_invalid_response SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 3).begins_on.to_s
+      end
     end
 
     context "next_node" do
