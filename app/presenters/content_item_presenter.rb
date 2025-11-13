@@ -25,7 +25,8 @@ class ContentItemPresenter
       routes: [
         { type: "prefix", path: base_path },
       ],
-    }
+      links:
+    }.compact
   end
 
 private
@@ -36,5 +37,13 @@ private
 
   def base_path
     "/#{flow.name}"
+  end
+
+  def links
+    embed_content_ids.any? ? { embed: embed_content_ids } : nil
+  end
+
+  def embed_content_ids
+    @embed_content_ids ||= ContentBlockDetector.new(flow).content_blocks.map(&:content_id).uniq
   end
 end
