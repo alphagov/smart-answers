@@ -7,5 +7,5 @@
   end_date: 2999-01-01
   register_a_death: 150.00
   copy_of_death_registration_certificate: 50.00
-  minimum_return_fee: 5.00
-  maximum_return_fee: 25.00
+  minimum_return_fee: 5.50
+  maximum_return_fee: 29.50
