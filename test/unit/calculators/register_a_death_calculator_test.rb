@@ -26,17 +26,17 @@ module SmartAnswer
 
       context "minimum_fee_for_document_return" do
         should "return correct fee for the minimum cost of returning a document" do
-          rates_query = stub(rates: OpenStruct.new({ minimum_return_fee: 5.00 }))
+          rates_query = stub(rates: OpenStruct.new({ minimum_return_fee: 5.50 }))
           @stub_rates_query.returns(rates_query)
-          assert_equal 5.00, @calculator.minimum_fee_for_document_return
+          assert_equal 5.50, @calculator.minimum_fee_for_document_return
         end
       end
 
       context "maxmimum_fee_for_document_return" do
         should "return correct fee for the maximum cost of returning a document" do
-          rates_query = stub(rates: OpenStruct.new({ maximum_return_fee: 25.00 }))
+          rates_query = stub(rates: OpenStruct.new({ maximum_return_fee: 29.50 }))
           @stub_rates_query.returns(rates_query)
-          assert_equal 25.00, @calculator.maximum_fee_for_document_return
+          assert_equal 29.50, @calculator.maximum_fee_for_document_return
         end
       end
     end
