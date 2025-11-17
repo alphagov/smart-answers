@@ -1,11 +1,19 @@
 class CountrySelectQuestionPresenter < QuestionPresenter
   def select_options
     @node.options.map do |option|
-      {
-        text: option.name,
-        value: option.slug,
-        selected: option.slug == current_response,
-      }
+      if option.slug == "usa"
+        {
+          text: "United States of America",
+          value: option.slug,
+          selected: option.slug == current_response,
+        }
+      else
+        {
+          text: option.name,
+          value: option.slug,
+          selected: option.slug == current_response,
+        }
+      end
     end
   end
 
