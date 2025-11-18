@@ -8,7 +8,6 @@
 //= require govuk_publishing_components/components/feedback
 //= require govuk_publishing_components/components/global-banner
 //= require govuk_publishing_components/components/govspeak
-//= require govuk_publishing_components/components/intervention
 //= require govuk_publishing_components/components/layout-super-navigation-header
 //= require govuk_publishing_components/components/print-link
 //= require govuk_publishing_components/components/radio
