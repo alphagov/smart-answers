@@ -5,5 +5,5 @@
   heading_size: "l",
   is_page_heading: true,
   error_message: question.error,
-  options: question.select_options,
+  options: question.select_options.sort_by { |option| option[:text] },
 } %>
