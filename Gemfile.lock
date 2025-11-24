@@ -212,7 +212,7 @@ GEM
       rails (>= 7)
       redis
     hashdiff (1.2.1)
-    htmlentities (4.3.4)
+    htmlentities (4.4.2)
     http-accept (1.7.0)
     http-cookie (1.0.8)
       domain_name (~> 0.5)
