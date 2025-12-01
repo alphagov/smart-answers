@@ -158,6 +158,10 @@ module SmartAnswer::Calculators
       @passport_country == "botswana"
     end
 
+    def passport_country_is_nauru?
+      @passport_country == "nauru"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
