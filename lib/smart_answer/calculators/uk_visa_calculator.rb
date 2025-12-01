@@ -372,7 +372,6 @@ module SmartAnswer::Calculators
       mauritius
       mexico
       monaco
-      nauru
       new-zealand
       nicaragua
       oman
@@ -496,6 +495,7 @@ module SmartAnswer::Calculators
       mongolia
       myanmar
       namibia
+      nauru
       nepal
       nigeria
       north-macedonia
@@ -614,7 +614,6 @@ module SmartAnswer::Calculators
       mauritius
       mexico
       monaco
-      nauru
       netherlands
       new-zealand
       nicaragua
