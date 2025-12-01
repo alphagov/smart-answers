@@ -16,12 +16,10 @@
 @import 'govuk_publishing_components/components/error-summary';
 @import "govuk_publishing_components/components/feedback";
 @import 'govuk_publishing_components/components/fieldset';
-@import "govuk_publishing_components/components/global-banner";
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/heading";
 @import 'govuk_publishing_components/components/hint';
 @import "govuk_publishing_components/components/input";
-@import "govuk_publishing_components/components/intervention";
 @import "govuk_publishing_components/components/label";
 @import "govuk_publishing_components/components/layout-footer";
 @import "govuk_publishing_components/components/layout-for-public";
@@ -45,6 +43,7 @@
 @import 'components/result-item';
 @import 'components/result-sections';
 
+@import "govuk_web_banners/dependencies";
 @import "smart_answers";
 
 .desktop-min-height {
