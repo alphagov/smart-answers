@@ -5,6 +5,8 @@
 <% govspeak_for :body do %>
   The visa you need depends on your partner or family member’s situation.
 
+  <%= render partial: "nauru/outcome_partner_family_eea_n_1", locals: {calculator: calculator} %>
+
   ## They’re working or studying in the UK
 
   You may be able to apply as a ‘dependant’ of
@@ -14,4 +16,6 @@
 
   You can apply for a [Standard Visitor visa](/standard-visitor). Your
   visit must be for 6 months or less.
+
+  <%= render partial: "nauru/outcome_partner_family_eea_n_2", locals: {calculator: calculator} %>
 <% end %>
