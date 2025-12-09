@@ -158,6 +158,10 @@ module SmartAnswer::Calculators
       @passport_country == "botswana"
     end
 
+    def passport_country_is_nauru?
+      @passport_country == "nauru"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
@@ -372,7 +376,6 @@ module SmartAnswer::Calculators
       mauritius
       mexico
       monaco
-      nauru
       new-zealand
       nicaragua
       oman
@@ -496,6 +499,7 @@ module SmartAnswer::Calculators
       mongolia
       myanmar
       namibia
+      nauru
       nepal
       nigeria
       north-macedonia
@@ -614,7 +618,6 @@ module SmartAnswer::Calculators
       mauritius
       mexico
       monaco
-      nauru
       netherlands
       new-zealand
       nicaragua
