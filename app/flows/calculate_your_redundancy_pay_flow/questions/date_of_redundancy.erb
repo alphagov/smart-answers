@@ -5,3 +5,7 @@
 <% text_for :hint do %>
   Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
 <% end %>
+
+<% text_for :error_message do %>
+    The date you enter must be on or after <%= SmartAnswer::Calculators::RedundancyCalculator.first_selectable_date.strftime('%d %B %Y') %>
+<% end %>
