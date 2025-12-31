@@ -479,9 +479,10 @@ GEM
     prism (1.4.0)
     prometheus_exporter (2.3.1)
       webrick
-    pry (0.15.2)
+    pry (0.16.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
+      reline (>= 0.6.0)
     psych (5.3.1)
       date
       stringio
