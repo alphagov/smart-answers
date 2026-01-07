@@ -25,6 +25,11 @@ module SmartAnswer
           "away-outside-london" => 10_544,
           "away-in-london" => 13_762,
         },
+        "2026-2027" => {
+          "at-home" => 9118,
+          "away-outside-london" => 10_830,
+          "away-in-london" => 14_135,
+        },
       }.freeze
 
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
@@ -38,6 +43,11 @@ module SmartAnswer
           "away-in-london" => 4_485,
           "away-outside-london" => 3_194,
         },
+        "2026-2027" => {
+          "at-home" => 2_461,
+          "away-in-london" => 4_607,
+          "away-outside-london" => 3_281,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS = {
@@ -49,6 +59,10 @@ module SmartAnswer
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
         },
+        "2026-2027" => {
+          "one-child" => 199.62,
+          "more-than-one-child" => 342.24,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 20_107.23
@@ -57,6 +71,7 @@ module SmartAnswer
       PARENTS_LEARNING_ALLOWANCE = {
         "2024-2025" => 1_963,
         "2025-2026" => 2_024,
+        "2026-2027" => 2_024,
       }.freeze
 
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_957.98
@@ -64,6 +79,7 @@ module SmartAnswer
       ADULT_DEPENDANT_ALLOWANCE = {
         "2024-2025" => 3_438,
         "2025-2026" => 3_545,
+        "2026-2027" => 3_545,
       }.freeze
 
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
@@ -84,6 +100,11 @@ module SmartAnswer
           "away-outside-london" => 4_915,
           "away-in-london" => 6_853,
         },
+        "2026-2027" => {
+          "at-home" => 4_013,
+          "away-outside-london" => 5_048,
+          "away-in-london" => 7_039,
+        },
       }.freeze
 
       INCOME_PENALTY_RATIO = {
@@ -96,6 +117,11 @@ module SmartAnswer
           "at-home" => 6.71,
           "away-outside-london" => 6.64,
           "away-in-london" => 6.53,
+        },
+        "2026-2027" => {
+          "at-home" => 6.54,
+          "away-outside-london" => 6.47,
+          "away-in-london" => 6.36,
         },
       }.freeze
 
