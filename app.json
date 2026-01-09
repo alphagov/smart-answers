@@ -6,9 +6,7 @@
   "env": {
     "GOVUK_APP_DOMAIN": "www.gov.uk",
     "GOVUK_WEBSITE_ROOT": "https://www.gov.uk",
-    "GOVUK_PROXY_STATIC_ENABLED": "true",
     "PLEK_SERVICE_CONTENT_STORE_URI": "https://www.gov.uk/api" ,
-    "PLEK_SERVICE_STATIC_URI": "https://assets.publishing.service.gov.uk/",
     "RUNNING_ON_HEROKU": "true",
     "BASIC_AUTH_USERNAME": {
       "required": true
