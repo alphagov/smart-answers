@@ -150,16 +150,16 @@ GEM
       rest-client (~> 2.0)
     globalid (1.3.0)
       activesupport (>= 6.1)
-    google-protobuf (4.33.2)
+    google-protobuf (4.33.4)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.2-aarch64-linux-gnu)
+    google-protobuf (4.33.4-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.2-arm64-darwin)
+    google-protobuf (4.33.4-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.2-x86_64-linux-gnu)
+    google-protobuf (4.33.4-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     googleapis-common-protos-types (1.22.0)
@@ -207,7 +207,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.29.0)
+    govuk_web_banners (1.30.0)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
