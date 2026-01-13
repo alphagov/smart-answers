@@ -15,11 +15,6 @@ module SmartAnswer
                     :loan_eligibility
 
       LOAN_MAXIMUMS = {
-        "2024-2025" => {
-          "at-home" => 8_610,
-          "away-outside-london" => 10_227,
-          "away-in-london" => 13_348,
-        },
         "2025-2026" => {
           "at-home" => 8877,
           "away-outside-london" => 10_544,
@@ -33,28 +28,19 @@ module SmartAnswer
       }.freeze
 
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
-        "2024-2025" => {
-          "at-home" => 2_004,
-          "away-outside-london" => 2_670,
-          "away-in-london" => 3_749,
-        },
         "2025-2026" => {
           "at-home" => 2_396,
-          "away-in-london" => 4_485,
-          "away-outside-london" => 3_194,
+          "away-in-london" => 3_194,
+          "away-outside-london" => 4_485,
         },
         "2026-2027" => {
           "at-home" => 2_461,
-          "away-in-london" => 4_607,
-          "away-outside-london" => 3_281,
+          "away-in-london" => 3_281,
+          "away-outside-london" => 4_607,
         },
       }.freeze
 
       CHILD_CARE_GRANTS = {
-        "2024-2025" => {
-          "one-child" => 193.62,
-          "more-than-one-child" => 331.95,
-        },
         "2025-2026" => {
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
@@ -69,7 +55,6 @@ module SmartAnswer
       CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME = 28_914.47
 
       PARENTS_LEARNING_ALLOWANCE = {
-        "2024-2025" => 1_963,
         "2025-2026" => 2_024,
         "2026-2027" => 2_024,
       }.freeze
@@ -77,7 +62,6 @@ module SmartAnswer
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_957.98
 
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2024-2025" => 3_438,
         "2025-2026" => 3_545,
         "2026-2027" => 3_545,
       }.freeze
@@ -85,16 +69,11 @@ module SmartAnswer
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
 
       TUITION_FEE_MAXIMUM = {
-        "full-time" => 9_535,
-        "part-time" => 7_145,
+        "full-time" => 9_790,
+        "part-time" => 7_335,
       }.freeze
 
       LOAN_MINIMUMS = {
-        "2024-2025" => {
-          "at-home" => 3_790,
-          "away-outside-london" => 4_767,
-          "away-in-london" => 6_647,
-        },
         "2025-2026" => {
           "at-home" => 3_907,
           "away-outside-london" => 4_915,
@@ -108,11 +87,6 @@ module SmartAnswer
       }.freeze
 
       INCOME_PENALTY_RATIO = {
-        "2024-2025" => {
-          "at-home" => 6.91,
-          "away-outside-london" => 6.84,
-          "away-in-london" => 6.73,
-        },
         "2025-2026" => {
           "at-home" => 6.71,
           "away-outside-london" => 6.64,
