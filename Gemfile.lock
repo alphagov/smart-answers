@@ -655,7 +655,7 @@ GEM
     terser (1.2.6)
       execjs (>= 0.3.0, < 3)
     thor (1.5.0)
-    tilt (2.6.1)
+    tilt (2.7.0)
     timeout (0.6.0)
     tsort (0.2.0)
     tzinfo (2.0.6)
