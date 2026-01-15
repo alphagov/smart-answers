@@ -470,7 +470,7 @@ GEM
       opentelemetry-api (~> 1.0)
     ostruct (0.6.3)
     parallel (1.27.0)
-    parser (3.3.10.0)
+    parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
     plek (5.2.2)
