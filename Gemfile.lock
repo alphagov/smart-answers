@@ -266,7 +266,8 @@ GEM
     mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.1)
+      prism (~> 1.5)
     minitest-focus (1.4.1)
       minitest (> 5.0)
     mocha (3.0.1)
@@ -477,7 +478,7 @@ GEM
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.4.0)
+    prism (1.7.0)
     prometheus_exporter (2.3.1)
       webrick
     pry (0.16.0)
