@@ -1,8 +1,10 @@
 require "test_helper"
 require "support/flow_test_helper"
+require "active_support/testing/time_helpers"
 
 class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include ActiveSupport::Testing::TimeHelpers
 
   setup { testing_flow EstimateSelfAssessmentPenaltiesFlow }
 
@@ -58,8 +60,9 @@ class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
       end
 
       should "be invalid for submitted date after the upper bounds tax date" do
-        # Upper bounds tax date is the start of the tax year in two years time e.g. we're in 2025 so date is April 2027
-        assert_invalid_response SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 3).begins_on.to_s
+        # Upper bounds tax date is the end of the tax year in two years time e.g. we're in 2021 so date is April 05 2023
+        travel_to "2021-08-01"
+        assert_invalid_response "2023-04-06"
       end
     end
 
@@ -86,6 +89,14 @@ class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
       should "be invalid if not in current tax year" do
         add_responses which_year?: "2018-19"
         assert_invalid_response "2020-04-05"
+      end
+
+      should "be invalid for submitted date after the upper bounds tax date" do
+        add_responses which_year?: "2021-22",
+                      when_submitted?: "2022-08-06"
+        # Upper bounds repayment date is the end of the tax year in four years time e.g. we're in 2021 so date is April 05 2025
+        travel_to "2021-08-01"
+        assert_invalid_response "2025-04-06"
       end
     end
 

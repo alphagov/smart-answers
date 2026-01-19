@@ -108,13 +108,13 @@ module SmartAnswer::Calculators
     end
 
     def valid_filing_date?
-      filing_date >= start_of_next_tax_year && filing_date <= SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 2).begins_on
+      filing_date >= start_of_next_tax_year && filing_date <= max_filing_date
     end
 
     def valid_payment_date?
       return true if (tax_year == "2019-20") || (tax_year == "2020-21")
 
-      filing_date <= payment_date
+      filing_date <= payment_date && payment_date <= max_payment_date
     end
 
     def paid_on_time?
@@ -210,6 +210,14 @@ module SmartAnswer::Calculators
 
     def overdue_payment_days
       (payment_date - payment_deadline).to_i
+    end
+
+    def max_filing_date
+      SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 1).ends_on
+    end
+
+    def max_payment_date
+      SmartAnswer::YearRange.tax_year.starting_in(Date.current.year + 3).ends_on
     end
 
   private
