@@ -20,6 +20,13 @@ class CalculateInheritanceTaxInterestFlowTest < ActiveSupport::TestCase
     should "have a next node of end_date_for_interest? for any response" do
       assert_next_node :end_date_for_interest?, for_response: "2025-01-11"
     end
+
+    context "validation" do
+      should "be invalid for submitted date before the minimum date calculated" do
+        # Lower bounds of our interest calculation table is 1988-10-06
+        assert_invalid_response "1988-10-05"
+      end
+    end
   end
 
   context "question: end_date_for_interest?" do
@@ -34,6 +41,13 @@ class CalculateInheritanceTaxInterestFlowTest < ActiveSupport::TestCase
 
     should "have a next node of how_much_inheritance_tax_owed? for any response" do
       assert_next_node :how_much_inheritance_tax_owed?, for_response: "2025-05-16"
+    end
+
+    context "validation" do
+      should "be invalid for submitted date after 2100-01-01" do
+        # This is the upper bounds of our interest calculation table
+        assert_invalid_response "2100-01-02"
+      end
     end
   end
 

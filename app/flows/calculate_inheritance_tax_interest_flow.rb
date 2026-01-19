@@ -6,10 +6,7 @@ class CalculateInheritanceTaxInterestFlow < SmartAnswer::Flow
 
     date_question :start_date_for_interest? do
       validate :error_start_date_too_early do |response|
-        earliest_rate_date = Date.parse(
-          SmartAnswer::Calculators::InheritanceTaxInterestCalculator::INTEREST_RATES.map { |r| r[:start_date] }.min,
-        )
-        response >= earliest_rate_date
+        response >= calculator.earliest_rate_date
       end
 
       on_response do |response|
@@ -23,6 +20,10 @@ class CalculateInheritanceTaxInterestFlow < SmartAnswer::Flow
     end
 
     date_question :end_date_for_interest? do
+      validate :error_end_date_too_late do |response|
+        response <= calculator.latest_rate_date
+      end
+
       on_response do |response|
         calculator.end_date = response
       end
