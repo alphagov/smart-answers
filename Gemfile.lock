@@ -174,7 +174,7 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (>= 6, < 8)
-    govuk_app_config (9.22.3)
+    govuk_app_config (9.23.4)
       connection_pool (< 3)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.32)
@@ -185,7 +185,7 @@ GEM
       puma (>= 5.6, < 8.0)
       rack-proxy (~> 0.7)
       sentry-rails (>= 5.3, < 7.0)
-      sentry-ruby (~> 5.3)
+      sentry-ruby (>= 5.3, < 7.0)
       statsd-ruby (~> 1.5)
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
@@ -488,7 +488,7 @@ GEM
       date
       stringio
     public_suffix (7.0.2)
-    puma (7.1.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.4)
@@ -622,10 +622,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sentry-rails (5.28.1)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.28.1)
-    sentry-ruby (5.28.1)
+    sentry-rails (6.3.0)
+      railties (>= 5.2.0)
+      sentry-ruby (~> 6.3.0)
+    sentry-ruby (6.3.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda (4.0.0)
@@ -702,7 +702,7 @@ DEPENDENCIES
   erb_lint
   gds-api-adapters
   govspeak
-  govuk_app_config (~> 9.22.3)
+  govuk_app_config (~> 9.23.4)
   govuk_publishing_components
   govuk_schemas
   govuk_test
