@@ -1,3 +1,8 @@
 <% text_for :title do %>
     What was the end date for interest?
 <% end %>
+
+<% text_for :error_end_date_too_late do %>
+  Your end date cannot be after <%= format_date(SmartAnswer::Calculators::InheritanceTaxInterestCalculator::INTEREST_RATES.map { |r| r[:end_date] }.
+    max.to_date) %>.
+<% end %>

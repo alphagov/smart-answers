@@ -7,5 +7,5 @@
 <% end %>
 
 <% text_for :error_message do %>
-  Please enter a date on or after <%= format_date(calculator.filing_date) %>
+  Please enter a date on or after <%= format_date(calculator.filing_date) %> and before <%= format_date(calculator.max_payment_date) %>
 <% end %>

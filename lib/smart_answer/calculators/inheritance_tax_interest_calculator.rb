@@ -58,6 +58,14 @@ module SmartAnswer::Calculators
       { start_date: "2026-01-09", end_date: "2100-01-01", value: 0.0775 },
     ].freeze
 
+    def earliest_rate_date
+      Date.parse(INTEREST_RATES.map { |r| r[:start_date] }.min)
+    end
+
+    def latest_rate_date
+      Date.parse(INTEREST_RATES.map { |r| r[:end_date] }.max)
+    end
+
     def calculate_interest
       return SmartAnswer::Money.new(0) if start_date.blank? || end_date.blank? || inheritance_tax_owed.blank?
 

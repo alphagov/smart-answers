@@ -3,6 +3,6 @@
 <% end %>
 
 <% text_for :error_start_date_too_early do %>
-  Your start date cannot be before <%= SmartAnswer::Calculators::InheritanceTaxInterestCalculator::INTEREST_RATES.map { |r| r[:start_date] }
-    .min.to_date.strftime('%d %B %Y') %>.
+  Your start date cannot be before <%= format_date(SmartAnswer::Calculators::InheritanceTaxInterestCalculator::INTEREST_RATES.map { |r| r[:start_date] }
+    .min.to_date) %>.
 <% end %>
