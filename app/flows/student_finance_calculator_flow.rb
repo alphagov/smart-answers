@@ -8,14 +8,19 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     radio :when_does_your_course_start? do
       option :"2025-2026"
       option :"2026-2027"
+      option :"2027-2028"
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::StudentFinanceCalculator.new
         calculator.course_start = response
       end
 
-      next_node do
-        question :what_loans_are_you_eligible_for?
+      next_node do |response|
+        if response == "2027-2028"
+          outcome :outcome_lifelong_learning_entitlement
+        else
+          question :what_loans_are_you_eligible_for?
+        end
       end
     end
 
@@ -209,5 +214,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     outcome :outcome_tuition_fee_only
 
     outcome :outcome_uk_full_time_dental_medical_students
+
+    outcome :outcome_lifelong_learning_entitlement
   end
 end
