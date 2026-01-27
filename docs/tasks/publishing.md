@@ -15,7 +15,7 @@ kubectl config current-context
 
 # Get a temporary AWS token
 export AWS_REGION=eu-west-1
-eval $(gds aws govuk-ENVIRONMENT-poweruser -e --art 8h)
+eval $(gds aws govuk-ENVIRONMENT-developer -e --art 8h)
 
 # Check the current value for your change in publishing-api
 kubectl -n apps exec -it deploy/publishing-api -- rails c
