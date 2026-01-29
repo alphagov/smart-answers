@@ -17,6 +17,17 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       assert_rendered_question
     end
 
+    context "outcome: outcome_lifelong_learning_entitlement" do
+      setup do
+        testing_node :outcome_lifelong_learning_entitlement
+        add_responses when_does_your_course_start?: "2027-2028"
+      end
+
+      should "render text if course starts on or after 1 January 2027" do
+        assert_rendered_outcome text: "For courses starting on or after 1 January 2027, you may need to apply for student finance through your Lifelong Learning Entitlement (LLE)."
+      end
+    end
+
     context "next_node" do
       should "have a next node of what_loans_are_you_eligible_for? for any response" do
         assert_next_node :what_loans_are_you_eligible_for?, for_response: "2025-2026"
