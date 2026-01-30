@@ -5,17 +5,24 @@ You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuit
 <% if maintenance_loan_amount > 0 %>
   ## Maintenance Loan
 
-  You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.
+  <% if uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver') %>
+    You can choose to borrow the maximum amount.
 
-  How your Maintenance Loan is calculated:
+    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. Student Loans Company (SLC) will still use your household income to check what other funding you can get.
 
-  <%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)  
-  \- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
-  = <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
+  <% else %>
+    You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.
 
-  You can find out more about [how Maintenance Loans are calculated](/government/publications/student-finance-how-youre-assessed-and-paid).
+    How your Maintenance Loan is calculated:
 
-  You may get less Maintenance Loan in your final year.
+    <%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)  
+    \- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
+    = <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
 
-  If you need more money to fund your living costs and you qualify, you can apply for extra help.
+    You can find out more about [how Maintenance Loans are calculated](/government/publications/student-finance-how-youre-assessed-and-paid).
+
+    You may get less Maintenance Loan in your final year.
+
+    If you need more money to fund your living costs and you qualify, you can apply for extra help.
+  <% end %>
 <% end %>

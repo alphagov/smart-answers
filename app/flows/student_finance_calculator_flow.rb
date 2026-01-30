@@ -138,6 +138,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :"dependant-adult"
       option :"has-disability"
       option :"low-income"
+      option :"care-leaver"
       option :no
 
       on_response do |response|
@@ -153,6 +154,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     checkbox_question :do_any_of_the_following_apply_all_uk_students? do
       option :"has-disability"
       option :"low-income"
+      option :"care-leaver"
       option :no
 
       on_response do |response|

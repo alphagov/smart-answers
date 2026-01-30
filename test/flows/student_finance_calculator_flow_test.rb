@@ -408,6 +408,12 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     should "render the full time student text within the extra help partial" do
       assert_rendered_outcome text: "You might be able to get help with the costs of travel for study or work placements"
     end
+
+    should "render text if student is a care leaver" do
+      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+
+      assert_rendered_outcome text: "If you’re a care leaver, your household income is not used to calculate your Maintenance Loan."
+    end
   end
 
   context "outcome: outcome_uk_part_time_students" do
@@ -485,6 +491,12 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Social Work Bursary"
     end
+
+    should "render text if student is a care leaver" do
+      add_responses do_any_of_the_following_apply_all_uk_students?: "care-leaver"
+
+      assert_rendered_outcome text: "If you’re a care leaver, your household income is not used to calculate your Maintenance Loan."
+    end
   end
 
   context "outcome: outcome_uk_full_time_dental_medical_students" do
@@ -550,6 +562,12 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "low-income"
 
       assert_rendered_outcome text: "University and college hardship funds"
+    end
+
+    should "render text if student is a care leaver" do
+      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+
+      assert_rendered_outcome text: "If you’re a care leaver, your household income is not used to calculate your Maintenance Loan."
     end
   end
 end

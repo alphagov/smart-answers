@@ -5,7 +5,7 @@
 
   ^You may get a smaller amount of funding to start with while Student Finance England (SFE) reviews your application. They'll send you a top-up payment later if you're eligible for it – [check your online account for updates](/student-finance-register-login).
 
-  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students" } %>
+  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances } %>
 
   ###Extra student funding
 
