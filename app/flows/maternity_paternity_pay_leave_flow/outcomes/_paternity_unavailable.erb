@@ -1,7 +1,20 @@
-##Statutory Paternity Leave 
+<% if calculator.due_date >= Date.parse("2026-04-05") && calculator.due_date <= Date.parse("2026-07-25") %>
+  ##Paternity leave
 
-The mother’s partner cannot take [Statutory Paternity Leave](/paternity-pay-leave/leave).
+  The mother’s partner can take up to 2 weeks' [paternity leave](/paternity-pay-leave/leave).
 
-##Statutory Paternity Pay
+  Paternity leave must be used by <%= format_date(calculator.take_paternity_leave_by_date) %>.
 
-The mother’s partner cannot take [Statutory Paternity Pay](/paternity-pay-leave/pay).
+  From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date.
+
+  The partner must still tell their employer when they want their leave to start - by <%= format_date(calculator.give_paternity_leave_notice_by_date) %>
+
+<% else %>
+  ##Statutory Paternity Leave 
+
+  The mother’s partner cannot take [Statutory Paternity Leave](/paternity-pay-leave/leave).
+
+  ##Statutory Paternity Pay
+
+  The mother’s partner cannot take [Statutory Paternity Pay](/paternity-pay-leave/pay).
+<% end %>
