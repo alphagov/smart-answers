@@ -1203,6 +1203,26 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: partner_earned_more_than_lower_earnings_limit after 26 July 2026, with no partner work start and end date responses" do
+    setup do
+      testing_node :partner_earned_more_than_lower_earnings_limit
+      add_responses two_carers: "yes",
+                    where_does_the_mother_partner_live: "england",
+                    due_date: "2026-7-26",
+                    employment_status_of_mother: "employee",
+                    employment_status_of_partner: "employee",
+                    mother_started_working_before_continuity_start_date: "yes",
+                    mother_still_working_on_continuity_end_date: "yes",
+                    mother_earned_more_than_lower_earnings_limit: "no",
+                    mother_worked_at_least_26_weeks: "yes",
+                    mother_earned_at_least_390: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+  end
+
   context "question: partner_earned_more_than_lower_earnings_limit" do
     setup do
       testing_node :partner_earned_more_than_lower_earnings_limit
@@ -4148,11 +4168,6 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     should "not render grace period text for paternity leave before 5th of April 2026" do
       add_responses due_date: "2026-4-4"
-      assert_no_rendered_outcome text: "From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date."
-    end
-
-    should "not render grace period text for paternity leave after 25th July 2026" do
-      add_responses due_date: "2026-7-26"
       assert_no_rendered_outcome text: "From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date."
     end
 
