@@ -4141,6 +4141,21 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "The mother’s partner cannot take"
     end
 
+    should "render grace period text for paternity leave if due date is between and including 5th of April 2026 and 25th of July 2026" do
+      add_responses due_date: "2026-4-5"
+      assert_rendered_outcome text: "From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date."
+    end
+
+    should "not render grace period text for paternity leave before 5th of April 2026" do
+      add_responses due_date: "2026-4-4"
+      assert_no_rendered_outcome text: "From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date."
+    end
+
+    should "not render grace period text for paternity leave after 25th July 2026" do
+      add_responses due_date: "2026-7-26"
+      assert_no_rendered_outcome text: "From 18 February 2026 until 25 July 2026, the partner does not need to give the usual 15 weeks notice of their baby’s due date."
+    end
+
     should "render _mat_pay partial weekly rate for 2013" do
       add_responses due_date: "2013-1-1"
       assert_rendered_outcome text: "£136.78 per week"

@@ -2,7 +2,7 @@
   <%= render partial: 'mat_allowance_14_weeks', locals: { calculator: calculator } %>
 
   <% if calculator.two_carers? %>
-    <%= render partial: 'paternity_unavailable' %>
+    <%= render partial: 'paternity_unavailable', locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'extra_help' %>
