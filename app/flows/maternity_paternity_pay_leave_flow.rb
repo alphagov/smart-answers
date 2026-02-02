@@ -129,7 +129,13 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
         if calculator.mother_continuity? && calculator.mother_lower_earnings?
           if calculator.two_carers?
             case calculator.employment_status_of_partner
-            when "employee", "worker"
+            when "employee"
+              if calculator.due_date > Date.parse("2026-07-25")
+                question :partner_earned_more_than_lower_earnings_limit
+              else
+                question :partner_started_working_before_continuity_start_date
+              end
+            when "worker"
               question :partner_started_working_before_continuity_start_date
             when "self-employed", "unemployed"
               outcome :outcome_mat_leave_mat_pay
@@ -156,7 +162,13 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
       next_node do
         if %w[employee self-employed].include?(calculator.employment_status_of_mother) && calculator.mother_worked_at_least_26_weeks == "no"
           if calculator.two_carers?
-            if %w[employee worker].include?(calculator.employment_status_of_partner)
+            if %w[employee].include?(calculator.employment_status_of_partner)
+              if calculator.due_date > Date.parse("2026-07-25")
+                question :partner_earned_more_than_lower_earnings_limit
+              else
+                question :partner_started_working_before_continuity_start_date
+              end
+            elsif %w[worker].include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
             elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
               if calculator.employment_status_of_mother == "employee"
@@ -189,7 +201,13 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
           end
         elsif calculator.employment_status_of_mother == "self-employed"
           if calculator.two_carers?
-            if %w[employee worker].include?(calculator.employment_status_of_partner)
+            if %w[employee].include?(calculator.employment_status_of_partner)
+              if calculator.due_date > Date.parse("2026-07-25")
+                question :partner_earned_more_than_lower_earnings_limit
+              else
+                question :partner_started_working_before_continuity_start_date
+              end
+            elsif %w[worker].include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
             else
               outcome :outcome_mat_allowance
@@ -215,7 +233,13 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
 
       next_node do
         if calculator.two_carers?
-          if %w[employee worker].include?(calculator.employment_status_of_partner)
+          if %w[employee].include?(calculator.employment_status_of_partner)
+            if calculator.due_date > Date.parse("2026-07-25")
+              question :partner_earned_more_than_lower_earnings_limit
+            else
+              question :partner_started_working_before_continuity_start_date
+            end
+          elsif %w[worker].include?(calculator.employment_status_of_partner)
             question :partner_started_working_before_continuity_start_date
           elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
             if calculator.employment_status_of_mother == "employee"
