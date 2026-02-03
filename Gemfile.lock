@@ -168,7 +168,7 @@ GEM
       rake (>= 13)
     googleapis-common-protos-types (1.22.0)
       google-protobuf (~> 4.26)
-    govspeak (10.8.5)
+    govspeak (10.8.6)
       actionview (>= 6, < 8.1.2)
       addressable (>= 2.3.8, < 2.8.9)
       govuk_publishing_components (>= 43)
