@@ -12,7 +12,7 @@
 
     In each of your first 4 years, you could get:
 
-    <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students" } %>
+    <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances } %>
 
     In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan.
     You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:

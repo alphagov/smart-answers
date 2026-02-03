@@ -108,6 +108,7 @@ module SmartAnswer
         @full_time_credits = params[:full_time_credits]
         @doctor_or_dentist = params[:doctor_or_dentist]
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
+        @uk_all_circumstances = params.fetch(:uk_all_circumstances, [])
         @loan_eligibility = params[:loan_eligibility]
       end
 

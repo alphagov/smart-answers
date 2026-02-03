@@ -17,7 +17,7 @@
     - a Graduate Certificate or Graduate Diploma
   <% end %>
 
-  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/parttime-students", maintenance_loan_url: "/student-finance/parttime-students" } %>
+  <%= render partial: 'tuition_maintenance_summary', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: calculator.course_start, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/parttime-students", maintenance_loan_url: "/student-finance/parttime-students", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances } %>
 
   ###Extra student funding
 
