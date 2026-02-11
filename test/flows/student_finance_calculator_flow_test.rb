@@ -347,7 +347,21 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "no",
                     what_course_are_you_studying?: "none-of-the-above"
 
-      assert_rendered_outcome text: "You don’t qualify for extra grants and allowances"
+      assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
+    end
+
+    should "render text for when the student is not eligible for extra grants and allowances and has a dependant adult" do
+      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult",
+                    what_course_are_you_studying?: "none-of-the-above"
+
+      assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
+    end
+
+    should "render text for when the student is not eligible for extra grants and allowances and is a care leaver" do
+      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver",
+                    what_course_are_you_studying?: "none-of-the-above"
+
+      assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
     end
 
     should "render text for when the student is eligible for extra grants and allowances" do
@@ -465,7 +479,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       add_responses do_any_of_the_following_apply_all_uk_students?: "no",
                     what_course_are_you_studying?: "none-of-the-above"
 
-      assert_rendered_outcome text: "You don’t qualify for extra grants and allowances"
+      assert_rendered_outcome text: "You do not qualify for any extra grants or allowances"
     end
 
     should "render text if student has a disability" do
