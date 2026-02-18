@@ -24,6 +24,24 @@ module SmartAnswer
           end
         end
 
+        should "raise an InvalidResponse exception when the hash represents an invalid date with a negative day" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: -2, month: 2, year: 2015)
+          end
+        end
+
+        should "raise an InvalidResponse exception when the hash represents an invalid date with a negative month" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 2, month: -2, year: 2015)
+          end
+        end
+
+        should "raise an InvalidResponse exception when the hash represents an invalid date with a negative year" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 2, month: 2, year: -2015)
+          end
+        end
+
         context "and the day is missing" do
           should "raise an InvalidResponse exception" do
             assert_raises(InvalidResponse) do
