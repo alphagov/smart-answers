@@ -58,7 +58,7 @@ module SmartAnswer
 
                  ::Date.new(*year_month_and_day.map(&:to_i))
                when String
-                 ::Date.parse(input)
+                 ::Date.parse(input&.last(25))
                when ::Date
                  input
                else
@@ -70,7 +70,7 @@ module SmartAnswer
         if e.message =~ /invalid date/
           raise InvalidResponse, "Bad date: #{input.inspect}", caller
         else
-          raise
+          raise ArgumentError, "#{input.inspect} is not a valid date", caller
         end
       end
 
