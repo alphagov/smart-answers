@@ -16,7 +16,20 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.passport_country_is_israel?
+        question :dual_british_or_irish_citizenship?
+      end
+    end
+
+    # Q2
+    radio :dual_british_or_irish_citizenship? do
+      option :yes
+      option :no
+      option :dont_know
+
+      next_node do |response|
+        if %w[yes dont_know].include?(response)
+          outcome :outcome_no_visa_or_eta_for_british_or_irish_dual_citizens
+        elsif calculator.passport_country_is_israel?
           question :israeli_document_type?
         elsif calculator.passport_country_is_estonia?
           question :what_sort_of_passport?
@@ -34,7 +47,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q1b
+    # Q2b
     radio :israeli_document_type? do
       option :"full-passport"
       option :"provisional-passport"
@@ -48,7 +61,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q1c / Q1d
+    # Q2c / Q2d
     radio :what_sort_of_passport? do
       option :citizen
       option :alien
@@ -65,7 +78,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q1e / Q1f
+    # Q2e / Q2f
     radio :what_sort_of_travel_document? do
       option :passport
       option :travel_document
@@ -79,7 +92,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q2
+    # Q3
     radio :purpose_of_visit? do
       option :tourism
       option :work
@@ -94,7 +107,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       flow.travel_response_next_route(self)
     end
 
-    # Q2a
+    # Q3a
     radio :travelling_to_cta? do
       option :channel_islands_or_isle_of_man
       option :republic_of_ireland
@@ -131,7 +144,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q2b
+    # Q3b
     radio :channel_islands_or_isle_of_man? do
       option :tourism
       option :work
@@ -145,7 +158,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       flow.travel_response_next_route(self)
     end
 
-    # Q3
+    # Q4
     radio :passing_through_uk_border_control? do
       option :yes
       option :no
@@ -179,7 +192,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q4
+    # Q5
     radio :staying_for_how_long? do
       option :six_months_or_less
       option :longer_than_six_months
@@ -227,7 +240,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q5
+    # Q6
     radio :travelling_visiting_partner_family_member? do
       option :yes
       option :no
@@ -241,7 +254,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q6
+    # Q7
     radio :partner_family_british_citizen? do
       option :yes
       option :no
@@ -255,7 +268,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q7
+    # Q8
     radio :partner_family_eea? do
       option :yes
       option :no
@@ -269,7 +282,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
       end
     end
 
-    # Q8
+    # Q9
     radio :what_type_of_work? do
       option :health
       option :digital
@@ -295,6 +308,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
     outcome :outcome_medical_y
     outcome :outcome_no_visa_needed
     outcome :outcome_no_visa_needed_ireland
+    outcome :outcome_no_visa_or_eta_for_british_or_irish_dual_citizens
     outcome :outcome_partner_family_british_citizen_y
     outcome :outcome_partner_family_eea_y
     outcome :outcome_partner_family_eea_n

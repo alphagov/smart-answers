@@ -3,6 +3,7 @@ module CheckUkVisaFlowTestHelper
     %w[estonia latvia].each do |country|
       should "render visa country guidance when an alien #{country} passport is held" do
         add_responses what_passport_do_you_have?: country,
+                      dual_british_or_irish_citizenship?: "no",
                       what_sort_of_passport?: "alien"
         assert_rendered_outcome text: "You must apply for your visa from the country you’re currently living in."
       end
@@ -13,42 +14,48 @@ module CheckUkVisaFlowTestHelper
     should "render outcome of #{expected_count} visas available with correct plural form for passport country #{passport_country}" do
       plural_form = "visa".pluralize(expected_count)
 
-      add_responses what_passport_do_you_have?: passport_country
+      add_responses what_passport_do_you_have?: passport_country,
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "Based on your answers, you might be eligible for #{expected_count} #{plural_form}."
     end
   end
 
   def test_stateless_or_refugee_outcome_guidance
     should "render visa country guidance when passport country is stateless-or-refugee" do
-      add_responses what_passport_do_you_have?: "stateless-or-refugee"
+      add_responses what_passport_do_you_have?: "stateless-or-refugee",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "You must apply for your visa from the country you’re originally from or currently living in."
     end
   end
 
   def test_bno_outcome_guidance
     should "render visa country guidance when passport country is in the BNO list" do
-      add_responses what_passport_do_you_have?: "british-national-overseas"
+      add_responses what_passport_do_you_have?: "british-national-overseas",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "If you have British national (overseas) status"
     end
   end
 
   def test_country_in_youth_mobility_outcome_guidance
     should "render visa country guidance when passport country is in the Youth Mobility scheme" do
-      add_responses what_passport_do_you_have?: "canada"
+      add_responses what_passport_do_you_have?: "canada",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "If you’re aged 18 to 30"
     end
   end
 
   def test_country_in_uk_ancestry_visa
     should "render visa country guidance when passport country is in the UK Ancestry Visa list" do
-      add_responses what_passport_do_you_have?: "canada"
+      add_responses what_passport_do_you_have?: "canada",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "If one of your grandparents was born in the UK"
     end
   end
 
   def test_country_in_uk_ancestry_visa_with_business_information
     should "render visa country guidance with business information when passport country is in the UK Ancestry Visa list" do
-      add_responses what_passport_do_you_have?: "canada"
+      add_responses what_passport_do_you_have?: "canada",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "If one of your grandparents was born in the UK"
       assert_rendered_outcome text: "start a business"
     end
@@ -56,7 +63,8 @@ module CheckUkVisaFlowTestHelper
 
   def test_india_young_professionals_visa_guidance
     should "render visa guidance when passport country is India" do
-      add_responses what_passport_do_you_have?: "india"
+      add_responses what_passport_do_you_have?: "india",
+                    dual_british_or_irish_citizenship?: "no"
       assert_rendered_outcome text: "India Young Professionals Scheme visa"
     end
   end
