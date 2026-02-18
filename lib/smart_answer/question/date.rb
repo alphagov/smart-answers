@@ -58,6 +58,10 @@ module SmartAnswer
 
                  ::Date.new(*year_month_and_day.map(&:to_i))
                when String
+                 # longterm this should limit to 10 characters (the most in a date), but our automated testing uses Rails
+                 # generated dates which are 25 char datetimes, it's a fair chunk of tests to refactor so will be added as tech debt
+                 raise InvalidResponse unless input.length <= 25 # the maximum number of characters in a datetime
+
                  ::Date.parse(input)
                when ::Date
                  input
@@ -70,7 +74,7 @@ module SmartAnswer
         if e.message =~ /invalid date/
           raise InvalidResponse, "Bad date: #{input.inspect}", caller
         else
-          raise
+          raise ArgumentError, "#{input.inspect} is not a valid date", caller
         end
       end
 

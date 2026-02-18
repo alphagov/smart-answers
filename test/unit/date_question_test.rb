@@ -78,6 +78,12 @@ module SmartAnswer
             @question.parse_input("2015-02-32")
           end
         end
+
+        should "raise an InvalidResponse exception when the string is longer than a valid date could be" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input("2015-02-32 12:00:00 00:00:00 test")
+          end
+        end
       end
 
       context "when supplied with a date" do
