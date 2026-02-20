@@ -377,7 +377,6 @@ module SmartAnswer::Calculators
       mexico
       monaco
       new-zealand
-      nicaragua
       oman
       palau
       panama
@@ -394,7 +393,6 @@ module SmartAnswer::Calculators
       solomon-islands
       south-korea
       st-kitts-and-nevis
-      st-lucia
       st-maarten
       st-vincent-and-the-grenadines
       tonga
@@ -501,6 +499,7 @@ module SmartAnswer::Calculators
       namibia
       nauru
       nepal
+      nicaragua
       nigeria
       north-macedonia
       pakistan
@@ -514,6 +513,7 @@ module SmartAnswer::Calculators
       south-africa
       south-sudan
       sri-lanka
+      st-lucia
       sudan
       syria
       tanzania
@@ -620,7 +620,6 @@ module SmartAnswer::Calculators
       monaco
       netherlands
       new-zealand
-      nicaragua
       norway
       oman
       palau
@@ -644,7 +643,6 @@ module SmartAnswer::Calculators
       south-korea
       spain
       st-kitts-and-nevis
-      st-lucia
       st-maarten
       st-martin
       st-vincent-and-the-grenadines
