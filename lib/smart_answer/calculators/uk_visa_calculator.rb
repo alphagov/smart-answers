@@ -162,6 +162,10 @@ module SmartAnswer::Calculators
       @passport_country == "nauru"
     end
 
+    def passport_country_is_nicaragua_or_st_lucia?
+      @passport_country == "nicaragua" || @passport_country == "st-lucia"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
