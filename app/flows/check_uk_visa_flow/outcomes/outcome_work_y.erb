@@ -6,6 +6,8 @@
   Based on your answers, you might be eligible for <span class="govuk-!-font-weight-bold"><%= calculator.number_of_visas_for_outcome %> <%= "visa".pluralize(calculator.number_of_visas_for_outcome) %></span>.
 
   <%= render partial: "stateless_or_refugee", locals: {calculator: calculator} %>
+
+  <%= render partial: 'skilled_worker_visa_ineligibility', locals: {calculator: calculator} %>
 <% end %>
 
 <% html_for :body do %>

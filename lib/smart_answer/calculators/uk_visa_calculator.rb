@@ -46,6 +46,10 @@ module SmartAnswer::Calculators
       OUTCOME_DATA.dig("consts", attribute_title)
     end
 
+    def passport_country_display_name
+      WorldLocation.find(@passport_country).name
+    end
+
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
     end
@@ -252,6 +256,19 @@ module SmartAnswer::Calculators
 
     def eligible_for_india_young_professionals_scheme?
       @passport_country == "india" && work_visit? && staying_for_over_six_months? && @what_type_of_work != "sports"
+    end
+
+    def show_student_visa_ineligibility?
+      %w[afghanistan cameroon myanmar sudan].include?(@passport_country) &&
+        @purpose_of_visit_answer == "study" &&
+        @length_of_stay == "longer_than_six_months"
+    end
+
+    def show_skilled_worker_visa_ineligibility?
+      @passport_country == "afghanistan" &&
+        @purpose_of_visit_answer == "work" &&
+        (@length_of_stay == "six_months_or_less" ||
+        %w[academic arts digital health other].include?(what_type_of_work))
     end
 
     EXCLUDE_COUNTRIES = %w[

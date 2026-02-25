@@ -22,7 +22,8 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @eea_eta_text = "You currently do not need an electronic travel authorisation (ETA)"
 
     # stub only the countries used in this test for less of a performance impact
-    stub_worldwide_api_has_locations(["china",
+    stub_worldwide_api_has_locations(["british-national-overseas",
+                                      "china",
                                       "india",
                                       "israel",
                                       "ireland",
@@ -32,7 +33,9 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
                                       "hong-kong",
                                       "jordan",
                                       "macao",
+                                      "myanmar",
                                       "russia",
+                                      "stateless-or-refugee",
                                       "taiwan",
                                       "venezuela",
                                       @electronic_travel_authorisation_country,
@@ -774,6 +777,17 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You can also study with a British National Overseas (BNO) visa"
     end
 
+    should "render student visa ineligibility message when applicable" do
+      add_responses what_passport_do_you_have?: "myanmar"
+      assert_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026 if you are a national of Myanmar"
+    end
+
+    should "not render student visa ineligibility message when not applicable" do
+      add_responses what_passport_do_you_have?: "china"
+
+      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
+    end
+
     test_stateless_or_refugee_outcome_guidance
   end
 
@@ -835,6 +849,18 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     test_estonia_latvia_alien_outcome_guidance
     test_stateless_or_refugee_outcome_guidance
+
+    should "render skilled worker visa ineligibility message when applicable" do
+      add_responses what_passport_do_you_have?: "afghanistan"
+
+      assert_rendered_outcome text: "You will not be able to apply for a Skilled worker visa from 12:01am GMT on 26 March 2026 if you are a national of Afghanistan"
+    end
+
+    should "not render skilled worker visa ineligibility message when not applicable" do
+      add_responses what_passport_do_you_have?: "china"
+
+      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
+    end
   end
 
   context "outcome: outcome_work_y" do
@@ -953,6 +979,20 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       test_visa_count("china", 2)
       test_visa_count("british-national-overseas", 5)
       test_visa_count("stateless-or-refugee", 2)
+    end
+
+    should "render skilled worker visa ineligibility message when applicable" do
+      add_responses what_passport_do_you_have?: "afghanistan",
+                    what_type_of_work?: "other"
+
+      assert_rendered_outcome text: "You will not be able to apply for a Skilled worker visa from 12:01am GMT on 26 March 2026 if you are a national of Afghanistan"
+    end
+
+    should "not render skilled worker visa ineligibility message when not applicable" do
+      add_responses what_passport_do_you_have?: "china",
+                    what_type_of_work?: "other"
+
+      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
     end
   end
 
