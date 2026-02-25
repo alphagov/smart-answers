@@ -838,12 +838,15 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
   end
 
   context "outcome: outcome_work_y" do
+    setup do
+      testing_node :outcome_work_y
+      add_responses purpose_of_visit?: "work",
+                    staying_for_how_long?: "longer_than_six_months"
+    end
+
     context "what_type_of_work: academic" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "academic"
+        add_responses what_type_of_work?: "academic"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -859,10 +862,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: arts" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "arts"
+        add_responses what_type_of_work?: "arts"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -877,10 +877,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: business" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "business"
+        add_responses what_type_of_work?: "business"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -896,10 +893,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: digital" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "digital"
+        add_responses what_type_of_work?: "digital"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -915,10 +909,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: health" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "health"
+        add_responses what_type_of_work?: "health"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -934,10 +925,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: other" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "other"
+        add_responses what_type_of_work?: "other"
       end
 
       test_stateless_or_refugee_outcome_guidance
@@ -953,10 +941,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     context "what_type_of_work: religious" do
       setup do
-        testing_node :outcome_work_y
-        add_responses purpose_of_visit?: "work",
-                      staying_for_how_long?: "longer_than_six_months",
-                      what_type_of_work?: "religious"
+        add_responses what_type_of_work?: "religious"
       end
 
       test_stateless_or_refugee_outcome_guidance
