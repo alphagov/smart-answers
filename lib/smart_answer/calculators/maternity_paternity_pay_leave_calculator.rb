@@ -99,11 +99,7 @@ module SmartAnswer::Calculators
     end
 
     def partner_continuity?
-      if due_date <= Date.parse("2026-07-25")
-        continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date)
-      else
-        true
-      end
+      continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date)
     end
 
     def continuity(job_before, job_after)
