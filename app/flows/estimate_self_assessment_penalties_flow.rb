@@ -5,13 +5,13 @@ class EstimateSelfAssessmentPenaltiesFlow < SmartAnswer::Flow
     status :published
 
     radio :which_year? do
-      option :"2017-18"
       option :"2018-19"
       option :"2019-20"
       option :"2020-21"
       option :"2021-22"
       option :"2022-23"
       option :"2023-24"
+      option :"2024-25"
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::SelfAssessmentPenalties.new
