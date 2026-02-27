@@ -13,7 +13,6 @@ module SmartAnswer::Calculators
 
     def initialize(attributes = {})
       super
-      @country_name_query = CountryNameFormatter.new
       @translator_query = TranslatorLinks.new
     end
 
