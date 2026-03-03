@@ -4,7 +4,7 @@
   <%= render partial: 'mat_leave', locals: { calculator: calculator } %>
 
   <% if calculator.two_carers? %>
-    <%= render partial: 'paternity_unavailable' %>
+    <%= render partial: 'paternity_unavailable', locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'extra_help' %>
