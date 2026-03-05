@@ -386,17 +386,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Parents’ Learning Allowance"
     end
 
-    should "render text for child tax credit when the student has a child under 17" do
-      assert_rendered_outcome text: "Child Tax Credit"
-    end
-
-    should "render text for child tax credit when the student has a child under 17, a dependent adult, and is not studying as a teacher, a dental medical professional, or social work" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17,dependant-adult",
-                    what_course_are_you_studying?: "none-of-the-above"
-
-      assert_rendered_outcome text: "Child Tax Credit"
-    end
-
     should "render text for when the student is eligible for an adult dependant's grant" do
       add_responses whats_your_household_income?: "15,000",
                     do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult"
@@ -573,10 +562,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult"
 
       assert_rendered_outcome text: "Dependants’ Allowance"
-    end
-
-    should "render text for child tax credit when the student has a child under 17" do
-      assert_rendered_outcome text: "Child Tax Credit"
     end
 
     should "render text if student has low income" do

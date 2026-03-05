@@ -21,10 +21,6 @@
     <% extra_student_funding << "up to #{format_money(calculator.parent_learning_allowance)} per year [Parents’ Learning Allowance](/parents-learning-allowance)" %>
   <% end %>
 
-  <% if calculator.uk_ft_circumstances.include?('children-under-17') %>
-    <% extra_student_funding << "[Child Tax Credit](/child-tax-credit)" %>
-  <% end %>
-
   <% if calculator.eligible_for_adult_dependant_allowance? %>
     <% extra_student_funding << "up to #{format_money(calculator.adult_dependant_allowance)} per year [Adult Dependant’s Grant](/adult-dependants-grant)" %>
   <% end %>
