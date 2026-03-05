@@ -85,11 +85,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.valid_period_of_incapacity_for_work?
-          question :has_linked_sickness?
-        else
-          outcome :must_be_sick_for_4_days
-        end
+        question :has_linked_sickness?
       end
     end
 
@@ -322,9 +318,6 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
 
     # Answer 1
     outcome :already_getting_maternity
-
-    # Answer 2
-    outcome :must_be_sick_for_4_days
 
     # Answer 4
     outcome :not_regular_schedule
