@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+  <% if calculator.new_policy? %>
+    Was your employee off sick within the previous 8 weeks for at least one full working day?
+  <% else %>
+    Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+  <% end %>
 <% end %>
 
 <% options(

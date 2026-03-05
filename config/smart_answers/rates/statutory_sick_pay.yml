@@ -73,5 +73,5 @@
 
 - start_date: 2025-04-06
   end_date: 2026-04-05
-  lower_earning_limit_rate: 125
+  lower_earning_limit_rate: nil
   ssp_weekly_rate: 118.75
