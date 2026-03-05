@@ -162,6 +162,10 @@ module SmartAnswer::Calculators
       @passport_country == "nauru"
     end
 
+    def passport_country_is_nicaragua_or_st_lucia?
+      @passport_country == "nicaragua" || @passport_country == "st-lucia"
+    end
+
     def applicant_is_stateless_or_a_refugee?
       @passport_country == "stateless-or-refugee"
     end
@@ -377,7 +381,6 @@ module SmartAnswer::Calculators
       mexico
       monaco
       new-zealand
-      nicaragua
       oman
       palau
       panama
@@ -394,7 +397,6 @@ module SmartAnswer::Calculators
       solomon-islands
       south-korea
       st-kitts-and-nevis
-      st-lucia
       st-maarten
       st-vincent-and-the-grenadines
       tonga
@@ -501,6 +503,7 @@ module SmartAnswer::Calculators
       namibia
       nauru
       nepal
+      nicaragua
       nigeria
       north-macedonia
       pakistan
@@ -514,6 +517,7 @@ module SmartAnswer::Calculators
       south-africa
       south-sudan
       sri-lanka
+      st-lucia
       sudan
       syria
       tanzania
@@ -620,7 +624,6 @@ module SmartAnswer::Calculators
       monaco
       netherlands
       new-zealand
-      nicaragua
       norway
       oman
       palau
@@ -644,7 +647,6 @@ module SmartAnswer::Calculators
       south-korea
       spain
       st-kitts-and-nevis
-      st-lucia
       st-maarten
       st-martin
       st-vincent-and-the-grenadines
