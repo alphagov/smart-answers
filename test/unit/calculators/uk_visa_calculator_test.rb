@@ -453,6 +453,16 @@ module SmartAnswer
         end
       end
 
+      context "#passport_country_display_name" do
+        should "return the display name for a given passport country" do
+          stub_worldwide_api_has_location("the-shire")
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "the-shire"
+
+          assert_equal "The Shire", calculator.passport_country_display_name
+        end
+      end
+
       context "#applicant_is_stateless_or_a_refugee?" do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
@@ -640,6 +650,110 @@ module SmartAnswer
           calculator.passport_country = "jordan"
 
           assert_not calculator.passport_country_requires_electronic_travel_authorisation?
+        end
+      end
+
+      context "#show_student_visa_ineligibility?" do
+        %w[afghanistan cameroon myanmar sudan].each do |country|
+          context "when passport country is '#{country}'" do
+            should "return true if ineligible for a student visa due to passport country" do
+              calculator = UkVisaCalculator.new
+              calculator.passport_country = country
+              calculator.purpose_of_visit_answer = "study"
+              calculator.length_of_stay = "longer_than_six_months"
+
+              assert calculator.show_student_visa_ineligibility?
+            end
+
+            should "return false if purpose of visit is not 'study'" do
+              calculator = UkVisaCalculator.new
+              calculator.passport_country = country
+              calculator.purpose_of_visit_answer = "work"
+              calculator.length_of_stay = "longer_than_six_months"
+
+              assert_not calculator.show_student_visa_ineligibility?
+            end
+
+            should "return false if length of stay is not 'longer_than_six_months'" do
+              calculator = UkVisaCalculator.new
+              calculator.passport_country = country
+              calculator.purpose_of_visit_answer = "study"
+              calculator.length_of_stay = "six_months_or_less"
+
+              assert_not calculator.show_student_visa_ineligibility?
+            end
+          end
+        end
+
+        should "return false if passport country is not in the list of countries whose nationals are ineligible for a student visa" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "china"
+          calculator.purpose_of_visit_answer = "study"
+          calculator.length_of_stay = "longer_than_six_months"
+
+          assert_not calculator.show_student_visa_ineligibility?
+        end
+      end
+
+      context "#show_skilled_worker_visa_ineligibility?" do
+        %w[health digital academic arts other].each do |type_of_work|
+          should "return true if ineligible for a skilled worker visa due to type of work being '#{type_of_work}'" do
+            calculator = UkVisaCalculator.new
+            calculator.passport_country = "afghanistan"
+            calculator.purpose_of_visit_answer = "work"
+            calculator.length_of_stay = "longer_than_six_months"
+            calculator.what_type_of_work = type_of_work
+
+            assert calculator.show_skilled_worker_visa_ineligibility?
+          end
+        end
+
+        should "return true if ineligible for a skilled worker visa due to coming for work for six months or less on an 'afghanistan' passport" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "afghanistan"
+          calculator.purpose_of_visit_answer = "work"
+          calculator.length_of_stay = "six_months_or_less"
+
+          assert calculator.show_skilled_worker_visa_ineligibility?
+        end
+
+        should "return false if coming for work for six months or less on a non-'afghanistan' passport" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "china"
+          calculator.purpose_of_visit_answer = "work"
+          calculator.length_of_stay = "six_months_or_less"
+
+          assert_not calculator.show_skilled_worker_visa_ineligibility?
+        end
+
+        should "return false if coming for work for longer than six months on a non-'afghanistan' passport" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "china"
+          calculator.purpose_of_visit_answer = "work"
+          calculator.length_of_stay = "longer_than_six_months"
+          calculator.what_type_of_work = "health"
+
+          assert_not calculator.show_skilled_worker_visa_ineligibility?
+        end
+
+        should "return false if purpose of visit is not 'work'" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "afghanistan"
+          calculator.purpose_of_visit_answer = "study"
+          calculator.length_of_stay = "longer_than_six_months"
+          calculator.what_type_of_work = "health"
+
+          assert_not calculator.show_skilled_worker_visa_ineligibility?
+        end
+
+        should "return false if type of work is not a restricted one" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "afghanistan"
+          calculator.purpose_of_visit_answer = "work"
+          calculator.length_of_stay = "longer_than_six_months"
+          calculator.what_type_of_work = "sports"
+
+          assert_not calculator.show_skilled_worker_visa_ineligibility?
         end
       end
     end
