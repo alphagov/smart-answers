@@ -204,8 +204,8 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_schemas (6.2.2)
-      json-schema (>= 2.8, < 6.2)
+    govuk_schemas (6.2.3)
+      json-schema (>= 2.8, < 6.3)
     govuk_test (4.1.2)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -234,7 +234,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.18.1)
-    json-schema (6.1.0)
+    json-schema (6.2.0)
       addressable (~> 2.8)
       bigdecimal (>= 3.1, < 5)
     kramdown (2.5.2)
