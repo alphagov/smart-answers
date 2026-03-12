@@ -1027,6 +1027,23 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
+  context "outcome: outcome_tourism_n" do
+    setup do
+      testing_node :outcome_tourism_n
+      add_responses purpose_of_visit?: "tourism"
+    end
+
+    should "render the need for an ETA for a British Overseas Citizen passport" do
+      add_responses what_passport_do_you_have?: @british_overseas_territory_country
+      assert_rendered_outcome text: "Before you travel to the UK, you will need to apply for an electronic travel authorisation (ETA)"
+    end
+
+    should "not render the need for an ETA for a non-British Overseas Citizen passport" do
+      add_responses what_passport_do_you_have?: @non_visa_national_country
+      assert_no_rendered_outcome text: "Before you travel to the UK, you will need to apply for an electronic travel authorisation (ETA)"
+    end
+  end
+
   context "ETA callout box on" do
     context "outcome: outcome_tourism_n" do
       setup do
