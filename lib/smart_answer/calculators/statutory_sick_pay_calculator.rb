@@ -21,6 +21,7 @@ module SmartAnswer
       end
 
       include ActiveModel::Model
+      POLICY_CHANGE_DATE = Date.new(2026, 4, 6)
 
       attr_accessor :sick_start_date,
                     :sick_end_date,
@@ -61,6 +62,8 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_not_in_linked_piw
+        return 0 if new_policy?
+
         [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
       end
 
@@ -107,6 +110,9 @@ module SmartAnswer
       end
 
       def valid_period_of_incapacity_for_work?
+        return true if new_policy?
+        return false unless current_piw
+      
         current_piw.valid?
       end
 
@@ -123,8 +129,7 @@ module SmartAnswer
       end
 
       def valid_contractual_days_covered_by_earnings?
-        BigDecimal(contractual_days_covered_by_earnings)
-
+        decimal(contractual_days_covered_by_earnings)
         true
       rescue ArgumentError
         false
@@ -159,25 +164,30 @@ module SmartAnswer
       end
 
       def employee_average_weekly_earnings
+        value =
         if paid_at_least_8_weeks_of_earnings?
           self.class.average_weekly_earnings(
-            pay: total_employee_earnings,
-            pay_pattern:,
-            monthly_pattern_payments:,
-            relevant_period_to:,
-            relevant_period_from:,
+            pay: decimal(total_employee_earnings),
+            pay_pattern: pay_pattern,
+            monthly_pattern_payments: monthly_pattern_payments,
+            relevant_period_to: relevant_period_to,
+            relevant_period_from: relevant_period_from,
           )
         elsif paid_less_than_8_weeks_of_earnings?
           self.class.total_earnings_awe(
-            total_earnings_before_sick_period,
+            decimal(total_earnings_before_sick_period),
             days_covered_by_earnings,
           )
         elsif fell_sick_before_payday?
           self.class.contractual_earnings_awe(
-            relevant_contractual_pay,
+            decimal(relevant_contractual_pay),
             contractual_days_covered_by_earnings,
           )
+        else
+          0
         end
+
+        decimal(value)
       end
 
       def lower_earning_limit
@@ -240,7 +250,9 @@ module SmartAnswer
       end
 
       def not_earned_enough?
-        employee_average_weekly_earnings < self.class.lower_earning_limit_on(sick_start_date)
+        return false if new_policy?
+
+        employee_average_weekly_earnings < BigDecimal(self.class.lower_earning_limit_on(sick_start_date).to_s)
       end
 
       def maximum_entitlement_reached?
@@ -256,14 +268,24 @@ module SmartAnswer
       end
 
       def self.contractual_earnings_awe(pay, days_worked)
-        (pay / BigDecimal(days_worked.to_s) * 7).round(2)
+        pay = BigDecimal(pay.to_s) rescue BigDecimal("0")
+        days_worked = BigDecimal(days_worked.to_s) rescue BigDecimal("0")
+      
+        return 0 if days_worked.zero?
+      
+        (pay / days_worked * 7).round(2)
       end
 
       def self.total_earnings_awe(pay, days_worked)
+        pay = BigDecimal(pay.to_s) rescue BigDecimal("0")
+        days_worked = BigDecimal(days_worked.to_s) rescue BigDecimal("0")
+      
+        return 0 if days_worked.zero?
+      
         if (days_worked % 7).zero?
           (pay / (days_worked / 7)).round(2)
         else
-          (pay / BigDecimal(days_worked.to_s) * 7).round(2)
+          (pay / days_worked * 7).round(2)
         end
       end
 
@@ -282,10 +304,24 @@ module SmartAnswer
         end
       end
 
+      def new_policy?
+        effective_date >= POLICY_CHANGE_DATE
+      end
+
+      def effective_date
+        ENV["RATES_QUERY_DATE"] ? Date.parse(ENV["RATES_QUERY_DATE"]) : Date.current
+      end
+
     private
 
       def weekly_rate_on(date)
-        RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
+        flat_rate = RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
+        return flat_rate unless new_policy?
+      
+        earnings = decimal(employee_average_weekly_earnings)
+        earnings_based_rate = earnings * BigDecimal("0.8")
+        
+        [earnings_based_rate, flat_rate].min
       end
 
       def max_days_that_can_be_paid
@@ -324,6 +360,14 @@ module SmartAnswer
         payable_days_temp.shift(number_of_waiting_days_not_in_linked_piw)
         ## 2. return only the first days_that_can_be_paid_for_this_period
         payable_days_temp.shift(days_that_can_be_paid_for_this_period)
+      end
+
+      def decimal(value)
+        return BigDecimal("0") if value.nil? || value == ""
+      
+        BigDecimal(value.to_s)
+      rescue ArgumentError
+        BigDecimal("0")
       end
     end
   end

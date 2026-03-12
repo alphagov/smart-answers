@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(calculator.relevant_period_from) %> and <%= format_date(calculator.relevant_period_to) %>.
+  <% if calculator.new_policy? %>
+    Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings between 2 November 2025 and 1 January 2026.
+  <% else %>
+    Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(calculator.relevant_period_from) %> and <%= format_date(calculator.relevant_period_to) %>.
+  <% end %>
 <% end %>
 
 <% govspeak_for :hint do %>
