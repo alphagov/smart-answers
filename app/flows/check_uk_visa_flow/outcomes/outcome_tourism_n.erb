@@ -3,6 +3,10 @@
 <% end %>
 
 <% govspeak_for :body do %>
+  <% if calculator.passport_country_in_british_overseas_territories_list? %>
+    Before you travel to the UK, you will need to [apply for an electronic travel authorisation (ETA)](/guidance/apply-for-an-electronic-travel-authorisation-eta). You do not need a visa.
+  <% end %>
+
   <%= render partial: "electronic_travel_authorisation_advice", locals: {calculator: calculator} %>
 
   You can stay in the UK as a tourist for up to 6 months without a visa, but you must meet the Standard Visitor eligibility requirements.
