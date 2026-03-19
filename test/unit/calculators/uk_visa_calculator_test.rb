@@ -756,6 +756,20 @@ module SmartAnswer
           assert_not calculator.show_skilled_worker_visa_ineligibility?
         end
       end
+
+      context "#eligible_for_skilled_worker_visa?" do
+        should 'return true if passport_country is anything but "Afghanistan"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "china"
+          assert calculator.eligible_for_skilled_worker_visa?
+        end
+
+        should 'return false if passport_country is "Afghanistan"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "afghanistan"
+          assert_not calculator.eligible_for_skilled_worker_visa?
+        end
+      end
     end
   end
 end

@@ -166,6 +166,7 @@
       url: http://www.gov.uk/health-care-worker-visa
     - name: skilled_worker_health
       type: Skilled Worker visa
+      condition: eligible_for_skilled_worker_visa?
       title: If you’re coming to work in an eligible skilled job
       description: |
         You may be able to work in an eligible health and care job, for example a doctor or a nurse.
@@ -398,6 +399,7 @@
       url: https://www.gov.uk/scale-up-worker-visa
     - name: skilled_worker_digital
       type: Skilled Worker visa
+      condition: eligible_for_skilled_worker_visa?
       title: If you’re coming to work in an eligible skilled job
       description: |
         You may be able to work in an eligible job in digital technology. These include:
@@ -482,6 +484,7 @@
       url: https://www.gov.uk/scale-up-worker-visa
     - name: skilled_worker_academic
       type: Skilled Worker visa
+      condition: eligible_for_skilled_worker_visa?
       title: If you’re coming to work in an eligible skilled job
       description: You may be able to work in an eligible job. Various jobs in research and academia are eligible.
       attributes:
@@ -584,6 +587,7 @@
       url: https://www.gov.uk/scale-up-worker-visa
     - name: skilled_worker_arts
       type: Skilled Worker visa
+      condition: eligible_for_skilled_worker_visa?
       title: If you’re coming to work in an eligible skilled job
       description: |
         You may be able to work in an eligible arts and culture job. These include:
@@ -902,6 +906,7 @@
       url: https://www.gov.uk/uk-expansion-worker-visa
     - name: skilled_worker_other
       type: Skilled Worker visa
+      condition: eligible_for_skilled_worker_visa?
       title: If you’re coming to work in an eligible skilled job
       description: |
         You may be able to work in an eligible skilled job.
