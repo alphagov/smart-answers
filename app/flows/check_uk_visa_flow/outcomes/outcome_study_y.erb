@@ -9,11 +9,13 @@
 
   If you’re studying on an English language course for up to 11 months, apply for a [Short-term study visa](/study-visit-visa).
 
-  If you’re coming to study on a further or higher education course, apply for a [Student visa](/student-visa).
-
-  <%= render partial: 'student_visa_ineligibility', locals: {calculator: calculator} %>
+  <% if !calculator.show_student_visa_ineligibility? %>
+    If you’re coming to study on a further or higher education course, apply for a [Student visa](/student-visa).
+  <% end %>
 
   Or if you’re aged 4 to 17 and coming to study at an independent school, apply for a [Child Student visa](/child-study-visa).
+
+  <%= render partial: 'student_visa_ineligibility', locals: {calculator: calculator} %>
 
   <% if calculator.passport_country_in_british_national_overseas_list? %>
     You can also study with a [British National Overseas (BNO) visa](/guidance/hong-kong-british-national-overseas-visa-applications/). You can:

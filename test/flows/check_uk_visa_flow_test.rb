@@ -779,7 +779,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     should "render student visa ineligibility message when applicable" do
       add_responses what_passport_do_you_have?: "myanmar"
-      assert_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026 if you are a national of Myanmar"
+      assert_rendered_outcome text: "You cannot apply for a Student visa if you are a national of Myanmar"
     end
 
     should "not render student visa ineligibility message when not applicable" do
