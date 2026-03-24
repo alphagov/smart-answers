@@ -73,8 +73,12 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new(120)
       when 2022, 2023, 2024
         SmartAnswer::Money.new(123)
-      else
+      when 2025
         SmartAnswer::Money.new(125)
+      when 2026
+        SmartAnswer::Money.new(129)
+      else
+        SmartAnswer::Money.new(129)
       end
     end
 

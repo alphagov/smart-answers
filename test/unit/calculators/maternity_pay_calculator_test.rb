@@ -359,6 +359,7 @@ module SmartAnswer::Calculators
 
       context "statutory pay rate for given year" do
         {
+          2026 => 194.32,
           2025 => 187.18,
           2024 => 184.03,
           2023 => 172.48,

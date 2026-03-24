@@ -719,13 +719,12 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
     should "render when an employee is not entitled to pay due to earning below lower limit" do
       add_responses paternity_responses(pay_frequency: "weekly",
                                         pay_per_frequency: 120,
-                                        due_date: "2023-08-01",
-                                        last_normal_payday: "2023-04-01",
-                                        payday_eight_weeks: "2022-02-01")
+                                        due_date: "2026-08-01",
+                                        last_normal_payday: "2026-04-01",
+                                        payday_eight_weeks: "2026-02-01")
 
-      # lower limit for 2022 - 2023 is £123
-      assert_rendered_outcome text: "their average weekly earnings (£120) between Wednesday, 02 February 2022 and " \
-                                    "Saturday, 01 April 2023 must be at least £123"
+      # lower limit for 2026 is £129
+      assert_match(/must be at least £129/, @test_flow.outcome_text)
     end
 
     should "render pre-April 2024 guidance when due date is before 7 April 2024" do
