@@ -661,7 +661,7 @@ GEM
       sprockets (>= 3.0.0)
     statsd-ruby (1.5.0)
     stringio (3.2.0)
-    terser (1.2.6)
+    terser (1.2.7)
       execjs (>= 0.3.0, < 3)
     thor (1.5.0)
     tilt (2.7.0)
