@@ -8,6 +8,10 @@
   weekly_rate: 169.50
   lower_weekly_rate: 101.55
 - start_date: 2025-04-07
-  end_date: 2999-01-01
+  end_date: 2026-04-05
   weekly_rate: 176.45
   lower_weekly_rate: 105.70
+- start_date: 2026-04-06
+  end_date: 2999-01-01
+  weekly_rate: 184.90
+  lower_weekly_rate: 110.75

@@ -18,6 +18,12 @@ module SmartAnswer::Calculators
           assert_equal @calculator.lower_basic_state_pension_rate, 105.70
         end
       end
+
+      should "return the correct amount for 2026/2027" do
+        travel_to("2026-06-01") do
+          assert_equal @calculator.lower_basic_state_pension_rate, 110.75
+        end
+      end
     end
 
     context "#higher_basic_state_pension_rate" do
@@ -30,6 +36,12 @@ module SmartAnswer::Calculators
       should "return the correct amount for 2025/2026" do
         travel_to("2025-06-01") do
           assert_equal @calculator.higher_basic_state_pension_rate, 176.45
+        end
+      end
+
+      should "return the correct amount for 2026/2027" do
+        travel_to("2026-06-01") do
+          assert_equal @calculator.higher_basic_state_pension_rate, 184.90
         end
       end
     end
