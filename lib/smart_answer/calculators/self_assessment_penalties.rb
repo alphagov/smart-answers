@@ -19,6 +19,7 @@ module SmartAnswer::Calculators
         "2022-23": ONLINE_FILING_DEADLINE_YEAR.starting_in(2024).begins_on,
         "2023-24": ONLINE_FILING_DEADLINE_YEAR.starting_in(2025).begins_on,
         "2024-25": ONLINE_FILING_DEADLINE_YEAR.starting_in(2026).begins_on,
+        "2025-26": ONLINE_FILING_DEADLINE_YEAR.starting_in(2027).begins_on,
       },
       paper_filing_deadline: {
         "2018-19": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
@@ -28,6 +29,7 @@ module SmartAnswer::Calculators
         "2022-23": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2023).begins_on,
         "2023-24": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2025).begins_on,
         "2024-25": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2026).begins_on,
+        "2025-26": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2027).begins_on,
       },
       payment_deadline: {
         "2018-19": PAYMENT_DEADLINE_YEAR.starting_in(2020).begins_on,
@@ -37,6 +39,8 @@ module SmartAnswer::Calculators
         "2022-23": PAYMENT_DEADLINE_YEAR.starting_in(2024).begins_on,
         "2023-24": PAYMENT_DEADLINE_YEAR.starting_in(2025).begins_on,
         "2024-25": PAYMENT_DEADLINE_YEAR.starting_in(2026).begins_on,
+        "2025-26": PAYMENT_DEADLINE_YEAR.starting_in(2027).begins_on,
+
       },
     }.freeze
 
@@ -81,6 +85,8 @@ module SmartAnswer::Calculators
         SmartAnswer::YearRange.tax_year.starting_in(2023)
       when "2024-25"
         SmartAnswer::YearRange.tax_year.starting_in(2024)
+      when "2025-26"
+        SmartAnswer::YearRange.tax_year.starting_in(2025)
       end
     end
 
@@ -104,6 +110,8 @@ module SmartAnswer::Calculators
         PENALTY_YEAR.starting_in(2026).begins_on
       when "2024-25"
         PENALTY_YEAR.starting_in(2027).begins_on
+      when "2025-26"
+        PENALTY_YEAR.starting_in(2028).begins_on
       end
     end
 

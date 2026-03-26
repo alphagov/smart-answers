@@ -12,6 +12,7 @@ class EstimateSelfAssessmentPenaltiesFlow < SmartAnswer::Flow
       option :"2022-23"
       option :"2023-24"
       option :"2024-25"
+      option :"2025-26"
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::SelfAssessmentPenalties.new

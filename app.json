@@ -13,7 +13,8 @@
     },
     "BASIC_AUTH_PASSWORD": {
       "required": true
-    }
+    },
+    "RATES_QUERY_DATE": "2026-04-06"
   },
   "image": "heroku/ruby",
   "buildpacks": [ { "url": "heroku/ruby" } ],
