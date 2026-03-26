@@ -779,13 +779,13 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
 
     should "render student visa ineligibility message when applicable" do
       add_responses what_passport_do_you_have?: "myanmar"
-      assert_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026 if you are a national of Myanmar"
+      assert_rendered_outcome text: "You cannot get a Student visa if you are a national of Myanmar"
     end
 
     should "not render student visa ineligibility message when not applicable" do
       add_responses what_passport_do_you_have?: "china"
 
-      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
+      assert_no_rendered_outcome text: "You cannot get a Student visa if you are a national of Myanmar"
     end
 
     test_stateless_or_refugee_outcome_guidance
@@ -853,13 +853,13 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     should "render skilled worker visa ineligibility message when applicable" do
       add_responses what_passport_do_you_have?: "afghanistan"
 
-      assert_rendered_outcome text: "You will not be able to apply for a Skilled worker visa from 12:01am GMT on 26 March 2026 if you are a national of Afghanistan"
+      assert_rendered_outcome text: "You cannot get a Skilled Worker visa if you are a national of Afghanistan"
     end
 
     should "not render skilled worker visa ineligibility message when not applicable" do
       add_responses what_passport_do_you_have?: "china"
 
-      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
+      assert_no_rendered_outcome text: "You cannot get a Skilled Worker visa if you are a national of Afghanistan"
     end
   end
 
@@ -985,14 +985,14 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
       add_responses what_passport_do_you_have?: "afghanistan",
                     what_type_of_work?: "other"
 
-      assert_rendered_outcome text: "You will not be able to apply for a Skilled worker visa from 12:01am GMT on 26 March 2026 if you are a national of Afghanistan"
+      assert_rendered_outcome text: "You cannot get a Skilled Worker visa if you are a national of Afghanistan"
     end
 
     should "not render skilled worker visa ineligibility message when not applicable" do
       add_responses what_passport_do_you_have?: "china",
                     what_type_of_work?: "other"
 
-      assert_no_rendered_outcome text: "You will not be able to apply for a Student visa from 12:01am GMT on 26 March 2026"
+      assert_no_rendered_outcome text: "You cannot get a Skilled Worker visa if you are a national of Afghanistan"
     end
   end
 

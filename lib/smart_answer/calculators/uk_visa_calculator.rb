@@ -271,6 +271,10 @@ module SmartAnswer::Calculators
         %w[academic arts digital health other].include?(what_type_of_work))
     end
 
+    def eligible_for_skilled_worker_visa?
+      @passport_country != "afghanistan"
+    end
+
     EXCLUDE_COUNTRIES = %w[
       american-samoa
       british-antarctic-territory
