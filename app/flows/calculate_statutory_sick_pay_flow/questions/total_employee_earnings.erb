@@ -1,9 +1,13 @@
 <% text_for :title do %>
-  Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(calculator.relevant_period_from) %> and <%= format_date(calculator.relevant_period_to) %>.
+  <% if calculator.show_post_april_2026_policy_text? %>
+    Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings between <%= format_date(calculator.relevant_period_from) %> and <%= format_date(calculator.relevant_period_to) %>.
+  <% else %>
+    Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(calculator.relevant_period_from) %> and <%= format_date(calculator.relevant_period_to) %>.
+  <% end %>
 <% end %>
 
 <% govspeak_for :hint do %>
-  Different rules apply for [directors of limited companies incorporated before 1 October 2009](/statutory-sick-pay-how-different-employment-types-affect-what-you-pay)
+  Different rules apply to [directors of limited companies](/statutory-sick-pay-how-different-employment-types-affect-what-you-pay#directors)
 <% end %>
 
 <% text_for :error_message do %>

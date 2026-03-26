@@ -3,7 +3,6 @@ module SmartAnswer
     class StatutorySickPayCalculator
       class PeriodOfIncapacityForWork < DateRange
         MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
-        MINIMUM_NUMBER_OF_DAYS = 4
 
         def qualifying_days(pattern)
           dates = begins_on..ends_on
@@ -16,11 +15,31 @@ module SmartAnswer
         end
 
         def valid?
-          number_of_days >= MINIMUM_NUMBER_OF_DAYS
+          number_of_days >= minimum_number_of_days_to_become_eligible_for_ssp
+        end
+
+        def april_2026_policy_change_applies?
+          # This ignores periods that straddle the April 2026 policy change date, but those are not supported by this calculator
+          first >= POLICY_CHANGE_DATE
+        end
+
+        def straddles_april_2026_rule_change_date?
+          first < POLICY_CHANGE_DATE && last >= POLICY_CHANGE_DATE
+        end
+
+      private
+
+        def minimum_number_of_days_to_become_eligible_for_ssp
+          if april_2026_policy_change_applies?
+            1
+          else
+            4
+          end
         end
       end
 
       include ActiveModel::Model
+      POLICY_CHANGE_DATE = Date.new(2026, 4, 6)
 
       attr_accessor :sick_start_date,
                     :sick_end_date,
@@ -61,6 +80,8 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_not_in_linked_piw
+        return 0 if current_piw.april_2026_policy_change_applies?
+
         [0, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - prev_sick_days].max
       end
 
@@ -123,8 +144,7 @@ module SmartAnswer
       end
 
       def valid_contractual_days_covered_by_earnings?
-        BigDecimal(contractual_days_covered_by_earnings)
-
+        self.class.decimal(contractual_days_covered_by_earnings)
         true
       rescue ArgumentError
         false
@@ -159,25 +179,30 @@ module SmartAnswer
       end
 
       def employee_average_weekly_earnings
-        if paid_at_least_8_weeks_of_earnings?
-          self.class.average_weekly_earnings(
-            pay: total_employee_earnings,
-            pay_pattern:,
-            monthly_pattern_payments:,
-            relevant_period_to:,
-            relevant_period_from:,
-          )
-        elsif paid_less_than_8_weeks_of_earnings?
-          self.class.total_earnings_awe(
-            total_earnings_before_sick_period,
-            days_covered_by_earnings,
-          )
-        elsif fell_sick_before_payday?
-          self.class.contractual_earnings_awe(
-            relevant_contractual_pay,
-            contractual_days_covered_by_earnings,
-          )
-        end
+        value =
+          if paid_at_least_8_weeks_of_earnings?
+            self.class.average_weekly_earnings(
+              pay: self.class.decimal(total_employee_earnings),
+              pay_pattern:,
+              monthly_pattern_payments:,
+              relevant_period_to:,
+              relevant_period_from:,
+            )
+          elsif paid_less_than_8_weeks_of_earnings?
+            self.class.total_earnings_awe(
+              self.class.decimal(total_earnings_before_sick_period),
+              days_covered_by_earnings,
+            )
+          elsif fell_sick_before_payday?
+            self.class.contractual_earnings_awe(
+              self.class.decimal(relevant_contractual_pay),
+              contractual_days_covered_by_earnings,
+            )
+          else
+            raise StandardError, "Invalid value for 'eight_weeks_earnings': '#{eight_weeks_earnings}'"
+          end
+
+        self.class.decimal(value)
       end
 
       def lower_earning_limit
@@ -190,7 +215,8 @@ module SmartAnswer
 
       # define as static so we don't have to instantiate the calculator too early in the flow
       def self.lower_earning_limit_on(date)
-        RatesQuery.from_file("statutory_sick_pay").rates(date).lower_earning_limit_rate
+        value = RatesQuery.from_file("statutory_sick_pay").rates(date).lower_earning_limit_rate
+        decimal(value)
       end
 
       def self.months_between(start_date, end_date)
@@ -282,10 +308,33 @@ module SmartAnswer
         end
       end
 
+      def sick_period_straddles_april_2026_rule_change_date?
+        current_piw.straddles_april_2026_rule_change_date?
+      end
+
+      def show_post_april_2026_policy_text?
+        effective_date >= POLICY_CHANGE_DATE
+      end
+
+      def effective_date
+        ENV["RATES_QUERY_DATE"] ? Date.parse(ENV["RATES_QUERY_DATE"]) : Date.current
+      end
+
+      def self.decimal(value)
+        return BigDecimal("0") if value.nil? || value == ""
+
+        BigDecimal(value.to_s)
+      end
+
     private
 
       def weekly_rate_on(date)
-        RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
+        flat_rate = RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
+        return flat_rate unless current_piw.april_2026_policy_change_applies?
+
+        earnings_based_rate = employee_average_weekly_earnings * BigDecimal("0.8")
+
+        [earnings_based_rate, flat_rate].min
       end
 
       def max_days_that_can_be_paid

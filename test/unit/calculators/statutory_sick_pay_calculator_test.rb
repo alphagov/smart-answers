@@ -22,6 +22,113 @@ module SmartAnswer
                          dates
           end
         end
+
+        context "before the rule changes on 6 April 2026" do
+          context "valid?" do
+            should "return false when the number of days is less than four" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 29 Mar 2026"),
+                ends_on: Date.parse("Tue, 31 Mar 2026"),
+              )
+              assert_not piw.valid?
+            end
+
+            should "return true when the number of days is equal to four" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 29 Mar 2026"),
+                ends_on: Date.parse("Wed, 01 Apr 2026"),
+              )
+              assert piw.valid?
+            end
+
+            should "return true when the number of days is greater than four" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 29 Mar 2026"),
+                ends_on: Date.parse("Thu, 02 Apr 2026"),
+              )
+              assert piw.valid?
+            end
+          end
+
+          context "april_2026_policy_change_applies?" do
+            should "return false when the first day of the sick period is before the April 2026 policy change date" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("5 Apr 2026"),
+                ends_on: Date.parse("7 Apr 2026"),
+              )
+              assert_not piw.april_2026_policy_change_applies?
+            end
+
+            should "return true when the first day of the sick period is on the April 2026 policy change date" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("6 Apr 2026"),
+                ends_on: Date.parse("7 Apr 2026"),
+              )
+              assert piw.april_2026_policy_change_applies?
+            end
+
+            should "return true when the first day of the sick period is after the April 2026 policy change date" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("7 Apr 2026"),
+                ends_on: Date.parse("7 Apr 2026"),
+              )
+              assert piw.april_2026_policy_change_applies?
+            end
+          end
+
+          context "straddles_april_2026_rule_change_date?" do
+            should "return false" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 04 Apr 2026"),
+                ends_on: Date.parse("Tue, 05 Apr 2026"),
+              )
+              assert_not piw.straddles_april_2026_rule_change_date?
+            end
+          end
+        end
+
+        context "during the rule changes on 6 April 2026" do
+          context "straddles_april_2026_rule_change_date?" do
+            should "return true" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 05 Apr 2026"),
+                ends_on: Date.parse("Tue, 07 Apr 2026"),
+              )
+              assert piw.straddles_april_2026_rule_change_date?
+            end
+          end
+        end
+
+        context "after the rule changes on 6 April 2026" do
+          context "valid?" do
+            should "return true when the number of days is one" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Mon, 06 Apr 2026"),
+                ends_on: Date.parse("Mon, 06 Apr 2026"),
+              )
+              assert 1, piw.number_of_days
+              assert piw.valid?
+            end
+
+            should "return true when the number of days is two" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Mon, 06 Apr 2026"),
+                ends_on: Date.parse("Tue, 07 Apr 2026"),
+              )
+              assert piw.valid?
+            end
+          end
+
+          context "straddles_april_2026_rule_change_date?" do
+            should "return false" do
+              piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+                begins_on: Date.parse("Sun, 06 Apr 2026"),
+                ends_on: Date.parse("Tue, 07 Apr 2026"),
+              )
+              assert_not piw.straddles_april_2026_rule_change_date?
+            end
+          end
+        end
       end
 
       context "valid_last_sick_day?" do
@@ -99,24 +206,48 @@ module SmartAnswer
       end
 
       context "valid_period_of_incapacity_for_work?" do
-        setup do
-          @date = Date.parse("2015-01-01")
+        context "before the rule changes on 6 April 2026" do
+          setup do
+            @date = Date.parse("2026-03-05")
+          end
+
+          should "be valid if current PIW is at least 4 days long" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: @date,
+              sick_end_date: @date + 3.days,
+            )
+            assert calculator.valid_period_of_incapacity_for_work?
+          end
+
+          should "not be valid if current PIW is less than 4 days long" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: @date,
+              sick_end_date: @date + 2.days,
+            )
+            assert_not calculator.valid_period_of_incapacity_for_work?
+          end
         end
 
-        should "be valid if current PIW is at least 4 days long" do
-          calculator = StatutorySickPayCalculator.new(
-            sick_start_date: @date,
-            sick_end_date: @date + 3.days,
-          )
-          assert calculator.valid_period_of_incapacity_for_work?
-        end
+        context "after the rule changes on 6 April 2026" do
+          setup do
+            @date = Date.parse("2026-04-06")
+          end
 
-        should "not be valid if current PIW is less than 4 days long" do
-          calculator = StatutorySickPayCalculator.new(
-            sick_start_date: @date,
-            sick_end_date: @date + 2.days,
-          )
-          assert_not calculator.valid_period_of_incapacity_for_work?
+          should "be valid if current PIW is at least 4 days long" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: @date,
+              sick_end_date: @date + 3.days,
+            )
+            assert calculator.valid_period_of_incapacity_for_work?
+          end
+
+          should "be valid if current PIW is less than 4 days long" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: @date,
+              sick_end_date: @date + 2.days,
+            )
+            assert calculator.valid_period_of_incapacity_for_work?
+          end
         end
       end
 
@@ -518,11 +649,16 @@ module SmartAnswer
             sick_end_date: @start_date + 1.month,
             days_of_the_week_worked: %w[1 2 3 4 5],
             has_linked_sickness: false,
+            eight_weeks_earnings: "eight_weeks_more",
+            total_employee_earnings: "2000",
+            pay_pattern: "weekly",
+            relevant_period_from: Date.parse("16 Feb 2026"),
+            relevant_period_to: Date.parse("12 Apr 2026"),
           )
           assert_equal @calculator.prev_sick_days, 0
         end
 
-        should "not break and use ssp rate for the latest know fiscal year" do
+        should "not break and use ssp rate for the latest known fiscal year" do
           assert @calculator.send(:weekly_rate_on, @start_date).is_a?(Numeric)
         end
       end
@@ -874,10 +1010,21 @@ module SmartAnswer
           end
         end
 
+        context "in the beginning of 2026/2027" do
+          setup do
+            @date = Date.parse("6 April 2026")
+            @lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+          end
+
+          should "be 0" do
+            assert_equal 0, @lel
+          end
+        end
+
         context "fallback when no dates are matching" do
-          should "not break and use the rate of the latest available fiscal year" do
+          should "use the rate of the latest available fiscal year" do
             date = Date.parse("6 April 2056")
-            assert StatutorySickPayCalculator.lower_earning_limit_on(date).is_a?(Numeric)
+            assert_equal 0, StatutorySickPayCalculator.lower_earning_limit_on(date)
           end
         end
       end
@@ -957,6 +1104,40 @@ module SmartAnswer
           assert_equal 42, calculator.prev_sick_days
           assert_equal calculator.send(:weekly_payments).map(&:second).sum.round(2),
                        calculator.ssp_payment.to_f
+        end
+
+        context "before the rule changes on 6 April 2026" do
+          should "return the SSP weekly rate when 80% of weekly earnings is higher than that" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: Date.parse("13 Apr 2026"),
+              sick_end_date: Date.parse("17 Apr 2026"),
+              days_of_the_week_worked: %w[1 2 3 4 5],
+              has_linked_sickness: false,
+              eight_weeks_earnings: "eight_weeks_more",
+              total_employee_earnings: "2000",
+              pay_pattern: "weekly",
+              relevant_period_from: Date.parse("16 Feb 2026"),
+              relevant_period_to: Date.parse("12 Apr 2026"),
+            )
+
+            assert_equal [[Date.parse("18 Apr 2026"), 123.25]], calculator.weekly_payments
+          end
+
+          should "return 80% of weekly earnings when that is lower than the SSP weekly rate" do
+            calculator = StatutorySickPayCalculator.new(
+              sick_start_date: Date.parse("13 Apr 2026"),
+              sick_end_date: Date.parse("17 Apr 2026"),
+              days_of_the_week_worked: %w[1 2 3 4 5],
+              has_linked_sickness: false,
+              eight_weeks_earnings: "eight_weeks_more",
+              total_employee_earnings: "900",
+              pay_pattern: "weekly",
+              relevant_period_from: Date.parse("16 Feb 2026"),
+              relevant_period_to: Date.parse("12 Apr 2026"),
+            )
+
+            assert_equal [[Date.parse("18 Apr 2026"), 90]], calculator.weekly_payments
+          end
         end
 
         should "have the correct 2017/2018 value" do
@@ -1048,6 +1229,22 @@ module SmartAnswer
           )
 
           assert_equal 118.75, calculator.ssp_payment.to_f
+        end
+
+        should "have the correct 2026/2027 value" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: Date.parse("1 June 2026"),
+            sick_end_date: Date.parse("5 June 2026"),
+            days_of_the_week_worked: %w[1 2 3 4 5],
+            has_linked_sickness: false,
+            eight_weeks_earnings: "eight_weeks_more",
+            total_employee_earnings: "2000",
+            pay_pattern: "weekly",
+            relevant_period_from: Date.parse("5 Apr 2026"),
+            relevant_period_to: Date.parse("31 May 2026"),
+          )
+
+          assert_equal 123.25, calculator.ssp_payment.to_f
         end
       end
 

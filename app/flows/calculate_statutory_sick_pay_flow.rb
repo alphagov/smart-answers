@@ -85,10 +85,12 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.valid_period_of_incapacity_for_work?
-          question :has_linked_sickness?
-        else
+        if calculator.sick_period_straddles_april_2026_rule_change_date?
+          outcome :sick_period_may_not_straddle_april_2026_rule_change
+        elsif !calculator.valid_period_of_incapacity_for_work?
           outcome :must_be_sick_for_4_days
+        else
+          question :has_linked_sickness?
         end
       end
     end
@@ -340,5 +342,8 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
 
     # Answer 8
     outcome :maximum_entitlement_reached
+
+    # Answer 9
+    outcome :sick_period_may_not_straddle_april_2026_rule_change
   end
 end
