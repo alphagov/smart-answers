@@ -64,6 +64,7 @@ bundle exec rake
 * [Publishing a Smart Answer](docs/tasks/publishing.md)
 * [Updating a Smart Answer](docs/tasks/updating.md)
 * [Retiring a Smart Answer](docs/tasks/retiring-a-smart-answer.md)
+* [Adding time-based text to outcomes](docs/tasks/adding-time-based-text-to-outcomes.md)
 
 Further guidance is available in [`docs/tasks`](docs/tasks).
 
