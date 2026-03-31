@@ -35,5 +35,8 @@
   end_date: 2025-04-05
   lower_earning_limit_rate: 123
 - start_date: 2025-04-06
-  end_date: 2100-04-03
+  end_date: 2026-04-05
   lower_earning_limit_rate: 125
+- start_date: 2026-04-06
+  end_date: 2100-04-05
+  lower_earning_limit_rate: 129

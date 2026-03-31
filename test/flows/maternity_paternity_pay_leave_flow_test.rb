@@ -4004,6 +4004,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses due_date: "2025-1-1"
       assert_rendered_outcome text: "£187.18"
     end
+
+    should "render _mat_allowance partial weekly rate for 2026" do
+      add_responses due_date: "2026-1-1"
+      assert_rendered_outcome text: "£194.32"
+    end
   end
 
   context "outcome: outcome_mat_allowance, employee mother" do
@@ -4039,6 +4044,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     should "render _mat_allowance partial weekly rate for 2025" do
       add_responses due_date: "2025-1-1"
       assert_rendered_outcome text: "£187.18"
+    end
+
+    should "render _mat_allowance partial weekly rate for 2026" do
+      add_responses due_date: "2026-1-1"
+      assert_rendered_outcome text: "£194.32"
     end
   end
 
@@ -4214,6 +4224,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses due_date: "2025-1-1"
       assert_rendered_outcome text: "£187.18 per week"
     end
+
+    should "render _mat_pay partial weekly rate for 2026" do
+      add_responses due_date: "2026-1-1"
+      assert_rendered_outcome text: "£194.32 per week"
+    end
   end
 
   context "outcome: outcome_pat_pay" do
@@ -4296,6 +4311,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     should "render _pat_pay partial weekly rate for 2025" do
       add_responses due_date: "2025-1-1"
       assert_rendered_outcome text: "£187.18 per week"
+    end
+
+    should "render _pat_pay partial weekly rate for 2026" do
+      add_responses due_date: "2026-1-1"
+      assert_rendered_outcome text: "£194.32 per week"
     end
 
     should "render _pat_pay partial paid leave is in year 2013" do

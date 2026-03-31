@@ -56,4 +56,8 @@ Weekly rate (between <%= calculator.formatted_first_day_in_year(2024) %> and <%=
 Weekly rate (between <%= calculator.formatted_first_day_in_year(2025) %> and <%= calculator.formatted_last_day_in_year(2025) %>) | £187.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
 <% end %>
 
+<% if calculator.paid_leave_is_in_year?(2026) %>
+Weekly rate (between <%= calculator.formatted_first_day_in_year(2026) %> and <%= calculator.formatted_last_day_in_year(2026) %>) | £194.32 per week or 90% of their average weekly earnings (before tax), whichever is lower
+<% end %>
+
 The partner must tell their employer | by <%= format_date(calculator.due_date_notice_to_partner_employer) %>
