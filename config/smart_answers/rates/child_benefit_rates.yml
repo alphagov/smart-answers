@@ -99,3 +99,10 @@
   additional_child: 17.25
   lower_earnings_threshold: 60_000
   upper_earnings_threshold: 80_000
+"2026":
+  start_date: 2026-04-06
+  end_date: 2027-04-05
+  only_child: 27.05
+  additional_child: 17.90
+  lower_earnings_threshold: 60_000
+  upper_earnings_threshold: 80_000
