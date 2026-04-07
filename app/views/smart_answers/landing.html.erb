@@ -36,6 +36,8 @@
       <section class="govuk-!-margin-bottom-6">
         <%= start_node.body %>
 
+        <%= render "govuk_web_banners/uprating_banner" %>
+
         <%= render "govuk_publishing_components/components/button", {
           text: start_node.start_button_text,
           href: @presenter.start_page_link(response_store.forwarding_responses),
