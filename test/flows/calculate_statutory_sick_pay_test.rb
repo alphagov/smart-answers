@@ -101,15 +101,20 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       testing_node :last_sick_day?
       add_responses is_your_employee_getting?: "statutory_adoption_pay",
                     employee_tell_within_limit?: "yes",
-                    employee_work_different_days?: "no",
-                    first_sick_day?: "2020-01-01"
+                    employee_work_different_days?: "no"
     end
 
     should "render the question" do
+      add_responses first_sick_day?: "2020-01-01"
+
       assert_rendered_question
     end
 
     context "validation" do
+      setup do
+        add_responses first_sick_day?: "2020-01-01"
+      end
+
       should "be invalid if the last sick day is before 2011" do
         assert_invalid_response "2010-12-01"
       end
@@ -124,12 +129,42 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of has_linked_sickness? for over 4 days" do
-        assert_next_node :has_linked_sickness?, for_response: "2020-01-05"
+      context "when the sickness period is before the April 2026 rule change date" do
+        setup do
+          add_responses first_sick_day?: "2020-01-01"
+        end
+
+        should "have a next node of has_linked_sickness? for over 4 days" do
+          assert_next_node :has_linked_sickness?, for_response: "2020-01-05"
+        end
+
+        should "have a next node of must_be_sick_for_4_days for under 4 days" do
+          assert_next_node :must_be_sick_for_4_days, for_response: "2020-01-02"
+        end
       end
 
-      should "have a next node of must_be_sick_for_4_days for under 4 days" do
-        assert_next_node :must_be_sick_for_4_days, for_response: "2020-01-02"
+      context "when the sickness period straddles the April 2026 rule change date" do
+        setup do
+          add_responses first_sick_day?: "2026-04-01"
+        end
+
+        should "have an outcome of sick_period_may_not_straddle_april_2026_rule_change" do
+          assert_next_node :sick_period_may_not_straddle_april_2026_rule_change, for_response: "2026-04-06"
+        end
+      end
+
+      context "when the sickness period is after the April 2026 rule change date" do
+        setup do
+          add_responses first_sick_day?: "2026-04-06"
+        end
+
+        should "have a next node of has_linked_sickness? for over 4 days" do
+          assert_next_node :has_linked_sickness?, for_response: "2026-04-10"
+        end
+
+        should "have a next node of has_linked_sickness? for under 4 days" do
+          assert_next_node :has_linked_sickness?, for_response: "2026-04-07"
+        end
       end
     end
   end

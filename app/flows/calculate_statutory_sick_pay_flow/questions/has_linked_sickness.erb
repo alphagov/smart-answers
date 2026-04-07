@@ -1,5 +1,9 @@
 <% text_for :title do %>
-  Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+  <% if calculator.show_post_april_2026_policy_text? %>
+    Was your employee off sick within the previous 8 weeks for at least one full working day?
+  <% else %>
+    Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+  <% end %>
 <% end %>
 
 <% options(
@@ -12,4 +16,7 @@
 
   *[PIW]: Period of Incapacity for Work
 
+  <% if calculator.show_post_april_2026_policy_text? %>
+    Linked periods that began and ended before 6 April 2026 must have lasted at least 4 days.
+  <% end %>
 <% end %>
