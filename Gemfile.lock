@@ -204,7 +204,7 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_schemas (6.2.3)
+    govuk_schemas (6.3.0)
       json-schema (>= 2.8, < 6.3)
     govuk_test (4.1.2)
       brakeman (>= 5.0.2)
