@@ -46,6 +46,7 @@ group :test do
   gem "launchy"
   gem "minitest"
   gem "minitest-focus"
+  gem "minitest-mock"
   gem "mocha", require: false
   gem "rails-controller-testing"
   gem "shoulda"
