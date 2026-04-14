@@ -8,6 +8,8 @@ require "simplecov-rcov"
 
 require "rails/test_help"
 
+require "minitest/mock"
+
 require "mocha/minitest"
 Mocha.configure { |c| c.stubbing_non_existent_method = :prevent }
 
