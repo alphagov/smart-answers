@@ -189,7 +189,6 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
     should "render results for financial support if user needs financial support" do
       add_responses financial_support: "yes"
       assert_rendered_outcome text: "See what finance and support is available"
-      assert_rendered_outcome text: "Get financial support during coronavirus"
     end
 
     should "render the results if business may employ people" do
@@ -219,6 +218,14 @@ class NextStepsForYourBusinessFlowTest < ActiveSupport::TestCase
     should "render the results if business is importing goods" do
       add_responses activities: %w[import_goods]
       assert_rendered_outcome text: "How to buy items from abroad"
+    end
+
+    should "render the result for company and accounting records" do
+      assert_rendered_outcome text: "Company and accounting records"
+    end
+
+    should "render the result for company information person must report" do
+      assert_rendered_outcome text: "Company information you must report"
     end
   end
 end
