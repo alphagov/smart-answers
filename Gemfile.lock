@@ -90,7 +90,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (4.1.1)
+    bigdecimal (4.1.2)
     binding_of_caller (2.0.0)
       debug_inspector (>= 1.2.0)
     bootsnap (1.23.0)
@@ -180,7 +180,7 @@ GEM
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (>= 6, < 8)
-    govuk_app_config (9.23.11)
+    govuk_app_config (9.24.0)
       connection_pool (< 3)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.34)
@@ -716,7 +716,7 @@ DEPENDENCIES
   erb_lint
   gds-api-adapters
   govspeak
-  govuk_app_config (~> 9.23.11)
+  govuk_app_config (~> 9.24.0)
   govuk_publishing_components
   govuk_schemas
   govuk_test
