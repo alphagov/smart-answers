@@ -334,7 +334,7 @@ module SmartAnswer
 
         earnings_based_rate = employee_average_weekly_earnings * BigDecimal("0.8")
 
-        [earnings_based_rate, flat_rate].min
+        [earnings_based_rate, flat_rate].reject(&:nan?).min
       end
 
       def max_days_that_can_be_paid
