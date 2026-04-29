@@ -48,7 +48,6 @@ module SmartAnswer::Calculators
       r17: ->(calculator) { calculator.annual_turnover_over_90k == "not_sure" },
       r18: ->(calculator) { calculator.employer != "no" },
       r19: ->(calculator) { calculator.needs_financial_support == "yes" },
-      r20: ->(calculator) { calculator.needs_financial_support == "yes" },
       r21: ->(calculator) { calculator.employer != "no" },
       r22: ->(calculator) { calculator.business_premises.include?("home") },
       r23: ->(calculator) { calculator.business_premises.include?("rented") },
@@ -59,6 +58,8 @@ module SmartAnswer::Calculators
       r28: ->(calculator) { calculator.annual_turnover_over_90k == "yes" },
       r29: ->(calculator) { calculator.annual_turnover_over_90k == "no" },
       r30: ->(calculator) { calculator.activities.include?("export_goods_or_services") },
+      r31: ->(_) { true },
+      r32: ->(_) { true },
     }.with_indifferent_access.freeze
   end
 end

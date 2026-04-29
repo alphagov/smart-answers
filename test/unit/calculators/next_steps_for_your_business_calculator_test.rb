@@ -2,6 +2,8 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class NextStepsForYourBusinessCalculatorTest < ActiveSupport::TestCase
+    SET_TO_TRUE_RULES = (2..15).to_a + [31, 32]
+
     setup do
       @calculator = NextStepsForYourBusinessCalculator.new
       @rules = NextStepsForYourBusinessCalculator::RULES
@@ -20,7 +22,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      (2..15).each do |index|
+      SET_TO_TRUE_RULES.each do |index|
         context "r#{index}" do
           should "always return true" do
             assert @rules[:"r#{index}"].call(nil)
@@ -93,18 +95,6 @@ module SmartAnswer::Calculators
         should "return true when business needs financial support" do
           @calculator.needs_financial_support = "yes"
           assert @rules[:r19].call(@calculator)
-        end
-      end
-
-      context "r20" do
-        should "return false when business doesn't need financial support" do
-          @calculator.needs_financial_support = "no"
-          assert_not @rules[:r20].call(@calculator)
-        end
-
-        should "return true when business needs financial support" do
-          @calculator.needs_financial_support = "yes"
-          assert @rules[:r20].call(@calculator)
         end
       end
 

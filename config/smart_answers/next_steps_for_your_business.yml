@@ -4,6 +4,18 @@
   url: "/corporation-tax"
   topic: Tax
   group: "Things you need to do next"
+- id: r31
+  title: "Company information you must report"
+  description: "You must tell Companies House who the directors and company secretaries are within your company."
+  url: "/running-a-limited-company/company-changes-you-must-report"
+  topic: "Company accounts and information"
+  group: "Things you need to do next"
+- id: r32
+  title: "Company and accounting records"
+  description: "There must be a clear division between the company’s finances and those of the owners and directors."
+  url: "/running-a-limited-company/company-and-accounting-records"
+  topic: "Company accounts and information"
+  group: "Things you need to do next"
 - id: r2
   title: "Check if you need any licences for your business"
   description: "You might need licences or to register your company, depending on the type of work you do."
@@ -102,7 +114,7 @@
   group: "Things you need to do next"
 - id: r18
   title: "Check what to do before employing someone"
-  description: "What you need to know about to employing people."
+  description: "What you need to know about employing people."
   url: "/get-ready-to-employ-someone"
   topic: "Employing people"
   group: "Things you need to do next"
@@ -110,12 +122,6 @@
   title: "See what finance and support is available"
   description: "Look for support, based on where you are, your industry and size."
   url: "/business-finance-support?business_stages%5B%5D=not-yet-trading"
-  topic: "Financial help"
-  group: "Things you need to do next"
-- id: r20
-  title: "Get financial support during coronavirus"
-  description: "You might be able to get financial support if your business has been affected by coronavirus."
-  url: "/business-coronavirus-support-finder"
   topic: "Financial help"
   group: "Things you need to do next"
 - id: r21
