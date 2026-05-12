@@ -492,7 +492,7 @@
       countries:
         - scotland
     - name: school_essentials_grant_wales
-      title: School Essentials grant
+      title: School Essentials Grant
       description: <p>If you’re on certain benefits you may be able to get help from your local council with the cost of school essentials, like uniforms or kit for activities.</p>
       condition: eligible_for_school_essentials_grant_wales?
       url_text: Check if you can get help with the cost of school essentials on the GOV.WALES website
