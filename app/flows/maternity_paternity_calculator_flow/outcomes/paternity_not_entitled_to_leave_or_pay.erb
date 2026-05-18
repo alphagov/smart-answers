@@ -13,33 +13,50 @@
                      notice_of_leave_deadline: notice_of_leave_deadline,
                    } %>
       <% else %>
-        <%= render partial: 'paternity_entitled_to_leave',
-                   locals: {
-                     leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
-                     leave_start_date: leave_start_date,
-                     leave_end_date: leave_end_date,
-                     leave_spp_claim_link: leave_spp_claim_link,
-                     notice_of_leave_deadline: notice_of_leave_deadline,
-                     paternity_deadline: calculator.paternity_deadline,
-                   } %>
+        <% if paternity_employment_start == "no" %>
+          <%= render partial: 'entitled_to_leave_not_pay_2026',
+                    locals: {
+                      due_date: calculator.due_date,
+                      employment_start: employment_start,
+                      leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
+                      leave_type: calculator.leave_type,
+                      leave_start_date: leave_start_date,
+                      leave_end_date: leave_end_date,
+                      leave_spp_claim_link: leave_spp_claim_link,
+                      notice_of_leave_deadline: notice_of_leave_deadline,
+                      paternity_deadline: calculator.paternity_deadline,
+                    } %>
+        <% else %>
+          <%= render partial: 'paternity_entitled_to_leave',
+                    locals: {
+                      leave_must_be_taken_consecutively: calculator.leave_must_be_taken_consecutively?,
+                      leave_start_date: leave_start_date,
+                      leave_end_date: leave_end_date,
+                      leave_spp_claim_link: leave_spp_claim_link,
+                      notice_of_leave_deadline: notice_of_leave_deadline,
+                      paternity_deadline: calculator.paternity_deadline,
+                    } %>
+        <% end %>
       <% end %>
     <% end %>
 
-    <%= render partial: 'paternity_not_entitled_to_pay_intro' %>
+    <% if paternity_employment_start != "no" || (has_contract == 'no' && calculator.on_payroll == 'no') %>
+      <%= render partial: 'paternity_not_entitled_to_pay_intro' %>
 
-    <% if calculator.on_payroll == 'no' %>
-      + <%= render partial: 'must_be_on_payroll' %>
-    <% elsif employed_dob == 'no' %>
-      <% case leave_type %>
-      <% when 'paternity' %>
-        + they must still be employed by you on <%= format_date(due_date) %>
-      <% when 'paternity_adoption' %>
-        + they must still be employed by you on <%= ap_adoption_date_formatted %>
+      <% if calculator.on_payroll == 'no' %>
+        + <%= render partial: 'must_be_on_payroll' %>
+      <% elsif employed_dob == 'no' %>
+        <% case leave_type %>
+        <% when 'paternity' %>
+          + they must still be employed by you on <%= format_date(due_date) %>
+        <% when 'paternity_adoption' %>
+          + they must still be employed by you on <%= ap_adoption_date_formatted %>
+        <% end %>
       <% end %>
 
-    <% end %>
-
-    <%= render partial: 'paternity_not_entitled_to_pay_outro' %>
+      <%= render partial: 'paternity_not_entitled_to_pay_outro' %>
+    <% end %>  
+    
   <% else %>
     ##Not entitled to Statutory Paternity Pay or Leave
 
@@ -62,11 +79,11 @@
                  locals: {employment_start: employment_start} %>
     <% end %>
 
-    You must write confirming this. Also, send them [form SPP1](/government/publications/statutory-paternity-pay-non-payment-explanation-spp1) confirming they’re not entitled to pay within 28 days of their pay request.
+    You must write to them confirming this. Also, send them [form SPP1](/government/publications/statutory-paternity-pay-non-payment-explanation-spp1) confirming they’re not entitled to pay within 28 days of their pay request.
 
   <% end %>
 <% end %>
 
 <% govspeak_for :next_steps do %>
-  Read the [guide to Statutory Adoption Pay and Leave](/employers-adoption-pay-leave)
+    Read the [guide to Statutory Paternity Pay and Leave](/employers-paternity-pay-leave)
 <% end %>

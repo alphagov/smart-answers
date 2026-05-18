@@ -1,0 +1,36 @@
+<% if leave_type == "paternity_adoption" %>
+  ## Entitled to Statutory Paternity Leave
+
+  The employee is entitled to Statutory Paternity Leave.
+
+  |Leave                         | Key dates                    |
+  |------------------------------|------------------------------|
+  |Start                         | <%= format_date(leave_start_date) %>          |
+  |End                           | <%= format_date(leave_end_date) %>            |
+  |Latest date to [give notice](/employers-paternity-pay-leave/<%= leave_spp_claim_link %>)
+<% else %>
+  ## Entitled to Statutory Paternity Leave
+
+  The employee is entitled to Statutory Paternity Leave.
+
+  They can take 2 consecutive or non-consecutive weeks.
+
+  Their leave starts on <%= format_date(leave_start_date) %> and must finish by <%= format_date(paternity_deadline) %>.
+
+  <% if due_date > Date.parse("2026-07-25") %>
+  The latest date they can [claim leave](/employers-paternity-pay-leave/<%= leave_spp_claim_link %>) is <%= format_date(notice_of_leave_deadline) %>
+  <% else %>
+  Until 25 July 2026, the employee does not need to give the usual 15 weeks’ notice of their baby’s due date.
+
+  They’ll still need to [give notice](/employers-paternity-pay-leave/notice-period) by <%= format_date(leave_start_date - 28) %>.
+  <% end %>
+<% end %>
+
+
+## Not entitled to Statutory Paternity Pay 
+
+The employee is not entitled to Statutory Paternity Pay because:
+
++ they must have started working for you on or before <%= format_date(employment_start) %>
+
+You must write to them confirming this. Also, send them [form SPP1](/government/publications/statutory-paternity-pay-non-payment-explanation-spp1) confirming they’re not entitled to pay within 28 days of their pay request.

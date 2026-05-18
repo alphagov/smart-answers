@@ -32,6 +32,11 @@ module SmartAnswer::Calculators
       @matched_week
     end
 
+    def grace_adoption_leave?
+      where_does_the_employee_live != "northern_ireland" &&
+        adoption_placement_date.present? && match_date >= Date.parse("2026-04-06")
+    end
+
     def leave_must_be_taken_consecutively?
       employee_lives_in_northern_ireland? || adoption_placement_date <= Date.new(2024, 4, 5)
     end
