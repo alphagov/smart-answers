@@ -22,6 +22,18 @@ module SmartAnswer::Calculators
       start_date + deadline_period
     end
 
+    def grace_paternity_leave?
+      where_does_the_employee_live != "northern_ireland" &&
+
+        date_of_birth.present? && (
+        (due_date <= Date.parse("2026-07-25") &&
+        date_of_birth >= Date.parse("2026-04-06") &&
+        date_of_birth <= Date.parse("2026-07-25")) ||
+      (due_date >= Date.parse("2026-04-05")
+      )
+      )
+    end
+
     def leave_must_be_taken_consecutively?
       employee_lives_in_northern_ireland? || due_date <= Date.new(2024, 4, 6)
     end
