@@ -333,7 +333,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
   context "outcome: outcome_uk_full_time_students" do
     setup do
       testing_node :outcome_uk_full_time_students
-      add_responses when_does_your_course_start?: "2025-2026",
+      add_responses when_does_your_course_start?: "2026-2027",
                     what_loans_are_you_eligible_for?: "tuition-and-maintenance",
                     will_you_be_studying_full_or_part_time?: "full-time",
                     how_much_are_your_tuition_fees_per_year?: "9250",
@@ -429,7 +429,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
   context "outcome: outcome_uk_part_time_students" do
     setup do
       testing_node :outcome_uk_part_time_students
-      add_responses when_does_your_course_start?: "2025-2026",
+      add_responses when_does_your_course_start?: "2026-2027",
                     what_loans_are_you_eligible_for?: "tuition-and-maintenance",
                     will_you_be_studying_full_or_part_time?: "part-time",
                     how_much_are_your_tuition_fees_per_year?: "6935",
@@ -573,7 +573,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     should "render text if student is a care leaver" do
       add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
 
-      assert_rendered_outcome text: "If you’re a care leaver, your household income is not used to calculate your Maintenance Loan."
+      assert_rendered_outcome text: "If you need more money to fund your living costs and you qualify, you can apply for extra help."
     end
   end
 end
