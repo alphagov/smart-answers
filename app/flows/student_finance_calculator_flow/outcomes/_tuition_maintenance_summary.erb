@@ -5,7 +5,7 @@ You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuit
 <% if maintenance_loan_amount > 0 %>
   ## Maintenance Loan
 
-  <% if uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver') %>
+  <% if start_date == ("2026-2027") && (uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver')) %>
     You can choose to borrow the maximum amount.
 
     If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. Student Loans Company (SLC) will still use your household income to check what other funding you can get.
