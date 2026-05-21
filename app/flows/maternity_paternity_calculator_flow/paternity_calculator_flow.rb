@@ -156,7 +156,13 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
           when "yes"
             question :employee_has_contract_paternity?
           when "no"
-            outcome :paternity_not_entitled_to_leave_or_pay
+            has_grace_leave = paternity_adoption ? calculator.grace_adoption_leave? : calculator.grace_paternity_leave?
+
+            if has_grace_leave
+              question :employee_has_contract_paternity?
+            else
+              outcome :paternity_not_entitled_to_leave_or_pay
+            end
           end
         end
       end
@@ -168,10 +174,31 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
 
         on_response do |response|
           self.has_contract = response
+
+          if paternity_adoption
+            self.leave_spp_claim_link = "adoption"
+            self.to_saturday = calculator.matched_week.last
+            self.still_employed_date = calculator.employment_end
+            self.start_leave_hint = ap_adoption_date_formatted
+          else
+            self.leave_spp_claim_link = "notice-period"
+            self.to_saturday = calculator.qualifying_week.last
+            self.still_employed_date = date_of_birth
+            self.start_leave_hint = date_of_birth
+          end
+
+          self.to_saturday_formatted = calculator.format_date_day to_saturday
         end
 
         next_node do
-          question :employee_on_payroll_paternity?
+          has_grace_leave = paternity_adoption ? calculator.grace_adoption_leave? : calculator.grace_paternity_leave?
+
+          if has_grace_leave && paternity_employment_start == "no"
+            calculator.on_payroll = "no"
+            question :employee_start_paternity?
+          else
+            question :employee_on_payroll_paternity?
+          end
         end
       end
 
@@ -261,7 +288,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
 
         next_node do
-          if has_contract == "yes" && (calculator.on_payroll == "no" || employed_dob == "no")
+          if has_contract == "yes" && (calculator.on_payroll == "no" || employed_dob == "no") || (paternity_employment_start == "no" && has_contract == "no")
             outcome :paternity_not_entitled_to_leave_or_pay
           else
             question :last_normal_payday_paternity?
