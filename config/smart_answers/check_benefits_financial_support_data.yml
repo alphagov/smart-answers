@@ -87,7 +87,7 @@
         - scotland
     - name: housing_benefit_northern_ireland
       title: Housing Benefit
-      description: <p>You may be able to get help to pay your rent if you’ve reached State Pension age or are in supported, sheltered or temporary housing.</p>
+      description: <p>You may be able to get help to pay your rent if you’ve reached State Pension age or are in temporary or supported accommodation.</p>
       condition: eligible_for_housing_benefit?
       url: https://www.nihe.gov.uk/Housing-Help/Housing-Benefit/Making-a-claim-for-Housing-Benefit
       url_text: Check if you’re eligible for Housing Benefit on the NI Housing Executive website
@@ -253,7 +253,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
@@ -264,7 +263,6 @@
       countries:
         - england
         - wales
-        - northern-ireland
     - name: child_disability_payment_scotland
       title: Child Disability Payment
       description: <p>You can apply for Child Disability Payment if you’re responsible for a child under 16 who lives in Scotland.</p>
@@ -314,7 +312,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: council_tax_reduction
       title: Council Tax Reduction
       description: <p>You may be able to get Council Tax Reduction if you’re on a low income or claim benefits.</p>
@@ -396,7 +393,7 @@
         - scotland
     - name: nhs_help_with_health_costs_northern_ireland
       title: NHS Help with health costs
-      description: <p>You may be able to get help with prescriptions, dental care, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits.</p>
+      description: <p>You may be able to get help with health service dental care, sight tests, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits.</p>
       url: https://www.nidirect.gov.uk/articles/help-health-costs
       url_text: Check if you’re eligible for help with health costs on the nidirect website
       group: Healthcare support
@@ -412,7 +409,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: sure_start_maternity_grant
       title: Sure Start Maternity Grant
       description: <p>If you or your partner get certain benefits you could get a payment to help towards the costs of having a child. You must usually have no other children under 16.</p>
@@ -473,18 +469,18 @@
         - scotland
     - name: free_school_meals_wales
       title: Free school meals
-      description: <p>If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through your local council.</p>
+      description: <p>All primary school children get free school meals automatically. If you’re on certain benefits your child may be able to get free secondary school meals. You’ll need to apply through your local council.</p>
       condition: eligible_for_free_school_meals?
       url_text: Check if your child can get free school meals on the GOV.WALES website
       url: https://gov.wales/find-out-about-free-school-meals
       countries:
         - wales
     - name: free_school_meals_northern_ireland
-      title: Free school meals
-      description: <p>If you’re on certain benefits your child may be able to get free school meals. You’ll need to apply through the Northern Ireland Education Authority.</p>
+      title: Free school meals and uniform grants
+      description: <p>If you’re on certain benefits your child may be able to get free school meals and help with the cost of school uniforms.</p>
       condition: eligible_for_free_school_meals?
-      url_text: Check if your child can get free school meals on the nidirect website
-      url: https://www.nidirect.gov.uk/articles/nutrition-and-school-lunches
+      url_text: Check if your child can get free school meals and uniform grants on the Education Authority NI website
+      url: https://www.eani.org.uk/parents/pupil-applications-and-grants/free-school-meals-and-uniform-grants/apply-for-free-school
       countries:
         - northern-ireland
     - name: school_clothing_grant_scotland
@@ -495,20 +491,12 @@
       url: https://www.mygov.scot/clothing-grants
       countries:
         - scotland
-    - name: uniform_grant_northern_ireland
-      title: Uniform Grant
-      description: <p>If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms.</p>
-      condition: eligible_for_uniform_grant_northern_ireland?
-      url_text: Check if you can get help with school uniform costs on the Education Authority NI website
-      url: https://www.eani.org.uk/financial-help/free-school-meals-uniform-grants
-      countries:
-        - northern-ireland
-    - name: pupil_development_grant_wales
-      title: Pupil Development Grant
-      description: <p>If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms.</p>
-      condition: eligible_for_pupil_development_grant_wales?
-      url_text: Check if you can get help with school uniform costs on the GOV.WALES website
-      url: https://gov.wales/pupil-development-grant-access
+    - name: school_essentials_grant_wales
+      title: School Essentials Grant
+      description: <p>If you’re on certain benefits you may be able to get help from your local council with the cost of school essentials, like uniforms or kit for activities.</p>
+      condition: eligible_for_school_essentials_grant_wales?
+      url_text: Check if you can get help with the cost of school essentials on the GOV.WALES website
+      url: https://www.gov.wales/school-essentials-grant-help-school-costs
       countries:
         - wales
     - name: home_to_school_transport
@@ -536,28 +524,32 @@
       url: https://www.eani.org.uk/help-available/home-to-school-transport
       countries:
         - northern-ireland
-    - name: apply_for_an_older_persons_bus_pass
+    - name: apply_for_an_older_persons_bus_pass_england
       title: Apply for an older person's bus pass
-      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
+      description: <p>You can get a bus pass for free travel when you reach the State Pension age.</p>
       condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
-      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
+      url_text: Find out how to apply for an older person’s bus pass
+      url: https://www.gov.uk/apply-for-elderly-person-bus-pass
       countries:
         - england
+    - name: apply_for_an_older_persons_bus_pass_wales
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you're aged 60 or over.</p>
+      url_text: Find out how to apply for an older person’s bus pass on the GOV.WALES website
+      url: https://www.gov.wales/apply-bus-pass
+      countries:
         - wales
     - name: apply_for_an_older_persons_bus_pass_scotland
       title: Apply for an older person's bus pass
       description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
-      condition: eligible_for_an_older_persons_bus_pass?
       url_text: Find out how to apply for an older person’s bus pass on the mygov.scot website
       url: https://www.mygov.scot/older-persons-bus-pass
       countries:
         - scotland
-    - name: apply_for_an_older_persons_bus_pass_ni
-      title: Apply for an older person's bus pass
-      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
-      condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+    - name: apply_for_an_older_persons_travel_pass_ni
+      title: Apply for an older person's travel pass
+      description: <p>You can get a pass for free travel on public transport if you're aged 60 or over.</p>
+      url_text: Find out how to apply for an older person’s travel pass on the nidirect website
       url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
       countries:
         - northern-ireland
@@ -585,11 +577,11 @@
       url: https://www.mygov.scot/disabled-bus-pass
       countries:
         - scotland
-    - name: apply_for_a_disabled_persons_bus_pass_ni
-      title: Apply for a disabled person's bus pass
-      description: <p>You can get free or half-price travel on buses if you’re eligible.</p>
+    - name: apply_for_a_disabled_persons_travel_pass_ni
+      title: Apply for a disabled person's travel pass
+      description: <p>You can get free or half-price travel on public transport if you’re eligible.</p>
       condition: eligible_for_a_disabled_persons_bus_pass?
-      url_text: Find out how to apply for a disabled person’s bus pass on the nidirect website
+      url_text: Find out how to apply for a disabled person’s travel pass on the nidirect website
       url: https://www.nidirect.gov.uk/information-and-services/bus-and-coach-travel/free-bus-travel-and-concessions
       countries:
         - northern-ireland
@@ -603,7 +595,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: warm_home_discount_scheme
       title: Warm Home Discount Scheme
       description: <p>You could get a discount on your electricity bill between October and March under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
@@ -632,13 +623,6 @@
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
-    - name: wales_fuel_support_scheme_payment
-      title: Wales fuel support scheme payment
-      description: <p>You may be able to claim a one-off payment to help pay your fuel costs if you or your partner get certain benefits. You'll need to apply through your local council.</p>
-      url_text: Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website
-      url: https://gov.wales/wales-fuel-support-scheme-2022-2023
-      countries:
-        - wales
     - name: help_to_save
       title: Help to Save
       description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>
@@ -661,7 +645,7 @@
         - wales
     - name: disabled_facilities_grant_ni
       title: Disabled Facilities Grant
-      description: <p>You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is.</p>
+      description: <p>You could get a grant to make changes to your home if you’re disabled or you live with someone who is.</p>
       condition: eligible_disabled_facilities_grant?
       url_text: Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website
       url: https://www.nihe.gov.uk/housing-help/grants/types-of-grants-available/disabled-facilities-grant
@@ -679,6 +663,52 @@
       title: Discretionary Assistance Fund
       description: <p>If you’re in financial hardship, you could get money as part of the Discretionary Assistance Fund. This can be used if you need support to live independently or for essential costs, such as food, utility bills or emergency travel.</p>
       url_text: Check if you’re eligible for the Discretionary Assistance Fund on the GOV.WALES website
-      url: https://www.gov.wales/discretionary-assistance-fund-daf/eligibility
+      url: https://www.gov.wales/discretionary-assistance-fund-daf
       countries:
         - wales
+    - name: carers_allowance_ni
+      title: Carer’s Allowance
+      description: <p>You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
+      condition: eligible_for_carers_allowance?
+      url: https://www.nidirect.gov.uk/articles/carers-allowance
+      url_text: Check if you’re eligible for Carer’s Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: attendance_allowance_ni
+      title: Attendance Allowance
+      description: |
+        <p>You may be able to get help with extra costs if you have a disability severe enough that you need someone to help look after you.</p>
+        <p>If you’re already getting Personal Independence Payment or Adult Disability Payment, you will continue to get this instead when you reach State Pension age.</p>
+      condition: eligible_for_attendance_allowance?
+      url: https://www.nidirect.gov.uk/articles/attendance-allowance
+      url_text: Check if you’re eligible for Attendance Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: disability_living_allowance_for_children_ni
+      title: Disability Living Allowance (DLA) for children
+      description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
+      condition: eligible_for_child_disability_support?
+      url: https://www.nidirect.gov.uk/articles/disability-living-allowance-children
+      url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children on the nidirect website
+      group: Help with childcare costs
+      countries:
+        - northern-ireland
+    - name: support_for_mortgage_interest_(smi)_ni
+      title: Support for Mortgage Interest (SMI)
+      description: <p>If you’re a homeowner, you might be able to get help towards interest payments on your mortgage or certain loans taken out on your home.</p>
+      condition: eligible_for_support_for_mortgage_interest?
+      url_text: Check if you’re eligible for Support for Mortgage Interest on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/support-mortgage-interest
+      countries:
+        - northern-ireland
+    - name: maternity_allowance_ni
+      title: Maternity Allowance
+      description: <p>You may be eligible to get Maternity Allowance for 39 weeks if you’re employed but cannot get Statutory Maternity Pay (SMP), or are registered self-employed. You may still qualify if you’ve recently stopped working.</p>
+      condition: eligible_for_maternity_allowance?
+      url_text: Check if you’re eligible for Maternity Allowance on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/maternity-allowance
+      countries:
+        - northern-ireland
+

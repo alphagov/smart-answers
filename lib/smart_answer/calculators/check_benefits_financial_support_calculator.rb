@@ -92,14 +92,7 @@ module SmartAnswer::Calculators
       general_child_benefit_eligibility?(skip_benefit_list, age_groups)
     end
 
-    def eligible_for_uniform_grant_northern_ireland?
-      skip_benefit_list = %w[housing_benefit]
-      age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
-
-      general_child_benefit_eligibility?(skip_benefit_list, age_groups)
-    end
-
-    def eligible_for_pupil_development_grant_wales?
+    def eligible_for_school_essentials_grant_wales?
       skip_benefit_list = %w[housing_benefit]
       age_groups = %w[3_to_4 5_to_7 8_to_11 12_to_15 16_to_17]
 
@@ -158,8 +151,6 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_housing_benefit?
-      return false if @over_state_pension_age == "no"
-
       @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
 
