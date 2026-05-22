@@ -12,7 +12,13 @@ module SmartAnswer
                     :uk_ft_circumstances,
                     :uk_all_circumstances,
                     :tuition_fee_amount,
-                    :loan_eligibility
+                    :loan_eligibility,
+                    :age,
+                    :studied_before,
+                    :attend_in_person,
+                    :disability_status,
+                    :specific_courses,
+                    :eligible_for_nhs_bursary
 
       LOAN_MAXIMUMS = {
         "2025-2026" => {
@@ -69,8 +75,17 @@ module SmartAnswer
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
 
       TUITION_FEE_MAXIMUM = {
-        "full-time" => 9_790,
-        "part-time" => 7_335,
+        "2025-2026" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2026-2027" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2027-2028" => {
+          "full-time" => 9_790,
+        },
       }.freeze
 
       LOAN_MINIMUMS = {
@@ -110,6 +125,12 @@ module SmartAnswer
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
         @uk_all_circumstances = params.fetch(:uk_all_circumstances, [])
         @loan_eligibility = params[:loan_eligibility]
+        @age = params[:age]
+        @studied_before = params[:studied_before]
+        @attend_in_person = params[:attend_in_person]
+        @disability_status = params[:disability_status]
+        @studied_before = params[:studied_before]
+        @eligible_for_nhs_bursary = params[:eligible_for_nhs_bursary]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -157,11 +178,11 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum_full_time
-        TUITION_FEE_MAXIMUM.fetch("full-time")
+        TUITION_FEE_MAXIMUM[@course_start]["full-time"]
       end
 
       def tuition_fee_maximum_part_time
-        TUITION_FEE_MAXIMUM.fetch("part-time")
+        TUITION_FEE_MAXIMUM[@course_start]["part-time"]
       end
 
       def maintenance_grant_amount
@@ -178,12 +199,23 @@ module SmartAnswer
         [year_matches[1].to_i, year_matches[2].to_i]
       end
 
+      def max_tuition_fee_amount
+        (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]["full-time"]
+      end
       def valid_tuition_fee_amount?
         tuition_fee_amount <= tuition_fee_maximum
       end
 
+      def valid_tuition_fee_amount_lle?
+        tuition_fee_amount <= max_tuition_fee_amount
+      end
+
       def valid_credit_amount?
         part_time_credits.positive?
+      end
+
+      def valid_credit_amount_lle?
+        part_time_credits >= 30 && part_time_credits <= 180
       end
 
       def valid_full_time_credit_amount?

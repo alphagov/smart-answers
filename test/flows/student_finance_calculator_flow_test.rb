@@ -85,16 +85,18 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     context "validation" do
       %w[tuition-and-maintenance tuition-only].each do |loan_type|
         should "be invalid for a fee greater than the maximum for a full-time student with a #{loan_type} loan" do
-          add_responses what_loans_are_you_eligible_for?: loan_type,
+          add_responses when_does_your_course_start?: "2025-2026",
+                        what_loans_are_you_eligible_for?: loan_type,
                         will_you_be_studying_full_or_part_time?: "full-time"
-          max_for_full_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["full-time"]
+          max_for_full_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["2025-2026"]["full-time"]
           assert_invalid_response (max_for_full_time + 1).to_s
         end
 
         should "be invalid for a fee greater than the maximum for a part-time student with a #{loan_type} loan" do
-          add_responses what_loans_are_you_eligible_for?: loan_type,
+          add_responses when_does_your_course_start?: "2025-2026",
+                        what_loans_are_you_eligible_for?: loan_type,
                         will_you_be_studying_full_or_part_time?: "part-time"
-          max_for_part_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["part-time"]
+          max_for_part_time = SmartAnswer::Calculators::StudentFinanceCalculator::TUITION_FEE_MAXIMUM["2025-2026"]["part-time"]
           assert_invalid_response (max_for_part_time + 1).to_s
         end
       end
