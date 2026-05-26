@@ -85,6 +85,7 @@ module SmartAnswer
         },
         "2027-2028" => {
           "full-time" => 9_790,
+          "part-time" => 7_335,
         },
       }.freeze
 
@@ -202,6 +203,7 @@ module SmartAnswer
       def max_tuition_fee_amount
         (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]["full-time"]
       end
+
       def valid_tuition_fee_amount?
         tuition_fee_amount <= tuition_fee_maximum
       end
