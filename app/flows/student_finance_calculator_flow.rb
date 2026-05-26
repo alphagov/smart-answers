@@ -76,7 +76,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :'at-home'
       option :'away-outside-london'
       option :'away-in-london'
-      option :'overseas'
+      option :overseas
 
       on_response do |response|
         calculator.residence = response
@@ -85,7 +85,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       next_node do
         case calculator.course_start
         when "2027-2028"
-          question :do_any_of_the_following_apply_uk_full_time_students_only?
+          if calculator.part_time_credits >= 120
+            question :do_any_of_the_following_apply_uk_full_time_students_only?
+          else
+            question :do_any_of_the_following_apply_all_uk_students?
+          end
+
         else
           question :whats_your_household_income?
         end
@@ -100,7 +105,13 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do
         if calculator.course_start == "2027-2028"
-          question :are_you_studying_one_of_these_courses?
+          case calculator.age
+          when "under-60"
+            question :are_you_studying_one_of_these_courses?
+          when "60-or-more"
+            outcome :outcome_60_or_more
+          end
+
         else
           case calculator.course_type
           when "full-time"
@@ -123,12 +134,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-          case calculator.course_type
-          when "full-time"
-            question :how_much_are_your_tuition_fees_per_year?
-          when "part-time"
-            question :how_many_credits_does_a_full_time_student_study?
-          end
+        case calculator.course_type
+        when "full-time"
+          question :how_much_are_your_tuition_fees_per_year?
+        when "part-time"
+          question :how_many_credits_does_a_full_time_student_study?
+        end
       end
     end
 
@@ -185,8 +196,25 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         calculator.uk_all_circumstances = response.split(",")
       end
 
-      next_node do
-        question :what_course_are_you_studying?
+      next_node do |response|
+        if calculator.course_start == "2027-2028"
+          case calculator.age
+          when "under-60"
+            if response.include?("care-leaver")
+              question :are_you_studying_one_of_these_courses?
+            else
+              question :whats_your_household_income?
+            end
+          when "60-or-more"
+            if response.include?("care-leaver")
+              outcome :outcome_care_leaver_60_or_more
+            else
+              question :whats_your_household_income?
+            end
+          end
+        else
+          question :what_course_are_you_studying?
+        end
       end
     end
 
@@ -278,8 +306,22 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "full-time"
           question :how_much_are_your_tuition_fees_course_or_module?
         when "part-time"
-          question :how_much_are_your_tuition_fees_course_or_module?
+          question :how_many_credits_fte_course_or_module?
         end
+      end
+    end
+
+    value_question :how_many_credits_fte_course_or_module?, parse: Float do
+      on_response do |response|
+        calculator.full_time_credits = response
+      end
+
+      validate do
+        calculator.valid_credit_amount_lle?
+      end
+
+      next_node do
+        question :how_much_are_your_tuition_fees_course_or_module?
       end
     end
 
@@ -293,7 +335,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :have_you_studied_before?
+        case calculator.age
+        when "under-60"
+          question :have_you_studied_before?
+        when "60-or-more"
+          question :will_you_attend_in_person?
+        end
       end
     end
 
@@ -319,10 +366,19 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if response == "yes"
-          question :where_will_you_live_while_studying?
-        elsif response == "no"
-          question :are_you_unable_to_be_in_person_disability?
+        case calculator.age
+        when "under-60"
+          if response == "yes"
+            question :where_will_you_live_while_studying?
+          elsif response == "no"
+            question :are_you_unable_to_be_in_person_disability?
+          end
+        when "60-or-more"
+          if response == "yes"
+            question :do_any_of_the_following_apply_all_uk_students?
+          elsif response == "no"
+            question :are_you_unable_to_be_in_person_disability?
+          end
         end
       end
     end
@@ -336,10 +392,19 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if response == "yes"
-          question :where_will_you_live_while_studying?
-        elsif response == "no"
-          question :do_any_of_the_following_apply_distance_learner?
+        case calculator.age
+        when "under-60"
+          if response == "yes"
+            question :where_will_you_live_while_studying?
+          elsif response == "no"
+            question :do_any_of_the_following_apply_distance_learner?
+          end
+        when "60-or-more"
+          if response == "yes"
+            question :do_any_of_the_following_apply_all_uk_students?
+          elsif response == "no"
+            question :do_any_of_the_following_apply_distance_learner?
+          end
         end
       end
     end
@@ -354,7 +419,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :are_you_studying_one_of_these_courses?
+        case calculator.age
+        when "under-60"
+          question :are_you_studying_one_of_these_courses?
+        when "60-or-more"
+          outcome :outcome_distance_learner_60_or_more
+        end
       end
     end
 
@@ -364,21 +434,29 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :"social-work"
       option :no
 
-
       on_response do |response|
         calculator.specific_courses = response
       end
 
       next_node do |response|
-        case response
-        when "dental-medicine-healthcare"
-          question :is_your_course_eligible_nhs_bursary?
-        when "teacher-training"
-          outcome :outcome_uk_full_time_students_teacher_training
-        when "social-work"
-          outcome :outcome_uk_full_time_students_social_work
-        when "no"
-          outcome :outcome_uk_full_time_students_full_time
+        if calculator.age == "60-or-more"
+          case response
+          when "dental-medicine-healthcare"
+            question :is_your_course_eligible_nhs_bursary?
+          else
+            question :how_are_you_planning_to_study?
+          end
+        elsif calculator.age == "under-60"
+          case response
+          when "dental-medicine-healthcare"
+            question :is_your_course_eligible_nhs_bursary?
+          when "teacher-training"
+            outcome :outcome_uk_full_time_students_teacher_training
+          when "social-work"
+            outcome :outcome_uk_full_time_students_social_work
+          when "no"
+            outcome :outcome_uk_full_time_students_full_time
+          end
         end
       end
     end
@@ -392,10 +470,14 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if response == "yes"
-          outcome :outcome_uk_full_time_students_nhs_bursary
-        elsif response == "no"
-          outcome :outcome_uk_full_time_students_nhs_nhs
+        if calculator.age == "60-or-more"
+          question :how_are_you_planning_to_study?
+        elsif calculator.age == "under-60"
+          if response == "yes"
+            outcome :outcome_uk_full_time_students_nhs_bursary
+          elsif response == "no"
+            outcome :outcome_uk_full_time_students_nhs_nhs
+          end
         end
       end
     end
@@ -409,5 +491,21 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     outcome :outcome_uk_full_time_dental_medical_students
 
     outcome :outcome_lifelong_learning_entitlement
+
+    outcome :outcome_uk_full_time_students_nhs_bursary
+
+    outcome :outcome_uk_full_time_students_nhs_nhs
+
+    outcome :outcome_uk_full_time_students_teacher_training
+
+    outcome :outcome_uk_full_time_students_social_work
+
+    outcome :outcome_uk_full_time_students_full_time
+
+    outcome :outcome_distance_learner_60_or_more
+
+    outcome :outcome_care_leaver_60_or_more
+
+    outcome :outcome_60_or_more
   end
 end
