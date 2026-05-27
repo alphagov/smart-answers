@@ -175,6 +175,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         case calculator.course_start
         when "2027-2028"
           if response.include?("care-leaver")
+            calculator.household_income = 0
             question :are_you_studying_one_of_these_courses?
           else
             question :whats_your_household_income?
@@ -201,12 +202,14 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           case calculator.age
           when "under-60"
             if response.include?("care-leaver")
+              calculator.household_income = 0
               question :are_you_studying_one_of_these_courses?
             else
               question :whats_your_household_income?
             end
           when "60-or-more"
             if response.include?("care-leaver")
+              calculator.household_income = 0
               outcome :outcome_care_leaver_60_or_more
             else
               question :whats_your_household_income?
@@ -430,32 +433,32 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     radio :are_you_studying_one_of_these_courses? do
       option :"teacher-training"
-      option :"dental-medicine-healthcare"
+      option :"dental-medical-healthcare"
       option :"social-work"
       option :no
 
       on_response do |response|
-        calculator.specific_courses = response
+        calculator.course_studied = response
       end
 
       next_node do |response|
         if calculator.age == "60-or-more"
           case response
-          when "dental-medicine-healthcare"
+          when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
           else
             question :how_are_you_planning_to_study?
           end
         elsif calculator.age == "under-60"
           case response
-          when "dental-medicine-healthcare"
+          when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
           when "teacher-training"
-            outcome :outcome_uk_full_time_students_teacher_training
+            outcome :outcome_under_60_students
           when "social-work"
-            outcome :outcome_uk_full_time_students_social_work
+            outcome :outcome_under_60_students
           when "no"
-            outcome :outcome_uk_full_time_students_full_time
+            outcome :outcome_under_60_students
           end
         end
       end
@@ -474,9 +477,9 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           question :how_are_you_planning_to_study?
         elsif calculator.age == "under-60"
           if response == "yes"
-            outcome :outcome_uk_full_time_students_nhs_bursary
+            outcome :outcome_under_60_students
           elsif response == "no"
-            outcome :outcome_uk_full_time_students_nhs_nhs
+            outcome :outcome_under_60_students
           end
         end
       end
@@ -506,6 +509,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_care_leaver_60_or_more
 
-    outcome :outcome_60_or_more
+    outcome :outcome_under_60_students
   end
 end

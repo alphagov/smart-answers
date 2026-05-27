@@ -1,0 +1,34 @@
+## Tuition Fee Loan
+
+You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](<%= tuition_fee_url %>) each year to help pay your course tuition fees.
+
+Depending on which course you’re studying and how much your course provider is charging, your Tuition Fee Loan may not be enough to cover the full cost of your course.
+
+<% if studied_before %>
+  If you’ve studied before, your loan might be less. Find out more about [how your entitlement is worked out](/student-finance-on-or-after-1-january-2027/eligibility).
+<% end %>
+
+<% if maintenance_loan_amount > 0 %>
+  ## Maintenance Loan
+
+  <% if uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver') %>
+    You can choose to borrow the maximum amount.
+
+    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan.
+
+  <% else %>
+    You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.
+
+    How your Maintenance Loan is calculated:
+
+    <%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)  
+    \- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
+    = <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
+
+    You can find out more about [how Maintenance Loans are calculated](/government/publications/student-finance-how-youre-assessed-and-paid).
+
+    You may get less Maintenance Loan in your final year.
+
+    If you need more money to fund your living costs and you qualify, you can apply for extra help.
+  <% end %>
+<% end %>

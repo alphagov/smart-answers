@@ -17,19 +17,24 @@ module SmartAnswer
                     :studied_before,
                     :attend_in_person,
                     :disability_status,
-                    :specific_courses,
                     :eligible_for_nhs_bursary
 
       LOAN_MAXIMUMS = {
         "2025-2026" => {
-          "at-home" => 8877,
+          "at-home" => 8_877,
           "away-outside-london" => 10_544,
           "away-in-london" => 13_762,
         },
         "2026-2027" => {
-          "at-home" => 9118,
+          "at-home" => 9_118,
           "away-outside-london" => 10_830,
           "away-in-london" => 14_135,
+        },
+        "2027-2028" => {
+          "at-home" => 9_118,
+          "away-outside-london" => 10_830,
+          "away-in-london" => 14_135,
+          "overseas" => 12_403,
         },
       }.freeze
 
@@ -55,6 +60,10 @@ module SmartAnswer
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
         },
+        "2027-2028" => {
+          "one-child" => 199.62,
+          "more-than-one-child" => 342.24,
+        }
       }.freeze
 
       CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 20_107.23
@@ -63,6 +72,7 @@ module SmartAnswer
       PARENTS_LEARNING_ALLOWANCE = {
         "2025-2026" => 2_024,
         "2026-2027" => 2_024,
+        "2027-2028" => 2_024,
       }.freeze
 
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_957.98
@@ -70,6 +80,7 @@ module SmartAnswer
       ADULT_DEPENDANT_ALLOWANCE = {
         "2025-2026" => 3_545,
         "2026-2027" => 3_545,
+        "2027-2028" => 3_545,
       }.freeze
 
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
@@ -100,6 +111,12 @@ module SmartAnswer
           "away-outside-london" => 5_048,
           "away-in-london" => 7_039,
         },
+        "2027-2028" => {
+          "at-home" => 4_013,
+          "away-outside-london" => 5_048,
+          "away-in-london" => 7_039,
+          "overseas" => 5_996,
+        }
       }.freeze
 
       INCOME_PENALTY_RATIO = {
@@ -113,6 +130,12 @@ module SmartAnswer
           "away-outside-london" => 6.47,
           "away-in-london" => 6.36,
         },
+        "2027-2028" => {
+          "at-home" => 6.54,
+          "away-outside-london" => 6.47,
+          "away-in-london" => 6.36,
+          "overseas" => 6.41,
+        }
       }.freeze
 
       def initialize(params = {})
@@ -130,7 +153,6 @@ module SmartAnswer
         @studied_before = params[:studied_before]
         @attend_in_person = params[:attend_in_person]
         @disability_status = params[:disability_status]
-        @studied_before = params[:studied_before]
         @eligible_for_nhs_bursary = params[:eligible_for_nhs_bursary]
       end
 
