@@ -158,8 +158,6 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_housing_benefit?
-      return false if @over_state_pension_age == "no"
-
       @on_benefits == "no" || permitted_benefits?(%w[housing_benefit])
     end
 
