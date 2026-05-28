@@ -847,7 +847,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       add_responses where_do_you_live: "northern-ireland"
 
       assert_rendered_outcome text: "NHS Help with health costs"
-      assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
+      assert_rendered_outcome text: "You may be able to get help with health service dental care, sight tests, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits."
     end
 
     should "render maternity allowance for eligible countries" do
