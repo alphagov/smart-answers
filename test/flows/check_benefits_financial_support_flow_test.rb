@@ -1076,14 +1076,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the mygov.scot website"
     end
 
-    should "render Apply for a disabled person's bus pass NI" do
+    should "render Apply for a disabled person's travel pass NI" do
       add_responses where_do_you_live: "northern-ireland",
                     disability_or_health_condition: "yes",
                     disability_affecting_daily_tasks: "no",
                     disability_affecting_work: "yes_unable_to_work"
 
-      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
-      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the nidirect website"
+      assert_rendered_outcome text: "Apply for a disabled person's travel pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s travel pass on the nidirect website"
     end
 
     should "render Support for Mortgage Interest (SMI)" do

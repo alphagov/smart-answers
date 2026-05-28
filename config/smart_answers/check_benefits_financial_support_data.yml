@@ -590,11 +590,11 @@
       url: https://www.mygov.scot/disabled-bus-pass
       countries:
         - scotland
-    - name: apply_for_a_disabled_persons_bus_pass_ni
-      title: Apply for a disabled person's bus pass
-      description: <p>You can get free or half-price travel on buses if you’re eligible.</p>
+    - name: apply_for_a_disabled_persons_travel_pass_ni
+      title: Apply for a disabled person's travel pass
+      description: <p>You can get free or half-price travel on public transport if you’re eligible.</p>
       condition: eligible_for_a_disabled_persons_bus_pass?
-      url_text: Find out how to apply for a disabled person’s bus pass on the nidirect website
+      url_text: Find out how to apply for a disabled person’s travel pass on the nidirect website
       url: https://www.nidirect.gov.uk/information-and-services/bus-and-coach-travel/free-bus-travel-and-concessions
       countries:
         - northern-ireland
