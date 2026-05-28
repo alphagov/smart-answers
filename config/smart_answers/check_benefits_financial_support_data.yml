@@ -559,11 +559,10 @@
       url: https://www.mygov.scot/older-persons-bus-pass
       countries:
         - scotland
-    - name: apply_for_an_older_persons_bus_pass_ni
-      title: Apply for an older person's bus pass
-      description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
-      condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
+    - name: apply_for_an_older_persons_travel_pass_ni
+      title: Apply for an older person's travel pass
+      description: <p>You can get a pass for free travel on public transport if you're aged 60 or over.</p>
+      url_text: Find out how to apply for an older person’s travel pass on the nidirect website
       url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
       countries:
         - northern-ireland

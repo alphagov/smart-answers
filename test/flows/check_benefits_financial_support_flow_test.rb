@@ -1042,8 +1042,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Apply for an older person's bus pass NI" do
       add_responses where_do_you_live: "northern-ireland"
 
-      assert_rendered_outcome text: "Apply for an older person's bus pass"
-      assert_rendered_outcome text: "You can get a bus pass for free travel if you are 60 or over."
+      assert_rendered_outcome text: "Apply for an older person's travel pass"
+      assert_rendered_outcome text: "You can get a pass for free travel on public transport if you're aged 60 or over."
     end
 
     should "render Apply for a disabled person's bus pass" do
