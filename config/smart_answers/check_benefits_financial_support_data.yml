@@ -550,7 +550,6 @@
     - name: apply_for_an_older_persons_bus_pass_scotland
       title: Apply for an older person's bus pass
       description: <p>You can get a bus pass for free travel if you are 60 or over.</p>
-      condition: eligible_for_an_older_persons_bus_pass?
       url_text: Find out how to apply for an older person’s bus pass on the mygov.scot website
       url: https://www.mygov.scot/older-persons-bus-pass
       countries:
