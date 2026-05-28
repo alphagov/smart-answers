@@ -939,7 +939,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     current_benefits: "universal_credit"
 
       assert_rendered_outcome text: "Free school meals"
-      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+      assert_rendered_outcome text: "All primary school children get free school meals automatically. If you’re on certain benefits your child may be able to get free secondary school meals. You’ll need to apply through your local council."
     end
 
     should "render Free school meals [NI]" do
