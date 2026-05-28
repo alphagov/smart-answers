@@ -632,13 +632,6 @@
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
-    - name: wales_fuel_support_scheme_payment
-      title: Wales fuel support scheme payment
-      description: <p>You may be able to claim a one-off payment to help pay your fuel costs if you or your partner get certain benefits. You'll need to apply through your local council.</p>
-      url_text: Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website
-      url: https://gov.wales/wales-fuel-support-scheme-2022-2023
-      countries:
-        - wales
     - name: help_to_save
       title: Help to Save
       description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>

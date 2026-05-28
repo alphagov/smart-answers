@@ -1115,13 +1115,6 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme"
     end
 
-    should "render Wales fuel support scheme payment" do
-      add_responses where_do_you_live: "wales"
-
-      assert_rendered_outcome text: "Wales fuel support scheme payment"
-      assert_rendered_outcome text: "Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website"
-    end
-
     should "render Eligible for help to save (on benefits)" do
       add_responses over_state_pension_age: "no",
                     current_benefits: "universal_credit"
