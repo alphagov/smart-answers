@@ -1171,7 +1171,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                       disability_affecting_work: "no",
                       assets_and_savings: asset
 
-        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "You could get a grant to make changes to your home if you’re disabled or you live with someone who is."
         assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
       end
     end
@@ -1181,7 +1181,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: "northern-ireland",
                       assets_and_savings: asset
 
-        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "You could get a grant to make changes to your home if you’re disabled or you live with someone who is."
         assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
       end
     end
