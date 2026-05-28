@@ -942,15 +942,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "All primary school children get free school meals automatically. If you’re on certain benefits your child may be able to get free secondary school meals. You’ll need to apply through your local council."
     end
 
-    should "render Free school meals [NI]" do
+    should "render Free school meals and uniform grants [NI]" do
       add_responses where_do_you_live: "northern-ireland",
                     children_living_with_you: "yes",
                     age_of_children: "3_to_4",
                     on_benefits: "yes",
                     current_benefits: "universal_credit"
 
-      assert_rendered_outcome text: "Free school meals"
-      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+      assert_rendered_outcome text: "Free school meals and uniform grants"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals and help with the cost of school uniforms."
     end
 
     should "render School Clothing Grant [Scotland]" do
@@ -961,17 +961,6 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     current_benefits: "universal_credit"
 
       assert_rendered_outcome text: "School Clothing Grant"
-      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
-    end
-
-    should "render Uniform Grant [NI]" do
-      add_responses where_do_you_live: "northern-ireland",
-                    children_living_with_you: "yes",
-                    age_of_children: "16_to_17",
-                    on_benefits: "yes",
-                    current_benefits: "universal_credit"
-
-      assert_rendered_outcome text: "Uniform Grant"
       assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
     end
 
