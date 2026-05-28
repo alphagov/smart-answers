@@ -253,7 +253,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
@@ -264,7 +263,6 @@
       countries:
         - england
         - wales
-        - northern-ireland
     - name: child_disability_payment_scotland
       title: Child Disability Payment
       description: <p>You can apply for Child Disability Payment if you’re responsible for a child under 16 who lives in Scotland.</p>
@@ -314,7 +312,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: council_tax_reduction
       title: Council Tax Reduction
       description: <p>You may be able to get Council Tax Reduction if you’re on a low income or claim benefits.</p>
@@ -412,7 +409,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: sure_start_maternity_grant
       title: Sure Start Maternity Grant
       description: <p>If you or your partner get certain benefits you could get a payment to help towards the costs of having a child. You must usually have no other children under 16.</p>
@@ -608,7 +604,6 @@
         - england
         - wales
         - scotland
-        - northern-ireland
     - name: warm_home_discount_scheme
       title: Warm Home Discount Scheme
       description: <p>You could get a discount on your electricity bill between October and March under the Warm Home Discount Scheme. You'll automatically get the discount if you get certain benefits. If you’re eligible, your electricity supplier will apply the discount to your bill.</p>
@@ -680,3 +675,48 @@
       url: https://www.gov.wales/discretionary-assistance-fund-daf
       countries:
         - wales
+    - name: carers_allowance_ni
+      title: Carer’s Allowance
+      description: <p>You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
+      condition: eligible_for_carers_allowance?
+      url: https://www.nidirect.gov.uk/articles/carers-allowance
+      url_text: Check if you’re eligible for Carer’s Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: attendance_allowance_ni
+      title: Attendance Allowance
+      description: |
+        <p>You may be able to get help with extra costs if you have a disability severe enough that you need someone to help look after you.</p>
+        <p>If you’re already getting Personal Independence Payment or Adult Disability Payment, you will continue to get this instead when you reach State Pension age.</p>
+      condition: eligible_for_attendance_allowance?
+      url: https://www.nidirect.gov.uk/articles/attendance-allowance
+      url_text: Check if you’re eligible for Attendance Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: disability_living_allowance_for_children_ni
+      title: Disability Living Allowance (DLA) for children
+      description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
+      condition: eligible_for_child_disability_support?
+      url: https://www.nidirect.gov.uk/articles/disability-living-allowance-children
+      url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children on the nidirect website
+      group: Help with childcare costs
+      countries:
+        - northern-ireland
+    - name: support_for_mortgage_interest_(smi)_ni
+      title: Support for Mortgage Interest (SMI)
+      description: <p>If you’re a homeowner, you might be able to get help towards interest payments on your mortgage or certain loans taken out on your home.</p>
+      condition: eligible_for_support_for_mortgage_interest?
+      url_text: Check if you’re eligible for Support for Mortgage Interest on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/support-mortgage-interest
+      countries:
+        - northern-ireland
+    - name: maternity_allowance_ni
+      title: Maternity Allowance
+      description: <p>You may be eligible to get Maternity Allowance for 39 weeks if you’re employed but cannot get Statutory Maternity Pay (SMP), or are registered self-employed. You may still qualify if you’ve recently stopped working.</p>
+      condition: eligible_for_maternity_allowance?
+      url_text: Check if you’re eligible for Maternity Allowance on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/maternity-allowance
+      countries:
+        - northern-ireland
