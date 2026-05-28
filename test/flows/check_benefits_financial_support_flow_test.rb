@@ -1018,13 +1018,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
     end
 
-    should "render Apply for an older person's bus pass" do
-      %w[england wales].each do |country|
-        add_responses where_do_you_live: country
+    should "render Apply for an older person's bus pass England" do
+      add_responses where_do_you_live: "england"
 
-        assert_rendered_outcome text: "Apply for an older person's bus pass"
-        assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
-      end
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel when you reach the State Pension age."
+    end
+
+    should "render Apply for an older person's bus pass Wales" do
+      add_responses where_do_you_live: "wales"
+
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel if you're aged 60 or over."
     end
 
     should "render Apply for an older person's bus pass Scotland" do

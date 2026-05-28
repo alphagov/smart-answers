@@ -536,14 +536,20 @@
       url: https://www.eani.org.uk/help-available/home-to-school-transport
       countries:
         - northern-ireland
-    - name: apply_for_an_older_persons_bus_pass
+    - name: apply_for_an_older_persons_bus_pass_england
       title: Apply for an older person's bus pass
-      description: <p>In England you can get a bus pass for free travel when you reach the State Pension age. In Wales you can get a pass at 60.</p>
+      description: <p>You can get a bus pass for free travel when you reach the State Pension age.</p>
       condition: eligible_for_an_older_persons_bus_pass?
-      url_text: Find out how to apply for an older person’s bus pass on the nidirect website
-      url: https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass
+      url_text: Find out how to apply for an older person’s bus pass
+      url: https://www.gov.uk/apply-for-elderly-person-bus-pass
       countries:
         - england
+    - name: apply_for_an_older_persons_bus_pass_wales
+      title: Apply for an older person's bus pass
+      description: <p>You can get a bus pass for free travel if you're aged 60 or over.</p>
+      url_text: Find out how to apply for an older person’s bus pass on the GOV.WALES website
+      url: https://www.gov.wales/apply-bus-pass
+      countries:
         - wales
     - name: apply_for_an_older_persons_bus_pass_scotland
       title: Apply for an older person's bus pass
