@@ -1,0 +1,15 @@
+<% govspeak_for :body do %>
+  <%= render partial: 'disclaimer_lle' %>
+
+  <% if calculator.uk_ft_circumstances.include?('has-disability') || calculator.uk_all_circumstances.include?('has-disability') %>
+    Because you are a distance learner, you are not eligible for a Special Support loan. Special Support loans are available if you are not able to attend your course in person due to having a disability.
+  <% else %>
+    Because you are a distance learner, you are not eligible for a Special Support loan.
+  <% end %>
+
+  <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
+
+  <%= render partial: 'uk_extra_help_lle', locals: { course_studied: calculator.course_studied, eligible_for_nhs_bursary: calculator.eligible_for_nhs_bursary == "yes" } %>
+
+  <%= render partial: 'next_steps_lle' %>
+<% end %>
