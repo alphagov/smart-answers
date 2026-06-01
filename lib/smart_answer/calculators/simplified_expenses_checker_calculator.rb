@@ -108,13 +108,13 @@ module SmartAnswer::Calculators
 
     def simple_vehicle_costs_car_van
       # Calculation:
-      # [user input 1-10,000] x 0.55
+      # [user input 1-10,000] x 0.45
       # [user input > 10,001]  x 0.25
       if business_miles_car_van.to_f <= 10_000
-        money(business_miles_car_van.to_f * 0.55)
+        money(business_miles_car_van.to_f * 0.45)
       else
         answer_over_amount = (business_miles_car_van.to_f - 10_000) * 0.25
-        money(5500.0 + answer_over_amount)
+        money(4500.0 + answer_over_amount)
       end
     end
 
