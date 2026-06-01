@@ -109,7 +109,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           when "under-60"
             question :are_you_studying_one_of_these_courses?
           when "60-or-more"
-            outcome :outcome_60_or_more
+            outcome :outcome_over_60_students
           end
 
         else
@@ -210,7 +210,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           when "60-or-more"
             if response.include?("care-leaver")
               calculator.household_income = 0
-              outcome :outcome_care_leaver_60_or_more
+              outcome :outcome_over_60_students
             else
               question :whats_your_household_income?
             end
@@ -324,7 +324,13 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        question :how_much_are_your_tuition_fees_course_or_module?
+        case calculator.age
+        when "under-60"
+          question :how_much_are_your_tuition_fees_course_or_module?
+        when "60-or-more"
+          question :will_you_attend_in_person?
+        end
+
       end
     end
 
@@ -428,7 +434,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "under-60"
           question :are_you_studying_one_of_these_courses?
         when "60-or-more"
-          outcome :outcome_distance_learner_60_or_more
+          outcome :outcome_over_60_dsa_or_hep
         end
       end
     end
@@ -510,5 +516,9 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     outcome :outcome_under_60_students
 
     outcome :outcome_under_60_distance_learner
+
+    outcome :outcome_over_60_students
+
+    outcome :outcome_over_60_dsa_or_hep
   end
 end

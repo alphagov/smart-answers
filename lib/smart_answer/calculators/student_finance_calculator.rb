@@ -144,6 +144,17 @@ module SmartAnswer
         },
       }.freeze
 
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = {
+        "2027-2028" => {
+          "at-home" => 4_088,
+          "away-outside-london" => 4_370,
+          "away-in-london" => 4_179,
+          "overseas" => 4_265,
+        },
+      }
+
+      INCOME_PENALTY_RATIO_OVER_60 = 4.16
+
       def initialize(params = {})
         @course_start = params[:course_start]
         @household_income = params[:household_income]
@@ -264,10 +275,24 @@ module SmartAnswer
         LOAN_MAXIMUMS[@course_start][@residence]
       end
 
+      def ssl_loan_amount
+        SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60[@course_start][@residence]
+      end
+
+      def adjusted_ssl_loan_amount
+        SmartAnswer::Money.new(ssl_loan_amount - ssl_reduction_based_on_income.to_f)
+      end
+
     private
 
       def min_loan_amount
         LOAN_MINIMUMS[@course_start][@residence]
+      end
+
+      def ssl_reduction_based_on_income
+        return 0 if @household_income <= 25_000
+
+        ((@household_income - 25_000) / INCOME_PENALTY_RATIO_OVER_60).floor
       end
 
       def reduction_based_on_income
