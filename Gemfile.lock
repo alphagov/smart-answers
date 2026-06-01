@@ -750,7 +750,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.4.5
+  ruby 4.0.3
 
 BUNDLED WITH
-   2.7.2
+  4.0.12
