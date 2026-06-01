@@ -39,9 +39,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_next_node :you_cant_use_result, for_response: "no_expense"
       end
 
-      should "have a next node of buying_new_vehicle? for any response, if respondent previously said they had a business vehicle" do
+      should "have a next node of which_tax_year? for any response, if respondent previously said they had a business vehicle" do
         add_responses vehicle_expense?: "car"
-        assert_next_node :buying_new_vehicle?, for_response: "using_home_for_business"
+        assert_next_node :which_tax_year?, for_response: "using_home_for_business"
       end
 
       should "have a next node of hours_work_home? if respondent has no vehicle and selected the using home for business expense" do
@@ -54,11 +54,32 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end
 
+  context "question: which tax year?" do
+    setup do
+      testing_node :which_tax_year?
+      add_responses vehicle_expense?: "car",
+                    home_or_business_premises_expense?: "no_expense"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      %w[2022-2023 2023-2024 2024-2025 2025-2026 2026-2027].each do |tax_year|
+        should "have a next node of buying new vehicle? for #{tax_year} tax year" do
+          assert_next_node :buying_new_vehicle?, for_response: tax_year
+        end
+      end
+    end
+  end
+
   context "question: buying new vehicle?" do
     setup do
       testing_node :buying_new_vehicle?
       add_responses vehicle_expense?: "car",
-                    home_or_business_premises_expense?: "using_home_for_business"
+                    home_or_business_premises_expense?: "using_home_for_business",
+                    which_tax_year?: "2026-2027"
     end
 
     should "render the question" do
@@ -81,6 +102,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :capital_allowances?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no"
     end
 
@@ -138,6 +160,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :car_status_before_usage?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no"
     end
@@ -158,6 +181,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :how_much_expect_to_claim?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new"
@@ -185,6 +209,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :is_vehicle_green?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -207,6 +232,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :price_of_vehicle?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -230,6 +256,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :vehicle_business_use_time?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -260,6 +287,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :drive_business_miles_car_van?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -297,6 +325,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :drive_business_miles_motorcycle?
       add_responses vehicle_expense?: "motorcycle",
                     home_or_business_premises_expense?: "no_expense",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     how_much_expect_to_claim?: "5000",
@@ -332,6 +361,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :hours_work_home?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "using_home_for_business",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -366,6 +396,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :current_claim_amount_home?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "using_home_for_business",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -393,6 +424,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :deduct_from_premises?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "live_on_business_premises",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -419,6 +451,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :people_live_on_premises?
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "live_on_business_premises",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "no",
                     car_status_before_usage?: "new",
@@ -446,6 +479,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       testing_node :you_can_use_result
       add_responses vehicle_expense?: "car",
                     home_or_business_premises_expense?: "using_home_for_business",
+                    which_tax_year?: "2026-2027",
                     buying_new_vehicle?: "no",
                     capital_allowances?: "simplified_expenses",
                     hours_work_home?: "100",
