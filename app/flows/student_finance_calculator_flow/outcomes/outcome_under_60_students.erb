@@ -1,7 +1,7 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer_lle' %>
 
-  <%= render partial: 'tuition_maintenance_summary_lle', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances, studied_before: calculator.studied_before == "yes" } %>
+  <%= render partial: 'tuition_maintenance_summary_lle', locals: { tuition_fee_amount: calculator.tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, max_loan_amount: calculator.max_loan_amount, loan_shortfall: calculator.loan_shortfall, tuition_fee_url: "/student-finance/new-fulltime-students", maintenance_loan_url: "/student-finance/new-fulltime-students", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances, studied_before: calculator.studied_before == "yes", course_studied: calculator.course_studied, reduced_maintenance_loan_for_healthcare: calculator.reduced_maintenance_loan_for_healthcare } %>
 
   <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
 
