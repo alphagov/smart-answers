@@ -400,12 +400,14 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           if response == "yes"
             question :where_will_you_live_while_studying?
           elsif response == "no"
+            calculator.household_income = 0
             question :do_any_of_the_following_apply_distance_learner?
           end
         when "60-or-more"
           if response == "yes"
             question :do_any_of_the_following_apply_all_uk_students?
           elsif response == "no"
+            calculator.household_income = 0
             question :do_any_of_the_following_apply_distance_learner?
           end
         end
@@ -454,11 +456,11 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
           when "teacher-training"
-            outcome :outcome_under_60_students
+            outcome :outcome_under_60_distance_learner
           when "social-work"
-            outcome :outcome_under_60_students
+            outcome :outcome_under_60_distance_learner
           when "no"
-            outcome :outcome_under_60_students
+            outcome :outcome_under_60_distance_learner
           end
         end
       end
@@ -477,9 +479,19 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           question :how_are_you_planning_to_study?
         elsif calculator.age == "under-60"
           if response == "yes"
-            outcome :outcome_under_60_students
+            case calculator.attend_in_person
+            when "yes"
+              outcome :outcome_under_60_students
+            when "no"
+              outcome :outcome_under_60_distance_learner
+            end
           elsif response == "no"
-            outcome :outcome_under_60_students
+            case calculator.attend_in_person
+            when "yes"
+              outcome :outcome_under_60_students
+            when "no"
+              outcome :outcome_under_60_distance_learner
+            end
           end
         end
       end
@@ -495,20 +507,8 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_lifelong_learning_entitlement
 
-    outcome :outcome_uk_full_time_students_nhs_bursary
-
-    outcome :outcome_uk_full_time_students_nhs_nhs
-
-    outcome :outcome_uk_full_time_students_teacher_training
-
-    outcome :outcome_uk_full_time_students_social_work
-
-    outcome :outcome_uk_full_time_students_full_time
-
-    outcome :outcome_distance_learner_60_or_more
-
-    outcome :outcome_care_leaver_60_or_more
-
     outcome :outcome_under_60_students
+
+    outcome :outcome_under_60_distance_learner
   end
 end

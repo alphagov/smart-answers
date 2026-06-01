@@ -16,11 +16,11 @@
   <% extra_student_funding << "up to #{format_money(calculator.adult_dependant_allowance)} per year [Adult Dependant’s Grant](/adult-dependants-grant)" %>
 <% end %>
 
-<% if calculator.uk_ft_circumstances.include?('has-disability') %>
+<% if calculator.uk_ft_circumstances.include?('has-disability') || calculator.uk_all_circumstances.include?('has-disability') %>
   <% extra_student_funding << "[Disabled Students’ Allowance](/disabled-students-allowances-dsas)" %>
 <% end %>
 
-<% if calculator.uk_ft_circumstances.include?('low-income') %>
+<% if calculator.uk_ft_circumstances.include?('low-income') || calculator.uk_all_circumstances.include?('low-income') %>
   <% extra_student_funding << "[University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)" %>
 <% end %>
 
