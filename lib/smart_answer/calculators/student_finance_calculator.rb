@@ -49,6 +49,12 @@ module SmartAnswer
           "away-in-london" => 3_281,
           "away-outside-london" => 4_607,
         },
+        "2027-2028" => {
+          "at-home" => 2_461,
+          "away-in-london" => 3_281,
+          "away-outside-london" => 4_607,
+          "overseas" => 3_281,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS = {
@@ -63,7 +69,7 @@ module SmartAnswer
         "2027-2028" => {
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
-        }
+        },
       }.freeze
 
       CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 20_107.23
@@ -116,7 +122,7 @@ module SmartAnswer
           "away-outside-london" => 5_048,
           "away-in-london" => 7_039,
           "overseas" => 5_996,
-        }
+        },
       }.freeze
 
       INCOME_PENALTY_RATIO = {
@@ -135,7 +141,7 @@ module SmartAnswer
           "away-outside-london" => 6.47,
           "away-in-london" => 6.36,
           "overseas" => 6.41,
-        }
+        },
       }.freeze
 
       def initialize(params = {})
