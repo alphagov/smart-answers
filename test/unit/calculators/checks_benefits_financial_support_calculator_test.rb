@@ -401,12 +401,6 @@ module SmartAnswer::Calculators
         end
 
         context "when ineligible" do
-          should "be false if UNDER state pension age" do
-            @calculator.over_state_pension_age = "no"
-            @calculator.on_benefits = "no"
-            assert_not @calculator.eligible_for_housing_benefit?
-          end
-
           should "be false if over state pension age but already claiming associated benefit" do
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"

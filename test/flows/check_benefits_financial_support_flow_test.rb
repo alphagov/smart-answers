@@ -847,7 +847,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       add_responses where_do_you_live: "northern-ireland"
 
       assert_rendered_outcome text: "NHS Help with health costs"
-      assert_rendered_outcome text: "You may be able to get help with prescriptions, dental care, healthcare travel and other health costs"
+      assert_rendered_outcome text: "You may be able to get help with health service dental care, sight tests, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits."
     end
 
     should "render maternity allowance for eligible countries" do
@@ -939,18 +939,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     current_benefits: "universal_credit"
 
       assert_rendered_outcome text: "Free school meals"
-      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+      assert_rendered_outcome text: "All primary school children get free school meals automatically. If you’re on certain benefits your child may be able to get free secondary school meals. You’ll need to apply through your local council."
     end
 
-    should "render Free school meals [NI]" do
+    should "render Free school meals and uniform grants [NI]" do
       add_responses where_do_you_live: "northern-ireland",
                     children_living_with_you: "yes",
                     age_of_children: "3_to_4",
                     on_benefits: "yes",
                     current_benefits: "universal_credit"
 
-      assert_rendered_outcome text: "Free school meals"
-      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals."
+      assert_rendered_outcome text: "Free school meals and uniform grants"
+      assert_rendered_outcome text: "If you’re on certain benefits your child may be able to get free school meals and help with the cost of school uniforms."
     end
 
     should "render School Clothing Grant [Scotland]" do
@@ -964,26 +964,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
     end
 
-    should "render Uniform Grant [NI]" do
-      add_responses where_do_you_live: "northern-ireland",
-                    children_living_with_you: "yes",
-                    age_of_children: "16_to_17",
-                    on_benefits: "yes",
-                    current_benefits: "universal_credit"
-
-      assert_rendered_outcome text: "Uniform Grant"
-      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
-    end
-
-    should "render Pupil Development Grant [Wales]" do
+    should "render School Essentials Grant [Wales]" do
       add_responses where_do_you_live: "wales",
                     children_living_with_you: "yes",
                     age_of_children: "16_to_17",
                     on_benefits: "yes",
                     current_benefits: "universal_credit"
 
-      assert_rendered_outcome text: "Pupil Development Grant"
-      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school uniforms."
+      assert_rendered_outcome text: "School Essentials Grant"
+      assert_rendered_outcome text: "If you’re on certain benefits you may be able to get help from your local council with the cost of school essentials, like uniforms or kit for activities."
     end
 
     should "render Home to school transport for eligible countries" do
@@ -1018,13 +1007,18 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
     end
 
-    should "render Apply for an older person's bus pass" do
-      %w[england wales].each do |country|
-        add_responses where_do_you_live: country
+    should "render Apply for an older person's bus pass England" do
+      add_responses where_do_you_live: "england"
 
-        assert_rendered_outcome text: "Apply for an older person's bus pass"
-        assert_rendered_outcome text: "In England you can get a bus pass for free travel when you reach the State Pension age"
-      end
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel when you reach the State Pension age."
+    end
+
+    should "render Apply for an older person's bus pass Wales" do
+      add_responses where_do_you_live: "wales"
+
+      assert_rendered_outcome text: "Apply for an older person's bus pass"
+      assert_rendered_outcome text: "You can get a bus pass for free travel if you're aged 60 or over."
     end
 
     should "render Apply for an older person's bus pass Scotland" do
@@ -1037,8 +1031,8 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     should "render Apply for an older person's bus pass NI" do
       add_responses where_do_you_live: "northern-ireland"
 
-      assert_rendered_outcome text: "Apply for an older person's bus pass"
-      assert_rendered_outcome text: "You can get a bus pass for free travel if you are 60 or over."
+      assert_rendered_outcome text: "Apply for an older person's travel pass"
+      assert_rendered_outcome text: "You can get a pass for free travel on public transport if you're aged 60 or over."
     end
 
     should "render Apply for a disabled person's bus pass" do
@@ -1071,14 +1065,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the mygov.scot website"
     end
 
-    should "render Apply for a disabled person's bus pass NI" do
+    should "render Apply for a disabled person's travel pass NI" do
       add_responses where_do_you_live: "northern-ireland",
                     disability_or_health_condition: "yes",
                     disability_affecting_daily_tasks: "no",
                     disability_affecting_work: "yes_unable_to_work"
 
-      assert_rendered_outcome text: "Apply for a disabled person's bus pass"
-      assert_rendered_outcome text: "Find out how to apply for a disabled person’s bus pass on the nidirect website"
+      assert_rendered_outcome text: "Apply for a disabled person's travel pass"
+      assert_rendered_outcome text: "Find out how to apply for a disabled person’s travel pass on the nidirect website"
     end
 
     should "render Support for Mortgage Interest (SMI)" do
@@ -1113,13 +1107,6 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Warm Home Discount Scheme"
       assert_rendered_outcome text: "Check if you’re eligible and whether you need to apply for the Warm Home Discount scheme"
-    end
-
-    should "render Wales fuel support scheme payment" do
-      add_responses where_do_you_live: "wales"
-
-      assert_rendered_outcome text: "Wales fuel support scheme payment"
-      assert_rendered_outcome text: "Check if you're eligible for a Wales fuel support scheme payment on the GOV.WALES website"
     end
 
     should "render Eligible for help to save (on benefits)" do
@@ -1173,7 +1160,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                       disability_affecting_work: "no",
                       assets_and_savings: asset
 
-        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "You could get a grant to make changes to your home if you’re disabled or you live with someone who is."
         assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
       end
     end
@@ -1183,7 +1170,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
         add_responses where_do_you_live: "northern-ireland",
                       assets_and_savings: asset
 
-        assert_rendered_outcome text: "You could get a grant from your local health and social services trust to make changes to your home if you’re disabled or you live with someone who is."
+        assert_rendered_outcome text: "You could get a grant to make changes to your home if you’re disabled or you live with someone who is."
         assert_rendered_outcome text: "Check if you’re eligible for a Disabled Facilities Grant on the NI Housing Executive website"
       end
     end
