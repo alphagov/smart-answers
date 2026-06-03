@@ -601,4 +601,25 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  # Under 60 flow
+  context "question: how_are_you_planning_to_study?" do
+    setup do
+      testing_node :how_are_you_planning_to_study?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      %w[full-time part-time].each do |response|
+        should "have a next node of how_many_credits_will_you_study_course_module? for #{response} response" do
+          assert_next_node :how_many_credits_will_you_study_course_module?, for_response: response
+        end
+      end
+    end
+  end
 end
