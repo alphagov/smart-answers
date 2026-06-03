@@ -174,7 +174,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       next_node do |response|
         case calculator.course_start
         when "2027-2028"
-          if response.include?("care-leaver")
+          if response.include?("care-leaver") && !response.include?("children-under-17") && !response.include?("dependant-adult")
             calculator.household_income = 0
             question :are_you_studying_one_of_these_courses?
           else
