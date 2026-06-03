@@ -43,7 +43,9 @@ Student loans have to be paid back - grants, bursaries and allowances do not.
   <%  end  %>
 <%  end %>
 
-<% unless calculator.uk_ft_circumstances.include?('low-income') || calculator.uk_all_circumstances.include?('low-income') %>
+<% if calculator.uk_ft_circumstances.include?('low-income') || calculator.uk_all_circumstances.include?('low-income') %>
+  You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
+<% else %>
   You could get a [bursary, scholarship or financial hardship funding](/extra-money-pay-university) from your university or college.
 <% end %>
 
