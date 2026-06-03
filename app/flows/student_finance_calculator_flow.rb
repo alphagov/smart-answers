@@ -330,7 +330,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "60-or-more"
           question :will_you_attend_in_person?
         end
-
       end
     end
 
@@ -462,11 +461,11 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
           when "teacher-training"
-            outcome :outcome_under_60_distance_learner
+            outcome :outcome_under_60_students
           when "social-work"
-            outcome :outcome_under_60_distance_learner
+            outcome :outcome_under_60_students
           when "no"
-            outcome :outcome_under_60_distance_learner
+            outcome :outcome_under_60_students
           end
         end
       end
