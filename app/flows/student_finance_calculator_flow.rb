@@ -511,8 +511,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_uk_full_time_dental_medical_students
 
-    outcome :outcome_lifelong_learning_entitlement
-
     outcome :outcome_under_60_students
 
     outcome :outcome_under_60_distance_learner
