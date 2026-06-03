@@ -460,12 +460,13 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           case response
           when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
-          when "teacher-training"
-            outcome :outcome_under_60_students
-          when "social-work"
-            outcome :outcome_under_60_students
-          when "no"
-            outcome :outcome_under_60_students
+          else
+            case calculator.attend_in_person
+            when "yes"
+              outcome :outcome_under_60_students
+            when "no"
+              outcome :outcome_under_60_distance_learner
+            end
           end
         end
       end
