@@ -144,14 +144,7 @@ module SmartAnswer
         },
       }.freeze
 
-      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = {
-        "2027-2028" => {
-          "at-home" => 4_088,
-          "away-outside-london" => 4_370,
-          "away-in-london" => 4_179,
-          "overseas" => 4_265,
-        },
-      }.freeze
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = 4_582
 
       INCOME_PENALTY_RATIO_OVER_60 = 4.16
 
@@ -276,7 +269,7 @@ module SmartAnswer
       end
 
       def ssl_loan_amount
-        SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60[@course_start][@residence]
+        SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60
       end
 
       def adjusted_ssl_loan_amount
