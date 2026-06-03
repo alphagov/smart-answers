@@ -151,7 +151,7 @@ module SmartAnswer
           "away-in-london" => 4_179,
           "overseas" => 4_265,
         },
-      }
+      }.freeze
 
       INCOME_PENALTY_RATIO_OVER_60 = 4.16
 
