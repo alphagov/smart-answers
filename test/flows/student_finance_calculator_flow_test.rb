@@ -18,8 +18,20 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node of what_loans_are_you_eligible_for? for any response" do
-        assert_next_node :what_loans_are_you_eligible_for?, for_response: "2025-2026"
+      context "pre-LLE responses" do
+        should "have a next node of what_loans_are_you_eligible_for? for 2025-2026 response" do
+          assert_next_node :what_loans_are_you_eligible_for?, for_response: "2025-2026"
+        end
+
+        should "have a next node of what_loans_are_you_eligible_for? for 2026-2027 response" do
+          assert_next_node :what_loans_are_you_eligible_for?, for_response: "2026-2027"
+        end
+      end
+
+      context "post-LLE responses" do
+        should "have a next node of what_age_are_you_on_first_day_of_course? for 2027-2028 response" do
+          assert_next_node :what_age_are_you_on_first_day_of_course?, for_response: "2027-2028"
+        end
       end
     end
   end
