@@ -579,4 +579,26 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "If you need more money to fund your living costs and you qualify, you can apply for extra help."
     end
   end
+
+  # 2027-2028 Lifelong Learning Entitlement (LLE) journey
+  context "question: what_age_are_you_on_first_day_of_course?" do
+    setup do
+      testing_node :what_age_are_you_on_first_day_of_course?
+      add_responses when_does_your_course_start?: "2027-2028"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of how_are_you_planning_to_study? for under-60 response" do
+        assert_next_node :how_are_you_planning_to_study?, for_response: "under-60"
+      end
+
+      should "have a next node of are_you_studying_one_of_these_courses? for 60-or-more response" do
+        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "60-or-more"
+      end
+    end
+  end
 end
