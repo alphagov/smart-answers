@@ -2,9 +2,9 @@
   <%= render partial: 'disclaimer_lle' %>
 
   <% if calculator.uk_ft_circumstances.include?('care-leaver') || calculator.uk_all_circumstances.include?('care-leaver') %>
-    You could get a Special Support loan of <%= format_money(calculator.ssl_loan_amount, pounds_only: true) %>
+    You could get a Special Support loan of <%= format_money(calculator.ssl_loan_amount, pounds_only: true) %>.
   <% else %>
-    You could get a Special Support loan of <%= format_money(calculator.adjusted_ssl_loan_amount, pounds_only: true) %>
+    You could get a Special Support loan of <%= format_money(calculator.adjusted_ssl_loan_amount, pounds_only: true) %>.
   <% end %>
 
   <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
