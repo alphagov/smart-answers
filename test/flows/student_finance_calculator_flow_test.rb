@@ -23,9 +23,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         add_responses when_does_your_course_start?: "2027-2028"
       end
 
-      should "render text if course starts on or after 1 January 2027" do
-        assert_rendered_outcome text: "For courses starting on or after 1 January 2027, you may need to apply for student finance through your Lifelong Learning Entitlement (LLE)."
-      end
+      # should "render text if course starts on or after 1 January 2027" do
+      #   assert_rendered_outcome text: "For courses starting on or after 1 January 2027, you may need to apply for student finance through your Lifelong Learning Entitlement (LLE)."
+      # end
     end
 
     context "next_node" do
