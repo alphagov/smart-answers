@@ -694,4 +694,35 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: how_much_are_your_tuition_fees_course_or_module?" do
+    setup do
+      testing_node :how_much_are_your_tuition_fees_course_or_module?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "full-time",
+                    how_many_credits_will_you_study_course_module?: "120"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "validation" do
+      # The LLE maximum for 120 credits is (120 / 120) * 9790 = £9790
+      should "be invalid if above the LLE maximum for 120 credits" do
+        assert_invalid_response "9791"
+      end
+
+      should "be valid if not above the LLE maximum for 120 credits" do
+        assert_valid_response "9790"
+      end
+    end
+
+    context "next_node" do
+      should "have a next node of have_you_studied_before?" do
+        assert_next_node :have_you_studied_before?, for_response: "9790"
+      end
+    end
+  end
 end
