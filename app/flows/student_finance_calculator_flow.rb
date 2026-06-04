@@ -320,7 +320,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       validate do
-        calculator.valid_credit_amount_lle?
+        calculator.valid_full_time_credit_amount_lle?
       end
 
       next_node do
