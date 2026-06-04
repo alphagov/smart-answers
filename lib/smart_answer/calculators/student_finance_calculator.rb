@@ -256,6 +256,10 @@ module SmartAnswer
         full_time_credits.positive? && full_time_credits >= part_time_credits
       end
 
+      def valid_full_time_credit_amount_lle?
+        full_time_credits.positive? && full_time_credits >= part_time_credits && full_time_credits <= 180
+      end
+
       def ineligible_for_extra_grants?
         uk_all_circumstances.include?("no") && course_studied != "teacher-training" && course_studied != "social-work"
       end

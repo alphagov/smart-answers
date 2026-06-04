@@ -674,19 +674,19 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_question
         end
 
-        # context "validation" do
-        #   should "be invalid below part-time credits" do
-        #     assert_invalid_response "59"
-        #   end
+        context "validation" do
+          should "be invalid below part-time credits" do
+            assert_invalid_response "59"
+          end
 
-        #   should "be invalid above 180 credits" do
-        #     assert_invalid_response "181"
-        #   end
+          should "be invalid above 180 credits" do
+            assert_invalid_response "181"
+          end
 
-        #   should "be valid between part-time credits and 180 credits" do
-        #     assert_valid_response "100"
-        #   end
-        # end
+          should "be valid between part-time credits and 180 credits" do
+            assert_valid_response "100"
+          end
+        end
 
         context "next_node" do
           should "have a next node of how_much_are_your_tuition_fees_course_or_module?" do
