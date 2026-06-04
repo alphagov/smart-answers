@@ -939,4 +939,30 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: do_any_of_the_following_apply_distance_learner?" do
+    setup do
+      testing_node :do_any_of_the_following_apply_distance_learner?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "full-time",
+                    how_many_credits_will_you_study_course_module?: "120",
+                    how_much_are_your_tuition_fees_course_or_module?: "9790",
+                    have_you_studied_before?: "yes",
+                    will_you_attend_in_person?: "no",
+                    are_you_unable_to_be_in_person_disability?: "no"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      %w[has-disability low-income no].each do |response|
+        should "have a next node of are_you_studying_one_of_these_courses? for #{response} response" do
+          assert_next_node :are_you_studying_one_of_these_courses?, for_response: response
+        end
+      end
+    end
+  end
 end
