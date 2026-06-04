@@ -1040,6 +1040,125 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "outcome: outcome_under_60_students" do
+        setup do
+          testing_node :outcome_under_60_students
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "no",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "low-income",
+                        whats_your_household_income?: "25,000",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes"
+        end
+
+        should "render the Tuition Fee Loan summary" do
+          assert_rendered_outcome text: "Tuition Fee Loan"
+        end
+
+        should "render the Maintenance Loan summary" do
+          assert_rendered_outcome text: "How your Maintenance Loan is calculated"
+        end
+
+        should "not render the Maintenance Loan section when the calculated loan is zero" do
+          add_responses how_are_you_planning_to_study?: "part-time",
+                        how_many_credits_will_you_study_course_module?: "30",
+                        how_many_credits_fte_course_or_module?: "180",
+                        how_much_are_your_tuition_fees_course_or_module?: "2000",
+                        do_any_of_the_following_apply_all_uk_students?: "no",
+                        are_you_studying_one_of_these_courses?: "no"
+          assert_no_rendered_outcome text: "How your Maintenance Loan is calculated"
+        end
+
+        should "render NHS bursary signposting when the course is NHS-bursary eligible" do
+          assert_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "not render NHS bursary signposting when the course is not NHS-bursary eligible" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
+          assert_no_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "render the low-income (hardship funds) extra help" do
+          assert_rendered_outcome text: "University and college hardship funds"
+        end
+
+        should "not show grants or allowances the student is not eligible for" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        whats_your_household_income?: "60,000"
+          ["a week for a single child",
+           "Disabled Students",
+           "Learning Allowance",
+           "Adult Dependant",
+           "University and college hardship funds"].each do |text|
+            assert_no_rendered_outcome text:
+          end
+        end
+
+        should "render the care-leaver Maintenance Loan text for a care leaver" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+          assert_rendered_outcome text: "You can choose to borrow the maximum amount"
+        end
+
+        should "render the reduced healthcare Maintenance Loan for years 5 and 6 of a dental/medical course" do
+          assert_rendered_outcome text: "reduced Maintenance Loan"
+        end
+
+        should "render the standard (non-dental) Maintenance Loan final-year text" do
+          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
+          assert_rendered_outcome text: "You may get less Maintenance Loan in your final year"
+        end
+
+        should "render the studied-before Tuition Fee Loan note when the student has studied before" do
+          add_responses have_you_studied_before?: "yes"
+          assert_rendered_outcome text: "your loan might be less"
+        end
+
+        should "render Childcare Grant for one child for a low-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                        whats_your_household_income?: "15,000"
+          assert_rendered_outcome text: "a week for a single child"
+        end
+
+        should "render Childcare Grant for more than one child at a higher income" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                        whats_your_household_income?: "25,000"
+          assert_rendered_outcome text: "if you have 2 or more children"
+        end
+
+        should "render Parents' Learning Allowance for a low-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                        whats_your_household_income?: "18,000"
+          assert_rendered_outcome text: "Learning Allowance"
+        end
+
+        should "render Adult Dependant's Grant for a low-income student with an adult dependant" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult",
+                        whats_your_household_income?: "15,000"
+          assert_rendered_outcome text: "Adult Dependant"
+        end
+
+        should "render Disabled Students' Allowance when the student has a disability" do
+          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
+          assert_rendered_outcome text: "Disabled Students"
+        end
+
+        should "render teacher training funding signposting for a teacher training course" do
+          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
+          assert_rendered_outcome text: "funding for teacher training"
+        end
+
+        should "render Social Work Bursary signposting for a social work course" do
+          add_responses are_you_studying_one_of_these_courses?: "social-work"
+          assert_rendered_outcome text: "Social Work Bursary"
+        end
+      end
     end
   end
 end
