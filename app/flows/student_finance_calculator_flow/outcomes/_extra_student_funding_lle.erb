@@ -2,7 +2,7 @@
 
 Student loans have to be paid back - grants, bursaries and allowances do not.
 
-<% if calculator.eligible_for_nhs_bursary %>
+<% if calculator.eligible_for_nhs_bursary == "yes" %>
   You can apply for [NHS funding towards your fees and living costs](/nhs-bursaries).
   If you’re on a 4 year accelerated graduate course, you’ll have to apply for an NHS bursary from your second year.
 <% elsif calculator.course_studied == "teacher-training" %>
