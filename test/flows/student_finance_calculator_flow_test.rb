@@ -887,4 +887,29 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: whats_your_household_income?" do
+    setup do
+      testing_node :whats_your_household_income?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "full-time",
+                    how_many_credits_will_you_study_course_module?: "120",
+                    how_much_are_your_tuition_fees_course_or_module?: "9790",
+                    have_you_studied_before?: "yes",
+                    will_you_attend_in_person?: "yes",
+                    where_will_you_live_while_studying?: "at-home",
+                    do_any_of_the_following_apply_uk_full_time_students_only?: "no"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of are_you_studying_one_of_these_courses?" do
+        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "25000"
+      end
+    end
+  end
 end
