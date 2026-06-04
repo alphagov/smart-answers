@@ -580,462 +580,464 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
   end
 
-  # 2027-2028 Lifelong Learning Entitlement (LLE) journey
-  context "question: what_age_are_you_on_first_day_of_course?" do
-    setup do
-      testing_node :what_age_are_you_on_first_day_of_course?
-      add_responses when_does_your_course_start?: "2027-2028"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of how_are_you_planning_to_study? for under-60 response" do
-        assert_next_node :how_are_you_planning_to_study?, for_response: "under-60"
+  context "2027-2028 Lifelong Learning Entitlement (LLE) journey" do
+    context "question: what_age_are_you_on_first_day_of_course?" do
+      setup do
+        testing_node :what_age_are_you_on_first_day_of_course?
+        add_responses when_does_your_course_start?: "2027-2028"
       end
 
-      should "have a next node of are_you_studying_one_of_these_courses? for 60-or-more response" do
-        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "60-or-more"
+      should "render the question" do
+        assert_rendered_question
       end
-    end
-  end
 
-  # Under 60 flow
-  context "question: how_are_you_planning_to_study?" do
-    setup do
-      testing_node :how_are_you_planning_to_study?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60"
-    end
+      context "next_node" do
+        should "have a next node of how_are_you_planning_to_study? for under-60 response" do
+          assert_next_node :how_are_you_planning_to_study?, for_response: "under-60"
+        end
 
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      %w[full-time part-time].each do |response|
-        should "have a next node of how_many_credits_will_you_study_course_module? for #{response} response" do
-          assert_next_node :how_many_credits_will_you_study_course_module?, for_response: response
+        should "have a next node of are_you_studying_one_of_these_courses? for 60-or-more response" do
+          assert_next_node :are_you_studying_one_of_these_courses?, for_response: "60-or-more"
         end
       end
     end
-  end
 
-  context "question: how_many_credits_will_you_study_course_module?" do
-    setup do
-      testing_node :how_many_credits_will_you_study_course_module?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time"
-    end
+    context "when under 60" do
+      context "question: how_are_you_planning_to_study?" do
+        setup do
+          testing_node :how_are_you_planning_to_study?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60"
+        end
 
-    should "render the question" do
-      assert_rendered_question
-    end
+        should "render the question" do
+          assert_rendered_question
+        end
 
-    context "validation" do
-      should "be invalid below 30 credits" do
-        assert_invalid_response "29"
-      end
-
-      should "be invalid above 180 credits" do
-        assert_invalid_response "181"
-      end
-
-      should "be valid between 30 and 180 credits" do
-        assert_valid_response "100"
-      end
-    end
-
-    context "next_node" do
-      should "have a next node of how_much_are_your_tuition_fees_course_or_module? for a full-time student" do
-        assert_next_node :how_much_are_your_tuition_fees_course_or_module?, for_response: "120"
-      end
-
-      should "have a next node of how_many_credits_fte_course_or_module? for a part-time student" do
-        add_responses how_are_you_planning_to_study?: "part-time"
-        assert_next_node :how_many_credits_fte_course_or_module?, for_response: "60"
-      end
-    end
-  end
-
-  context "question: how_many_credits_fte_course_or_module?" do
-    setup do
-      testing_node :how_many_credits_fte_course_or_module?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "part-time",
-                    how_many_credits_will_you_study_course_module?: "60"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    # context "validation" do
-    #   should "be invalid below part-time credits" do
-    #     assert_invalid_response "59"
-    #   end
-
-    #   should "be invalid above 180 credits" do
-    #     assert_invalid_response "181"
-    #   end
-
-    #   should "be valid between part-time credits and 180 credits" do
-    #     assert_valid_response "100"
-    #   end
-    # end
-
-    context "next_node" do
-      should "have a next node of how_much_are_your_tuition_fees_course_or_module?" do
-        assert_next_node :how_much_are_your_tuition_fees_course_or_module?, for_response: "120"
-      end
-    end
-  end
-
-  context "question: how_much_are_your_tuition_fees_course_or_module?" do
-    setup do
-      testing_node :how_much_are_your_tuition_fees_course_or_module?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "validation" do
-      # The LLE maximum for 120 credits is (120 / 120) * 9790 = £9790
-      should "be invalid if above the LLE maximum for 120 credits" do
-        assert_invalid_response "9791"
-      end
-
-      should "be valid if not above the LLE maximum for 120 credits" do
-        assert_valid_response "9790"
-      end
-    end
-
-    context "next_node" do
-      should "have a next node of have_you_studied_before?" do
-        assert_next_node :have_you_studied_before?, for_response: "9790"
-      end
-    end
-  end
-
-  context "question: have_you_studied_before?" do
-    setup do
-      testing_node :have_you_studied_before?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of will_you_attend_in_person? for yes response" do
-        assert_next_node :will_you_attend_in_person?, for_response: "yes"
-      end
-
-      should "have a next node of will_you_attend_in_person? for no response" do
-        assert_next_node :will_you_attend_in_person?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: will_you_attend_in_person?" do
-    setup do
-      testing_node :will_you_attend_in_person?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of where_will_you_live_while_studying? for yes response" do
-        assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
-      end
-
-      should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
-        assert_next_node :are_you_unable_to_be_in_person_disability?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: are_you_unable_to_be_in_person_disability?" do
-    setup do
-      testing_node :are_you_unable_to_be_in_person_disability?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "no"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of where_will_you_live_while_studying? for yes response" do
-        assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
-      end
-
-      should "have a next node of do_any_of_the_following_apply_distance_learner? for no response" do
-        assert_next_node :do_any_of_the_following_apply_distance_learner?, for_response: "no"
-      end
-    end
-  end
-
-  context "question: where_will_you_live_while_studying?" do
-    setup do
-      testing_node :where_will_you_live_while_studying?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      context "full-time students" do
-        %w[at-home away-outside-london away-in-london overseas].each do |response|
-          should "have a next node of do_any_of_the_following_apply_uk_full_time_students_only? for #{response} response" do
-            assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: response
+        context "next_node" do
+          %w[full-time part-time].each do |response|
+            should "have a next node of how_many_credits_will_you_study_course_module? for #{response} response" do
+              assert_next_node :how_many_credits_will_you_study_course_module?, for_response: response
+            end
           end
         end
       end
 
-      context "part-time students" do
+      context "question: how_many_credits_will_you_study_course_module?" do
         setup do
-          add_responses how_are_you_planning_to_study?: "part-time",
+          testing_node :how_many_credits_will_you_study_course_module?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "validation" do
+          should "be invalid below 30 credits" do
+            assert_invalid_response "29"
+          end
+
+          should "be invalid above 180 credits" do
+            assert_invalid_response "181"
+          end
+
+          should "be valid between 30 and 180 credits" do
+            assert_valid_response "100"
+          end
+        end
+
+        context "next_node" do
+          should "have a next node of how_much_are_your_tuition_fees_course_or_module? for a full-time student" do
+            assert_next_node :how_much_are_your_tuition_fees_course_or_module?, for_response: "120"
+          end
+
+          should "have a next node of how_many_credits_fte_course_or_module? for a part-time student" do
+            add_responses how_are_you_planning_to_study?: "part-time"
+            assert_next_node :how_many_credits_fte_course_or_module?, for_response: "60"
+          end
+        end
+      end
+
+      context "question: how_many_credits_fte_course_or_module?" do
+        setup do
+          testing_node :how_many_credits_fte_course_or_module?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "part-time",
+                        how_many_credits_will_you_study_course_module?: "60"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        # context "validation" do
+        #   should "be invalid below part-time credits" do
+        #     assert_invalid_response "59"
+        #   end
+
+        #   should "be invalid above 180 credits" do
+        #     assert_invalid_response "181"
+        #   end
+
+        #   should "be valid between part-time credits and 180 credits" do
+        #     assert_valid_response "100"
+        #   end
+        # end
+
+        context "next_node" do
+          should "have a next node of how_much_are_your_tuition_fees_course_or_module?" do
+            assert_next_node :how_much_are_your_tuition_fees_course_or_module?, for_response: "120"
+          end
+        end
+      end
+
+      context "question: how_much_are_your_tuition_fees_course_or_module?" do
+        setup do
+          testing_node :how_much_are_your_tuition_fees_course_or_module?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "validation" do
+          # The LLE maximum for 120 credits is (120 / 120) * 9790 = £9790
+          should "be invalid if above the LLE maximum for 120 credits" do
+            assert_invalid_response "9791"
+          end
+
+          should "be valid if not above the LLE maximum for 120 credits" do
+            assert_valid_response "9790"
+          end
+        end
+
+        context "next_node" do
+          should "have a next node of have_you_studied_before?" do
+            assert_next_node :have_you_studied_before?, for_response: "9790"
+          end
+        end
+      end
+
+      context "question: have_you_studied_before?" do
+        setup do
+          testing_node :have_you_studied_before?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of will_you_attend_in_person? for yes response" do
+            assert_next_node :will_you_attend_in_person?, for_response: "yes"
+          end
+
+          should "have a next node of will_you_attend_in_person? for no response" do
+            assert_next_node :will_you_attend_in_person?, for_response: "no"
+          end
+        end
+      end
+
+      context "question: will_you_attend_in_person?" do
+        setup do
+          testing_node :will_you_attend_in_person?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of where_will_you_live_while_studying? for yes response" do
+            assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
+          end
+
+          should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
+            assert_next_node :are_you_unable_to_be_in_person_disability?, for_response: "no"
+          end
+        end
+      end
+
+      context "question: are_you_unable_to_be_in_person_disability?" do
+        setup do
+          testing_node :are_you_unable_to_be_in_person_disability?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "no"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of where_will_you_live_while_studying? for yes response" do
+            assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
+          end
+
+          should "have a next node of do_any_of_the_following_apply_distance_learner? for no response" do
+            assert_next_node :do_any_of_the_following_apply_distance_learner?, for_response: "no"
+          end
+        end
+      end
+
+      context "question: where_will_you_live_while_studying?" do
+        setup do
+          testing_node :where_will_you_live_while_studying?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          context "full-time students" do
+            %w[at-home away-outside-london away-in-london overseas].each do |response|
+              should "have a next node of do_any_of_the_following_apply_uk_full_time_students_only? for #{response} response" do
+                assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: response
+              end
+            end
+          end
+
+          context "part-time students" do
+            setup do
+              add_responses how_are_you_planning_to_study?: "part-time",
+                            how_many_credits_will_you_study_course_module?: "60",
+                            how_many_credits_fte_course_or_module?: "120",
+                            how_much_are_your_tuition_fees_course_or_module?: "4500"
+            end
+
+            %w[at-home away-outside-london away-in-london overseas].each do |response|
+              should "have a next node of do_any_of_the_following_apply_all_uk_students? for #{response} response" do
+                assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: response
+              end
+            end
+          end
+        end
+      end
+
+      context "question: do_any_of_the_following_apply_uk_full_time_students_only?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_uk_full_time_students_only?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[dependant-adult has-disability low-income no].each do |response|
+            should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
+              assert_next_node :whats_your_household_income?, for_response: response
+            end
+          end
+
+          should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
+            assert_next_node :are_you_studying_one_of_these_courses?, for_response: "care-leaver"
+          end
+
+          should "have a next node of whats_your_household_income? when a care leaver and has a dependant adult" do
+            assert_next_node :whats_your_household_income?, for_response: %w[care-leaver dependant-adult]
+          end
+
+          should "have a next node of whats_your_household_income? when a care leaver and has children under 17" do
+            assert_next_node :whats_your_household_income?, for_response: %w[care-leaver children-under-17]
+          end
+        end
+      end
+
+      context "question: do_any_of_the_following_apply_all_uk_students?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_all_uk_students?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "part-time",
                         how_many_credits_will_you_study_course_module?: "60",
                         how_many_credits_fte_course_or_module?: "120",
-                        how_much_are_your_tuition_fees_course_or_module?: "4500"
+                        how_much_are_your_tuition_fees_course_or_module?: "4500",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home"
         end
 
-        %w[at-home away-outside-london away-in-london overseas].each do |response|
-          should "have a next node of do_any_of_the_following_apply_all_uk_students? for #{response} response" do
-            assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: response
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[has-disability low-income no].each do |response|
+            should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
+              assert_next_node :whats_your_household_income?, for_response: response
+            end
+          end
+
+          should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
+            assert_next_node :are_you_studying_one_of_these_courses?, for_response: "care-leaver"
           end
         end
       end
-    end
-  end
 
-  context "question: do_any_of_the_following_apply_uk_full_time_students_only?" do
-    setup do
-      testing_node :do_any_of_the_following_apply_uk_full_time_students_only?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes",
-                    where_will_you_live_while_studying?: "at-home"
-    end
+      context "question: whats_your_household_income?" do
+        setup do
+          testing_node :whats_your_household_income?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "no"
+        end
 
-    should "render the question" do
-      assert_rendered_question
-    end
+        should "render the question" do
+          assert_rendered_question
+        end
 
-    context "next_node" do
-      %w[dependant-adult has-disability low-income no].each do |response|
-        should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
-          assert_next_node :whats_your_household_income?, for_response: response
+        context "next_node" do
+          should "have a next node of are_you_studying_one_of_these_courses?" do
+            assert_next_node :are_you_studying_one_of_these_courses?, for_response: "25000"
+          end
         end
       end
 
-      should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
-        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "care-leaver"
-      end
+      context "question: do_any_of_the_following_apply_distance_learner?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_distance_learner?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "no"
+        end
 
-      should "have a next node of whats_your_household_income? when a care leaver and has a dependant adult" do
-        assert_next_node :whats_your_household_income?, for_response: %w[care-leaver dependant-adult]
-      end
+        should "render the question" do
+          assert_rendered_question
+        end
 
-      should "have a next node of whats_your_household_income? when a care leaver and has children under 17" do
-        assert_next_node :whats_your_household_income?, for_response: %w[care-leaver children-under-17]
-      end
-    end
-  end
-
-  context "question: do_any_of_the_following_apply_all_uk_students?" do
-    setup do
-      testing_node :do_any_of_the_following_apply_all_uk_students?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "part-time",
-                    how_many_credits_will_you_study_course_module?: "60",
-                    how_many_credits_fte_course_or_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "4500",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes",
-                    where_will_you_live_while_studying?: "at-home"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      %w[has-disability low-income no].each do |response|
-        should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
-          assert_next_node :whats_your_household_income?, for_response: response
+        context "next_node" do
+          %w[has-disability low-income no].each do |response|
+            should "have a next node of are_you_studying_one_of_these_courses? for #{response} response" do
+              assert_next_node :are_you_studying_one_of_these_courses?, for_response: response
+            end
+          end
         end
       end
 
-      should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
-        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "care-leaver"
-      end
-    end
-  end
-
-  context "question: whats_your_household_income?" do
-    setup do
-      testing_node :whats_your_household_income?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes",
-                    where_will_you_live_while_studying?: "at-home",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "no"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of are_you_studying_one_of_these_courses?" do
-        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "25000"
-      end
-    end
-  end
-
-  context "question: do_any_of_the_following_apply_distance_learner?" do
-    setup do
-      testing_node :do_any_of_the_following_apply_distance_learner?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "no",
-                    are_you_unable_to_be_in_person_disability?: "no"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      %w[has-disability low-income no].each do |response|
-        should "have a next node of are_you_studying_one_of_these_courses? for #{response} response" do
-          assert_next_node :are_you_studying_one_of_these_courses?, for_response: response
-        end
-      end
-    end
-  end
-
-  context "question: are_you_studying_one_of_these_courses?" do
-    setup do
-      testing_node :are_you_studying_one_of_these_courses?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes",
-                    where_will_you_live_while_studying?: "at-home",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "no",
-                    whats_your_household_income?: "25000"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of is_your_course_eligible_nhs_bursary? for a dental-medical-healthcare response" do
-        assert_next_node :is_your_course_eligible_nhs_bursary?, for_response: "dental-medical-healthcare"
-      end
-
-      %w[teacher-training social-work no].each do |response|
-        should "have a next node of outcome_under_60_students for a #{response} response when attending in person" do
-          assert_next_node :outcome_under_60_students, for_response: response
+      context "question: are_you_studying_one_of_these_courses?" do
+        setup do
+          testing_node :are_you_studying_one_of_these_courses?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        whats_your_household_income?: "25000"
         end
 
-        should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
-          add_responses will_you_attend_in_person?: "no",
-                        are_you_unable_to_be_in_person_disability?: "yes",
-                        where_will_you_live_while_studying?: "at-home"
-          assert_next_node :outcome_under_60_distance_learner, for_response: response
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of is_your_course_eligible_nhs_bursary? for a dental-medical-healthcare response" do
+            assert_next_node :is_your_course_eligible_nhs_bursary?, for_response: "dental-medical-healthcare"
+          end
+
+          %w[teacher-training social-work no].each do |response|
+            should "have a next node of outcome_under_60_students for a #{response} response when attending in person" do
+              assert_next_node :outcome_under_60_students, for_response: response
+            end
+
+            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+              add_responses will_you_attend_in_person?: "no",
+                            are_you_unable_to_be_in_person_disability?: "yes",
+                            where_will_you_live_while_studying?: "at-home"
+              assert_next_node :outcome_under_60_distance_learner, for_response: response
+            end
+          end
         end
       end
-    end
-  end
 
-  context "question: is_your_course_eligible_nhs_bursary?" do
-    setup do
-      testing_node :is_your_course_eligible_nhs_bursary?
-      add_responses when_does_your_course_start?: "2027-2028",
-                    what_age_are_you_on_first_day_of_course?: "under-60",
-                    how_are_you_planning_to_study?: "full-time",
-                    how_many_credits_will_you_study_course_module?: "120",
-                    how_much_are_your_tuition_fees_course_or_module?: "9790",
-                    have_you_studied_before?: "yes",
-                    will_you_attend_in_person?: "yes",
-                    where_will_you_live_while_studying?: "at-home",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "no",
-                    whats_your_household_income?: "25000",
-                    are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      %w[yes no].each do |response|
-        should "have a next node of outcome_under_60_students for a #{response} response when attending in person" do
-          assert_next_node :outcome_under_60_students, for_response: response
+      context "question: is_your_course_eligible_nhs_bursary?" do
+        setup do
+          testing_node :is_your_course_eligible_nhs_bursary?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "9790",
+                        have_you_studied_before?: "yes",
+                        will_you_attend_in_person?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        whats_your_household_income?: "25000",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
         end
 
-        should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
-          add_responses will_you_attend_in_person?: "no",
-                        are_you_unable_to_be_in_person_disability?: "yes",
-                        where_will_you_live_while_studying?: "at-home"
-          assert_next_node :outcome_under_60_distance_learner, for_response: response
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[yes no].each do |response|
+            should "have a next node of outcome_under_60_students for a #{response} response when attending in person" do
+              assert_next_node :outcome_under_60_students, for_response: response
+            end
+
+            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+              add_responses will_you_attend_in_person?: "no",
+                            are_you_unable_to_be_in_person_disability?: "yes",
+                            where_will_you_live_while_studying?: "at-home"
+              assert_next_node :outcome_under_60_distance_learner, for_response: response
+            end
+          end
         end
       end
     end
