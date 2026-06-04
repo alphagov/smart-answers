@@ -660,4 +660,38 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: how_many_credits_fte_course_or_module?" do
+    setup do
+      testing_node :how_many_credits_fte_course_or_module?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "part-time",
+                    how_many_credits_will_you_study_course_module?: "60"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    # context "validation" do
+    #   should "be invalid below part-time credits" do
+    #     assert_invalid_response "59"
+    #   end
+
+    #   should "be invalid above 180 credits" do
+    #     assert_invalid_response "181"
+    #   end
+
+    #   should "be valid between part-time credits and 180 credits" do
+    #     assert_valid_response "100"
+    #   end
+    # end
+
+    context "next_node" do
+      should "have a next node of how_much_are_your_tuition_fees_course_or_module?" do
+        assert_next_node :how_much_are_your_tuition_fees_course_or_module?, for_response: "120"
+      end
+    end
+  end
 end
