@@ -1159,6 +1159,47 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_outcome text: "Social Work Bursary"
         end
       end
+
+      context "outcome: outcome_under_60_distance_learner" do
+        setup do
+          testing_node :outcome_under_60_distance_learner
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "under-60",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "4500",
+                        have_you_studied_before?: "no",
+                        will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "no",
+                        do_any_of_the_following_apply_distance_learner?: "no",
+                        are_you_studying_one_of_these_courses?: "no"
+        end
+
+        should "render the Tuition Fee Loan summary" do
+          assert_rendered_outcome text: "Tuition Fee Loan"
+        end
+
+        should "explain that a non-in-person student is not eligible for a Maintenance Loan" do
+          assert_rendered_outcome text: "Because you are not attending the course in person, you are not eligible for a Maintenance Loan"
+        end
+
+        should "not render the Maintenance Loan calculation breakdown" do
+          assert_no_rendered_outcome text: "How your Maintenance Loan is calculated"
+        end
+
+        should "not show the not-in-person message when unable to attend due to disability" do
+          add_responses are_you_unable_to_be_in_person_disability?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        whats_your_household_income?: "25,000"
+          assert_no_rendered_outcome text: "Because you are not attending the course in person"
+        end
+
+        should "render the low-income (hardship funds) extra help for a distance learner" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "low-income"
+          assert_rendered_outcome text: "University and college hardship funds"
+        end
+      end
     end
   end
 end
