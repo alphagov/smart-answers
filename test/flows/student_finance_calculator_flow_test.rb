@@ -776,4 +776,46 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: where_will_you_live_while_studying?" do
+    setup do
+      testing_node :where_will_you_live_while_studying?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "full-time",
+                    how_many_credits_will_you_study_course_module?: "120",
+                    how_much_are_your_tuition_fees_course_or_module?: "9790",
+                    have_you_studied_before?: "yes",
+                    will_you_attend_in_person?: "yes"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      context "full-time students" do
+        %w[at-home away-outside-london away-in-london overseas].each do |response|
+          should "have a next node of do_any_of_the_following_apply_uk_full_time_students_only? for #{response} response" do
+            assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: response
+          end
+        end
+      end
+
+      context "part-time students" do
+        setup do
+          add_responses how_are_you_planning_to_study?: "part-time",
+                        how_many_credits_will_you_study_course_module?: "60",
+                        how_many_credits_fte_course_or_module?: "120",
+                        how_much_are_your_tuition_fees_course_or_module?: "4500"
+        end
+
+        %w[at-home away-outside-london away-in-london overseas].each do |response|
+          should "have a next node of do_any_of_the_following_apply_all_uk_students? for #{response} response" do
+            assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: response
+          end
+        end
+      end
+    end
+  end
 end
