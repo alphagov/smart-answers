@@ -965,4 +965,43 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: are_you_studying_one_of_these_courses?" do
+    setup do
+      testing_node :are_you_studying_one_of_these_courses?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "full-time",
+                    how_many_credits_will_you_study_course_module?: "120",
+                    how_much_are_your_tuition_fees_course_or_module?: "9790",
+                    have_you_studied_before?: "yes",
+                    will_you_attend_in_person?: "yes",
+                    where_will_you_live_while_studying?: "at-home",
+                    do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                    whats_your_household_income?: "25000"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      should "have a next node of is_your_course_eligible_nhs_bursary? for a dental-medical-healthcare response" do
+        assert_next_node :is_your_course_eligible_nhs_bursary?, for_response: "dental-medical-healthcare"
+      end
+
+      %w[teacher-training social-work no].each do |response|
+        should "have a next node of outcome_under_60_students for a #{response} response when attending in person" do
+          assert_next_node :outcome_under_60_students, for_response: response
+        end
+
+        should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+          add_responses will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "yes",
+                        where_will_you_live_while_studying?: "at-home"
+          assert_next_node :outcome_under_60_distance_learner, for_response: response
+        end
+      end
+    end
+  end
 end
