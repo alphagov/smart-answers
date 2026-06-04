@@ -856,4 +856,35 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "question: do_any_of_the_following_apply_all_uk_students?" do
+    setup do
+      testing_node :do_any_of_the_following_apply_all_uk_students?
+      add_responses when_does_your_course_start?: "2027-2028",
+                    what_age_are_you_on_first_day_of_course?: "under-60",
+                    how_are_you_planning_to_study?: "part-time",
+                    how_many_credits_will_you_study_course_module?: "60",
+                    how_many_credits_fte_course_or_module?: "120",
+                    how_much_are_your_tuition_fees_course_or_module?: "4500",
+                    have_you_studied_before?: "yes",
+                    will_you_attend_in_person?: "yes",
+                    where_will_you_live_while_studying?: "at-home"
+    end
+
+    should "render the question" do
+      assert_rendered_question
+    end
+
+    context "next_node" do
+      %w[has-disability low-income no].each do |response|
+        should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
+          assert_next_node :whats_your_household_income?, for_response: response
+        end
+      end
+
+      should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
+        assert_next_node :are_you_studying_one_of_these_courses?, for_response: "care-leaver"
+      end
+    end
+  end
 end
