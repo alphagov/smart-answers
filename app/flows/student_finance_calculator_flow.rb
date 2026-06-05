@@ -438,7 +438,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "under-60"
           question :are_you_studying_one_of_these_courses?
         when "60-or-more"
-          outcome :outcome_over_60_dsa_or_hep
+          outcome :outcome_over_60_distance_learner
         end
       end
     end
@@ -522,6 +522,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_over_60_students
 
-    outcome :outcome_over_60_dsa_or_hep
+    outcome :outcome_over_60_distance_learner
   end
 end
