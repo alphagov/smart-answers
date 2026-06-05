@@ -1201,5 +1201,31 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "when over 60" do
+      context "question: are_you_studying_one_of_these_courses?" do
+        setup do
+          testing_node :are_you_studying_one_of_these_courses?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of is_your_course_eligible_nhs_bursary? for a dental-medical-healthcare response" do
+            assert_next_node :is_your_course_eligible_nhs_bursary?, for_response: "dental-medical-healthcare"
+          end
+
+          %w[teacher-training social-work no].each do |response|
+            should "have a next node of how_are_you_planning_to_study for a #{response} response" do
+              assert_next_node :how_are_you_planning_to_study?, for_response: response
+            end
+          end
+        end
+      end
+    end
   end
 end
