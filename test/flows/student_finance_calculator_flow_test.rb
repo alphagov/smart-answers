@@ -1543,6 +1543,75 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_outcome text: "Social Work Bursary"
         end
       end
+
+      context "outcome: outcome_over_60_distance_learner" do
+        setup do
+          testing_node :outcome_over_60_distance_learner
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "no",
+                        do_any_of_the_following_apply_distance_learner?: "no"
+        end
+
+        should "render not eligible for Special Support loan when distance learning" do
+          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan."
+        end
+
+        should "render not eligible for Special Support loan, with advice when distance learning and disabled" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
+          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan. Special Support loans are available if"
+        end
+
+        should "render NHS bursary signposting when the course is NHS-bursary eligible" do
+          assert_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "not render NHS bursary signposting when the course is not NHS-bursary eligible" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
+          assert_no_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "render the low-income (hardship funds) extra help" do
+          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university or college."
+        end
+
+        should "not show grants or allowances the student is not eligible for" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "no",
+                        whats_your_household_income?: "60,000"
+          ["a week for a single child",
+           "Disabled Students",
+           "Learning Allowance",
+           "Adult Dependant",
+           "University and college hardship funds"].each do |text|
+            assert_no_rendered_outcome text:
+          end
+        end
+
+        should "render Disabled Students' Allowance when the student has a disability" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
+          assert_rendered_outcome text: "Disabled Students"
+        end
+
+        should "render University and college hardship funds when the student has a low income" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "low-income"
+          assert_rendered_outcome text: "University and college hardship funds"
+        end
+
+        should "render teacher training funding signposting for a teacher training course" do
+          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
+          assert_rendered_outcome text: "funding for teacher training"
+        end
+
+        should "render Social Work Bursary signposting for a social work course" do
+          add_responses are_you_studying_one_of_these_courses?: "social-work"
+          assert_rendered_outcome text: "Social Work Bursary"
+        end
+      end
     end
   end
 end
