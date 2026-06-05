@@ -1345,6 +1345,32 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           end
         end
       end
+
+      context "question: will_you_attend_in_person?" do
+        setup do
+          testing_node :will_you_attend_in_person?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of do_any_of_the_following_apply_all_uk_students?? for yes response" do
+            assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: "yes"
+          end
+
+          should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
+            assert_next_node :are_you_unable_to_be_in_person_disability?, for_response: "no"
+          end
+        end
+      end
     end
   end
 end
