@@ -42,6 +42,24 @@ module SmartAnswer
           end
         end
 
+        should "raise an InvalidResponse exception when the hash represents a day too large" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 10_000, month: 2, year: 2015)
+          end
+        end
+
+        should "raise an InvalidResponse exception when the hash represents a month too large" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 1, month: 10_000, year: 2015)
+          end
+        end
+
+        should "raise an InvalidResponse exception when the hash represents a year too large" do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 1, month: 1, year: 10_000)
+          end
+        end
+
         context "and the day is missing" do
           should "raise an InvalidResponse exception" do
             assert_raises(InvalidResponse) do

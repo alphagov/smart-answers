@@ -49,7 +49,8 @@ module SmartAnswer
         date = case input
                when Hash, ActiveSupport::HashWithIndifferentAccess
                  input = input.symbolize_keys
-                 raise InvalidResponse unless input.values.all? { |value| value.blank? || value.to_i.positive? }
+
+                 raise InvalidResponse unless input.values.all? { |value| value.blank? || (value.to_i.positive? && value.to_i < 10_000) }
 
                  year_month_and_day = [
                    default_year || input[:year],
