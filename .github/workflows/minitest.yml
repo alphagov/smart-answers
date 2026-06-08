@@ -41,7 +41,7 @@ jobs:
           install-chromedriver: true
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.308.0
+        uses: ruby/setup-ruby@v1.310.0
         with:
           bundler-cache: true
 
