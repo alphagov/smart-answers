@@ -307,7 +307,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       next_node do
         case calculator.course_type
         when "full-time"
-          question :how_much_are_your_tuition_fees_course_or_module?
+          case calculator.age
+          when "under-60"
+            question :how_much_are_your_tuition_fees_course_or_module?
+          when "60-or-more"
+            question :will_you_attend_in_person?
+          end
         when "part-time"
           question :how_many_credits_fte_course_or_module?
         end
@@ -320,7 +325,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       validate do
-        calculator.valid_credit_amount_lle?
+        calculator.valid_full_time_credit_amount_lle?
       end
 
       next_node do
@@ -433,7 +438,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "under-60"
           question :are_you_studying_one_of_these_courses?
         when "60-or-more"
-          outcome :outcome_over_60_dsa_or_hep
+          outcome :outcome_over_60_distance_learner
         end
       end
     end
@@ -511,14 +516,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_uk_full_time_dental_medical_students
 
-    outcome :outcome_lifelong_learning_entitlement
-
     outcome :outcome_under_60_students
 
     outcome :outcome_under_60_distance_learner
 
     outcome :outcome_over_60_students
 
-    outcome :outcome_over_60_dsa_or_hep
+    outcome :outcome_over_60_distance_learner
   end
 end
