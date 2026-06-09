@@ -146,6 +146,8 @@ module SmartAnswer
 
       SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = 4_582
 
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM = 0
+
       INCOME_PENALTY_RATIO_OVER_60 = 4.16
 
       def initialize(params = {})
@@ -277,7 +279,8 @@ module SmartAnswer
       end
 
       def adjusted_ssl_loan_amount
-        SmartAnswer::Money.new((ssl_loan_amount - ssl_reduction_based_on_income.to_f) * loan_proportion)
+        reduced_amount = ssl_loan_amount - ssl_reduction_based_on_income
+        SmartAnswer::Money.new([reduced_amount, SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM].max * loan_proportion)
       end
 
     private

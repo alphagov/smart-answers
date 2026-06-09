@@ -1,7 +1,11 @@
 <% govspeak_for :body do %>
   <%= render partial: 'disclaimer_lle' %>
 
-  You could get a Special Support loan of <%= format_money(calculator.adjusted_ssl_loan_amount, pounds_only: true) %>. This is a loan to help with living costs.
+  <% if calculator.adjusted_ssl_loan_amount > 0 %>
+    You could get a Special Support loan of <%= format_money(calculator.adjusted_ssl_loan_amount, pounds_only: true) %>. This is a loan to help with living costs.
+  <% else %>
+    You are not eligible for any loans.
+  <% end %>
 
   <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
 
