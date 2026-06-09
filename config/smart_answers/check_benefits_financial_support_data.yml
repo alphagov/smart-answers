@@ -252,7 +252,16 @@
       countries:
         - england
         - wales
-        - scotland
+    - name: carer_support_payment
+      title: Carer Support Payment
+      description: <p>You may be able to get Carer Support Payment and other benefits if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
+      condition: eligible_for_carers_allowance?
+      url: https://www.mygov.scot/carer-support-payment
+      url_text: Check if you’re eligible for Carer Support Payment on the mygov.scot website
+      group: Supporting your income
+      countries:
+       - scotland
+
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
