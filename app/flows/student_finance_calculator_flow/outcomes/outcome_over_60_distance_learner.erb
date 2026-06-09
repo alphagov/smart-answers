@@ -1,11 +1,7 @@
 <% govspeak_for :body do %>
-  <%= render partial: 'disclaimer_lle' %>
+  Your result is an estimate. You’ll be told your exact amount, including any extra student funding, after your application is approved.
 
-  <% if calculator.uk_ft_circumstances.include?('has-disability') || calculator.uk_all_circumstances.include?('has-disability') %>
-    Because you are a distance learner, you are not eligible for a Special Support loan. Special Support loans are available if you are not able to attend your course in person due to having a disability.
-  <% else %>
-    Because you are a distance learner, you are not eligible for a Special Support loan.
-  <% end %>
+  You are not eligible for any loans.
 
   <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
 

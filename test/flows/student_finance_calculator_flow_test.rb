@@ -1558,13 +1558,13 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         do_any_of_the_following_apply_distance_learner?: "no"
         end
 
-        should "render not eligible for Special Support loan when distance learning" do
-          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan."
+        should "render not eligible for loans when distance learning" do
+          assert_rendered_outcome text: "You are not eligible for any loans."
         end
 
-        should "render not eligible for Special Support loan, with advice when distance learning and disabled" do
+        should "render not eligible for loans when distance learning and disabled" do
           add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
-          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan. Special Support loans are available if"
+          assert_rendered_outcome text: "You are not eligible for any loans."
         end
 
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
