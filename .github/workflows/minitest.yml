@@ -31,15 +31,6 @@ jobs:
           ref: ${{ inputs.publishingApiRef }}
           path: vendor/publishing-api
 
-      - name: Remove image-bundled Chrome
-        run: sudo apt-get purge google-chrome-stable
-
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@2e1d749697dd1612b833dba4a722266286fbefcd # v2.1.2
-        with:
-          chrome-version: 128
-          install-chromedriver: true
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.310.0
         with:
