@@ -134,12 +134,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        case calculator.course_type
-        when "full-time"
-          question :how_much_are_your_tuition_fees_per_year?
-        when "part-time"
-          question :how_many_credits_does_a_full_time_student_study?
-        end
+        question :how_many_credits_does_a_full_time_student_study?
       end
     end
 
@@ -264,7 +259,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    # Q2
     radio :what_age_are_you_on_first_day_of_course? do
       option :"under-60"
       option :"60-or-more"
