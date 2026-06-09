@@ -76,7 +76,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :'at-home'
       option :'away-outside-london'
       option :'away-in-london'
-      option :overseas
+      option :'living-overseas'
 
       on_response do |response|
         calculator.residence = response
