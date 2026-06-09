@@ -822,7 +822,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
         context "next_node" do
           context "full-time students" do
-            %w[at-home away-outside-london away-in-london overseas].each do |response|
+            %w[at-home away-outside-london away-in-london living-overseas].each do |response|
               should "have a next node of do_any_of_the_following_apply_uk_full_time_students_only? for #{response} response" do
                 assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: response
               end
@@ -837,7 +837,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                             how_much_are_your_tuition_fees_course_or_module?: "4500"
             end
 
-            %w[at-home away-outside-london away-in-london overseas].each do |response|
+            %w[at-home away-outside-london away-in-london living-overseas].each do |response|
               should "have a next node of do_any_of_the_following_apply_all_uk_students? for #{response} response" do
                 assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: response
               end
