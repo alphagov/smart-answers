@@ -1491,11 +1491,16 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_many_credits_will_you_study_course_module?: "120",
                         will_you_attend_in_person?: "yes",
                         do_any_of_the_following_apply_all_uk_students?: "no",
-                        whats_your_household_income?: "50,000"
+                        whats_your_household_income?: "27,000"
         end
 
         should "render Special Support loan when the course is in person" do
           assert_rendered_outcome text: "You could get a Special Support loan of "
+        end
+
+        should "render Special Support loan when the course is in person and the student makes over 50_000" do
+          add_responses whats_your_household_income?: "50,000"
+          assert_rendered_outcome text: "You are not eligible for any loans."
         end
 
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
