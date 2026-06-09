@@ -307,7 +307,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       next_node do
         case calculator.course_type
         when "full-time"
-          question :how_much_are_your_tuition_fees_course_or_module?
+          case calculator.age
+          when "under-60"
+            question :how_much_are_your_tuition_fees_course_or_module?
+          when "60-or-more"
+            question :will_you_attend_in_person?
+          end
         when "part-time"
           question :how_many_credits_fte_course_or_module?
         end
@@ -433,7 +438,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         when "under-60"
           question :are_you_studying_one_of_these_courses?
         when "60-or-more"
-          outcome :outcome_over_60_dsa_or_hep
+          outcome :outcome_over_60_distance_learner
         end
       end
     end
@@ -517,6 +522,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     outcome :outcome_over_60_students
 
-    outcome :outcome_over_60_dsa_or_hep
+    outcome :outcome_over_60_distance_learner
   end
 end

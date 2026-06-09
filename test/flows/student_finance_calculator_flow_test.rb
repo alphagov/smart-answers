@@ -1201,5 +1201,417 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "when over 60" do
+      context "question: are_you_studying_one_of_these_courses?" do
+        setup do
+          testing_node :are_you_studying_one_of_these_courses?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of is_your_course_eligible_nhs_bursary? for a dental-medical-healthcare response" do
+            assert_next_node :is_your_course_eligible_nhs_bursary?, for_response: "dental-medical-healthcare"
+          end
+
+          %w[teacher-training social-work no].each do |response|
+            should "have a next node of how_are_you_planning_to_study for a #{response} response" do
+              assert_next_node :how_are_you_planning_to_study?, for_response: response
+            end
+          end
+        end
+      end
+
+      context "question: is_your_course_eligible_nhs_bursary?" do
+        setup do
+          testing_node :is_your_course_eligible_nhs_bursary?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[yes no].each do |response|
+            should "have a next node of how_are_you_planning_to_study for a #{response} response" do
+              assert_next_node :how_are_you_planning_to_study?, for_response: response
+            end
+          end
+        end
+      end
+
+      context "question: how_are_you_planning_to_study?" do
+        setup do
+          testing_node :how_are_you_planning_to_study?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[full-time part-time].each do |response|
+            should "have a next node of how_many_credits_will_you_study_course_module? for #{response} response" do
+              assert_next_node :how_many_credits_will_you_study_course_module?, for_response: response
+            end
+          end
+        end
+      end
+
+      context "question: how_many_credits_will_you_study_course_module?" do
+        setup do
+          testing_node :how_many_credits_will_you_study_course_module?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "validation" do
+          should "be invalid below 30 credits" do
+            assert_invalid_response "29"
+          end
+
+          should "be invalid above 180 credits" do
+            assert_invalid_response "181"
+          end
+
+          should "be valid between 30 and 180 credits" do
+            assert_valid_response "100"
+          end
+        end
+
+        context "next_node" do
+          should "have a next node of will_you_attend_in_person? for a full-time student" do
+            assert_next_node :will_you_attend_in_person?, for_response: "120"
+          end
+
+          should "have a next node of how_many_credits_fte_course_or_module? for a part-time student" do
+            add_responses how_are_you_planning_to_study?: "part-time"
+            assert_next_node :how_many_credits_fte_course_or_module?, for_response: "60"
+          end
+        end
+      end
+
+      context "question: how_many_credits_fte_course_or_module?" do
+        setup do
+          testing_node :how_many_credits_fte_course_or_module?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "part-time",
+                        how_many_credits_will_you_study_course_module?: "60"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "validation" do
+          should "be invalid below part-time credits" do
+            assert_invalid_response "59"
+          end
+
+          should "be invalid above 180 credits" do
+            assert_invalid_response "181"
+          end
+
+          should "be valid between part-time credits and 180 credits" do
+            assert_valid_response "100"
+          end
+        end
+
+        context "next_node" do
+          should "have a next node of will_you_attend_in_person?" do
+            assert_next_node :will_you_attend_in_person?, for_response: "120"
+          end
+        end
+      end
+
+      context "question: will_you_attend_in_person?" do
+        setup do
+          testing_node :will_you_attend_in_person?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of do_any_of_the_following_apply_all_uk_students?? for yes response" do
+            assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: "yes"
+          end
+
+          should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
+            assert_next_node :are_you_unable_to_be_in_person_disability?, for_response: "no"
+          end
+        end
+      end
+
+      context "question: are_you_unable_to_be_in_person_disability?" do
+        setup do
+          testing_node :are_you_unable_to_be_in_person_disability?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "no"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node of do_any_of_the_following_apply_all_uk_students?? for yes response" do
+            assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: "yes"
+          end
+
+          should "have a next node of do_any_of_the_following_apply_distance_learner? for no response" do
+            assert_next_node :do_any_of_the_following_apply_distance_learner?, for_response: "no"
+          end
+        end
+      end
+
+      context "question: do_any_of_the_following_apply_all_uk_students?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_all_uk_students?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "yes"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[has-disability low-income no].each do |response|
+            should "have a next node of whats_your_household_income? for anyone not a care leaver and #{response} response" do
+              assert_next_node :whats_your_household_income?, for_response: response
+            end
+          end
+        end
+
+        context "next_node" do
+          should "have a next node of outcome_over_60_students for care leaver" do
+            assert_next_node :outcome_over_60_students, for_response: "care-leaver"
+          end
+        end
+      end
+
+      context "question: do_any_of_the_following_apply_distance_learner?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_distance_learner?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "no"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[has-disability low-income no].each do |response|
+            should "have a next node of outcome_over_60_distance_learner? for #{response} response" do
+              assert_next_node :outcome_over_60_distance_learner, for_response: response
+            end
+          end
+        end
+      end
+
+      context "question: whats_your_household_income?," do
+        setup do
+          testing_node :whats_your_household_income?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "yes",
+                        do_any_of_the_following_apply_all_uk_students?: "has-disability"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          should "have a next node outcome_over_60_students?" do
+            assert_next_node :outcome_over_60_students, for_response: "50,000"
+          end
+        end
+      end
+
+      context "outcome: outcome_over_60_students" do
+        setup do
+          testing_node :outcome_over_60_students
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "yes",
+                        do_any_of_the_following_apply_all_uk_students?: "no",
+                        whats_your_household_income?: "50,000"
+        end
+
+        should "render Special Support loan when the course is in person" do
+          assert_rendered_outcome text: "You could get a Special Support loan of "
+        end
+
+        should "render NHS bursary signposting when the course is NHS-bursary eligible" do
+          assert_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "not render NHS bursary signposting when the course is not NHS-bursary eligible" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
+          assert_no_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "render the low-income (hardship funds) extra help" do
+          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university or college."
+        end
+
+        should "not show grants or allowances the student is not eligible for" do
+          add_responses do_any_of_the_following_apply_all_uk_students?: "no",
+                        whats_your_household_income?: "60,000"
+          ["a week for a single child",
+           "Disabled Students",
+           "Learning Allowance",
+           "Adult Dependant",
+           "University and college hardship funds"].each do |text|
+            assert_no_rendered_outcome text:
+          end
+        end
+
+        should "render Disabled Students' Allowance when the student has a disability" do
+          add_responses do_any_of_the_following_apply_all_uk_students?: "has-disability"
+          assert_rendered_outcome text: "Disabled Students"
+        end
+
+        should "render University and college hardship funds when the student has a low income" do
+          add_responses do_any_of_the_following_apply_all_uk_students?: "low-income"
+          assert_rendered_outcome text: "University and college hardship funds"
+        end
+
+        should "render teacher training funding signposting for a teacher training course" do
+          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
+          assert_rendered_outcome text: "funding for teacher training"
+        end
+
+        should "render Social Work Bursary signposting for a social work course" do
+          add_responses are_you_studying_one_of_these_courses?: "social-work"
+          assert_rendered_outcome text: "Social Work Bursary"
+        end
+      end
+
+      context "outcome: outcome_over_60_distance_learner" do
+        setup do
+          testing_node :outcome_over_60_distance_learner
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "no",
+                        are_you_unable_to_be_in_person_disability?: "no",
+                        do_any_of_the_following_apply_distance_learner?: "no"
+        end
+
+        should "render not eligible for Special Support loan when distance learning" do
+          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan."
+        end
+
+        should "render not eligible for Special Support loan, with advice when distance learning and disabled" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
+          assert_rendered_outcome text: "Because you are a distance learner, you are not eligible for a Special Support loan. Special Support loans are available if"
+        end
+
+        should "render NHS bursary signposting when the course is NHS-bursary eligible" do
+          assert_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "not render NHS bursary signposting when the course is not NHS-bursary eligible" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
+          assert_no_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "render the low-income (hardship funds) extra help" do
+          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university or college."
+        end
+
+        should "not show grants or allowances the student is not eligible for" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "no",
+                        whats_your_household_income?: "60,000"
+          ["a week for a single child",
+           "Disabled Students",
+           "Learning Allowance",
+           "Adult Dependant",
+           "University and college hardship funds"].each do |text|
+            assert_no_rendered_outcome text:
+          end
+        end
+
+        should "render Disabled Students' Allowance when the student has a disability" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
+          assert_rendered_outcome text: "Disabled Students"
+        end
+
+        should "render University and college hardship funds when the student has a low income" do
+          add_responses do_any_of_the_following_apply_distance_learner?: "low-income"
+          assert_rendered_outcome text: "University and college hardship funds"
+        end
+
+        should "render teacher training funding signposting for a teacher training course" do
+          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
+          assert_rendered_outcome text: "funding for teacher training"
+        end
+
+        should "render Social Work Bursary signposting for a social work course" do
+          add_responses are_you_studying_one_of_these_courses?: "social-work"
+          assert_rendered_outcome text: "Social Work Bursary"
+        end
+      end
+    end
   end
 end
