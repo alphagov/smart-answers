@@ -277,7 +277,7 @@ module SmartAnswer
       end
 
       def adjusted_ssl_loan_amount
-        SmartAnswer::Money.new(ssl_loan_amount - ssl_reduction_based_on_income.to_f)
+        SmartAnswer::Money.new((ssl_loan_amount - ssl_reduction_based_on_income.to_f) * loan_proportion)
       end
 
     private
