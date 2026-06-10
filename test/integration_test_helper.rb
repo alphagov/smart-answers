@@ -1,4 +1,5 @@
 require_relative "test_helper"
+require_relative "selenium_error_patch"
 require "capybara/rails"
 
 Capybara.server = :webrick
