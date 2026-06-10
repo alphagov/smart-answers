@@ -460,10 +460,9 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           when "dental-medical-healthcare"
             question :is_your_course_eligible_nhs_bursary?
           else
-            case calculator.attend_in_person
-            when "yes"
+            if calculator.attend_in_person == "yes" || calculator.disability_status == "yes"
               outcome :outcome_under_60_students
-            when "no"
+            elsif calculator.attend_in_person == "no"
               outcome :outcome_under_60_distance_learner
             end
           end
@@ -479,24 +478,14 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         calculator.eligible_for_nhs_bursary = response
       end
 
-      next_node do |response|
+      next_node do
         if calculator.age == "60-or-more"
           question :how_are_you_planning_to_study?
         elsif calculator.age == "under-60"
-          if response == "yes"
-            case calculator.attend_in_person
-            when "yes"
-              outcome :outcome_under_60_students
-            when "no"
-              outcome :outcome_under_60_distance_learner
-            end
-          elsif response == "no"
-            case calculator.attend_in_person
-            when "yes"
-              outcome :outcome_under_60_students
-            when "no"
-              outcome :outcome_under_60_distance_learner
-            end
+          if calculator.attend_in_person == "yes" || calculator.disability_status == "yes"
+            outcome :outcome_under_60_students
+          elsif calculator.attend_in_person == "no"
+            outcome :outcome_under_60_distance_learner
           end
         end
       end

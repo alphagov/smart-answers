@@ -995,10 +995,17 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               assert_next_node :outcome_under_60_students, for_response: response
             end
 
-            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+            should "have a next node of outcome_under_60_students for a #{response} response when not attending in person due to disability" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "yes",
                             where_will_you_live_while_studying?: "at-home"
+              assert_next_node :outcome_under_60_students, for_response: response
+            end
+
+            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+              add_responses will_you_attend_in_person?: "no",
+                            are_you_unable_to_be_in_person_disability?: "no",
+                            do_any_of_the_following_apply_distance_learner?: "no"
               assert_next_node :outcome_under_60_distance_learner, for_response: response
             end
           end
@@ -1031,10 +1038,18 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               assert_next_node :outcome_under_60_students, for_response: response
             end
 
-            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+            should "have a next node of outcome_under_60_students for a #{response} response when not attending in person due to disability" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "yes",
                             where_will_you_live_while_studying?: "at-home"
+              assert_next_node :outcome_under_60_students, for_response: response
+            end
+
+            should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
+              add_responses will_you_attend_in_person?: "no",
+                            are_you_unable_to_be_in_person_disability?: "no",
+                            do_any_of_the_following_apply_distance_learner?: "no",
+                            are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
               assert_next_node :outcome_under_60_distance_learner, for_response: response
             end
           end
@@ -1158,6 +1173,14 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           add_responses are_you_studying_one_of_these_courses?: "social-work"
           assert_rendered_outcome text: "Social Work Bursary"
         end
+
+        should "not show the not-in-person message when unable to attend due to disability" do
+          add_responses are_you_unable_to_be_in_person_disability?: "yes",
+                        where_will_you_live_while_studying?: "at-home",
+                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        whats_your_household_income?: "25,000"
+          assert_no_rendered_outcome text: "Because you are not attending the course in person"
+        end
       end
 
       context "outcome: outcome_under_60_distance_learner" do
@@ -1185,14 +1208,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
         should "not render the Maintenance Loan calculation breakdown" do
           assert_no_rendered_outcome text: "How your Maintenance Loan is calculated"
-        end
-
-        should "not show the not-in-person message when unable to attend due to disability" do
-          add_responses are_you_unable_to_be_in_person_disability?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
-                        whats_your_household_income?: "25,000"
-          assert_no_rendered_outcome text: "Because you are not attending the course in person"
         end
 
         should "render the low-income (hardship funds) extra help for a distance learner" do
