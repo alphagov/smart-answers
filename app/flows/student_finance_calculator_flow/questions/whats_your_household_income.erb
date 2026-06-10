@@ -3,10 +3,10 @@
 <% end %>
 
 <% text_for :hint do %>
-  <% if calculator.age == "under-60" %>
-    This is your parents’ or partner’s taxable income. It affects how much help you'll get with living costs.
+  <% if calculator.age == "60-or-more" %>
+    This is your partner’s taxable income  - your own income does not count.. It affects how much help you'll get with living costs.
   <% else %>
-    This is your partner’s taxable income. It affects how much help you'll get with living costs.
+    This is your parents’ or partner’s taxable income - your own income does not count. It affects how much help you'll get with living costs.
   <% end %>
 <% end %>
 
