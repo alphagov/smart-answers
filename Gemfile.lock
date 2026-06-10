@@ -196,7 +196,7 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (66.4.2)
+    govuk_publishing_components (66.5.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -479,7 +479,7 @@ GEM
       opentelemetry-common (~> 0.20)
       opentelemetry-registry (~> 0.2)
       opentelemetry-semantic_conventions
-    opentelemetry-semantic_conventions (1.39.0)
+    opentelemetry-semantic_conventions (1.40.0)
       opentelemetry-api (~> 1.0)
     ostruct (0.6.3)
     parallel (1.28.0)
@@ -636,10 +636,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    sentry-rails (6.6.0)
+    sentry-rails (6.6.2)
       railties (>= 5.2.0)
-      sentry-ruby (~> 6.6.0)
-    sentry-ruby (6.6.0)
+      sentry-ruby (~> 6.6.2)
+    sentry-ruby (6.6.2)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
