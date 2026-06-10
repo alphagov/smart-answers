@@ -235,6 +235,18 @@ module SmartAnswer::Calculators
       @carer_disability_or_health_condition == "yes"
     end
 
+    def eligible_for_pension_age_winter_heating_payment?
+      @over_state_pension_age == "yes"
+    end
+
+    def eligible_for_winter_heating_payment?
+      @on_benefits != "no"
+    end
+
+    def eligible_for_child_winter_heating_payment?
+      @children_with_disability == "yes"
+    end
+
     def eligible_for_personal_independence_payment?
       return true if @over_state_pension_age == "no" && @disability_or_health_condition == "yes"
 
