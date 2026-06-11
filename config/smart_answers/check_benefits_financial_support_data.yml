@@ -252,7 +252,43 @@
       countries:
         - england
         - wales
-        - scotland
+    - name: carer_support_payment
+      title: Carer Support Payment
+      description: <p>You may be able to get Carer Support Payment and other benefits if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
+      condition: eligible_for_carers_allowance?
+      url: https://www.mygov.scot/carer-support-payment
+      url_text: Check if you’re eligible for Carer Support Payment on the mygov.scot website
+      group: Supporting your income
+      countries:
+       - scotland
+
+    - name: pension_age_winter_heating_payment
+      title: Pension Age Winter Heating Payment
+      description: <p>You'll automatically get a Pension Age Winter Heating Payment if you’ve reached State Pension age. You should get a letter in October or November telling you how much you’ll get, if you’re eligible.</p><p class="govuk-body"><b><a class="govuk-link" href="https://www.mygov.scot/pension-age-winter-heating-payment">If you do not get a letter, check if you're eligible and whether you need to claim for a payment</a></b><p>If your taxable income is over £35,000, HMRC will take back your payment through the tax system.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.mygov.scot/pension-age-winter-heating-payment/opt-out-of-payment">opt out of getting the payment</a> if you do not want to receive it.</p>
+      condition: eligible_for_winter_heating_payment?
+      url: nil
+      url_text: ""
+      countries:
+       - scotland
+
+    - name: winter_heating_payment
+      title: Winter Heating Payment
+      description: <p>You should automatically get a Winter Heating Payment each year if you get certain benefits.</p>
+      condition: eligible_for_winter_heating?
+      url: https://www.mygov.scot/winter-heating-payment
+      url_text: Check if you’re eligible for Winter Heating Payment on the mygov.scot website
+      countries:
+       - scotland
+
+    - name: child_winter_heating_payment
+      title: Child Winter Heating Payment
+      description: <p>You should automatically get a Child Winter Heating Payment each year if you live with a child who gets certain disability benefits.</p>
+      condition: eligible_for_child_winter_heating?
+      url: https://www.mygov.scot/child-winter-heating-payment
+      url_text: Check if you’re eligible for Child Winter Heating Payment on the mygov.scot website
+      countries:
+       - scotland
+
     - name: disability_living_allowance_for_children
       title: Disability Living Allowance (DLA) for children
       description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
