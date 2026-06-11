@@ -9,12 +9,47 @@ updates:
       exclude:
         - govuk_*
 
+    groups:
+      test:
+        patterns:
+          - capybara*
+          - factory_bot*
+          - faker
+          - webmock
+          - timecop
+          - database_cleaner*
+          - shoulda*
+          - simplecov*
+          - rails-controller-testing
+          - minitest*
+          - mocha
+          - selenium-webdriver
+          - govuk_test
+          - rack-test
+          - xpath
+
+      lint:
+        patterns:
+          - rubocop*
+          - rubocop-govuk
+          - erb_lint
+          - better_html
+          - parser
+          - ast
+
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
     cooldown:
       default-days: 3
+
+    groups:
+      lint:
+        patterns:
+          - standardx
+          - stylelint*
+          - stylelint-config-gds
 
   - package-ecosystem: "github-actions"
     directory: "/"
