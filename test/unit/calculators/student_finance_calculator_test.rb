@@ -142,7 +142,7 @@ module SmartAnswer
       context "#tuition_fee_maximum" do
         setup do
           @calculator = StudentFinanceCalculator.new(
-            course_start: :unused_variable,
+            course_start: "2025-2026",
             household_income: 15_000,
             residence: :unused_variable,
           )
@@ -160,13 +160,14 @@ module SmartAnswer
       end
 
       context "maximum tuition fee" do
+        current_year = "2025-2026"
         should "be £9535 for a full time student" do
-          calculator = StudentFinanceCalculator.new
+          calculator = StudentFinanceCalculator.new(course_start: current_year)
           assert_equal 9790, calculator.tuition_fee_maximum_full_time
         end
 
         should "be £7145 for part time student" do
-          calculator = StudentFinanceCalculator.new
+          calculator = StudentFinanceCalculator.new(course_start: current_year)
           assert_equal 7335, calculator.tuition_fee_maximum_part_time
         end
       end

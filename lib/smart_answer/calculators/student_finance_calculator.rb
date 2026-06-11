@@ -12,18 +12,29 @@ module SmartAnswer
                     :uk_ft_circumstances,
                     :uk_all_circumstances,
                     :tuition_fee_amount,
-                    :loan_eligibility
+                    :loan_eligibility,
+                    :age,
+                    :studied_before,
+                    :attend_in_person,
+                    :disability_status,
+                    :eligible_for_nhs_bursary
 
       LOAN_MAXIMUMS = {
         "2025-2026" => {
-          "at-home" => 8877,
+          "at-home" => 8_877,
           "away-outside-london" => 10_544,
           "away-in-london" => 13_762,
         },
         "2026-2027" => {
-          "at-home" => 9118,
+          "at-home" => 9_118,
           "away-outside-london" => 10_830,
           "away-in-london" => 14_135,
+        },
+        "2027-2028" => {
+          "at-home" => 9_118,
+          "away-outside-london" => 10_830,
+          "away-in-london" => 14_135,
+          "overseas" => 12_403,
         },
       }.freeze
 
@@ -38,6 +49,12 @@ module SmartAnswer
           "away-in-london" => 3_281,
           "away-outside-london" => 4_607,
         },
+        "2027-2028" => {
+          "at-home" => 2_461,
+          "away-in-london" => 3_281,
+          "away-outside-london" => 4_607,
+          "overseas" => 3_281,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS = {
@@ -49,6 +66,10 @@ module SmartAnswer
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
         },
+        "2027-2028" => {
+          "one-child" => 199.62,
+          "more-than-one-child" => 342.24,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 20_107.23
@@ -57,6 +78,7 @@ module SmartAnswer
       PARENTS_LEARNING_ALLOWANCE = {
         "2025-2026" => 2_024,
         "2026-2027" => 2_024,
+        "2027-2028" => 2_024,
       }.freeze
 
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_957.98
@@ -64,13 +86,24 @@ module SmartAnswer
       ADULT_DEPENDANT_ALLOWANCE = {
         "2025-2026" => 3_545,
         "2026-2027" => 3_545,
+        "2027-2028" => 3_545,
       }.freeze
 
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
 
       TUITION_FEE_MAXIMUM = {
-        "full-time" => 9_790,
-        "part-time" => 7_335,
+        "2025-2026" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2026-2027" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2027-2028" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
       }.freeze
 
       LOAN_MINIMUMS = {
@@ -83,6 +116,12 @@ module SmartAnswer
           "at-home" => 4_013,
           "away-outside-london" => 5_048,
           "away-in-london" => 7_039,
+        },
+        "2027-2028" => {
+          "at-home" => 4_013,
+          "away-outside-london" => 5_048,
+          "away-in-london" => 7_039,
+          "overseas" => 5_996,
         },
       }.freeze
 
@@ -97,7 +136,19 @@ module SmartAnswer
           "away-outside-london" => 6.47,
           "away-in-london" => 6.36,
         },
+        "2027-2028" => {
+          "at-home" => 6.54,
+          "away-outside-london" => 6.47,
+          "away-in-london" => 6.36,
+          "overseas" => 6.41,
+        },
       }.freeze
+
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = 4_582
+
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM = 0
+
+      INCOME_PENALTY_RATIO_OVER_60 = 4.16
 
       def initialize(params = {})
         @course_start = params[:course_start]
@@ -110,6 +161,11 @@ module SmartAnswer
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
         @uk_all_circumstances = params.fetch(:uk_all_circumstances, [])
         @loan_eligibility = params[:loan_eligibility]
+        @age = params[:age]
+        @studied_before = params[:studied_before]
+        @attend_in_person = params[:attend_in_person]
+        @disability_status = params[:disability_status]
+        @eligible_for_nhs_bursary = params[:eligible_for_nhs_bursary]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -157,11 +213,11 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum_full_time
-        TUITION_FEE_MAXIMUM.fetch("full-time")
+        TUITION_FEE_MAXIMUM[@course_start]["full-time"]
       end
 
       def tuition_fee_maximum_part_time
-        TUITION_FEE_MAXIMUM.fetch("part-time")
+        TUITION_FEE_MAXIMUM[@course_start]["part-time"]
       end
 
       def maintenance_grant_amount
@@ -178,16 +234,32 @@ module SmartAnswer
         [year_matches[1].to_i, year_matches[2].to_i]
       end
 
+      def max_tuition_fee_amount
+        (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]["full-time"]
+      end
+
       def valid_tuition_fee_amount?
         tuition_fee_amount <= tuition_fee_maximum
+      end
+
+      def valid_tuition_fee_amount_lle?
+        tuition_fee_amount <= max_tuition_fee_amount
       end
 
       def valid_credit_amount?
         part_time_credits.positive?
       end
 
+      def valid_credit_amount_lle?
+        part_time_credits >= 30 && part_time_credits <= 180
+      end
+
       def valid_full_time_credit_amount?
         full_time_credits.positive? && full_time_credits >= part_time_credits
+      end
+
+      def valid_full_time_credit_amount_lle?
+        full_time_credits.positive? && full_time_credits >= part_time_credits && full_time_credits <= 180
       end
 
       def ineligible_for_extra_grants?
@@ -202,10 +274,25 @@ module SmartAnswer
         LOAN_MAXIMUMS[@course_start][@residence]
       end
 
+      def ssl_loan_amount
+        SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60
+      end
+
+      def adjusted_ssl_loan_amount
+        reduced_amount = ssl_loan_amount - ssl_reduction_based_on_income
+        SmartAnswer::Money.new([reduced_amount, SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM].max * loan_proportion)
+      end
+
     private
 
       def min_loan_amount
         LOAN_MINIMUMS[@course_start][@residence]
+      end
+
+      def ssl_reduction_based_on_income
+        return 0 if @household_income <= 25_000
+
+        ((@household_income - 25_000) / INCOME_PENALTY_RATIO_OVER_60).floor
       end
 
       def reduction_based_on_income
