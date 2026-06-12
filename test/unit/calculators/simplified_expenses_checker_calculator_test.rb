@@ -826,14 +826,84 @@ module SmartAnswer::Calculators
           @calculator = SimplifiedExpensesCheckerCalculator.new
         end
 
-        should "equal 45% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
-          @calculator.business_miles_car_van = 9999
-          assert_equal @calculator.simple_vehicle_costs_car_van, 4499.55
+        context "2026-2027" do
+          setup do
+            @calculator.tax_year = "2026-2027"
+          end
+
+          should "equal 55% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_000
+            assert_equal @calculator.simple_vehicle_costs_car_van, 5500
+          end
+
+          should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_001
+            assert_equal @calculator.simple_vehicle_costs_car_van, 5500.25
+          end
         end
 
-        should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
-          @calculator.business_miles_car_van = 10_001
-          assert_equal @calculator.simple_vehicle_costs_car_van, 4500.25
+        context "2025-2026" do
+          setup do
+            @calculator.tax_year = "2025-2026"
+          end
+
+          should "equal 45% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_000
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500
+          end
+
+          should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_001
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500.25
+          end
+        end
+
+        context "2024-2025" do
+          setup do
+            @calculator.tax_year = "2024-2025"
+          end
+
+          should "equal 45% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_000
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500
+          end
+
+          should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_001
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500.25
+          end
+        end
+
+        context "2023-2024" do
+          setup do
+            @calculator.tax_year = "2023-2024"
+          end
+
+          should "equal 45% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_000
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500
+          end
+
+          should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_001
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500.25
+          end
+        end
+
+        context "2022-2023" do
+          setup do
+            @calculator.tax_year = "2022-2023"
+          end
+
+          should "equal 45% of business_miles_car_van if business_miles_car_van is less than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_000
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500
+          end
+
+          should "equal 25% of business_miles_car_van  if business_miles_car_van is more than or equal to 10,000 miles" do
+            @calculator.business_miles_car_van = 10_001
+            assert_equal @calculator.simple_vehicle_costs_car_van, 4500.25
+          end
         end
       end
 

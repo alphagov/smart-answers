@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
                   :vehicle_emission,
                   :hours_worked_home,
                   :selected_allowance,
+                  :tax_year,
                   :new_or_used_vehicle,
                   :business_use_percent,
                   :business_miles_car_van,
@@ -16,6 +17,21 @@ module SmartAnswer::Calculators
                   :business_miles_motorcycle,
                   :hours_lived_on_business_premises
 
+    FLAT_RATE_UNDER_10_000 = {
+      "2026-2027" => 0.55,
+      "2025-2026" => 0.45,
+      "2024-2025" => 0.45,
+      "2023-2024" => 0.45,
+      "2022-2023" => 0.45,
+    }.freeze
+
+    FLAT_RATE_OVER_10_000 = {
+      "2026-2027" => 0.25,
+      "2025-2026" => 0.25,
+      "2024-2025" => 0.25,
+      "2023-2024" => 0.25,
+      "2022-2023" => 0.25,
+    }.freeze
     def list_of_expenses
       [type_of_vehicle, business_premises_expense] & selectable_expenses
     end
@@ -106,15 +122,27 @@ module SmartAnswer::Calculators
       money(business_miles_motorcycle.to_f * 0.24)
     end
 
+    def get_flat_rate_under_10_000
+      FLAT_RATE_UNDER_10_000.fetch(@tax_year)
+    end
+
+    def get_flat_rate_over_10_000
+      FLAT_RATE_OVER_10_000.fetch(@tax_year)
+    end
+
+    def value_at_10_000
+      FLAT_RATE_UNDER_10_000.fetch(@tax_year) * 10_000
+    end
+
     def simple_vehicle_costs_car_van
       # Calculation:
-      # [user input 1-10,000] x 0.45
+      # [user input 1-10,000] x either 0.45 or 0.55 depending on the year
       # [user input > 10,001]  x 0.25
       if business_miles_car_van.to_f <= 10_000
-        money(business_miles_car_van.to_f * 0.45)
+        money(business_miles_car_van.to_f * get_flat_rate_under_10_000)
       else
-        answer_over_amount = (business_miles_car_van.to_f - 10_000) * 0.25
-        money(4500.0 + answer_over_amount)
+        answer_over_amount = (business_miles_car_van.to_f - 10_000) * get_flat_rate_over_10_000
+        money(value_at_10_000 + answer_over_amount)
       end
     end
 
