@@ -25,13 +25,6 @@ class MaternityPaternityCalculatorFlow::PaternityCalculatorFlowTest < ActiveSupp
 
         assert_next_node :leave_or_pay_for_adoption?, for_response: "scotland"
       end
-
-      should "have a next node of leave_or_pay_for_adoption? for any response when employee is taking paternity adoption leave" do
-        add_responses what_type_of_leave?: "adoption",
-                      taking_paternity_or_maternity_leave_for_adoption?: "paternity"
-
-        assert_next_node :employee_date_matched_paternity_adoption?, for_response: "scotland"
-      end
     end
   end
 

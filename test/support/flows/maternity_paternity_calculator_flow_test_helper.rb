@@ -65,7 +65,6 @@ module MaternityPaternityCalculatorFlowTestHelper
     payday_eight_weeks = payday_eight_weeks ? Date.parse(payday_eight_weeks) : placement_date - 6.months
 
     responses = { what_type_of_leave?: "adoption",
-                  taking_paternity_or_maternity_leave_for_adoption?: "maternity",
                   adoption_is_from_overseas?: overseas ? "yes" : "no",
                   date_of_adoption_match?: match_date.to_s,
                   date_of_adoption_placement?: placement_date.to_s }

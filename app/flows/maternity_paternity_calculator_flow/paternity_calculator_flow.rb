@@ -15,12 +15,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         end
 
         next_node do
-          case leave_type
-          when "paternity"
-            question :leave_or_pay_for_adoption?
-          when "adoption"
-            question :employee_date_matched_paternity_adoption?
-          end
+          question :leave_or_pay_for_adoption?
         end
       end
 
