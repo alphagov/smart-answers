@@ -40,7 +40,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
           raise SmartAnswer::InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
 
           if calculator.vehicle?
-            question :buying_new_vehicle?
+            question :which_tax_year?
           elsif calculator.working_from_home?
             question :hours_work_home?
           elsif calculator.living_on_business_premises?
@@ -50,7 +50,24 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q3 - buying new vehicle?
+    # Q3 - which tax year?
+    radio :which_tax_year? do
+      option :'2026-2027'
+      option :'2025-2026'
+      option :'2024-2025'
+      option :'2023-2024'
+      option :'2022-2023'
+
+      on_response do |response|
+        calculator.tax_year = response
+      end
+
+      next_node do
+        question :buying_new_vehicle?
+      end
+    end
+
+    # Q4 - buying new vehicle?
     radio :buying_new_vehicle? do
       option :new
       option :used
@@ -69,7 +86,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q4 - capital allowances claimed?
+    # Q5 - capital allowances claimed?
     # if yes => go to Result 3 if in Q1 only [car_van] and/or [motorcylce] was selected
     #
     # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don't go to Q4 & Q8
@@ -112,7 +129,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q5 - Was your car new or second-hand when you started using it for your business?
+    # Q6 - Was your car new or second-hand when you started using it for your business?
     radio :car_status_before_usage? do
       option :new
       option :used
@@ -126,7 +143,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q6 - claim vehicle expenses
+    # Q7 - claim vehicle expenses
     money_question :how_much_expect_to_claim? do
       on_response do |response|
         calculator.vehicle_costs = response
@@ -141,7 +158,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q7 - is vehicle green?
+    # Q8 - is vehicle green?
     radio :is_vehicle_green? do
       option :low
       option :medium
@@ -165,7 +182,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q8 - price of vehicle
+    # Q9 - price of vehicle
     money_question :price_of_vehicle? do
       on_response do |response|
         calculator.vehicle_price = response
@@ -176,7 +193,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q9 - vehicle private use time
+    # Q10 - vehicle private use time
     value_question :vehicle_business_use_time?, parse: :to_f do
       # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
 
@@ -195,7 +212,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q10 - miles to drive for business car_or_van
+    # Q11 - miles to drive for business car_or_van
     value_question :drive_business_miles_car_van? do
       on_response do |response|
         calculator.business_miles_car_van = response
@@ -212,7 +229,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q11 - miles to drive for business motorcycle
+    # Q12 - miles to drive for business motorcycle
     value_question :drive_business_miles_motorcycle? do
       on_response do |response|
         calculator.business_miles_motorcycle = response
@@ -229,7 +246,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q12 - hours for home work
+    # Q13 - hours for home work
     value_question :hours_work_home? do
       on_response do |response|
         calculator.hours_worked_home = response
@@ -246,7 +263,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q13 - how much do you claim?
+    # Q14 - how much do you claim?
     money_question :current_claim_amount_home? do
       on_response do |response|
         calculator.home_costs = response
@@ -257,7 +274,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q14 = how much do you deduct from premises for private use?
+    # Q15 = how much do you deduct from premises for private use?
     money_question :deduct_from_premises? do
       on_response do |response|
         calculator.business_premises_cost = response
@@ -268,7 +285,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
       end
     end
 
-    # Q15 - people who live on business premises?
+    # Q16 - people who live on business premises?
     value_question :people_live_on_premises?, parse: :to_i do
       on_response do |response|
         calculator.hours_lived_on_business_premises = response
