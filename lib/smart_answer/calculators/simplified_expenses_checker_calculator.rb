@@ -123,15 +123,15 @@ module SmartAnswer::Calculators
     end
 
     def get_flat_rate_under_10_000
-      FLAT_RATE_UNDER_10_000.fetch(@tax_year)
+      FLAT_RATE_UNDER_10_000.fetch(@tax_year, 0)
     end
 
     def get_flat_rate_over_10_000
-      FLAT_RATE_OVER_10_000.fetch(@tax_year)
+      FLAT_RATE_OVER_10_000.fetch(@tax_year, 0)
     end
 
     def value_at_10_000
-      FLAT_RATE_UNDER_10_000.fetch(@tax_year) * 10_000
+      (FLAT_RATE_UNDER_10_000.fetch(@tax_year, 0) * 10_000)
     end
 
     def simple_vehicle_costs_car_van
