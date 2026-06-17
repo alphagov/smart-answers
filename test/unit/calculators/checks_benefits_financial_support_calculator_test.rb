@@ -1270,6 +1270,42 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#eligible_for_carers_allowance?" do
+        context "when eligible" do
+          should "be true if caring for someone with a disability or health condition" do
+            @calculator.carer_disability_or_health_condition = "yes"
+            assert @calculator.eligible_for_carers_allowance?
+          end
+        end
+      end
+
+      context "#eligible_for_pension_age_winter_heating_payment?" do
+        context "when eligible" do
+          should "be true if over state pension age" do
+            @calculator.over_state_pension_age = "yes"
+            assert @calculator.eligible_for_pension_age_winter_heating_payment?
+          end
+        end
+      end
+
+      context "#eligible_for_winter_heating_payment?" do
+        context "when eligible" do
+          should "be true if benefits are present" do
+            @calculator.on_benefits = "yes"
+            assert @calculator.eligible_for_winter_heating_payment?
+          end
+        end
+      end
+
+      context "#eligible_for_child_winter_heating_payment?" do
+        context "when eligible" do
+          should "be true if with children with a disablity" do
+            @calculator.children_with_disability = "yes"
+            assert @calculator.eligible_for_child_winter_heating_payment?
+          end
+        end
+      end
     end
   end
 end
