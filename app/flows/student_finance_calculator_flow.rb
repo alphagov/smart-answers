@@ -76,7 +76,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :'at-home'
       option :'away-outside-london'
       option :'away-in-london'
-      option :'living-overseas'
 
       on_response do |response|
         calculator.residence = response
@@ -376,7 +375,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         case calculator.age
         when "under-60"
           if response == "yes"
-            question :where_will_you_live_while_studying?
+            question :where_will_you_live_while_studying_lle?
           elsif response == "no"
             question :are_you_unable_to_be_in_person_disability?
           end
@@ -386,6 +385,25 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           elsif response == "no"
             question :are_you_unable_to_be_in_person_disability?
           end
+        end
+      end
+    end
+
+    radio :where_will_you_live_while_studying_lle? do
+      option :'at-home'
+      option :'away-outside-london'
+      option :'away-in-london'
+      option :'living-overseas'
+
+      on_response do |response|
+        calculator.residence = response
+      end
+
+      next_node do
+        if calculator.part_time_credits >= 120
+          question :do_any_of_the_following_apply_uk_full_time_students_only?
+        else
+          question :do_any_of_the_following_apply_all_uk_students?
         end
       end
     end
@@ -402,7 +420,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         case calculator.age
         when "under-60"
           if response == "yes"
-            question :where_will_you_live_while_studying?
+            question :where_will_you_live_while_studying_lle?
           elsif response == "no"
             calculator.household_income = 0
             question :do_any_of_the_following_apply_distance_learner?
