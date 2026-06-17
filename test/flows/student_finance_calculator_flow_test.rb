@@ -767,8 +767,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          should "have a next node of where_will_you_live_while_studying? for yes response" do
-            assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
+          should "have a next node of where_will_you_live_while_studying_lle? for yes response" do
+            assert_next_node :where_will_you_live_while_studying_lle?, for_response: "yes"
           end
 
           should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
@@ -794,8 +794,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          should "have a next node of where_will_you_live_while_studying? for yes response" do
-            assert_next_node :where_will_you_live_while_studying?, for_response: "yes"
+          should "have a next node of where_will_you_live_while_studying_lle? for yes response" do
+            assert_next_node :where_will_you_live_while_studying_lle?, for_response: "yes"
           end
 
           should "have a next node of do_any_of_the_following_apply_distance_learner? for no response" do
@@ -804,9 +804,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
       end
 
-      context "question: where_will_you_live_while_studying?" do
+      context "question: where_will_you_live_while_studying_lle?" do
         setup do
-          testing_node :where_will_you_live_while_studying?
+          testing_node :where_will_you_live_while_studying_lle?
           add_responses when_does_your_course_start?: "2027-2028",
                         what_age_are_you_on_first_day_of_course?: "under-60",
                         how_are_you_planning_to_study?: "full-time",
@@ -856,7 +856,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "9790",
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home"
+                        where_will_you_live_while_studying_lle?: "at-home"
         end
 
         should "render the question" do
@@ -895,7 +895,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "4500",
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home"
+                        where_will_you_live_while_studying_lle?: "at-home"
         end
 
         should "render the question" do
@@ -925,7 +925,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "9790",
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
+                        where_will_you_live_while_studying_lle?: "at-home",
                         do_any_of_the_following_apply_uk_full_time_students_only?: "no"
         end
 
@@ -976,7 +976,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "9790",
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
+                        where_will_you_live_while_studying_lle?: "at-home",
                         do_any_of_the_following_apply_uk_full_time_students_only?: "no",
                         whats_your_household_income?: "25000"
         end
@@ -998,7 +998,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             should "have a next node of outcome_under_60_students for a #{response} response when not attending in person due to disability" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "yes",
-                            where_will_you_live_while_studying?: "at-home"
+                            where_will_you_live_while_studying_lle?: "at-home"
               assert_next_node :outcome_under_60_students, for_response: response
             end
 
@@ -1022,7 +1022,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "9790",
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
+                        where_will_you_live_while_studying_lle?: "at-home",
                         do_any_of_the_following_apply_uk_full_time_students_only?: "no",
                         whats_your_household_income?: "25000",
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
@@ -1041,7 +1041,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             should "have a next node of outcome_under_60_students for a #{response} response when not attending in person due to disability" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "yes",
-                            where_will_you_live_while_studying?: "at-home"
+                            where_will_you_live_while_studying_lle?: "at-home"
               assert_next_node :outcome_under_60_students, for_response: response
             end
 
@@ -1066,7 +1066,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_much_are_your_tuition_fees_course_or_module?: "9790",
                         have_you_studied_before?: "no",
                         will_you_attend_in_person?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
+                        where_will_you_live_while_studying_lle?: "at-home",
                         do_any_of_the_following_apply_uk_full_time_students_only?: "low-income",
                         whats_your_household_income?: "25,000",
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
@@ -1176,7 +1176,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
         should "not show the not-in-person message when unable to attend due to disability" do
           add_responses are_you_unable_to_be_in_person_disability?: "yes",
-                        where_will_you_live_while_studying?: "at-home",
+                        where_will_you_live_while_studying_lle?: "at-home",
                         do_any_of_the_following_apply_uk_full_time_students_only?: "no",
                         whats_your_household_income?: "25,000"
           assert_no_rendered_outcome text: "Because you are not attending the course in person"

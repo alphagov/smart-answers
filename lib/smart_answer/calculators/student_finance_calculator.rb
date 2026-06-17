@@ -34,7 +34,7 @@ module SmartAnswer
           "at-home" => 9_118,
           "away-outside-london" => 10_830,
           "away-in-london" => 14_135,
-          "overseas" => 12_403,
+          "living-overseas" => 12_403,
         },
       }.freeze
 
@@ -53,7 +53,7 @@ module SmartAnswer
           "at-home" => 2_461,
           "away-in-london" => 3_281,
           "away-outside-london" => 4_607,
-          "overseas" => 3_281,
+          "living-overseas" => 3_281,
         },
       }.freeze
 
@@ -121,7 +121,7 @@ module SmartAnswer
           "at-home" => 4_013,
           "away-outside-london" => 5_048,
           "away-in-london" => 7_039,
-          "overseas" => 5_996,
+          "living-overseas" => 5_996,
         },
       }.freeze
 
@@ -140,7 +140,7 @@ module SmartAnswer
           "at-home" => 6.54,
           "away-outside-london" => 6.47,
           "away-in-london" => 6.36,
-          "overseas" => 6.41,
+          "living-overseas" => 6.41,
         },
       }.freeze
 
