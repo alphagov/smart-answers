@@ -1,20 +1,6 @@
 class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
   class AdoptionCalculatorFlow < SmartAnswer::Flow
     def define
-      radio :taking_paternity_or_maternity_leave_for_adoption? do
-        option :paternity
-        option :maternity
-
-        next_node do |response|
-          case response
-          when "paternity"
-            question :where_does_the_employee_live?
-          when "maternity"
-            question :adoption_is_from_overseas?
-          end
-        end
-      end
-
       radio :adoption_is_from_overseas? do
         option :yes
         option :no

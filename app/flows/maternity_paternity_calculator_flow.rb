@@ -29,7 +29,7 @@ class MaternityPaternityCalculatorFlow < SmartAnswer::Flow
         when "paternity"
           question :where_does_the_employee_live?
         when "adoption"
-          question :taking_paternity_or_maternity_leave_for_adoption?
+          question :adoption_is_from_overseas?
         end
       end
     end

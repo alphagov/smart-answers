@@ -8,32 +8,10 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
 
   setup { testing_flow MaternityPaternityCalculatorFlow }
 
-  context "question: taking_paternity_or_maternity_leave_for_adoption?" do
-    setup do
-      testing_node :taking_paternity_or_maternity_leave_for_adoption?
-      add_responses what_type_of_leave?: "adoption"
-    end
-
-    should "render the question" do
-      assert_rendered_question
-    end
-
-    context "next_node" do
-      should "have a next node of where_does_the_employee_live? for a 'paternity' response" do
-        assert_next_node :where_does_the_employee_live?, for_response: "paternity"
-      end
-
-      should "have a next node of adoption_is_from_overseas? for a 'maternity' response" do
-        assert_next_node :adoption_is_from_overseas?, for_response: "maternity"
-      end
-    end
-  end
-
   context "question: adoption_is_from_overseas?" do
     setup do
       testing_node :adoption_is_from_overseas?
-      add_responses what_type_of_leave?: "adoption",
-                    taking_paternity_or_maternity_leave_for_adoption?: "maternity"
+      add_responses what_type_of_leave?: "adoption"
     end
 
     should "render the question" do
@@ -51,7 +29,6 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     setup do
       testing_node :date_of_adoption_match?
       add_responses what_type_of_leave?: "adoption",
-                    taking_paternity_or_maternity_leave_for_adoption?: "maternity",
                     adoption_is_from_overseas?: "yes"
     end
 
@@ -70,7 +47,6 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     setup do
       testing_node :date_of_adoption_placement?
       add_responses what_type_of_leave?: "adoption",
-                    taking_paternity_or_maternity_leave_for_adoption?: "maternity",
                     adoption_is_from_overseas?: "yes",
                     date_of_adoption_match?: "2021-01-01"
     end
@@ -102,7 +78,6 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     setup do
       testing_node :adoption_did_the_employee_work_for_you?
       add_responses what_type_of_leave?: "adoption",
-                    taking_paternity_or_maternity_leave_for_adoption?: "maternity",
                     adoption_is_from_overseas?: "no",
                     date_of_adoption_match?: "2021-01-01",
                     date_of_adoption_placement?: "2021-02-01"
@@ -405,7 +380,6 @@ class MaternityPaternityCalculatorFlow::AdoptionCalculatorFlowTest < ActiveSuppo
     should "render when an employee is entitled to statutory adoption pay and exactly on the threshold" do
       add_responses(
         what_type_of_leave?: "adoption",
-        taking_paternity_or_maternity_leave_for_adoption?: "maternity",
         adoption_is_from_overseas?: "no",
         date_of_adoption_match?: "2022-12-15",
         date_of_adoption_placement?: "2022-12-15",
