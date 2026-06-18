@@ -6,7 +6,7 @@ module SmartAnswer
                     :residence,
                     :course_type,
                     :course_studied,
-                    :part_time_credits,
+                    :credits_studied,
                     :full_time_credits,
                     :doctor_or_dentist,
                     :uk_ft_circumstances,
@@ -152,7 +152,7 @@ module SmartAnswer
         @household_income = params[:household_income]
         @residence = params[:residence]
         @course_type = params[:course_type]
-        @part_time_credits = params[:part_time_credits]
+        @credits_studied = params[:credits_studied]
         @full_time_credits = params[:full_time_credits]
         @doctor_or_dentist = params[:doctor_or_dentist]
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
@@ -232,7 +232,8 @@ module SmartAnswer
       end
 
       def max_tuition_fee_amount_lle
-        (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]
+        credit_value = TUITION_FEE_MAXIMUM[@course_start].to_f / 120
+        credits_studied * credit_value
       end
 
       def valid_tuition_fee_amount?
@@ -244,19 +245,19 @@ module SmartAnswer
       end
 
       def valid_credit_amount?
-        part_time_credits.positive?
+        credits_studied.positive?
       end
 
       def valid_credit_amount_lle?
-        part_time_credits >= 30 && part_time_credits <= 180
+        credits_studied >= 30 && credits_studied <= 180
       end
 
       def valid_full_time_credit_amount?
-        full_time_credits.positive? && full_time_credits >= part_time_credits
+        full_time_credits.positive? && full_time_credits >= credits_studied
       end
 
       def valid_full_time_credit_amount_lle?
-        full_time_credits.positive? && full_time_credits >= part_time_credits && full_time_credits <= 180
+        full_time_credits.positive? && full_time_credits >= credits_studied && full_time_credits <= 180
       end
 
       def ineligible_for_extra_grants?
@@ -300,7 +301,7 @@ module SmartAnswer
       end
 
       def course_intensity
-        100 * (part_time_credits.to_f / full_time_credits)
+        100 * (credits_studied.to_f / full_time_credits)
       end
 
       def loan_proportion

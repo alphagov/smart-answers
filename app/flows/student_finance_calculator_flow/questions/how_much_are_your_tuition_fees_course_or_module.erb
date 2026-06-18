@@ -3,7 +3,7 @@
 <% end %>
 
 <% text_for :hint do %>
-    The maximum Tuition Fee Loan is <%= format_money(calculator.max_tuition_fee_amount_lle) %> for a <%= calculator.part_time_credits.to_i %> credit course.
+    The maximum Tuition Fee Loan is <%= format_money(calculator.max_tuition_fee_amount_lle) %> for a <%= calculator.credits_studied.to_i %> credit course.
 <% end %>
 
 <% text_for :error_message do %>
