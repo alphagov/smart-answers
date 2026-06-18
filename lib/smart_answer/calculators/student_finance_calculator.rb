@@ -100,10 +100,7 @@ module SmartAnswer
           "full-time" => 9_790,
           "part-time" => 7_335,
         },
-        "2027-2028" => {
-          "full-time" => 9_790,
-          "part-time" => 7_335,
-        },
+        "2027-2028" => 9_790,
       }.freeze
 
       LOAN_MINIMUMS = {
@@ -234,8 +231,8 @@ module SmartAnswer
         [year_matches[1].to_i, year_matches[2].to_i]
       end
 
-      def max_tuition_fee_amount
-        (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]["full-time"]
+      def max_tuition_fee_amount_lle
+        (part_time_credits / 120) * TUITION_FEE_MAXIMUM[@course_start]
       end
 
       def valid_tuition_fee_amount?
@@ -243,7 +240,7 @@ module SmartAnswer
       end
 
       def valid_tuition_fee_amount_lle?
-        tuition_fee_amount <= max_tuition_fee_amount
+        tuition_fee_amount <= max_tuition_fee_amount_lle
       end
 
       def valid_credit_amount?
