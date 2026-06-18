@@ -84,7 +84,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       next_node do
         case calculator.course_start
         when "2027-2028"
-          if calculator.part_time_credits >= 120
+          if calculator.credits_studied >= 120
             question :do_any_of_the_following_apply_uk_full_time_students_only?
           else
             question :do_any_of_the_following_apply_all_uk_students?
@@ -125,7 +125,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     # Q7a
     value_question :how_many_credits_will_you_study?, parse: Float do
       on_response do |response|
-        calculator.part_time_credits = response
+        calculator.credits_studied = response
       end
 
       validate do
@@ -290,7 +290,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
     value_question :how_many_credits_will_you_study_course_module?, parse: Float do
       on_response do |response|
-        calculator.part_time_credits = response
+        calculator.credits_studied = response
       end
 
       validate do

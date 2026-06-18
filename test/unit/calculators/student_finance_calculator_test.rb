@@ -385,7 +385,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 12,
+                credits_studied: 12,
                 full_time_credits: 20,
               )
               assert_equal SmartAnswer::Money.new(5_050.0).to_s, calculator.maintenance_loan_amount.to_s
@@ -397,7 +397,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 2,
+                credits_studied: 2,
                 full_time_credits: 10,
               )
               assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
@@ -409,7 +409,7 @@ module SmartAnswer
                 household_income: 60_000,
                 residence: "away-outside-london",
                 course_type: @course_type,
-                part_time_credits: 15,
+                credits_studied: 15,
                 full_time_credits: 15,
               )
               assert_equal SmartAnswer::Money.new(4986).to_s, calculator.maintenance_loan_amount.to_s
@@ -670,7 +670,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 12,
+                credits_studied: 12,
                 full_time_credits: 20,
               )
               assert_equal SmartAnswer::Money.new(5_350).to_s, calculator.maintenance_loan_amount.to_s
@@ -682,7 +682,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 2,
+                credits_studied: 2,
                 full_time_credits: 10,
               )
               assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
@@ -694,7 +694,7 @@ module SmartAnswer
                 household_income: 60_000,
                 residence: "away-outside-london",
                 course_type: @course_type,
-                part_time_credits: 15,
+                credits_studied: 15,
                 full_time_credits: 15,
               )
               assert_equal SmartAnswer::Money.new(5273).to_s, calculator.maintenance_loan_amount.to_s
@@ -759,6 +759,47 @@ module SmartAnswer
             )
 
             assert_equal [2026, 2027], calculator.course_start_years
+          end
+        end
+      end
+
+      context "in years covered by Lifelong Learning entitlement" do
+        setup do
+          @calculator = StudentFinanceCalculator.new(
+            course_start: "2027-2028",
+            household_income: 15_000,
+          )
+        end
+
+        context "#max_tuition_fee_amount_lle" do
+          %w[full-time part-time].each do |course_type|
+            should "be £9790 for 180 credits for #{course_type} student" do
+              @calculator.credits_studied = 180
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 14_685
+            end
+
+            should "be £9790 for 120 credits for #{course_type} student" do
+              @calculator.credits_studied = 120
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 9_790
+            end
+
+            should "be £9790 for 60 credits for #{course_type} student" do
+              @calculator.credits_studied = 60
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 4_895
+            end
+
+            should "be £9790 for 30 credits for #{course_type} student" do
+              @calculator.credits_studied = 30
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle.to_d, 2_447.50
+            end
           end
         end
       end
