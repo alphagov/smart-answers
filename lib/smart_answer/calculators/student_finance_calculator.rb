@@ -280,6 +280,10 @@ module SmartAnswer
         reduced_amount = ssl_loan_amount - ssl_reduction_based_on_income
         SmartAnswer::Money.new([reduced_amount, SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM].max * loan_proportion)
       end
+      
+      def lle_scheme?
+        %w[2027-2028].include?(@course_start)
+      end
 
     private
 
@@ -312,7 +316,7 @@ module SmartAnswer
 
       def loan_proportion
         # Fallback for non-LLE paths where maintenance loan does not change with credits.
-        return 1 if @course_type == "full-time" && (@course_start == "2025-2026" || @course_start == "2026-2027")
+        return 1 if @course_type == "full-time" && !lle_scheme?
 
         # 120 is taken as the standard for full-time/full amount, so >= here accounts for students studying more credits than that
         return 1 if course_intensity >= 100
