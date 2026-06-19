@@ -802,6 +802,40 @@ module SmartAnswer
             end
           end
         end
+
+        context "maintenance loan calculation" do
+          setup do
+            @calculator.residence = "away-in-london"
+          end
+
+          [[30, 3_533.75],
+           [60, 7_067.50],
+           [120, 14_135],
+           [180, 14_135]].each do |credits, expected_loan_amount|
+            should "correctly calculate the proportionally reduced maintenance loan of £#{expected_loan_amount} for #{credits} credits studied full-time" do
+              @calculator.course_type = "full-time"
+              @calculator.credits_studied = credits
+
+              assert_equal @calculator.maintenance_loan_amount, expected_loan_amount
+            end
+          end
+
+          [[30, 120, 3_533.75],
+           [60, 120, 7_067.50],
+           [30, 90, 4_706.96],
+           [60, 90, 9_413.91],
+           [45, 180, 3_533.75],
+           [90, 180, 7_067.50],
+           [150, 180, 10_601.25]].each do |credits, fte_credits, expected_loan_amount|
+            should "correctly calculate the proportionally reduced maintenance loan of £#{expected_loan_amount} for #{credits}/#{fte_credits} credits studied part-time" do
+              @calculator.course_type = "part-time"
+              @calculator.credits_studied = credits
+              @calculator.full_time_credits = fte_credits
+
+              assert_equal @calculator.maintenance_loan_amount, expected_loan_amount
+            end
+          end
+        end
       end
     end
   end
