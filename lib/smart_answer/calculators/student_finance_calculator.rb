@@ -223,7 +223,7 @@ module SmartAnswer
 
       def maintenance_loan_amount
         reduced_amount = max_loan_amount - reduction_based_on_income
-        SmartAnswer::Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
+        SmartAnswer::Money.new(([reduced_amount, min_loan_amount].max * loan_proportion).round(2))
       end
 
       def course_start_years
@@ -301,11 +301,21 @@ module SmartAnswer
       end
 
       def course_intensity
-        100 * (credits_studied.to_f / full_time_credits)
+        case @course_type
+        when "full-time"
+          baseline_credits = 120
+        when "part-time"
+          baseline_credits = @full_time_credits
+        end
+        100 * (credits_studied.to_f / baseline_credits)
       end
 
       def loan_proportion
-        return 1 if @course_type == "full-time" || course_intensity == 100
+        # Fallback for non-LLE paths where maintenance loan does not change with credits.
+        return 1 if @course_type == "full-time" && (@course_start == "2025-2026" || @course_start == "2026-2027")
+
+        # 120 is taken as the standard for full-time/full amount, so >= here accounts for students studying more credits than that
+        return 1 if course_intensity >= 100
         return 0.75 if course_intensity >= 75
         return 0.666 if course_intensity >= 66.6
         return 0.5 if course_intensity >= 50
