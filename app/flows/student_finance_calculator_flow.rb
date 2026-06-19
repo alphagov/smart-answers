@@ -15,8 +15,8 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         calculator.course_start = response
       end
 
-      next_node do |response|
-        if response == "2027-2028"
+      next_node do
+        if calculator.lle_scheme?
           question :what_age_are_you_on_first_day_of_course?
         else
           question :what_loans_are_you_eligible_for?
@@ -82,14 +82,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        case calculator.course_start
-        when "2027-2028"
+        if calculator.lle_scheme?
           if calculator.credits_studied >= 120
             question :do_any_of_the_following_apply_uk_120_credits_or_above?
           else
             question :do_any_of_the_following_apply_all_uk_students?
           end
-
         else
           question :whats_your_household_income?
         end
@@ -103,7 +101,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.course_start == "2027-2028"
+        if calculator.lle_scheme?
           case calculator.age
           when "under-60"
             question :are_you_studying_one_of_these_courses?
@@ -166,8 +164,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        case calculator.course_start
-        when "2027-2028"
+        if calculator.lle_scheme?
           if response.include?("care-leaver") && !response.include?("children-under-17") && !response.include?("dependant-adult")
             calculator.household_income = 0
             question :are_you_studying_one_of_these_courses?
@@ -192,7 +189,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do |response|
-        if calculator.course_start == "2027-2028"
+        if calculator.lle_scheme?
           case calculator.age
           when "under-60"
             if response.include?("care-leaver")
