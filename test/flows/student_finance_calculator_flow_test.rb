@@ -155,8 +155,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     context "next_node" do
-      should "have a next node do_any_of_the_following_apply_uk_full_time_students_only? for full time students" do
-        assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: "50,000"
+      should "have a next node do_any_of_the_following_apply_uk_120_credits_or_above? for full time students" do
+        assert_next_node :do_any_of_the_following_apply_uk_120_credits_or_above?, for_response: "50,000"
       end
 
       should "have a next node of how_many_credits_will_you_study? for part time students" do
@@ -224,9 +224,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
   end
 
-  context "question: do_any_of_the_following_apply_uk_full_time_students_only?," do
+  context "question: do_any_of_the_following_apply_uk_120_credits_or_above?" do
     setup do
-      testing_node :do_any_of_the_following_apply_uk_full_time_students_only?
+      testing_node :do_any_of_the_following_apply_uk_120_credits_or_above?
       add_responses when_does_your_course_start?: "2025-2026",
                     what_loans_are_you_eligible_for?: "tuition-and-maintenance",
                     will_you_be_studying_full_or_part_time?: "full-time",
@@ -279,7 +279,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                     how_much_are_your_tuition_fees_per_year?: "6935",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17"
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17"
     end
 
     should "render the question" do
@@ -314,7 +314,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                     what_course_are_you_studying?: "dental-medical-healthcare"
     end
 
@@ -342,26 +342,26 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                     what_course_are_you_studying?: "teacher-training"
     end
 
     should "render text for when the student is not eligible for extra grants and allowances" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                     what_course_are_you_studying?: "none-of-the-above"
 
       assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
     end
 
     should "render text for when the student is not eligible for extra grants and allowances and has a dependant adult" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult",
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
                     what_course_are_you_studying?: "none-of-the-above"
 
       assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
     end
 
     should "render text for when the student is not eligible for extra grants and allowances and is a care leaver" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver",
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "care-leaver",
                     what_course_are_you_studying?: "none-of-the-above"
 
       assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
@@ -391,19 +391,19 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
     should "render text for when the student is eligible for an adult dependant's grant" do
       add_responses whats_your_household_income?: "15,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult"
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult"
 
       assert_rendered_outcome text: "Adult Dependant’s Grant"
     end
 
     should "render text if student has a disability" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "has-disability"
 
       assert_rendered_outcome text: "Disabled Students’ Allowance"
     end
 
     should "render text if student has low income" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "low-income"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "low-income"
 
       assert_rendered_outcome text: "University and college hardship funds"
     end
@@ -423,7 +423,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     should "render text if student is a care leaver" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "care-leaver"
 
       assert_rendered_outcome text: "If you’re a care leaver, your household income is not used to calculate your Maintenance Loan."
     end
@@ -521,7 +521,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                     how_much_are_your_tuition_fees_per_year?: "9250",
                     where_will_you_live_while_studying?: "at-home",
                     whats_your_household_income?: "50,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                     what_course_are_you_studying?: "dental-medical-healthcare",
                     are_you_a_doctor_or_dentist?: "yes"
     end
@@ -546,13 +546,13 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
     should "render text for when the student is eligible for an adult dependant's grant" do
       add_responses whats_your_household_income?: "15,000",
-                    do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult"
+                    do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult"
 
       assert_rendered_outcome text: "Adult Dependant’s Grant"
     end
 
     should "render text if student has a disability" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "has-disability"
 
       assert_rendered_outcome text: "Disabled Students’ Allowance"
     end
@@ -562,19 +562,19 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     should "render text if student has adult dependenants" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult"
 
       assert_rendered_outcome text: "Dependants’ Allowance"
     end
 
     should "render text if student has low income" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "low-income"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "low-income"
 
       assert_rendered_outcome text: "University and college hardship funds"
     end
 
     should "render text if student is a care leaver" do
-      add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "care-leaver"
 
       assert_rendered_outcome text: "If you need more money to fund your living costs and you qualify, you can apply for extra help."
     end
@@ -821,15 +821,27 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          context "full-time students" do
+          context "full-time students at 120 credits" do
             %w[at-home away-outside-london away-in-london living-overseas].each do |response|
-              should "have a next node of do_any_of_the_following_apply_uk_full_time_students_only? for #{response} response" do
-                assert_next_node :do_any_of_the_following_apply_uk_full_time_students_only?, for_response: response
+              should "have a next node of do_any_of_the_following_apply_uk_120_credits_or_above? for #{response} response" do
+                assert_next_node :do_any_of_the_following_apply_uk_120_credits_or_above?, for_response: response
               end
             end
           end
 
-          context "part-time students" do
+          context "full-time students below 120 credits" do
+            setup do
+              add_responses how_many_credits_will_you_study_course_module?: "60",
+                            how_much_are_your_tuition_fees_course_or_module?: "4895"
+            end
+            %w[at-home away-outside-london away-in-london living-overseas].each do |response|
+              should "have a next node of do_any_of_the_following_apply_all_uk_students? for #{response} response" do
+                assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: response
+              end
+            end
+          end
+
+          context "part-time students under 120 credits" do
             setup do
               add_responses how_are_you_planning_to_study?: "part-time",
                             how_many_credits_will_you_study_course_module?: "60",
@@ -843,12 +855,27 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               end
             end
           end
+
+          context "part-time students at 120 credits" do
+            setup do
+              add_responses how_are_you_planning_to_study?: "part-time",
+                            how_many_credits_will_you_study_course_module?: "120",
+                            how_many_credits_fte_course_or_module?: "180",
+                            how_much_are_your_tuition_fees_course_or_module?: "9600"
+            end
+
+            %w[at-home away-outside-london away-in-london living-overseas].each do |response|
+              should "have a next node of do_any_of_the_following_apply_uk_120_credits_or_above? for #{response} response" do
+                assert_next_node :do_any_of_the_following_apply_uk_120_credits_or_above?, for_response: response
+              end
+            end
+          end
         end
       end
 
-      context "question: do_any_of_the_following_apply_uk_full_time_students_only?" do
+      context "question: do_any_of_the_following_apply_uk_120_credits_or_above?" do
         setup do
-          testing_node :do_any_of_the_following_apply_uk_full_time_students_only?
+          testing_node :do_any_of_the_following_apply_uk_120_credits_or_above?
           add_responses when_does_your_course_start?: "2027-2028",
                         what_age_are_you_on_first_day_of_course?: "under-60",
                         how_are_you_planning_to_study?: "full-time",
@@ -926,7 +953,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "no"
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no"
         end
 
         should "render the question" do
@@ -977,7 +1004,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "25000"
         end
 
@@ -1023,7 +1050,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "25000",
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
         end
@@ -1067,7 +1094,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "no",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "low-income",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "low-income",
                         whats_your_household_income?: "25,000",
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
                         is_your_course_eligible_nhs_bursary?: "yes"
@@ -1105,7 +1132,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "not show grants or allowances the student is not eligible for" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "60,000"
           ["a week for a single child",
            "Disabled Students",
@@ -1117,7 +1144,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render the care-leaver Maintenance Loan text for a care leaver" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "care-leaver"
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "care-leaver"
           assert_rendered_outcome text: "You can choose to borrow the maximum amount"
         end
 
@@ -1136,31 +1163,31 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render Childcare Grant for one child for a low-income student with children" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "a week for a single child"
         end
 
         should "render Childcare Grant for more than one child at a higher income" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "25,000"
           assert_rendered_outcome text: "if you have 2 or more children"
         end
 
         should "render Parents' Learning Allowance for a low-income student with children" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "children-under-17",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "18,000"
           assert_rendered_outcome text: "Learning Allowance"
         end
 
         should "render Adult Dependant's Grant for a low-income student with an adult dependant" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "dependant-adult",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "Adult Dependant"
         end
 
         should "render Disabled Students' Allowance when the student has a disability" do
-          add_responses do_any_of_the_following_apply_uk_full_time_students_only?: "has-disability"
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "has-disability"
           assert_rendered_outcome text: "Disabled Students"
         end
 
@@ -1177,7 +1204,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         should "not show the not-in-person message when unable to attend due to disability" do
           add_responses are_you_unable_to_be_in_person_disability?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_full_time_students_only?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "25,000"
           assert_no_rendered_outcome text: "Because you are not attending the course in person"
         end
@@ -1377,8 +1404,14 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          should "have a next node of do_any_of_the_following_apply_all_uk_students?? for yes response" do
+          should "have a next node of do_any_of_the_following_apply_all_uk_students? for yes response with < 120 credits" do
+            add_responses how_many_credits_will_you_study_course_module?: "90"
+
             assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: "yes"
+          end
+
+          should "have a next node of do_any_of_the_following_apply_uk_120_credits_or_above? for yes response with >= 120 credits" do
+            assert_next_node :do_any_of_the_following_apply_uk_120_credits_or_above?, for_response: "yes"
           end
 
           should "have a next node of are_you_unable_to_be_in_person_disability? for no response" do
@@ -1404,8 +1437,14 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          should "have a next node of do_any_of_the_following_apply_all_uk_students?? for yes response" do
+          should "have a next node of do_any_of_the_following_apply_all_uk_students? for yes response with < 120 credits" do
+            add_responses how_many_credits_will_you_study_course_module?: "90"
+
             assert_next_node :do_any_of_the_following_apply_all_uk_students?, for_response: "yes"
+          end
+
+          should "have a next node of do_any_of_the_following_apply_uk_120_credits_or_above? for yes response with >= 120 credits" do
+            assert_next_node :do_any_of_the_following_apply_uk_120_credits_or_above?, for_response: "yes"
           end
 
           should "have a next node of do_any_of_the_following_apply_distance_learner? for no response" do
@@ -1422,7 +1461,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
                         is_your_course_eligible_nhs_bursary?: "yes",
                         how_are_you_planning_to_study?: "full-time",
-                        how_many_credits_will_you_study_course_module?: "120",
+                        how_many_credits_will_you_study_course_module?: "60",
                         will_you_attend_in_person?: "yes"
         end
 
@@ -1479,7 +1518,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
                         is_your_course_eligible_nhs_bursary?: "yes",
                         how_are_you_planning_to_study?: "full-time",
-                        how_many_credits_will_you_study_course_module?: "120",
+                        how_many_credits_will_you_study_course_module?: "60",
                         will_you_attend_in_person?: "yes",
                         do_any_of_the_following_apply_all_uk_students?: "has-disability"
         end
@@ -1505,7 +1544,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_are_you_planning_to_study?: "full-time",
                         how_many_credits_will_you_study_course_module?: "120",
                         will_you_attend_in_person?: "yes",
-                        do_any_of_the_following_apply_all_uk_students?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "27,000"
         end
 
@@ -1532,7 +1571,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "not show grants or allowances the student is not eligible for" do
-          add_responses do_any_of_the_following_apply_all_uk_students?: "no",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
                         whats_your_household_income?: "60,000"
           ["a week for a single child",
            "Disabled Students",
@@ -1543,13 +1582,37 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           end
         end
 
+        should "render Childcare Grant for one child for a low-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
+                        whats_your_household_income?: "15,000"
+          assert_rendered_outcome text: "a week for a single child"
+        end
+
+        should "render Childcare Grant for more than one child at a higher income" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
+                        whats_your_household_income?: "25,000"
+          assert_rendered_outcome text: "if you have 2 or more children"
+        end
+
+        should "render Parents' Learning Allowance for a low-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
+                        whats_your_household_income?: "18,000"
+          assert_rendered_outcome text: "Learning Allowance"
+        end
+
+        should "render Adult Dependant's Grant for a low-income student with an adult dependant" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
+                        whats_your_household_income?: "15,000"
+          assert_rendered_outcome text: "Adult Dependant"
+        end
+
         should "render Disabled Students' Allowance when the student has a disability" do
-          add_responses do_any_of_the_following_apply_all_uk_students?: "has-disability"
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "has-disability"
           assert_rendered_outcome text: "Disabled Students"
         end
 
         should "render University and college hardship funds when the student has a low income" do
-          add_responses do_any_of_the_following_apply_all_uk_students?: "low-income"
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "low-income"
           assert_rendered_outcome text: "University and college hardship funds"
         end
 
