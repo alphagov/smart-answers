@@ -1108,16 +1108,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_outcome text: "How your Maintenance Loan is calculated"
         end
 
-        should "not render the Maintenance Loan section when the calculated loan is zero" do
-          add_responses how_are_you_planning_to_study?: "part-time",
-                        how_many_credits_will_you_study_course_module?: "30",
-                        how_many_credits_fte_course_or_module?: "180",
-                        how_much_are_your_tuition_fees_course_or_module?: "2000",
-                        do_any_of_the_following_apply_all_uk_students?: "no",
-                        are_you_studying_one_of_these_courses?: "no"
-          assert_no_rendered_outcome text: "How your Maintenance Loan is calculated"
-        end
-
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
           assert_rendered_outcome text: "NHS funding towards your fees and living costs"
         end

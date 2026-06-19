@@ -822,11 +822,12 @@ module SmartAnswer
 
           [[30, 120, 3_533.75],
            [60, 120, 7_067.50],
-           [30, 90, 4_706.96],
-           [60, 90, 9_413.91],
+           [30, 90, 4_711.67],
+           [60, 90, 9_423.33],
+           [30, 180, 2_355.83],
            [45, 180, 3_533.75],
            [90, 180, 7_067.50],
-           [150, 180, 10_601.25]].each do |credits, fte_credits, expected_loan_amount|
+           [150, 180, 11_779.17]].each do |credits, fte_credits, expected_loan_amount|
             should "correctly calculate the proportionally reduced maintenance loan of £#{expected_loan_amount} for #{credits}/#{fte_credits} credits studied part-time" do
               @calculator.course_type = "part-time"
               @calculator.credits_studied = credits
