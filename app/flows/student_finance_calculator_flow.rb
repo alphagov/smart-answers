@@ -121,12 +121,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     end
 
     # Q7a
-    value_question :how_many_credits_will_you_study?, parse: Float do
+    value_question :how_many_credits_will_you_study?, parse: Integer do
       on_response do |response|
         calculator.credits_studied = response
       end
 
-      validate do
+      validate :error_credit_amount do
         calculator.valid_credit_amount?
       end
 
@@ -136,12 +136,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     end
 
     # Q7b
-    value_question :how_many_credits_does_a_full_time_student_study?, parse: Float do
+    value_question :how_many_credits_does_a_full_time_student_study?, parse: Integer do
       on_response do |response|
         calculator.full_time_credits = response
       end
 
-      validate do
+      validate :error_credit_amount do
         calculator.valid_full_time_credit_amount?
       end
 
@@ -285,12 +285,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    value_question :how_many_credits_will_you_study_course_module?, parse: Float do
+    value_question :how_many_credits_will_you_study_course_module?, parse: Integer do
       on_response do |response|
         calculator.credits_studied = response
       end
 
-      validate do
+      validate :error_credit_amount do
         calculator.valid_credit_amount_lle?
       end
 
@@ -309,12 +309,12 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
     end
 
-    value_question :how_many_credits_fte_course_or_module?, parse: Float do
+    value_question :how_many_credits_fte_course_or_module?, parse: Integer do
       on_response do |response|
         calculator.full_time_credits = response
       end
 
-      validate do
+      validate :error_credit_amount do
         calculator.valid_full_time_credit_amount_lle?
       end
 

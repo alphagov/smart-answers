@@ -186,6 +186,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       should "be invalid if the number of credits entered is less than 0" do
         assert_invalid_response "0"
       end
+
+      should "be invalid if the number of credits entered is not a whole number" do
+        assert_invalid_response "100.1"
+      end
     end
 
     context "next_node" do
@@ -214,6 +218,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     context "validation" do
       should "be invalid if the number of full time credits is less than part time course credits" do
         assert_invalid_response "9"
+      end
+
+      should "be invalid if the number of credits entered is not a whole number" do
+        assert_invalid_response "100.1"
       end
     end
 
@@ -644,6 +652,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_invalid_response "181"
           end
 
+          should "be invalid if the number of credits entered is not a whole number" do
+            assert_invalid_response "100.1"
+          end
+
           should "be valid between 30 and 180 credits" do
             assert_valid_response "100"
           end
@@ -681,6 +693,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           should "be invalid above 180 credits" do
             assert_invalid_response "181"
+          end
+
+          should "be invalid if the number of credits entered is not a whole number" do
+            assert_invalid_response "100.1"
           end
 
           should "be valid between part-time credits and 180 credits" do
@@ -1325,6 +1341,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_invalid_response "181"
           end
 
+          should "be invalid if the number of credits entered is not a whole number" do
+            assert_invalid_response "100.1"
+          end
+
           should "be valid between 30 and 180 credits" do
             assert_valid_response "100"
           end
@@ -1364,6 +1384,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           should "be invalid above 180 credits" do
             assert_invalid_response "181"
+          end
+
+          should "be invalid if the number of credits entered is not a whole number" do
+            assert_invalid_response "100.1"
           end
 
           should "be valid between part-time credits and 180 credits" do

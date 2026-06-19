@@ -280,7 +280,7 @@ module SmartAnswer
         reduced_amount = ssl_loan_amount - ssl_reduction_based_on_income
         SmartAnswer::Money.new([reduced_amount, SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM].max * loan_proportion)
       end
-      
+
       def lle_scheme?
         %w[2027-2028].include?(@course_start)
       end
