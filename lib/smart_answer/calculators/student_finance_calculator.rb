@@ -315,18 +315,20 @@ module SmartAnswer
       end
 
       def loan_proportion
-        # Fallback for non-LLE paths where maintenance loan does not change with credits.
-        return 1 if @course_type == "full-time" && !lle_scheme?
+        if lle_scheme?
+          [course_intensity / 100, 1].min
+        else
+          return 1 if @course_type == "full-time"
 
-        # 120 is taken as the standard for full-time/full amount, so >= here accounts for students studying more credits than that
-        return 1 if course_intensity >= 100
-        return 0.75 if course_intensity >= 75
-        return 0.666 if course_intensity >= 66.6
-        return 0.5 if course_intensity >= 50
-        return 0.333 if course_intensity >= 33.3
-        return 0.25 if course_intensity >= 25
+          return 1 if course_intensity >= 100
+          return 0.75 if course_intensity >= 75
+          return 0.666 if course_intensity >= 66.6
+          return 0.5 if course_intensity >= 50
+          return 0.333 if course_intensity >= 33.3
+          return 0.25 if course_intensity >= 25
 
-        0
+          0
+        end
       end
     end
   end
