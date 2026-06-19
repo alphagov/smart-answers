@@ -85,7 +85,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         case calculator.course_start
         when "2027-2028"
           if calculator.credits_studied >= 120
-            question :do_any_of_the_following_apply_uk_full_time_students_only?
+            question :do_any_of_the_following_apply_uk_120_credits_or_above?
           else
             question :do_any_of_the_following_apply_all_uk_students?
           end
@@ -114,7 +114,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         else
           case calculator.course_type
           when "full-time"
-            question :do_any_of_the_following_apply_uk_full_time_students_only?
+            question :do_any_of_the_following_apply_uk_120_credits_or_above?
           when "part-time"
             question :how_many_credits_will_you_study?
           end
@@ -153,7 +153,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     end
 
     # Q8a uk full-time students
-    checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
+    checkbox_question :do_any_of_the_following_apply_uk_120_credits_or_above? do
       option :"children-under-17"
       option :"dependant-adult"
       option :"has-disability"
@@ -381,7 +381,11 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           end
         when "60-or-more"
           if response == "yes"
-            question :do_any_of_the_following_apply_all_uk_students?
+            if calculator.credits_studied >= 120
+              question :do_any_of_the_following_apply_uk_120_credits_or_above?
+            else
+              question :do_any_of_the_following_apply_all_uk_students?
+            end
           elsif response == "no"
             question :are_you_unable_to_be_in_person_disability?
           end
@@ -400,8 +404,8 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       end
 
       next_node do
-        if calculator.part_time_credits >= 120
-          question :do_any_of_the_following_apply_uk_full_time_students_only?
+        if calculator.credits_studied >= 120
+          question :do_any_of_the_following_apply_uk_120_credits_or_above?
         else
           question :do_any_of_the_following_apply_all_uk_students?
         end
@@ -427,7 +431,11 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
           end
         when "60-or-more"
           if response == "yes"
-            question :do_any_of_the_following_apply_all_uk_students?
+            if calculator.credits_studied >= 120
+              question :do_any_of_the_following_apply_uk_120_credits_or_above?
+            else
+              question :do_any_of_the_following_apply_all_uk_students?
+            end
           elsif response == "no"
             calculator.household_income = 0
             question :do_any_of_the_following_apply_distance_learner?
