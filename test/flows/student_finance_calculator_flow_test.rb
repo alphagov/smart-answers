@@ -1581,7 +1581,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render the low-income (hardship funds) extra help" do
-          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university or college."
+          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university, college or training provider."
         end
 
         should "not show grants or allowances the student is not eligible for" do
@@ -1674,7 +1674,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render the low-income (hardship funds) extra help" do
-          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university or college."
+          assert_rendered_outcome text: "You could get a bursary, scholarship or financial hardship funding from your university, college or training provider."
         end
 
         should "not show grants or allowances the student is not eligible for" do
