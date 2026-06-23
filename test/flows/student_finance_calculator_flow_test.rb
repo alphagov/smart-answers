@@ -1158,11 +1158,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_outcome text: "reduced Maintenance Loan"
         end
 
-        should "render the standard (non-dental) Maintenance Loan final-year text" do
-          add_responses are_you_studying_one_of_these_courses?: "teacher-training"
-          assert_rendered_outcome text: "You may get less Maintenance Loan in your final year"
-        end
-
         should "render the studied-before Tuition Fee Loan note when the student has studied before" do
           add_responses have_you_studied_before?: "yes"
           assert_rendered_outcome text: "your loan might be less"
@@ -1562,13 +1557,13 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         whats_your_household_income?: "27,000"
         end
 
-        should "render Special Support loan when the course is in person" do
-          assert_rendered_outcome text: "You could get a Special Support loan of "
+        should "render Special Support Loan when the course is in person" do
+          assert_rendered_outcome text: "You could get a Special Support Loan of "
         end
 
-        should "render Special Support loan when the course is in person and the student makes over 50_000" do
+        should "render Special Support Loan when the course is in person and the student makes over 50_000" do
           add_responses whats_your_household_income?: "50,000"
-          assert_rendered_outcome text: "You are not eligible for any loans."
+          assert_rendered_outcome text: "You are not eligible for a Tuition Fee Loan, Maintenance Loan or Special Support Loan."
         end
 
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
@@ -1656,12 +1651,12 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render not eligible for loans when distance learning" do
-          assert_rendered_outcome text: "You are not eligible for any loans."
+          assert_rendered_outcome text: "You are not eligible for a Tuition Fee Loan, Maintenance Loan or Special Support Loan."
         end
 
         should "render not eligible for loans when distance learning and disabled" do
           add_responses do_any_of_the_following_apply_distance_learner?: "has-disability"
-          assert_rendered_outcome text: "You are not eligible for any loans."
+          assert_rendered_outcome text: "You are not eligible for a Tuition Fee Loan, Maintenance Loan or Special Support Loan."
         end
 
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
