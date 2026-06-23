@@ -25,6 +25,8 @@
 
     <% if course_studied == "dental-medical-healthcare"  %>
       In your fifth and sixth years, you could get <%= format_money(reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan.
+    <% else %>
+      You may get less Maintenance Loan in your final year.
     <% end %>
   <% end %>
 <% end %>
