@@ -4,7 +4,7 @@
   <% if uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver') %>
     You can choose to borrow the maximum amount: <%= format_money(max_loan_amount, pounds_only: true) %>.
 
-    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. <% if uk_ft_circumstances.include?('children-under-17') || uk_ft_circumstances.include?('dependant-adult') %>Student Loans Company (SLC) will still use your household income to check what other funding you can get. <% end %>
+    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. <% if uk_ft_circumstances.include?('children-under-17') || uk_ft_circumstances.include?('dependant-adult') %>Student Finance England will still use your household income to check what other funding you can get. <% end %>
 
   <% else %>
     <% if course_studied == "dental-medical-healthcare"  %>
@@ -25,8 +25,6 @@
 
     <% if course_studied == "dental-medical-healthcare"  %>
       In your fifth and sixth years, you could get <%= format_money(reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan.
-    <% else %>
-      You may get less Maintenance Loan in your final year.
     <% end %>
   <% end %>
 <% end %>
