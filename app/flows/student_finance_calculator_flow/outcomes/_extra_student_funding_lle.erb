@@ -20,11 +20,11 @@ Student loans have to be paid back - grants, bursaries and allowances do not.
 <% end %>
 
 <% if calculator.eligible_for_parent_learning_allowance? %>
-  <% extra_student_funding << "up to #{format_money(calculator.parent_learning_allowance)} per year [Parents’ Learning Allowance](/parents-learning-allowance)" %>
+  <% extra_student_funding << "up to #{format_money(calculator.parent_learning_allowance)} per course year [Parents’ Learning Allowance](/parents-learning-allowance)" %>
 <% end %>
 
 <% if calculator.eligible_for_adult_dependant_allowance? %>
-  <% extra_student_funding << "up to #{format_money(calculator.adult_dependant_allowance)} per year [Adult Dependant’s Grant](/adult-dependants-grant)" %>
+  <% extra_student_funding << "up to #{format_money(calculator.adult_dependant_allowance)} per course year [Adult Dependant’s Grant](/adult-dependants-grant)" %>
 <% end %>
 
 <% if calculator.uk_ft_circumstances.include?('has-disability') || calculator.uk_all_circumstances.include?('has-disability') %>
@@ -44,9 +44,9 @@ Student loans have to be paid back - grants, bursaries and allowances do not.
 <%  end %>
 
 <% if calculator.uk_ft_circumstances.include?('low-income') || calculator.uk_all_circumstances.include?('low-income') %>
-  You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
+  You could get a [bursary or scholarship](/extra-money-pay-university) from your university, college or training provider.
 <% else %>
-  You could get a [bursary, scholarship or financial hardship funding](/extra-money-pay-university) from your university or college.
+  You could get a [bursary, scholarship or financial hardship funding](/extra-money-pay-university) from your university, college or training provider.
 <% end %>
 
 You might be able to get [help with the costs of travel for study or work placements](/travel-grants-students-england) as part of your course.
