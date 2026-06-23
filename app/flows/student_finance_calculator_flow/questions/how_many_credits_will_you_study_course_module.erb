@@ -3,7 +3,11 @@
 <% end %>
 
 <% text_for :hint do %>
-  For example, a year of studying a bachelor's degree full time is usually worth 120 credits. Ask your university, college or training provider if you're not sure.
+  <% if calculator.course_type == "full-time" %>
+    For example, a year of studying a bachelor's degree full time is usually worth 120 credits. Ask your university, college or training provider if you're not sure.
+  <% elsif calculator.course_type == "part-time" %>
+    For example, you might be studying 60 credits if you're doing a bachelor's degree (120 credits) part-time. Ask your university, college or training provider if you're not sure.
+  <% end %>
 <% end %>
 
 <% text_for :error_message do %>
