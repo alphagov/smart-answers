@@ -14,7 +14,7 @@
 @include govuk-media-query($media-type: print) {
   .app-c-result-item {
     break-inside: avoid;
-    border-color: $govuk-print-text-colour;
+    border-color: govuk-functional-colour(print-text);
 
     .govuk-link::after {
       display: block;
@@ -28,7 +28,7 @@
 
     a,
     a:link {
-      color: $govuk-print-text-colour !important;
+      color: govuk-functional-colour(print-text) !important;
     }
   }
 }

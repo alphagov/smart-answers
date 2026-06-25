@@ -3,7 +3,7 @@
 }
 
 .app-c-result-sections__section {
-  border-top: 1px solid $govuk-border-colour;
+  border-top: 1px solid govuk-functional-colour(border);
   @include govuk-font($size: 19);
   @include govuk-responsive-padding(4, "top");
 }
@@ -17,7 +17,7 @@
     border-top: 0;
 
     &:not(:last-of-type) {
-      border-bottom: 1px solid $govuk-border-colour;
+      border-bottom: 1px solid govuk-functional-colour(border);
     }
   }
 }
