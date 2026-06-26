@@ -1,0 +1,9 @@
+## Tuition Fee Loan
+
+You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](<%= tuition_fee_url %>) each year to help pay your course tuition fees.
+
+Depending on which course you’re studying and how much your course provider is charging, your Tuition Fee Loan may not be enough to cover the full cost of your course.
+
+<% if studied_before %>
+  If you’ve studied before, your loan might be less. Find out how [the amount you're eligible for is worked out](/student-finance-on-or-after-1-january-2027/eligibility).
+<% end %>
