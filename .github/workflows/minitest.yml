@@ -32,7 +32,7 @@ jobs:
           path: vendor/publishing-api
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.312.0
+        uses: ruby/setup-ruby@v1.314.0
         with:
           bundler-cache: true
 
