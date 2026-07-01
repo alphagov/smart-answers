@@ -11,10 +11,16 @@
   if !title || !url || !description
     raise ArgumentError, "The result item component requires a title, url and description"
   end
+
+  @website_root ||= Plek.new.website_root
+  internal_link = url.start_with?("/", @website_root) && !url.start_with?("//") # Treat relative urls (/browse), the site root (https://www.gov.uk) but not relative protocol urls (//www.example.com/) as internal
+  rel = "noopener"
+  rel += " noreferrer" unless internal_link
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
-    <%= link_to url, class: "govuk-link", target: "_blank", rel: "noreferrer noopener" do %>
+    <% # There's a bug where the linter won't accept a rel value that doesn't have the string 'noopener' in, so using the variable alone or one with #{} in doesn't work, so we have to duplicate it here. %>
+    <%= link_to url, class: "govuk-link", target: "_blank", rel: "noopener", rel: rel do %>
       <%= title || url %> <span class="govuk-!-display-none-print">(opens in new tab)</span>
     <% end %>
   </h4>
