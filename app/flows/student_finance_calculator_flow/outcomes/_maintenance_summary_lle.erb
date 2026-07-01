@@ -1,0 +1,32 @@
+<% if maintenance_loan_amount > 0 %>
+  ## Maintenance Loan
+
+  <% if uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver') %>
+    You can choose to borrow the maximum amount: <%= format_money(max_loan_amount, pounds_only: true) %>.
+
+    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. <% if uk_ft_circumstances.include?('children-under-17') || uk_ft_circumstances.include?('dependant-adult') %>Student Finance England will still use your household income to check what other funding you can get. <% end %>
+
+  <% else %>
+    <% if course_studied == "dental-medical-healthcare"  %>
+      The amount you get will change during your course.
+
+      In your first 4 years, you could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.
+    <% else %>
+      You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.
+    <% end %>
+
+    How your Maintenance Loan is calculated:
+
+    <%= format_money(max_loan_amount, pounds_only: true) %> (the maximum Maintenance Loan available)
+    \- <%= format_money(loan_shortfall, pounds_only: true) %> (the amount you might not be eligible for, based on your answers)  
+    = <%= format_money(maintenance_loan_amount, pounds_only: true) %> (the amount you could be eligible for, based on your answers)
+
+    You can find out more about [how Maintenance Loans are calculated](/government/publications/student-finance-how-youre-assessed-and-paid).
+
+    <% if course_studied == "dental-medical-healthcare"  %>
+      In your fifth and sixth years, you could get <%= format_money(reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan.
+    <% else %>
+      You may get less Maintenance Loan in your final year.
+    <% end %>
+  <% end %>
+<% end %>

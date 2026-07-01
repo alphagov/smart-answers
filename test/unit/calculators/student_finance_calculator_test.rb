@@ -142,7 +142,7 @@ module SmartAnswer
       context "#tuition_fee_maximum" do
         setup do
           @calculator = StudentFinanceCalculator.new(
-            course_start: :unused_variable,
+            course_start: "2025-2026",
             household_income: 15_000,
             residence: :unused_variable,
           )
@@ -160,13 +160,14 @@ module SmartAnswer
       end
 
       context "maximum tuition fee" do
+        current_year = "2025-2026"
         should "be £9535 for a full time student" do
-          calculator = StudentFinanceCalculator.new
+          calculator = StudentFinanceCalculator.new(course_start: current_year)
           assert_equal 9790, calculator.tuition_fee_maximum_full_time
         end
 
         should "be £7145 for part time student" do
-          calculator = StudentFinanceCalculator.new
+          calculator = StudentFinanceCalculator.new(course_start: current_year)
           assert_equal 7335, calculator.tuition_fee_maximum_part_time
         end
       end
@@ -384,7 +385,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 12,
+                credits_studied: 12,
                 full_time_credits: 20,
               )
               assert_equal SmartAnswer::Money.new(5_050.0).to_s, calculator.maintenance_loan_amount.to_s
@@ -396,7 +397,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 2,
+                credits_studied: 2,
                 full_time_credits: 10,
               )
               assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
@@ -408,7 +409,7 @@ module SmartAnswer
                 household_income: 60_000,
                 residence: "away-outside-london",
                 course_type: @course_type,
-                part_time_credits: 15,
+                credits_studied: 15,
                 full_time_credits: 15,
               )
               assert_equal SmartAnswer::Money.new(4986).to_s, calculator.maintenance_loan_amount.to_s
@@ -669,7 +670,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 12,
+                credits_studied: 12,
                 full_time_credits: 20,
               )
               assert_equal SmartAnswer::Money.new(5_350).to_s, calculator.maintenance_loan_amount.to_s
@@ -681,7 +682,7 @@ module SmartAnswer
                 household_income: 45_000,
                 residence: "away-in-london",
                 course_type: @course_type,
-                part_time_credits: 2,
+                credits_studied: 2,
                 full_time_credits: 10,
               )
               assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
@@ -693,7 +694,7 @@ module SmartAnswer
                 household_income: 60_000,
                 residence: "away-outside-london",
                 course_type: @course_type,
-                part_time_credits: 15,
+                credits_studied: 15,
                 full_time_credits: 15,
               )
               assert_equal SmartAnswer::Money.new(5273).to_s, calculator.maintenance_loan_amount.to_s
@@ -758,6 +759,82 @@ module SmartAnswer
             )
 
             assert_equal [2026, 2027], calculator.course_start_years
+          end
+        end
+      end
+
+      context "in years covered by Lifelong Learning entitlement" do
+        setup do
+          @calculator = StudentFinanceCalculator.new(
+            course_start: "2027-2028",
+            household_income: 15_000,
+          )
+        end
+
+        context "#max_tuition_fee_amount_lle" do
+          %w[full-time part-time].each do |course_type|
+            should "be £9790 for 180 credits for #{course_type} student" do
+              @calculator.credits_studied = 180
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 14_685
+            end
+
+            should "be £9790 for 120 credits for #{course_type} student" do
+              @calculator.credits_studied = 120
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 9_790
+            end
+
+            should "be £9790 for 60 credits for #{course_type} student" do
+              @calculator.credits_studied = 60
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle, 4_895
+            end
+
+            should "be £9790 for 30 credits for #{course_type} student" do
+              @calculator.credits_studied = 30
+              @calculator.course_type = course_type
+
+              assert_equal @calculator.max_tuition_fee_amount_lle.to_d, 2_447.50
+            end
+          end
+        end
+
+        context "maintenance loan calculation" do
+          setup do
+            @calculator.residence = "away-in-london"
+          end
+
+          [[30, 3_533.75],
+           [60, 7_067.50],
+           [120, 14_135],
+           [180, 14_135]].each do |credits, expected_loan_amount|
+            should "correctly calculate the proportionally reduced maintenance loan of £#{expected_loan_amount} for #{credits} credits studied full-time" do
+              @calculator.course_type = "full-time"
+              @calculator.credits_studied = credits
+
+              assert_equal @calculator.maintenance_loan_amount, expected_loan_amount
+            end
+          end
+
+          [[30, 120, 3_533.75],
+           [60, 120, 7_067.50],
+           [30, 90, 4_711.67],
+           [60, 90, 9_423.33],
+           [30, 180, 2_355.83],
+           [45, 180, 3_533.75],
+           [90, 180, 7_067.50],
+           [150, 180, 11_779.17]].each do |credits, fte_credits, expected_loan_amount|
+            should "correctly calculate the proportionally reduced maintenance loan of £#{expected_loan_amount} for #{credits}/#{fte_credits} credits studied part-time" do
+              @calculator.course_type = "part-time"
+              @calculator.credits_studied = credits
+              @calculator.full_time_credits = fte_credits
+
+              assert_equal @calculator.maintenance_loan_amount, expected_loan_amount
+            end
           end
         end
       end

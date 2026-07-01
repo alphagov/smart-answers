@@ -6,24 +6,35 @@ module SmartAnswer
                     :residence,
                     :course_type,
                     :course_studied,
-                    :part_time_credits,
+                    :credits_studied,
                     :full_time_credits,
                     :doctor_or_dentist,
                     :uk_ft_circumstances,
                     :uk_all_circumstances,
                     :tuition_fee_amount,
-                    :loan_eligibility
+                    :loan_eligibility,
+                    :age,
+                    :studied_before,
+                    :attend_in_person,
+                    :disability_status,
+                    :eligible_for_nhs_bursary
 
       LOAN_MAXIMUMS = {
         "2025-2026" => {
-          "at-home" => 8877,
+          "at-home" => 8_877,
           "away-outside-london" => 10_544,
           "away-in-london" => 13_762,
         },
         "2026-2027" => {
-          "at-home" => 9118,
+          "at-home" => 9_118,
           "away-outside-london" => 10_830,
           "away-in-london" => 14_135,
+        },
+        "2027-2028" => {
+          "at-home" => 9_118,
+          "away-outside-london" => 10_830,
+          "away-in-london" => 14_135,
+          "living-overseas" => 12_403,
         },
       }.freeze
 
@@ -38,6 +49,12 @@ module SmartAnswer
           "away-in-london" => 3_281,
           "away-outside-london" => 4_607,
         },
+        "2027-2028" => {
+          "at-home" => 2_461,
+          "away-in-london" => 3_281,
+          "away-outside-london" => 4_607,
+          "living-overseas" => 3_281,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS = {
@@ -49,6 +66,10 @@ module SmartAnswer
           "one-child" => 199.62,
           "more-than-one-child" => 342.24,
         },
+        "2027-2028" => {
+          "one-child" => 199.62,
+          "more-than-one-child" => 342.24,
+        },
       }.freeze
 
       CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME = 20_107.23
@@ -57,6 +78,7 @@ module SmartAnswer
       PARENTS_LEARNING_ALLOWANCE = {
         "2025-2026" => 2_024,
         "2026-2027" => 2_024,
+        "2027-2028" => 2_024,
       }.freeze
 
       PARENTS_LEARNING_HOUSEHOLD_INCOME = 18_957.98
@@ -64,13 +86,21 @@ module SmartAnswer
       ADULT_DEPENDANT_ALLOWANCE = {
         "2025-2026" => 3_545,
         "2026-2027" => 3_545,
+        "2027-2028" => 3_545,
       }.freeze
 
       ADULT_DEPENDANT_HOUSEHOLD_INCOME = 15_835.98
 
       TUITION_FEE_MAXIMUM = {
-        "full-time" => 9_790,
-        "part-time" => 7_335,
+        "2025-2026" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2026-2027" => {
+          "full-time" => 9_790,
+          "part-time" => 7_335,
+        },
+        "2027-2028" => 9_790,
       }.freeze
 
       LOAN_MINIMUMS = {
@@ -83,6 +113,12 @@ module SmartAnswer
           "at-home" => 4_013,
           "away-outside-london" => 5_048,
           "away-in-london" => 7_039,
+        },
+        "2027-2028" => {
+          "at-home" => 4_013,
+          "away-outside-london" => 5_048,
+          "away-in-london" => 7_039,
+          "living-overseas" => 5_996,
         },
       }.freeze
 
@@ -97,19 +133,36 @@ module SmartAnswer
           "away-outside-london" => 6.47,
           "away-in-london" => 6.36,
         },
+        "2027-2028" => {
+          "at-home" => 6.54,
+          "away-outside-london" => 6.47,
+          "away-in-london" => 6.36,
+          "living-overseas" => 6.41,
+        },
       }.freeze
+
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60 = 4_582
+
+      SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM = 0
+
+      INCOME_PENALTY_RATIO_OVER_60 = 4.16
 
       def initialize(params = {})
         @course_start = params[:course_start]
         @household_income = params[:household_income]
         @residence = params[:residence]
         @course_type = params[:course_type]
-        @part_time_credits = params[:part_time_credits]
+        @credits_studied = params[:credits_studied]
         @full_time_credits = params[:full_time_credits]
         @doctor_or_dentist = params[:doctor_or_dentist]
         @uk_ft_circumstances = params.fetch(:uk_ft_circumstances, [])
         @uk_all_circumstances = params.fetch(:uk_all_circumstances, [])
         @loan_eligibility = params[:loan_eligibility]
+        @age = params[:age]
+        @studied_before = params[:studied_before]
+        @attend_in_person = params[:attend_in_person]
+        @disability_status = params[:disability_status]
+        @eligible_for_nhs_bursary = params[:eligible_for_nhs_bursary]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -157,11 +210,11 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum_full_time
-        TUITION_FEE_MAXIMUM.fetch("full-time")
+        TUITION_FEE_MAXIMUM[@course_start]["full-time"]
       end
 
       def tuition_fee_maximum_part_time
-        TUITION_FEE_MAXIMUM.fetch("part-time")
+        TUITION_FEE_MAXIMUM[@course_start]["part-time"]
       end
 
       def maintenance_grant_amount
@@ -170,7 +223,7 @@ module SmartAnswer
 
       def maintenance_loan_amount
         reduced_amount = max_loan_amount - reduction_based_on_income
-        SmartAnswer::Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
+        SmartAnswer::Money.new(([reduced_amount, min_loan_amount].max * loan_proportion).round(2))
       end
 
       def course_start_years
@@ -178,16 +231,33 @@ module SmartAnswer
         [year_matches[1].to_i, year_matches[2].to_i]
       end
 
+      def max_tuition_fee_amount_lle
+        credit_value = TUITION_FEE_MAXIMUM[@course_start].to_f / 120
+        credits_studied * credit_value
+      end
+
       def valid_tuition_fee_amount?
         tuition_fee_amount <= tuition_fee_maximum
       end
 
+      def valid_tuition_fee_amount_lle?
+        tuition_fee_amount <= max_tuition_fee_amount_lle
+      end
+
       def valid_credit_amount?
-        part_time_credits.positive?
+        credits_studied.positive?
+      end
+
+      def valid_credit_amount_lle?
+        credits_studied >= 30 && credits_studied <= 180
       end
 
       def valid_full_time_credit_amount?
-        full_time_credits.positive? && full_time_credits >= part_time_credits
+        full_time_credits.positive? && full_time_credits >= credits_studied
+      end
+
+      def valid_full_time_credit_amount_lle?
+        full_time_credits.positive? && full_time_credits >= credits_studied && full_time_credits <= 180
       end
 
       def ineligible_for_extra_grants?
@@ -202,10 +272,29 @@ module SmartAnswer
         LOAN_MAXIMUMS[@course_start][@residence]
       end
 
+      def ssl_loan_amount
+        SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60
+      end
+
+      def adjusted_ssl_loan_amount
+        reduced_amount = ssl_loan_amount - ssl_reduction_based_on_income
+        SmartAnswer::Money.new([reduced_amount, SPECIAL_SUPPORT_ELEMENT_OF_ML_OVER_60_MINIMUM].max * loan_proportion)
+      end
+
+      def lle_scheme?
+        %w[2027-2028].include?(@course_start)
+      end
+
     private
 
       def min_loan_amount
         LOAN_MINIMUMS[@course_start][@residence]
+      end
+
+      def ssl_reduction_based_on_income
+        return 0 if @household_income <= 25_000
+
+        ((@household_income - 25_000) / INCOME_PENALTY_RATIO_OVER_60).floor
       end
 
       def reduction_based_on_income
@@ -216,18 +305,30 @@ module SmartAnswer
       end
 
       def course_intensity
-        100 * (part_time_credits.to_f / full_time_credits)
+        case @course_type
+        when "full-time"
+          baseline_credits = 120
+        when "part-time"
+          baseline_credits = @full_time_credits
+        end
+        100 * (credits_studied.to_f / baseline_credits)
       end
 
       def loan_proportion
-        return 1 if @course_type == "full-time" || course_intensity == 100
-        return 0.75 if course_intensity >= 75
-        return 0.666 if course_intensity >= 66.6
-        return 0.5 if course_intensity >= 50
-        return 0.333 if course_intensity >= 33.3
-        return 0.25 if course_intensity >= 25
+        if lle_scheme?
+          [course_intensity / 100, 1].min
+        else
+          return 1 if @course_type == "full-time"
 
-        0
+          return 1 if course_intensity >= 100
+          return 0.75 if course_intensity >= 75
+          return 0.666 if course_intensity >= 66.6
+          return 0.5 if course_intensity >= 50
+          return 0.333 if course_intensity >= 33.3
+          return 0.25 if course_intensity >= 25
+
+          0
+        end
       end
     end
   end
