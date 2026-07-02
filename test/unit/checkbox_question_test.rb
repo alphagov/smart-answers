@@ -119,6 +119,17 @@ module SmartAnswer
             @question.parse_input(nil)
           end
         end
+
+        should "raise if 'none' is selected alongside another option" do
+          error = assert_raise InvalidResponse do
+            @question.parse_input("none,red")
+          end
+          assert_equal :error_none_not_exclusive, error.message.to_sym
+        end
+
+        should "return 'none' when it is the only selected option" do
+          assert_equal "none", @question.parse_input("none")
+        end
       end
     end
   end

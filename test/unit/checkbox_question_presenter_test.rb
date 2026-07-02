@@ -73,6 +73,21 @@ module SmartAnswer
       assert_not(@presenter.checkboxes.any? { |c| c[:checked] })
     end
 
+    test "#error_message_for returns a default message using the none option's own label" do
+      @renderer.stubs(:content_for).with(:error_none_not_exclusive).returns(nil)
+      @renderer.stubs(:option).with("none").returns("Definitely no toppings")
+
+      assert_equal "Please select either ‘Definitely no toppings’ or one or more of the other options.",
+                   @presenter.send(:error_message_for, :error_none_not_exclusive)
+    end
+
+    test "#error_message_for lets a flow override the none-not-exclusive message" do
+      @renderer.stubs(:content_for).with(:error_none_not_exclusive).returns("Custom message")
+
+      assert_equal "Custom message",
+                   @presenter.send(:error_message_for, :error_none_not_exclusive)
+    end
+
     test "#caption returns the given caption when a caption is given" do
       @renderer.stubs(:hide_caption).returns(false)
       @renderer.stubs(:content_for).with(:caption).returns("caption-text")

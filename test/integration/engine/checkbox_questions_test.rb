@@ -116,6 +116,27 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     end
   end
 
+  without_javascript do
+    should "reject selecting the none option alongside another option" do
+      visit "/checkbox-sample/y/none"
+
+      find "h1", text: "Are you sure you don't want any toppings?"
+      check("Definitely no toppings", visible: false, allow_label_click: true)
+      check("Hmm I'm not sure, ask me again please", visible: false, allow_label_click: true)
+      click_on "Continue"
+
+      assert_equal current_path, "/checkbox-sample/y/none"
+
+      within(".govuk-error-summary [href]") do
+        assert_page_has_content "Please select either ‘Definitely no toppings’ or one or more of the other options."
+      end
+
+      within(".govuk-error-message") do
+        assert_page_has_content "Please select either ‘Definitely no toppings’ or one or more of the other options."
+      end
+    end
+  end
+
   should "calculate next_node correctly" do
     visit "/checkbox-sample/y"
 
