@@ -65,4 +65,50 @@ class ResultItemTest < ComponentTestCase
     assert_select ".app-c-result-item .govuk-link[href='www.gov.uk']", text: "Result item title (opens in new tab)"
     assert_select ".app-c-result-item .govuk-body", text: "Result item description"
   end
+
+  test "renders with 'rel=noreferrer noopener' if the url is external" do
+    render_component({
+      title: "Result item title",
+      url: "www.example.com",
+      description: "something",
+    })
+
+    assert_select ".app-c-result-item", true
+    assert_select ".app-c-result-item .govuk-link[href='www.example.com'][target=_blank][rel='noopener noreferrer']", text: "Result item title (opens in new tab)"
+  end
+
+  test "does not render with 'rel=noreferrer' if the url is internal" do
+    render_component({
+      title: "Result item title",
+      url: "https://www.test.gov.uk", # This is what Plek.new.website_root returns in tests
+      description: "something",
+    })
+
+    assert_select ".app-c-result-item", true
+    assert_select ".app-c-result-item .govuk-link[href='https://www.test.gov.uk'][target=_blank][rel='noopener noreferrer']", false
+    assert_select ".app-c-result-item .govuk-link[href='https://www.test.gov.uk'][target=_blank][rel='noopener']", text: "Result item title (opens in new tab)"
+  end
+
+  test "does not render with 'rel=noreferrer' if the url is relative" do
+    render_component({
+      title: "Result item title",
+      url: "/browse",
+      description: "something",
+    })
+
+    assert_select ".app-c-result-item", true
+    assert_select ".app-c-result-item .govuk-link[href='/browse'][target=_blank][rel='noopener noreferrer']", false
+    assert_select ".app-c-result-item .govuk-link[href='/browse'][target=_blank][rel='noopener']", text: "Result item title (opens in new tab)"
+  end
+
+  test "renders with 'rel=noreferrer noopener' if the url is protocol relative" do
+    render_component({
+      title: "Result item title",
+      url: "//www.example.com",
+      description: "something",
+    })
+
+    assert_select ".app-c-result-item", true
+    assert_select ".app-c-result-item .govuk-link[href='//www.example.com'][target=_blank][rel='noopener noreferrer']", text: "Result item title (opens in new tab)"
+  end
 end

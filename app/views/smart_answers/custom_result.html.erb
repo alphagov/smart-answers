@@ -28,7 +28,17 @@
 
     <%= outcome.description %>
 
-    <%= outcome.body %>
+    <%= tag.div data: { module: "ga4-link-tracker",
+      ga4_set_indexes: "",
+      ga4_link: {
+        "event_name": "information_click",
+        "type": "smart answer",
+        "section": outcome.title,
+        "action": "information click",
+        "tool_name": @presenter.title,
+      }} do %>
+      <%= outcome.body %>
+    <% end %>
 
     <div class="govuk-!-display-none-print">
       <%= render "govuk_publishing_components/components/heading", {
@@ -41,7 +51,17 @@
       <%= tag.p class: "govuk-body govuk-!-margin-bottom-8" do %>
         <%= link_to "Answer the questions again to change the results",
           restart_flow_path(@presenter),
-          class: "govuk-link" %>
+          class: "govuk-link",
+          data: {
+            module: "ga4-link-tracker",
+            ga4_link: {
+              event_name: "form_start_again",
+              type: "smart answer",
+              section: @presenter.current_node.title,
+              action: "start again",
+              tool_name: @presenter.title,
+            },
+          } %>
       <% end %>
     </div>
 

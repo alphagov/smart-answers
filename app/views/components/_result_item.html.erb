@@ -11,11 +11,20 @@
   if !title || !url || !description
     raise ArgumentError, "The result item component requires a title, url and description"
   end
+
+  @website_root ||= Plek.new.website_root
+  internal_link = url.start_with?("/", @website_root) && !url.start_with?("//") # Treat relative urls (/browse), the site root (https://www.gov.uk) but not relative protocol urls (//www.example.com/) as internal
 %>
 <%= tag.div class: css_classes do %>
   <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
-    <%= link_to url, class: "govuk-link", target: "_blank", rel: "noreferrer noopener" do %>
-      <%= title || url %> <span class="govuk-!-display-none-print">(opens in new tab)</span>
+    <% if internal_link %>
+      <%= link_to url, class: "govuk-link", target: "_blank", rel: "noopener" do %>
+        <%= title || url %> <span class="govuk-!-display-none-print">(opens in new tab)</span>
+      <% end %>
+    <% else %>
+      <%= link_to url, class: "govuk-link", target: "_blank", rel: "noopener noreferrer" do %>
+        <%= title || url %> <span class="govuk-!-display-none-print">(opens in new tab)</span>
+      <% end %>
     <% end %>
   </h4>
   <p class="govuk-body govuk-!-margin-bottom-1">
