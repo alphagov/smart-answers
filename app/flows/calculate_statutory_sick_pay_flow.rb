@@ -13,6 +13,7 @@ class CalculateStatutorySickPayFlow < SmartAnswer::Flow
       option :statutory_adoption_pay
       option :statutory_parental_bereavement_pay
       option :shared_parental_leave_and_pay
+      none_option
 
       on_response do |response|
         self.calculator = SmartAnswer::Calculators::StatutorySickPayCalculator.new
