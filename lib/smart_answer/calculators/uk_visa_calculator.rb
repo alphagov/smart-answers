@@ -354,7 +354,7 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES = %w[
       anguilla
       bermuda
-      british-dependent-territories-citizen
+      british-overseas-territories-citizen
       british-overseas-citizen
       british-protected-person
       british-virgin-islands
