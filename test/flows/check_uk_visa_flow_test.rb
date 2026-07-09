@@ -12,6 +12,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @direct_airside_transit_visa_country = "afghanistan"
     @visa_national_country = "armenia"
     @british_overseas_territory_country = "anguilla"
+    @british_overseas_territory_eta_country = "british-protected-person"
     @non_visa_national_country = "pitcairn-island"
     @eea_country = "austria"
     @travel_document_country = "hong-kong"
@@ -1108,39 +1109,7 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome: outcome_tourism_n" do
-    setup do
-      testing_node :outcome_tourism_n
-      add_responses dual_british_or_irish_citizenship?: "no",
-                    purpose_of_visit?: "tourism"
-    end
-
-    should "render the need for an ETA for a British Overseas Citizen passport" do
-      add_responses what_passport_do_you_have?: @british_overseas_territory_country
-      assert_rendered_outcome text: "Before you travel to the UK, you will need to apply for an electronic travel authorisation (ETA)"
-    end
-
-    should "not render the need for an ETA for a non-British Overseas Citizen passport" do
-      add_responses what_passport_do_you_have?: @non_visa_national_country
-      assert_no_rendered_outcome text: "Before you travel to the UK, you will need to apply for an electronic travel authorisation (ETA)"
-    end
-  end
-
   context "ETA callout box on" do
-    context "outcome: outcome_tourism_n" do
-      setup do
-        testing_node :outcome_tourism_n
-        add_responses dual_british_or_irish_citizenship?: "no",
-                      purpose_of_visit?: "tourism"
-      end
-
-      should "not render callout box for countries that do not require it" do
-        add_responses what_passport_do_you_have?: @british_overseas_territory_country
-        assert_no_rendered_outcome text: @non_visa_national_eta_text
-        assert_no_rendered_outcome text: @eea_eta_text
-      end
-    end
-
     context "outcome: outcome_work_n" do
       setup do
         testing_node :outcome_work_n

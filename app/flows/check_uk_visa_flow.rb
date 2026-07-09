@@ -392,7 +392,7 @@ class CheckUkVisaFlow < SmartAnswer::Flow
           next outcome(:outcome_visit_waiver_taiwan)
         elsif (calculator.passport_country_in_non_visa_national_list? ||
             calculator.passport_country_in_eea? ||
-            calculator.passport_country_in_british_overseas_territories_list?) &&
+            calculator.passport_country_in_british_overseas_territories_non_eta_list?) &&
             !calculator.travel_document?
           next outcome(:outcome_tourism_n)
         else
