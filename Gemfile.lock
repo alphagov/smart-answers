@@ -143,7 +143,7 @@ GEM
       rubocop (>= 1)
       smart_properties
     erubi (1.13.1)
-    execjs (2.10.0)
+    execjs (2.10.1)
     ffi (1.17.3)
     ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-arm64-darwin)
@@ -672,7 +672,7 @@ GEM
       sprockets (>= 3.0.0)
     statsd-ruby (1.5.0)
     strscan (3.1.8)
-    terser (1.2.7)
+    terser (1.2.8)
       execjs (>= 0.3.0, < 3)
     thor (1.5.0)
     tilt (2.7.0)
