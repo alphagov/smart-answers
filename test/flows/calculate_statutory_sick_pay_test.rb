@@ -640,7 +640,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not render the statutory paternity warning text if not receiving shared parental or statutory paternity pay" do
-      add_responses is_your_employee_getting?: ""
+      add_responses is_your_employee_getting?: "none"
 
       assert_no_match "Your employee will not be able to collect Statutory Shared Parental Pay, Statutory Paternity Pay", @test_flow.outcome_text
     end

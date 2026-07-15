@@ -55,10 +55,21 @@ module SmartAnswer
         return NONE_OPTION if raw_input == NONE_OPTION
 
         raw_input = raw_input.split(",") if raw_input.is_a?(String)
+
+        raise SmartAnswer::InvalidResponse, :error_none_not_exclusive, caller if none_combined_with_other_options?(raw_input)
+
         raw_input.each do |option|
           raise SmartAnswer::InvalidResponse, "Illegal option #{option} for #{name}", caller unless valid_option?(option)
         end
         raw_input.sort.join(",")
+      end
+
+    private
+
+      # The GOV.UK Frontend checkbox component prevents this in the browser, so
+      # this only catches submissions made with JavaScript disabled.
+      def none_combined_with_other_options?(selected_options)
+        none_option? && selected_options.include?(NONE_OPTION) && selected_options.length > 1
       end
     end
   end

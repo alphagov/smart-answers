@@ -38,4 +38,17 @@ private
 
     response.include?(value)
   end
+
+  # Default message for the built-in none-not-exclusive validation; a flow can
+  # still override it with `text_for :error_none_not_exclusive`.
+  def error_message_for(key)
+    super || none_not_exclusive_message(key)
+  end
+
+  def none_not_exclusive_message(key)
+    return unless key.to_sym == :error_none_not_exclusive
+
+    none_label = option_attributes(SmartAnswer::Question::Checkbox::NONE_OPTION)[:label]
+    "Please select either ‘#{none_label}’ or one or more of the other options."
+  end
 end

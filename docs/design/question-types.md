@@ -4,7 +4,7 @@
   * User input: Choose zero to many options from a list of options.
   * Validation: Must be in the list of options.
   * Response: String containing comma-separated list of chosen options.
-  * Can specify `none_option` in flow definition to represent a "none" answer. This ensures the user has selected at least one checkbox before continuing.
+  * Can specify `none_option` in flow definition to represent a "none" answer. This ensures the user has selected at least one checkbox before continuing, and that the "none" option is not selected alongside any other option. GOV.UK Frontend enforces this in the browser; the server-side check catches submissions made with JavaScript disabled. A default error message is provided, which a flow can override with `text_for :error_none_not_exclusive`.
 
 ## `country_select`
   * Options:
