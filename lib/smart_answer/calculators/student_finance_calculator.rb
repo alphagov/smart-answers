@@ -240,10 +240,6 @@ module SmartAnswer
         tuition_fee_amount <= tuition_fee_maximum
       end
 
-      def valid_tuition_fee_amount_lle?
-        tuition_fee_amount <= max_tuition_fee_amount_lle
-      end
-
       def valid_credit_amount?
         credits_studied.positive?
       end

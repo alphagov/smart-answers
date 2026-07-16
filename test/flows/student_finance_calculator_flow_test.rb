@@ -725,9 +725,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "validation" do
-          # The LLE maximum for 120 credits is (120 / 120) * 9790 = £9790
-          should "be invalid if above the LLE maximum for 120 credits" do
-            assert_invalid_response "9791"
+          should "be invalid if below 0" do
+            assert_invalid_response "-1"
           end
 
           should "be valid if not above the LLE maximum for 120 credits" do

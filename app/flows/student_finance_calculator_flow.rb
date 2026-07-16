@@ -333,10 +333,6 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
         calculator.tuition_fee_amount = SmartAnswer::Money.new(response)
       end
 
-      validate do
-        calculator.valid_tuition_fee_amount_lle?
-      end
-
       next_node do
         case calculator.age
         when "under-60"
