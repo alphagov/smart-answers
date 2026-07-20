@@ -157,7 +157,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :"has-disability"
       option :"low-income"
       option :"care-leaver"
-      option :no
+      none_option
 
       on_response do |response|
         calculator.uk_ft_circumstances = response.split(",")
@@ -182,7 +182,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
       option :"has-disability"
       option :"low-income"
       option :"care-leaver"
-      option :no
+      none_option
 
       on_response do |response|
         calculator.uk_all_circumstances = response.split(",")
@@ -440,7 +440,7 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
     checkbox_question :do_any_of_the_following_apply_distance_learner? do
       option :"has-disability"
       option :"low-income"
-      option :no
+      none_option
 
       on_response do |response|
         calculator.uk_all_circumstances = response.split(",")

@@ -355,7 +355,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     should "render text for when the student is not eligible for extra grants and allowances" do
-      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+      add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                     what_course_are_you_studying?: "none-of-the-above"
 
       assert_rendered_outcome text: "You do not qualify for any extra grants or allowances."
@@ -483,7 +483,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end
 
     should "render text for when the student is not eligible for extra grants and allowances" do
-      add_responses do_any_of_the_following_apply_all_uk_students?: "no",
+      add_responses do_any_of_the_following_apply_all_uk_students?: "none",
                     what_course_are_you_studying?: "none-of-the-above"
 
       assert_rendered_outcome text: "You do not qualify for any extra grants or allowances"
@@ -906,7 +906,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          %w[dependant-adult has-disability low-income no].each do |response|
+          %w[dependant-adult has-disability low-income none].each do |response|
             should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
               assert_next_node :whats_your_household_income?, for_response: response
             end
@@ -945,7 +945,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          %w[has-disability low-income no].each do |response|
+          %w[has-disability low-income none].each do |response|
             should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
               assert_next_node :whats_your_household_income?, for_response: response
             end
@@ -968,7 +968,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no"
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "none"
         end
 
         should "render the question" do
@@ -1000,7 +1000,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          %w[has-disability low-income no].each do |response|
+          %w[has-disability low-income none].each do |response|
             should "have a next node of are_you_studying_one_of_these_courses? for #{response} response" do
               assert_next_node :are_you_studying_one_of_these_courses?, for_response: response
             end
@@ -1019,7 +1019,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "25000"
         end
 
@@ -1047,7 +1047,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "no",
-                            do_any_of_the_following_apply_distance_learner?: "no"
+                            do_any_of_the_following_apply_distance_learner?: "none"
               assert_next_node :outcome_under_60_distance_learner, for_response: response
             end
           end
@@ -1065,7 +1065,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "yes",
                         will_you_attend_in_person?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "25000",
                         are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
         end
@@ -1090,7 +1090,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             should "have a next node of outcome_under_60_distance_learner for a #{response} response when not attending in person" do
               add_responses will_you_attend_in_person?: "no",
                             are_you_unable_to_be_in_person_disability?: "no",
-                            do_any_of_the_following_apply_distance_learner?: "no",
+                            do_any_of_the_following_apply_distance_learner?: "none",
                             are_you_studying_one_of_these_courses?: "dental-medical-healthcare"
               assert_next_node :outcome_under_60_distance_learner, for_response: response
             end
@@ -1137,7 +1137,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "not show grants or allowances the student is not eligible for" do
-          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "60,000"
           ["a week for a single child",
            "Disabled Students",
@@ -1204,7 +1204,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         should "not show the not-in-person message when unable to attend due to disability" do
           add_responses are_you_unable_to_be_in_person_disability?: "yes",
                         where_will_you_live_while_studying_lle?: "at-home",
-                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "25,000"
           assert_no_rendered_outcome text: "Because you are not attending the course in person"
         end
@@ -1221,7 +1221,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         have_you_studied_before?: "no",
                         will_you_attend_in_person?: "no",
                         are_you_unable_to_be_in_person_disability?: "no",
-                        do_any_of_the_following_apply_distance_learner?: "no",
+                        do_any_of_the_following_apply_distance_learner?: "none",
                         are_you_studying_one_of_these_courses?: "no"
         end
 
@@ -1478,7 +1478,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          %w[has-disability low-income no].each do |response|
+          %w[has-disability low-income none].each do |response|
             should "have a next node of whats_your_household_income? for anyone not a care leaver and #{response} response" do
               assert_next_node :whats_your_household_income?, for_response: response
             end
@@ -1510,7 +1510,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         context "next_node" do
-          %w[has-disability low-income no].each do |response|
+          %w[has-disability low-income none].each do |response|
             should "have a next node of outcome_over_60_distance_learner? for #{response} response" do
               assert_next_node :outcome_over_60_distance_learner, for_response: response
             end
@@ -1552,7 +1552,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_are_you_planning_to_study?: "full-time",
                         how_many_credits_will_you_study_course_module?: "120",
                         will_you_attend_in_person?: "yes",
-                        do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+                        do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "27,000"
         end
 
@@ -1579,7 +1579,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "not show grants or allowances the student is not eligible for" do
-          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "no",
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "none",
                         whats_your_household_income?: "60,000"
           ["a week for a single child",
            "Disabled Students",
@@ -1646,7 +1646,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                         how_many_credits_will_you_study_course_module?: "120",
                         will_you_attend_in_person?: "no",
                         are_you_unable_to_be_in_person_disability?: "no",
-                        do_any_of_the_following_apply_distance_learner?: "no"
+                        do_any_of_the_following_apply_distance_learner?: "none"
         end
 
         should "render not eligible for loans when distance learning" do
@@ -1672,7 +1672,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "not show grants or allowances the student is not eligible for" do
-          add_responses do_any_of_the_following_apply_distance_learner?: "no",
+          add_responses do_any_of_the_following_apply_distance_learner?: "none",
                         whats_your_household_income?: "60,000"
           ["a week for a single child",
            "Disabled Students",

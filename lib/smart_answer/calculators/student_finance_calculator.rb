@@ -257,7 +257,7 @@ module SmartAnswer
       end
 
       def ineligible_for_extra_grants?
-        uk_all_circumstances.include?("no") && course_studied != "teacher-training" && course_studied != "social-work"
+        uk_all_circumstances.include?("none") && course_studied != "teacher-training" && course_studied != "social-work"
       end
 
       def loan_shortfall
