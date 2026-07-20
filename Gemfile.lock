@@ -134,7 +134,7 @@ GEM
     docile (1.4.0)
     domain_name (0.6.20240107)
     drb (2.2.3)
-    erb (6.0.4)
+    erb (6.0.5)
     erb_lint (0.9.0)
       activesupport
       better_html (>= 2.0.1)
@@ -215,7 +215,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.37.3)
+    govuk_web_banners (1.37.4)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -473,7 +473,7 @@ GEM
       opentelemetry-helpers-sql-processor
       opentelemetry-instrumentation-base (~> 0.25)
       opentelemetry-semantic_conventions (>= 1.8.0)
-    opentelemetry-registry (0.6.2)
+    opentelemetry-registry (0.6.3)
       opentelemetry-api (~> 1.1)
     opentelemetry-sdk (1.12.1)
       logger
@@ -535,8 +535,8 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.7.0)
-      loofah (~> 2.25)
+    rails-html-sanitizer (1.7.1)
+      loofah (~> 2.25, >= 2.25.2)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
     rails-i18n (8.1.0)
       i18n (>= 0.7, < 2)
