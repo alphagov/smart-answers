@@ -66,6 +66,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES.include?(@passport_country)
     end
 
+    def passport_country_in_british_overseas_territories_non_eta_list?
+      COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES_NON_ETA.include?(@passport_country)
+    end
+
     def passport_country_in_direct_airside_transit_visa_list?
       COUNTRY_GROUP_DIRECT_AIRSIDE_TRANSIT_VISA.include?(@passport_country)
     end
@@ -351,10 +355,23 @@ module SmartAnswer::Calculators
       zambia
     ].freeze
 
+    COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES_NON_ETA = %w[
+      anguilla
+      bermuda
+      british-overseas-territories-citizen
+      british-virgin-islands
+      cayman-islands
+      falkland-islands
+      montserrat
+      south-georgia-and-the-south-sandwich-islands
+      st-helena-ascension-and-tristan-da-cunha
+      turks-and-caicos-islands
+    ].freeze
+
     COUNTRY_GROUP_BRITISH_OVERSEAS_TERRITORIES = %w[
       anguilla
       bermuda
-      british-dependent-territories-citizen
+      british-overseas-territories-citizen
       british-overseas-citizen
       british-protected-person
       british-virgin-islands
@@ -604,6 +621,8 @@ module SmartAnswer::Calculators
       belize
       bonaire-st-eustatius-saba
       brazil
+      british-overseas-citizen
+      british-protected-person
       brunei
       bulgaria
       canada

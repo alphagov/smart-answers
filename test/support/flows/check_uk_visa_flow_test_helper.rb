@@ -152,6 +152,11 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
       end
 
+      should "have a next node of outcome_tourism_requires_electronic_travel_authorisation for British overseas territories ETA passport " do
+        add_responses what_passport_do_you_have?: @british_overseas_territory_eta_country
+        assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
+      end
+
       should "have a next node of outcome_tourism_requires_electronic_travel_authorisation for a Taiwan passport" do
         add_responses what_passport_do_you_have?: "taiwan"
         assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
@@ -167,7 +172,7 @@ module CheckUkVisaFlowTestHelper
         assert_next_node :outcome_tourism_electronic_travel_authorisation, for_response: "tourism"
       end
 
-      should "have a next node of outcome_tourism_n for a British overseas territory passport" do
+      should "have a next node of outcome_tourism_n for a British overseas territory (non-eta) passport" do
         add_responses what_passport_do_you_have?: @british_overseas_territory_country
         assert_next_node :outcome_tourism_n, for_response: "tourism"
       end
