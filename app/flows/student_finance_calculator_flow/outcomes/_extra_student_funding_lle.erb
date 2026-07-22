@@ -43,6 +43,10 @@ Student loans have to be paid back - grants, bursaries and allowances do not.
   <%  end  %>
 <%  end %>
 
+<% if calculator.over_income_threshold_for_specific_extra_support? %>
+  You might not qualify for certain grants or allowances because your household income is above the threshold.
+<% end %>
+
 <% if calculator.uk_ft_circumstances.include?('low-income') || calculator.uk_all_circumstances.include?('low-income') %>
   You could get a [bursary or scholarship](/extra-money-pay-university) from your university, college or training provider.
 <% else %>

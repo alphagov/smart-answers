@@ -177,6 +177,14 @@ module SmartAnswer
         uk_ft_circumstances.include?("children-under-17") && household_income <= CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME
       end
 
+      def over_income_threshold_for_childcare_grant_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income > CHILD_CARE_GRANTS_ONE_CHILD_HOUSEHOLD_INCOME
+      end
+
+      def over_income_threshold_for_childcare_grant_more_than_one_child?
+        uk_ft_circumstances.include?("children-under-17") && household_income > CHILD_CARE_GRANTS_MORE_THAN_ONE_CHILD_HOUSEHOLD_INCOME
+      end
+
       def childcare_grant_one_child
         CHILD_CARE_GRANTS.fetch(@course_start).fetch("one-child")
       end
@@ -189,12 +197,24 @@ module SmartAnswer
         uk_ft_circumstances.include?("children-under-17") && household_income <= PARENTS_LEARNING_HOUSEHOLD_INCOME
       end
 
+      def over_income_threshold_for_parent_learning_allowance?
+        uk_ft_circumstances.include?("children-under-17") && household_income > PARENTS_LEARNING_HOUSEHOLD_INCOME
+      end
+
       def parent_learning_allowance
         PARENTS_LEARNING_ALLOWANCE.fetch(@course_start)
       end
 
       def eligible_for_adult_dependant_allowance?
         uk_ft_circumstances.include?("dependant-adult") && household_income <= ADULT_DEPENDANT_HOUSEHOLD_INCOME
+      end
+
+      def over_income_threshold_for_adult_dependant_allowance?
+        uk_ft_circumstances.include?("dependant-adult") && household_income > ADULT_DEPENDANT_HOUSEHOLD_INCOME
+      end
+
+      def over_income_threshold_for_specific_extra_support?
+        over_income_threshold_for_adult_dependant_allowance? || over_income_threshold_for_parent_learning_allowance? || over_income_threshold_for_childcare_grant_more_than_one_child? || over_income_threshold_for_childcare_grant_one_child?
       end
 
       def adult_dependant_allowance

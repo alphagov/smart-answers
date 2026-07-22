@@ -1120,7 +1120,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render the Maintenance Loan summary" do
-          assert_rendered_outcome text: "How your Maintenance Loan is calculated"
+          assert_rendered_outcome text: "If your NHS bursary is means-tested,"
         end
 
         should "render NHS bursary signposting when the course is NHS-bursary eligible" do
@@ -1130,6 +1130,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         should "not render NHS bursary signposting when the course is not NHS-bursary eligible" do
           add_responses is_your_course_eligible_nhs_bursary?: "no"
           assert_no_rendered_outcome text: "NHS funding towards your fees and living costs"
+        end
+
+        should "render Maintenance loan summary when the course is not NHS-bursary eligible" do
+          assert_no_rendered_outcome text: "How your Maintenance Loan is calculated"
         end
 
         should "render the low-income (hardship funds) extra help" do
@@ -1149,15 +1153,13 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
 
         should "render the care-leaver Maintenance Loan text for a care leaver" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "care-leaver"
           assert_rendered_outcome text: "You can choose to borrow the maximum amount"
         end
 
-        should "render the reduced healthcare Maintenance Loan for years 5 and 6 of a dental/medical course" do
-          assert_rendered_outcome text: "reduced Maintenance Loan"
-        end
-
         should "render the studied-before Tuition Fee Loan note when the student has studied before" do
+          add_responses is_your_course_eligible_nhs_bursary?: "no"
           add_responses have_you_studied_before?: "yes"
           assert_rendered_outcome text: "your loan might be less"
         end
@@ -1166,24 +1168,44 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "a week for a single child"
+          assert_rendered_outcome text: "if you have more than one"
+          assert_no_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
         end
 
         should "render Childcare Grant for more than one child at a higher income" do
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "25,000"
           assert_rendered_outcome text: "if you have 2 or more children"
+          assert_no_rendered_outcome text: "a week for a single child"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
         end
 
         should "render Parents' Learning Allowance for a low-income student with children" do
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "18,000"
           assert_rendered_outcome text: "Learning Allowance"
+          assert_no_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
+        end
+
+        should "render grant not available content for a high-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
+                        whats_your_household_income?: "35,000"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
+          assert_no_rendered_outcome text: "Learning Allowance"
+          assert_no_rendered_outcome text: "a week for a single child"
+          assert_no_rendered_outcome text: "if you have more than one"
         end
 
         should "render Adult Dependant's Grant for a low-income student with an adult dependant" do
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "Adult Dependant"
+        end
+
+        should "render grant not available for a high-income student with an adult dependant" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
+                        whats_your_household_income?: "35,000"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
         end
 
         should "render Disabled Students' Allowance when the student has a disability" do
@@ -1594,12 +1616,14 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "a week for a single child"
+          assert_no_rendered_outcome text: "if you have 2 or more children"
         end
 
         should "render Childcare Grant for more than one child at a higher income" do
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
                         whats_your_household_income?: "25,000"
           assert_rendered_outcome text: "if you have 2 or more children"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
         end
 
         should "render Parents' Learning Allowance for a low-income student with children" do
@@ -1608,10 +1632,22 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_rendered_outcome text: "Learning Allowance"
         end
 
+        should "render grant not available content for a high-income student with children" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "children-under-17",
+                        whats_your_household_income?: "35,000"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
+        end
+
         should "render Adult Dependant's Grant for a low-income student with an adult dependant" do
           add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
                         whats_your_household_income?: "15,000"
           assert_rendered_outcome text: "Adult Dependant"
+        end
+
+        should "render grant not available content for a high-income student with an adult dependant" do
+          add_responses do_any_of_the_following_apply_uk_120_credits_or_above?: "dependant-adult",
+                        whats_your_household_income?: "35,000"
+          assert_rendered_outcome text: "You might not qualify for certain grants or allowances because your household income is above the threshold."
         end
 
         should "render Disabled Students' Allowance when the student has a disability" do
