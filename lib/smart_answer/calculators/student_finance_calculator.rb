@@ -50,10 +50,10 @@ module SmartAnswer
           "away-outside-london" => 4_607,
         },
         "2027-2028" => {
-          "at-home" => 2_461,
-          "away-in-london" => 3_281,
-          "away-outside-london" => 4_607,
-          "living-overseas" => 3_281,
+          "at-home" => 2_122,
+          "away-in-london" => 3_970,
+          "away-outside-london" => 2_828,
+          "living-overseas" => 2_828,
         },
       }.freeze
 
