@@ -32,6 +32,19 @@ module SmartAnswer::Calculators
       "2023-2024" => 0.25,
       "2022-2023" => 0.25,
     }.freeze
+
+    MEDIUM_VEHICLE_RATE = {
+      "2026-2027" => 0.14,
+      "2025-2026" => 0.18,
+      "2024-2025" => 0.18,
+      "2023-2024" => 0.18,
+      "2022-2023" => 0.18,
+    }.freeze
+
+    def medium_vehicle_rate
+      MEDIUM_VEHICLE_RATE.fetch(tax_year)
+    end
+
     def list_of_expenses
       [type_of_vehicle, business_premises_expense] & selectable_expenses
     end
@@ -45,9 +58,8 @@ module SmartAnswer::Calculators
       vehicle_is_green? ? vehicle_price.to_f : nil
     end
 
-    def dirty_vehicle_price
-      # if dirty  => take 18% of user input/vehicle_price
-      vehicle_is_dirty? ? (vehicle_price.to_f * 0.18) : nil
+    def medium_vehicle_price
+      vehicle_is_medium? ? (vehicle_price.to_f * medium_vehicle_rate) : nil
     end
 
     def filthy_vehicle_price
@@ -61,9 +73,9 @@ module SmartAnswer::Calculators
       end
     end
 
-    def dirty_vehicle_write_off
-      if vehicle_is_dirty?
-        money(dirty_vehicle_price * vehicle_business_use_time)
+    def medium_vehicle_write_off
+      if vehicle_is_medium?
+        money(medium_vehicle_price * vehicle_business_use_time)
       end
     end
 
@@ -76,8 +88,8 @@ module SmartAnswer::Calculators
     def vehicle_write_off
       if vehicle_is_green?
         green_vehicle_write_off.to_f
-      elsif vehicle_is_dirty?
-        dirty_vehicle_write_off.to_f
+      elsif vehicle_is_medium?
+        medium_vehicle_write_off.to_f
       elsif vehicle_is_filthy?
         filthy_vehicle_write_off.to_f
       else
@@ -183,7 +195,7 @@ module SmartAnswer::Calculators
       vehicle_emission == "low" && new_car?
     end
 
-    def vehicle_is_dirty?
+    def vehicle_is_medium?
       vehicle_emission == "medium" && car?
     end
 
