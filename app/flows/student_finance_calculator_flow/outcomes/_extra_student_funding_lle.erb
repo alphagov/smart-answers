@@ -14,9 +14,9 @@ Student loans have to be paid back - grants, bursaries and allowances do not.
 <% extra_student_funding = [] %>
 
 <% if calculator.eligible_for_childcare_grant_one_child? %>
-  <% extra_student_funding << "up to 85% of your childcare costs (maximum #{format_money(calculator.childcare_grant_one_child)} a week for a single child or #{format_money(calculator.childcare_grant_more_than_one_child)} a week if you have more than one) in Childcare Grant" %>
+  <% extra_student_funding << "up to 85% of your childcare costs (maximum #{format_money(calculator.childcare_grant_one_child)} a week for a single child or #{format_money(calculator.childcare_grant_more_than_one_child)} a week if you have more than one) in [Childcare Grant](/childcare-grant)" %>
 <% elsif calculator.eligible_for_childcare_grant_more_than_one_child? %>
-  <% extra_student_funding << "up to 85% of your childcare costs to a maximum #{format_money(calculator.childcare_grant_more_than_one_child)} a week in Childcare Grant if you have 2 or more children" %>
+  <% extra_student_funding << "up to 85% of your childcare costs to a maximum #{format_money(calculator.childcare_grant_more_than_one_child)} a week in [Childcare Grant](/childcare-grant) if you have 2 or more children" %>
 <% end %>
 
 <% if calculator.eligible_for_parent_learning_allowance? %>
