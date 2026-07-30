@@ -1483,6 +1483,43 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         end
       end
 
+      context "question: do_any_of_the_following_apply_uk_120_credits_or_above?" do
+        setup do
+          testing_node :do_any_of_the_following_apply_uk_120_credits_or_above?
+          add_responses when_does_your_course_start?: "2027-2028",
+                        what_age_are_you_on_first_day_of_course?: "60-or-more",
+                        are_you_studying_one_of_these_courses?: "dental-medical-healthcare",
+                        is_your_course_eligible_nhs_bursary?: "yes",
+                        how_are_you_planning_to_study?: "full-time",
+                        how_many_credits_will_you_study_course_module?: "120",
+                        will_you_attend_in_person?: "yes"
+        end
+
+        should "render the question" do
+          assert_rendered_question
+        end
+
+        context "next_node" do
+          %w[children-under-17 dependant-adult has-disability low-income none].each do |response|
+            should "have a next node of whats_your_household_income? when #{response} and not a care leaver" do
+              assert_next_node :whats_your_household_income?, for_response: response
+            end
+          end
+
+          should "have a next node of are_you_studying_one_of_these_courses? when a care leaver" do
+            assert_next_node :outcome_over_60_students, for_response: "care-leaver"
+          end
+
+          should "have a next node of whats_your_household_income? when a care leaver and has a dependant adult" do
+            assert_next_node :whats_your_household_income?, for_response: %w[care-leaver dependant-adult]
+          end
+
+          should "have a next node of whats_your_household_income? when a care leaver and has children under 17" do
+            assert_next_node :whats_your_household_income?, for_response: %w[care-leaver children-under-17]
+          end
+        end
+      end
+
       context "question: do_any_of_the_following_apply_all_uk_students?" do
         setup do
           testing_node :do_any_of_the_following_apply_all_uk_students?
