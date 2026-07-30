@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
       "2022-2023" => 0.25,
     }.freeze
 
-    MEDIUM_VEHICLE_RATE = {
+    MEDIUM_REIMBURSEMENT_VEHICLE_RATE = {
       "2026-2027" => 0.14,
       "2025-2026" => 0.18,
       "2024-2025" => 0.18,
@@ -41,8 +41,8 @@ module SmartAnswer::Calculators
       "2022-2023" => 0.18,
     }.freeze
 
-    def medium_vehicle_rate
-      MEDIUM_VEHICLE_RATE.fetch(tax_year)
+    def medium_reimbursement_vehicle_rate
+      MEDIUM_REIMBURSEMENT_VEHICLE_RATE.fetch(tax_year)
     end
 
     def list_of_expenses
@@ -53,45 +53,45 @@ module SmartAnswer::Calculators
       vehicles + work_locations + none_options
     end
 
-    def green_vehicle_price
-      # if green => take user input/vehicle_price
-      vehicle_is_green? ? vehicle_price.to_f : nil
+    def high_reimbursement_vehicle_price
+      # if high reimbursement => take user input/vehicle_price
+      vehicle_is_high_reimbursement? ? vehicle_price.to_f : nil
     end
 
-    def medium_vehicle_price
-      vehicle_is_medium? ? (vehicle_price.to_f * medium_vehicle_rate) : nil
+    def medium_reimbursement_vehicle_price
+      vehicle_is_medium_reimbursement? ? (vehicle_price.to_f * medium_reimbursement_vehicle_rate) : nil
     end
 
-    def filthy_vehicle_price
-      # if filthy  => take 8% of user input/vehicle_price
-      vehicle_is_filthy? ? (vehicle_price.to_f * 0.08) : nil
+    def low_reimbursement_vehicle_price
+      # if low reimbursement => take 8% of user input/vehicle_price
+      vehicle_is_low_reimbursement? ? (vehicle_price.to_f * 0.08) : nil
     end
 
-    def green_vehicle_write_off
-      if vehicle_is_green?
-        money(green_vehicle_price * vehicle_business_use_time)
+    def high_reimbursement_vehicle_write_off
+      if vehicle_is_high_reimbursement?
+        money(high_reimbursement_vehicle_price * vehicle_business_use_time)
       end
     end
 
-    def medium_vehicle_write_off
-      if vehicle_is_medium?
-        money(medium_vehicle_price * vehicle_business_use_time)
+    def medium_reimbursement_vehicle_write_off
+      if vehicle_is_medium_reimbursement?
+        money(medium_reimbursement_vehicle_price * vehicle_business_use_time)
       end
     end
 
-    def filthy_vehicle_write_off
-      if vehicle_is_filthy?
-        money(filthy_vehicle_price * vehicle_business_use_time)
+    def low_reimbursement_vehicle_write_off
+      if vehicle_is_low_reimbursement?
+        money(low_reimbursement_vehicle_price * vehicle_business_use_time)
       end
     end
 
     def vehicle_write_off
-      if vehicle_is_green?
-        green_vehicle_write_off.to_f
-      elsif vehicle_is_medium?
-        medium_vehicle_write_off.to_f
-      elsif vehicle_is_filthy?
-        filthy_vehicle_write_off.to_f
+      if vehicle_is_high_reimbursement?
+        high_reimbursement_vehicle_write_off.to_f
+      elsif vehicle_is_medium_reimbursement?
+        medium_reimbursement_vehicle_write_off.to_f
+      elsif vehicle_is_low_reimbursement?
+        low_reimbursement_vehicle_write_off.to_f
       else
         0
       end
@@ -191,15 +191,15 @@ module SmartAnswer::Calculators
       end
     end
 
-    def vehicle_is_green?
+    def vehicle_is_high_reimbursement?
       vehicle_emission == "low" && new_car?
     end
 
-    def vehicle_is_medium?
+    def vehicle_is_medium_reimbursement?
       vehicle_emission == "medium" && car?
     end
 
-    def vehicle_is_filthy?
+    def vehicle_is_low_reimbursement?
       vehicle_emission == "high" && car?
     end
 
