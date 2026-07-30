@@ -1,6 +1,6 @@
 ## Tuition Fee Loan
 
-You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](<%= tuition_fee_url %>) each year to help pay your course tuition fees.
+You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](<%= tuition_fee_url %>) each course year to help pay your course tuition fees.
 
 <% if maintenance_loan_amount > 0 %>
   ## Maintenance Loan
@@ -8,7 +8,7 @@ You could get a <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuit
   <% if start_date == ("2026-2027") && (uk_ft_circumstances.include?('care-leaver') || uk_all_circumstances.include?('care-leaver')) %>
     You can choose to borrow the maximum amount.
 
-    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. Student Loans Company (SLC) will still use your household income to check what other funding you can get.
+    If you’re a care leaver, your household income is not used to calculate your Maintenance Loan. Student Finance England will still use your household income to check what other funding you can get.
 
   <% else %>
     You could get a <%= format_money(maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](<%= maintenance_loan_url %>) to help with your living costs.

@@ -1,5 +1,5 @@
 <% text_for :title do %>
-  How many credits a year does a full-time student study?
+  How many credits would a full-time equivalent course year or module be worth?
 <% end %>
 
 <% text_for :hint do %>
@@ -11,5 +11,5 @@
 <% end %>
 
 <% text_for :error_credit_amount do %>
-  Please enter a number greater than or equal to your part-time study credits (<%= calculator.credits_studied %>)
+  Please enter a number greater than or equal to your part-time study credits (<%= calculator.credits_studied.to_i %>)
 <% end %>

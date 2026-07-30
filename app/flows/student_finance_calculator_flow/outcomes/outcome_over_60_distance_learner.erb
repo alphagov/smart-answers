@@ -1,0 +1,9 @@
+<% govspeak_for :body do %>
+  Your result is an estimate. You’ll be told your exact amount, including any extra student funding, after your application is approved.
+
+  You are not eligible for a Tuition Fee Loan, Maintenance Loan or Special Support Loan.
+
+  <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
+
+  <%= render partial: 'next_steps_lle' %>
+<% end %>

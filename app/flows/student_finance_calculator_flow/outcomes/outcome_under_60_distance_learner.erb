@@ -1,0 +1,13 @@
+<% govspeak_for :body do %>
+  <%= render partial: 'disclaimer_lle' %>
+
+  <% if calculator.attend_in_person == "no" && calculator.disability_status == "no" %>
+    Because you are not attending the course in person, you are not eligible for a Maintenance Loan and some types of extra funding.
+  <% end %>
+
+  <%= render partial: 'tuition_summary_lle', locals: { max_tuition_fee_amount_lle: calculator.max_tuition_fee_amount_lle, tuition_fee_url: "/student-finance-on-or-after-1-january-2027/student-loans", uk_ft_circumstances: calculator.uk_ft_circumstances, uk_all_circumstances: calculator.uk_all_circumstances, studied_before: calculator.studied_before == "yes", course_studied: calculator.course_studied, eligible_for_nhs_bursary: calculator.eligible_for_nhs_bursary } %>
+
+  <%= render partial: 'extra_student_funding_lle', locals: { calculator: calculator } %>
+
+  <%= render partial: 'next_steps_lle' %>
+<% end %>

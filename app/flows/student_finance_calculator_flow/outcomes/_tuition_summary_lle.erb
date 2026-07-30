@@ -1,0 +1,13 @@
+## Tuition Fee Loan
+
+<% if eligible_for_nhs_bursary == "yes" %>
+  If your course is eligible for an [NHS bursary](https://www.nhsbsa.nhs.uk/nhs-bursary), you cannot get a Tuition Fee Loan from Student Finance England. If you get the bursary, your tuition fees will be paid directly to your university by the NHS.
+<% else %>
+  You could get a <%= format_money(max_tuition_fee_amount_lle, pounds_only: true) %> [Tuition Fee Loan](<%= tuition_fee_url %>) each year to help pay your course tuition fees. This is the maximum loan you can get, based on the number of credits you're studying.
+
+  Depending on which course you’re studying and how much your course provider is charging, your Tuition Fee Loan may not be enough to cover the full cost of your course.
+
+  <% if studied_before %>
+    If you’ve studied before, your loan might be less. Find out how [the amount you're eligible for is worked out](/student-finance-on-or-after-1-january-2027/eligibility).
+  <% end %>
+<% end %>
