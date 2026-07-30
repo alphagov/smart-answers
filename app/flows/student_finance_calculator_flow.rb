@@ -165,21 +165,15 @@ class StudentFinanceCalculatorFlow < SmartAnswer::Flow
 
       next_node do |response|
         if calculator.lle_scheme?
-          case calculator.age
-          when "under-60"
-            if response.include?("care-leaver") && !response.include?("children-under-17") && !response.include?("dependant-adult")
-              calculator.household_income = 0
+          if response.include?("care-leaver") && !response.include?("children-under-17") && !response.include?("dependant-adult")
+            calculator.household_income = 0
+            if calculator.age == "under-60"
               question :are_you_studying_one_of_these_courses?
             else
-              question :whats_your_household_income?
-            end
-          when "60-or-more"
-            if response.include?("care-leaver") && !response.include?("children-under-17") && !response.include?("dependant-adult")
-              calculator.household_income = 0
               outcome :outcome_over_60_students
-            else
-              question :whats_your_household_income?
             end
+          else
+            question :whats_your_household_income?
           end
         else
           question :what_course_are_you_studying?
