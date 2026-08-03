@@ -195,7 +195,7 @@ class SimplifiedExpensesCheckerFlow < SmartAnswer::Flow
 
     # Q10 - vehicle private use time
     value_question :vehicle_business_use_time?, parse: :to_f do
-      # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
+      # deduct percentage amount from [high_reimbursement_cost] or [medium_reimbursement_cost] and store as [high_reimbursement_write_off] or [medium_reimbursement_write_off]
 
       on_response do |response|
         calculator.business_use_percent = response
