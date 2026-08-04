@@ -208,7 +208,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.38.1)
+    govuk_web_banners (1.39.0)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -557,8 +557,8 @@ GEM
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
       tsort
-    redis (5.4.1)
-      redis-client (>= 0.22.0)
+    redis (6.0.0)
+      redis-client (= 0.30.1)
     redis-client (0.30.1)
       connection_pool
     regexp_parser (2.12.0)
