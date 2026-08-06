@@ -1214,5 +1214,16 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Discretionary Support"
       assert_rendered_outcome text: "Find out more on the on the nidirect website"
     end
+
+    should "render Northern Ireland Childcare Subsidy Scheme" do
+      add_responses where_do_you_live: "northern-ireland",
+                    are_you_working: "yes",
+                    children_living_with_you: "yes",
+                    age_of_children: "8_to_11",
+                    children_with_disability: "no"
+
+      assert_rendered_outcome text: "Northern Ireland Childcare Subsidy Scheme"
+      assert_rendered_outcome text: "Find out how to register on familysupportni.gov.uk"
+    end
   end
 end

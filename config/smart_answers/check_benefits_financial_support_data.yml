@@ -775,3 +775,11 @@
       url: https://www.nidirect.gov.uk/articles/discretionary-support
       countries:
         - northern-ireland
+    - name: childcare_subsidy_scheme_ni
+      title: Northern Ireland Childcare Subsidy Scheme
+      description: <p>You can register to get money off your childcare costs if you’re registered for Tax-Free Childcare.</p>
+      condition: eligible_for_childcare_subsidy_scheme_ni?
+      url_text: Find out how to register on familysupportni.gov.uk
+      url: https://www.familysupportni.gov.uk/NewsStory/260/northern-ireland-childcare-support-scheme-nicss
+      countries:
+        - northern-ireland

@@ -309,6 +309,15 @@ module SmartAnswer::Calculators
       @disability_or_health_condition == "yes" || living_with_disabled_child?
     end
 
+    def eligible_for_childcare_subsidy_scheme_ni?
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
+
+      @are_you_working == "yes" &&
+        @children_living_with_you == "yes" &&
+        eligible_child_ages?(age_groups) &&
+        @children_with_disability == "no"
+    end
+
   private
 
     def eligible_for_help_to_save_dont_know_if_on_benefits?
