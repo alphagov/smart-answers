@@ -1207,5 +1207,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Crisis Grant"
       assert_rendered_outcome text: "Find out how to apply on the mygov.scot website"
     end
+
+    should "render Discretionary Support" do
+      add_responses where_do_you_live: "northern-ireland"
+
+      assert_rendered_outcome text: "Discretionary Support"
+      assert_rendered_outcome text: "Find out more on the on the nidirect website"
+    end
   end
 end

@@ -767,3 +767,11 @@
       url: https://www.mygov.scot/scottish-welfare-fund/crisis-grants
       countries:
         - scotland
+    - name: discretionary_support_ni
+      title: Discretionary Support
+      description: <p>You could get help for short-term living expenses if you’re facing unexpected financial hardship.</p>
+      condition: #None needed, will show for everyone living in Northern Ireland
+      url_text: Find out more on the on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/discretionary-support
+      countries:
+        - northern-ireland
