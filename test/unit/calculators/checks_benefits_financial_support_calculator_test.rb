@@ -1306,6 +1306,36 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#eligible_for_childcare_subsidy_scheme_ni?" do
+        context "when eligible" do
+          should "be true if living with a child aged under 11 without a disability" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "8_to_11"
+            @calculator.children_with_disability = "no"
+
+            assert @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if child has a disability" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "8_to_11"
+            @calculator.children_with_disability = "yes"
+
+            assert_not @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+
+          should "be false if child older than 11" do
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "12_to_15"
+            @calculator.children_with_disability = "no"
+
+            assert_not @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+        end
+      end
     end
   end
 end
