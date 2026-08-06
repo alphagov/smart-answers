@@ -548,12 +548,12 @@
       url: https://www.mygov.scot/free-school-transport
       countries:
         - scotland
-    - name: home_to_school_transport_northern_ireland
+    - name: home_to_school_transport_ni
       title: Home to school transport
       description: <p>You may be able to get help with the cost of home to school transport through the Education Authority. You may be eligible because of distance to the school or if a transport need is specified on your child's Special Educational Needs (SEN) statement.</p>
       condition: eligible_for_school_transport?
-      url_text: Check if your child is eligible for help with the cost of home to school transport on the Education Authority NI website
-      url: https://www.eani.org.uk/help-available/home-to-school-transport
+      url_text: Check if your children are eligible for help with the cost of home to school transport on the Education Authority NI website
+      url: https://www.eani.org.uk/parents/pupil-applications-and-grants/home-to-school-transport-0
       countries:
         - northern-ireland
     - name: apply_for_an_older_persons_bus_pass_england
