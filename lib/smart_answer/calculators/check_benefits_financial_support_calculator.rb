@@ -285,7 +285,7 @@ module SmartAnswer::Calculators
       permitted_benefits?(skip_benefit_list)
     end
 
-    def eligible_for_education_maintenance_allowance_ni?
+    def eligible_for_education_maintenance_allowance?
       @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
     end
 

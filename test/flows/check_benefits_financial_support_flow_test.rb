@@ -1084,13 +1084,15 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
-    should "render Education Maintenance Allowance NI" do
-      add_responses where_do_you_live: "northern-ireland",
-                    children_living_with_you: "yes",
-                    age_of_children: "16_to_17"
+    should "render Education Maintenance Allowance (EMA)" do
+      %w[wales northern-ireland scotland].each do |country|
+        add_responses where_do_you_live: country,
+                      children_living_with_you: "yes",
+                      age_of_children: "16_to_17"
 
-      assert_rendered_outcome text: "Education Maintenance Allowance"
-      assert_rendered_outcome text: "You may be able to get a weekly Education Maintenance Allowance (EMA)"
+        assert_rendered_outcome text: "Education Maintenance Allowance"
+        assert_rendered_outcome text: "The children living with you may be able to get a weekly Education Maintenance Allowance (EMA)"
+      end
     end
 
     should "render Warm Home Discount Scheme" do
