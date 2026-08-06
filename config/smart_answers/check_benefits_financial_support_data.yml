@@ -759,3 +759,11 @@
       url: https://www.nidirect.gov.uk/articles/maternity-allowance
       countries:
         - northern-ireland
+    - name: crisis_grant_scotland
+      title: Crisis Grant
+      description: <p>You could get help for short-term living expenses if you’re on a low income or get certain benefits.</p>
+      condition: # None needed, will show for everyone living in Scotland
+      url_text: Find out how to apply on the mygov.scot website
+      url: https://www.mygov.scot/scottish-welfare-fund/crisis-grants
+      countries:
+        - scotland

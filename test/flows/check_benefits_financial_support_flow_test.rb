@@ -1200,5 +1200,12 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Discretionary Assistance Fund"
       assert_rendered_outcome text: "Check if you’re eligible for the Discretionary Assistance Fund on the GOV.WALES website"
     end
+
+    should "render Crisis Grant" do
+      add_responses where_do_you_live: "scotland"
+
+      assert_rendered_outcome text: "Crisis Grant"
+      assert_rendered_outcome text: "Find out how to apply on the mygov.scot website"
+    end
   end
 end
