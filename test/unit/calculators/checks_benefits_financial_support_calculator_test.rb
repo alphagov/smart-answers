@@ -1101,13 +1101,13 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#education_maintenance_allowance_ni?" do
+      context "#education_maintenance_allowance?" do
         context "when eligible" do
           should "be true if living with children and eligible ages" do
             @calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               @calculator.age_of_children = age
-              assert @calculator.eligible_for_education_maintenance_allowance_ni?
+              assert @calculator.eligible_for_education_maintenance_allowance?
             end
           end
         end
@@ -1115,13 +1115,13 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if no children living with you" do
             @calculator.children_living_with_you = "no"
-            assert_not @calculator.eligible_for_education_maintenance_allowance_ni?
+            assert_not @calculator.eligible_for_education_maintenance_allowance?
           end
 
           should "be false if children living but not eligible age" do
             @calculator.children_living_with_you = "no"
             @calculator.age_of_children = "5_to_7"
-            assert_not @calculator.eligible_for_education_maintenance_allowance_ni?
+            assert_not @calculator.eligible_for_education_maintenance_allowance?
           end
         end
       end
