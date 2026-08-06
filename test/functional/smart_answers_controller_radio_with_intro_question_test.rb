@@ -14,7 +14,7 @@ class SmartAnswersControllerRadioWithIntroQuestionTest < ActionController::TestC
       get :show, params: { id: "radio-with-intro-sample", started: "y" }
       assert_select "span.govuk-caption-l", "Sample radio with intro question"
       assert_select "h1.govuk-heading-l", "Colour options"
-      assert_contains css_select("div.gem-c-govspeak.govuk-govspeak").first.content, /Colours include:/
+      assert_contains css_select("div.gem-c-govspeak").first.content, /Colours include:/
       assert_select ".govuk-fieldset__legend.govuk-fieldset__legend--m h2.govuk-fieldset__heading", /Do you want to select any of these\?/
       assert_select "input[type=radio][name=response]"
     end

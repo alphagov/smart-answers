@@ -8,7 +8,7 @@
   // stylelint-disable scss/at-extend-no-missing-placeholder
   // This allows govspeak in hint component to have hint styling rather than govspeak
   .gem-c-hint {
-    .govuk-govspeak {
+    .gem-c-govspeak {
       @extend .govuk-hint;
     }
   }
