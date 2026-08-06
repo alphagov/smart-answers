@@ -1004,7 +1004,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     on_benefits: "dont_know"
 
       assert_rendered_outcome text: "Home to school transport"
-      assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
+      assert_rendered_outcome text: "Check if your children are eligible for help with the cost of home to school transport"
     end
 
     should "render Apply for an older person's bus pass England" do
