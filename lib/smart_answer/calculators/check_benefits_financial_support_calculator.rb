@@ -317,6 +317,11 @@ module SmartAnswer::Calculators
         @children_with_disability == "no"
     end
 
+    def eligible_for_discretionary_housing_payment?
+      @on_benefits == "yes" &&
+        (@current_benefits.include?("universal_credit") || @current_benefits.include?("housing_benefit"))
+    end
+
   private
 
     def eligible_for_help_to_save_dont_know_if_on_benefits?
