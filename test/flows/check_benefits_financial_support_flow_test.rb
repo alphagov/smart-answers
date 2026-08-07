@@ -1225,5 +1225,20 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Northern Ireland Childcare Subsidy Scheme"
       assert_rendered_outcome text: "Find out how to register on familysupportni.gov.uk"
     end
+
+    should "render Discretionary Housing Payment" do
+      %w[yes dont_know].each do |receive_benefits|
+        %w[scotland wales northern-ireland].each do |country|
+          %w[housing_benefit universal_credit].each do |benefit|
+            add_responses where_do_you_live: country,
+                          on_benefits: receive_benefits,
+                          current_benefits: benefit
+
+            assert_rendered_outcome text: "Discretionary Housing Payment"
+            assert_rendered_outcome text: "You can apply for help if you’re struggling to pay your rent"
+          end
+        end
+      end
+    end
   end
 end

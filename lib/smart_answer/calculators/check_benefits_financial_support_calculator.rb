@@ -318,6 +318,14 @@ module SmartAnswer::Calculators
         @children_with_disability == "no"
     end
 
+    def eligible_for_discretionary_housing_payment?
+      return true if @on_benefits == "dont_know"
+
+      benefits_list = %w[universal_credit housing_benefit]
+      @on_benefits == "yes" &&
+        eligible_benefits?(benefits_list)
+    end
+
   private
 
     def eligible_for_help_to_save_dont_know_if_on_benefits?
@@ -346,6 +354,10 @@ module SmartAnswer::Calculators
 
     def eligible_child_ages?(age_groups)
       @age_of_children.split(",").any? { |age| age_groups.include?(age) }
+    end
+
+    def eligible_benefits?(benefits_list)
+      @current_benefits.split(",").any? { |benefit| benefits_list.include?(benefit) }
     end
 
     def general_child_benefit_eligibility?(skip_benefit_list, age_groups)

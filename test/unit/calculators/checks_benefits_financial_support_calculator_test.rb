@@ -1347,6 +1347,38 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "#eligible_for_discretionary_housing_payment?" do
+        context "when eligible" do
+          should "be true if receiving universal credit" do
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+
+          should "be true if receiving housing benefit" do
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "housing_benefit"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+
+          should "be true if unsure about receiving benefits" do
+            @calculator.on_benefits = "dont_know"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not receiving benefits" do
+            @calculator.on_benefits = "no"
+
+            assert_not @calculator.eligible_for_discretionary_housing_payment?
+          end
+        end
+      end
     end
   end
 end

@@ -783,3 +783,27 @@
       url: https://www.familysupportni.gov.uk/NewsStory/260/northern-ireland-childcare-support-scheme-nicss
       countries:
         - northern-ireland
+    - name: discretionary_housing_payment_scotland
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the mygov.scot website
+      url: https://www.mygov.scot/discretionary-housing-payment
+      countries:
+        - scotland
+    - name: discretionary_housing_payment_wales
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the GOV.WALES website
+      url: https://www.gov.wales/find-out-about-discretionary-housing-payments
+      countries:
+        - wales
+    - name: discretionary_housing_payment_ni
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent and you’re on Universal Credit or Housing Benefit.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the Northern Ireland Housing Executive website
+      url: https://www.nihe.gov.uk/housing-help/housing-benefit/more-help-with-paying-your-housing-costs
+      countries:
+        - northern-ireland
