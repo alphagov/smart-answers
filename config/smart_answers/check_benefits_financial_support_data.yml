@@ -807,3 +807,13 @@
       url: https://www.nihe.gov.uk/housing-help/housing-benefit/more-help-with-paying-your-housing-costs
       countries:
         - northern-ireland
+    - name: cost_of_living_local_council
+      title: Help from your local council
+      description:
+                  <p>Get help with the cost of living from your local council.
+                  You may be able to get help from your local council if you cannot pay for essentials.</p>
+      condition: # None needed, will show for everyone in England
+      url_text: Find out more about how to apply for help from your council
+      url: https://www.gov.uk/cost-living-help-local-council
+      countries:
+        - england

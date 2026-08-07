@@ -343,7 +343,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 14 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 15 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -1239,6 +1239,13 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
           end
         end
       end
+    end
+
+    should "render Help from your local council" do
+      add_responses where_do_you_live: "england"
+
+      assert_rendered_outcome text: "Get help with the cost of living from your local council"
+      assert_rendered_outcome text: "Find out more about how to apply for help from your council"
     end
   end
 end
