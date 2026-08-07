@@ -552,8 +552,8 @@
       title: Home to school transport
       description: <p>You may be able to get help with the cost of home to school transport through the Education Authority. You may be eligible because of distance to the school or if a transport need is specified on your child's Special Educational Needs (SEN) statement.</p>
       condition: eligible_for_school_transport?
-      url_text: Check if your child is eligible for help with the cost of home to school transport on the Education Authority NI website
-      url: https://www.eani.org.uk/help-available/home-to-school-transport
+      url_text: Check if your children are eligible for help with the cost of home to school transport on the Education Authority NI website
+      url: https://www.eani.org.uk/parents/pupil-applications-and-grants/home-to-school-transport-0)
       countries:
         - northern-ireland
     - name: apply_for_an_older_persons_bus_pass_england
@@ -649,12 +649,28 @@
         - scotland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
-      description: <p>You may be able to get a weekly Education Maintenance Allowance (EMA) if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
-      condition: eligible_for_education_maintenance_allowance_ni?
-      url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
+      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they're aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
+      condition: eligible_for_education_maintenance_allowance?
+      url_text: Check if your children are eligible for Education Maintenance Allowance on the nidirect website
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
+    - name: education_maintenance_allowance_scotland
+      title: Education Maintenance Allowance
+      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they're aged 16 to 19 and in full-time education at a school or further education college in Scotland.</p>
+      condition: eligible_for_education_maintenance_allowance?
+      url_text: Check if your children are eligible for Education Maintenance Allowance on the mygov.scot website
+      url: https://www.mygov.scot/ema
+      countries:
+        - scotland
+    - name: education_maintenance_allowance_wales
+      title: Education Maintenance Allowance
+      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they’re aged 16 to 18 and in full-time education at a school or further education college in Wales.</p>
+      condition: eligible_for_education_maintenance_allowance?
+      url_text: Check if your children are eligible for Education Maintenance Allowance on the GOV.WALES website
+      url: https://www.studentfinancewales.co.uk/further-education-funding/education-maintenance-allowance
+      countries:
+        - wales
     - name: help_to_save
       title: Help to Save
       description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>
@@ -743,3 +759,61 @@
       url: https://www.nidirect.gov.uk/articles/maternity-allowance
       countries:
         - northern-ireland
+    - name: crisis_grant_scotland
+      title: Crisis Grant
+      description: <p>You could get help for short-term living expenses if you’re on a low income or get certain benefits.</p>
+      condition: # None needed, will show for everyone living in Scotland
+      url_text: Find out how to apply on the mygov.scot website
+      url: https://www.mygov.scot/scottish-welfare-fund/crisis-grants
+      countries:
+        - scotland
+    - name: discretionary_support_ni
+      title: Discretionary Support
+      description: <p>You could get help for short-term living expenses if you’re facing unexpected financial hardship.</p>
+      condition: #None needed, will show for everyone living in Northern Ireland
+      url_text: Find out more on the on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/discretionary-support
+      countries:
+        - northern-ireland
+    - name: childcare_subsidy_scheme_ni
+      title: Northern Ireland Childcare Subsidy Scheme
+      description: <p>You can register to get money off your childcare costs if you’re registered for Tax-Free Childcare.</p>
+      condition: eligible_for_childcare_subsidy_scheme_ni?
+      url_text: Find out how to register on familysupportni.gov.uk
+      url: https://www.familysupportni.gov.uk/NewsStory/260/northern-ireland-childcare-support-scheme-nicss
+      countries:
+        - northern-ireland
+    - name: discretionary_housing_payment_scotland
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the mygov.scot website
+      url: https://www.mygov.scot/discretionary-housing-payment
+      countries:
+        - scotland
+    - name: discretionary_housing_payment_wales
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the GOV.WALES website.
+      url: https://www.gov.wales/find-out-about-discretionary-housing-payments
+      countries:
+        - wales
+    - name: discretionary_housing_payment_ni
+      title: Discretionary Housing Payment
+      description: <p>You can apply for help if you’re struggling to pay your rent and you’re on Universal Credit or Housing Benefit.</p>
+      condition: eligible_for_discretionary_housing_payment?
+      url_text: Find out how to apply on the Northern Ireland Housing Executive website
+      url: https://www.nihe.gov.uk/housing-help/housing-benefit/more-help-with-paying-your-housing-costs
+      countries:
+        - northern-ireland
+    - name: cost_of_living_local_council
+      title: Get help with the cost of living from your local council
+      description:
+                  <p>Get help with the cost of living from your local council.
+                  You may be able to get help from your local council if you cannot pay for essentials.</p>
+      condition: # None needed, will show for everyone in England
+      url_text: Find out more about how to apply for help from your council
+      url: https://www.gov.uk/cost-living-help-local-council
+      countries:
+        - england

@@ -285,7 +285,7 @@ module SmartAnswer::Calculators
       permitted_benefits?(skip_benefit_list)
     end
 
-    def eligible_for_education_maintenance_allowance_ni?
+    def eligible_for_education_maintenance_allowance?
       @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
     end
 
@@ -307,6 +307,19 @@ module SmartAnswer::Calculators
 
     def eligible_for_help_with_house_adaptations_if_you_are_disabled?
       @disability_or_health_condition == "yes" || living_with_disabled_child?
+    end
+
+    def eligible_for_childcare_subsidy_scheme_ni?
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
+
+      @children_living_with_you == "yes" &&
+        eligible_child_ages?(age_groups) &&
+        @children_with_disability == "no"
+    end
+
+    def eligible_for_discretionary_housing_payment?
+      @on_benefits == "yes" &&
+        (@current_benefits.include?("universal_credit") || @current_benefits.include?("housing_benefit"))
     end
 
   private
