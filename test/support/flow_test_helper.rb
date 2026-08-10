@@ -1,29 +1,29 @@
 module FlowTestHelper
-  delegate :add_responses, :add_response, to: :test_flow
+  delegate :add_responses, :add_response, to: :flow_being_tested
 
   def testing_flow(flow_class)
     @test_flow = TestFlow.new(flow_class)
   end
 
-  def test_flow
+  def flow_being_tested
     @test_flow || raise("Flow being tested has not been set, you should set testing_flow")
   end
 
   def testing_node(node_name)
-    test_flow.testing_node = node_name
+    flow_being_tested.testing_node = node_name
   end
 
   def assert_next_node(next_node, for_response: nil)
     add_response for_response if for_response
 
-    assert_nil test_flow.state.error
-    assert_equal next_node, test_flow.current_node_name
+    assert_nil flow_being_tested.state.error
+    assert_equal next_node, flow_being_tested.current_node_name
 
-    case test_flow.current_node_type
+    case flow_being_tested.current_node_type
     when :question
-      assert_not_empty test_flow.question_title
+      assert_not_empty flow_being_tested.question_title
     when :outcome
-      assert_not_empty test_flow.outcome_text
+      assert_not_empty flow_being_tested.outcome_text
     else
       raise "Unknown node type for #{next_node}"
     end
@@ -33,30 +33,30 @@ module FlowTestHelper
     ensure_valid_and_correct_node
     add_response(response)
 
-    assert_not_nil test_flow.state.error,
-                   "Expected #{response} to produce an error, instead current node is #{test_flow.current_node_name}"
+    assert_not_nil flow_being_tested.state.error,
+                   "Expected #{response} to produce an error, instead current node is #{flow_being_tested.current_node_name}"
   end
 
   def assert_valid_response(response)
     ensure_valid_and_correct_node
     add_response(response)
 
-    assert_nil test_flow.state.error,
-               "Expected #{response} to be valid, instead it produced error #{test_flow.state.error}"
+    assert_nil flow_being_tested.state.error,
+               "Expected #{response} to be valid, instead it produced error #{flow_being_tested.state.error}"
   end
 
   def ensure_valid_and_correct_node
-    if test_flow.state.error
-      raise "Error in responses. Node #{test_flow.current_node_name} has an error of: #{test_flow.state.error}"
+    if flow_being_tested.state.error
+      raise "Error in responses. Node #{flow_being_tested.current_node_name} has an error of: #{flow_being_tested.state.error}"
     end
 
-    unless test_flow.testing_node == test_flow.current_node_name
-      raise "Error in responses. Current node is #{test_flow.current_node_name} and not the expected #{test_flow.testing_node}"
+    unless flow_being_tested.testing_node == flow_being_tested.current_node_name
+      raise "Error in responses. Current node is #{flow_being_tested.current_node_name} and not the expected #{flow_being_tested.testing_node}"
     end
   end
 
   def assert_rendered_start_page(text = nil)
-    start_node_presenter = StartNodePresenter.new(test_flow.flow.start_node, nil, test_flow.state)
+    start_node_presenter = StartNodePresenter.new(flow_being_tested.flow.start_node, nil, flow_being_tested.state)
 
     assert_not_empty start_node_presenter.title, "Expected the start page to have a title"
     assert_not_empty start_node_presenter.body, "Expected the start page to have a body"
@@ -66,37 +66,37 @@ module FlowTestHelper
   def assert_rendered_question(text: nil)
     ensure_valid_and_correct_node
 
-    assert_not_empty test_flow.question_title
-    assert_match text, test_flow.question_body_text if text
+    assert_not_empty flow_being_tested.question_title
+    assert_match text, flow_being_tested.question_body_text if text
   end
 
   def assert_no_rendered_question(text: nil)
     ensure_valid_and_correct_node
 
-    assert_not_empty test_flow.question_title
-    assert_no_match text, test_flow.question_body_text if text
+    assert_not_empty flow_being_tested.question_title
+    assert_no_match text, flow_being_tested.question_body_text if text
   end
 
   def assert_rendered_question_hint
-    assert_not_empty test_flow.question_hint
+    assert_not_empty flow_being_tested.question_hint
   end
 
   def assert_not_rendered_question_hint
-    assert_nil test_flow.question_hint
+    assert_nil flow_being_tested.question_hint
   end
 
   def assert_rendered_outcome(text: nil)
     ensure_valid_and_correct_node
 
-    assert_not_empty test_flow.outcome_text
-    assert_match text, test_flow.outcome_text if text
+    assert_not_empty flow_being_tested.outcome_text
+    assert_match text, flow_being_tested.outcome_text if text
   end
 
   def assert_no_rendered_outcome(text: nil)
     ensure_valid_and_correct_node
 
-    assert_not_empty test_flow.outcome_text
-    assert_no_match text, test_flow.outcome_text if text
+    assert_not_empty flow_being_tested.outcome_text
+    assert_no_match text, flow_being_tested.outcome_text if text
   end
 
   class TestFlow
