@@ -326,6 +326,13 @@ module SmartAnswer::Calculators
         eligible_benefits?(benefits_list)
     end
 
+    def eligible_for_16_19_bursary_fund?
+      age_groups = %w[16_to_17 18_to_19]
+
+      @children_living_with_you == "yes" &&
+        eligible_child_ages?(age_groups)
+    end
+
   private
 
     def eligible_for_help_to_save_dont_know_if_on_benefits?

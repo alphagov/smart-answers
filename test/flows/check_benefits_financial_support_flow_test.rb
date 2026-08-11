@@ -1247,5 +1247,14 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "Get help with the cost of living from your local council"
       assert_rendered_outcome text: "Find out more about how to apply for help from your council"
     end
+
+    should "render 16 to 19 Bursary Fund" do
+      add_responses where_do_you_live: "england",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17"
+
+      assert_rendered_outcome text: "The children living with you could get a bursary to help with education-related costs"
+      assert_rendered_outcome text: "Check if your children are eligible for the 16 to 19 Bursary Fund"
+    end
   end
 end
