@@ -190,7 +190,7 @@ GEM
     govuk_personalisation (1.2.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (67.1.0)
+    govuk_publishing_components (68.0.0)
       chartkick
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
@@ -650,8 +650,8 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     smart_properties (1.17.0)
-    sprockets (4.2.2)
-      concurrent-ruby (~> 1.0)
+    sprockets (4.3.0)
+      concurrent-ruby (~> 1.1)
       logger
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.5.2)
