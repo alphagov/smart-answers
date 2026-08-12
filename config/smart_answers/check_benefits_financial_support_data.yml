@@ -237,7 +237,7 @@
     - name: winter_fuel_payment_ni
       title: Winter Fuel Payment
       description: <p class="govuk-body">You might be eligible for a <a class="govuk-link" href="https://www.nidirect.gov.uk/contacts/winter-fuel-payment-centre">Winter Fuel Payment from the Northern Ireland Executive</a>.</p>
-      condition: eligible_for_winter_fuel_payment_ni?
+      condition: eligible_for_winter_fuel_payment?
       url: nil
       url_text: ""
       countries:

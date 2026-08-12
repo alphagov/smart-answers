@@ -793,12 +793,14 @@ module SmartAnswer::Calculators
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
             @calculator.current_benefits = "income_support"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
 
           should "be false if under state pension age without health condition" do
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "no"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
 
@@ -806,6 +808,7 @@ module SmartAnswer::Calculators
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "no"
             @calculator.on_benefits = "no"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
         end
@@ -818,6 +821,7 @@ module SmartAnswer::Calculators
             @calculator.children_with_disability = "yes"
             %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
               @calculator.age_of_children = age
+
               assert @calculator.eligible_for_child_disability_support?
             end
           end
@@ -828,6 +832,7 @@ module SmartAnswer::Calculators
             @calculator.children_living_with_you = "yes"
             @calculator.children_with_disability = "yes"
             @calculator.age_of_children = "18_to_19"
+
             assert_not @calculator.eligible_for_child_disability_support?
           end
 
@@ -836,6 +841,7 @@ module SmartAnswer::Calculators
             @calculator.children_with_disability = "no"
             %w[1_or_under 2 3_to_4 5_to_7 12_to_15].each do |age|
               @calculator.age_of_children = age
+
               assert_not @calculator.eligible_for_child_disability_support?
             end
           end
@@ -844,94 +850,21 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_winter_fuel_payment?" do
         context "when eligible" do
-          should "be true if eligible for state pension" do
-            @calculator.where_do_you_live = "england"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-            @calculator.over_state_pension_age = "yes"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be true if lives in qualifying country" do
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-            qualifying_countries = %w[england northern_ireland wales]
-            qualifying_countries.each do |country|
-              @calculator.where_do_you_live = country
+          should "be true if over state pension age, regardless of benefits" do
+            %w[yes no dont_know].each do |receiving_benefits|
+              @calculator.over_state_pension_age = "yes"
+              @calculator.on_benefits = receiving_benefits
 
               assert @calculator.eligible_for_winter_fuel_payment?
             end
-          end
-
-          should "be true if they don't know whether they receive a qualifying benefit" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "dont_know"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be true if receives a qualifying benefit" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            qualifying_benefits = %w[universal_credit jobseekers_allowance employment_and_support_allowance pension_credit income_support]
-            qualifying_benefits.each do |benefit|
-              @calculator.current_benefits = benefit
-
-              assert @calculator.eligible_for_winter_fuel_payment?
-            end
-          end
-
-          should "be true if receives a mixture of qualifying and non-qualifying benefits" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit,jobseekers_allowance"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
           end
         end
 
         context "when ineligible" do
-          should "be false if lives in Scotland" do
-            @calculator.where_do_you_live = "scotland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be false if lives in Northern Ireland" do
-            @calculator.where_do_you_live = "northern-ireland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be false if ineligible for state pension" do
-            @calculator.where_do_you_live = "england"
+          should "be false if under state pension age" do
             @calculator.over_state_pension_age = "no"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
 
             assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-        end
-
-        context "when Northern Ireland" do
-          should "be true if lives in Northern Ireland" do
-            @calculator.where_do_you_live = "northern-ireland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert @calculator.eligible_for_winter_fuel_payment_ni?
           end
         end
       end

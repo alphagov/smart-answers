@@ -221,14 +221,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_winter_fuel_payment?
-      return false if
-        @where_do_you_live == "scotland" || @where_do_you_live == "northern-ireland"
-
-      true if @over_state_pension_age == "yes"
-    end
-
-    def eligible_for_winter_fuel_payment_ni?
-      @where_do_you_live == "northern-ireland" && @over_state_pension_age == "yes"
+      @over_state_pension_age == "yes"
     end
 
     def eligible_for_carers_allowance?
