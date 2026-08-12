@@ -4,7 +4,7 @@
 }
 
 .app-c-result-item--highlighted {
-  background-color: govuk-colour("light-grey");
+  background-color: govuk-colour("black", $variant: "tint-95");
   border-left: 5px solid govuk-colour("blue");
   padding: govuk-spacing(3);
   @include govuk-responsive-margin(6, "bottom");
@@ -14,7 +14,7 @@
 @include govuk-media-query($media-type: print) {
   .app-c-result-item {
     break-inside: avoid;
-    border-color: $govuk-print-text-colour;
+    border-color: govuk-functional-colour(print-text);
 
     .govuk-link::after {
       display: block;
@@ -28,7 +28,7 @@
 
     a,
     a:link {
-      color: $govuk-print-text-colour !important;
+      color: govuk-functional-colour(print-text) !important;
     }
   }
 }
