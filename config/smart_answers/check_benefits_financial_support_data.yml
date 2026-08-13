@@ -237,7 +237,7 @@
     - name: winter_fuel_payment_ni
       title: Winter Fuel Payment
       description: <p class="govuk-body">You might be eligible for a <a class="govuk-link" href="https://www.nidirect.gov.uk/contacts/winter-fuel-payment-centre">Winter Fuel Payment from the Northern Ireland Executive</a>.</p>
-      condition: eligible_for_winter_fuel_payment?
+      condition: eligible_for_winter_fuel_payment_ni?
       url: nil
       url_text: ""
       countries:
@@ -252,15 +252,6 @@
       countries:
         - england
         - wales
-    - name: carers_allowance_ni
-      title: Carer’s Allowance
-      description: <p>You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
-      condition: eligible_for_carers_allowance?
-      url: https://www.nidirect.gov.uk/articles/carers-allowance
-      url_text: Check if you’re eligible for Carer’s Allowance on the nidirect website
-      group: Supporting your income
-      countries:
-        - northern-ireland
     - name: carer_support_payment
       title: Carer Support Payment
       description: <p>You may be able to get Carer Support Payment and other benefits if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
@@ -304,15 +295,6 @@
       countries:
         - england
         - wales
-    - name: disability_living_allowance_for_children_ni
-      title: Disability Living Allowance (DLA) for children
-      description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
-      condition: eligible_for_child_disability_support?
-      url: https://www.nidirect.gov.uk/articles/disability-living-allowance-children
-      url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children on the nidirect website
-      group: Help with childcare costs
-      countries:
-        - northern-ireland
     - name: child_disability_payment_scotland
       title: Child Disability Payment
       description: <p>You can apply for Child Disability Payment if you’re responsible for a child under 16 who lives in Scotland.</p>
@@ -332,6 +314,14 @@
       countries:
         - england
         - wales
+    - name: adult_disability_payment_scotland
+      title: Adult Disability Payment
+      description: <p>You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.</p>
+      condition: eligible_for_adult_disability_payment_scotland?
+      url_text: Check if you’re eligible for Adult Disability Payment on the mygov.scot website
+      url: https://www.mygov.scot/adult-disability-payment
+      countries:
+        - scotland
     - name: personal_independence_payment_northern_ireland
       title: Personal Independence Payment (PIP)
       description: <p>You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.</p>
@@ -341,14 +331,6 @@
       group: Supporting your income
       countries:
         - northern-ireland
-    - name: adult_disability_payment_scotland
-      title: Adult Disability Payment
-      description: <p>You may be able to get help with extra living costs if you have a long-term physical or mental health condition or disability.</p>
-      condition: eligible_for_adult_disability_payment_scotland?
-      url_text: Check if you’re eligible for Adult Disability Payment on the mygov.scot website
-      url: https://www.mygov.scot/adult-disability-payment
-      countries:
-        - scotland
     - name: attendance_allowance
       title: Attendance Allowance
       description: |
@@ -362,17 +344,6 @@
         - england
         - wales
         - scotland
-    - name: attendance_allowance_ni
-      title: Attendance Allowance
-      description: |
-        <p>You may be able to get help with extra costs if you have a disability severe enough that you need someone to help look after you.</p>
-        <p>If you’re already getting Personal Independence Payment or Adult Disability Payment, you will continue to get this instead when you reach State Pension age.</p>
-      condition: eligible_for_attendance_allowance?
-      url: https://www.nidirect.gov.uk/articles/attendance-allowance
-      url_text: Check if you’re eligible for Attendance Allowance on the nidirect website
-      group: Supporting your income
-      countries:
-        - northern-ireland
     - name: council_tax_reduction
       title: Council Tax Reduction
       description: <p>You may be able to get Council Tax Reduction if you’re on a low income or claim benefits.</p>
@@ -470,14 +441,6 @@
         - england
         - wales
         - scotland
-    - name: maternity_allowance_ni
-      title: Maternity Allowance
-      description: <p>You may be eligible to get Maternity Allowance for 39 weeks if you’re employed but cannot get Statutory Maternity Pay (SMP), or are registered self-employed. You may still qualify if you’ve recently stopped working.</p>
-      condition: eligible_for_maternity_allowance?
-      url_text: Check if you’re eligible for Maternity Allowance on the nidirect website
-      url: https://www.nidirect.gov.uk/articles/maternity-allowance
-      countries:
-        - northern-ireland
     - name: sure_start_maternity_grant
       title: Sure Start Maternity Grant
       description: <p>If you or your partner get certain benefits you could get a payment to help towards the costs of having a child. You must usually have no other children under 16.</p>
@@ -585,12 +548,12 @@
       url: https://www.mygov.scot/free-school-transport
       countries:
         - scotland
-    - name: home_to_school_transport_ni
+    - name: home_to_school_transport_northern_ireland
       title: Home to school transport
       description: <p>You may be able to get help with the cost of home to school transport through the Education Authority. You may be eligible because of distance to the school or if a transport need is specified on your child's Special Educational Needs (SEN) statement.</p>
       condition: eligible_for_school_transport?
-      url_text: Check if your children are eligible for help with the cost of home to school transport on the Education Authority NI website
-      url: https://www.eani.org.uk/parents/pupil-applications-and-grants/home-to-school-transport-0
+      url_text: Check if your child is eligible for help with the cost of home to school transport on the Education Authority NI website
+      url: https://www.eani.org.uk/help-available/home-to-school-transport
       countries:
         - northern-ireland
     - name: apply_for_an_older_persons_bus_pass_england
@@ -686,28 +649,12 @@
         - scotland
     - name: education_maintenance_allowance_ni
       title: Education Maintenance Allowance
-      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they're aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
-      condition: eligible_for_education_maintenance_allowance?
-      url_text: Check if your children are eligible for Education Maintenance Allowance on the nidirect website
+      description: <p>You may be able to get a weekly Education Maintenance Allowance (EMA) if you’re aged 16 to 19 and in full-time education at a school or further education college in Northern Ireland.</p>
+      condition: eligible_for_education_maintenance_allowance_ni?
+      url_text: Check if you’re eligible for Education Maintenance Allowance on the nidirect website
       url: https://www.nidirect.gov.uk/articles/education-maintenance-allowance-explained
       countries:
         - northern-ireland
-    - name: education_maintenance_allowance_scotland
-      title: Education Maintenance Allowance
-      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they're aged 16 to 19 and in full-time education at a school or further education college in Scotland.</p>
-      condition: eligible_for_education_maintenance_allowance?
-      url_text: Check if your children are eligible for Education Maintenance Allowance on the mygov.scot website
-      url: https://www.mygov.scot/ema
-      countries:
-        - scotland
-    - name: education_maintenance_allowance_wales
-      title: Education Maintenance Allowance
-      description: <p>The children living with you may be able to get a weekly Education Maintenance Allowance (EMA) if they’re aged 16 to 18 and in full-time education at a school or further education college in Wales.</p>
-      condition: eligible_for_education_maintenance_allowance?
-      url_text: Check if your children are eligible for Education Maintenance Allowance on the Student Finance Wales website
-      url: https://www.studentfinancewales.co.uk/further-education-funding/education-maintenance-allowance
-      countries:
-        - wales
     - name: help_to_save
       title: Help to Save
       description: <p>You can get a bonus of 50p for every £1 you save over 4 years through Help to Save if you get certain benefits.</p>
@@ -751,6 +698,35 @@
       url: https://www.gov.wales/discretionary-assistance-fund-daf
       countries:
         - wales
+    - name: carers_allowance_ni
+      title: Carer’s Allowance
+      description: <p>You may be able to get Carer’s Allowance if you care for someone at least 35 hours a week. The person you care for must also be getting certain disability benefits.</p>
+      condition: eligible_for_carers_allowance?
+      url: https://www.nidirect.gov.uk/articles/carers-allowance
+      url_text: Check if you’re eligible for Carer’s Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: attendance_allowance_ni
+      title: Attendance Allowance
+      description: |
+        <p>You may be able to get help with extra costs if you have a disability severe enough that you need someone to help look after you.</p>
+        <p>If you’re already getting Personal Independence Payment or Adult Disability Payment, you will continue to get this instead when you reach State Pension age.</p>
+      condition: eligible_for_attendance_allowance?
+      url: https://www.nidirect.gov.uk/articles/attendance-allowance
+      url_text: Check if you’re eligible for Attendance Allowance on the nidirect website
+      group: Supporting your income
+      countries:
+        - northern-ireland
+    - name: disability_living_allowance_for_children_ni
+      title: Disability Living Allowance (DLA) for children
+      description: <p>You may be able to get help with the extra costs of looking after a child who is under 16 and has a health condition or disability.</p>
+      condition: eligible_for_child_disability_support?
+      url: https://www.nidirect.gov.uk/articles/disability-living-allowance-children
+      url_text: Check if you’re eligible for Disability Living Allowance (DLA) for children on the nidirect website
+      group: Help with childcare costs
+      countries:
+        - northern-ireland
     - name: support_for_mortgage_interest_(smi)_ni
       title: Support for Mortgage Interest (SMI)
       description: <p>If you’re a homeowner, you might be able to get help towards interest payments on your mortgage or certain loans taken out on your home.</p>
@@ -759,70 +735,11 @@
       url: https://www.nidirect.gov.uk/articles/support-mortgage-interest
       countries:
         - northern-ireland
-    - name: crisis_grant_scotland
-      title: Crisis Grant
-      description: <p>You could get help for short-term living expenses if you’re on a low income or get certain benefits.</p>
-      condition: # None needed, will show for everyone living in Scotland
-      url_text: Find out how to apply on the mygov.scot website
-      url: https://www.mygov.scot/scottish-welfare-fund/crisis-grants
-      countries:
-        - scotland
-    - name: discretionary_support_ni
-      title: Discretionary Support
-      description: <p>You could get help for short-term living expenses if you’re facing unexpected financial hardship.</p>
-      condition: #None needed, will show for everyone living in Northern Ireland
-      url_text: Find out more on the on the nidirect website
-      url: https://www.nidirect.gov.uk/articles/discretionary-support
+    - name: maternity_allowance_ni
+      title: Maternity Allowance
+      description: <p>You may be eligible to get Maternity Allowance for 39 weeks if you’re employed but cannot get Statutory Maternity Pay (SMP), or are registered self-employed. You may still qualify if you’ve recently stopped working.</p>
+      condition: eligible_for_maternity_allowance?
+      url_text: Check if you’re eligible for Maternity Allowance on the nidirect website
+      url: https://www.nidirect.gov.uk/articles/maternity-allowance
       countries:
         - northern-ireland
-    - name: childcare_subsidy_scheme_ni
-      title: Northern Ireland Childcare Subsidy Scheme
-      description: <p>You can register to get money off your childcare costs if you’re registered for Tax-Free Childcare.</p>
-      condition: eligible_for_childcare_subsidy_scheme_ni?
-      url_text: Find out how to register on familysupportni.gov.uk
-      url: https://www.familysupportni.gov.uk/NewsStory/260/northern-ireland-childcare-support-scheme-nicss
-      countries:
-        - northern-ireland
-    - name: discretionary_housing_payment_scotland
-      title: Discretionary Housing Payment
-      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
-      condition: eligible_for_discretionary_housing_payment?
-      url_text: Find out how to apply on the mygov.scot website
-      url: https://www.mygov.scot/discretionary-housing-payment
-      countries:
-        - scotland
-    - name: discretionary_housing_payment_wales
-      title: Discretionary Housing Payment
-      description: <p>You can apply for help if you’re struggling to pay your rent because you’re affected by the benefit cap or the removal of the spare room subsidy.</p>
-      condition: eligible_for_discretionary_housing_payment?
-      url_text: Find out how to apply on the GOV.WALES website
-      url: https://www.gov.wales/find-out-about-discretionary-housing-payments
-      countries:
-        - wales
-    - name: discretionary_housing_payment_ni
-      title: Discretionary Housing Payment
-      description: <p>You can apply for help if you’re struggling to pay your rent and you’re on Universal Credit or Housing Benefit.</p>
-      condition: eligible_for_discretionary_housing_payment?
-      url_text: Find out how to apply on the Northern Ireland Housing Executive website
-      url: https://www.nihe.gov.uk/housing-help/housing-benefit/more-help-with-paying-your-housing-costs
-      countries:
-        - northern-ireland
-    - name: cost_of_living_local_council
-      title: Help from your local council
-      description:
-                  <p>Get help with the cost of living from your local council.
-                  You may be able to get help from your local council if you cannot pay for essentials.</p>
-      condition: # None needed, will show for everyone in England
-      url_text: Find out more about how to apply for help from your council
-      url: https://www.gov.uk/cost-living-help-local-council
-      countries:
-        - england
-    - name: bursary_fund_16_to_19
-      title: 16 to 19 Bursary Fund
-      description:
-        <p>The children living with you could get a bursary to help with education-related costs if they’re aged 16 to 19 and studying at a publicly funded school or college, on a training course or doing unpaid work experience.</p>
-      condition: eligible_for_16_19_bursary_fund?
-      url_text: Check if your children are eligible for the 16 to 19 Bursary Fund
-      url: https://www.gov.uk/1619-bursary-fund/eligibility
-      countries:
-        - england

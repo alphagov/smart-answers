@@ -343,7 +343,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
     end
 
     should "render the results outcome with number of eligible benefits" do
-      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 15 things."
+      assert_rendered_outcome text: "Based on your answers, you may be eligible for the following 14 things."
     end
 
     should "render Employment and Support Allowance when eligible" do
@@ -1004,7 +1004,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
                     on_benefits: "dont_know"
 
       assert_rendered_outcome text: "Home to school transport"
-      assert_rendered_outcome text: "Check if your children are eligible for help with the cost of home to school transport"
+      assert_rendered_outcome text: "Check if your child is eligible for help with the cost of home to school transport"
     end
 
     should "render Apply for an older person's bus pass England" do
@@ -1084,15 +1084,13 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       end
     end
 
-    should "render Education Maintenance Allowance (EMA)" do
-      %w[wales northern-ireland scotland].each do |country|
-        add_responses where_do_you_live: country,
-                      children_living_with_you: "yes",
-                      age_of_children: "16_to_17"
+    should "render Education Maintenance Allowance NI" do
+      add_responses where_do_you_live: "northern-ireland",
+                    children_living_with_you: "yes",
+                    age_of_children: "16_to_17"
 
-        assert_rendered_outcome text: "Education Maintenance Allowance"
-        assert_rendered_outcome text: "The children living with you may be able to get a weekly Education Maintenance Allowance (EMA)"
-      end
+      assert_rendered_outcome text: "Education Maintenance Allowance"
+      assert_rendered_outcome text: "You may be able to get a weekly Education Maintenance Allowance (EMA)"
     end
 
     should "render Warm Home Discount Scheme" do
@@ -1199,62 +1197,6 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
 
       assert_rendered_outcome text: "Discretionary Assistance Fund"
       assert_rendered_outcome text: "Check if you’re eligible for the Discretionary Assistance Fund on the GOV.WALES website"
-    end
-
-    should "render Crisis Grant" do
-      add_responses where_do_you_live: "scotland"
-
-      assert_rendered_outcome text: "Crisis Grant"
-      assert_rendered_outcome text: "Find out how to apply on the mygov.scot website"
-    end
-
-    should "render Discretionary Support" do
-      add_responses where_do_you_live: "northern-ireland"
-
-      assert_rendered_outcome text: "Discretionary Support"
-      assert_rendered_outcome text: "Find out more on the on the nidirect website"
-    end
-
-    should "render Northern Ireland Childcare Subsidy Scheme" do
-      add_responses where_do_you_live: "northern-ireland",
-                    are_you_working: "yes",
-                    children_living_with_you: "yes",
-                    age_of_children: "8_to_11",
-                    children_with_disability: "no"
-
-      assert_rendered_outcome text: "Northern Ireland Childcare Subsidy Scheme"
-      assert_rendered_outcome text: "Find out how to register on familysupportni.gov.uk"
-    end
-
-    should "render Discretionary Housing Payment" do
-      %w[yes dont_know].each do |receive_benefits|
-        %w[scotland wales northern-ireland].each do |country|
-          %w[housing_benefit universal_credit].each do |benefit|
-            add_responses where_do_you_live: country,
-                          on_benefits: receive_benefits,
-                          current_benefits: benefit
-
-            assert_rendered_outcome text: "Discretionary Housing Payment"
-            assert_rendered_outcome text: "You can apply for help if you’re struggling to pay your rent"
-          end
-        end
-      end
-    end
-
-    should "render Help from your local council" do
-      add_responses where_do_you_live: "england"
-
-      assert_rendered_outcome text: "Get help with the cost of living from your local council"
-      assert_rendered_outcome text: "Find out more about how to apply for help from your council"
-    end
-
-    should "render 16 to 19 Bursary Fund" do
-      add_responses where_do_you_live: "england",
-                    children_living_with_you: "yes",
-                    age_of_children: "16_to_17"
-
-      assert_rendered_outcome text: "The children living with you could get a bursary to help with education-related costs"
-      assert_rendered_outcome text: "Check if your children are eligible for the 16 to 19 Bursary Fund"
     end
   end
 end
