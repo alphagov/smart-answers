@@ -221,14 +221,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_winter_fuel_payment?
-      return false if
-        @where_do_you_live == "scotland" || @where_do_you_live == "northern-ireland"
-
-      true if @over_state_pension_age == "yes"
-    end
-
-    def eligible_for_winter_fuel_payment_ni?
-      @where_do_you_live == "northern-ireland" && @over_state_pension_age == "yes"
+      @over_state_pension_age == "yes"
     end
 
     def eligible_for_carers_allowance?
@@ -285,7 +278,7 @@ module SmartAnswer::Calculators
       permitted_benefits?(skip_benefit_list)
     end
 
-    def eligible_for_education_maintenance_allowance_ni?
+    def eligible_for_education_maintenance_allowance?
       @children_living_with_you == "yes" && eligible_child_ages?(%w[16_to_17 18_to_19])
     end
 
@@ -307,6 +300,30 @@ module SmartAnswer::Calculators
 
     def eligible_for_help_with_house_adaptations_if_you_are_disabled?
       @disability_or_health_condition == "yes" || living_with_disabled_child?
+    end
+
+    def eligible_for_childcare_subsidy_scheme_ni?
+      age_groups = %w[1_or_under 2 3_to_4 5_to_7 8_to_11]
+
+      @are_you_working == "yes" &&
+        @children_living_with_you == "yes" &&
+        eligible_child_ages?(age_groups) &&
+        @children_with_disability == "no"
+    end
+
+    def eligible_for_discretionary_housing_payment?
+      return true if @on_benefits == "dont_know"
+
+      benefits_list = %w[universal_credit housing_benefit]
+      @on_benefits == "yes" &&
+        eligible_benefits?(benefits_list)
+    end
+
+    def eligible_for_16_19_bursary_fund?
+      age_groups = %w[16_to_17 18_to_19]
+
+      @children_living_with_you == "yes" &&
+        eligible_child_ages?(age_groups)
     end
 
   private
@@ -337,6 +354,10 @@ module SmartAnswer::Calculators
 
     def eligible_child_ages?(age_groups)
       @age_of_children.split(",").any? { |age| age_groups.include?(age) }
+    end
+
+    def eligible_benefits?(benefits_list)
+      @current_benefits.split(",").any? { |benefit| benefits_list.include?(benefit) }
     end
 
     def general_child_benefit_eligibility?(skip_benefit_list, age_groups)
