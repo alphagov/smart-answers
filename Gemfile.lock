@@ -646,7 +646,7 @@ GEM
     shoulda-context (2.0.0)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
-    simplecov (1.0.3)
+    simplecov (1.1.1)
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     smart_properties (1.17.0)
