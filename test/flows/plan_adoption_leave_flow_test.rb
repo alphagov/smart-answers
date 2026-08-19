@@ -74,6 +74,15 @@ class PlanAdoptionLeaveFlowTest < ActiveSupport::TestCase
         not_within_14_days = @child_arrival_date - 15.days
         assert_invalid_response not_within_14_days.to_s
       end
+
+      should "be invalid if the response is after the child_arrival_date" do
+        future_date = @child_arrival_date + 1.day
+        assert_invalid_response future_date.to_s
+      end
+
+      should "be valid if the response matches the child_arrival_date" do
+        assert_valid_response @child_arrival_date.to_s
+      end
     end
 
     context "next_node" do
