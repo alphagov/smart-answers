@@ -35,15 +35,19 @@ class RedundancyPayFlow < SmartAnswer::Flow
 
     value_question :years_employed?, parse: Float do
       on_response do |response|
-        self.years_employed = response.floor
+        if response.infinite? || response.nan?
+          raise SmartAnswer::InvalidResponse
+        else
+          self.years_employed = response.floor
+        end
       end
 
       validate do
         years_employed.to_i <= years_available
       end
 
-      next_node do |response|
-        if response.floor < 2
+      next_node do |years_employed|
+        if years_employed < 2
           outcome :done_no_statutory
         else
           question :weekly_pay_before_tax?
