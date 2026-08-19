@@ -190,7 +190,7 @@ GEM
     govuk_personalisation (1.2.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (68.0.0)
+    govuk_publishing_components (68.2.0)
       chartkick
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
@@ -474,7 +474,7 @@ GEM
       opentelemetry-common (~> 0.20)
       opentelemetry-registry (~> 0.2)
       opentelemetry-semantic_conventions
-    opentelemetry-semantic_conventions (1.43.0)
+    opentelemetry-semantic_conventions (1.44.0)
       opentelemetry-api (~> 1.0)
     ostruct (0.6.3)
     parallel (1.28.0)
@@ -496,7 +496,7 @@ GEM
     puma (8.0.2)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.6)
+    rack (3.2.7)
     rack-proxy (0.8.3)
       rack
     rack-session (2.1.2)
@@ -650,8 +650,8 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     smart_properties (1.17.0)
-    sprockets (4.2.2)
-      concurrent-ruby (~> 1.0)
+    sprockets (4.4.0)
+      concurrent-ruby (~> 1.1)
       logger
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.5.2)
