@@ -72,6 +72,10 @@ module RedundancyPayFlowTestHelper
         should "be invalid for an invalid number of years employed" do
           assert_invalid_response "2"
         end
+
+        should "raise an error if number of years is infinity" do
+          assert_invalid_response "1e999"
+        end
       end
 
       context "next_node" do
