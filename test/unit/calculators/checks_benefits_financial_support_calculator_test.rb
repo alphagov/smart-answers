@@ -727,9 +727,9 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_funded_early_learning_and_childcare?" do
         context "when eligible" do
-          should "be true if child aged 2 or 3 to 4" do
+          should "be true if child aged 2, 3 to 4 or 5 to 7" do
             @calculator.children_living_with_you = "yes"
-            %w[2 3_to_4].each do |age|
+            %w[2 3_to_4 5_to_7].each do |age|
               @calculator.age_of_children = age
               assert @calculator.eligible_for_funded_early_learning_and_childcare?
             end
@@ -739,7 +739,7 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if child not aged 2 or 3 to 4" do
             @calculator.children_living_with_you = "yes"
-            @calculator.age_of_children = "5_to_7"
+            @calculator.age_of_children = "8_to_11"
             assert_not @calculator.eligible_for_funded_early_learning_and_childcare?
           end
 
@@ -793,12 +793,14 @@ module SmartAnswer::Calculators
             @calculator.over_state_pension_age = "yes"
             @calculator.on_benefits = "yes"
             @calculator.current_benefits = "income_support"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
 
           should "be false if under state pension age without health condition" do
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "no"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
 
@@ -806,6 +808,7 @@ module SmartAnswer::Calculators
             @calculator.over_state_pension_age = "no"
             @calculator.disability_or_health_condition = "no"
             @calculator.on_benefits = "no"
+
             assert_not @calculator.eligible_for_free_tv_license?
           end
         end
@@ -818,6 +821,7 @@ module SmartAnswer::Calculators
             @calculator.children_with_disability = "yes"
             %w[1_or_under 2 3_to_4 5_to_7 8_to_11 12_to_15].each do |age|
               @calculator.age_of_children = age
+
               assert @calculator.eligible_for_child_disability_support?
             end
           end
@@ -828,6 +832,7 @@ module SmartAnswer::Calculators
             @calculator.children_living_with_you = "yes"
             @calculator.children_with_disability = "yes"
             @calculator.age_of_children = "18_to_19"
+
             assert_not @calculator.eligible_for_child_disability_support?
           end
 
@@ -836,6 +841,7 @@ module SmartAnswer::Calculators
             @calculator.children_with_disability = "no"
             %w[1_or_under 2 3_to_4 5_to_7 12_to_15].each do |age|
               @calculator.age_of_children = age
+
               assert_not @calculator.eligible_for_child_disability_support?
             end
           end
@@ -844,94 +850,21 @@ module SmartAnswer::Calculators
 
       context "#eligible_for_winter_fuel_payment?" do
         context "when eligible" do
-          should "be true if eligible for state pension" do
-            @calculator.where_do_you_live = "england"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-            @calculator.over_state_pension_age = "yes"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be true if lives in qualifying country" do
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-            qualifying_countries = %w[england northern_ireland wales]
-            qualifying_countries.each do |country|
-              @calculator.where_do_you_live = country
+          should "be true if over state pension age, regardless of benefits" do
+            %w[yes no dont_know].each do |receiving_benefits|
+              @calculator.over_state_pension_age = "yes"
+              @calculator.on_benefits = receiving_benefits
 
               assert @calculator.eligible_for_winter_fuel_payment?
             end
-          end
-
-          should "be true if they don't know whether they receive a qualifying benefit" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "dont_know"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be true if receives a qualifying benefit" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            qualifying_benefits = %w[universal_credit jobseekers_allowance employment_and_support_allowance pension_credit income_support]
-            qualifying_benefits.each do |benefit|
-              @calculator.current_benefits = benefit
-
-              assert @calculator.eligible_for_winter_fuel_payment?
-            end
-          end
-
-          should "be true if receives a mixture of qualifying and non-qualifying benefits" do
-            @calculator.where_do_you_live = "england"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit,jobseekers_allowance"
-
-            assert @calculator.eligible_for_winter_fuel_payment?
           end
         end
 
         context "when ineligible" do
-          should "be false if lives in Scotland" do
-            @calculator.where_do_you_live = "scotland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be false if lives in Northern Ireland" do
-            @calculator.where_do_you_live = "northern-ireland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-
-          should "be false if ineligible for state pension" do
-            @calculator.where_do_you_live = "england"
+          should "be false if under state pension age" do
             @calculator.over_state_pension_age = "no"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
 
             assert_not @calculator.eligible_for_winter_fuel_payment?
-          end
-        end
-
-        context "when Northern Ireland" do
-          should "be true if lives in Northern Ireland" do
-            @calculator.where_do_you_live = "northern-ireland"
-            @calculator.over_state_pension_age = "yes"
-            @calculator.on_benefits = "yes"
-            @calculator.current_benefits = "universal_credit"
-
-            assert @calculator.eligible_for_winter_fuel_payment_ni?
           end
         end
       end
@@ -1101,13 +1034,13 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#education_maintenance_allowance_ni?" do
+      context "#education_maintenance_allowance?" do
         context "when eligible" do
           should "be true if living with children and eligible ages" do
             @calculator.children_living_with_you = "yes"
             %w[16_to_17 18_to_19].each do |age|
               @calculator.age_of_children = age
-              assert @calculator.eligible_for_education_maintenance_allowance_ni?
+              assert @calculator.eligible_for_education_maintenance_allowance?
             end
           end
         end
@@ -1115,13 +1048,13 @@ module SmartAnswer::Calculators
         context "when ineligible" do
           should "be false if no children living with you" do
             @calculator.children_living_with_you = "no"
-            assert_not @calculator.eligible_for_education_maintenance_allowance_ni?
+            assert_not @calculator.eligible_for_education_maintenance_allowance?
           end
 
           should "be false if children living but not eligible age" do
             @calculator.children_living_with_you = "no"
             @calculator.age_of_children = "5_to_7"
-            assert_not @calculator.eligible_for_education_maintenance_allowance_ni?
+            assert_not @calculator.eligible_for_education_maintenance_allowance?
           end
         end
       end
@@ -1303,6 +1236,79 @@ module SmartAnswer::Calculators
           should "be true if with children with a disablity" do
             @calculator.children_with_disability = "yes"
             assert @calculator.eligible_for_child_winter_heating_payment?
+          end
+        end
+      end
+
+      context "#eligible_for_childcare_subsidy_scheme_ni?" do
+        context "when eligible" do
+          should "be true if living with a child aged under 11 without a disability" do
+            @calculator.are_you_working = "yes"
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "8_to_11"
+            @calculator.children_with_disability = "no"
+
+            assert @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not working" do
+            @calculator.children_living_with_you = "no"
+            @calculator.age_of_children = "8_to_11"
+            @calculator.children_with_disability = "yes"
+
+            assert_not @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+
+          should "be false if child has a disability" do
+            @calculator.are_you_working = "yes"
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "8_to_11"
+            @calculator.children_with_disability = "yes"
+
+            assert_not @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+
+          should "be false if child older than 11" do
+            @calculator.are_you_working = "yes"
+            @calculator.children_living_with_you = "yes"
+            @calculator.age_of_children = "12_to_15"
+            @calculator.children_with_disability = "no"
+
+            assert_not @calculator.eligible_for_childcare_subsidy_scheme_ni?
+          end
+        end
+      end
+
+      context "#eligible_for_discretionary_housing_payment?" do
+        context "when eligible" do
+          should "be true if receiving universal credit" do
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "universal_credit"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+
+          should "be true if receiving housing benefit" do
+            @calculator.on_benefits = "yes"
+            @calculator.current_benefits = "housing_benefit"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+
+          should "be true if unsure about receiving benefits" do
+            @calculator.on_benefits = "dont_know"
+
+            assert @calculator.eligible_for_discretionary_housing_payment?
+          end
+        end
+
+        context "when ineligible" do
+          should "be false if not receiving benefits" do
+            @calculator.on_benefits = "no"
+
+            assert_not @calculator.eligible_for_discretionary_housing_payment?
           end
         end
       end
