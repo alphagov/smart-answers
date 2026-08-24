@@ -3,7 +3,11 @@
 <% end %>
 
 <% text_for :hint do %>
-  <a class="govuk-link" href="/apply-for-student-finance/household-income">Check what counts as household income if you're not sure.</a>
+  <% if calculator.course_start == "2025-2026" || calculator.course_start == "2026-2027" %>
+    <a class="govuk-link" href="/apply-for-student-finance/household-income">Check what counts as household income if you're not sure.</a>
+  <% else %>
+    <a class="govuk-link" href="/apply-for-student-finance-lifelong-learning-entitlement/household-income">Check what counts as household income if you're not sure</a>.
+  <% end %>
 <% end %>
 
 <% text_for :error_message do %>
