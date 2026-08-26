@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
 
     def valid_start_date?
       dist = (arrival_date - start_date).to_i
-      (1..14).include? dist
+      (0..14).include? dist
     end
 
     def distance_start
