@@ -6,7 +6,9 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
   end
 
   should "allow call to unknown method" do
-    @object.method_two
+    assert_nothing_raised do
+      @object.method_two
+    end
   end
 
   should "use method name as description" do
@@ -31,7 +33,9 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
     end
 
     should "allow call to unknown method" do
-      @child.method_three
+      assert_nothing_raised do
+        @child.method_three
+      end
     end
 
     should "use chained method names as description" do
@@ -49,7 +53,9 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
     end
 
     should "allow call to unknown method" do
-      @object.method_two
+      assert_nothing_raised do
+        @object.method_two
+      end
     end
 
     context "child object" do

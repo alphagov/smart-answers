@@ -79,15 +79,15 @@ class StatePensionDateTest < ActiveSupport::TestCase
     end
 
     should "return false if same_gender? is false" do
-      @pension_date.match?(Date.parse("6 April 1950"), :male)
+      assert_not @pension_date.match?(Date.parse("6 April 1950"), :male)
     end
 
     should "return false if born_in_range? is false" do
-      @pension_date.match?(Date.parse("5 April 1950"), :female)
+      assert_not @pension_date.match?(Date.parse("5 April 1950"), :female)
     end
 
     should "return true when both same_gender? && born_in_range? return true" do
-      @pension_date.match?(Date.parse("6 April 1950"), :female)
+      assert @pension_date.match?(Date.parse("6 April 1950"), :female)
     end
   end
 end

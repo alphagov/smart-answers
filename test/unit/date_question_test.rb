@@ -307,7 +307,9 @@ module SmartAnswer
     end
 
     test "#date_of_birth_defaults accepts 120 years old values" do
-      dob_question.transition(@initial_state, 120.years.ago.to_date.to_s)
+      new_state = dob_question.transition(@initial_state, 120.years.ago.to_date.to_s)
+
+      assert new_state
     end
 
   private
