@@ -42,7 +42,7 @@ class FlowTest < ActiveSupport::TestCase
   test "Can define the setup block" do
     s = SmartAnswer::Flow.build do
       setup do
-        return "setup"
+        "setup"
       end
     end
 

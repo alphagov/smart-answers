@@ -347,6 +347,7 @@ module SmartAnswer::Calculators
             @calculator.on_benefits = "yes"
             @calculator.current_benefits = "housing_benefit"
             @calculator.assets_and_savings = "none"
+            assert @calculator.eligible_for_universal_credit?
           end
 
           should "be true if under state pension age with under 16000 assets and not claiming benefits" do

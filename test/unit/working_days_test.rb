@@ -89,7 +89,7 @@ class WorkingDaysTest < ActiveSupport::TestCase
       WorkingDays.bank_holidays
       WorkingDays.bank_holidays
 
-      WebMock.assert_requested(:get, "https://www.gov.uk/bank-holidays.json", times: 1)
+      assert_requested :get, "https://www.gov.uk/bank-holidays.json", times: 1
     end
   end
 end
