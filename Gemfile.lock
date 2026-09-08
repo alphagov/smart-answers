@@ -208,7 +208,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.41.0)
+    govuk_web_banners (1.41.1)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -285,7 +285,7 @@ GEM
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.3.0)
       timeout
     net-smtp (0.5.1)
       net-protocol
@@ -650,7 +650,7 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     smart_properties (1.17.0)
-    sprockets (4.4.0)
+    sprockets (4.4.1)
       concurrent-ruby (~> 1.1)
       logger
       rack (>= 2.2.4, < 4)
