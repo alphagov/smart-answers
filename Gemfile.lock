@@ -208,7 +208,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.42.0)
+    govuk_web_banners (1.43.0)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -303,7 +303,7 @@ GEM
     null_logger (0.0.1)
     opentelemetry-api (1.11.1)
       logger
-    opentelemetry-common (0.25.1)
+    opentelemetry-common (0.25.2)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-otlp (0.34.1)
       google-protobuf (>= 3.18)
