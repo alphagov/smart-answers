@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "~> 4.0.6"
 
-gem "rails", "8.1.3.1"
+gem "rails", "8.1.4"
 
 gem "ast"
 gem "bootsnap", require: false
