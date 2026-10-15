@@ -166,8 +166,8 @@ module SmartAnswer::Calculators
       @passport_country == "botswana"
     end
 
-    def passport_country_is_nauru?
-      @passport_country == "nauru"
+    def passport_country_is_naoero?
+      @passport_country == "naoero"
     end
 
     def passport_country_is_nicaragua_or_st_lucia?
@@ -329,7 +329,7 @@ module SmartAnswer::Calculators
       mauritius
       mozambique
       namibia
-      nauru
+      naoero
       new-zealand
       nigeria
       pakistan
@@ -539,7 +539,7 @@ module SmartAnswer::Calculators
       mongolia
       myanmar
       namibia
-      nauru
+      naoero
       nepal
       nicaragua
       nigeria
