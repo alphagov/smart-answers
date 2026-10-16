@@ -99,40 +99,15 @@ module SmartAnswer::Calculators
     end
 
     def mother_continuity?
-      continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date)
+      mother_started_working_before_continuity_start_date == "yes" && mother_still_working_on_continuity_end_date == "yes"
     end
 
     def partner_continuity?
-      continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date)
-    end
-
-    def continuity(job_before, job_after)
-      job_before == "yes" && job_after == "yes"
-    end
-
-    def mother_lower_earnings?
-      lower_earnings(mother_earned_more_than_lower_earnings_limit)
-    end
-
-    def partner_lower_earnings?
-      lower_earnings(partner_earned_more_than_lower_earnings_limit)
-    end
-
-    # Lower earnings test: person has earned more than
-    # the lower earnings limit
-    def lower_earnings(lel)
-      lel == "yes"
+      partner_started_working_before_continuity_start_date == "yes" && partner_still_working_on_continuity_end_date == "yes"
     end
 
     def mother_earnings_employment?
-      earnings_employment(mother_earned_at_least_390, mother_worked_at_least_26_weeks)
-    end
-
-    # Earnings and employment test
-    def earnings_employment(earnings_employment, work_employment)
-      return false if work_employment == "no"
-
-      employment_status_of_mother == "self-employed" || earnings_employment == "yes"
+      mother_worked_at_least_26_weeks == "yes" && (employment_status_of_mother == "self-employed" || mother_earned_at_least_390 == "yes")
     end
 
     def paid_leave_is_in_year?(year)
