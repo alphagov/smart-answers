@@ -202,15 +202,7 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
             question :partner_started_working_before_continuity_start_date
           elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
             if calculator.employment_status_of_mother == "employee"
-              if calculator.mother_continuity?
-                if calculator.mother_earned_more_than_lower_earnings_limit == "yes"
-                  outcome :outcome_mat_leave_mat_pay
-                elsif calculator.mother_earnings_employment?
-                  outcome :outcome_mat_allowance_mat_leave
-                else
-                  outcome :outcome_mat_leave
-                end
-              elsif calculator.mother_still_working_on_continuity_end_date == "yes"
+              if calculator.mother_continuity? || calculator.mother_still_working_on_continuity_end_date == "yes"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave
                 else
@@ -247,12 +239,10 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               outcome :outcome_single_birth_nothing
             end
           end
-        elsif %w[worker self-employed unemployed].include?(calculator.employment_status_of_mother)
-          if calculator.mother_earnings_employment?
-            outcome :outcome_mat_allowance
-          else
-            outcome :outcome_single_birth_nothing
-          end
+        elsif calculator.mother_earnings_employment?
+          outcome :outcome_mat_allowance
+        else
+          outcome :outcome_single_birth_nothing
         end
       end
     end
