@@ -160,40 +160,23 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               question :partner_started_working_before_continuity_start_date
             elsif %w[self-employed unemployed].include?(calculator.employment_status_of_partner)
               if calculator.employment_status_of_mother == "employee"
-                if calculator.mother_continuity?
-                  if calculator.mother_earned_more_than_lower_earnings_limit == "yes"
-                    outcome :outcome_mat_leave_mat_pay
-                  else
-                    outcome :outcome_mat_leave
-                  end
-                elsif calculator.mother_still_working_on_continuity_end_date == "yes"
+                if calculator.mother_continuity? || calculator.mother_still_working_on_continuity_end_date == "yes"
                   outcome :outcome_mat_leave
                 elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   outcome :outcome_birth_nothing
                 end
-              elsif calculator.employment_status_of_mother == "self-employed" || calculator.employment_status_of_partner == "unemployed"
+              else
                 outcome :outcome_birth_nothing
-              elsif calculator.employment_status_of_partner == "self-employed"
-                outcome :outcome_mat_allowance_14_weeks
               end
             end
-          elsif calculator.employment_status_of_mother == "employee"
-            case calculator.mother_still_working_on_continuity_end_date
-            when "yes"
-              outcome :outcome_mat_leave
-            when "no"
-              outcome :outcome_single_birth_nothing
-            end
-          elsif calculator.employment_status_of_mother == "self-employed"
+          elsif calculator.employment_status_of_mother == "employee" && calculator.mother_still_working_on_continuity_end_date == "yes"
+            outcome :outcome_mat_leave
+          else
             outcome :outcome_single_birth_nothing
           end
         elsif calculator.employment_status_of_mother == "self-employed"
-          if calculator.two_carers?
-            if %w[employee worker].include?(calculator.employment_status_of_partner)
-              question :partner_started_working_before_continuity_start_date
-            else
-              outcome :outcome_mat_allowance
-            end
+          if calculator.two_carers? && %w[employee worker].include?(calculator.employment_status_of_partner)
+            question :partner_started_working_before_continuity_start_date
           else
             outcome :outcome_mat_allowance
           end
