@@ -62,14 +62,14 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     context "next_node" do
       should "have a next node of employment_status_of_mother " \
                "for any response" do
-        assert_next_node :employment_status_of_mother, for_response: "2016-1-1"
+        assert_next_node :mother_employment_status, for_response: "2016-1-1"
       end
     end
   end
 
   context "question: employment_status_of_mother" do
     setup do
-      testing_node :employment_status_of_mother
+      testing_node :mother_employment_status
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1"
@@ -83,7 +83,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of employment_status_of_partner " \
                "for any response " \
                "when there are two carers" do
-        assert_next_node :employment_status_of_partner, for_response: "employee"
+        assert_next_node :partner_employment_status, for_response: "employee"
       end
 
       %w[employee worker].each do |response|
@@ -108,11 +108,11 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
   context "question: employment_status_of_partner" do
     setup do
-      testing_node :employment_status_of_partner
+      testing_node :partner_employment_status
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee"
+                    mother_employment_status: "employee"
     end
 
     should "render the question" do
@@ -124,7 +124,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
         should "have a next node of mother_started_working_before_continuity_start_date " \
                  "for any response " \
                  "when the mothers employment status is '#{mothers_employment_status}'" do
-          add_responses employment_status_of_mother: mothers_employment_status
+          add_responses mother_employment_status: mothers_employment_status
           assert_next_node :mother_started_working_before_continuity_start_date, for_response: "employee"
         end
       end
@@ -133,7 +133,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
         should "have a next node of mother_worked_at_least_26_weeks " \
                  "for any response " \
                  "when the mothers employment status is '#{mothers_employment_status}'" do
-          add_responses employment_status_of_mother: mothers_employment_status
+          add_responses mother_employment_status: mothers_employment_status
           assert_next_node :mother_worked_at_least_26_weeks, for_response: "employee"
         end
       end
@@ -145,7 +145,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       testing_node :mother_started_working_before_continuity_start_date
       add_responses two_carers: "no",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee"
+                    mother_employment_status: "employee"
     end
 
     should "render the question" do
@@ -166,7 +166,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       testing_node :mother_still_working_on_continuity_end_date
       add_responses two_carers: "no",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
+                    mother_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes"
     end
 
@@ -188,8 +188,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes"
     end
@@ -216,7 +216,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is a worker" do
-        add_responses employment_status_of_partner: "worker"
+        add_responses partner_employment_status: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
 
@@ -227,7 +227,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is self-employed" do
-        add_responses employment_status_of_partner: "self-employed"
+        add_responses partner_employment_status: "self-employed"
         assert_next_node :outcome_mat_leave_mat_pay, for_response: "yes"
       end
 
@@ -238,7 +238,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the partner is unemployed" do
-        add_responses employment_status_of_partner: "unemployed"
+        add_responses partner_employment_status: "unemployed"
         assert_next_node :outcome_mat_leave_mat_pay, for_response: "yes"
       end
 
@@ -259,7 +259,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "no",
-                      employment_status_of_mother: "worker"
+                      mother_employment_status: "worker"
         assert_next_node :outcome_mat_pay, for_response: "yes"
       end
 
@@ -302,7 +302,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       testing_node :mother_worked_at_least_26_weeks
       add_responses two_carers: "no",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "unemployed"
+                    mother_employment_status: "unemployed"
     end
 
     should "render the question" do
@@ -318,8 +318,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is an employee" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "employee",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -334,8 +334,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is a worker" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "worker",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -350,8 +350,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is an employee" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "employee",
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -366,8 +366,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is a worker" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "worker",
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -385,8 +385,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -404,8 +404,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -422,8 +422,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -440,8 +440,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -458,8 +458,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -476,8 +476,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -492,8 +492,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -508,8 +508,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -521,7 +521,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is an employee " \
                "and the mother is working on the continuity end date" do
-        add_responses employment_status_of_mother: "employee",
+        add_responses mother_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -533,7 +533,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is an employee " \
                "and the mother is not working on the continuity end date" do
-        add_responses employment_status_of_mother: "employee",
+        add_responses mother_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -544,7 +544,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "for a 'no' response " \
                "when there is a single carer " \
                "and the mother is a self-employed" do
-        add_responses employment_status_of_mother: "self-employed",
+        add_responses mother_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -559,8 +559,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is an employee" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "employee"
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
 
@@ -572,8 +572,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is a worker" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "worker"
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
 
@@ -585,8 +585,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "self-employed"
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -598,8 +598,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "self-employed",
-                      employment_status_of_partner: "unemployed"
+                      mother_employment_status: "self-employed",
+                      partner_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -607,7 +607,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "for a 'yes' response " \
                "when there is a single carer " \
                "and the mother is self-employed " do
-        add_responses employment_status_of_mother: "self-employed"
+        add_responses mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -615,7 +615,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "for a 'no' response " \
                "when there is a single carer " \
                "and the mother is a worker" do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -626,7 +626,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "for a 'no' response " \
                "when there is a single carer " \
                "and the mother is unemployed" do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -636,7 +636,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of mother_earned_at_least_390 " \
                "for a 'yes' response " \
                "and the mother is unemployed" do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -646,7 +646,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of mother_earned_at_least_390 " \
                "for a 'yes' response " \
                "and the mother is a worker" do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -656,7 +656,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       should "have a next node of mother_earned_at_least_390 " \
                "for a 'yes' response " \
                "and the mother is employee" do
-        add_responses employment_status_of_mother: "employee",
+        add_responses mother_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -670,8 +670,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "unemployed",
-                      employment_status_of_partner: "employee",
+                      mother_employment_status: "unemployed",
+                      partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -685,8 +685,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is a worker" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "worker",
-                      employment_status_of_partner: "employee",
+                      mother_employment_status: "worker",
+                      partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -701,7 +701,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "no",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "unemployed",
+                    mother_employment_status: "unemployed",
                     mother_worked_at_least_26_weeks: "yes"
     end
 
@@ -717,7 +717,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is an employee" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_partner: "employee"
+                      partner_employment_status: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
 
@@ -728,7 +728,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is an worker" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_partner: "worker"
+                      partner_employment_status: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
 
@@ -743,8 +743,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -762,8 +762,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -781,8 +781,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -800,8 +800,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -818,8 +818,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -836,8 +836,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -854,8 +854,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -872,8 +872,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -890,8 +890,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -908,8 +908,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -926,8 +926,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -944,8 +944,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -961,8 +961,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "worker",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "worker",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -979,8 +979,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "unemployed",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "unemployed",
+                      partner_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
@@ -994,8 +994,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "unemployed",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "unemployed",
+                      partner_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
@@ -1008,8 +1008,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "worker",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "worker",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no",
@@ -1025,8 +1025,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "worker",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "worker",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no",
@@ -1042,8 +1042,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "unemployed",
-                      employment_status_of_partner: "unemployed",
+                      mother_employment_status: "unemployed",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no",
@@ -1059,8 +1059,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
                       where_does_the_mother_partner_live: "england",
-                      employment_status_of_mother: "unemployed",
-                      employment_status_of_partner: "self-employed",
+                      mother_employment_status: "unemployed",
+                      partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no",
@@ -1073,8 +1073,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is a employee " \
                "and the mother is working on the continuity end date " do
-        add_responses employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+        add_responses mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -1086,8 +1086,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is a employee " \
                "and the mother is working on the continuity end date " do
-        add_responses employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+        add_responses mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "yes",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -1099,8 +1099,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is a employee " \
                "and the mother is not working on the continuity end date " do
-        add_responses employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+        add_responses mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -1112,8 +1112,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "when there is a single carer " \
                "and the mother is a employee " \
                "and the mother is working on the continuity end date " do
-        add_responses employment_status_of_mother: "employee",
-                      employment_status_of_partner: "unemployed",
+        add_responses mother_employment_status: "employee",
+                      partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "no"
@@ -1125,7 +1125,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                  "for a 'yes' response " \
                  "when there is a single carer " \
                  "and the mothers employment status is #{mothers_employment_status} " do
-          add_responses employment_status_of_mother: mothers_employment_status,
+          add_responses mother_employment_status: mothers_employment_status,
                         mother_started_working_before_continuity_start_date: "yes",
                         mother_still_working_on_continuity_end_date: "yes",
                         mother_earned_more_than_lower_earnings_limit: "no",
@@ -1137,7 +1137,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                  "for a 'no' response " \
                  "when there is a single carer " \
                  "and the mothers employment status is #{mothers_employment_status} " do
-          add_responses employment_status_of_mother: mothers_employment_status,
+          add_responses mother_employment_status: mothers_employment_status,
                         mother_started_working_before_continuity_start_date: "yes",
                         mother_still_working_on_continuity_end_date: "yes",
                         mother_earned_more_than_lower_earnings_limit: "no",
@@ -1154,8 +1154,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -1181,8 +1181,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -1209,8 +1209,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -1360,7 +1360,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1375,7 +1375,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is not working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1390,7 +1390,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1407,7 +1407,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "worker"
+        add_responses mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
 
@@ -1423,7 +1423,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1440,7 +1440,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1454,7 +1454,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1468,7 +1468,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1482,7 +1482,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "self-employed",
+        add_responses mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1496,7 +1496,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "unemployed"
+        add_responses mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
 
@@ -1509,7 +1509,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "self-employed",
+        add_responses mother_employment_status: "self-employed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
@@ -1523,7 +1523,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "self-employed"
+        add_responses mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance_pat_leave_pat_pay, for_response: "yes"
       end
 
@@ -1664,7 +1664,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay_pat_leave, for_response: "no"
       end
@@ -1679,7 +1679,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_pat_leave, for_response: "no"
@@ -1695,7 +1695,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_pat_leave, for_response: "no"
@@ -1711,7 +1711,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
@@ -1728,7 +1728,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_mother: "worker"
+        add_responses mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance_pat_leave, for_response: "no"
       end
 
@@ -1743,7 +1743,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -1761,7 +1761,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -1779,7 +1779,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -1798,7 +1798,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -1816,7 +1816,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -1834,7 +1834,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "worker",
+        add_responses mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -1851,7 +1851,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "unemployed"
+        add_responses mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance_pat_leave, for_response: "no"
       end
 
@@ -1864,7 +1864,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "self-employed"
+        add_responses mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance_pat_leave, for_response: "no"
       end
 
@@ -1877,7 +1877,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_leave, for_response: "no"
       end
@@ -1891,7 +1891,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_mother: "unemployed",
+        add_responses mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_leave, for_response: "no"
       end
@@ -1905,7 +1905,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_mother: "self-employed",
+        add_responses mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_leave, for_response: "no"
       end
@@ -2082,7 +2082,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay, for_response: "yes"
       end
@@ -2101,7 +2101,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -2121,7 +2121,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -2141,7 +2141,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker"
+                      mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -2159,7 +2159,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -2181,7 +2181,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -2203,7 +2203,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
@@ -2223,7 +2223,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -2244,7 +2244,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -2265,7 +2265,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
       end
@@ -2284,7 +2284,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -2305,7 +2305,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -2326,7 +2326,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
       end
@@ -2342,7 +2342,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed"
+                      mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -2357,7 +2357,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed"
+                      mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
       end
 
@@ -2372,7 +2372,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
       end
@@ -2388,7 +2388,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
       end
@@ -2404,7 +2404,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
@@ -2421,7 +2421,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed",
+                      mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
       end
@@ -2437,7 +2437,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn at least 390 " do
         add_responses partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed",
+                      mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "yes"
@@ -2453,7 +2453,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_leave_mat_pay_pat_pay, for_response: "yes"
       end
@@ -2470,7 +2470,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker"
+        add_responses partner_employment_status: "worker"
         assert_next_node :outcome_mat_allowance_mat_leave_pat_pay, for_response: "yes"
       end
 
@@ -2486,7 +2486,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_mat_leave_pat_pay, for_response: "yes"
       end
@@ -2503,7 +2503,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_mat_leave_pat_pay, for_response: "yes"
       end
@@ -2520,7 +2520,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_mat_leave_pat_pay, for_response: "yes"
@@ -2538,7 +2538,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_mat_leave_pat_pay, for_response: "yes"
@@ -2556,7 +2556,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no"
         assert_next_node :outcome_mat_allowance_mat_leave_pat_pay, for_response: "yes"
       end
@@ -2572,7 +2572,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
@@ -2589,7 +2589,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
@@ -2606,7 +2606,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
       end
@@ -2621,8 +2621,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay_pat_pay, for_response: "yes"
       end
@@ -2639,8 +2639,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
@@ -2658,8 +2658,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
@@ -2677,8 +2677,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker"
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
       end
 
@@ -2694,8 +2694,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
       end
@@ -2712,8 +2712,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
       end
@@ -2727,8 +2727,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "unemployed"
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
       end
 
@@ -2741,8 +2741,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "self-employed"
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance_pat_pay, for_response: "yes"
       end
 
@@ -2755,8 +2755,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "unemployed",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
       end
@@ -2770,8 +2770,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "unemployed",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
       end
@@ -2785,8 +2785,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "self-employed",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_pat_pay, for_response: "yes"
       end
@@ -2801,7 +2801,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_leave_mat_pay, for_response: "no"
       end
@@ -2818,7 +2818,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker"
+        add_responses partner_employment_status: "worker"
         assert_next_node :outcome_mat_allowance_mat_leave, for_response: "no"
       end
 
@@ -2834,7 +2834,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_mat_leave, for_response: "no"
@@ -2852,7 +2852,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_mat_leave, for_response: "no"
@@ -2870,7 +2870,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_mat_leave, for_response: "no"
       end
@@ -2887,7 +2887,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did earn more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -2906,7 +2906,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -2926,7 +2926,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance_mat_leave, for_response: "no"
@@ -2944,7 +2944,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -2963,7 +2963,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -2982,7 +2982,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -3000,8 +3000,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay, for_response: "no"
       end
@@ -3018,8 +3018,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "no"
@@ -3037,8 +3037,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "no"
@@ -3056,8 +3056,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker"
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance, for_response: "no"
       end
 
@@ -3073,8 +3073,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_worked_at_least_26_weeks: "no"
@@ -3093,8 +3093,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_at_least_390: "no"
@@ -3113,8 +3113,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
-                      employment_status_of_mother: "worker",
+        add_responses partner_employment_status: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_worked_at_least_26_weeks: "no",
@@ -3131,10 +3131,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed"
+                      mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "no"
       end
 
@@ -3147,10 +3147,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3164,10 +3164,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3181,10 +3181,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
@@ -3200,7 +3200,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_leave_mat_pay, for_response: "no"
@@ -3216,7 +3216,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_leave_mat_pay, for_response: "no"
@@ -3232,7 +3232,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
@@ -3249,7 +3249,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no"
         assert_next_node :outcome_mat_leave, for_response: "no"
       end
@@ -3264,7 +3264,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_still_working_on_continuity_end_date: "no"
         assert_next_node :outcome_mat_leave, for_response: "no"
       end
@@ -3279,7 +3279,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother did not earn more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no"
         assert_next_node :outcome_mat_leave, for_response: "no"
@@ -3296,7 +3296,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_started_working_before_continuity_start_date: "no"
@@ -3314,7 +3314,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_started_working_before_continuity_start_date: "no",
@@ -3333,7 +3333,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_started_working_before_continuity_start_date: "no",
@@ -3352,7 +3352,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is still working on the continuity end date " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_started_working_before_continuity_start_date: "no",
@@ -3372,7 +3372,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_still_working_on_continuity_end_date: "no"
@@ -3390,7 +3390,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
@@ -3409,7 +3409,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
@@ -3428,7 +3428,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is not still working on the continuity end date " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
@@ -3447,9 +3447,9 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is still working on the continuity end date " \
                "and the mother earned more than lower earnings limit " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_pay, for_response: "no"
       end
@@ -3466,10 +3466,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "no"
@@ -3487,10 +3487,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
         assert_next_node :outcome_mat_allowance, for_response: "no"
@@ -3508,10 +3508,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes"
@@ -3530,10 +3530,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker"
+                      mother_employment_status: "worker"
         assert_next_node :outcome_mat_allowance, for_response: "no"
       end
 
@@ -3549,10 +3549,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -3571,10 +3571,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -3593,10 +3593,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -3616,10 +3616,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no"
@@ -3638,10 +3638,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_earned_at_least_390: "no"
@@ -3660,10 +3660,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
                       mother_worked_at_least_26_weeks: "no",
@@ -3683,10 +3683,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -3706,10 +3706,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -3729,10 +3729,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother earned more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "no",
                       mother_still_working_on_continuity_end_date: "no",
                       mother_earned_more_than_lower_earnings_limit: "yes",
@@ -3753,10 +3753,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3773,10 +3773,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3793,10 +3793,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not earn more than lower earnings limit " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "worker",
+                      mother_employment_status: "worker",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
@@ -3811,10 +3811,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 - repeat of test for line 486 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed"
+                      mother_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "no"
       end
 
@@ -3827,10 +3827,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother worked at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed"
+                      mother_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "no"
       end
 
@@ -3843,10 +3843,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 - repeat of test for line 488 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3860,10 +3860,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother worked at least 26 weeks " \
                "and the mother did not earn at least 390 - repeat of test for line 488 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3877,10 +3877,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 - repeat of test for line 488 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "unemployed",
+                      mother_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
@@ -3895,10 +3895,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother earned at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed",
+                      mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
       end
@@ -3912,10 +3912,10 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the mother did not work at least 26 weeks " \
                "and the mother did not earn at least 390 " do
-        add_responses employment_status_of_partner: "worker",
+        add_responses partner_employment_status: "worker",
                       partner_started_working_before_continuity_start_date: "no",
                       partner_still_working_on_continuity_end_date: "no",
-                      employment_status_of_mother: "self-employed",
+                      mother_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "no",
                       mother_earned_at_least_390: "no"
         assert_next_node :outcome_birth_nothing, for_response: "no"
@@ -3929,8 +3929,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "self-employed",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "self-employed",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "yes",
@@ -4017,8 +4017,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     # due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "no",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -4058,8 +4058,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "unemployed",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "unemployed",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -4078,8 +4078,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "no",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "yes",
@@ -4098,8 +4098,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -4117,8 +4117,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "self-employed",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "self-employed",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "yes"
@@ -4135,8 +4135,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "worker",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "worker",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "yes",
                     mother_earned_more_than_lower_earnings_limit: "yes",
@@ -4237,8 +4237,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "employee",
-                    employment_status_of_partner: "worker",
+                    mother_employment_status: "employee",
+                    partner_employment_status: "worker",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "no",
                     mother_earned_more_than_lower_earnings_limit: "no",
@@ -4337,8 +4337,8 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
       add_responses two_carers: "yes",
                     where_does_the_mother_partner_live: "england",
                     due_date: "2016-1-1",
-                    employment_status_of_mother: "worker",
-                    employment_status_of_partner: "employee",
+                    mother_employment_status: "worker",
+                    partner_employment_status: "employee",
                     mother_started_working_before_continuity_start_date: "yes",
                     mother_still_working_on_continuity_end_date: "no",
                     mother_earned_more_than_lower_earnings_limit: "no",

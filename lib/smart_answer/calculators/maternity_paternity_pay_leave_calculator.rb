@@ -5,8 +5,8 @@ module SmartAnswer::Calculators
     attr_accessor :two_carers,
                   :where_does_the_mother_partner_live,
                   :due_date,
-                  :employment_status_of_mother,
-                  :employment_status_of_partner,
+                  :mother_employment_status,
+                  :partner_employment_status,
                   :mother_started_working_before_continuity_start_date,
                   :mother_still_working_on_continuity_end_date,
                   :mother_earned_more_than_lower_earnings_limit,
@@ -82,6 +82,52 @@ module SmartAnswer::Calculators
       end
     end
 
+    WORKING_STATUSES = %w[employee worker].freeze
+    NON_EMPLOYMENT_STATUSES = %w[unemployed self-employed].freeze
+
+    def mother_is_employee?
+      calculator.mother_employment_status == "employee"
+    end
+
+    def mother_is_worker?
+      calculator.mother_employment_status == "worker"
+    end
+
+    def mother_is_self_employed?
+      calculator.mother_employment_status == "self-employed"
+    end
+    def mother_employee_or_worker?
+      WORKING_STATUSES.include?(mother_employment_status)
+    end
+
+    def mother_self_employed_or_unemployed?
+      NON_EMPLOYMENT_STATUSES.include?(mother_employment_status)
+    end
+
+    def mother_employee_or_self_employed?
+      %w[employee self-employed].include?(calculator.mother_employment_status)
+    end
+
+    def mother_worker_or_self_employed?
+      %w[worker self-employed].include?(calculator.mother_employment_status)
+    end
+
+    def partner_employee_or_worker?
+      WORKING_STATUSES.include?(partner_employment_status)
+    end
+
+    def partner_self_employed_or_unemployed?
+      NON_EMPLOYMENT_STATUSES.include?(partner_employment_status)
+    end
+
+    def partner_is_self_employed?
+      calculator.partner_employment_status == "self-employed"
+    end
+
+    def partner_is_unemployed?
+      calculator.partner_employment_status == "unemployed"
+    end
+
     def lower_earnings_start_date
       saturday_before(due_date - 22.weeks)
     end
@@ -107,7 +153,7 @@ module SmartAnswer::Calculators
     end
 
     def mother_earnings_employment?
-      mother_worked_at_least_26_weeks == "yes" && (employment_status_of_mother == "self-employed" || mother_earned_at_least_390 == "yes")
+      mother_worked_at_least_26_weeks == "yes" && (mother_employment_status == "self-employed" || mother_earned_at_least_390 == "yes")
     end
 
     def paid_leave_is_in_year?(year)
