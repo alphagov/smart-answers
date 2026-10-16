@@ -96,6 +96,7 @@ module SmartAnswer::Calculators
     def mother_is_self_employed?
       calculator.mother_employment_status == "self-employed"
     end
+
     def mother_employee_or_worker?
       WORKING_STATUSES.include?(mother_employment_status)
     end
@@ -118,6 +119,14 @@ module SmartAnswer::Calculators
 
     def partner_self_employed_or_unemployed?
       NON_EMPLOYMENT_STATUSES.include?(partner_employment_status)
+    end
+
+    def partner_is_employee?
+      calculator.partner_employment_status == "employee"
+    end
+
+    def partner_is_worker?
+      calculator.partner_employment_status == "worker"
     end
 
     def partner_is_self_employed?
