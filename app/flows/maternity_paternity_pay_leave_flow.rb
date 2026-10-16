@@ -288,12 +288,6 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
             if calculator.employment_status_of_mother == "employee"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_leave_mat_pay_pat_leave_pat_pay
-              elsif calculator.mother_started_working_before_continuity_start_date == "yes" && calculator.mother_still_working_on_continuity_end_date == "yes"
-                if calculator.mother_earnings_employment?
-                  outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay
-                elsif !calculator.mother_earnings_employment?
-                  outcome :outcome_mat_leave_pat_leave_pat_pay
-                end
               elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay
