@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :two_carers,
-                  :where_does_the_mother_partner_live,
+                  :where_does_the_mothers_partner_live,
                   :due_date,
                   :mother_employment_status,
                   :partner_employment_status,
@@ -86,15 +86,15 @@ module SmartAnswer::Calculators
     NON_EMPLOYMENT_STATUSES = %w[unemployed self-employed].freeze
 
     def mother_is_employee?
-      calculator.mother_employment_status == "employee"
+      mother_employment_status == "employee"
     end
 
     def mother_is_worker?
-      calculator.mother_employment_status == "worker"
+      mother_employment_status == "worker"
     end
 
     def mother_is_self_employed?
-      calculator.mother_employment_status == "self-employed"
+      mother_employment_status == "self-employed"
     end
 
     def mother_employee_or_worker?
@@ -106,11 +106,11 @@ module SmartAnswer::Calculators
     end
 
     def mother_employee_or_self_employed?
-      %w[employee self-employed].include?(calculator.mother_employment_status)
+      %w[employee self-employed].include?(mother_employment_status)
     end
 
     def mother_worker_or_self_employed?
-      %w[worker self-employed].include?(calculator.mother_employment_status)
+      %w[worker self-employed].include?(mother_employment_status)
     end
 
     def partner_employee_or_worker?
@@ -122,19 +122,19 @@ module SmartAnswer::Calculators
     end
 
     def partner_is_employee?
-      calculator.partner_employment_status == "employee"
+      partner_employment_status == "employee"
     end
 
     def partner_is_worker?
-      calculator.partner_employment_status == "worker"
+      partner_employment_status == "worker"
     end
 
     def partner_is_self_employed?
-      calculator.partner_employment_status == "self-employed"
+      partner_employment_status == "self-employed"
     end
 
     def partner_is_unemployed?
-      calculator.partner_employment_status == "unemployed"
+      partner_employment_status == "unemployed"
     end
 
     def lower_earnings_start_date
@@ -211,7 +211,7 @@ module SmartAnswer::Calculators
   private
 
     def mother_partner_living_in_northern_ireland
-      where_does_the_mother_partner_live == "northern_ireland"
+      where_does_the_mothers_partner_live == "northern_ireland"
     end
 
     def due_date_on_or_after(date)

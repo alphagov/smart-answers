@@ -332,7 +332,7 @@ module SmartAnswer
       context "mother's partner lives in Northern Ireland" do
         setup do
           @calculator = MaternityPaternityPayLeaveCalculator.new
-          @calculator.where_does_the_mother_partner_live = "northern_ireland"
+          @calculator.where_does_the_mothers_partner_live = "northern_ireland"
           @calculator.due_date = Date.parse("2024-04-15")
         end
 

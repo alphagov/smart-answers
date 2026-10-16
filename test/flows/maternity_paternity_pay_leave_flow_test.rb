@@ -21,7 +21,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
 
     context "next_node" do
       should "have a next node of where does the mother's partner live for a 'yes' response" do
-        assert_next_node :where_does_the_mother_partner_live, for_response: "yes"
+        assert_next_node :where_does_the_mothers_partner_live, for_response: "yes"
       end
 
       should "have a next node of due_date for a 'no' response" do
@@ -30,9 +30,9 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     end
   end
 
-  context "question: where_does_the_mother_partner_live" do
+  context "question: where_does_the_mothers_partner_live" do
     setup do
-      testing_node :where_does_the_mother_partner_live
+      testing_node :where_does_the_mothers_partner_live
       add_responses two_carers: "yes"
     end
 
@@ -52,7 +52,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :due_date
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england"
+                    where_does_the_mothers_partner_live: "england"
     end
 
     should "render the question" do
@@ -71,7 +71,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :mother_employment_status
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1"
     end
 
@@ -110,7 +110,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_employment_status
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee"
     end
@@ -186,7 +186,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :mother_earned_more_than_lower_earnings_limit
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "employee",
@@ -317,7 +317,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is an employee " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -333,7 +333,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is an employee " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -349,7 +349,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -365,7 +365,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "worker",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -384,7 +384,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -403,7 +403,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother did not earn more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -421,7 +421,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -439,7 +439,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -457,7 +457,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -475,7 +475,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother started working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -491,7 +491,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -507,7 +507,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -558,7 +558,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
@@ -571,7 +571,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is a worker" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
@@ -584,7 +584,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is self-employed" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "self-employed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -597,7 +597,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is self-employed " \
                "and the partner is unemployed" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "self-employed",
                       partner_employment_status: "unemployed"
         assert_next_node :outcome_mat_allowance, for_response: "yes"
@@ -669,7 +669,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is from England " \
                "and the mother is unemployed" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "unemployed",
                       partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -684,7 +684,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is from England " \
                "and the mother is a worker" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "worker",
                       partner_employment_status: "employee",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -699,7 +699,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :mother_earned_at_least_390
       add_responses two_carers: "no",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "unemployed",
                     mother_worked_at_least_26_weeks: "yes"
@@ -716,7 +716,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is from England " \
                "and the partner is an employee" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       partner_employment_status: "employee"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
@@ -727,7 +727,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is from England " \
                "and the partner is an worker" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       partner_employment_status: "worker"
         assert_next_node :partner_started_working_before_continuity_start_date, for_response: "yes"
       end
@@ -742,7 +742,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -761,7 +761,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -780,7 +780,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -799,7 +799,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is working on the continuity end date " \
                "and the mother earned more than the lower earnings limit" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -817,7 +817,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -835,7 +835,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -853,7 +853,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -871,7 +871,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did not start working before the continuity start date " \
                "and the mother is working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -889,7 +889,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -907,7 +907,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -925,7 +925,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -943,7 +943,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother did start working before the continuity start date " \
                "and the mother is not working on the continuity end date" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "employee",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "yes",
@@ -960,7 +960,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "worker",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -978,7 +978,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is self-employed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "unemployed",
                       partner_employment_status: "self-employed",
                       mother_worked_at_least_26_weeks: "yes"
@@ -993,7 +993,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the partner is unemployed " \
                "and the mother worked at least 26 weeks" do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "unemployed",
                       partner_employment_status: "unemployed",
                       mother_worked_at_least_26_weeks: "yes"
@@ -1007,7 +1007,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is a worker " \
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "worker",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -1024,7 +1024,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is a worker " \
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "worker",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -1041,7 +1041,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is unemployed " \
                "and the partner is unemployed " do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "unemployed",
                       partner_employment_status: "unemployed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -1058,7 +1058,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
                "and the mother is a unemployed " \
                "and the partner is self-employed " do
         add_responses two_carers: "yes",
-                      where_does_the_mother_partner_live: "england",
+                      where_does_the_mothers_partner_live: "england",
                       mother_employment_status: "unemployed",
                       partner_employment_status: "self-employed",
                       mother_started_working_before_continuity_start_date: "no",
@@ -1152,7 +1152,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_started_working_before_continuity_start_date
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "employee",
@@ -1179,7 +1179,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_still_working_on_continuity_end_date
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "employee",
@@ -1207,7 +1207,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :partner_earned_more_than_lower_earnings_limit
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "employee",
@@ -3927,7 +3927,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "self-employed",
                     partner_employment_status: "self-employed",
@@ -4015,7 +4015,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     # due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "self-employed",
@@ -4056,7 +4056,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance_14_weeks
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "unemployed",
                     partner_employment_status: "self-employed",
@@ -4076,7 +4076,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_allowance_mat_leave
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "self-employed",
@@ -4096,7 +4096,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_leave
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "self-employed",
@@ -4115,7 +4115,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_leave_mat_pay
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "self-employed",
@@ -4133,7 +4133,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_mat_pay
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "worker",
                     partner_employment_status: "employee",
@@ -4235,7 +4235,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_pat_pay
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "employee",
                     partner_employment_status: "worker",
@@ -4335,7 +4335,7 @@ class MaternityPaternityPayLeaveFlowTest < ActiveSupport::TestCase
     setup do
       testing_node :outcome_pat_leave
       add_responses two_carers: "yes",
-                    where_does_the_mother_partner_live: "england",
+                    where_does_the_mothers_partner_live: "england",
                     due_date: "2016-1-1",
                     mother_employment_status: "worker",
                     partner_employment_status: "employee",
