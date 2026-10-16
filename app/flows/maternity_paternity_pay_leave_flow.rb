@@ -337,10 +337,10 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
             elsif calculator.employment_status_of_mother == "worker"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_pay_pat_leave_pat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_pat_leave_pat_pay
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_pat_leave_pat_pay
                 end
               end
@@ -360,13 +360,13 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave_pat_leave
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_mat_leave_pat_leave
                 end
-              elsif calculator.mother_still_working_on_continuity_end_date == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_pat_leave
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_pat_leave
                 end
               end
@@ -374,17 +374,17 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 # TODO: Unsure about mat_pay
                 outcome :outcome_mat_pay_pat_leave
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_pat_leave
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_pat_leave
                 end
               end
             elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance_pat_leave
-              elsif !calculator.mother_earnings_employment?
+              else
                 outcome :outcome_pat_leave
               end
             end
@@ -396,30 +396,30 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
                   outcome :outcome_mat_leave
                 elsif calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_mat_leave
                 end
               when "no"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
             elsif calculator.employment_status_of_mother == "worker"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
             elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
-              elsif !calculator.mother_earnings_employment?
+              else
                 outcome :outcome_birth_nothing
               end
             end
@@ -432,36 +432,36 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               elsif calculator.mother_continuity?
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave_pat_pay
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_mat_leave_pat_pay
                 end
               elsif calculator.mother_still_working_on_continuity_end_date == "yes"
-                if !calculator.mother_earnings_employment?
-                  outcome :outcome_mat_leave_pat_pay
-                else
+                if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave_pat_pay
+                else
+                  outcome :outcome_mat_leave_pat_pay
                 end
               elsif calculator.mother_still_working_on_continuity_end_date == "no"
-                if !calculator.mother_earnings_employment?
-                  outcome :outcome_pat_pay
-                else
+                if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_pat_pay
+                else
+                  outcome :outcome_pat_pay
                 end
               end
             elsif calculator.employment_status_of_mother == "worker"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_pay_pat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_pat_pay
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_pat_pay
                 end
               end
             elsif %w[unemployed self-employed].include?(calculator.employment_status_of_mother)
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance_pat_pay
-              elsif !calculator.mother_earnings_employment?
+              else
                 outcome :outcome_pat_pay
               end
             end
@@ -470,7 +470,7 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
             when "employee"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_leave_mat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              elsif !calculator.mother_continuity?
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave
                 else
@@ -479,23 +479,23 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
               elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance_mat_leave
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_mat_leave
                 end
               elsif calculator.mother_still_working_on_continuity_end_date == "no"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
             when "worker"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
@@ -517,34 +517,34 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
                   else
                     outcome :outcome_mat_leave
                   end
-                elsif !calculator.mother_continuity?
+                else
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_mat_leave
-                  elsif !calculator.mother_earnings_employment?
+                  else
                     outcome :outcome_mat_leave
                   end
                 end
               when "no"
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
             when "worker"
               if calculator.mother_continuity? && calculator.mother_earned_more_than_lower_earnings_limit == "yes"
                 outcome :outcome_mat_pay
-              elsif !calculator.mother_continuity? || calculator.mother_earned_more_than_lower_earnings_limit == "no"
+              else
                 if calculator.mother_earnings_employment?
                   outcome :outcome_mat_allowance
-                elsif !calculator.mother_earnings_employment?
+                else
                   outcome :outcome_birth_nothing
                 end
               end
             when "unemployed", "self-employed"
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
-              elsif !calculator.mother_earnings_employment?
+              else
                 outcome :outcome_birth_nothing
               end
             end
