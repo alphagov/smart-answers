@@ -281,19 +281,30 @@ module SmartAnswer::Calculators
 
     EXCLUDE_COUNTRIES = %w[
       american-samoa
+      anguilla
+      bermuda
       british-antarctic-territory
       british-indian-ocean-territory
+      british-virgin-islands
+      cayman-islands
+      falkland-islands
       french-guiana
       french-polynesia
       gibraltar
       guadeloupe
       holy-see
+      hong-kong-(british-national-overseas)
       martinique
       mayotte
+      montserrat
       new-caledonia
+      pitcairn-islands
       reunion
+      south-georgia-and-the-south-sandwich-islands
+      st-helena-ascension-and-tristan-da-cunha
       st-pierre-and-miquelon
       the-occupied-palestinian-territories
+      turks-and-caicos-islands
       wallis-and-futuna
       western-sahara
       palestinian-territories
@@ -406,7 +417,6 @@ module SmartAnswer::Calculators
       guatemala
       guyana
       hong-kong
-      hong-kong-(british-national-overseas)
       israel
       japan
       kiribati
