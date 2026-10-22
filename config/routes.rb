@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     GovukHealthcheck::EmergencyBannerRedis,
   )
 
-  mount GovukPublishingComponents::Engine, at: "/component-guide"
+  mount GovukPublishingComponents::Engine, at: "/component-guide" if Rails.env.development?
 
   get "/:id", to: "flow#landing", as: :flow_landing
 
