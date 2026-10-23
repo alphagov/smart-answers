@@ -371,6 +371,7 @@ module SmartAnswer::Calculators
       bermuda
       british-overseas-territories-citizen
       british-overseas-citizen
+      british-subject
       british-virgin-islands
       cayman-islands
       falkland-islands
@@ -386,6 +387,7 @@ module SmartAnswer::Calculators
       british-overseas-territories-citizen
       british-overseas-citizen
       british-protected-person
+      british-subject
       british-virgin-islands
       cayman-islands
       falkland-islands

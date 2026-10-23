@@ -12,7 +12,6 @@ class CheckUkVisaFlowTest < ActiveSupport::TestCase
     @direct_airside_transit_visa_country = "afghanistan"
     @visa_national_country = "armenia"
     @british_overseas_territory_country = "british-overseas-territories-citizen"
-    @british_overseas_territory_eta_country = "british-protected-person"
     @non_visa_national_country = "pitcairn-island"
     @eea_country = "austria"
     @travel_document_country = "hong-kong"
