@@ -371,6 +371,7 @@ module SmartAnswer::Calculators
       bermuda
       british-overseas-territories-citizen
       british-overseas-citizen
+      british-protected-person
       british-subject
       british-virgin-islands
       cayman-islands
@@ -397,7 +398,7 @@ module SmartAnswer::Calculators
       turks-and-caicos-islands
     ].freeze
 
-    COUNTRY_GROUP_NON_VISA_NATIONAL = %w(
+    COUNTRY_GROUP_NON_VISA_NATIONAL = %w[
       andorra
       antigua-and-barbuda
       argentina
@@ -456,7 +457,7 @@ module SmartAnswer::Calculators
       uruguay
       usa
       vatican-city
-    ).freeze
+    ].freeze
 
     COUNTRY_GROUP_VISA_NATIONAL = %w[
       armenia
@@ -634,7 +635,6 @@ module SmartAnswer::Calculators
       belize
       bonaire-st-eustatius-saba
       brazil
-      british-protected-person
       brunei
       bulgaria
       canada
