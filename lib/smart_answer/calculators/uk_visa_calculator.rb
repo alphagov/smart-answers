@@ -370,6 +370,7 @@ module SmartAnswer::Calculators
       anguilla
       bermuda
       british-overseas-territories-citizen
+      british-overseas-citizen
       british-virgin-islands
       cayman-islands
       falkland-islands
@@ -631,7 +632,6 @@ module SmartAnswer::Calculators
       belize
       bonaire-st-eustatius-saba
       brazil
-      british-overseas-citizen
       british-protected-person
       brunei
       bulgaria
