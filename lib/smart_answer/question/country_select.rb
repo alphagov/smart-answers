@@ -35,11 +35,11 @@ module SmartAnswer
         unless @include_uk
           countries = countries.reject { |c| c.slug == "united-kingdom" }
         end
-        if @exclude_countries
-          countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
-        end
         if @additional_countries
           countries = (countries + @additional_countries).sort { |a, b| a.name.sub(/^The /i, "") <=> b.name }
+        end
+        if @exclude_countries
+          countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
         end
         countries
       end
