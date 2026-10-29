@@ -10,18 +10,18 @@ module RedundancyPayFlowTestHelper
       end
 
       context "validation" do
-        should "be valid for a valid redundancy date" do
-          assert_valid_response 3.years.ago.strftime("%Y-%m-%d")
+        should "be valid for a redundancy date on or after 1 February 2011" do
+          assert_valid_response "2011-02-01"
         end
 
-        should "be invalid for an invalid redundancy date" do
-          assert_invalid_response 5.years.ago.strftime("%Y-%m-%d")
+        should "be invalid for a redundancy date before 1 February 2011" do
+          assert_invalid_response "2011-01-31"
         end
       end
 
       context "next node" do
         should "have a next node of age_of_employee?" do
-          assert_next_node :age_of_employee?, for_response: 3.years.ago.strftime("%Y-%m-%d")
+          assert_next_node :age_of_employee?, for_response: "2011-02-01"
         end
       end
     end
@@ -29,7 +29,7 @@ module RedundancyPayFlowTestHelper
     context "question: age_of_employee?" do
       setup do
         testing_node :age_of_employee?
-        add_responses date_of_redundancy?: 3.years.ago.strftime("%Y-%m-%d")
+        add_responses date_of_redundancy?: "2011-02-01"
       end
 
       should "render question" do
@@ -56,7 +56,7 @@ module RedundancyPayFlowTestHelper
     context "question: years_employed?" do
       setup do
         testing_node :years_employed?
-        add_responses date_of_redundancy?: 3.years.ago.strftime("%Y-%m-%d"),
+        add_responses date_of_redundancy?: "2011-02-01",
                       age_of_employee?: "16"
       end
 
@@ -93,7 +93,7 @@ module RedundancyPayFlowTestHelper
     context "question: weekly_pay_before_tax?" do
       setup do
         testing_node :weekly_pay_before_tax?
-        add_responses date_of_redundancy?: 3.years.ago.strftime("%Y-%m-%d"),
+        add_responses date_of_redundancy?: "2011-02-01",
                       age_of_employee?: "17",
                       years_employed?: "2"
       end
