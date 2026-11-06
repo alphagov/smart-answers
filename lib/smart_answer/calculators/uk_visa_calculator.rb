@@ -281,19 +281,30 @@ module SmartAnswer::Calculators
 
     EXCLUDE_COUNTRIES = %w[
       american-samoa
+      anguilla
+      bermuda
       british-antarctic-territory
       british-indian-ocean-territory
+      british-virgin-islands
+      cayman-islands
+      falkland-islands
       french-guiana
       french-polynesia
       gibraltar
       guadeloupe
       holy-see
+      hong-kong-(british-national-overseas)
       martinique
       mayotte
+      montserrat
       new-caledonia
+      pitcairn-islands
       reunion
+      south-georgia-and-the-south-sandwich-islands
+      st-helena-ascension-and-tristan-da-cunha
       st-pierre-and-miquelon
       the-occupied-palestinian-territories
+      turks-and-caicos-islands
       wallis-and-futuna
       western-sahara
       palestinian-territories
@@ -359,6 +370,9 @@ module SmartAnswer::Calculators
       anguilla
       bermuda
       british-overseas-territories-citizen
+      british-overseas-citizen
+      british-protected-person
+      british-subject
       british-virgin-islands
       cayman-islands
       falkland-islands
@@ -374,6 +388,7 @@ module SmartAnswer::Calculators
       british-overseas-territories-citizen
       british-overseas-citizen
       british-protected-person
+      british-subject
       british-virgin-islands
       cayman-islands
       falkland-islands
@@ -383,7 +398,7 @@ module SmartAnswer::Calculators
       turks-and-caicos-islands
     ].freeze
 
-    COUNTRY_GROUP_NON_VISA_NATIONAL = %w(
+    COUNTRY_GROUP_NON_VISA_NATIONAL = %w[
       andorra
       antigua-and-barbuda
       argentina
@@ -406,7 +421,6 @@ module SmartAnswer::Calculators
       guatemala
       guyana
       hong-kong
-      hong-kong-(british-national-overseas)
       israel
       japan
       kiribati
@@ -443,7 +457,7 @@ module SmartAnswer::Calculators
       uruguay
       usa
       vatican-city
-    ).freeze
+    ].freeze
 
     COUNTRY_GROUP_VISA_NATIONAL = %w[
       armenia
@@ -621,8 +635,6 @@ module SmartAnswer::Calculators
       belize
       bonaire-st-eustatius-saba
       brazil
-      british-overseas-citizen
-      british-protected-person
       brunei
       bulgaria
       canada
