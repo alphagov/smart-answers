@@ -14,12 +14,6 @@ module SmartAnswer::Calculators
         end_of_month_after(period_end_date) + 7.days
       when "online-debit-credit-card", "bacs-direct-credit", "bank-giro"
         2.working_days.before(funds_received_by)
-      when "chaps"
-        payment_date = end_of_month_after(period_end_date) + 7.days
-        payment_date -= 1 until payment_date.workday?
-        payment_date
-      when "cheque"
-        6.working_days.before(0.working_days.before(end_of_month_after(period_end_date)))
       else
         raise ArgumentError, "Invalid payment method"
       end
@@ -36,13 +30,6 @@ module SmartAnswer::Calculators
       when "online-debit-credit-card", "bacs-direct-credit", "bank-giro"
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(period_end_date) + 7.days)
-      when "chaps"
-        receiving_by_date = end_of_month_after(period_end_date) + 7.days
-        receiving_by_date -= 1 until receiving_by_date.workday?
-        receiving_by_date
-      when "cheque"
-        # Select previous working day if not a work_day
-        0.working_days.before(end_of_month_after(period_end_date))
       else
         raise ArgumentError, "Invalid payment method"
       end
