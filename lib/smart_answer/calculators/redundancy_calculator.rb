@@ -47,11 +47,7 @@ module SmartAnswer::Calculators
     # the config file and tests to ensure the right amount of
     # historical rates data is available.
     def self.first_selectable_date
-      if between_january_and_august?
-        four_years_ago
-      else
-        three_years_ago
-      end
+      Date.new(2011, 2, 1)
     end
 
     def self.last_selectable_date
@@ -66,14 +62,6 @@ module SmartAnswer::Calculators
       Time.zone.today.month < 9
     end
 
-    def self.four_years_ago
-      4.years.ago.beginning_of_year
-    end
-
-    def self.three_years_ago
-      3.years.ago.beginning_of_year
-    end
-
     def self.end_of_current_year
       Time.zone.today.end_of_year
     end
@@ -82,6 +70,6 @@ module SmartAnswer::Calculators
       Time.zone.today.next_year.end_of_year
     end
 
-    private_class_method :between_january_and_august?, :four_years_ago, :three_years_ago, :end_of_current_year, :end_of_next_year
+    private_class_method :between_january_and_august?, :end_of_current_year, :end_of_next_year
   end
 end
