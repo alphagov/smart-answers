@@ -28,7 +28,6 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
       option "bacs-direct-credit"
       option "bank-giro"
       option "chaps"
-      option "cheque"
 
       on_response do |response|
         calculator.payment_method = response
@@ -48,8 +47,6 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
           outcome :result_bank_giro
         when "chaps"
           outcome :result_chaps
-        when "cheque"
-          outcome :result_cheque
         end
       end
     end
@@ -60,6 +57,5 @@ class VatPaymentDeadlinesFlow < SmartAnswer::Flow
     outcome :result_bacs_direct_credit
     outcome :result_bank_giro
     outcome :result_chaps
-    outcome :result_cheque
   end
 end

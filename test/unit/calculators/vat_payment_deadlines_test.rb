@@ -137,25 +137,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "dates for cheque" do
-      setup do
-        @method = "cheque"
-      end
-
-      should "calculate last_payment_date as last working day of end_of_month_after(end_date) - 6 working days" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-22"), calc.last_payment_date
-      end
-
-      should "calculate funds_received_by as last working day of end_of_month_after(end_date)" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-31"), calc.funds_received_by
-
-        calc = new_calculator("2013-03-31", @method)
-        assert_equal Date.parse("2013-04-30"), calc.funds_received_by
-      end
-    end
-
     context "with an invalid payment method" do
       should "raise an ArgumentError for last_payment_date" do
         assert_raise ArgumentError do
