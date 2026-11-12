@@ -171,10 +171,8 @@ class MaternityPaternityPayLeaveFlow < SmartAnswer::Flow
                 elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   outcome :outcome_birth_nothing
                 end
-              elsif calculator.employment_status_of_mother == "self-employed" || calculator.employment_status_of_partner == "unemployed"
+              elsif calculator.employment_status_of_mother == "self-employed"
                 outcome :outcome_birth_nothing
-              elsif calculator.employment_status_of_partner == "self-employed"
-                outcome :outcome_mat_allowance_14_weeks
               end
             end
           elsif calculator.employment_status_of_mother == "employee"
