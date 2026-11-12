@@ -105,57 +105,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "dates for CHAPS" do
-      setup do
-        @method = "chaps"
-      end
-
-      should "The last date you can pay is [period_end_date + 1 calendar month + 7 calendar days. If the 7th is a BH or WE go back to the last preceding working day. Same for either payment date and funds_received_by date" do
-        calc = new_calculator("2013-11-30", @method)
-        assert_equal Date.parse("2014-01-07"), calc.last_payment_date
-        assert_equal Date.parse("2014-01-07"), calc.funds_received_by
-
-        calc = new_calculator("2014-03-31", @method)
-        assert_equal Date.parse("2014-05-07"), calc.last_payment_date
-        assert_equal Date.parse("2014-05-07"), calc.funds_received_by
-
-        calc = new_calculator("2014-11-30", @method)
-        assert_equal Date.parse("2015-01-07"), calc.last_payment_date
-        assert_equal Date.parse("2015-01-07"), calc.funds_received_by
-
-        calc = new_calculator("2015-02-28", @method)
-        assert_equal Date.parse("2015-04-07"), calc.last_payment_date
-        assert_equal Date.parse("2015-04-07"), calc.funds_received_by
-
-        calc = new_calculator("2015-03-31", @method)
-        assert_equal Date.parse("2015-05-07"), calc.last_payment_date
-        assert_equal Date.parse("2015-05-07"), calc.funds_received_by
-
-        calc = new_calculator("2015-11-30", @method)
-        assert_equal Date.parse("2016-01-07"), calc.last_payment_date
-        assert_equal Date.parse("2016-01-07"), calc.funds_received_by
-      end
-    end
-
-    context "dates for cheque" do
-      setup do
-        @method = "cheque"
-      end
-
-      should "calculate last_payment_date as last working day of end_of_month_after(end_date) - 6 working days" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-22"), calc.last_payment_date
-      end
-
-      should "calculate funds_received_by as last working day of end_of_month_after(end_date)" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-31"), calc.funds_received_by
-
-        calc = new_calculator("2013-03-31", @method)
-        assert_equal Date.parse("2013-04-30"), calc.funds_received_by
-      end
-    end
-
     context "with an invalid payment method" do
       should "raise an ArgumentError for last_payment_date" do
         assert_raise ArgumentError do

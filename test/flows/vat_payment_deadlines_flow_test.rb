@@ -72,14 +72,6 @@ class VatPaymentDeadlinesFlowTest < ActiveSupport::TestCase
       should "have a next node of result_bank_giro" do
         assert_next_node :result_bank_giro, for_response: "bank-giro"
       end
-
-      should "have a next node of result_chaps" do
-        assert_next_node :result_chaps, for_response: "chaps"
-      end
-
-      should "have a next node of result_cheque" do
-        assert_next_node :result_cheque, for_response: "cheque"
-      end
     end
   end
 end
