@@ -41,6 +41,7 @@
   },
   "resolutions": {
     "stylelint/strip-ansi": "6.0.1",
-    "stylelint/string-width": "4.2.3"
+    "stylelint/string-width": "4.2.3",
+    "jasmine-browser-runner/glob": "^14.0.3"
   }
 }
