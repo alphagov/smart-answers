@@ -113,7 +113,7 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/nauru/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/naoero/organisations?page=1",
         "rel": "self"
       }
     ]
