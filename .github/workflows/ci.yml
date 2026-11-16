@@ -38,7 +38,7 @@ jobs:
 
   lint-javascript:
     name: Lint JavaScript
-    uses: alphagov/govuk-infrastructure/.github/workflows/standardx.yml@main
+    uses: alphagov/govuk-infrastructure/.github/workflows/standard.yml@main
     with:
       files: "'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'"
 

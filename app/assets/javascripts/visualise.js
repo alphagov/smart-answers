@@ -3,20 +3,20 @@
 (function () {
   'use strict'
 
-  var linkBackground = '#fff'
-  var outcomeBackground = '#d5e8f3'
-  var questionBackground = '#fff'
-  var strokeColour = '#333'
+  const linkBackground = '#fff'
+  const outcomeBackground = '#d5e8f3'
+  const questionBackground = '#fff'
+  const strokeColour = '#333'
 
   // Helpers.
   // --------
 
   function buildGraphFromAdjacencyList (labels, adjacencyList) {
-    var elements = []
-    var links = []
+    const elements = []
+    const links = []
 
     _.each(adjacencyList, function (edges, parentElementId) {
-      var parentElementLabel = labels[parentElementId] || ''
+      const parentElementLabel = labels[parentElementId] || ''
 
       elements.push(makeElement(parentElementId, parentElementLabel, edges.length === 0))
 
@@ -52,17 +52,17 @@
   }
 
   function makeElement (id, label, isOutcome) {
-    var maxLineLength = _.max(label.split('\n'), function (l) { return l.length }).length
+    const maxLineLength = _.max(label.split('\n'), function (l) { return l.length }).length
 
     // Compute approx width/height of the rectangle based on the number
     // of lines in the label and the letter size.
-    var letterSize = 16
-    var width = 2 * (letterSize * (0.26 * maxLineLength + 1))
-    var height = 2 * ((label.split('\n').length + 1) * letterSize * 0.5)
+    const letterSize = 16
+    const width = 2 * (letterSize * (0.26 * maxLineLength + 1))
+    const height = 2 * ((label.split('\n').length + 1) * letterSize * 0.5)
 
-    var rectProperties = {
-      width: width,
-      height: height,
+    let rectProperties = {
+      width,
+      height,
       rx: 5,
       ry: 5,
       stroke: strokeColour,
@@ -79,9 +79,9 @@
       })
     }
 
-    var properties = {
-      id: id,
-      size: { width: width, height: height },
+    const properties = {
+      id,
+      size: { width, height },
       attrs: {
         text: { text: label, 'font-size': letterSize },
         rect: rectProperties
@@ -94,9 +94,9 @@
   // -----
 
   $(document).ready(function () {
-    var graph = new joint.dia.Graph()
+    const graph = new joint.dia.Graph()
 
-    var paper = new joint.dia.Paper({
+    const paper = new joint.dia.Paper({
       el: $('#paper'),
       gridSize: 2,
       model: graph
@@ -105,10 +105,10 @@
     // Just give the viewport a little padding.
     V(paper.viewport).translate(20, 20)
 
-    var toggleButton = $('[data-click-action=visualise]')
+    const toggleButton = $('[data-click-action=visualise]')
     toggleButton.on('click', toggleRankdir)
 
-    var rankDir = 'TB'
+    let rankDir = 'TB'
 
     function toggleRankdir () {
       rankDir = rankDir === 'LR' ? 'TB' : 'LR'
@@ -116,11 +116,11 @@
     }
 
     function layout () {
-      var cells = buildGraphFromAdjacencyList(adjacencyList.labels, adjacencyList.adjacencyList)
+      const cells = buildGraphFromAdjacencyList(adjacencyList.labels, adjacencyList.adjacencyList)
       graph.resetCells(cells)
       joint.layout.DirectedGraph.layout(graph, {
         setLinkVertices: false,
-        rankDir: rankDir,
+        rankDir,
         rankSep: 100
       })
       if (rankDir === 'LR') {
@@ -128,9 +128,9 @@
       } else {
         toggleButton.text('Show in landscape')
       }
-      var padding = 400
+      const padding = 400
       paper.fitToContent(10, 10, padding)
-      var bbox = V(paper.viewport).bbox()
+      const bbox = V(paper.viewport).bbox()
       $('#paper').width(bbox.width + padding)
       $('#paper').height(bbox.height + padding)
     }

@@ -6,26 +6,14 @@
   "license": "MIT",
   "scripts": {
     "lint": "yarn run lint:js && yarn run lint:scss",
-    "lint:js": "standardx 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
+    "lint:js": "standard 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
     "lint:scss": "stylelint app/assets/stylesheets/",
     "jasmine:prepare": "RAILS_ENV=test bundle exec rails assets:clobber assets:precompile",
     "jasmine:ci": "yarn run jasmine:prepare && yarn run jasmine-browser-runner runSpecs",
     "jasmine:browser": "yarn run jasmine:prepare && yarn run jasmine-browser-runner"
   },
-  "standardx": {
-    "env": {
-      "browser": true,
-      "jquery": true,
-      "jasmine": true
-    },
-    "globals": [
-      "GOVUK"
-    ]
-  },
-  "eslintConfig": {
-    "rules": {
-      "no-var": 0
-    }
+  "standard": {
+    "env": ["browser", "jquery", "jasmine"], "globals": ["GOVUK"]
   },
   "stylelint": {
     "extends": "stylelint-config-gds/scss"
@@ -35,7 +23,7 @@
     "jasmine-core": "^7.0.2"
   },
   "devDependencies": {
-    "standardx": "^7.0.0",
+    "standard": "^17.0.0",
     "stylelint": "^17.16.0",
     "stylelint-config-gds": "^3.0.0"
   },
