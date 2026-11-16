@@ -1,3 +1,5 @@
+@use "govuk_publishing_components/base" as *;
+
 .app-c-result-item {
   padding-top: govuk-spacing(6);
   @include govuk-font($size: 19);
