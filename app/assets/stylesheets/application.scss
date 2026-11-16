@@ -1,4 +1,6 @@
-@import "govuk_publishing_components/specific-components";
+@use "govuk_publishing_components/base";
+@use "govuk_publishing_components/core";
+@use "govuk_publishing_components/lib";
 
 @import 'govuk_publishing_components/components/breadcrumbs';
 @import "govuk_publishing_components/components/button";
