@@ -15,8 +15,6 @@
   "standard": {
     "env": ["browser", "jquery", "jasmine"], "globals": ["GOVUK"]
   },
-  "eslintConfig": {
-  },
   "stylelint": {
     "extends": "stylelint-config-gds/scss"
   },
