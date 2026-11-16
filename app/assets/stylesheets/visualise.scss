@@ -1,4 +1,4 @@
-@import "govuk_publishing_components/base";
+@use "govuk_publishing_components/base" as *;
 
 .visualisation {
   overflow-x: scroll;
