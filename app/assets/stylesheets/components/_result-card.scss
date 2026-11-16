@@ -1,3 +1,5 @@
+@use "govuk_publishing_components/base" as *;
+
 .app-c-result-card {
   position: relative;
   padding: govuk-spacing(5) govuk-spacing(4);
