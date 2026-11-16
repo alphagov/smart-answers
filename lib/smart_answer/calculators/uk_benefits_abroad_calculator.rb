@@ -5,10 +5,6 @@ module SmartAnswer::Calculators
     attr_accessor :country,
                   :country_name,
                   :benefits,
-                  :dispute_criteria,
-                  :partner_premiums,
-                  :possible_impairments,
-                  :impairment_periods,
                   :tax_credits,
                   :going_abroad,
                   :benefit
@@ -21,25 +17,6 @@ module SmartAnswer::Calculators
       incapacity_benefit: "Incapacity Benefit",
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
       state_pension: "State Pension",
-    }.freeze
-    DISPUTE_CRITERIA = {
-      trades_dispute: "I'm affected by a trades dispute (eg on strike)",
-      full_time_secondary_education: "I'm age 16 to 19 and in full-time secondary education",
-      appealing_against_decision: "I'm appealing against a decision about my ability to work",
-    }.freeze
-    PREMIUMS = {
-      pension_premium: "Pensioner premium",
-      higher_pensioner: "Higher Pensioner premium",
-      disability_premium: "Disability premium",
-      severe_disability_premium: "Severe Disability premium",
-    }.freeze
-    IMPAIRMENTS = {
-      too_ill_to_work: "I’m getting Statutory Sick Pay",
-      temporarily_incapable_of_work: "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support",
-    }.freeze
-    PERIODS_OF_IMPAIRMENT = {
-      "364_days": "364 days",
-      "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)",
     }.freeze
     TAX_CREDITS_BENEFITS = {
       state_pension: "State Pension",
@@ -126,22 +103,6 @@ module SmartAnswer::Calculators
       STATE_BENEFITS
     end
 
-    def all_dispute_criteria
-      DISPUTE_CRITERIA
-    end
-
-    def premiums
-      PREMIUMS
-    end
-
-    def impairments
-      IMPAIRMENTS
-    end
-
-    def periods_of_impairment
-      PERIODS_OF_IMPAIRMENT
-    end
-
     def tax_credits_benefits
       TAX_CREDITS_BENEFITS
     end
@@ -150,34 +111,6 @@ module SmartAnswer::Calculators
       ListValidator.call(
         constraint: STATE_BENEFITS,
         test: benefits,
-      )
-    end
-
-    def dispute_criteria?
-      ListValidator.call(
-        constraint: DISPUTE_CRITERIA,
-        test: dispute_criteria,
-      )
-    end
-
-    def partner_premiums?
-      ListValidator.call(
-        constraint: PREMIUMS,
-        test: partner_premiums,
-      )
-    end
-
-    def getting_income_support?
-      ListValidator.call(
-        constraint: IMPAIRMENTS,
-        test: possible_impairments,
-      )
-    end
-
-    def not_getting_sick_pay?
-      ListValidator.call(
-        constraint: PERIODS_OF_IMPAIRMENT,
-        test: impairment_periods,
       )
     end
 

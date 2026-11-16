@@ -38,7 +38,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
       option :disability_benefits
       option :bereavement_benefits
       option :tax_credits
-      option :income_support
 
       on_response do |response|
         calculator.benefit = response
@@ -61,15 +60,11 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           case response
           when "pension"
             outcome :pension_going_abroad_outcome # A2 going_abroad
-          when "income_support"
-            question :is_how_long_abroad? # Q32 going_abroad
           end
         elsif calculator.already_abroad
           case response
           when "pension"
             outcome :pension_already_abroad_outcome # A2 already_abroad
-          when "income_support"
-            outcome :is_already_abroad_outcome # A40 already_abroad
           end
         end
       end
@@ -397,97 +392,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
       end
     end
 
-    # Q33 going_abroad
-    checkbox_question :is_claiming_benefits? do
-      SmartAnswer::Calculators::UkBenefitsAbroadCalculator::PREMIUMS.each_key do |premium|
-        option premium
-      end
-
-      on_response do |response|
-        calculator.partner_premiums = response.split(",")
-      end
-
-      next_node do |_response|
-        if calculator.partner_premiums?
-          outcome :is_claiming_benefits_outcome # A43 going_abroad
-        else
-          question :is_either_of_the_following? # Q34 going_abroad
-        end
-      end
-    end
-
-    # Q34 going_abroad
-    checkbox_question :is_either_of_the_following? do
-      SmartAnswer::Calculators::UkBenefitsAbroadCalculator::IMPAIRMENTS.each_key do |impairment|
-        option impairment
-      end
-
-      on_response do |response|
-        calculator.possible_impairments = response.split(",")
-      end
-
-      next_node do |_response|
-        if calculator.getting_income_support?
-          question :is_abroad_for_treatment? # Q35 going_abroad
-        else
-          question :is_any_of_the_following_apply? # Q37 going_abroad
-        end
-      end
-    end
-
-    # Q35 going_abroad
-    radio :is_abroad_for_treatment? do
-      option :yes
-      option :no
-
-      next_node do |response|
-        case response
-        when "yes"
-          outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-        when "no"
-          question :is_work_or_sick_pay? # Q36 going_abroad
-        end
-      end
-    end
-
-    # Q36 going_abroad
-    checkbox_question :is_work_or_sick_pay? do
-      SmartAnswer::Calculators::UkBenefitsAbroadCalculator::PERIODS_OF_IMPAIRMENT.each_key do |period|
-        option period
-      end
-
-      on_response do |response|
-        calculator.impairment_periods = response.split(",")
-      end
-
-      next_node do |_response|
-        if calculator.not_getting_sick_pay?
-          outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-        else
-          outcome :is_not_eligible_outcome # A45 going_abroad
-        end
-      end
-    end
-
-    # Q37 going_abroad
-    checkbox_question :is_any_of_the_following_apply? do
-      SmartAnswer::Calculators::UkBenefitsAbroadCalculator::DISPUTE_CRITERIA.each_key do |criterion|
-        option criterion
-      end
-
-      on_response do |response|
-        calculator.dispute_criteria = response.split(",")
-      end
-
-      next_node do |_response|
-        if calculator.dispute_criteria?
-          outcome :is_not_eligible_outcome # A45 going_abroad
-        else
-          outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-        end
-      end
-    end
-
     # Going abroad questions
     # Going abroad Q18 (tax credits) and Q17 already_abroad
     radio :tax_credits_how_long_abroad? do
@@ -537,24 +441,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
           outcome :db_going_abroad_temporary_outcome # A35 going_abroad
         else
           outcome :db_already_abroad_temporary_outcome # A34 already_abroad
-        end
-      end
-    end
-
-    # Going abroad Q32 going_abroad (Income Support)
-    radio :is_how_long_abroad? do
-      option :is_under_a_year_medical
-      option :is_under_a_year_other
-      option :is_more_than_a_year
-
-      next_node do |response|
-        case response
-        when "is_under_a_year_medical"
-          outcome :is_under_a_year_medical_outcome # A42 going_abroad
-        when "is_under_a_year_other"
-          question :is_claiming_benefits? # Q33 going_abroad
-        when "is_more_than_a_year"
-          outcome :is_more_than_a_year_outcome # A41 going_abroad
         end
       end
     end
@@ -713,11 +599,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
     outcome :bb_going_abroad_other_outcome # A38 going_abroad
     outcome :bb_going_abroad_eea_outcome # A39 going_abroad
     outcome :bb_going_abroad_ss_outcome # A40 going_abroad
-    outcome :is_more_than_a_year_outcome # A41 going_abroad
-    outcome :is_under_a_year_medical_outcome # A42 going_abroad
-    outcome :is_claiming_benefits_outcome # A43 going_abroad
-    outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-    outcome :is_not_eligible_outcome # A45 going_abroad
 
     outcome :tax_credits_medical_death_outcome # A24 already_abroad
     outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
@@ -735,7 +616,6 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
     outcome :bb_already_abroad_eea_outcome # A37 already_abroad
     outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
     outcome :bb_already_abroad_other_outcome # A39 already_abroad
-    outcome :is_already_abroad_outcome # A40 already_abroad
 
     outcome :jsa_eea_going_abroad_maybe_outcome
     outcome :jsa_ireland_outcome
