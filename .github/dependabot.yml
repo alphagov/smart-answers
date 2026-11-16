@@ -47,7 +47,7 @@ updates:
     groups:
       lint:
         patterns:
-          - standardx
+          - standard
           - stylelint*
           - stylelint-config-gds
 
