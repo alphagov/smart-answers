@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
       when "direct-debit"
         payment_date = end_of_month_after(period_end_date) + 7.days
         payment_date -= 1 until payment_date.workday?
-        2.working_days.before(payment_date)
+        3.working_days.before(payment_date)
       when "online-telephone-banking"
         end_of_month_after(period_end_date) + 7.days
       when "online-debit-credit-card", "bacs-direct-credit", "bank-giro"
