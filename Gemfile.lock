@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 4a1fa62fc0432fbd433e5df58c0dc44833fc67b3
+  branch: test-1-upgrade-to-govuk-frontend-6.2
+  specs:
+    govuk_publishing_components (71.1.0)
+      chartkick
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -190,17 +207,6 @@ GEM
     govuk_personalisation (1.2.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (71.1.0)
-      chartkick
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_schemas (6.3.2)
       json-schema (>= 2.8, < 6.3)
     govuk_test (4.1.3)
@@ -711,7 +717,7 @@ DEPENDENCIES
   gds-api-adapters
   govspeak
   govuk_app_config (~> 9.27.1)
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   govuk_web_banners
