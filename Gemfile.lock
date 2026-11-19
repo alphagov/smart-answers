@@ -95,7 +95,7 @@ GEM
       debug_inspector (>= 1.2.0)
     bootsnap (1.26.1)
       msgpack (~> 1.5)
-    brakeman (8.0.4)
+    brakeman (8.1.0)
       racc
     builder (3.3.0)
     byebug (13.0.0)
@@ -203,7 +203,7 @@ GEM
       sprockets-rails
     govuk_schemas (6.3.2)
       json-schema (>= 2.8, < 6.3)
-    govuk_test (4.1.3)
+    govuk_test (5.0.0)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
       puma
@@ -567,7 +567,7 @@ GEM
       redis-client (= 0.30.1)
     redis-client (0.30.1)
       connection_pool
-    regexp_parser (2.12.0)
+    regexp_parser (2.13.4)
     reline (0.7.0)
       io-console (~> 0.5)
     request_store (1.7.0)
@@ -619,7 +619,7 @@ GEM
       rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    rubyzip (3.4.0)
+    rubyzip (3.7.0)
     sanitize (7.0.2)
       crass (~> 1.0.8)
       nokogiri (>= 1.19.7)
@@ -633,10 +633,9 @@ GEM
     sass-embedded (1.104.1-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
-    selenium-webdriver (4.43.0)
+    selenium-webdriver (4.53.0)
       base64 (~> 0.2)
       logger (~> 1.4)
-      rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     sentry-rails (7.2.0)
