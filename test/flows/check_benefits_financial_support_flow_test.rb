@@ -850,7 +850,7 @@ class CheckBenefitsFinancialSupportFlowTest < ActiveSupport::TestCase
       assert_rendered_outcome text: "You may be able to get help with health service dental care, sight tests, healthcare travel and other health costs, particularly if you’re on a low income or getting certain benefits."
     end
 
-    should "render maternity allowance for eligible countries" do
+    should "render Maternity Allowance for eligible countries" do
       %w[england scotland wales northern-ireland].each do |country|
         add_responses where_do_you_live: country,
                       over_state_pension_age: "no",
