@@ -743,8 +743,5 @@ DEPENDENCIES
   uk_postcode
   webmock
 
-RUBY VERSION
-  ruby 4.0.6
-
 BUNDLED WITH
   4.0.12
