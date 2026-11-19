@@ -87,8 +87,9 @@ class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
 
     context "validation" do
       should "be invalid if not in current tax year" do
-        add_responses which_year?: "2018-19"
-        assert_invalid_response "2020-04-05"
+        add_responses which_year?: "2021-22",
+                      when_submitted?: "2022-04-06"
+        assert_invalid_response "2022-04-05"
       end
 
       should "be invalid for submitted date after the upper bounds tax date" do
@@ -132,20 +133,20 @@ class EstimateSelfAssessmentPenaltiesFlowTest < ActiveSupport::TestCase
   context "outcome: late" do
     setup do
       testing_node :late
-      add_responses which_year?: "2019-20",
+      add_responses which_year?: "2020-21",
                     how_submitted?: "online",
-                    when_submitted?: "2020-04-06",
-                    when_paid?: "2021-05-06",
+                    when_submitted?: "2021-04-06",
+                    when_paid?: "2022-05-06",
                     how_much_tax?: "1.00"
     end
 
     should "render 100% penalty text if payment is over year after penalty start date" do
-      add_responses which_year?: "2018-19"
+      add_responses which_year?: "2019-20"
       assert_rendered_outcome text: "Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it."
     end
 
     should "render 'none' if late filing penalty is zero" do
-      add_responses when_paid?: "2021-04-06"
+      add_responses when_paid?: "2022-04-06"
       assert_rendered_outcome text: "none"
     end
   end
