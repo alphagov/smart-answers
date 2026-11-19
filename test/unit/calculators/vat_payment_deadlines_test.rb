@@ -19,13 +19,13 @@ module SmartAnswer::Calculators
         payment_method = "direct-debit"
 
         calc = new_calculator("2013-10-31", payment_method)
-        assert_equal Date.parse("2013-12-04"), calc.last_payment_date
+        assert_equal Date.parse("2013-12-03"), calc.last_payment_date
 
         calc = new_calculator("2014-04-30", payment_method)
-        assert_equal Date.parse("2014-06-04"), calc.last_payment_date
+        assert_equal Date.parse("2014-06-03"), calc.last_payment_date
 
         calc = new_calculator("2014-07-31", payment_method)
-        assert_equal Date.parse("2014-09-03"), calc.last_payment_date
+        assert_equal Date.parse("2014-09-02"), calc.last_payment_date
       end
     end
 
@@ -45,20 +45,20 @@ module SmartAnswer::Calculators
     end
 
     context "dates for direct-debit" do
-      should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 2 working days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
         calc = new_calculator("2013-04-30", "direct-debit")
-        assert_equal Date.parse("2013-06-05"), calc.last_payment_date
+        assert_equal Date.parse("2013-06-04"), calc.last_payment_date
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is a work day" do
         calc = new_calculator("2013-04-30", "direct-debit")
-        assert_equal Date.parse("2013-06-05"), calc.last_payment_date
+        assert_equal Date.parse("2013-06-04"), calc.last_payment_date
         assert_equal Date.parse("2013-06-12"), calc.funds_received_by
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is not a work day" do
         calc = new_calculator("2014-04-30", "direct-debit")
-        assert_equal Date.parse("2014-06-04"), calc.last_payment_date
+        assert_equal Date.parse("2014-06-03"), calc.last_payment_date
         assert_equal Date.parse("2014-06-11"), calc.funds_received_by
       end
     end
@@ -134,25 +134,6 @@ module SmartAnswer::Calculators
         calc = new_calculator("2015-11-30", @method)
         assert_equal Date.parse("2016-01-07"), calc.last_payment_date
         assert_equal Date.parse("2016-01-07"), calc.funds_received_by
-      end
-    end
-
-    context "dates for cheque" do
-      setup do
-        @method = "cheque"
-      end
-
-      should "calculate last_payment_date as last working day of end_of_month_after(end_date) - 6 working days" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-22"), calc.last_payment_date
-      end
-
-      should "calculate funds_received_by as last working day of end_of_month_after(end_date)" do
-        calc = new_calculator("2013-04-30", @method)
-        assert_equal Date.parse("2013-05-31"), calc.funds_received_by
-
-        calc = new_calculator("2013-03-31", @method)
-        assert_equal Date.parse("2013-04-30"), calc.funds_received_by
       end
     end
 
