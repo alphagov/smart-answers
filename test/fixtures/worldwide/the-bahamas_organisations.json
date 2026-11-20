@@ -119,7 +119,7 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/bahamas/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/the-bahamas/organisations?page=1",
         "rel": "self"
       }
     ]

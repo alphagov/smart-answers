@@ -302,7 +302,6 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_COMMONWEALTH = %w[
       antigua-and-barbuda
       australia
-      bahamas
       bangladesh
       barbados
       belize
@@ -346,6 +345,7 @@ module SmartAnswer::Calculators
       st-lucia
       st-vincent-and-the-grenadines
       tanzania
+      the-bahamas
       the-gambia
       tonga
       trinidad-and-tobago
@@ -389,7 +389,6 @@ module SmartAnswer::Calculators
       argentina
       aruba
       australia
-      bahamas
       bahrain
       barbados
       belize
@@ -437,6 +436,7 @@ module SmartAnswer::Calculators
       south-korea
       st-kitts-and-nevis
       st-vincent-and-the-grenadines
+      the-bahamas
       tonga
       tuvalu
       united-arab-emirates
@@ -614,7 +614,6 @@ module SmartAnswer::Calculators
       aruba
       australia
       austria
-      bahamas
       bahrain
       barbados
       belgium
@@ -693,6 +692,7 @@ module SmartAnswer::Calculators
       sweden
       switzerland
       taiwan
+      the-bahamas
       tonga
       tuvalu
       united-arab-emirates
