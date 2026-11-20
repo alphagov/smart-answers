@@ -249,7 +249,7 @@ bolivia:
   applying: 10 weeks
   replacing: 8 weeks
   optimistic_processing_time?: false
-bonaire-st-eustatius-saba:
+bonaire-sint-eustatius-saba:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form

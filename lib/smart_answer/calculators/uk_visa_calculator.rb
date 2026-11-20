@@ -393,7 +393,7 @@ module SmartAnswer::Calculators
       bahrain
       barbados
       belize
-      bonaire-st-eustatius-saba
+      bonaire-sint-eustatius-saba
       brazil
       british-national-overseas
       brunei
@@ -619,7 +619,7 @@ module SmartAnswer::Calculators
       barbados
       belgium
       belize
-      bonaire-st-eustatius-saba
+      bonaire-sint-eustatius-saba
       brazil
       british-overseas-citizen
       british-protected-person
