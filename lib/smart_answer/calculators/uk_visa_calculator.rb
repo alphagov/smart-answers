@@ -432,10 +432,10 @@ module SmartAnswer::Calculators
       saudi-arabia
       seychelles
       singapore
+      sint-maarten
       solomon-islands
       south-korea
       st-kitts-and-nevis
-      st-maarten
       st-vincent-and-the-grenadines
       tonga
       tuvalu
@@ -681,13 +681,13 @@ module SmartAnswer::Calculators
       saudi-arabia
       seychelles
       singapore
+      sint-maarten
       slovakia
       slovenia
       solomon-islands
       south-korea
       spain
       st-kitts-and-nevis
-      st-maarten
       st-martin
       st-vincent-and-the-grenadines
       sweden
