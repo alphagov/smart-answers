@@ -166,8 +166,8 @@ module SmartAnswer::Calculators
       @passport_country == "botswana"
     end
 
-    def passport_country_is_nauru?
-      @passport_country == "nauru"
+    def passport_country_is_naoero?
+      @passport_country == "naoero"
     end
 
     def passport_country_is_nicaragua_or_st_lucia?
@@ -302,7 +302,6 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_COMMONWEALTH = %w[
       antigua-and-barbuda
       australia
-      bahamas
       bangladesh
       barbados
       belize
@@ -329,7 +328,7 @@ module SmartAnswer::Calculators
       mauritius
       mozambique
       namibia
-      nauru
+      naoero
       new-zealand
       nigeria
       pakistan
@@ -346,6 +345,7 @@ module SmartAnswer::Calculators
       st-lucia
       st-vincent-and-the-grenadines
       tanzania
+      the-bahamas
       the-gambia
       tonga
       trinidad-and-tobago
@@ -389,11 +389,10 @@ module SmartAnswer::Calculators
       argentina
       aruba
       australia
-      bahamas
       bahrain
       barbados
       belize
-      bonaire-st-eustatius-saba
+      bonaire-sint-eustatius-saba
       brazil
       british-national-overseas
       brunei
@@ -432,11 +431,12 @@ module SmartAnswer::Calculators
       saudi-arabia
       seychelles
       singapore
+      sint-maarten
       solomon-islands
       south-korea
       st-kitts-and-nevis
-      st-maarten
       st-vincent-and-the-grenadines
+      the-bahamas
       tonga
       tuvalu
       united-arab-emirates
@@ -539,7 +539,7 @@ module SmartAnswer::Calculators
       mongolia
       myanmar
       namibia
-      nauru
+      naoero
       nepal
       nicaragua
       nigeria
@@ -614,12 +614,11 @@ module SmartAnswer::Calculators
       aruba
       australia
       austria
-      bahamas
       bahrain
       barbados
       belgium
       belize
-      bonaire-st-eustatius-saba
+      bonaire-sint-eustatius-saba
       brazil
       british-overseas-citizen
       british-protected-person
@@ -681,18 +680,19 @@ module SmartAnswer::Calculators
       saudi-arabia
       seychelles
       singapore
+      sint-maarten
       slovakia
       slovenia
       solomon-islands
       south-korea
       spain
       st-kitts-and-nevis
-      st-maarten
       st-martin
       st-vincent-and-the-grenadines
       sweden
       switzerland
       taiwan
+      the-bahamas
       tonga
       tuvalu
       united-arab-emirates
