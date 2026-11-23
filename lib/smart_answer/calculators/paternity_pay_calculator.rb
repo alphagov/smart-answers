@@ -26,12 +26,12 @@ module SmartAnswer::Calculators
       where_does_the_employee_live != "northern_ireland" &&
 
         date_of_birth.present? && (
-        (due_date <= Date.parse("2026-07-25") &&
-        date_of_birth >= Date.parse("2026-04-06") &&
-        date_of_birth <= Date.parse("2026-07-25")) ||
-      (due_date >= Date.parse("2026-04-05")
-      )
-      )
+          (due_date <= Date.parse("2026-07-25") &&
+          date_of_birth >= Date.parse("2026-04-06") &&
+          date_of_birth <= Date.parse("2026-07-25")) ||
+        (due_date >= Date.parse("2026-04-05")
+        )
+        )
     end
 
     def leave_must_be_taken_consecutively?
