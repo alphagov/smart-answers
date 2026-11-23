@@ -18,6 +18,11 @@ protected
   end
   helper_method :debug?
 
+  def webmcp_enabled?
+    Rails.configuration.webmcp_enabled
+  end
+  helper_method :webmcp_enabled?
+
   def error_403
     error(403)
   end

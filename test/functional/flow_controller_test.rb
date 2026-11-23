@@ -203,4 +203,29 @@ class FlowControllerTest < ActionController::TestCase
       assert_cached_response
     end
   end
+
+  context "GET /<id>/step" do
+    setup { Rails.application.config.stubs(:webmcp_enabled).returns(true) }
+
+    should "return the first question for a query parameter flow" do
+      get :step, params: { id: "query-parameters-based" }
+      assert_equal "question1", response.parsed_body["node"]
+    end
+
+    should "return the first question for a path based flow" do
+      get :step, params: { id: "radio-sample" }
+      assert_equal "hotter_or_colder_q", response.parsed_body["node"]
+    end
+
+    should "respond 404 for a session flow" do
+      get :step, params: { id: "session-based" }
+      assert_response :missing
+    end
+
+    should "respond 404 when WebMCP is disabled" do
+      Rails.application.config.stubs(:webmcp_enabled).returns(false)
+      get :step, params: { id: "query-parameters-based" }
+      assert_response :missing
+    end
+  end
 end

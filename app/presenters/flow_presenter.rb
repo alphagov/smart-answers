@@ -54,6 +54,14 @@ class FlowPresenter
     end
   end
 
+  def current_node_link(forwarding_responses)
+    if response_store
+      flow_path(name, node_slug:, params: forwarding_responses)
+    else
+      smart_answer_path(name, responses: accepted_responses.values)
+    end
+  end
+
   def start_page_link(forwarding_responses)
     if response_store
       start_flow_path(name, params: forwarding_responses)

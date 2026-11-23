@@ -132,6 +132,20 @@ class FlowPresenterTest < ActiveSupport::TestCase
     )
   end
 
+  test "#current_node_link returns the current node link for a response store flow" do
+    @flow.response_store(:query_parameters)
+    @flow.outcome(:outcome_key)
+    state = SmartAnswer::State.new(:outcome_key)
+    flow_presenter = FlowPresenter.new(@flow, state)
+    assert_equal "/flow-name/outcome-key?key=value", flow_presenter.current_node_link({ "key" => "value" })
+  end
+
+  test "#current_node_link returns the responses path for a non response store flow" do
+    state = SmartAnswer::StateResolver.new(@flow).state_from_params({ responses: "question-1-answer/question-2-answer" })
+    flow_presenter = FlowPresenter.new(@flow, state)
+    assert_equal "/flow-name/y/question-1-answer/question-2-answer", flow_presenter.current_node_link({})
+  end
+
   test "#start_page_link returns the start page link for a response store flow" do
     @flow.response_store(:query_parameters)
     flow_presenter = FlowPresenter.new(@flow, nil)

@@ -2,7 +2,8 @@ class FlowController < ApplicationController
   include FlowHelper
 
   before_action :set_cache_headers
-  before_action :redirect_path_based_flows, except: :landing
+  before_action :redirect_path_based_flows, except: %i[landing step]
+  before_action :check_step_available, only: :step
 
   def landing
     @presenter = FlowPresenter.new(flow, nil)
@@ -46,10 +47,18 @@ class FlowController < ApplicationController
     redirect_to "/#{params[:id]}"
   end
 
+  def step
+    render json: StepPresenter.new(flow, request.query_parameters).to_hash
+  end
+
 private
 
   def redirect_path_based_flows
     redirect_to smart_answer_path(params[:id]) if flow.response_store.nil?
+  end
+
+  def check_step_available
+    error_404 if !webmcp_enabled? || flow.response_store == :session
   end
 
   def set_cache_headers

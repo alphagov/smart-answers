@@ -16,6 +16,7 @@ module SmartAnswers
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
     config.govuk_time_zone = "London"
+    config.webmcp_enabled = ENV["WEBMCP_ENABLED"].present?
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
