@@ -10,7 +10,7 @@ module SmartAnswer
     context "method with no arguments" do
       setup do
         mod = Module.new do
-          def method_with_no_args; end # rubocop:disable
+          def method_with_no_args; end
         end
         @method_with_no_args = mod.instance_method(:method_with_no_args)
         @parser = MethodInvocationsParser.new(@method_with_no_args)
@@ -117,7 +117,7 @@ module SmartAnswer
     context "method with two arguments" do
       setup do
         mod = Module.new do
-          def method_with_two_args(arg_one, arg_two); end # rubocop:disable
+          def method_with_two_args(arg_one, arg_two); end
         end
         @method_with_two_args = mod.instance_method(:method_with_two_args)
         @parser = MethodInvocationsParser.new(@method_with_two_args)
