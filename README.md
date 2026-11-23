@@ -71,6 +71,7 @@ Further guidance is available in [`docs/tasks`](docs/tasks).
 ### Further documentation
 
 - [Debugging Smart Answers](docs/debugging)
+- [WebMCP](docs/webmcp.md)
 - [Historical background: blog post on Smart Answers](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
 ## Licence
