@@ -16,3 +16,5 @@
 //= require govuk_publishing_components/components/table
 
 //= require govuk_web_banners/dependencies
+
+//= require modules/smart-answer-webmcp

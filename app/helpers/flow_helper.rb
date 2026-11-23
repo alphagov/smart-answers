@@ -22,6 +22,17 @@ module FlowHelper
     @content_item ||= ContentItemRetriever.fetch(flow.name)
   end
 
+  def webmcp_tool_data(presenter)
+    {
+      module: "smart-answer-webmcp",
+      flow_id: presenter.name,
+      tool_name: presenter.name.underscore,
+      flow_title: presenter.title,
+      input_schema: ToolSchemaPresenter.new(presenter.flow).input_schema,
+      output_schema: ToolSchemaPresenter::OUTPUT_SCHEMA,
+    }
+  end
+
 private
 
   def node_name

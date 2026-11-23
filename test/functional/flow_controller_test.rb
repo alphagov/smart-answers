@@ -40,6 +40,12 @@ class FlowControllerTest < ActionController::TestCase
       get :landing, params: { id: "non-existent-flow" }
       assert_response :missing
     end
+
+    should "render the WebMCP tool when WebMCP is enabled" do
+      Rails.application.config.stubs(:webmcp_enabled).returns(true)
+      get :landing, params: { id: "radio-sample" }
+      assert_select "[data-module='smart-answer-webmcp'][data-tool-name='radio_sample']"
+    end
   end
 
   context "GET /<id>/start" do
