@@ -33,6 +33,23 @@ module FlowHelper
     }
   end
 
+  def webmcp_finder_data(flows)
+    {
+      module: "smart-answer-webmcp-finder",
+      input_schema: ToolSchemaPresenter::FINDER_INPUT_SCHEMA,
+      output_schema: ToolSchemaPresenter::FINDER_OUTPUT_SCHEMA,
+      flows: flows.reject { |flow| flow.response_store == :session }.map do |flow|
+        start_node = flow.start_node.presenter
+        {
+          slug: flow.name,
+          title: start_node.title,
+          description: start_node.meta_description.to_s,
+          url: flow_landing_path(flow.name),
+        }
+      end,
+    }
+  end
+
 private
 
   def node_name

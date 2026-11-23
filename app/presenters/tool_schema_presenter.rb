@@ -73,6 +73,56 @@ class ToolSchemaPresenter
     ],
   }.freeze
 
+  FINDER_INPUT_SCHEMA = {
+    type: "object",
+    properties: {
+      slug: {
+        type: "string",
+        description: "A flow's slug from the list. Leave it out to get the list.",
+      },
+    },
+    additionalProperties: false,
+  }.freeze
+
+  FINDER_OUTPUT_SCHEMA = {
+    type: "object",
+    properties: {
+      flows: {
+        type: "array",
+        description: "Every smart answer on this site, in slug order.",
+        items: {
+          type: "object",
+          properties: {
+            slug: {
+              type: "string",
+              description: "The flow's id, such as calculate-statutory-sick-pay.",
+            },
+            title: {
+              type: "string",
+              description: "The flow's title.",
+            },
+            description: {
+              type: "string",
+              description: "One line on what the flow answers.",
+            },
+            url: {
+              type: "string",
+              format: "uri-reference",
+              description: "The flow's start page. Open it to get the flow's own tool.",
+            },
+          },
+          required: %w[slug title description url],
+        },
+      },
+      opened: {
+        type: "string",
+        format: "uri-reference",
+        description: "The start page now opening. Use the tool it registers.",
+      },
+    },
+    oneOf: [{ required: %w[flows] }, { required: %w[opened] }],
+  }.freeze
+
   def initialize(flow)
     @flow = flow
   end

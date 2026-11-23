@@ -66,6 +66,27 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
   end
 
+  context "GET / with the fixture flows" do
+    should "render the find_smart_answer tool when WebMCP is enabled" do
+      Rails.application.config.stubs(:webmcp_enabled).returns(true)
+      get :index
+
+      assert_select "[data-module='smart-answer-webmcp-finder']", count: 1 do |elements|
+        slugs = JSON.parse(elements.first["data-flows"]).map { |flow| flow["slug"] }
+        expected = SmartAnswer::FlowRegistry.instance.flows.map(&:name).sort - %w[session-based]
+
+        assert_equal expected, slugs
+      end
+    end
+
+    should "not render the find_smart_answer tool when WebMCP is disabled" do
+      Rails.application.config.stubs(:webmcp_enabled).returns(false)
+      get :index
+
+      assert_select "[data-module='smart-answer-webmcp-finder']", count: 0
+    end
+  end
+
   context "GET /<slug>" do
     should "respond with 404 if not found" do
       @registry = stub("Flow registry")

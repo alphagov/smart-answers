@@ -18,3 +18,4 @@
 //= require govuk_web_banners/dependencies
 
 //= require modules/smart-answer-webmcp
+//= require modules/smart-answer-webmcp-finder
