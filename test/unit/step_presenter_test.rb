@@ -90,6 +90,7 @@ class StepPresenterTest < ActiveSupport::TestCase
       assert_match "5 January 2026", reply[:message]
       assert_equal({ type: "string", format: "date" }, reply[:requestedSchema][:properties]["last_payday_before_sickness_q"].except(:description))
       assert_nil reply[:error]
+      assert_equal "/calculate-statutory-sick-pay/y/none/yes/no/2026-01-05/2026-01-20/no/eight_weeks_more/weekly", reply[:url]
     end
 
     should "ask for the last payday before the offset date" do

@@ -25,8 +25,14 @@ class ToolSchemaPresenter
         description: "Answers you sent that this route hasn't used. Keep sending them: a later question may need them. " \
                      "Keys that aren't question names also appear here; don't send them again.",
       },
+      url: {
+        type: "string",
+        format: "uri-reference",
+        description: "The page a person would reach with these answers. The browser opens it after the call, " \
+                     "so the user can see the question or result.",
+      },
     },
-    required: %w[status node answered unused],
+    required: %w[status node answered unused url],
     oneOf: [
       {
         properties: {
@@ -62,13 +68,8 @@ class ToolSchemaPresenter
             type: "boolean",
             description: "True if body was cut. The full text is at url.",
           },
-          url: {
-            type: "string",
-            format: "uri-reference",
-            description: "The result page a person would reach with these answers.",
-          },
         },
-        required: %w[title body truncated url],
+        required: %w[title body truncated],
       },
     ],
   }.freeze

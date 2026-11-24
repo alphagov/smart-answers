@@ -25,11 +25,17 @@ either:
 
 - the next question, which the agent can't answer from what it has sent, with
   its wording and an [MCP elicitation][] schema it can use to ask the user
-- the outcome as plain text, cut to 6,000 characters, with a link to the
-  result page
+- the outcome as plain text, cut to 6,000 characters
 
 The reply also lists the answers the route used (`answered`) and those it
-hasn't used yet (`unused`) so the agent can keep sending them.
+hasn't used yet (`unused`) so the agent can keep sending them, and the `url` of
+the question or result page a person would reach with those answers.
+
+Once the tool has returned its reply, it opens that `url` unless the page is
+already on it. The user then sees the question the agent is stuck on, or the
+outcome, and can take over. The new page registers the tool again, so the
+agent's next call runs there. Pages for the questions the agent answers within
+one call aren't shown.
 
 For example:
 
@@ -59,7 +65,7 @@ These are the use cases WebMCP's own sources name: Chrome's
 | [Help users fill in forms][When to use WebMCP] | Tools submit a timesheet, a warranty claim or a catering request | **Partly.** A tool per question page would add little, as each page is already one labelled question |
 | [Help users make purchases][When to use WebMCP] and [tailored shopping][] | `search_products` and `add_to_wishlist` for party supplies | **Not applicable.** There is nothing to buy |
 | [Creative and graphic design][] | Editing a flyer, then ordering prints | **Not applicable.** There is nothing to create |
-| [Human-in-the-loop workflows][explainer goals] | User and agent share one page, and the user stays in control | **Not implemented.** The tool could move the page to the question it returns, so the user can watch and take over |
+| [Human-in-the-loop workflows][explainer goals] | User and agent share one page, and the user stays in control | **Implemented.** The tool moves the page to the question it returns, or the outcome, so the user can watch and take over |
 | [Specialized developer workflows][] | Reading trybot failures during code review | **Not implemented.** A debugging tool could return the flow graph that `/:id/y/visualise` draws |
 | [Assistive technology][WebMCP intro] | Assistive tools call the page's tools | **Not implemented.** No assistive tools that call WebMCP were found |
 | [Tools from an embedded page][] | A host page calls an embedded widget's tools | **Not applicable.** Smart answers aren't embedded in other sites |

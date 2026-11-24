@@ -13,6 +13,7 @@ class StepPresenter
       node: @tool_schema.answer_key(current_node.node_name),
       answered: flow_presenter.accepted_responses.keys.map { |name| @tool_schema.answer_key(name) },
       unused:,
+      url: flow_presenter.current_node_link(response_store.forwarding_responses),
     }
 
     reply.merge(flow_presenter.finished? ? outcome : question)
@@ -41,7 +42,6 @@ private
       title: current_node.title,
       body: body.truncate(BODY_LIMIT),
       truncated: body.length > BODY_LIMIT,
-      url: flow_presenter.current_node_link(response_store.forwarding_responses),
     }
   end
 

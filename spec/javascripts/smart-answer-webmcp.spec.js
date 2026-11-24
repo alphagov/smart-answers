@@ -52,4 +52,42 @@ describe('GOVUK.Modules.SmartAnswerWebmcp', function () {
       { signal }
     )
   })
+
+  describe('after a call', function () {
+    let module
+
+    function call (reply) {
+      spyOn(window, 'fetch').and.returnValue(Promise.resolve(new Response(JSON.stringify(reply))))
+      module = new GOVUK.Modules.SmartAnswerWebmcp(element)
+      spyOn(module, 'open')
+      module.init()
+      return registered.execute({}, { signal: new AbortController().signal })
+    }
+
+    beforeEach(function () {
+      jasmine.clock().install()
+    })
+
+    afterEach(function () {
+      jasmine.clock().uninstall()
+    })
+
+    it('returns the reply, then opens its url', async function () {
+      const reply = { status: 'outcome', url: '/calculate-statutory-sick-pay/y/none' }
+      const result = await call(reply)
+
+      expect(result).toEqual(reply)
+      expect(module.open).not.toHaveBeenCalled()
+
+      jasmine.clock().tick(1)
+      expect(module.open).toHaveBeenCalledWith('/calculate-statutory-sick-pay/y/none')
+    })
+
+    it('doesn\'t reopen the page it is on', async function () {
+      await call({ status: 'question', url: window.location.pathname + window.location.search })
+      jasmine.clock().tick(1)
+
+      expect(module.open).not.toHaveBeenCalled()
+    })
+  })
 })
