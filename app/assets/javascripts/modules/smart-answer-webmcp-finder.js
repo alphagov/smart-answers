@@ -4,7 +4,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   'use strict'
 
-  const DESCRIPTION = 'Call with {} to list every smart answer with its ' +
+  const DESCRIPTION = 'Find a smart answer, or switch to a different one. ' +
+    'Call with {} to list every smart answer with its ' +
     'title and a one-line description. Then call with the slug that fits ' +
     'the user\'s question to open that flow\'s start page, where its own ' +
     'tool registers.'

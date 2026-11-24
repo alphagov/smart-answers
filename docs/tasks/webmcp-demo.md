@@ -18,7 +18,7 @@ tools.
 5. In `chrome://extensions`, turn on Developer mode, click Load unpacked and
    pick the extension's `dist/` folder.
 6. Open a flow's start page and click the extension's icon to open the side
-   panel, which lists the page's tool.
+   panel, which lists the page's tools.
 
 To run without an API key, turn on Settings > Model > On-device model in the
 panel, and `#prompt-api-tool-use` in `chrome://flags`. Its small context suits

@@ -11,10 +11,11 @@ Smart Answers has an experimental WebMCP integration. It is off unless the
 
 ## How it works
 
-Each flow's start, question and result pages register one tool, named after
-the flow (for example `calculate_statutory_sick_pay`). The index page, `/`,
-registers `find_smart_answer`, which lists every flow and opens the start page
-of the one the agent picks.
+Each flow's start, question and result pages register a tool named after the
+flow (for example `calculate_statutory_sick_pay`). Those pages and the index
+page, `/`, also register `find_smart_answer`, which lists every flow and opens
+the start page of the one the agent picks, so an agent can switch from one
+flow to another.
 
 A flow's tool calls `GET /:id/step` with the answers the agent knows, keyed by
 question name. A question name's final `?` is written as `_q`, as some model

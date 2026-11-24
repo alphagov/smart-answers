@@ -33,7 +33,7 @@ module FlowHelper
     }
   end
 
-  def webmcp_finder_data(flows)
+  def webmcp_finder_data(flows = SmartAnswer::FlowRegistry.instance.flows.sort_by(&:name))
     {
       module: "smart-answer-webmcp-finder",
       input_schema: ToolSchemaPresenter::FINDER_INPUT_SCHEMA,

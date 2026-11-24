@@ -1,3 +1,6 @@
-<% if webmcp_enabled? && @presenter.response_store != :session %>
-  <%= tag.div data: webmcp_tool_data(@presenter) %>
+<% if webmcp_enabled? %>
+  <% if @presenter.response_store != :session %>
+    <%= tag.div data: webmcp_tool_data(@presenter) %>
+  <% end %>
+  <%= tag.div data: webmcp_finder_data %>
 <% end %>

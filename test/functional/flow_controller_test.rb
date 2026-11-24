@@ -45,6 +45,14 @@ class FlowControllerTest < ActionController::TestCase
       Rails.application.config.stubs(:webmcp_enabled).returns(true)
       get :landing, params: { id: "radio-sample" }
       assert_select "[data-module='smart-answer-webmcp'][data-tool-name='radio_sample']"
+      assert_select "[data-module='smart-answer-webmcp-finder']", count: 1
+    end
+
+    should "render only the find_smart_answer tool for a session flow" do
+      Rails.application.config.stubs(:webmcp_enabled).returns(true)
+      get :landing, params: { id: "session-based" }
+      assert_select "[data-module='smart-answer-webmcp']", count: 0
+      assert_select "[data-module='smart-answer-webmcp-finder']", count: 1
     end
   end
 
