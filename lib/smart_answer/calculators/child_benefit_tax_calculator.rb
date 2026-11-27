@@ -76,7 +76,11 @@ module SmartAnswer::Calculators
     end
 
     def tax_estimate
-      (benefits_claimed_amount * (percent_tax_charge / 100.0)).floor
+      # ITEPA 2003 s. 681C(3): the total benefit is rounded down to whole
+      # pounds before the percentage is applied, and the resulting charge is
+      # rounded down to whole pounds too. After the .floor the arithmetic is
+      # Integer, so the division by 100 rounds down exactly.
+      benefits_claimed_amount.round(2).floor * percent_tax_charge / 100
     end
 
     def percent_tax_charge
@@ -94,7 +98,11 @@ module SmartAnswer::Calculators
       elsif adjusted_net_income >= upper_earnings_threshold
         100
       else
-        (((adjusted_net_income - lower_earnings_threshold) / difference_between_thresholds) * 100.0).floor
+        # BigDecimal keeps the percentage exact, as s. 681C(2) defines it: in
+        # binary floating point a whole-number percentage can be stored
+        # fractionally below itself (5800.0 / 20000 * 100 is 28.999...), and
+        # .floor would then give a percentage 1% too low.
+        ((BigDecimal(adjusted_net_income.to_s) - lower_earnings_threshold) * 100 / difference_between_thresholds).floor
       end
     end
 

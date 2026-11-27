@@ -875,6 +875,72 @@ module SmartAnswer::Calculators
         end
       end # calculating percentage tax charge 2024"
 
+      context "calculating the tax charge in line with ITEPA 2003 s. 681C" do
+        should "be 29 for an income of 65800" do
+          assert_equal 29, ChildBenefitTaxCalculator.new(
+            income_details: 65_800,
+            tax_year: "2025",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 57 for an income of 71400" do
+          assert_equal 57, ChildBenefitTaxCalculator.new(
+            income_details: 71_400,
+            tax_year: "2025",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "be 58 for an income of 71600" do
+          assert_equal 58, ChildBenefitTaxCalculator.new(
+            income_details: 71_600,
+            tax_year: "2025",
+            children_count: 2,
+          ).percent_tax_charge
+        end
+
+        should "give a tax estimate of 652 for two children at an income of 65800" do
+          assert_equal 652, ChildBenefitTaxCalculator.new(
+            income_details: 65_800,
+            tax_year: "2025",
+            children_count: 2,
+          ).tax_estimate
+        end
+
+        should "give a tax estimate of 1283 for two children at an income of 71400" do
+          assert_equal 1283, ChildBenefitTaxCalculator.new(
+            income_details: 71_400,
+            tax_year: "2025",
+            children_count: 2,
+          ).tax_estimate
+        end
+
+        should "give a tax estimate of 1305 for two children at an income of 71600" do
+          assert_equal 1305, ChildBenefitTaxCalculator.new(
+            income_details: 71_600,
+            tax_year: "2025",
+            children_count: 2,
+          ).tax_estimate
+        end
+
+        should "round the total benefit down to whole pounds before applying the percentage" do
+          assert_equal 2228, ChildBenefitTaxCalculator.new(
+            income_details: 79_900,
+            tax_year: "2025",
+            children_count: 2,
+          ).tax_estimate
+        end
+
+        should "give a tax estimate of 148 for one child at an income of 62200" do
+          assert_equal 148, ChildBenefitTaxCalculator.new(
+            income_details: 62_200,
+            tax_year: "2025",
+            children_count: 1,
+          ).tax_estimate
+        end
+      end # calculating the tax charge in line with ITEPA 2003 s. 681C
+
       context "starting and stopping children" do
         context "for the tax year 2012-2013" do
           should "calculate correctly with starting children" do
