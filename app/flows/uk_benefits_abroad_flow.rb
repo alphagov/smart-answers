@@ -4,7 +4,7 @@ class UkBenefitsAbroadFlow < SmartAnswer::Flow
     name "uk-benefits-abroad"
     status :published
 
-    exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten]
+    exclude_countries = %w[british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion sint-maarten]
     additional_countries = [
       OpenStruct.new(slug: "jersey", name: "Jersey"),
       OpenStruct.new(slug: "guernsey", name: "Guernsey"),
